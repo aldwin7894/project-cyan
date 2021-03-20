@@ -21,17 +21,17 @@ css:
           .track-container style="display: inline-block"
             div style="margin-left: 10px;"
               -if @recent['nowplaying']
-                h6 style="margin-bottom: 10px"
+                h4 style="margin-bottom: 5px"
                   | NOW PLAYING:
-              h4 style="text-overflow: ellipsis; overflow: hidden;"
+              h2 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 450px;"
                 strong.mb-0
                   =@recent['name']
-              h5 style="text-overflow: ellipsis; overflow: hidden;"
+              h3 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 450px;"
                 ="by #{@recent['artist']['name']}"
-              h6 style="text-overflow: ellipsis; overflow: hidden;"
+              h4 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 450px;"
                 ="on #{@recent['album']['content']}"
               -if @recent['nowplaying'].blank?
-                h6 style="text-overflow: ellipsis; overflow: hidden; margin-top: 10px"
+                h5 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 450px; margin-top: 5px"
                   em
                     | last played&nbsp;
                     -if time_ago_in_words(Time.zone.at(@recent['date']['uts'].to_i)) == 'less than a minute'
