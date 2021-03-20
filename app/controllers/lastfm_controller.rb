@@ -12,7 +12,7 @@ class LastfmController < ApplicationController
 
     respond_to do |format|
       format.jpg do
-        kit = IMGKit.new(render_to_string, width: 600, height: 122, quality: 80)
+        kit = IMGKit.new(render_to_string, width: 600, height: 122, quality: 100)
         send_data(kit.to_jpg, type: "image/jpg", disposition: :inline)
       end
       format.html
