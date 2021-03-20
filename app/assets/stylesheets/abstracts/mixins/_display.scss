@@ -1,0 +1,15 @@
+// stylelint-disable declaration-no-important
+
+//
+// Utilities for common `display` values
+//
+@mixin flex {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+@mixin flex-inline {
+  display: inline-flex;
+  flex-wrap: wrap;
+}

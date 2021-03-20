@@ -1,0 +1,94 @@
+// Typography config and local variables
+//
+//
+
+// Headings map
+//
+$headings: (
+  display-1: $d1-font-size,
+  display-2: $d2-font-size,
+  display-3: $d3-font-size,
+  display-4: $d4-font-size,
+  h1: $h1-font-size,
+  h2: $h2-font-size,
+  h3: $h3-font-size,
+  h4: $h4-font-size,
+  h5: $h5-font-size,
+  h6: $h6-font-size,
+);
+
+
+// Enable or disable Headings responsiveness
+//
+$heading-responsive: true;
+
+
+// Generate global heading styles inside the `$headings` map
+//
+@each $heading, $font-size in $headings {
+  #{$heading} {
+    font-size: $font-size;
+    font-weight: $heading-font-weight;
+    margin: 0;
+    line-height: $heading-line-height;
+  }
+}
+
+@if $heading-responsive {
+  // Generate responsive heading styling if `$heading-responsive` is set to true
+  //
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix:       breakpoint-infix($breakpoint, $grid-breakpoints);
+      @each $heading, $font-size in $headings {
+        .#{$heading}#{$infix} {
+          font-size: $font-size;
+        }
+      }
+    }
+  }
+}
+@else {
+  // Generate global heading styling if `$heading-responsive` is set to false
+  //
+  @each $heading, $font-size in $headings {
+    .#{$heading} {
+      font-size: $font-size;
+    }
+  }
+}
+
+
+.text-bold {
+  font-weight: $heading-font-weight;
+}
+.text-underline {
+  text-decoration: underline;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
+.italic{
+  font-style: italic;
+}
+.slashed{
+  text-decoration: line-through;
+}
+.sans-serif{
+  font-family: $global-font-family;
+}
+
+.serif{
+  font-family: $subheading-font-family;
+}
+
+.title{
+  font-family: $heading-font-family;
+  color: $heading-color;
+}
+
+.subtitle{
+  font-family: $subheading-font-family;
+  letter-spacing: .3px;
+  font-weight: 400;
+}

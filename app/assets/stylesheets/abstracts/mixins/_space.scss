@@ -1,0 +1,11 @@
+@mixin space-group($space) {
+  & > div,
+  & > li,
+  & > p {
+    margin-bottom: $space;
+
+    // &:last-child {
+    //   margin-bottom: 0;
+    // }
+  }
+}
