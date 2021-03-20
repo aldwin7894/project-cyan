@@ -114,6 +114,7 @@ GEM
     nio4r (2.5.7)
     nokogiri (1.11.2-x86_64-linux)
       racc (~> 1.4)
+    pg (1.2.3)
     public_suffix (4.0.6)
     puma (5.2.2)
       nio4r (~> 2.0)
@@ -187,7 +188,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     temple (0.8.2)
     thor (1.1.0)
     tilt (2.0.10)
@@ -225,6 +225,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   lastfm (~> 1.27)
   listen (~> 3.3)
+  pg
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.2, >= 6.1.2.1)
@@ -234,7 +235,6 @@ DEPENDENCIES
   selenium-webdriver
   slim-rails (~> 3.2)
   spring
-  sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
   webdrivers
