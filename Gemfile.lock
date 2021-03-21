@@ -111,6 +111,7 @@ GEM
     minitest (5.14.4)
     msgpack (1.4.2)
     multi_xml (0.6.0)
+    newrelic_rpm (6.15.0)
     nio4r (2.5.7)
     nokogiri (1.11.2-x86_64-linux)
       racc (~> 1.4)
@@ -224,6 +225,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   lastfm (~> 1.27)
   listen (~> 3.3)
+  newrelic_rpm (~> 6.15)
   pg
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)

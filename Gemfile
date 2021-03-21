@@ -64,3 +64,5 @@ gem "slim-rails", "~> 3.2"
 gem "sassc-rails", "~> 2.1"
 
 gem "imgkit", "~> 1.6"
+
+gem "newrelic_rpm", "~> 6.15"
