@@ -1,7 +1,0 @@
-// Animation Mixin
-//
-@mixin animate($name, $duration, $easing) {
-  transition:         $name $duration $easing;
-  -webkit-transition: $name $duration $easing;
-  -moz-transition:    $name $duration $easing;
-}
