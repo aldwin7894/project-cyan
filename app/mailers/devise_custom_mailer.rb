@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "sendgrid/mailer"
-
 class DeviseCustomMailer < Devise::Mailer
   helper :application
   include Devise::Controllers::UrlHelpers
