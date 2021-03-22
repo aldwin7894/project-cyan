@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class LastfmController < ApplicationController
+  layout "lastfm"
+
   def index
     api_key = ENV.fetch("LASTFM_API_KEY", "b584404fd3911b681479e874239988af")
     api_secret = ENV.fetch("LASTFM_API_SECRET", "c5c52b0cb57b53d0ef0301282e58714f")
