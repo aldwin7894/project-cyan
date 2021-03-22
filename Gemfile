@@ -64,3 +64,7 @@ gem "rexml", "~> 3.2"
 gem "sassc-rails", "~> 2.1"
 
 gem "imgkit", "~> 1.6"
+
+gem "devise", "~> 4.7"
+
+gem "cocoon", "~> 1.2"

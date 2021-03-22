@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.delete_all
+ActiveRecord::Base.connection.execute('ALTER SEQUENCE users_id_seq RESTART WITH 1;')
+User.create(email: 'aldwinph.basilio@gmail.com', username: 'aldwin7894', password: 'aldwin7894admin')
