@@ -33,8 +33,8 @@ Rails.application.configure do
   config.assets.compile = false
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.asset_host = "https://aldwin7894-prod.s3.us-east-2.amazonaws.com/"
-  config.assets.prefix = "/web/#{ENV.fetch('S3_BUCKET_ENV') { 'development' }}/assets"
+  # config.asset_host = "https://aldwin7894-prod.s3.us-east-2.amazonaws.com/"
+  # config.assets.prefix = "/web/#{ENV.fetch('S3_BUCKET_ENV') { 'development' }}/assets"
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
