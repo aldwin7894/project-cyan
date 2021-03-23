@@ -9,7 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "alpinejs"
 
-require("stylesheets/admin.scss")
+require("stylesheets/admin.css.scss")
 
 Rails.start()
 Turbolinks.start()
