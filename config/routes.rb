@@ -23,5 +23,6 @@ Rails.application.routes.draw do
     # Redirect /admin to the dashboard page.
     root to: redirect("admin/dashboard")
     resources :dashboard
+    resources :users
   end
 end

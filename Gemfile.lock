@@ -73,6 +73,22 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    aws-eventstream (1.1.1)
+    aws-partitions (1.434.0)
+    aws-sdk-core (3.113.0)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.239.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1.0)
+    aws-sdk-kms (1.43.0)
+      aws-sdk-core (~> 3, >= 3.112.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.92.0)
+      aws-sdk-core (~> 3, >= 3.112.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.1)
+    aws-sigv4 (1.2.3)
+      aws-eventstream (~> 1, >= 1.0.2)
     bcrypt (3.1.16)
     bootsnap (1.7.2)
       msgpack (~> 1.0)
@@ -103,11 +119,13 @@ GEM
     httparty (0.18.1)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
+    httpclient (2.8.3)
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
     imgkit (1.6.2)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
+    jmespath (1.4.0)
     lastfm (1.27.4)
       httparty
       xml-simple
@@ -206,6 +224,8 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.1.0)
     tilt (2.0.10)
+    tinify (1.5.0)
+      httpclient (~> 2.6)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -229,6 +249,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  aws-sdk-s3 (~> 1.92)
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
@@ -247,6 +268,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   sassc-rails (~> 2.1)
   selenium-webdriver
+  tinify (~> 1.5)
   turbolinks (~> 5)
   tzinfo-data
   webdrivers
