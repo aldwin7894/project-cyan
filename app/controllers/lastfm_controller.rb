@@ -14,7 +14,15 @@ class LastfmController < ApplicationController
 
     respond_to do |format|
       format.png do
-        kit = IMGKit.new(render_to_string, width: 600, height: 122, quality: 100, encoding: "utf-8")
+        kit = IMGKit.new(
+          render_to_string,
+          width: 600,
+          height: 122,
+          quality: 100,
+          encoding: "utf-8",
+          images: true,
+          cache_dir: Rails.root.join("app", "assets", "images", "cache").to_s
+        )
 
         send_data(kit.to_png, type: "image/png", disposition: :inline)
       end
