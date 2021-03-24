@@ -14,9 +14,9 @@
     background-size: 80%;
     background-position-y: 28%;
     background-position-x: 150%;
-    background-image: -webkit-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url(https://i.imgur.com/QoNwKxI.jpg);
-    background-image: -o-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url(https://i.imgur.com/QoNwKxI.jpg);
-    background-image: linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url(https://i.imgur.com/QoNwKxI.jpg);
+    background-image: -webkit-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= asset_path 'lastfm' %>");
+    background-image: -o-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= asset_path 'lastfm' %>");
+    background-image: linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= asset_path 'lastfm' %>");
   }
 
   .main-container table {
