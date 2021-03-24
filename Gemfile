@@ -72,3 +72,5 @@ gem "cocoon", "~> 1.2"
 gem "aws-sdk-s3", "~> 1.92"
 
 gem "tinify", "~> 1.5"
+
+gem "chunky_png", "~> 1.4"
