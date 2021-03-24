@@ -1,0 +1,31 @@
+<style>
+
+  * {
+  	"Whitney SSm A", "Whitney SSm B", "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+  }
+
+    .error-text {
+      font-size: 130px;
+      line-height: 1.2;
+    }
+
+    @media (min-width: 768px) {
+      .error-text {
+        font-size: 220px;
+      }
+    }
+
+</style>
+
+<div class="h-screen w-screen bg-blue-600 flex justify-center content-center">
+  <div class="container sm flex justify-center content-center flex-wrap flex-col" style="max-width: 360px">
+    <p class="font-sans text-white error-text"><%= @exception.status %></p>
+    <p class="font-sans text-white break-words"><%= @exception.description.html_safe %></p>
+    <p class="font-sans text-white"><%= @exception.exception %></p>
+  </div>
+</div>
+
+<div class="absolute w-screen bottom-0 mb-6 text-white text-center font-sans text-xl">
+	<span class="opacity-50">Take me</span>
+ 	<a class="border-b" href="<%= root_path %>">back</a>
+</div>
