@@ -2,6 +2,7 @@
 
 class LastfmController < ApplicationController
   layout "lastfm"
+  require "chunky_png"
 
   def index
     api_key = ENV.fetch("LASTFM_API_KEY", "b584404fd3911b681479e874239988af")
@@ -13,9 +14,11 @@ class LastfmController < ApplicationController
     @foreground = params[:fg]
 
     respond_to do |format|
-      format.jpg do
+      format.png do
         kit = IMGKit.new(render_to_string, width: 600, height: 122, quality: 100, encoding: "utf-8")
-        send_data(kit.to_jpg, type: "image/jpg", disposition: :inline)
+        image = ChunkyPNG::Image.from_blob(kit.to_png)
+
+        send_data(image.to_blob(interlace: true, color_mode: ChunkyPNG::COLOR_TRUECOLOR_ALPHA), type: "image/png", disposition: :inline)
       end
       format.html
     end

@@ -10,7 +10,7 @@
             </h2>
           </div>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-6" }) do |f| %>
-            <%= f.hidden_field :remember, value: true %>
+            <%= f.hidden_field :remember_me, value: true %>
             <div class="rounded-md shadow-sm">
               <div>
                 <%= f.label :username, class: "sr-only" %>
