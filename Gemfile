@@ -72,3 +72,5 @@ gem "cocoon", "~> 1.2"
 gem "aws-sdk-s3", "~> 1.92"
 
 gem "tinify", "~> 1.5"
+
+gem "exception_handler", "~> 0.8.0"
