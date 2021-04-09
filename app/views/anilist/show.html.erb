@@ -1,0 +1,59 @@
+<div class="font-sans bg-primary flex flex-col w-full">
+  <div class="h-full">
+    <div class="px-4 py-4">
+      <div class="sm:container sm:mx-auto relative w-full text-center">
+        <div class="max-w-sm mx-auto border-b-4 rounded-md border-blue-400 bg-secondary">
+          <h1 class="font-bold text-white text-2xl">
+            Not Following You
+          </h1>
+          <ul class="list-none">
+            <% (@following - @followers).each do |f| %>
+              <li class="text-blue-400">
+                <%= link_to f, "https://anilist.co/user/#{f}", target: "_blank", rel: "noreferrer noopener" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="max-w-sm mx-auto border-b-4 rounded-md border-blue-400 mt-5 bg-secondary">
+          <h1 class="font-bold text-white text-2xl">
+            You're Not Following
+          </h1>
+          <ul class="list-none">
+            <% (@followers - @following).each do |f| %>
+              <li class="text-blue-400">
+                <%= link_to f, "https://anilist.co/user/#{f}", target: "_blank", rel: "noreferrer noopener" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="max-w-sm mx-auto border-b-4 rounded-md border-blue-400 mt-5 bg-secondary">
+          <h1 class="font-bold text-white text-2xl">
+            <%= "Following (#{@following_count})" %>
+          </h1>
+          <ul class="list-none">
+            <% @following.each do |f| %>
+              <li class="text-blue-400">
+                <%= link_to f, "https://anilist.co/user/#{f}", target: "_blank", rel: "noreferrer noopener" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="max-w-sm mx-auto border-b-4 rounded-md border-blue-400 mt-5 bg-secondary">
+          <h1 class="font-bold text-white text-2xl">
+            <%= "Followers (#{@followers_count})" %>
+          </h1>
+          <ul class="list-none">
+            <% @followers.each do |f| %>
+              <li class="text-blue-400">
+                <%= link_to f, "https://anilist.co/user/#{f}", target: "_blank", rel: "noreferrer noopener" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
