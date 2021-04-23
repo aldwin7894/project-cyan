@@ -8,7 +8,7 @@ class LastfmController < ApplicationController
     api_secret = ENV.fetch("LASTFM_API_SECRET", "c5c52b0cb57b53d0ef0301282e58714f")
     lastfm = Lastfm.new(api_key, api_secret)
 
-    @recent = lastfm.user.get_recent_tracks(user: params[:username], limit: 10, extended: 1).first
+    @recent = lastfm.user.get_recent_tracks(user: params[:username], limit: 2, extended: 1).first
     @background = params[:bg]
     @foreground = params[:fg]
 
@@ -20,8 +20,7 @@ class LastfmController < ApplicationController
           height: 122,
           quality: 100,
           encoding: "utf-8",
-          images: true,
-          cache_dir: Rails.root.join("app", "assets", "images", "cache").to_s
+          images: true
         )
 
         send_data(kit.to_png, type: "image/png", disposition: :inline)
