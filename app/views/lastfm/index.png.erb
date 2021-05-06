@@ -33,7 +33,7 @@
     height: 100px;
     width: 100px;
     background-size: cover;
-    background-image: url(<%= @recent['image'][3]['content'] %>)
+    background-image: url("<% if @recent['image'][3]['content'].present? %><%= @recent['image'][3]['content'] %><% else %><%= asset_path 'lastfm-placeholder.png'%><% end %>");
   }
 
   .album-love {
@@ -53,6 +53,7 @@
   }
 
   .track-container .now-playing {
+    margin-top: 10px;
     margin-left: 10px;
   }
 
@@ -97,9 +98,11 @@
               <h3 class="artist-name">
                 <%= "by #{@recent['artist']['name']}" %>
               </h3>
-              <h4 class="album-name">
-                <%= "on #{@recent['album']['content']}" %>
-              </h4>
+              <% if @recent['album']['content'].present? %>
+                <h4 class="album-name">
+                  <%= "on #{@recent['album']['content']}" %>
+                </h4>
+              <% end %>
               <% if @recent['nowplaying'].blank? %>
                 <h5 class="last-played">
                   <em>last played&nbsp;
