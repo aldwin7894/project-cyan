@@ -14,9 +14,9 @@
     background-size: 80%;
     background-position-y: 28%;
     background-position-x: 150%;
-    background-image: -webkit-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= asset_path 'lastfm.jpg' %>");
-    background-image: -o-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= asset_path 'lastfm.jpg' %>");
-    background-image: linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= asset_path 'lastfm.jpg' %>");
+    background-image: -webkit-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= asset_path 'lastfm-optimized.jpg' %>");
+    background-image: -o-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= asset_path 'lastfm-optimized.jpg' %>");
+    background-image: linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= asset_path 'lastfm-optimized.jpg' %>");
   }
 
   .main-container table {
@@ -80,7 +80,7 @@
         <td width="120px">
           <div class="album-cover" />
           <% if @recent['loved'] == "1" %>
-            <%= image_tag "heart.png", width: 27, height: 27, class: "album-love" %>
+            <%= image_tag "heart-optimized.png", width: 27, height: 27, class: "album-love" %>
           <% end %>
         </td>
 
