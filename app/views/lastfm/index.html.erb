@@ -11,9 +11,6 @@
   .main-container {
     width: 600px;
     height: 122px;
-    background-size: 80%;
-    background-position-y: 28%;
-    background-position-x: 150%;
     background-image: -webkit-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= asset_path 'lastfm-optimized.jpg' %>");
     background-image: -o-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= asset_path 'lastfm-optimized.jpg' %>");
     background-image: linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= asset_path 'lastfm-optimized.jpg' %>");
@@ -55,6 +52,7 @@
   .track-container .now-playing {
     margin-top: 10px;
     margin-left: 10px;
+    text-align: center;
   }
 
   .now-playing h4 {
