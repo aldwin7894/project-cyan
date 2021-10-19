@@ -14,6 +14,7 @@ module Aldwin7894
     config.load_defaults 6.1
     config.time_zone = "Singapore"
     config.active_record.default_timezone = :local
+    config.x.feature.lograge = ENV.fetch("LOGRAGE", "false") == "true"
 
     config.exception_handler = {
       dev:        false, # allows you to turn ExceptionHandler "on" in development
