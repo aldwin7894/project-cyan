@@ -173,7 +173,7 @@ GEM
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
-    rack-mini-profiler (2.3.2)
+    rack-mini-profiler (2.3.3)
       rack (>= 1.2.0)
     rack-proxy (0.6.5)
       rack
@@ -283,7 +283,7 @@ DEPENDENCIES
   newrelic_rpm (~> 6.15)
   pg
   puma (~> 5.0)
-  rack-mini-profiler (~> 2.0)
+  rack-mini-profiler (~> 2.3)
   rails (~> 6.1.2, >= 6.1.2.1)
   rexml (~> 3.2)
   sass-rails (>= 6)
