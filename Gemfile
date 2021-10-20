@@ -75,7 +75,7 @@ gem "tinify", "~> 1.5"
 
 gem "exception_handler", "~> 0.8.0"
 
-gem "graphql-client", "~> 0.16.0"
+gem "graphql-client", "~> 0.17.0"
 
 gem "scout_apm", "~> 4.1"
 
