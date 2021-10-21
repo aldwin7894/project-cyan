@@ -23,6 +23,7 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "webpack": "^4",
     "webpack-dev-server": "^4"
   }
 }
