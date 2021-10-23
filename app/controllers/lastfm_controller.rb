@@ -23,6 +23,7 @@ class LastfmController < ApplicationController
         send_data(kit.to_png, type: "image/png", disposition: :inline)
       end
       format.html
+      format.svg
     end
   end
 end
