@@ -8,9 +8,9 @@
   width: 600px;
   height: 122px;
   color: #<%=@foreground %>;
-  background-image: -webkit-linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= asset_path 'lastfm-optimized.jpg' %>");
-  background-image: -o-linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= asset_path 'lastfm-optimized.jpg' %>");
-  background-image: linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= asset_path 'lastfm-optimized.jpg' %>");
+  background-image: -webkit-linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= asset_data_uri  'lastfm-optimized.jpg' %>");
+  background-image: -o-linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= asset_data_uri  'lastfm-optimized.jpg' %>");
+  background-image: linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= asset_data_uri  'lastfm-optimized.jpg' %>");
 }
 
 .album-container {
@@ -26,7 +26,7 @@
   height: 102px;
   width: 102px;
   background-size: cover;
-  background-image: url("<% if @recent['image'][3]['content'].present? %><%= @recent['image'][3]['content'] %><% else %><%= asset_path 'lastfm-placeholder.png'%><% end %>");
+  background-image: url("<%= @album_art %>");
 }
 
 .album-love {
