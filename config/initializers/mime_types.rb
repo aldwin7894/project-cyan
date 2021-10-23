@@ -7,3 +7,4 @@
 Mime::Type.register "image/jpeg", :jpg
 Mime::Type.register "image/png", :png
 Mime::Type.register "application/pdf", :pdf
+Mime::Type.register "image/svg+xml", :svg

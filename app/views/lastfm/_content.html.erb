@@ -1,0 +1,41 @@
+<div class="main-container" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="album-container">
+    <div class="album-cover">
+      <% if @recent['loved'] == "1" %>
+        <%= image_tag "heart-optimized.png", width: 27, height: 27, class: "album-love" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="track-container">
+    <div class="now-playing">
+      <% if @recent['nowplaying'] %>
+        <h4>CURRENTLY LISTENING TO:</h4>
+      <% end %>
+      <h2 class="track-name">
+        <strong class="mb-0">
+          <%= @recent['name'] %>
+        </strong>
+      </h2>
+      <h3 class="artist-name">
+        <%= "by #{@recent['artist']['name']}" %>
+      </h3>
+      <% if @recent['album']['content'].present? %>
+        <h4 class="album-name">
+          <%= "on #{@recent['album']['content']}" %>
+        </h4>
+      <% end %>
+      <% if @recent['nowplaying'].blank? %>
+        <h5 class="last-played">
+          <em>last played
+            <% if time_ago_in_words(Time.zone.at(@recent['date']['uts'].to_i)) == 'less than a minute' %>
+              just now
+            <% else %>
+              <%= (time_ago_in_words(Time.zone.at(@recent['date']['uts'].to_i)) +' ago').sub('about', '') %>
+            <% end %>
+          </em>
+        </h5>
+      <% end %>
+    </div>
+  </div>
+</div>

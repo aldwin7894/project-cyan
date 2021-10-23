@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans Pro";
+}
+
+.main-container {
+  width: 600px;
+  height: 122px;
+  color: #<%=@foreground %>;
+  background-image: -webkit-linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= asset_path 'lastfm-optimized.jpg' %>");
+  background-image: -o-linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= asset_path 'lastfm-optimized.jpg' %>");
+  background-image: linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= asset_path 'lastfm-optimized.jpg' %>");
+}
+
+.album-container {
+  display: inline-block;
+  vertical-align: top;
+  width: 102px;
+  height: 102px;
+  padding: 10px;
+}
+
+.album-cover {
+  border-radius: 5px;
+  height: 102px;
+  width: 102px;
+  background-size: cover;
+  background-image: url("<% if @recent['image'][3]['content'].present? %><%= @recent['image'][3]['content'] %><% else %><%= asset_path 'lastfm-placeholder.png'%><% end %>");
+}
+
+.album-love {
+  position: relative;
+  left: 80px;
+  top: -5px;
+}
+
+.track-container {
+  display: inline-block;
+  vertical-align: top;
+  width: 452px;
+  height: 102px;
+  padding: 10px;
+  border-left: 2px solid #<%=@foreground %>;
+}
+
+.track-container .now-playing {
+  text-align: center;
+}
+
+.now-playing h4 {
+  margin-bottom: 5px;
+}
+
+.track-name,
+.album-name,
+.artist-name,
+.last-played {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.last-played {
+  margin-top: 5px;
+}
