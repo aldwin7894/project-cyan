@@ -41,33 +41,187 @@
 
 .track-container {
   display: inline-block;
+  position: relative;
   vertical-align: top;
   width: 452px;
-  height: 102px;
-  padding: 10px;
+  height: 112px;
+  padding: 5px 10px;
   border-left: 2px solid #<%=@foreground %>;
 }
 
-.track-container .now-playing {
-  text-align: center;
+.track-name {
+  color: #3CB4F1;
 }
 
-.now-playing h4 {
-  margin-bottom: 5px;
+.album-name {
+  color: #E5DED3;
+  font-style: italic;
 }
 
 .track-name,
 .album-name,
 .artist-name,
-.last-played {
+.status-container {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
 }
 
-.last-played {
-  margin-top: 5px;
+.status-container {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+}
+
+.status {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.active:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  animation: ellipsis steps(4,end) 2s infinite;
+  content: "\2026";
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+
+#equalizer {
+  display: inline-block;
+  background: transparent;
+  width: 60px;
+}
+
+#equalizer .eq-bar-1,
+#equalizer .eq-bar-2,
+#equalizer .eq-bar-3,
+#equalizer .eq-bar-4 {
+  display: inline-block;
+
+  width: 9px;
+  margin-right: 6px;
+  transition: .5s;
+  animation: equalize 5s linear 2s infinite alternate;
+  position: absolute;
+  bottom: 0px
+}
+
+#equalizer .eq-bar-1 {
+  left: 10px;
+  height: 5px;
+  background: #3CB4F1;
+  transition: 0.5s;
+  animation-delay: -1.9s;
+}
+
+#equalizer .eq-bar-2 {
+  left: 22px;
+  height: 25px;
+  background: #3CB4F1;
+  animation-delay: -2.9s;
+}
+
+#equalizer .eq-bar-3 {
+  left: 34px;
+  height: 10px;
+  background: #3CB4F1;
+  animation-delay: -3.9s;
+}
+
+#equalizer .eq-bar-4 {
+  left: 46px;
+  height: 18px;
+  background: #3CB4F1;
+  animation-delay: -4.9s;
+}
+
+@keyframes equalize {
+  0% {
+    height: 25px;
+  }
+  4% {
+    height: 22px;
+  }
+  8% {
+    height: 20px;
+  }
+  12% {
+    height: 10px;
+  }
+  16% {
+    height: 0px;
+  }
+  20% {
+    height: 15px;
+  }
+  24% {
+    height: 20px;
+  }
+  28% {
+    height: 5px;
+  }
+  32% {
+    height: 18px;
+  }
+  36% {
+    height: 22px;
+  }
+  40% {
+    height: 0px;
+  }
+  44% {
+    height: 17px;
+  }
+  48% {
+    height: 24px;
+  }
+  52% {
+    height: 13px;
+  }
+  56% {
+    height: 2px;
+  }
+  60% {
+    height: 8px;
+  }
+  64% {
+    height: 25px;
+  }
+  68% {
+    height: 14px;
+  }
+  72% {
+    height: 23px;
+  }
+  76% {
+    height: 2px;
+  }
+  80% {
+    height: 20px;
+  }
+  84% {
+    height: 18px;
+  }
+  88% {
+    height: 24px;
+  }
+  92% {
+    height: 5px;
+  }
+  96% {
+    height: 25px;
+  }
+  100% {
+    height: 25px;
+  }
 }
 
 h1 {
