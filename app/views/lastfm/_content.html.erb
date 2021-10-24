@@ -8,23 +8,28 @@
   </div>
 
   <div class="track-container">
-    <div class="now-playing">
+    <h2 class="track-name mb-0">
+      <%= @recent['name'] %>
+    </h2>
+    <h3 class="artist-name">
+      <%= "#{@recent['artist']['name'].upcase}" %>
+    </h3>
+    <% if @recent['album']['content'].present? %>
+      <h4 class="album-name">
+        <%= "#{@recent['album']['content']}" %>
+      </h4>
+    <% end %>
+    <div class="status-container">
       <% if @recent['nowplaying'] %>
-        <h4>CURRENTLY LISTENING TO:</h4>
-      <% end %>
-      <h2 class="track-name mb-0">
-        <%= @recent['name'] %>
-      </h2>
-      <h3 class="artist-name">
-        <%= "by #{@recent['artist']['name']}" %>
-      </h3>
-      <% if @recent['album']['content'].present? %>
-        <h4 class="album-name">
-          <%= "on #{@recent['album']['content']}" %>
-        </h4>
-      <% end %>
-      <% if @recent['nowplaying'].blank? %>
-        <h5 class="last-played">
+        <div id="equalizer">
+          <div class="eq-bar-1"></div>
+          <div class="eq-bar-2"></div>
+          <div class="eq-bar-3"></div>
+          <div class="eq-bar-4"></div>
+        </div>
+        <h5 class="status active">♫ Playing now</h5>
+      <% else %>
+        <h5 class="status" style="margin-left: 10px">
           <em>last played
             <% if time_ago_in_words(Time.zone.at(@recent['date']['uts'].to_i)) == 'less than a minute' %>
               just now
