@@ -12,10 +12,8 @@
       <% if @recent['nowplaying'] %>
         <h4>CURRENTLY LISTENING TO:</h4>
       <% end %>
-      <h2 class="track-name">
-        <strong class="mb-0">
-          <%= @recent['name'] %>
-        </strong>
+      <h2 class="track-name mb-0">
+        <%= @recent['name'] %>
       </h2>
       <h3 class="artist-name">
         <%= "by #{@recent['artist']['name']}" %>
