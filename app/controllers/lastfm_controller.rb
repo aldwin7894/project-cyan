@@ -12,7 +12,7 @@ class LastfmController < ApplicationController
       base64 = Base64.encode64(img.to_s).gsub(/\s+/, "")
       @album_art = "data:image/jpg;base64,#{Rack::Utils.escape(base64)}"
     else
-      @album_art = asset_data_uri "lastfm-placeholder.png"
+      @album_art = helpers.asset_data_uri "lastfm-placeholder.png"
     end
 
     respond_to do |format|
