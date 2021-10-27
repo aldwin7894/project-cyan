@@ -7,12 +7,14 @@ class LastfmController < ApplicationController
     @recent = LASTFM_CLIENT.user.get_recent_tracks(user: params[:username], limit: 2, extended: 1).first
     @background = params[:bg]
     @foreground = params[:fg]
-    if @recent&.[]("image")&.[](3)&.[]("content").present?
+
+    if @recent&.[]("image")&.[](3)&.[]("content").present? &&
+       @recent&.[]("image")&.[](3)&.[]("content").exclude? "2a96cbd8b46e442fc41c2b86b821562f" # no album art
       img = HTTParty.get(@recent["image"][3]["content"])
       base64 = Base64.encode64(img.to_s).gsub(/\s+/, "")
       @album_art = "data:image/jpg;base64,#{Rack::Utils.escape(base64)}"
     else
-      @album_art = helpers.asset_data_uri "lastfm-placeholder.png"
+       @album_art = helpers.asset_data_uri "lastfm-placeholder.png"
     end
 
     respond_to do |format|
