@@ -4,11 +4,11 @@
 <svg width="600px" height="122px" xmlns="http://www.w3.org/2000/svg" version="1.1">
   <defs>
     <style type="text/css"><![CDATA[
-      <%= render "styles.css" %>
+      <%= render partial: "styles", formats: ["css"] %>
     ]]></style>
   </defs>
 
   <foreignObject width="600px" height="122px">
-    <%= render "content.html" %>
+    <%= render partial: "content", formats: ["html"] %>
   </foreignObject>
 </svg>

@@ -15,6 +15,8 @@ module Aldwin7894
     config.time_zone = "Singapore"
     config.active_record.default_timezone = :local
     config.x.feature.lograge = ENV.fetch("LOGRAGE", "false") == "true"
+    config.middleware.use Rack::Deflater
+    config.middleware.use Rack::Brotli
 
     config.exception_handler = {
       dev:        false, # allows you to turn ExceptionHandler "on" in development
