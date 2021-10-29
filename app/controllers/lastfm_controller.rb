@@ -9,12 +9,12 @@ class LastfmController < ApplicationController
     @background = params[:bg]
     @foreground = params[:fg]
 
-    album_art = @recent&.[]("image")&.[](3)&.[]("content")
+    album_art = @recent&.[]("image")&.[](2)&.[]("content")
 
     if album_art.present? && album_art.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
       img = HTTParty.get(album_art)
       base64 = Base64.encode64(img.to_s).gsub(/\s+/, "")
-      @album_art = "data:image/jpg;base64,#{Rack::Utils.escape(base64)}"
+      @album_art = "data:image/#{File.extname(album_art).strip.downcase[1..-1]};base64,#{Rack::Utils.escape(base64)}"
     else
       @album_art = helpers.asset_data_uri "lastfm-placeholder.png"
     end
