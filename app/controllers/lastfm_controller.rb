@@ -4,7 +4,8 @@ class LastfmController < ApplicationController
   layout "lastfm"
 
   def index
-    @recent = LASTFM_CLIENT.user.get_recent_tracks(user: params[:username], limit: 2, extended: 1).first
+    @recent = LASTFM_CLIENT.user.get_recent_tracks(user: params[:username], limit: 1, extended: 1)
+    @recent = @recent.first if @recent.is_a? Array
     @background = params[:bg]
     @foreground = params[:fg]
 
