@@ -5,6 +5,7 @@ class LastfmController < ApplicationController
 
   def index
     @recent = LASTFM_CLIENT.user.get_recent_tracks(user: params[:username], limit: 1, extended: 1)
+    timestamp = @recent.last["date"]["uts"].to_i
     @recent = @recent.first if @recent.is_a? Array
     @background = params[:bg]
     @foreground = params[:fg]
@@ -18,6 +19,8 @@ class LastfmController < ApplicationController
     else
       @album_art = helpers.asset_data_uri "lastfm-placeholder.png"
     end
+
+    @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"
 
     respond_to do |format|
       format.png do

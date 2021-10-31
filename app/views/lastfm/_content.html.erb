@@ -27,7 +27,12 @@
           <div class="eq-bar-3"></div>
           <div class="eq-bar-4"></div>
         </div>
-        <h5 class="status active">♫ Playing now</h5>
+        <% if controller.request.format.to_s.exclude?("png") %>
+          <h5 class="status" id="elapsed-time"><%= @elapsed_time %></h5>
+          <h5 class="status active">| ♫ Playing now</h5>
+        <% else %>
+          <h5 class="status active">♫ Playing now...</h5>
+        <% end %>
       <% else %>
         <h5 class="status" style="margin-left: 10px">
           <em>last played
