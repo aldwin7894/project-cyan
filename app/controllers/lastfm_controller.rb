@@ -5,8 +5,14 @@ class LastfmController < ApplicationController
 
   def index
     @recent = LASTFM_CLIENT.user.get_recent_tracks(user: params[:username], limit: 1, extended: 1)
-    timestamp = @recent.last["date"]["uts"].to_i
-    @recent = @recent.first if @recent.is_a? Array
+
+    if @recent.is_a? Array
+      @recent = @recent.first
+      timestamp = @recent.last["date"]["uts"].to_i
+    else
+      timestamp = @recent["date"]["uts"].to_i
+    end
+
     @background = params[:bg]
     @foreground = params[:fg]
 
