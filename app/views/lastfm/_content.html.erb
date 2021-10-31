@@ -28,8 +28,8 @@
           <div class="eq-bar-4"></div>
         </div>
         <% if controller.request.format.to_s.exclude?("png") %>
-          <h5 class="status" id="elapsed-time"><%= @elapsed_time %></h5>
-          <h5 class="status active">| ♫ Playing now</h5>
+          <!-- <h5 class="status" id="elapsed-time"><%= @elapsed_time %></h5> -->
+          <h5 class="status active">♫ Playing now</h5>
         <% else %>
           <h5 class="status active">♫ Playing now...</h5>
         <% end %>
