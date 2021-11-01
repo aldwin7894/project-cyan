@@ -7,8 +7,8 @@ class LastfmController < ApplicationController
     @recent = LASTFM_CLIENT.user.get_recent_tracks(user: params[:username], limit: 1, extended: 1)
 
     if @recent.is_a? Array
-      @recent = @recent.first
       timestamp = @recent.last["date"]["uts"].to_i
+      @recent = @recent.first
     else
       timestamp = @recent["date"]["uts"].to_i
     end
