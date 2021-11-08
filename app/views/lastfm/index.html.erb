@@ -2,8 +2,14 @@
   <%= render partial: "styles", formats: ["css"] %>
 </style>
 
-<script type="text/javascript">
-  <%= render partial: "timer", formats: ["js"] %>
-</script>
+<% if @recent['nowplaying'] %>
+  <script type="text/javascript">
+    <%= render partial: "timer", formats: ["js"] %>
+  </script>
+<% end %>
 
 <%= render partial: "content" , formats: ["html"] %>
+
+<br>
+
+<img src="http://localhost:3000/lastfm.svg?username=aldwin7894&bg=29,31,32,0.8&fg=ffffff" height="81" width="400"/>
