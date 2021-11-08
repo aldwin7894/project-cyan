@@ -69,7 +69,7 @@ gem "devise", "~> 4.7"
 
 gem "cocoon", "~> 1.2"
 
-gem "aws-sdk-s3", "~> 1.104"
+gem "aws-sdk-s3", "~> 1.105"
 
 gem "tinify", "~> 1.5"
 
