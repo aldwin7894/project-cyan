@@ -264,7 +264,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  aws-sdk-s3 (~> 1.107)
+  aws-sdk-s3 (~> 1.1)
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
@@ -294,7 +294,7 @@ DEPENDENCIES
   webpacker (~> 5.4.3)
 
 RUBY VERSION
-   ruby 3.0.2p107
+   ruby 3.0.3p157
 
 BUNDLED WITH
-   2.2.29
+   2.2.32
