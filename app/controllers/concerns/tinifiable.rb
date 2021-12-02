@@ -1,21 +1,23 @@
+# frozen_string_literal: true
+
 module Tinifiable
   extend ActiveSupport::Concern
-  
+
   included do
-    require 'tinify'
+    require "tinify"
   end
 
-  def tinify_from_url(url: '')
-    logger.tagged('Tinifiable') { 
+  def tinify_from_url(url: "")
+    logger.tagged("Tinifiable") {
       logger.info "Starting compression from URL source: #{url}."
     }
-    
+
     # Get the source of the uploaded image.
     source = Tinify.from_url(url)
-    # Encode to remove space and make it a valid uri 
+    # Encode to remove space and make it a valid uri
     url    = URI.encode(url)
     # Get path of now valid uri, revert to spaces to match the filename.
-    path   = URI.parse(url).path.gsub('%20', ' ')
+    path   = URI.parse(url).path.gsub("%20", " ")
     # on compress store image on path to overwrite
     source.store(
       service:               "s3",
@@ -24,8 +26,8 @@ module Tinifiable
       region:                "ap-southeast-1",
       path:                  "#{S3_BUCKET.name}#{path}"
     )
-    
-    logger.tagged('Tinifiable') { 
+
+    logger.tagged("Tinifiable") {
       logger.info "Completed compression of #{url}."
     }
   rescue Tinify::AccountError => e

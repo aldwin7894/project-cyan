@@ -13,7 +13,7 @@
     "@tailwindcss/aspect-ratio": "^0.3.0",
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/typography": "^0.4.1",
-    "alpinejs": "^3.5.2",
+    "alpinejs": "^3.7.0",
     "turbolinks": "^5.2.0",
     "@fullhuman/postcss-purgecss": "3.0.0",
     "@tailwindcss/postcss7-compat": "^2.2.17",

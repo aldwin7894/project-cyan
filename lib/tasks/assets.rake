@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # cat lib/tasks/assets.rake
 # Removing the node_modules folder after compilation but right before the slug is generated.
 # Adapted from https://github.com/heroku/heroku-buildpack-ruby/issues/792
