@@ -65,7 +65,7 @@ gem "sassc-rails", "~> 2.1"
 
 gem "imgkit", "~> 1.6"
 
-gem "devise", "~> 4.7"
+gem "devise", "~> 4.8"
 
 gem "cocoon", "~> 1.2"
 
