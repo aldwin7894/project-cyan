@@ -80,3 +80,5 @@ gem "graphql-client", "~> 0.17.0"
 gem "lograge", "~> 0.11.2"
 
 gem "rack-brotli", "~> 1.2"
+
+gem "health_check", "~> 3.1"

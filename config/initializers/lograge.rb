@@ -6,6 +6,7 @@ Rails.application.configure do
 
   config.lograge.formatter = Lograge::Formatters::Json.new
   config.lograge.base_controller_class = ["ActionController::API", "ActionController::Base"]
+  config.lograge.ignore_actions = ["HealthCheck::HealthCheckController#index"]
 
   config.lograge.custom_options = lambda do |event|
     exceptions = %w[controller action format id]
