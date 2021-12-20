@@ -9,13 +9,13 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
   encoding: utf8
-  username: postgres
-  password: root
-  host: localhost
 
 development:
   <<: *default
   database: aldwin7894_development
+  username: postgres
+  password: root
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -23,7 +23,12 @@ development:
 test:
   <<: *default
   database: aldwin7894_test
+  username: postgres
+  password: root
+  host: localhost
 
 production:
   <<: *default
+  username: aldwin7894
   database: aldwin7894_production
+  url: <%= ENV['DATABASE_URL'] %>
