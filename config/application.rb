@@ -11,7 +11,7 @@ Bundler.require(*Rails.groups)
 module Aldwin7894
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
+    config.load_defaults 7.0
     config.time_zone = "Singapore"
     config.active_record.default_timezone = :local
     config.x.feature.lograge = ENV.fetch("LOGRAGE", "false") == "true"
