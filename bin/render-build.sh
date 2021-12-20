@@ -2,7 +2,7 @@
 # exit on error
 set -o errexit
 
-bundle install
+BUNDLE_WITHOUT='development:test' BUNDLE_DEPLOYMENT=1 bundle install -j4
 bundle exec rake assets:precompile
 bundle exec rake assets:clean
-bundle exec rake db:migrate
+./release-tasks.sh

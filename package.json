@@ -6,24 +6,25 @@
     "node": "14.18.1"
   },
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "3.0.0",
     "@rails/actioncable": "^7.0.0",
     "@rails/activestorage": "^7.0.0",
     "@rails/ujs": "^7.0.0",
     "@rails/webpacker": "5.4.3",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.3.4",
+    "@tailwindcss/postcss7-compat": "^2.2.17",
     "@tailwindcss/typography": "^0.4.1",
     "alpinejs": "^3.7.0",
-    "turbolinks": "^5.2.0",
-    "@fullhuman/postcss-purgecss": "3.0.0",
-    "@tailwindcss/postcss7-compat": "^2.2.17",
     "autoprefixer": "^9.8.8",
     "postcss": "7.0.39",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
+    "turbolinks": "^5.2.0",
+    "webpack-cli": "^3.3.12"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack": "^4",
-    "webpack-dev-server": "^4"
+    "webpack": "^4.46.0",
+    "webpack-dev-server": "^3"
   }
 }
