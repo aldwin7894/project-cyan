@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ListenBrainz Now Playing Banner by aldwin7894</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="content-type" content="text/html" />
+    <meta charset="UTF-8" />
+
+    <!-- Put favicon icon url here -->
+    <%= favicon_link_tag "favicon.png", rel: "shortcut icon", type: "image/png" %>
+    <%= favicon_link_tag "apple-touch-icon.png", rel: "apple-touch-icon", sizes: "152x152", type: "image/png" %>
+    <%= favicon_link_tag "apple-touch-icon-precomposed.png", rel: "apple-touch-icon-precomposed", sizes: "152x152", type: "image/png" %>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

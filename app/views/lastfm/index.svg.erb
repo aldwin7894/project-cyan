@@ -4,15 +4,15 @@
 <svg width="600px" height="122px" xmlns="http://www.w3.org/2000/svg" version="1.1">
   <defs>
     <style type="text/css"><![CDATA[
-      <%= render partial: "styles", formats: ["css"] %>
+      <%= render partial: "lastfm/styles", formats: [:css] %>
     ]]></style>
     <!-- <script type="text/javascript"><![CDATA[
-      <%= render partial: "timer", formats: ["js"] %>
+      <%= render partial: "timer", formats: [:js] %>
     ]]>
     </script> -->
   </defs>
 
   <foreignObject width="600px" height="122px">
-    <%= render partial: "content", formats: ["html"] %>
+    <%= render partial: "lastfm/content", formats: [:html] %>
   </foreignObject>
 </svg>

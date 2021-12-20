@@ -1,14 +1,14 @@
 <style type="text/css">
-  <%= render partial: "styles", formats: ["css"] %>
+  <%= render partial: "lastfm/styles", formats: [:css] %>
 </style>
 
 <% if @recent['nowplaying'] %>
   <script type="text/javascript">
-    <%= render partial: "timer", formats: ["js"] %>
+    <%= render partial: "lastfm/timer", formats: [:js] %>
   </script>
 <% end %>
 
-<%= render partial: "content" , formats: ["html"] %>
+<%= render partial: "lastfm/content" , formats: [:html] %>
 
 <br>
 
