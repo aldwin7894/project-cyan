@@ -6,8 +6,8 @@
     <%= content_tag :title, "Error - #{@exception.status} (#{@exception.response.to_s.gsub("_", " ").titleize}) | #{Rails.application.class.module_parent_name.titleize}" %>
 
     <!-- Styling -->
-    <%= stylesheet_pack_tag 'admin', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'exception', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'admin', 'data-turbo-track': 'reload' %>
+    <%= javascript_pack_tag 'exception', 'data-turbo-track': 'reload' %>
 
     <%= favicon_link_tag "favicon.png", rel: "shortcut icon", type: "image/png" %>
     <%= favicon_link_tag "apple-touch-icon.png", rel: "apple-touch-icon", sizes: "152x152", type: "image/png" %>

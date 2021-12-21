@@ -1,0 +1,2 @@
+class SocialLink < ApplicationRecord
+end

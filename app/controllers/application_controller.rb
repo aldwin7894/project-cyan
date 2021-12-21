@@ -3,6 +3,8 @@
 require "anilist/anilist"
 
 class ApplicationController < ActionController::Base
+  include Turbo::Redirection
+
   class QueryError < StandardError; end
 
   private
