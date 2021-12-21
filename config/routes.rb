@@ -25,5 +25,6 @@ Rails.application.routes.draw do
     root to: redirect("admin/dashboard")
     resources :dashboard
     resources :users
+    resources :social_links, path: "social-links"
   end
 end

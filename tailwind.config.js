@@ -1,17 +1,11 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  purge: {
-    enabled: process.env.NODE_ENV === "production",
-    content: [
-      "./app/**/*.html.erb",
-      "./app/**/*.rb",
-      "./app/**/*.js",
-      "./app/**/*.js.erb"
-    ],
-  },
+  content: [
+    "./app/**/*.{html,js,erb,rb}"
+  ],
   presets: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     screens: {
       sm: '640px',
@@ -28,7 +22,7 @@ module.exports = {
 
       black: colors.black,
       white: colors.white,
-      gray: colors.coolGray,
+      gray: colors.gray,
       red: colors.red,
       yellow: colors.amber,
       green: colors.emerald,
