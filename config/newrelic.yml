@@ -22,7 +22,7 @@ common:
     enabled: true
 
   # To disable the agent regardless of other settings, uncomment the following:
-  agent_enabled: <%= ENV.fetch("NEW_RELIC_ENABLED", "false") %>
+  # agent_enabled: false
 
   # Logging level for log/newrelic_agent.log
   log_level: info

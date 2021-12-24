@@ -296,7 +296,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   sassc-rails (~> 2.1)
   selenium-webdriver
-  sprockets-rails (~> 3.4)
+  sprockets-rails
   tinify (~> 1.5)
   turbo-rails (~> 1.0)
   tzinfo-data
