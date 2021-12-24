@@ -1,6 +1,9 @@
 {
   "name": "aldwin7894",
-  "private": true,
+  "private": false,
+  "repository": "git@github.com:aldwin7894/aldwin7894.git",
+  "author": "aldwin7894 <14094252+aldwin7894@users.noreply.github.com>",
+  "license": "MIT",
   "engines": {
     "npm": "6.14.15",
     "node": "14.18.2",
@@ -17,7 +20,7 @@
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/typography": "^0.5",
-    "alpine-turbo-drive-adapter": "SimoTod/alpine-turbo-drive-adapter#feature/alpine-v3",
+    "alpine-turbo-drive-adapter": "^2.0",
     "alpinejs": "^3.7.1",
     "autoprefixer": "^10.4.0",
     "css-loader": "^6.5.1",
@@ -27,11 +30,12 @@
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^14.0.2",
     "postcss-loader": "^6.2.1",
-    "postcss-preset-env": "^7.0.2",
+    "postcss-preset-env": "^7.1.0",
     "sass": "^1.45.1",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
     "tailwindcss": "^3.0.7",
+    "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1"
   },
   "version": "0.1.0",
@@ -44,8 +48,6 @@
     "defaults"
   ],
   "devDependencies": {
-    "@webpack-cli/serve": "^1.6.0",
-    "webpack": "^5.53.0",
-    "webpack-dev-server": "^4.6.0"
+    "webpack-dev-server": "^4.7.1"
   }
 }

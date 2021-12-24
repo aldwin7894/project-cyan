@@ -5,6 +5,8 @@ ruby '3.0.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 7.0.0'
+# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem "sprockets-rails"
 # Use postgres
 gem 'pg'
 # Use Puma as the app server
@@ -80,8 +82,6 @@ gem "lograge", "~> 0.11.2"
 gem "rack-brotli", "~> 1.2"
 
 gem "health_check", "~> 3.1"
-
-gem "sprockets-rails", "~> 3.4"
 
 gem "turbo-rails", "~> 1.0"
 
