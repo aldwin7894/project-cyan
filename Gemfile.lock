@@ -62,6 +62,11 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    asset_sync (2.15.1)
+      activemodel (>= 4.1.0)
+      fog-core
+      mime-types (>= 2.99)
+      unf
     aws-eventstream (1.2.0)
     aws-partitions (1.543.0)
     aws-sdk-core (3.125.0)
@@ -108,7 +113,25 @@ GEM
       bundler
       rails (>= 4.2.0)
       responders
+    excon (0.89.0)
     ffi (1.15.4)
+    fog-aws (3.12.0)
+      fog-core (~> 2.1)
+      fog-json (~> 1.1)
+      fog-xml (~> 0.1)
+      ipaddress (~> 0.8)
+    fog-core (2.2.4)
+      builder
+      excon (~> 0.71)
+      formatador (~> 0.2)
+      mime-types
+    fog-json (1.2.0)
+      fog-core
+      multi_json (~> 1.10)
+    fog-xml (0.1.4)
+      fog-core
+      nokogiri (>= 1.5.11, < 2.0.0)
+    formatador (0.3.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     graphql (1.13.2)
@@ -126,6 +149,7 @@ GEM
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     imgkit (1.6.2)
+    ipaddress (0.8.3)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -155,6 +179,7 @@ GEM
     mini_mime (1.1.2)
     minitest (5.15.0)
     msgpack (1.4.2)
+    multi_json (1.15.0)
     multi_xml (0.6.0)
     newrelic_rpm (8.2.0)
     nio4r (2.5.8)
@@ -246,6 +271,9 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.8)
     warden (1.2.9)
       rack (>= 2.0.9)
     webdrivers (5.0.0)
@@ -270,6 +298,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  asset_sync (~> 2.15)
   aws-sdk-s3 (~> 1.110)
   bootsnap (>= 1.4.4)
   byebug
@@ -277,6 +306,7 @@ DEPENDENCIES
   cocoon (~> 1.2)
   devise (~> 4.8)
   exception_handler (~> 0.8.0)
+  fog-aws (~> 3.12)
   graphql-client (~> 0.17.0)
   health_check (~> 3.1)
   heroicon (~> 0.4.0)
