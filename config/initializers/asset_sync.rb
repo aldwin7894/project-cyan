@@ -32,7 +32,7 @@ if defined?(AssetSync)
     # config.invalidate = ['file1.js']
 
     # Increase upload performance by configuring your region
-    config.fog_region = "eu-east-2"
+    config.fog_region = "us-east-2"
     #
     # Set `public` option when uploading file depending on value,
     # Setting to "default" makes asset sync skip setting the option
