@@ -30,11 +30,20 @@ Rails.application.configure do
   config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.asset_host = "https://aldwin7894-prod.s3.us-east-2.amazonaws.com/"
-  # config.assets.prefix = "/web/#{ENV.fetch('S3_BUCKET_ENV') { 'development' }}/assets"
+  config.asset_host = ENV.fetch("RAILS_ASSET_HOST", "https://aldwin7894-prod.s3.us-east-2.amazonaws.com/")
+  config.assets.prefix = "/web/#{ENV.fetch('S3_BUCKET_ENV') { 'development' }}/assets"
+
+  # Generate digests for assets URLs.
+  config.assets.digest = true
+  config.assets.enabled = true
+  config.assets.initialize_on_precompile = true
+
+  # Do not raise an error when an asset is not found.
+  config.assets.unknown_asset_fallback = true
+
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
