@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :lastfm
   resources :anilist
+  resources :listenbrainz
   get "ping", to: "home#ping"
 
   namespace :admin do
