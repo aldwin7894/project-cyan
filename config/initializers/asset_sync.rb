@@ -40,7 +40,7 @@ if defined?(AssetSync)
     # config.fog_public = true
     #
     # Don't delete files from the store
-    config.existing_remote_files = "delete"
+    config.existing_remote_files = "keep"
     #
     # Automatically replace files with their equivalent gzip compressed version
     config.gzip_compression = true
@@ -53,10 +53,10 @@ if defined?(AssetSync)
     config.include_manifest = false
     #
     # Upload files concurrently
-    # config.concurrent_uploads = false
+    config.concurrent_uploads = true
     #
     # Path to cache file to skip scanning remote
-    # config.remote_file_list_cache_file_path = './.asset_sync_remote_file_list_cache.json'
+    config.remote_file_list_cache_file_path = "./.asset_sync_remote_file_list_cache.json"
     #
     # Fail silently.  Useful for environments such as Heroku
     config.fail_silently = true
