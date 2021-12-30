@@ -22,7 +22,7 @@
     "@tailwindcss/typography": "^0.5",
     "alpine-turbo-drive-adapter": "^2.0",
     "alpinejs": "^3.7.1",
-    "autoprefixer": "^10.4.0",
+    "autoprefixer": "^10.4.1",
     "css-loader": "^6.5.1",
     "css-minimizer-webpack-plugin": "^3.3.1",
     "mini-css-extract-plugin": "^2.4.5",
