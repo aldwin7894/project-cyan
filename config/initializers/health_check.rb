@@ -36,7 +36,7 @@ HealthCheck.setup do |config|
   # config.buckets = { "bucket_name" => [:R, :W, :D] }
 
   # You can customize which checks happen on a standard health check, eg to set an explicit list use:
-  config.standard_checks = [ "database", "migrations", "custom", "s3" ]
+  config.standard_checks = [ "database", "migrations", "custom", "s3", "redis" ]
 
   # Or to exclude one check:
   # config.standard_checks -= [ "emailconf" ]
@@ -71,9 +71,9 @@ HealthCheck.setup do |config|
   config.rabbitmq_config = {}
 
   # When redis url/password is non-standard
-  # config.redis_url = "redis_url" # default ENV['REDIS_URL']
+  config.redis_url = ENV.fetch("REDIS_URL", "redis://localhost:6379/1")
   # Only included if set, as url can optionally include passwords as well
-  # config.redis_password = "redis_password" # default ENV['REDIS_PASSWORD']
+  config.redis_password = nil
 
   # Failure Hooks to do something more ...
   # checks lists the checks requested
