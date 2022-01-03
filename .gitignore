@@ -43,3 +43,4 @@
 yarn-debug.log*
 .yarn-integrity
 **/cache
+.asset_sync_remote_file_list_cache.json
