@@ -4,7 +4,9 @@ class LastfmController < ApplicationController
   layout "lastfm"
 
   def index
-    @recent = LASTFM_CLIENT.user.get_recent_tracks(user: params[:username], limit: 1, extended: 1)
+    @recent = Rails.cache.fetch("LASTFM_RECENT_TRACKS", expires_in: 30.seconds) do
+      LASTFM_CLIENT.user.get_recent_tracks(user: params[:username], limit: 1, extended: 1)
+    end
 
     if @recent.is_a? Array
       timestamp = @recent.last["date"]["uts"].to_i
@@ -19,7 +21,9 @@ class LastfmController < ApplicationController
     album_art = @recent&.[]("image")&.[](2)&.[]("content")
 
     if album_art.present? && album_art.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
-      img = HTTParty.get(album_art)
+      img = Rails.cache.fetch(album_art, expires_in: 12.hours) do
+        HTTParty.get(album_art)
+      end
       base64 = Base64.encode64(img.to_s).gsub(/\s+/, "")
       @album_art = "data:image/#{File.extname(album_art).strip.downcase[1..-1]};base64,#{Rack::Utils.escape(base64)}"
     else

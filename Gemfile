@@ -92,3 +92,5 @@ gem "fog-aws", "~> 3.12"
 gem "asset_sync", "~> 2.15"
 
 gem "terser", "~> 1.1"
+
+gem "httplog", "~> 1.5"
