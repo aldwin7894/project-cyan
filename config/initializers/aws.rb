@@ -5,10 +5,10 @@ Aws.config.update({
     Rails.application.credentials.aws[:access_key_id],
     Rails.application.credentials.aws[:secret_access_key]
   ),
-  region: "us-east-2"
+  region: "us-west-2"
 })
 
-S3_BUCKET        = Aws::S3::Resource.new.bucket("aldwin7894-prod")
+S3_BUCKET        = Aws::S3::Resource.new.bucket("aldwin7894-web")
 # Define the environment folder where S3 will store files.
 S3_BUCKET_ENV    = ENV.fetch("S3_BUCKET_ENV") { "development" }
 # Define the default image from S3.
