@@ -39,7 +39,7 @@ Rails.application.configure do
   config.assets.compile = false
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.asset_host = ENV.fetch("RAILS_ASSET_HOST", "//aldwin7894-prod.s3.us-east-2.amazonaws.com")
+  config.asset_host = ENV.fetch("RAILS_ASSET_HOST", "//aldwin7894-web.s3.us-west-2.amazonaws.com")
   config.assets.prefix = "/web/#{ENV.fetch('S3_BUCKET_ENV') { 'development' }}/assets"
 
   # Generate digests for assets URLs.

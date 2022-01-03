@@ -25,14 +25,14 @@ if defined?(AssetSync)
     #
     # Use http instead of https. Default should be "https" (at least for fog-aws)
     # config.fog_scheme = "http"
-    config.fog_directory = "aldwin7894-prod"
+    config.fog_directory = "aldwin7894-web"
 
     # Invalidate a file on a cdn after uploading files
     # config.cdn_distribution_id = "12345"
     # config.invalidate = ['file1.js']
 
     # Increase upload performance by configuring your region
-    config.fog_region = "us-east-2"
+    config.fog_region = "us-west-2"
     #
     # Set `public` option when uploading file depending on value,
     # Setting to "default" makes asset sync skip setting the option
