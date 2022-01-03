@@ -90,3 +90,5 @@ gem "heroicon", "~> 0.4.0"
 gem "fog-aws", "~> 3.12"
 
 gem "asset_sync", "~> 2.15"
+
+gem "terser", "~> 1.1"
