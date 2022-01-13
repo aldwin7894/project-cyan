@@ -50,6 +50,9 @@ Rails.application.configure do
   # Do not raise an error when an asset is not found.
   config.assets.unknown_asset_fallback = true
 
+  # Image optim configs
+  config.assets.compress = true
+  config.assets.image_optim = true
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
