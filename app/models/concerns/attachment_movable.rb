@@ -8,17 +8,19 @@ module AttachmentMovable
   included do
     include ActiveStorageHelper
 
-    after_save :move_attachment
+    after_commit :process_image
   end
 
   private
-    def move_attachment
-      # Initiate a move only if the existing key doesn't
-      # have S3_BUCKET_ENV on it, meaning it has been updated.
-      unless blob.key.include?(S3_BUCKET_ENV)
+    def process_image
+      # Optimize image only if the existing key doesn't
+      # have S3_BUCKET_ENV on it, meaning it has been uploaded.
+      unless blob.key.include?(S3_BUCKET_ENV) && blob.image?
         new_key = "web/#{S3_BUCKET_ENV}/uploads/#{self.record_type.downcase}/#{blob.key}"
-        # We will access ActiveStorage::Attachment's blob and record type.
-        move_s3_attachment(blob, new_key)
+
+        # optimize image and upload to new key
+        optimized = optimize_image(blob)
+        move_to_uploads(blob, new_key, optimized)
       end
     end
 end

@@ -75,7 +75,7 @@ GEM
       unf
     aws-eventstream (1.2.0)
     aws-partitions (1.547.0)
-    aws-sdk-core (3.125.1)
+    aws-sdk-core (3.125.3)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.525.0)
       aws-sigv4 (~> 1.1)
@@ -90,7 +90,7 @@ GEM
     aws-sigv4 (1.4.0)
       aws-eventstream (~> 1, >= 1.0.2)
     bcrypt (3.1.16)
-    bootsnap (1.9.3)
+    bootsnap (1.9.4)
       msgpack (~> 1.0)
     brotli (0.4.0)
     builder (3.2.4)
@@ -120,9 +120,10 @@ GEM
       bundler
       rails (>= 4.2.0)
       responders
-    excon (0.89.0)
+    excon (0.90.0)
     execjs (2.8.1)
-    ffi (1.15.4)
+    exifr (1.3.9)
+    ffi (1.15.5)
     fog-aws (3.12.0)
       fog-core (~> 2.1)
       fog-json (~> 1.1)
@@ -140,6 +141,7 @@ GEM
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
     formatador (0.3.0)
+    fspath (3.1.2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     graphql (1.13.4)
@@ -153,19 +155,33 @@ GEM
     httparty (0.20.0)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
-    httpclient (2.8.3)
     httplog (1.5.0)
       rack (>= 1.0)
       rainbow (>= 2.0.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
+    image_optim (0.31.1)
+      exifr (~> 1.2, >= 1.2.2)
+      fspath (~> 3.0)
+      image_size (>= 1.5, < 4)
+      in_threads (~> 1.3)
+      progress (~> 3.0, >= 3.0.1)
+    image_optim_pack (0.8.0.20211116-x86_64-linux)
+      fspath (>= 2.1, < 4)
+      image_optim (~> 0.19)
+    image_optim_rails (0.4.3)
+      image_optim (~> 0.24)
+      rails
+      sprockets
+    image_size (3.0.1)
     imgkit (1.6.2)
+    in_threads (1.5.4)
     io-wait (0.2.1)
     ipaddress (0.8.3)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    jmespath (1.4.0)
+    jmespath (1.5.0)
     lastfm (1.27.4)
       httparty
       xml-simple
@@ -208,12 +224,13 @@ GEM
       digest
       net-protocol
       timeout
-    newrelic_rpm (8.2.0)
+    newrelic_rpm (8.3.0)
     nio4r (2.5.8)
     nokogiri (1.13.0-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
+    progress (3.6.0)
     public_suffix (4.0.6)
     puma (5.5.2)
       nio4r (~> 2.0)
@@ -254,7 +271,7 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0)
       zeitwerk (~> 2.5)
-    rainbow (3.0.0)
+    rainbow (3.1.1)
     rake (13.0.6)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
@@ -296,8 +313,6 @@ GEM
     thor (1.2.1)
     tilt (2.0.10)
     timeout (0.2.0)
-    tinify (1.5.1)
-      httpclient (~> 2.6)
     turbo-rails (1.0.0)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -343,12 +358,14 @@ DEPENDENCIES
   health_check (~> 3.1)
   heroicon (~> 0.4.0)
   httplog (~> 1.5)
+  image_optim_pack (~> 0.8.0)
+  image_optim_rails (~> 0.4.3)
   imgkit (~> 1.6)
   jbuilder (~> 2.11)
   lastfm (~> 1.27)
   listen (~> 3.7)
   lograge (~> 0.11.2)
-  newrelic_rpm (~> 8.2)
+  newrelic_rpm (~> 8)
   pg
   puma (~> 5.5)
   rack-brotli (~> 1.2)
@@ -361,7 +378,6 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   terser (~> 1.1)
-  tinify (~> 1.5)
   turbo-rails (~> 1.0)
   tzinfo-data
   webdrivers

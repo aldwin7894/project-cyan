@@ -68,6 +68,10 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  # Image optim configs
+  config.assets.compress = true
+  config.assets.image_optim = true
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 

@@ -1,23 +1,29 @@
 # frozen_string_literal: true
 
 module ActiveStorageHelper
-  include Tinifiable
+  def optimize_image(blob)
+    url = nil
 
-  def move_s3_attachment(blob, target_key)
-    current_key = blob.key
-    # Retrieve S3 Configuration.
-    config      = YAML.load_file(Rails.root.join("config", "storage.yml"))
+    blob.open do |file|
+      url = ImageOptim.new(config_paths: "config/image_optim.yml").optimize_image(file).to_s
+    end
+
+    url
+  end
+
+  def move_to_uploads(blob, new_key, optimized)
+    old_key = blob.key
     # Get the object to move from the bucket.
-    obj_to_move = S3_BUCKET.object(current_key)
-    # Copy the attachment to the specified new_key.
-    obj_to_move.copy_to(bucket: S3_BUCKET.name, key: target_key)
+    old_object = S3_BUCKET.object(old_key)
+    # Upload optimized image to new_key
+    S3_BUCKET.object(new_key).upload_file(optimized)
     # Delete permanently the old file to avoid cluttering the root folder.
-    obj_to_move.delete(version_id: obj_to_move.version_id)
+    old_object.delete(version_id: old_object.version_id)
     # Update the blob key from the database.
-    update_blob_key(blob, target_key)
+    update_blob_key(blob, new_key, optimized)
 
     logger.tagged("Active Storage Helper", blob.filename) {
-      logger.info "Successfully moved #{current_key} to #{target_key}."
+      logger.info "Successfully moved #{old_key} to #{new_key}."
     }
   rescue => e
     logger.tagged("Active Storage Helper", blob.filename) {
@@ -26,11 +32,11 @@ module ActiveStorageHelper
   end
 
   private
-    def update_blob_key(blob, new_key)
-      if blob.update!(key: new_key)
-        # Compress the image using tinify.
-        tinify_from_url(url: blob.service_url)
-      end
+    def update_blob_key(blob, new_key, optimized)
+      blob.update!(
+        key: new_key,
+        checksum: Digest::MD5.base64digest(File.read(optimized))
+      )
     rescue => e
       logger.tagged("Active Storage Helper", blob.filename) {
         logger.error "A problem has been encountered while updating #{blob.filename}'s key to #{target_key}. #{e.full_message}"

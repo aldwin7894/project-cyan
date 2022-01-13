@@ -51,7 +51,7 @@ group :test do
 end
 
 group :production do
-  gem "newrelic_rpm", "~> 8.2"
+  gem "newrelic_rpm", "~> 8"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -70,8 +70,6 @@ gem "devise", "~> 4.8"
 gem "cocoon", "~> 1.2"
 
 gem "aws-sdk-s3", "~> 1"
-
-gem "tinify", "~> 1.5"
 
 gem "exception_handler", "~> 0.8.0"
 
@@ -94,3 +92,7 @@ gem "asset_sync", "~> 2.15"
 gem "terser", "~> 1.1"
 
 gem "httplog", "~> 1.5"
+
+gem "image_optim_pack", "~> 0.8.0"
+
+gem "image_optim_rails", "~> 0.4.3"
