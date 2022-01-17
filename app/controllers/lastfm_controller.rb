@@ -27,7 +27,7 @@ class LastfmController < ApplicationController
       base64 = Base64.encode64(img.to_s).gsub(/\s+/, "")
       @album_art = "data:image/#{File.extname(album_art).strip.downcase[1..-1]};base64,#{Rack::Utils.escape(base64)}"
     else
-      @album_art = helpers.asset_data_uri "lastfm-placeholder.png"
+      @album_art = helpers.asset_data_uri "lastfm-placeholder.webp"
     end
 
     @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"

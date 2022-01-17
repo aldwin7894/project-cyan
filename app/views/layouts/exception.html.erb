@@ -6,6 +6,7 @@
     <%= content_tag :title, "Error - #{@exception.status} (#{@exception.response.to_s.gsub("_", " ").titleize}) | #{Rails.application.class.module_parent_name.titleize}" %>
 
     <!-- Styling -->
+    <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbo-track': 'reload' %>
     <%= stylesheet_pack_tag 'admin', 'data-turbo-track': 'reload' %>
     <%= javascript_pack_tag 'exception', 'data-turbo-track': 'reload' %>
 
