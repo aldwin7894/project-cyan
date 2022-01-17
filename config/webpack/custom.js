@@ -17,6 +17,7 @@ module.exports = {
       '.tiff',
       '.ico',
       '.svg',
+      '.webp',
       '.eot',
       '.otf',
       '.ttf',
