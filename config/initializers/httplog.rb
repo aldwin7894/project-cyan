@@ -24,14 +24,14 @@ HttpLog.configure do |config|
   config.compact_log = true
 
   # You can also log in JSON format
-  config.json_log = false
+  config.json_log = true
 
   # Prettify the output - see below
   config.color = :green
 
   # Limit logging based on URL patterns
   config.url_whitelist_pattern = nil
-  config.url_blacklist_pattern = nil
+  config.url_blacklist_pattern = /newrelic/
 
   # Mask sensitive information in request and response JSON data.
   # Enable global JSON masking by setting the parameter to `/.*/`

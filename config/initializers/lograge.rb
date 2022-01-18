@@ -2,17 +2,15 @@
 
 Rails.application.configure do
   config.lograge.enabled = Rails.configuration.x.feature.lograge
-  config.lograge.base_controller_class = "ActionController::API"
-
   config.lograge.formatter = Lograge::Formatters::Json.new
-  config.lograge.base_controller_class = ["ActionController::API", "ActionController::Base"]
+  config.lograge.base_controller_class = ["ActionController::Base"]
   config.lograge.ignore_actions = ["HealthCheck::HealthCheckController#index"]
 
   config.lograge.custom_options = lambda do |event|
     exceptions = %w[controller action format id]
     {
       request_time: Time.zone.now.strftime("%B %e, %Y %r"),
-      application: Rails.application.class.parent_name,
+      application: ::Rails.application.class.module_parent,
       process_id: Process.pid,
       host: event.payload[:host],
       remote_ip: event.payload[:remote_ip],
