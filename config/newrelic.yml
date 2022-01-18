@@ -16,7 +16,7 @@ common:
 
   # Your application name. Renaming here affects where data displays in New
   # Relic.  For more details, see https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/renaming-applications
-  app_name: aldwin7894
+  app_name: <%= ENV.fetch("NEW_RELIC_APP_NAME") %>
 
   distributed_tracing:
     enabled: true
@@ -32,7 +32,7 @@ common:
 # If your application has other named environments, configure them here.
 development:
   <<: *default_settings
-  app_name: aldwin7894 (Development)
+  app_name: <%= ENV.fetch("NEW_RELIC_APP_NAME") + "(Development)" %>
 
 test:
   <<: *default_settings
@@ -41,7 +41,7 @@ test:
 
 staging:
   <<: *default_settings
-  app_name: aldwin7894 (Staging)
+  app_name: <%= ENV.fetch("NEW_RELIC_APP_NAME") + "(Staging)" %>
 
 production:
   <<: *default_settings

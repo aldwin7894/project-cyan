@@ -19,7 +19,7 @@ module Aldwin7894
     config.middleware.use Rack::Brotli
 
     config.exception_handler = {
-      dev:        false, # allows you to turn ExceptionHandler "on" in development
+      dev:        true, # allows you to turn ExceptionHandler "on" in development
       db:         nil, # allocates a "table name" into which exceptions are saved (defaults to nil)
       email:      nil, # sends exception emails to a listed email (string // "you@email.com")
 
