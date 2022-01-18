@@ -2,12 +2,12 @@
 # exit on error
 set -o errexit
 
-echo "deb http://pub-repo.sematext.com/ubuntu sematext main" | sudo tee /etc/apt/sources.list.d/sematext.list > /dev/null
-wget -O - https://pub-repo.sematext.com/ubuntu/sematext.gpg.key | sudo apt-key add -
-sudo apt-get -y update
-sudo apt-get -y install sematext-agent
+echo "deb http://pub-repo.sematext.com/ubuntu sematext main" | tee /etc/apt/sources.list.d/sematext.list > /dev/null
+wget -O - https://pub-repo.sematext.com/ubuntu/sematext.gpg.key | apt-key add -
+apt-get -y update
+apt-get -y install sematext-agent
 
-sudo bash /opt/spm/bin/setup-infra \
+bash /opt/spm/bin/setup-infra \
     --infra-token 00cc46cd-a1ad-444c-a07d-13295e49fd79
 
 yarn install --frozen-lockfile
