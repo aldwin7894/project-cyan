@@ -18,7 +18,7 @@ Rails.application.configure do
       x_forwarded_for: event.payload[:x_forwarded_for],
       headers: JSON.generate(
         event.payload[:headers].env.select do |k|
-          k.match("^HTTP.*|^CONTENT.*|^AUTHORIZATION.*")
+          k.match("^HTTP.*|^CONTENT.*|^AUTHORIZATION.*") && %w[ENVOY NEWRELIC].exclude?(k)
         end
       ),
       params: event.payload[:params].except(*exceptions).to_json,
