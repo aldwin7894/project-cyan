@@ -10,9 +10,19 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    respond_to do |format|
+      self.resource = warden.authenticate(auth_options)
+
+      if resource && resource.active_for_authentication?
+        sign_in(resource_name, resource)
+      else
+        @error = "Invalid username or password"
+      end
+
+      format.js
+    end
+  end
 
   # DELETE /resource/sign_out
   # def destroy

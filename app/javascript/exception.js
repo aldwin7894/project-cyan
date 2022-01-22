@@ -3,4 +3,4 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("stylesheets/admin.css.scss")
+require("./stylesheets/admin.css.scss");
