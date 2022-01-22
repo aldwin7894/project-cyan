@@ -1,0 +1,6 @@
+<% if @error %>
+  document.querySelector("form").reset();
+  Alpine.store("toasts").createToast("<%= @error %>", "error");
+<% else %>
+  window.location.href = "<%= admin_dashboard_index_path %>";
+<% end %>

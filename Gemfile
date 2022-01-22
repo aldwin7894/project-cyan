@@ -13,8 +13,10 @@ gem 'pg'
 gem 'puma', '~> 5.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem "webpacker", '~> 6.0.0.rc.6'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks', '~> 5'
+# Transpile app-like JavaScript. Read more: https://github.com/shakacode/shakapacker
+gem "shakapacker", "~> 6.0.rc.14"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.11'
 # Use Redis adapter to run Action Cable in production
@@ -80,8 +82,6 @@ gem "lograge", "~> 0.11.2"
 gem "rack-brotli", "~> 1.2"
 
 gem "health_check", "~> 3.1"
-
-gem "turbo-rails", "~> 1.0"
 
 gem "heroicon", "~> 0.4.0"
 
