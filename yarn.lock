@@ -4698,10 +4698,10 @@ setprototypeof@1.2.0:
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
 
-shakapacker@^6.0.0-rc.14:
-  version "6.0.0-rc.14"
-  resolved "https://registry.yarnpkg.com/shakapacker/-/shakapacker-6.0.0-rc.14.tgz#2e16b364f2192f066227e77289b8cd63fc5fb430"
-  integrity sha512-yaoJnvUqEHDfckea6GK57+N7viKBYygj2Yw8m+QycndUJPKuOk7hfOjqFbEODYn5+haxJ+WJEqfXFDOtoduChA==
+shakapacker@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/shakapacker/-/shakapacker-6.0.0.tgz#7b3345f534d24ea056f984d766a8290e682dde29"
+  integrity sha512-kNkBPkvmeda0ZK1aNmdICqKWYEwzkqzRpTtJd50ArM+ZpY7wIlCuVBXGE2SM4opzQVfp9bJG00XA+NCE1K6E7Q==
   dependencies:
     glob "^7.2.0"
     js-yaml "^4.1.0"
