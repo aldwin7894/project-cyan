@@ -6,7 +6,7 @@ ruby '3.1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 7.0.1'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+gem "sprockets-rails", git: 'https://github.com/rails/sprockets-rails.git'
 # Use postgres
 gem 'pg'
 # Use Puma as the app server
@@ -16,7 +16,7 @@ gem 'sass-rails', '>= 6'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Transpile app-like JavaScript. Read more: https://github.com/shakacode/shakapacker
-gem "shakapacker", "~> 6.0.rc.14"
+gem "shakapacker", "~> 6.0"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.11'
 # Use Redis adapter to run Action Cable in production
