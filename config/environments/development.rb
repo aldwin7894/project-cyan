@@ -90,5 +90,9 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
   config.hosts << /[a-z0-9-]+\.ngrok\.io/
 
-  config.asset_host = "http://#{Rails::Server::Options.new.parse!(ARGV)[:Host]}:#{Rails::Server::Options.new.parse!(ARGV)[:Port]}"
+  if Rails.const_defined? "Server"
+    config.asset_host = "http://#{Rails::Server::Options.new.parse!(ARGV)[:Host]}:#{Rails::Server::Options.new.parse!(ARGV)[:Port]}"
+  else
+    config.asset_host = "http://localhost:3000"
+  end
 end
