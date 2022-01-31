@@ -36,7 +36,7 @@ HealthCheck.setup do |config|
   # config.buckets = { "bucket_name" => [:R, :W, :D] }
 
   # You can customize which checks happen on a standard health check, eg to set an explicit list use:
-  config.standard_checks = [ "database", "migrations", "custom", "s3", "redis" ]
+  config.standard_checks = [ "database", "migrations", "redis", "site", "cache" ]
 
   # Or to exclude one check:
   # config.standard_checks -= [ "emailconf" ]
