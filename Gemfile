@@ -95,4 +95,4 @@ gem "httplog", "~> 1.5"
 
 gem "image_optim_pack", "~> 0.8.0"
 
-gem "image_optim_rails", "~> 0.4.3"
+gem "image_optim_rails", "~> 0.5.0"

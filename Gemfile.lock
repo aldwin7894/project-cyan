@@ -178,9 +178,9 @@ GEM
     image_optim_pack (0.8.0.20220131-x86_64-linux)
       fspath (>= 2.1, < 4)
       image_optim (~> 0.19)
-    image_optim_rails (0.4.3)
+    image_optim_rails (0.5.0)
       image_optim (~> 0.24)
-      rails
+      railties
       sprockets
     image_size (3.0.1)
     imgkit (1.6.2)
@@ -364,7 +364,7 @@ DEPENDENCIES
   heroicon (~> 0.4.0)
   httplog (~> 1.5)
   image_optim_pack (~> 0.8.0)
-  image_optim_rails (~> 0.4.3)
+  image_optim_rails (~> 0.5.0)
   imgkit (~> 1.6)
   jbuilder (~> 2.11)
   lastfm (~> 1.27)
