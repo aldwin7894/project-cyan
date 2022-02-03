@@ -20,7 +20,7 @@ gem "shakapacker", "~> 6"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.11'
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 4.5'
+gem 'redis', '~> 4.6'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -95,4 +95,4 @@ gem "httplog", "~> 1.5"
 
 gem "image_optim_pack", "~> 0.8.0"
 
-gem "image_optim_rails", "~> 0.4.3"
+gem "image_optim_rails", "~> 0.5.0"
