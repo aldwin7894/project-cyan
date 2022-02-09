@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 7.0.1'
+gem 'rails', '~> 7.0.2'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails", git: 'https://github.com/rails/sprockets-rails.git', require: "sprockets/railtie"
 # Use postgres
@@ -12,7 +12,7 @@ gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 5.6'
 # Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
+gem "sassc-rails", "~> 2"
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Transpile app-like JavaScript. Read more: https://github.com/shakacode/shakapacker
@@ -60,10 +60,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "lastfm", "~> 1.27"
-
-gem "rexml", "~> 3.2"
-
-gem "sassc-rails", "~> 2.1"
 
 gem "imgkit", "~> 1.6"
 
