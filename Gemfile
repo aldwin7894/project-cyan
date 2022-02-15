@@ -81,7 +81,7 @@ gem "health_check", "~> 3.1"
 
 gem "heroicon", "~> 0.4.0"
 
-gem "fog-aws", "~> 3.12"
+gem "fog-aws", "~> 3.13"
 
 gem "asset_sync", "~> 2.15"
 
