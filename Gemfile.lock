@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/sprockets-rails.git
-  revision: 5badf679b206e4f218b9e3a42730d27779e572b2
+  revision: 8ede8c229c6d7a4e72adad359bd4444ea0d43817
   specs:
     sprockets-rails (3.4.2)
       actionpack (>= 5.2)
@@ -310,7 +310,7 @@ GEM
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
       semantic_range (>= 2.3.0)
-    sprockets (4.0.2)
+    sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     strscan (3.0.1)
