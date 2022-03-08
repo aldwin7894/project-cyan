@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/rails/sprockets-rails.git
-  revision: 5badf679b206e4f218b9e3a42730d27779e572b2
-  specs:
-    sprockets-rails (3.4.2)
-      actionpack (>= 5.2)
-      activesupport (>= 5.2)
-      sprockets (>= 3.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -83,8 +74,8 @@ GEM
       mime-types (>= 2.99)
       unf
     aws-eventstream (1.2.0)
-    aws-partitions (1.558.0)
-    aws-sdk-core (3.127.0)
+    aws-partitions (1.563.0)
+    aws-sdk-core (3.128.1)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.525.0)
       aws-sigv4 (~> 1.1)
@@ -99,7 +90,7 @@ GEM
     aws-sigv4 (1.4.0)
       aws-eventstream (~> 1, >= 1.0.2)
     bcrypt (3.1.16)
-    bootsnap (1.10.3)
+    bootsnap (1.11.1)
       msgpack (~> 1.2)
     brotli (0.4.0)
     builder (3.2.4)
@@ -137,10 +128,10 @@ GEM
       fog-core (~> 2.1)
       fog-json (~> 1.1)
       fog-xml (~> 0.1)
-    fog-core (2.2.4)
+    fog-core (2.3.0)
       builder
       excon (~> 0.71)
-      formatador (~> 0.2)
+      formatador (>= 0.2, < 2.0)
       mime-types
     fog-json (1.2.0)
       fog-core
@@ -148,7 +139,7 @@ GEM
     fog-xml (0.1.4)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
-    formatador (0.3.0)
+    formatador (1.1.0)
     fspath (3.1.2)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -188,7 +179,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    jmespath (1.6.0)
+    jmespath (1.6.1)
     lastfm (1.27.4)
       httparty
       xml-simple
@@ -213,7 +204,7 @@ GEM
     mime-types-data (3.2022.0105)
     mini_mime (1.1.2)
     minitest (5.15.0)
-    msgpack (1.4.4)
+    msgpack (1.4.5)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     net-imap (0.2.3)
@@ -310,9 +301,13 @@ GEM
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
       semantic_range (>= 2.3.0)
-    sprockets (4.0.2)
+    sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
+    sprockets-rails (3.4.2)
+      actionpack (>= 5.2)
+      activesupport (>= 5.2)
+      sprockets (>= 3.0.0)
     strscan (3.0.1)
     terser (1.1.8)
       execjs (>= 0.3.0, < 3)
@@ -376,7 +371,7 @@ DEPENDENCIES
   sassc-rails (~> 2)
   selenium-webdriver
   shakapacker (~> 6)
-  sprockets-rails!
+  sprockets-rails
   terser (~> 1.1)
   turbolinks (~> 5)
   tzinfo-data
