@@ -3,7 +3,7 @@ version: "3.9"
 services:
   db:
     image: postgres:latest
-    restart: always
+    restart: unless-stopped
     environment:
       - TZ
       - POSTGRES_PASSWORD
@@ -16,7 +16,7 @@ services:
   redis:
     image: redis:latest
     command: redis-server
-    restart: always
+    restart: unless-stopped
     environment:
       - TZ
     ports:
@@ -25,10 +25,9 @@ services:
       - 'redis:/data'
     env_file: .env
   webpacker:
-    build: .
+    image: aldwin7894/aldwin7894:dev
     command: ["npm", "run", "webpack-dev"]
-    volumes:
-      - .:/app
+    restart: unless-stopped
     ports:
       - "3035:3035"
       - "8080:8080"
@@ -36,14 +35,18 @@ services:
       - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
       - NODE_ENV
       - RAILS_ENV
+    volumes:
+      - .:/app
     env_file: .env
   web:
     build: .
     container_name: aldwin7894
+    image: aldwin7894/aldwin7894:dev
+    restart: unless-stopped
     depends_on:
       - db
       - redis
-      - webpack
+      - webpacker
     ports:
       - "3000:3000"
     environment:
