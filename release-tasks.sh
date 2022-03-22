@@ -13,12 +13,4 @@ if [ "$SEED_DB_DURING_RELEASE" == "true" ]; then
   bundle exec rails db:seed
 fi
 
-if [ "$PRECOMPILE_ASSETS_DURING_RELEASE" == "true" ]; then
-  echo "Precompiling Assets..."
-  bundle exec rails assets:precompile --trace
-
-  echo "Cleaning Assets..."
-  bundle exec rails assets:clean --trace
-fi
-
 echo "Done running release-tasks.sh"

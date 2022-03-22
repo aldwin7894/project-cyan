@@ -6,8 +6,13 @@ yarn install --silent --frozen-lockfile
 
 if [[ $RAILS_ENV == "production" ]]; then
   BUNDLE_WITHOUT='development:test' BUNDLE_DEPLOYMENT=1 bin/bundle install -j4 --quiet
-  bin/rails assets:precompile
-  bin/rails assets:clean
+
+  echo "Precompiling Assets..."
+  bin/rails assets:precompile --trace
+
+  echo "Cleaning Assets..."
+  bin/rails assets:clean --trace
+
   bash -v ./release-tasks.sh
 else
   bin/bundle install --quiet
