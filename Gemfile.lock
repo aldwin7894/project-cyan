@@ -370,7 +370,7 @@ DEPENDENCIES
   redis (~> 4.6)
   sassc-rails (~> 2)
   selenium-webdriver
-  shakapacker (~> 6)
+  shakapacker (= 6.2.0)
   sprockets-rails
   terser (~> 1.1)
   turbolinks (~> 5)
