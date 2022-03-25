@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <!-- Head -->
   <head>
     <!-- Info -->
-    <%= content_tag :title, "#{Rails.application.class.module_parent_name.downcase} | Error - #{@exception.status} (#{@exception.response.to_s.gsub("_", " ").titleize})" %>
+    <title>
+      <%= "#{Rails.application.class.module_parent_name.downcase} | Error - #{@exception.status} (#{@exception.response.to_s.gsub("_", " ").titleize})" %>
+    </title>
 
     <!-- Styling -->
     <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
