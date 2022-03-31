@@ -73,7 +73,7 @@ gem "exception_handler", "~> 0.8.0"
 
 gem "graphql-client", "~> 0.17.0"
 
-gem "lograge", "~> 0.11.2"
+gem "lograge", "~> 0.12.0"
 
 gem "rack-brotli", "~> 1.2"
 
