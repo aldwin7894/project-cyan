@@ -186,7 +186,7 @@ GEM
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    lograge (0.11.2)
+    lograge (0.12.0)
       actionpack (>= 4)
       activesupport (>= 4)
       railties (>= 4)
@@ -360,7 +360,7 @@ DEPENDENCIES
   jbuilder (~> 2.11)
   lastfm (~> 1.27)
   listen (~> 3.7)
-  lograge (~> 0.11.2)
+  lograge (~> 0.12.0)
   newrelic_rpm (~> 8)
   pg
   puma (~> 5.6)
