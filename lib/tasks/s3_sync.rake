@@ -4,9 +4,9 @@ require "s3_asset_deploy"
 
 class PublicLocalAssetCollector < S3AssetDeploy::LocalAssetCollector
   def assets
-    # include public  
+    # include public
     Dir[File.join(::Rails.public_path, "/*.*")].map do |path|
-      S3AssetDeploy::LocalAsset.new(path)
+      S3AssetDeploy::LocalAsset.new(File.basename(path))
     end
   end
 end
