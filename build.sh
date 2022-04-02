@@ -10,6 +10,9 @@ if [[ $RAILS_ENV == "production" ]]; then
   echo "Precompiling Assets..."
   bin/rails assets:precompile --trace
 
+  echo "Uploading Assets to S3..."
+  bin/rails assets:s3_sync
+
   echo "Cleaning Assets..."
   bin/rails assets:clean --trace
 
