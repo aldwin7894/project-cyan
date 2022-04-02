@@ -32,7 +32,7 @@ if defined?(AssetSync)
     # config.invalidate = ['file1.js']
 
     # Increase upload performance by configuring your region
-    config.fog_region = "us-west-2"
+    config.fog_region = Rails.application.credentials.aws[:region]
     #
     # Set `public` option when uploading file depending on value,
     # Setting to "default" makes asset sync skip setting the option

@@ -5,7 +5,7 @@ Aws.config.update({
     Rails.application.credentials.aws[:access_key_id],
     Rails.application.credentials.aws[:secret_access_key]
   ),
-  region: "us-west-2"
+  region: Rails.application.credentials.aws[:region]
 })
 
 S3_BUCKET        = Aws::S3::Resource.new.bucket("aldwin7894-web")
