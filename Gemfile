@@ -81,10 +81,6 @@ gem "health_check", "~> 3.1"
 
 gem "heroicon", "~> 0.4.0"
 
-gem "fog-aws", "~> 3.13"
-
-gem "asset_sync", "~> 2.15"
-
 gem "terser", "~> 1.1"
 
 gem "httplog", "~> 1.5"
@@ -92,3 +88,5 @@ gem "httplog", "~> 1.5"
 gem "image_optim_pack", "~> 0.8.0"
 
 gem "image_optim_rails", "~> 0.5.0"
+
+gem "s3_asset_deploy", "~> 1.0"
