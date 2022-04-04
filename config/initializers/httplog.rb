@@ -30,7 +30,7 @@ HttpLog.configure do |config|
   config.color = :green
 
   # Limit logging based on URL patterns
-  config.url_whitelist_pattern = nil
+  config.url_whitelist_pattern = /.*/
   config.url_blacklist_pattern = /newrelic|amazonaws/
 
   # Mask sensitive information in request and response JSON data.
