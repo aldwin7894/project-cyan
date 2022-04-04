@@ -4,7 +4,10 @@ Rails.application.configure do
   config.lograge.enabled = Rails.configuration.x.feature.lograge
   config.lograge.formatter = Lograge::Formatters::Json.new
   config.lograge.base_controller_class = ["ActionController::Base"]
-  config.lograge.ignore_actions = ["HealthCheck::HealthCheckController#index"]
+  config.lograge.ignore_actions = [
+    "HealthCheck::HealthCheckController#index",
+    "HomeController#ping"
+  ]
 
   config.lograge.custom_options = lambda do |event|
     exceptions = %w[controller action format id]
@@ -18,7 +21,8 @@ Rails.application.configure do
       x_forwarded_for: event.payload[:x_forwarded_for],
       headers: JSON.generate(
         event.payload[:headers].env.select do |k|
-          k.match("^HTTP.*|^CONTENT.*|^AUTHORIZATION.*") && %w[ENVOY NEWRELIC].exclude?(k)
+          k.match("^HTTP.*|^CONTENT.*|^AUTHORIZATION.*") &&
+            %w[ENVOY NEWRELIC].all? { |x| k.exclude?(x) }
         end
       ),
       params: event.payload[:params].except(*exceptions).to_json,
