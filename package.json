@@ -28,7 +28,7 @@
     "@tailwindcss/typography": "^0.5.2",
     "alpinejs": "^3.9.6",
     "autoprefixer": "^10.4.4",
-    "babel-loader": "^8.2.4",
+    "babel-loader": "^8.2.5",
     "compression-webpack-plugin": "9",
     "css-loader": "^6.6.0",
     "css-minimizer-webpack-plugin": "^3.4.1",
