@@ -274,7 +274,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
-    shakapacker (6.2.0)
+    shakapacker (6.2.1)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
@@ -344,7 +344,7 @@ DEPENDENCIES
   s3_asset_deploy (~> 1.0)
   sassc-rails (~> 2)
   selenium-webdriver
-  shakapacker (= 6.2.0)
+  shakapacker (= 6.2.1)
   sprockets-rails
   terser (~> 1.1)
   turbolinks (~> 5)
