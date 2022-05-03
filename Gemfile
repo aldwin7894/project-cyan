@@ -71,7 +71,7 @@ gem "aws-sdk-s3", "~> 1"
 
 gem "exception_handler", "~> 0.8.0"
 
-gem "graphql-client", "~> 0.17.0"
+gem "graphql-client", "~> 0.18.0"
 
 gem "lograge", "~> 0.12.0"
 
