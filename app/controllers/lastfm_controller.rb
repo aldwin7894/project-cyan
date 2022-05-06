@@ -4,6 +4,8 @@ class LastfmController < ApplicationController
   layout "lastfm"
 
   def index
+    @background = params[:bg]
+    @foreground = params[:fg]
     @recent = Rails.cache.fetch("LASTFM_RECENT_TRACKS", expires_in: 30.seconds) do
       LASTFM_CLIENT.user.get_recent_tracks(user: params[:username], limit: 1, extended: 1)
     end
@@ -14,9 +16,6 @@ class LastfmController < ApplicationController
     else
       timestamp = @recent["date"]["uts"].to_i
     end
-
-    @background = params[:bg]
-    @foreground = params[:fg]
 
     album_art = @recent&.[]("image")&.[](2)&.[]("content")
 
@@ -47,6 +46,12 @@ class LastfmController < ApplicationController
         send_data(kit.to_png, type: "image/png", disposition: :inline)
       end
       format.html
+      format.svg
+    end
+  rescue Lastfm::ApiError
+    @album_art = helpers.asset_data_uri "lastfm-placeholder.webp"
+
+    respond_to do |format|
       format.svg
     end
   end
