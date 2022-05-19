@@ -31,7 +31,7 @@
     "babel-loader": "^8.2.5",
     "compression-webpack-plugin": "9",
     "css-loader": "^6.6.0",
-    "css-minimizer-webpack-plugin": "^3.4.1",
+    "css-minimizer-webpack-plugin": "^4.0.0",
     "mini-css-extract-plugin": "^2.6.0",
     "pnp-webpack-plugin": "1",
     "postcss": "^8.4.5",
