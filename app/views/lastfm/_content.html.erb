@@ -1,4 +1,8 @@
 <div class="main-container" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="lastfm-logo">
+    <%= image_tag asset_data_uri("lastfm-logo.webp"), width: 25, height: 25 %>
+    <%= image_tag asset_data_uri("lastfm-text.webp"), height: 15 %>
+  </div>
   <% if @recent.present? %>
     <div class="album-container">
       <div class="album-cover">
