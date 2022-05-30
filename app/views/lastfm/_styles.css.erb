@@ -51,12 +51,28 @@
 }
 
 .main-container {
+  position: relative;
   width: 600px;
   height: 122px;
   color: #<%=@foreground %>;
   background-image: -webkit-linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= asset_data_uri  'lastfm.webp' %>");
   background-image: -o-linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= asset_data_uri  'lastfm.webp' %>");
   background-image: linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= asset_data_uri  'lastfm.webp' %>");
+}
+
+.lastfm-logo {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+}
+
+.lastfm-logo img {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 5px;
 }
 
 .album-container {
