@@ -16,7 +16,7 @@ if [[ $RAILS_ENV == "production" ]]; then
   echo "Cleaning Assets..."
   bin/rails assets:clean
 
-  bash -v ./release-tasks.sh
+  bash ./release-tasks.sh
 else
   bin/bundle install --quiet
 fi
