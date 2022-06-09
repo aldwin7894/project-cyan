@@ -24,10 +24,12 @@ Rails.application.configure do
   if Rails.root.join("tmp", "caching-dev.txt").exist?
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
+    Rack::MiniProfiler.config.disable_caching = false
 
     config.cache_store = :redis_cache_store, { url: ENV.fetch("REDIS_URL", "redis://localhost:6379/1") }
     config.public_file_server.headers = {
-      "Cache-Control" => "public, max-age=#{2.days.to_i}"
+      "Cache-Control" => "public, s-maxage=31536000, max-age=15552000",
+      "Expires" => 1.year.from_now.to_formatted_s(:rfc822)
     }
   else
     config.action_controller.perform_caching = false
