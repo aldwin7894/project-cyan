@@ -41,7 +41,7 @@
     "postcss-preset-env": "7.7.2",
     "sass": "1",
     "sass-loader": "13",
-    "shakapacker": "6.4.1",
+    "shakapacker": "6.5.0",
     "style-loader": "^3.3.1",
     "tailwindcss": "3",
     "terser-webpack-plugin": "5",
