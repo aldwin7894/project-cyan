@@ -7,7 +7,7 @@ class LastfmController < ApplicationController
     @background = params[:bg]
     @foreground = params[:fg]
     @album_art = helpers.asset_data_uri "lastfm-placeholder.webp"
-    @recent = Rails.cache.fetch("LASTFM_RECENT_TRACKS", expires_in: 30.seconds) do
+    @recent = Rails.cache.fetch("LASTFM_RECENT_TRACKS", expires_in: 30.seconds, skip_nil: true) do
       LASTFM_CLIENT.user.get_recent_tracks(user: params[:username], limit: 1, extended: 1)
     end
 
@@ -21,7 +21,7 @@ class LastfmController < ApplicationController
     album_art = @recent&.[]("image")&.[](2)&.[]("content")
 
     if album_art.present? && album_art.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
-      img = Rails.cache.fetch(album_art, expires_in: 12.hours) do
+      img = Rails.cache.fetch(album_art, expires_in: 7.days, skip_nil: true) do
         HTTParty.get(album_art, format: :plain).body
       end
 
