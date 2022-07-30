@@ -1,0 +1,228 @@
+<section class="flex flex-col flex-1 w-full">
+  <div class="flex flex-row flex-wrap w-full">
+    <div class="flex flex-row w-full md:w-1/2 2xl:w-1/4 min-h-[330px] bg-[#d11a9e] px-4 py-4">
+      <div class="flex flex-col w-full h-full text-white">
+        <div class="text-lg font-bold">ABOUT ME</div>
+      </div>
+    </div>
+    <div class="w-full bg-center md:w-1/2 2xl:w-1/4 min-h-[330px]" style="background-image: url(<%= @album_art %>)">
+      <div class="w-full h-full backdrop-blur-sm backdrop-brightness-[20%] text-white flex flex-col items-stretch gap-5 px-4 py-4">
+        <div class="text-lg font-bold">
+          <% if @lastfm_recent['nowplaying'] %>
+            NOW PLAYING
+          <% else %>
+            LAST PLAYED
+          <% end %>
+        </div>
+        <div class="flex flex-col gap-5" x-data="">
+          <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="w-[200px] mx-auto">
+            <img src="<%= @album_art %>">
+          </button>
+          <div class="flex flex-col text-center">
+            <div class="text-[#3cb4f1] text-3xl font-bold line-clamp-1">
+              <%= @lastfm_recent['name'] %>
+            </div>
+            <div class="text-2xl line-clamp-1">
+              <%= "#{@lastfm_recent['artist']['name'].upcase}" %>
+            </div>
+            <% if @lastfm_recent['album']['content'].present? %>
+              <div class="text-[#e5ded3] italic text-xl">
+                <%= "#{@lastfm_recent['album']['content']}" %>
+              </div>
+            <% end %>
+            <% if @lastfm_recent['nowplaying'].blank? %>
+              <div>
+                <div class="text-lg">
+                  last played
+                  <% if time_ago_in_words(Time.zone.at(@lastfm_recent['date']['uts'].to_i)) == 'less than a minute' %>
+                    just now
+                  <% else %>
+                    <%= (time_ago_in_words(Time.zone.at(@lastfm_recent['date']['uts'].to_i)) +' ago').sub('about', '') %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-row w-full md:w-1/2 2xl:w-1/4 min-h-[330px] bg-[#1d1d1d] px-4 py-4">
+      <div class="flex flex-col text-white grow">
+        <h2 class="font-bold">FAVORITE GENRES</h2>
+        <div>
+          <ul>
+            <% @genre_list.each do |genre| %>
+              <li class="flex flex-row gap-2 mt-2">
+                <div class="w-5 h-5" style="background: <%= genre[:backgroundColor] %>"></div>
+                <div><%= genre[:label] %></div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="h-[300px] w-[300px]">
+        <canvas class="grow" id="favoriteGenres" aria-label="Favorite Genres" role="img">
+        Your browser does not support the canvas element.
+        </canvas>
+      </div>
+    </div>
+    <div class="w-full bg-center md:w-1/2 2xl:w-1/4 min-h-[330px]" style="background-image: url(<%= @user_activity.first&.media&.banner_image %>)">
+      <div class="flex flex-col w-full h-full px-4 py-4 text-white bg-black/50">
+        <div class="text-lg font-bold">LAST WATCHED</div>
+        <a class="text-4xl font-bold hover:underline" href="<%= @user_activity.first&.media&.site_url %>" target="_blank">
+          <%= @user_activity.first&.media&.title&.user_preferred %>
+        </a>
+        <div class="self-end mt-auto">
+          <a class="text-lg hover:underline grow" href="<%= @user_activity.first&.site_url %>" target="_blank">MORE INFO</a>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-row w-full md:w-1/2 2xl:w-1/4 min-h-[330px] bg-[#3d2c5d] px-4 py-4">
+      <div class="flex flex-col text-white grow">
+        <h2 class="font-bold">FAVORITE STUDIOS</h2>
+        <div>
+          <ul>
+            <% @studio_list.each do |studio| %>
+              <li class="flex flex-row gap-2 mt-2">
+                <div class="w-5 h-5" style="background: <%= studio[:backgroundColor] %>"></div>
+                <div><%= studio[:label] %></div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="h-[300px] w-[300px]">
+        <canvas id="favoriteStudios" aria-label="Favorite Studios" role="img">
+          Your browser does not support the canvas element.
+        </canvas>
+      </div>
+    </div>
+    <div class="flex flex-row w-full md:w-1/2 2xl:w-1/4 min-h-[330px] bg-[#cb7333] px-4 py-4">
+    </div>
+    <div class="w-full bg-[#3d2c5d] bg-center md:w-1/2 2xl:w-1/4 min-h-[330px]" style="background-image: url(<%= @watched_movie.first&.media&.banner_image %>)">
+      <div class="flex flex-col w-full h-full px-4 py-4 text-white bg-black/50">
+        <div class="text-lg font-bold">LAST WATCHED ANIME MOVIE</div>
+        <a class="text-4xl font-bold hover:underline" href="<%= @watched_movie.first&.media&.site_url %>" target="_blank">
+          <%= @watched_movie.first.media.title.user_preferred %>
+        </a>
+        <div class="self-end mt-auto">
+          <a class="text-lg hover:underline grow" href="<%= @watched_movie.first&.site_url %>" target="_blank">MORE INFO</a>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col w-full md:w-1/2 2xl:w-1/4 min-h-[330px] text-white text-center">
+      <div class="bg-[#019edf] h-1/2 w-full flex flex-col px-4 pt-4">
+        <div class="text-lg font-bold">Watched Anime</div>
+        <div class="flex flex-row flex-wrap gap-4 mt-4">
+          <div class="flex flex-col grow">
+            <div class="font-mono text-2xl font-bold">
+              <%= @total_watched_anime_time_last_week %>
+            </div>
+            <div class="font-bold">LAST WEEK</div>
+            <div>
+              <%= @total_watched_anime_ep_last_week %> episodes
+            </div>
+          </div>
+          <div class="flex flex-col grow">
+            <div class="font-mono text-2xl font-bold">
+              <%= @total_watched_anime_time %>
+            </div>
+            <div class="font-bold">ALL TIME</div>
+            <div>
+              <%= @total_watched_anime_ep %> episodes
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-[#0199d8] h-1/2 w-full flex flex-col px-4 pt-4">
+        <div class="text-lg font-bold">Watched Anime Movies / OVA / Special</div>
+        <div class="flex flex-row flex-wrap gap-4 mt-4">
+          <div class="flex flex-col grow">
+            <div class="font-mono text-2xl font-bold">
+              <%= @total_watched_anime_movie_time_last_week %>
+            </div>
+            <div class="font-bold">LAST WEEK</div>
+            <div>
+              <%= @total_watched_anime_movie_last_week %> movies / ova / specials
+            </div>
+          </div>
+          <div class="flex flex-col grow">
+            <div class="font-mono text-2xl font-bold">
+              <%= @total_watched_anime_movie_time %>
+            </div>
+            <div class="font-bold">ALL TIME</div>
+            <div>
+              <%= @total_watched_anime_movie %> movies / ova / specials
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%= render "partials/divider" %>
+
+<% content_for :page_script do %>
+  <script>
+    const legendMargin = {
+      id: 'legendMargin',
+      beforeInit(chart, legend, options) {
+        console.log(chart.legend.fit)
+        const fitValue = chart.legend.fit;
+        chart.legend.fit = function fit() {
+          fitValue.bind(chart.legend)();
+          return this.width += 70;
+        }
+      }
+    }
+
+    document.addEventListener('turbolinks:load', () => {
+      const genre = document.getElementById('favoriteGenres').getContext('2d');
+
+      const genreChart = new Chart(genre, {
+        type: 'pie',
+        options: {
+          responsive: false,
+          layout: {
+            padding: 20
+          },
+          plugins: {
+            legend: {
+              display: false,
+            }
+          },
+          elements: {
+            arc: {
+              borderWidth: 0
+            }
+          }
+        },
+        data: JSON.parse(`<%= raw @genre_chart_data %>`),
+        plugins: [legendMargin]
+      });
+
+      const studio = document.getElementById('favoriteStudios').getContext('2d');
+      const studioChart = new Chart(studio, {
+        type: 'pie',
+        options: {
+          responsive: false,
+          layout: {
+            padding: 20
+          },
+          plugins: {
+            legend: {
+              display: false,
+            }
+          },
+          elements: {
+            arc: {
+              borderWidth: 0
+            }
+          }
+        },
+        data: JSON.parse(`<%= raw @studio_chart_data %>`),
+        plugins: [legendMargin]
+      });
+    });
+  </script>
+<% end %>

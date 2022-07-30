@@ -1,0 +1,37 @@
+<section class="flex-1 w-full bg-[top_left_-5rem] md:bg-[center_top_-15rem] background-cyan-3">
+  <div class="backdrop-blur-[1px] bg-gradient-to-tr from-black/60 to-pink-500/60">
+    <div class="md:container md:mx-auto">
+      <div class="flex flex-col items-center py-16">
+        <div>
+          <%= image_tag asset_data_uri("cyan-avatar.webp"), class: "outline outline-white outline-5 rounded-full max-w-sm", width: 150, height: 150 %>
+        </div>
+        <div class="my-2 text-3xl font-medium text-white">Cyan★Nyan♪</div>
+        <div class="px-2 bg-white text-slate-700">/aldwin7894/</div>
+        <div class="flex flex-row flex-wrap justify-center gap-4 mt-8" x-data="">
+          <button x-on:click="window.open('https://bit.ly/cyan-anilist')" class="text-white hover:text-[#02a9ff]">
+            <iconify-icon icon="simple-icons:anilist" width="50"></iconify-icon>
+          </button>
+          <button x-on:click="window.open('https://bit.ly/cyan-mal')" class="text-white hover:text-[#2f52a2]">
+            <iconify-icon icon="simple-icons:myanimelist" width="90"></iconify-icon>
+          </button>
+          <button x-on:click="window.open('https://bit.ly/cyan-mal')" class="text-white hover:text-[#1ed760]">
+            <iconify-icon icon="akar-icons:spotify-fill" width="50"></iconify-icon>
+          </button>
+          <button x-on:click="window.open('https://spoti.fi/3PRGOmq')" class="text-white hover:text-[#ba0000]">
+            <iconify-icon icon="brandico:lastfm-rect" width="50"></iconify-icon>
+          </button>
+          <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="text-white hover:text-[#eb743b]">
+            <iconify-icon icon="simple-icons:musicbrainz" width="50"></iconify-icon>
+          </button>
+          <button x-on:click="window.open('https://bit.ly/cyan-musicbrainz')" class="text-white hover:text-[#075a8e]">
+            <iconify-icon icon="simple-icons:steam" width="50"></iconify-icon>
+          </button>
+          <button x-on:click="window.open('https://bit.ly/cyan-github')" class="text-white hover:text-[#babbbd]">
+            <iconify-icon icon="simple-icons:github" width="50"></iconify-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%= render "partials/divider" %>
