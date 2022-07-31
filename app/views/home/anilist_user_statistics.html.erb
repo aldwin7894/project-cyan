@@ -11,8 +11,8 @@
       </ul>
     </div>
   </div>
-  <div class="h-[300px] w-[300px]">
-    <canvas class="grow" id="favoriteGenres" aria-label="Favorite Anime Genres" role="img">
+  <div class="mx-auto xs:max-w-[200px] max-w-[300px]">
+    <canvas id="favoriteGenres" aria-label="Favorite Anime Genres" role="img">
     Your browser does not support the canvas element.
     </canvas>
   </div>
@@ -24,7 +24,7 @@
         const genreChart = new Chart(genre, {
           type: 'pie',
           options: {
-            responsive: false,
+            responsive: true,
             layout: {
               padding: 20
             },
@@ -60,7 +60,7 @@
       </ul>
     </div>
   </div>
-  <div class="h-[300px] w-[300px]">
+  <div class="mx-auto xs:max-w-[200px] max-w-[300px]">
     <canvas id="favoriteStudios" aria-label="Favorite Anime Studios" role="img">
       Your browser does not support the canvas element.
     </canvas>
@@ -73,7 +73,7 @@
         const studioChart = new Chart(studio, {
           type: 'pie',
           options: {
-            responsive: false,
+            responsive: true,
             layout: {
               padding: 20
             },
