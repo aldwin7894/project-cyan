@@ -1,0 +1,36 @@
+.background-1 {
+  background-image: url(bg.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.background-cyan-1 {
+  background-image: url(cyan-bg-1.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.background-cyan-2 {
+  background-image: url(cyan-bg-2.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.background-cyan-3 {
+  background-image: url(cyan-bg-3.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+[x-cloak] {
+  display: none !important;
+}
+
+.turbo-progress-bar {
+  height: 15px;
+  background-color: gold;
+}

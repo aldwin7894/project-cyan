@@ -1,0 +1,106 @@
+<section class="flex flex-col flex-1 w-full">
+  <div class="flex flex-row flex-wrap w-full">
+    <div class="flex flex-row w-full md:w-1/2 2xl:w-1/4 min-h-[330px] bg-[#d11a9e] px-4 py-4">
+      <div class="flex flex-col w-full h-full text-white">
+        <div class="text-lg font-bold">ABOUT ME</div>
+      </div>
+    </div>
+
+    <div class="w-full bg-[#5c053a] md:w-1/2 2xl:w-1/4 min-h-[330px]">
+      <turbo-frame id="lastfm_stats" src="<%= lastfm_stats_path %>" loading="lazy">
+        <div class="w-full h-full px-4 py-4">
+          <div class="text-lg font-bold text-white">LAST.FM</div>
+        </div>
+      </turbo-frame>
+    </div>
+
+    <div class="w-full md:w-1/2 2xl:w-1/4 min-h-[330px] bg-[#1d1d1d] px-4 py-4 text-white">
+      <div class="text-lg font-bold">FAVORITE ANIME GENRES</div>
+      <turbo-frame id="favorite_anime_genres" src="<%= anilist_user_statistics_path %>" class="flex flex-row" loading="lazy">
+      </turbo-frame>
+    </div>
+
+    <div class="w-full bg-[#046950] md:w-1/2 2xl:w-1/4 min-h-[330px]">
+      <turbo-frame id="last_watched" src="<%= anilist_user_activities_path %>" loading="lazy">
+        <div class="w-full h-full px-4 py-4 text-white ">
+          <div class="text-lg font-bold">LAST WATCHED</div>
+        </div>
+      </turbo-frame>
+    </div>
+
+    <div class="w-full bg-[#3d2c5d] md:w-1/2 2xl:w-1/4 min-h-[330px]  px-4 py-4 text-white">
+      <div class="text-lg font-bold">FAVORITE ANIME STUDIOS</div>
+      <turbo-frame id="favorite_anime_studios" src="<%= anilist_user_statistics_path %>" class="flex flex-row" loading="lazy">
+      </turbo-frame>
+    </div>
+
+    <div class="w-full bg-[#cb7333] flex flex-row md:w-1/2 2xl:w-1/4 min-h-[330px] px-4 py-4">
+    </div>
+
+    <div class="w-full bg-[#2a184d] md:w-1/2 2xl:w-1/4 min-h-[330px]">
+      <turbo-frame id="last_watched_movie" src="<%= anilist_user_activities_path %>" loading="lazy">
+        <div class="w-full h-full px-4 py-4 text-white">
+          <div class="text-lg font-bold">LAST WATCHED ANIME MOVIE</div>
+        </div>
+      </turbo-frame>
+    </div>
+
+    <div class="w-full flex flex-col md:w-1/2 2xl:w-1/4 min-h-[330px] text-white text-center">
+      <div class="bg-[#019edf] h-1/2 w-full flex flex-col px-4 pt-4">
+        <div class="text-lg font-bold">Watched Anime</div>
+        <div class="flex flex-row flex-wrap gap-4 mt-4">
+          <div class="flex flex-col grow">
+            <turbo-frame id="total_watched_anime_time_last_week" class="font-mono text-2xl font-bold" src="<%= anilist_user_activities_path %>"></turbo-frame>
+
+            <div class="font-bold">LAST WEEK</div>
+
+            <turbo-frame id="total_watched_anime_ep_last_week" src="<%= anilist_user_activities_path %>"></turbo-frame>
+          </div>
+          <div class="flex flex-col grow">
+            <turbo-frame id="total_watched_anime_time" class="font-mono text-2xl font-bold" src="<%= anilist_user_statistics_path %>"></turbo-frame>
+
+            <div class="font-bold">ALL TIME</div>
+
+            <turbo-frame id="total_watched_anime_ep" src="<%= anilist_user_statistics_path %>"></turbo-frame>
+          </div>
+        </div>
+      </div>
+      <div class="bg-[#0199d8] h-1/2 w-full flex flex-col px-4 pt-4">
+        <div class="text-lg font-bold">Watched Anime Movies / OVA / Special</div>
+        <div class="flex flex-row flex-wrap gap-4 mt-4">
+          <div class="flex flex-col grow">
+            <turbo-frame id="total_watched_anime_movie_time_last_week" class="font-mono text-2xl font-bold" src="<%= anilist_user_activities_path %>"></turbo-frame>
+
+            <div class="font-bold">LAST WEEK</div>
+
+            <turbo-frame id="total_watched_anime_movie_last_week" src="<%= anilist_user_activities_path %>"></turbo-frame>
+          </div>
+          <div class="flex flex-col grow">
+            <turbo-frame id="total_watched_anime_movie_time" class="font-mono text-2xl font-bold" src="<%= anilist_user_statistics_path %>">
+            </turbo-frame>
+
+            <div class="font-bold">ALL TIME</div>
+
+            <turbo-frame id="total_watched_anime_movie" src="<%= anilist_user_statistics_path %>">
+            </turbo-frame>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%= render "partials/divider" %>
+<% content_for :page_script do %>
+  <script>
+    // var legendMargin = {
+    //   id: 'legendMargin',
+    //   beforeInit(chart, legend, options) {
+    //     const fitValue = chart.legend.fit;
+    //     chart.legend.fit = function fit() {
+    //       fitValue.bind(chart.legend)();
+    //       return this.width += 190;
+    //     }
+    //   }
+    // }
+  </script>
+<% end %>

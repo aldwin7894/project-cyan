@@ -16,9 +16,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'admin', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_pack_tag 'admin', 'data-turbo-track': 'reload' %>
+    <%= javascript_pack_tag 'admin', 'data-turbo-track': 'reload' %>
   </head>
 
   <body>
@@ -29,7 +29,5 @@
     <%= render "layouts/cf" %>
     <%= render partial: "partials/toasts" %>
     <%= yield :page_script %>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" integrity="sha384-EcogLzNzScolFpuLPk/kxJRnmu39K6J1j3+8yrfrebDq7qtbZoB2gfP0rD08JKit" crossorigin="anonymous"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" integrity="sha384-xYx1P7dxspoifaKXuLoaPybset7M4RzoZPDVwB+CrVVobxN3h90OQGVoHYHtCr9G" crossorigin="anonymous"></script>
   </body>
 </html>

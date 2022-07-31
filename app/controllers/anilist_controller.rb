@@ -1,44 +1,10 @@
 # frozen_string_literal: true
 
 class AnilistController < ApplicationController
-  UserIdQuery = AniList::Client.parse <<-'GRAPHQL'
-    query($username: String) {
-      User(name: $username) {
-        id
-      }
-    }
-  GRAPHQL
-
-  UserFollowersQuery = AniList::Client.parse <<-'GRAPHQL'
-    query($user_id: Int!, $page: Int) {
-      Page(page: $page, perPage: 50) {
-        pageInfo {
-          total
-          hasNextPage
-        }
-        followers(userId: $user_id, sort: USERNAME) {
-          name
-        }
-      }
-    }
-  GRAPHQL
-
-  UserFollowingQuery = AniList::Client.parse <<-'GRAPHQL'
-    query($user_id: Int!, $page: Int) {
-      Page(page: $page, perPage: 50) {
-        pageInfo {
-          total
-          hasNextPage
-        }
-        following(userId: $user_id, sort: USERNAME) {
-          name
-        }
-      }
-    }
-  GRAPHQL
-
   def show
-    id = query(UserIdQuery, username: params[:id]).user.id
+    id = Rails.cache.fetch("ANILIST_USER_ID_#{params[:id]}", expires_in: 1.week, skip_nil: true) do
+      query(AniList::UserIdQuery, username: params[:id]).user.id
+    end
     @following_count = nil
     @followers_count = nil
     @following = []
@@ -46,7 +12,7 @@ class AnilistController < ApplicationController
 
     page = 1
     loop do
-      data = query(UserFollowingQuery, user_id: id, page: page)
+      data = query(AniList::UserFollowingQuery, user_id: id, page: page)
       @following_count ||= data.page.page_info.total
       @following.push(*data.page.following.map(&:name))
 
@@ -59,7 +25,7 @@ class AnilistController < ApplicationController
 
     page = 1
     loop do
-      data = query(UserFollowersQuery, user_id: id, page: page)
+      data = query(AniList::UserFollowersQuery, user_id: id, page: page)
       @followers_count ||= data.page.page_info.total
       @followers.push(*data.page.followers.map(&:name))
 

@@ -13,8 +13,9 @@ gem 'pg'
 gem 'puma', '~> 5.6'
 # Use SCSS for stylesheets
 gem "sassc-rails", "~> 2"
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+# Turbo gives you the speed of a single-page web application without having to write any JavaScript.
+gem "turbo-rails", "~> 1.1"
+
 # Transpile app-like JavaScript. Read more: https://github.com/shakacode/shakapacker
 gem "shakapacker", "6.5.0"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

@@ -1,0 +1,113 @@
+<turbo-frame id="favorite_anime_genres" class="flex flex-row">
+  <div class="flex flex-col grow">
+    <div>
+      <ul>
+        <% @genre_list.each do |genre| %>
+          <li class="flex flex-row gap-2 mt-2">
+            <div class="w-5 h-5" style="background: <%= genre[:backgroundColor] %>"></div>
+            <div><%= genre[:label] %></div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="h-[300px] w-[300px]">
+    <canvas class="grow" id="favoriteGenres" aria-label="Favorite Anime Genres" role="img">
+    Your browser does not support the canvas element.
+    </canvas>
+  </div>
+
+  <script>
+    document.addEventListener('turbo:frame-load', (event) => {
+      if (event.target.id === "favorite_anime_genres") {
+        const genre = document.getElementById('favoriteGenres').getContext('2d');
+        const genreChart = new Chart(genre, {
+          type: 'pie',
+          options: {
+            responsive: false,
+            layout: {
+              padding: 20
+            },
+            plugins: {
+              legend: {
+                display: false,
+              }
+            },
+            elements: {
+              arc: {
+                borderWidth: 0
+              }
+            }
+          },
+          data: JSON.parse(`<%= raw @genre_chart_data %>`),
+          plugins: []
+        });
+      }
+    });
+  </script>
+</turbo-frame>
+
+<turbo-frame id="favorite_anime_studios" class="flex flex-row">
+  <div class="flex flex-col grow">
+    <div>
+      <ul>
+        <% @studio_list.each do |studio| %>
+          <li class="flex flex-row gap-2 mt-2">
+            <div class="w-5 h-5" style="background: <%= studio[:backgroundColor] %>"></div>
+            <div><%= studio[:label] %></div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="h-[300px] w-[300px]">
+    <canvas id="favoriteStudios" aria-label="Favorite Anime Studios" role="img">
+      Your browser does not support the canvas element.
+    </canvas>
+  </div>
+
+  <script>
+    document.addEventListener('turbo:frame-load', (event) => {
+      if (event.target.id === "favorite_anime_studios") {
+        const studio = document.getElementById('favoriteStudios').getContext('2d');
+        const studioChart = new Chart(studio, {
+          type: 'pie',
+          options: {
+            responsive: false,
+            layout: {
+              padding: 20
+            },
+            plugins: {
+              legend: {
+                display: false,
+              }
+            },
+            elements: {
+              arc: {
+                borderWidth: 0
+              }
+            }
+          },
+          data: JSON.parse(`<%= raw @studio_chart_data %>`),
+          plugins: []
+        });
+      }
+    });
+  </script>
+</turbo-frame>
+
+<turbo-frame id="total_watched_anime_time" class="font-mono text-2xl font-bold">
+  <%= @total_watched_anime_time %>
+</turbo-frame>
+
+<turbo-frame id="total_watched_anime_ep">
+  <%= @total_watched_anime_ep %> episodes
+</turbo-frame>
+
+<turbo-frame id="total_watched_anime_movie_time" class="font-mono text-2xl font-bold">
+  <%= @total_watched_anime_movie_time %>
+</turbo-frame>
+
+<turbo-frame id="total_watched_anime_movie">
+  <%= @total_watched_anime_movie %> movies / ova / specials
+</turbo-frame>
