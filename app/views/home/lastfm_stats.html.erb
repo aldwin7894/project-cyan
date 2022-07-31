@@ -1,0 +1,43 @@
+<turbo-frame id="lastfm_stats" class="w-full md:w-1/2 2xl:w-1/4 min-h-[330px]">
+  <div class="w-full h-full bg-center" style="background-image: url(<%= @album_art %>)">
+    <div class="w-full h-full backdrop-blur-sm backdrop-brightness-[20%] text-white flex flex-col items-stretch gap-5 px-4 py-4">
+      <div class="text-lg font-bold">
+        <% if @lastfm_recent['nowplaying'] %>
+          LAST.FM (NOW PLAYING)
+        <% else %>
+          LAST.FM
+        <% end %>
+      </div>
+      <div class="flex flex-col gap-2" x-data="">
+        <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="w-[150px] mx-auto">
+          <img src="<%= @album_art %>" alt="albumart">
+        </button>
+        <div class="flex flex-col text-center">
+          <div class="text-[#3cb4f1] text-3xl font-bold line-clamp-1">
+            <%= @lastfm_recent['name'] %>
+          </div>
+          <div class="text-2xl line-clamp-1">
+            <%= "#{@lastfm_recent['artist']['name'].upcase}" %>
+          </div>
+          <% if @lastfm_recent['album']['content'].present? %>
+            <div class="text-[#e5ded3] italic text-xl">
+              <%= "#{@lastfm_recent['album']['content']}" %>
+            </div>
+          <% end %>
+          <% if @lastfm_recent['nowplaying'].blank? %>
+            <div>
+              <div class="text-lg">
+                last played
+                <% if time_ago_in_words(Time.zone.at(@lastfm_recent['date']['uts'].to_i)) == 'less than a minute' %>
+                  just now
+                <% else %>
+                  <%= (time_ago_in_words(Time.zone.at(@lastfm_recent['date']['uts'].to_i)) +' ago').sub('about', '') %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</turbo-frame>

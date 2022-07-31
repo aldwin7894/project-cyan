@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   resources :anilist
   resources :listenbrainz
   get "ping", to: "home#ping"
+  get "anilist_user_activities", to: "home#anilist_user_activities"
+  get "anilist_user_statistics", to: "home#anilist_user_statistics"
+  get "lastfm_stats", to: "home#lastfm_stats"
 
   namespace :admin do
     # Redirect /admin to the dashboard page.
