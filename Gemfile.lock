@@ -293,10 +293,11 @@ GEM
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.0)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
-    tzinfo (2.0.5)
+    turbo-rails (1.1.1)
+      actionpack (>= 6.0.0)
+      activejob (>= 6.0.0)
+      railties (>= 6.0.0)
+    tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -349,7 +350,7 @@ DEPENDENCIES
   shakapacker (= 6.5.0)
   sprockets-rails
   terser (~> 1.1)
-  turbolinks (~> 5)
+  turbo-rails (~> 1.1)
   tzinfo-data
   webdrivers
 

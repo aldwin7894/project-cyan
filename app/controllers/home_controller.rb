@@ -3,29 +3,9 @@
 class HomeController < ApplicationController
   include FormatDateHelper
 
-  def index
-    # lastfm
-    @album_art = helpers.asset_data_uri "lastfm-placeholder.webp"
-    @lastfm_recent = Rails.cache.fetch("LASTFM_RECENT_TRACKS", expires_in: 30.seconds, skip_nil: true) do
-      LASTFM_CLIENT.user.get_recent_tracks(user: ENV.fetch("LASTFM_USERNAME"), limit: 1, extended: 1)
-    end
-    if @lastfm_recent.is_a? Array
-      @lastfm_recent = @lastfm_recent.first
-    end
+  def index; end
 
-    album_art = @lastfm_recent&.[]("image")&.[](3)&.[]("content")
-
-    if album_art.present? && album_art.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
-      img = Rails.cache.fetch(album_art, expires_in: 7.days, skip_nil: true) do
-        HTTParty.get(album_art, format: :plain).body
-      end
-
-      if img.present?
-        base64 = Base64.strict_encode64(img).gsub(/\s+/, "")
-        @album_art = "data:image/#{File.extname(album_art).strip.downcase[1..-1]};base64,#{Rack::Utils.escape(base64)}"
-      end
-    end
-
+  def anilist_user_statistics
     user_id = Rails.cache.fetch("ANILIST_USER_ID_#{ENV.fetch('ANILIST_USERNAME')}", expires_in: 1.week, skip_nil: true) do
       query(AniList::UserIdQuery, username: ENV.fetch("ANILIST_USERNAME")).user.id
     end
@@ -92,6 +72,15 @@ class HomeController < ApplicationController
     @total_watched_anime_movie_time = format_date(@user_statistics.formats.to_a.select { |x| !["TV", "TV Short"].include? x.format }.map { |x| x.minutes_watched.to_i }.sum * 60)
     @total_watched_anime_movie = @user_statistics.formats.to_a.select { |x| !["TV", "TV Short"].include? x.format }.map { |x| x.count.to_i }.sum
 
+    render layout: false
+  end
+
+
+  def anilist_user_activities
+    user_id = Rails.cache.fetch("ANILIST_USER_ID_#{ENV.fetch('ANILIST_USERNAME')}", expires_in: 1.week, skip_nil: true) do
+      query(AniList::UserIdQuery, username: ENV.fetch("ANILIST_USERNAME")).user.id
+    end
+
     last_week = (Time.zone.now - 1.week).to_i
     page = 1
     @user_activity = []
@@ -112,6 +101,34 @@ class HomeController < ApplicationController
     @total_watched_anime_ep_last_week = @user_activity.size
     @total_watched_anime_movie_time_last_week = format_date(@watched_movie.map { |x| x.media.duration.to_i }.sum * 60)
     @total_watched_anime_movie_last_week = @watched_movie.size
+
+    render layout: false
+  end
+
+  def lastfm_stats
+    # lastfm
+    @album_art = helpers.asset_data_uri "lastfm-placeholder.webp"
+    @lastfm_recent = Rails.cache.fetch("LASTFM_RECENT_TRACKS", expires_in: 30.seconds, skip_nil: true) do
+      LASTFM_CLIENT.user.get_recent_tracks(user: ENV.fetch("LASTFM_USERNAME"), limit: 1, extended: 1)
+    end
+    if @lastfm_recent.is_a? Array
+      @lastfm_recent = @lastfm_recent.first
+    end
+
+    album_art = @lastfm_recent&.[]("image")&.[](3)&.[]("content")
+
+    if album_art.present? && album_art.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
+      img = Rails.cache.fetch(album_art, expires_in: 7.days, skip_nil: true) do
+        HTTParty.get(album_art, format: :plain).body
+      end
+
+      if img.present?
+        base64 = Base64.strict_encode64(img).gsub(/\s+/, "")
+        @album_art = "data:image/#{File.extname(album_art).strip.downcase[1..-1]};base64,#{Rack::Utils.escape(base64)}"
+      end
+    end
+
+    render layout: false
   end
 
   def ping

@@ -4,45 +4,15 @@
       <iconify-icon icon="mdi:timer-play" width="35"></iconify-icon>
       Recently watched episodes
     </div>
-    <div class="grid grid-cols-1 gap-5 text-center xs:grid-cols-2 lg:grid-cols-5" x-data="">
-      <% @watched_anime.first(5).each do |activity| %>
-        <div class="flex flex-col">
-          <button x-on:click="window.open('<%= activity.media.site_url %>')" class="mx-auto h-[250px] w-[177.5px] bg-auto bg-center bg-no-repeat bg-slate-400 drop-shadow-lg grayscale hover:grayscale-0" style="background-image: url(<%= activity.media.cover_image.large %>)">
-          </button>
-          <button x-on:click="window.open('<%= activity.site_url %>')" class="text-red-500 text-md hover:underline">
-            <%= activity.status.titleize %> <%= activity.progress %>
-          </button>
-          <div class="overflow-hidden text-lg font-bold leading-7 text-ellipsis line-clamp-1">
-            <%= activity.media.title.user_preferred %>
-          </div>
-
-          <div class="text-sm text-slate-600">
-            <%= Time.at(activity.created_at).strftime("%B %e, %Y %r") %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+    <turbo-frame id="watched_anime" src="<%= anilist_user_activities_path %>" class="grid grid-cols-1 gap-5 text-center xs:grid-cols-2 lg:grid-cols-5 min-h-[322px]" loading="lazy">
+      <%= render "watched_placeholder" %>
+    </turbo-frame>
     <div class="my-10 text-4xl">
       <iconify-icon icon="mdi:timer-play" width="35"></iconify-icon>
       Recently watched movies / ova / specials
     </div>
-    <div class="grid grid-cols-1 gap-5 text-center xs:grid-cols-2 lg:grid-cols-5" x-data="">
-      <% @watched_movie.first(5).each do |activity| %>
-        <div class="flex flex-col">
-          <button x-on:click="window.open('<%= activity.media.site_url %>')" class="mx-auto h-[250px] w-[177.5px] bg-cover bg-center drop-shadow-lg grayscale hover:grayscale-0" style="background-image: url(<%= activity.media.cover_image.large %>)">
-          </button>
-          <button x-on:click="window.open('<%= activity.site_url %>')" class="text-red-500 text-md hover:underline">
-            <%= activity.status.titleize %> <%= activity.progress %>
-          </button>
-          <div class="overflow-hidden text-lg font-bold leading-7 text-ellipsis line-clamp-1">
-            <%= activity.media.title.user_preferred %>
-          </div>
-
-          <div class="text-sm text-slate-600">
-            <%= Time.at(activity.created_at).strftime("%B %e, %Y %r") %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+    <turbo-frame id="watched_movie" src="<%= anilist_user_activities_path %>" class="grid grid-cols-1 gap-5 text-center xs:grid-cols-2 lg:grid-cols-5" x-data="" loading="lazy">
+      <%= render "watched_placeholder" %>
+    </turbo-frame>
   </div>
 </section>

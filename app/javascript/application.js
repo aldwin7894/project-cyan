@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs";
-import Turbolinks from "turbolinks";
+import "@hotwired/turbo-rails";
 import * as ActiveStorage from "@rails/activestorage";
 import Alpine from "alpinejs";
 import "iconify-icon";
@@ -13,7 +13,6 @@ import "./channels";
 import "./stylesheets/admin.css.scss";
 
 Rails.start();
-Turbolinks.start();
 ActiveStorage.start();
 
 window.Alpine = Alpine;
