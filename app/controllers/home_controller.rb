@@ -2,6 +2,8 @@
 
 class HomeController < ApplicationController
   include FormatDateHelper
+  ANIME_FORMATS = ["TV", "TV Short"]
+  IGNORED_USER_STATUS = ["plans to watch", "paused watching", "dropped"]
 
   def index; end
 
@@ -69,8 +71,8 @@ class HomeController < ApplicationController
     # watched stats
     @total_watched_anime_time = format_date(@user_statistics.minutes_watched.to_i * 60)
     @total_watched_anime_ep = @user_statistics.episodes_watched.to_i
-    @total_watched_anime_movie_time = format_date(@user_statistics.formats.to_a.select { |x| !["TV", "TV Short"].include? x.format }.map { |x| x.minutes_watched.to_i }.sum * 60)
-    @total_watched_anime_movie = @user_statistics.formats.to_a.select { |x| !["TV", "TV Short"].include? x.format }.map { |x| x.count.to_i }.sum
+    @total_watched_anime_movie_time = format_date(@user_statistics.formats.to_a.select { |x| !ANIME_FORMATS.include? x.format }.map { |x| x.minutes_watched.to_i }.sum * 60)
+    @total_watched_anime_movie = @user_statistics.formats.to_a.select { |x| !ANIME_FORMATS.include? x.format }.map { |x| x.count.to_i }.sum
 
     render layout: false
   end
@@ -94,9 +96,9 @@ class HomeController < ApplicationController
         page += 1
       end
     end
-    @user_activity = @user_activity.select { |x| !["plans to watch", "paused watching", "dropped"].include? x.status }
-    @watched_anime = @user_activity.select { |x| ["TV", "TV Short"].include? x.media.format }
-    @watched_movie = @user_activity.select { |x| !["TV", "TV Short"].include? x.media.format }
+    @user_activity = @user_activity.select { |x| !IGNORED_USER_STATUS.include? x.status }
+    @watched_anime = @user_activity.select { |x| ANIME_FORMATS.include? x.media.format }
+    @watched_movie = @user_activity.select { |x| !ANIME_FORMATS.include? x.media.format }
     @total_watched_anime_time_last_week = format_date(@user_activity.map { |x| x.media.duration.to_i }.sum * 60)
     @total_watched_anime_ep_last_week = @user_activity.size
     @total_watched_anime_movie_time_last_week = format_date(@watched_movie.map { |x| x.media.duration.to_i }.sum * 60)
