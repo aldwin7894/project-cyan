@@ -1,13 +1,13 @@
 <turbo-frame id="lastfm_stats" class="w-full md:w-1/2 2xl:w-1/4 min-h-[330px]">
   <div class="w-full h-full bg-center" style="background-image: url(<%= @album_art %>)">
-    <div class="w-full h-full backdrop-blur-sm backdrop-brightness-[20%] text-white flex flex-col items-stretch gap-5 px-4 py-4">
-      <div class="text-lg font-bold">
+    <div class="w-full h-full backdrop-blur-sm backdrop-brightness-[20%] text-white flex flex-col items-stretch gap-5 px-4 py-4" x-data="">
+      <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="text-lg font-bold text-left hover:underline">
         <% if @lastfm_recent['nowplaying'] %>
           LAST.FM (NOW PLAYING)
         <% else %>
           LAST.FM
         <% end %>
-      </div>
+      </button>
       <div class="flex flex-col gap-2" x-data="">
         <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="w-[150px] mx-auto">
           <img src="<%= @album_art %>" alt="albumart">
@@ -16,17 +16,17 @@
           <div class="text-[#3cb4f1] text-3xl font-bold line-clamp-1">
             <%= @lastfm_recent['name'] %>
           </div>
-          <div class="text-2xl line-clamp-1">
+          <button x-on:click="window.open('<%= @lastfm_recent['artist']['url'] %>')" class="text-2xl line-clamp-1 hover:underline">
             <%= "#{@lastfm_recent['artist']['name'].upcase}" %>
-          </div>
+          </button>
           <% if @lastfm_recent['album']['content'].present? %>
-            <div class="text-[#e5ded3] italic text-xl">
+            <button x-on:click="window.open('<%= @lastfm_recent['album']['url'] %>')" class="text-[#e5ded3] italic text-xl hover:underline">
               <%= "#{@lastfm_recent['album']['content']}" %>
-            </div>
+            </button>
           <% end %>
           <% if @lastfm_recent['nowplaying'].blank? %>
             <div>
-              <div class="text-lg">
+              <button x-on:click="window.open('https://www.last.fm/user/aldwin7894/library')" class="text-lg hover:underline">
                 last played
                 <% if time_ago_in_words(Time.zone.at(@lastfm_recent['date']['uts'].to_i)) == 'less than a minute' %>
                   just now
@@ -34,7 +34,7 @@
                   <%= (time_ago_in_words(Time.zone.at(@lastfm_recent['date']['uts'].to_i)) +' ago').sub('about', '') %>
                 <% end %>
               </div>
-            </div>
+            </button>
           <% end %>
         </div>
       </div>
