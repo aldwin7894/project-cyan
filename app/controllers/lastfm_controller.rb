@@ -19,16 +19,8 @@ class LastfmController < ApplicationController
     end
 
     album_art = @recent&.[]("image")&.[](2)&.[]("content")
-
     if album_art.present? && album_art.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
-      img = Rails.cache.fetch(album_art, expires_in: 7.days, skip_nil: true) do
-        HTTParty.get(album_art, format: :plain).body
-      end
-
-      if img.present?
-        base64 = Base64.strict_encode64(img).gsub(/\s+/, "")
-        @album_art = "data:image/#{File.extname(album_art).strip.downcase[1..-1]};base64,#{Rack::Utils.escape(base64)}"
-      end
+      @album_art = album_art
     end
 
     @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"
