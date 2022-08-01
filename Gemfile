@@ -91,3 +91,5 @@ gem "image_optim_pack", "~> 0.9.0"
 gem "image_optim_rails", "~> 0.5.0"
 
 gem "s3_asset_deploy", "~> 1.0"
+
+gem "logstash-event", "~> 1.2"

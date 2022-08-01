@@ -168,6 +168,7 @@ GEM
       activesupport (>= 4)
       railties (>= 4)
       request_store (~> 1.0)
+    logstash-event (1.2.02)
     loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -337,6 +338,7 @@ DEPENDENCIES
   lastfm (~> 1.27)
   listen (~> 3.7)
   lograge (~> 0.12.0)
+  logstash-event (~> 1.2)
   newrelic_rpm (~> 8)
   pg
   puma (~> 5.6)

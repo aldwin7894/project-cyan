@@ -1,12 +1,12 @@
 <turbo-frame id="last_watched" class="w-full h-full">
-  <div class="w-full h-full bg-center bg-cover" style="background-image: url(<%= @user_activity&.first&.media&.banner_image %>)">
+  <div class="w-full h-full bg-center bg-cover" style="background-image: url(<%= @user_activity&.first&.[]('media')&.[]('bannerImage') %>)">
     <div class="flex flex-col w-full h-full px-4 py-4 text-white backdrop-brightness-50">
       <div class="text-lg font-bold">LAST WATCHED</div>
-        <a class="text-4xl font-bold hover:underline" href="<%= @user_activity&.first&.media&.site_url %>" target="_blank">
-          <%= @user_activity&.first&.media&.title&.user_preferred %>
+        <a class="text-4xl font-bold hover:underline" href="<%= @user_activity&.first&.[]('media')&.[]('siteUrl') %>" target="_blank">
+          <%= @user_activity&.first&.[]('media')&.[]('title')&.[]('userPreferred') %>
         </a>
         <div class="self-end mt-auto">
-          <a class="text-lg hover:underline grow" href="<%= @user_activity&.first&.site_url %>" target="_blank">MORE INFO</a>
+          <a class="text-lg hover:underline grow" href="<%= @user_activity&.first&.[]('siteUrl') %>" target="_blank">MORE INFO</a>
         </div>
       </div>
     </div>
@@ -14,14 +14,14 @@
 </turbo-frame>
 
 <turbo-frame id="last_watched_movie" class="w-full h-full">
-  <div class="w-full h-full bg-center bg-cover" style="background-image: url(<%= @watched_movie&.first&.media&.banner_image %>)">
+  <div class="w-full h-full bg-center bg-cover" style="background-image: url(<%= @watched_movie&.first&.[]('media')&.[]('bannerImage') %>)">
     <div class="flex flex-col w-full h-full px-4 py-4 text-white backdrop-brightness-50">
       <div class="text-lg font-bold">LAST WATCHED ANIME MOVIE</div>
-        <a class="text-4xl font-bold hover:underline" href="<%= @watched_movie&.first&.media&.site_url %>" target="_blank">
-          <%= @watched_movie&.first&.media&.title&.user_preferred %>
+        <a class="text-4xl font-bold hover:underline" href="<%= @watched_movie&.first&.[]('media')&.[]('siteUrl') %>" target="_blank">
+          <%= @watched_movie&.first&.[]('media')&.[]('title')&.[]('userPreferred') %>
         </a>
         <div class="self-end mt-auto">
-          <a class="text-lg hover:underline grow" href="<%= @watched_movie&.first&.site_url %>" target="_blank">MORE INFO</a>
+          <a class="text-lg hover:underline grow" href="<%= @watched_movie&.first&.[]('siteUrl') %>" target="_blank">MORE INFO</a>
         </div>
       </div>
     </div>
@@ -30,17 +30,18 @@
 
 <turbo-frame id="watched_anime" class="grid phone:grid-cols-1 gap-5 text-center tablet:grid-cols-2 laptop:grid-cols-5 min-h-[322px]" x-data="">
   <% @watched_anime&.first(5)&.each do |activity| %>
+    <%= activity %>
     <div class="flex flex-col">
-      <button x-on:click="window.open('<%= activity.media.site_url %>')" class="mx-auto h-[250px] w-[177.5px] bg-auto bg-center bg-no-repeat bg-slate-400 drop-shadow-lg grayscale hover:grayscale-0" style="background-image: url(<%= activity.media.cover_image.large %>)">
+      <button x-on:click="window.open('<%= activity['media']['siteUrl'] %>')" class="mx-auto h-[250px] w-[177.5px] bg-auto bg-center bg-no-repeat bg-slate-400 drop-shadow-lg grayscale hover:grayscale-0" style="background-image: url(<%= activity['media']['coverImage']['large'] %>)">
       </button>
-      <button x-on:click="window.open('<%= activity.site_url %>')" class="text-red-500 text-md hover:underline">
-        <%= activity.status.titleize %> <%= activity.progress %>
+      <button x-on:click="window.open('<%= activity['siteUrl'] %>')" class="text-red-500 text-md hover:underline">
+        <%= activity['status'].titleize %> <%= activity['progress'] %>
       </button>
       <div class="text-lg font-bold line-clamp-1">
-        <%= activity.media.title.user_preferred %>
+        <%= activity['media']['title']['userPreferred'] %>
       </div>
       <div class="text-sm text-slate-600">
-        <%= Time.at(activity.created_at).strftime("%B %e, %Y %r") %>
+        <%= Time.zone.at(activity['createdAt'].to_i).strftime("%B %e, %Y %r") %>
       </div>
     </div>
   <% end %>
@@ -49,16 +50,16 @@
 <turbo-frame id="watched_movie" class="grid phone:grid-cols-1 gap-5 text-center tablet:grid-cols-2 laptop:grid-cols-5 min-h-[322px]" x-data="">
   <% @watched_movie&.first(5)&.each do |activity| %>
     <div class="flex flex-col">
-      <button x-on:click="window.open('<%= activity.media.site_url %>')" class="mx-auto h-[250px] w-[177.5px] bg-cover bg-center drop-shadow-lg grayscale hover:grayscale-0" style="background-image: url(<%= activity.media.cover_image.large %>)">
+      <button x-on:click="window.open('<%= activity['media']['siteUrl'] %>')" class="mx-auto h-[250px] w-[177.5px] bg-cover bg-center drop-shadow-lg grayscale hover:grayscale-0" style="background-image: url(<%= activity['media']['coverImage']['large'] %>)">
       </button>
-      <button x-on:click="window.open('<%= activity.site_url %>')" class="text-red-500 text-md hover:underline">
-        <%= activity.status.titleize %> <%= activity.progress %>
+      <button x-on:click="window.open('<%= activity['siteUrl'] %>')" class="text-red-500 text-md hover:underline">
+        <%= activity['status'].titleize %> <%= activity['progress'] %>
       </button>
       <div class="text-lg font-bold line-clamp-1">
-        <%= activity.media.title.user_preferred %>
+        <%= activity['media']['title']['userPreferred'] %>
       </div>
       <div class="text-sm text-slate-600">
-        <%= Time.at(activity.created_at).strftime("%B %e, %Y %r") %>
+        <%= Time.zone.at(activity['createdAt'].to_i).strftime("%B %e, %Y %r") %>
       </div>
     </div>
   <% end %>

@@ -58,6 +58,6 @@ module Spotify
     }
     res = HTTParty.get(SEARCH_URL, headers: headers, query: query)
     artist = JSON.parse(res.body)
-    artist&.[]("artists")&.("items")&.[](0)&.[]("uri")&.split(":")&.last
+    artist&.[]("artists")&.[]("items")&.[](0)&.[]("uri")&.split(":")&.last
   end
 end
