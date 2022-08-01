@@ -1,0 +1,63 @@
+# frozen_string_literal: true
+
+module Spotify
+  ACCESS_TOKEN_URL = "https://accounts.spotify.com/api/token"
+  GET_ARTIST_URL = "https://api.spotify.com/v1/artists"
+  SEARCH_URL = "https://api.spotify.com/v1/search"
+  ARTISTS_WHITELIST = {
+    "Heavenly": "7j3etSXgd9ZLYIUW7KWnpd"
+  }
+
+  def Spotify.get_access_token
+    token = Rails.cache.fetch("SPOTIFY_ACCESS_TOKEN", expires_in: 1.hour, skip_nil: true) do
+      authorization = Base64.urlsafe_encode64(ENV.fetch("SPOTIFY_CLIENT_ID") + ":" + ENV.fetch("SPOTIFY_CLIENT_SECRET"))
+      headers = {
+        "Authorization": "Basic #{authorization}",
+        "Content-Type" => "application/x-www-form-urlencoded",
+        "charset" => "utf-8"
+      }
+      body = "grant_type=client_credentials"
+
+      res = HTTParty.post(ACCESS_TOKEN_URL, headers: headers, body: body)
+      res["access_token"]
+    end
+
+    token
+  end
+
+  def Spotify.get_artists_images(ids)
+    if ids.blank? then return end
+    headers = {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+      "Authorization": "Bearer #{Spotify.get_access_token}"
+    }
+    query = {
+      ids: ids
+    }
+
+    res = HTTParty.get(GET_ARTIST_URL, headers: headers, query: query)
+    artists = JSON.parse(res.body)
+    artists&.[]("artists")&.pluck("images")&.map { |x| x[0]["url"] }
+  end
+
+  def Spotify.get_artist_id_by_name(name)
+    if name.blank? then return end
+    if ARTISTS_WHITELIST[name.to_sym] then return ARTISTS_WHITELIST[name.to_sym] end
+
+    headers = {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+      "Authorization": "Bearer #{Spotify.get_access_token}"
+    }
+
+    query = {
+      q: name,
+      type: "artist",
+      limit: 1
+    }
+    res = HTTParty.get(SEARCH_URL, headers: headers, query: query)
+    artist = JSON.parse(res.body)
+    artist&.[]("artists")&.("items")&.[](0)&.[]("uri")&.split(":")&.last
+  end
+end

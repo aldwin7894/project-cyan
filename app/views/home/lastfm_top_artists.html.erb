@@ -1,0 +1,16 @@
+<turbo-frame id="lastfm_top_artists">
+  <div class="w-full h-full bg-center bg-cover">
+    <div class="flex flex-col w-full h-full px-4 py-4 text-white backdrop-brightness-50" x-data="">
+      <button x-on:click="window.open('https://www.last.fm/user/aldwin7894/library/artists?date_preset=ALL')" class="text-lg font-bold text-left hover:underline">LAST.FM (TOP ARTISTS OF ALL TIME)</button>
+      <div class="flex flex-row flex-wrap gap-4 py-1">
+        <% @lastfm_top_artists.each do |artist| %>
+          <button x-on:click="window.open('<%= artist['url'] %>')" style="background-image: url('<%= artist['image'] %>')" class="w-[100px] h-[100px] bg-cover bg-center">
+            <div class="flex flex-col w-full h-full px-1 py-1 opacity-0 hover:backdrop-brightness-[25%] hover:opacity-100">
+              <div class="line-clamp-3"><%= artist['name'] %></div>
+              <div class="self-end mt-auto text-[10px] w-full">Rank <%= artist['rank'] %> | Plays <%= artist['playcount'] %></div>
+            </div>
+          </button>
+        <% end %>
+      </div>
+  </div>
+</turbo-frame>

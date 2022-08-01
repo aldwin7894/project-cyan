@@ -28,13 +28,19 @@
       </turbo-frame>
     </div>
 
-    <div class="phone:w-full bg-[#3d2c5d] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px]  px-4 py-4 text-white" x-data="">
+    <div class="phone:w-full bg-[#3d2c5d] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px] px-4 py-4 text-white" x-data="">
       <button x-on:click="window.open('https://anilist.co/user/CyanNyan/stats/anime/studios')" class="text-lg font-bold hover:underline">FAVORITE ANIME STUDIOS</button>
       <turbo-frame id="favorite_anime_studios" src="<%= anilist_user_statistics_path %>" class="flex flex-row" loading="lazy">
       </turbo-frame>
     </div>
 
-    <div class="phone:w-full bg-[#cb7333] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px] px-4 py-4 flex flex-row">
+    <div class="phone:w-full bg-[#cb7333] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px]">
+
+      <turbo-frame id="lastfm_top_artists" src="<%= lastfm_top_artists_path %>" loading="lazy">
+        <div class="w-full h-full px-4 py-4 text-white" x-data="">
+          <button x-on:click="window.open('https://www.last.fm/user/aldwin7894/library/artists?date_preset=ALL')" class="text-lg font-bold hover:underline">LAST.FM (TOP ARTISTS OF ALL TIME)</button>
+        </div>
+      </turbo-frame>
     </div>
 
     <div class="phone:w-full bg-[#2a184d] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px]">
@@ -46,7 +52,7 @@
     </div>
 
     <div class="phone:w-full flex flex-col desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px] text-white text-center">
-      <div class="bg-[#019edf] h-1/2 w-full flex flex-col px-4 pt-4" x-data="">
+      <div class="bg-[#019edf] flex-1 w-full flex flex-col px-4 py-4" x-data="">
         <button x-on:click="window.open('https://anilist.co/user/CyanNyan/stats/anime/overview')" class="text-lg font-bold hover:underline">Watched Anime</button>
         <div class="flex flex-row flex-wrap gap-4 mt-4">
           <div class="flex flex-col grow">
@@ -65,7 +71,7 @@
           </div>
         </div>
       </div>
-      <div class="bg-[#0199d8] h-1/2 w-full flex flex-col px-4 pt-4">
+      <div class="bg-[#0199d8] flex-1 w-full flex flex-col px-4 py-4">
         <div class="text-lg font-bold">Watched Anime Movies / OVA / Special</div>
         <div class="flex flex-row flex-wrap gap-4 mt-4">
           <div class="flex flex-col grow">
