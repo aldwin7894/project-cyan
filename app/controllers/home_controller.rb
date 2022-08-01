@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "spotify/spotify"
+
 class HomeController < ApplicationController
   include FormatDateHelper
   ANIME_FORMATS = ["TV", "TV Short"]
@@ -108,7 +110,6 @@ class HomeController < ApplicationController
   end
 
   def lastfm_stats
-    # lastfm
     @album_art = helpers.asset_data_uri "lastfm-placeholder.webp"
     @lastfm_recent = Rails.cache.fetch("LASTFM_RECENT_TRACKS", expires_in: 30.seconds, skip_nil: true) do
       LASTFM_CLIENT.user.get_recent_tracks(user: ENV.fetch("LASTFM_USERNAME"), limit: 1, extended: 1)
@@ -128,6 +129,29 @@ class HomeController < ApplicationController
         base64 = Base64.strict_encode64(img).gsub(/\s+/, "")
         @album_art = "data:image/#{File.extname(album_art).strip.downcase[1..-1]};base64,#{Rack::Utils.escape(base64)}"
       end
+    end
+
+    render layout: false
+  end
+
+  def lastfm_top_artists
+    @lastfm_top_artists = Rails.cache.fetch("LASTFM_TOP_ARTISTS", expires_in: 1.day, skip_nil: true) do
+      LASTFM_CLIENT.user.get_top_artists(user: ENV.fetch("LASTFM_USERNAME"), period: "overall", limit: 12)
+    end
+
+    artist_names = @lastfm_top_artists.pluck("name")
+    artist_ids = []
+    artist_names.each do |name|
+      artist_id = Rails.cache.fetch("SPOTIFY_ARTIST_ID_#{name.parameterize(separator: '_')}", expires_in: 1.week, skip_nil: true) do
+        Spotify.get_artist_id_by_name(name)
+      end
+      artist_ids.push(artist_id)
+    end
+    images = Spotify.get_artists_images(artist_ids.join(","))
+
+    @lastfm_top_artists = @lastfm_top_artists.each_with_index.map do |artist, i|
+      artist["image"] = images[i]
+      artist
     end
 
     render layout: false

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get "anilist_user_activities", to: "home#anilist_user_activities"
   get "anilist_user_statistics", to: "home#anilist_user_statistics"
   get "lastfm_stats", to: "home#lastfm_stats"
+  get "lastfm_top_artists", to: "home#lastfm_top_artists"
 
   namespace :admin do
     # Redirect /admin to the dashboard page.
