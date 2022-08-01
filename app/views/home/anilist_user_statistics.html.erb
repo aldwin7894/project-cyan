@@ -1,10 +1,10 @@
 <turbo-frame id="favorite_anime_genres" class="flex flex-row">
-  <div class="flex flex-col grow">
+  <div class="grow flex flex-col">
     <div>
       <ul>
         <% @genre_list.each do |genre| %>
           <li class="flex flex-row gap-2 mt-2">
-            <div class="w-5 h-5" style="background: <%= genre[:backgroundColor] %>"></div>
+            <div class="w-[20px] h-[20px] my-auto" style="background: <%= genre[:backgroundColor] %>"></div>
             <div><%= genre[:label] %></div>
           </li>
         <% end %>
@@ -48,12 +48,12 @@
 </turbo-frame>
 
 <turbo-frame id="favorite_anime_studios" class="flex flex-row">
-  <div class="flex flex-col grow">
+  <div class="grow flex flex-col">
     <div>
       <ul>
         <% @studio_list.each do |studio| %>
           <li class="flex flex-row gap-2 mt-2">
-            <div class="w-5 h-5" style="background: <%= studio[:backgroundColor] %>"></div>
+            <div class="w-[20px] h-[20px] my-auto" style="background: <%= studio[:backgroundColor] %>"></div>
             <div><%= studio[:label] %></div>
           </li>
         <% end %>

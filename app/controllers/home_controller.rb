@@ -73,9 +73,9 @@ class HomeController < ApplicationController
     })
 
     # watched stats
-    @total_watched_anime_time = format_date(@user_statistics["minutes_watched"].to_i * 60)
-    @total_watched_anime_ep = @user_statistics["episodes_watched"].to_i
-    @total_watched_anime_movie_time = format_date(@user_statistics["formats"].to_a.select { |x| !ANIME_FORMATS.include? x["format"] }.map { |x| x["minutes_watched"].to_i }.sum * 60)
+    @total_watched_anime_time = format_date(@user_statistics["minutesWatched"].to_i * 60)
+    @total_watched_anime_ep = @user_statistics["episodesWatched"].to_i
+    @total_watched_anime_movie_time = format_date(@user_statistics["formats"].to_a.select { |x| !ANIME_FORMATS.include? x["format"] }.map { |x| x["minutesWatched"].to_i }.sum * 60)
     @total_watched_anime_movie = @user_statistics["formats"].to_a.select { |x| !ANIME_FORMATS.include? x["format"] }.map { |x| x["count"].to_i }.sum
 
     render layout: false
