@@ -4,7 +4,7 @@ require "spotify/spotify"
 
 class HomeController < ApplicationController
   include FormatDateHelper
-  ANIME_FORMATS = ["TV", "TV Short"]
+  ANIME_FORMATS = ["TV", "TV_SHORT", "ONA"]
   IGNORED_USER_STATUS = ["plans to watch", "paused watching", "dropped"]
 
   def index; end
@@ -109,6 +109,7 @@ class HomeController < ApplicationController
     @user_activity = @user_activity.select { |x| !IGNORED_USER_STATUS.include? x["status"] }
     @watched_anime = @user_activity.select { |x| ANIME_FORMATS.include? x["media"]["format"] }
     @watched_movie = @user_activity.select { |x| !ANIME_FORMATS.include? x["media"]["format"] }
+    @last_watched_movie = @watched_movie.find { |x| x["media"]["format"] == "MOVIE" }
     @total_watched_anime_time_last_week = format_date(@user_activity.map { |x| x["media"]["duration"].to_i }.sum * 60)
     @total_watched_anime_ep_last_week = @user_activity.size
     @total_watched_anime_movie_time_last_week = format_date(@watched_movie.map { |x| x["media"]["duration"].to_i }.sum * 60)
