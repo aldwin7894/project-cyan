@@ -7,6 +7,10 @@ module Spotify
   ARTISTS_WHITELIST = {
     "Heavenly": "7j3etSXgd9ZLYIUW7KWnpd"
   }
+  JSON_HEADER = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+  }
 
   def Spotify.get_access_token
     token = Rails.cache.fetch("SPOTIFY_ACCESS_TOKEN", expires_in: 1.hour, skip_nil: true) do
@@ -28,8 +32,7 @@ module Spotify
   def Spotify.get_artists_images(ids)
     if ids.blank? then return end
     headers = {
-      "Accept": "application/json",
-      "Content-Type": "application/json",
+      **JSON_HEADER,
       "Authorization": "Bearer #{Spotify.get_access_token}"
     }
     query = {
@@ -46,8 +49,7 @@ module Spotify
     if ARTISTS_WHITELIST[name.to_sym] then return ARTISTS_WHITELIST[name.to_sym] end
 
     headers = {
-      "Accept": "application/json",
-      "Content-Type": "application/json",
+      **JSON_HEADER,
       "Authorization": "Bearer #{Spotify.get_access_token}"
     }
 
