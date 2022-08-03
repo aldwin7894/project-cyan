@@ -2,21 +2,17 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins %w[
-      localhost
-      aldwin7894.win
-      www.aldwin7894.win
-    ]
+    origins ENV.fetch("ASSETS_ALLOWED_ORIGINS").split(" ")
     resource "/vite/*",
       headers: :any,
-      methods: :get
+      methods: [:get, :options, :head]
     resource "/vite/assets/*",
       headers: :any,
-      methods: :get
+      methods: [:get, :options, :head]
   end
 
   allow do
     origins "*"
-    resource "*", headers: :any, methods: :get
+    resource "*", headers: :any, methods: [:get, :post, :put, :patch, :options, :head]
   end
 end
