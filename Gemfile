@@ -78,3 +78,5 @@ gem "httplog", "~> 1.5"
 gem "s3_asset_deploy", "~> 1.0"
 
 gem "logstash-event", "~> 1.2"
+
+gem "rack-cors", "~> 1.1"
