@@ -29,7 +29,7 @@
     "alpinejs": "^3.10.3",
     "autoprefixer": "10.4.8",
     "babel-loader": "8",
-    "chart.js": "^3.8.2",
+    "chart.js": "^3.9.0",
     "compression-webpack-plugin": "10",
     "css-loader": "^6.6.0",
     "css-minimizer-webpack-plugin": "^4.0.0",
