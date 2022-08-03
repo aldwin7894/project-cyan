@@ -5,19 +5,14 @@ ruby '3.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 7.0.3'
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails", require: "sprockets/railtie"
+# use vite to build javascripts and assets
+gem "vite_rails", "~> 3.0"
 # Use postgres
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 5.6'
-# Use SCSS for stylesheets
-gem "sassc-rails", "~> 2"
 # Turbo gives you the speed of a single-page web application without having to write any JavaScript.
 gem "turbo-rails", "~> 1.1"
-
-# Transpile app-like JavaScript. Read more: https://github.com/shakacode/shakapacker
-gem "shakapacker", "6.5.0"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.11'
 # Use Redis adapter to run Action Cable in production
@@ -70,8 +65,6 @@ gem "cocoon", "~> 1.2"
 
 gem "aws-sdk-s3", "~> 1"
 
-gem "exception_handler", "~> 0.8.0"
-
 gem "graphql-client", "~> 0.18.0"
 
 gem "lograge", "~> 0.12.0"
@@ -80,15 +73,7 @@ gem "rack-brotli", "~> 1.2"
 
 gem "health_check", "~> 3.1"
 
-gem "heroicon", "~> 0.4.0"
-
-gem "terser", "~> 1.1"
-
 gem "httplog", "~> 1.5"
-
-gem "image_optim_pack", "~> 0.9.0"
-
-gem "image_optim_rails", "~> 0.5.0"
 
 gem "s3_asset_deploy", "~> 1.0"
 

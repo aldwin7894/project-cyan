@@ -11,13 +11,9 @@
   },
   "scripts": {
     "anilist:schema:dump": "npx apollo schema:download --endpoint=https://graphql.anilist.co ./db/schema.json",
-    "webpack-dev": "./bin/webpacker --watch --progress"
+    "dev": "./bin/vite dev"
   },
   "dependencies": {
-    "@babel/core": "7",
-    "@babel/plugin-transform-runtime": "7",
-    "@babel/preset-env": "7",
-    "@babel/runtime": "7",
     "@hotwired/turbo-rails": "^7.1.3",
     "@rails/actioncable": "^7.0.3",
     "@rails/activestorage": "^7.0.3",
@@ -27,45 +23,30 @@
     "@tailwindcss/line-clamp": "^0.4.0",
     "@tailwindcss/typography": "^0.5.4",
     "alpinejs": "^3.10.3",
-    "autoprefixer": "10.4.8",
-    "babel-loader": "8",
-    "chart.js": "^3.8.2",
-    "compression-webpack-plugin": "10",
-    "css-loader": "^6.6.0",
-    "css-minimizer-webpack-plugin": "^4.0.0",
+    "autoprefixer": "^10.4.8",
+    "chart.js": "^3.9.1",
     "cssnano": "^5.1.12",
     "iconify-icon": "^1.0.0-beta.2",
-    "mini-css-extract-plugin": "^2.6.1",
-    "pnp-webpack-plugin": "1",
-    "postcss": "8.4.6",
-    "postcss-flexbugs-fixes": "5.0.2",
-    "postcss-import": "14.1.0",
-    "postcss-loader": "7.0.1",
-    "postcss-preset-env": "7.7.2",
-    "sass": "1",
-    "sass-loader": "13",
-    "shakapacker": "6.5.0",
-    "style-loader": "^3.3.1",
-    "tailwindcss": "3",
-    "terser-webpack-plugin": "5",
-    "webpack": "5",
-    "webpack-assets-manifest": "5",
-    "webpack-cli": "4",
-    "webpack-merge": "5"
+    "postcss": "^8.4.14",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-import": "^14.1.0",
+    "postcss-preset-env": "^7.7.2",
+    "rollup-plugin-gzip": "^3.0.1",
+    "sass": "^1.54.1",
+    "tailwindcss": "^3.1.7",
+    "tw-elements": "^1.0.0-alpha12",
+    "vite": "^3.0.0",
+    "vite-plugin-full-reload": "^1.0.3",
+    "vite-plugin-ruby": "^3.1.0"
   },
   "version": "0.1.0",
-  "babel": {
-    "presets": [
-      "./node_modules/shakapacker/package/babel/preset.js"
-    ]
-  },
   "browserslist": [
     "defaults"
   ],
   "devDependencies": {
-    "eslint": "8",
-    "eslint-config-airbnb-base": "15",
-    "eslint-plugin-import": "2",
-    "webpack-dev-server": "^4.9.3"
+    "@types/node": "^18.6.3",
+    "eslint": "^8.21.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
   }
 }

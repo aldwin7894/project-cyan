@@ -8,13 +8,27 @@
 
 Rails.application.configure do
   config.content_security_policy do |policy|
-    policy.connect_src :self, :https, "http://localhost:3035", "ws://localhost:3035" if Rails.env.development?
-    #     policy.default_src :self, :https
-    #     policy.font_src    :self, :https, :data
-    #     policy.img_src     :self, :https, :data
-    #     policy.object_src  :none
-    #     policy.script_src  :self, :https
-    #     policy.style_src   :self, :https
+    policy.default_src :self, :https
+    policy.font_src    :self, :https, :data
+    policy.img_src     :self, :https, :data, :blob
+    policy.object_src  :none
+    policy.script_src  :self, :https, :unsafe_inline
+    policy.style_src   :self, :https
+    policy.connect_src :self, :https, :ws, :wss
+
+    # Preventing ClickJacking
+    policy.frame_ancestors :self
+
+    # Ensure that all requests will be sent over HTTPS with no fallback to HTTP.
+    policy.upgrade_insecure_requests
+
+    if Rails.env.development? || Rails.env.test?
+      policy.connect_src(*policy.connect_src, "http://localhost:3035", "ws://localhost:3035", "ws://#{ViteRuby.config.host_with_port}")
+      policy.script_src(*policy.script_src, :unsafe_eval, :blob, "http://#{ViteRuby.config.host_with_port}")
+      policy.img_src(*policy.img_src, "http://#{ViteRuby.config.host_with_port}")
+      policy.style_src(*policy.style_src, :unsafe_inline, "http://#{ViteRuby.config.host_with_port}")
+    end
+
     #     # Specify URI for violation reports
     #     # policy.report_uri "/csp-violation-report-endpoint"
   end

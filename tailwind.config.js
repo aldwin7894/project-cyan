@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./public/**/*.html",
     "./app/**/*.{html,js,erb,rb}",
+    "./node_modules/tw-elements/dist/js/**/*.js",
   ],
   presets: [],
   darkMode: "media", // or 'class'
@@ -14,7 +15,7 @@ module.exports = {
       lg: { min: "1024px", max: "1279px" },
       xl: { min: "1280px", max: "1535px" },
       "2xl": { min: "1536px" },
-      phone: "375px",
+      phone: "0px",
       tablet: "576px",
       laptop: "992px",
       desktop: "1200px",
@@ -978,5 +979,6 @@ module.exports = {
     require("@tailwindcss/forms"),
     require("@tailwindcss/line-clamp"),
     require("@tailwindcss/aspect-ratio"),
+    require("tw-elements/dist/plugin"),
   ],
 };

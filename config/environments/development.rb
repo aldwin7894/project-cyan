@@ -14,7 +14,7 @@ Rails.application.configure do
   config.eager_load = false
 
   # Show full error reports.
-  config.consider_all_requests_local = true
+  config.consider_all_requests_local = false
 
   # Enable server timing
   config.server_timing = true
@@ -66,18 +66,6 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
-  # Debug mode disables concatenation and preprocessing of assets.
-  # This option may cause significant delays in view rendering with a large
-  # number of complex assets.
-  config.assets.debug = true
-
-  # Suppress logger output for asset requests.
-  config.assets.quiet = true
-
-  # Image optim configs
-  config.assets.compress = true
-  config.assets.image_optim = true
-
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
@@ -91,7 +79,7 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
   config.hosts << /[a-z0-9-]+\.ngrok\.io/
-  config.asset_host = "http://localhost:3000"
+  config.asset_host = ENV.fetch("RAILS_ASSET_HOST", "http://localhost:3036")
 
   # if Rails.const_defined? "Server"
   #   config.asset_host = "http://#{Rails::Server::Options.new.parse!(ARGV)[:Host]}:#{Rails::Server::Options.new.parse!(ARGV)[:Port]}"

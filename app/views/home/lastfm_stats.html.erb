@@ -1,7 +1,7 @@
-<turbo-frame id="lastfm_stats" class="w-full md:w-1/2 2xl:w-1/4 min-h-[330px]">
+<turbo-frame id="lastfm_stats">
   <div class="w-full h-full bg-center" style="background-image: url(<%= @album_art %>)">
     <div class="w-full h-full backdrop-blur-sm backdrop-brightness-[40%] bg-gradient-to-tr from-cyan-700/30 to-pink-500/30 text-white flex flex-col items-stretch gap-5 px-4 py-4" x-data="">
-      <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="text-lg font-bold text-left hover:underline">
+      <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="hover:underline text-lg font-bold text-left">
         <% if @lastfm_recent['nowplaying'] %>
           LAST.FM (NOW PLAYING)
         <% else %>
@@ -13,20 +13,20 @@
           <img src="<%= @album_art %>" alt="albumart">
         </button>
         <div class="flex flex-col text-center">
-          <div class="text-[#3cb4f1] text-3xl font-bold line-clamp-1 break-all">
+          <div class="text-[#3cb4f1] text-3xl font-bold line-clamp-2 break-words">
             <%= @lastfm_recent['name'] %>
           </div>
-          <button x-on:click="window.open('<%= @lastfm_recent['artist']['url'] %>')" class="text-2xl line-clamp-1 hover:underline">
+          <div x-on:click="window.open('<%= @lastfm_recent['artist']['url'] %>')" class="line-clamp-1 hover:underline text-2xl cursor-pointer">
             <%= "#{@lastfm_recent['artist']['name'].upcase}" %>
-          </button>
+          </div>
           <% if @lastfm_recent['album']['content'].present? %>
-            <button x-on:click="window.open('<%= @lastfm_recent['album']['url'] %>')" class="text-[#e5ded3] italic text-xl hover:underline">
+            <div x-on:click="window.open('<%= @lastfm_recent['album']['url'] %>')" class="text-[#e5ded3] italic text-xl hover:underline line-clamp-1 break-all cursor-pointer">
               <%= "#{@lastfm_recent['album']['content']}" %>
-            </button>
+            </div>
           <% end %>
           <% if @lastfm_recent['nowplaying'].blank? %>
             <div>
-              <button x-on:click="window.open('https://www.last.fm/user/aldwin7894/library')" class="text-lg hover:underline">
+              <div x-on:click="window.open('https://www.last.fm/user/aldwin7894/library')" class="hover:underline line-clamp-1 text-lg break-all cursor-pointer">
                 last played
                 <% if time_ago_in_words(Time.zone.at(@lastfm_recent['date']['uts'].to_i)) == 'less than a minute' %>
                   just now
@@ -34,7 +34,7 @@
                   <%= (time_ago_in_words(Time.zone.at(@lastfm_recent['date']['uts'].to_i)) +' ago').sub('about', '') %>
                 <% end %>
               </div>
-            </button>
+            </div>
           <% end %>
         </div>
       </div>
