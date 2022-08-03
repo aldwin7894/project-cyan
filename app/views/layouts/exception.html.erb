@@ -9,7 +9,7 @@
 
     <!-- Styling -->
     <%= vite_client_tag %>
-    <%= vite_stylesheet_tag 'stylesheets/exception.css.scss', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= vite_javascript_tag 'exception', media: 'all', 'data-turbo-track': 'reload' %>
 
     <%= favicon_link_tag vite_asset_path("images/favicon.png"), rel: "shortcut icon", type: "image/png" %>
     <%= favicon_link_tag vite_asset_path("images/apple-touch-icon.png"), rel: "apple-touch-icon", sizes: "152x152", type: "image/png" %>

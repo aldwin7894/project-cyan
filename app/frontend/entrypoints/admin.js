@@ -1,11 +1,10 @@
-import Rails from "@rails/ujs";
 import "@hotwired/turbo-rails";
 import * as ActiveStorage from "@rails/activestorage";
 import Alpine from "alpinejs";
 import "iconify-icon";
 import "../channels";
+import "~/stylesheets/admin.css.scss";
 
-Rails.start();
 ActiveStorage.start();
 
 window.Alpine = Alpine;

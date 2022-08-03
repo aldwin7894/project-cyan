@@ -12,8 +12,8 @@ Rails.application.configure do
     policy.font_src    :self, :https, :data
     policy.img_src     :self, :https, :data, :blob
     policy.object_src  :none
-    policy.script_src  :self, :https, :unsafe_inline
-    policy.style_src   :self, :https
+    policy.script_src  :self, :https, :unsafe_inline, :unsafe_eval, :blob
+    policy.style_src   :self, :https, :unsafe_inline
     policy.connect_src :self, :https, :ws, :wss
 
     # Preventing ClickJacking
@@ -24,9 +24,9 @@ Rails.application.configure do
 
     if Rails.env.development? || Rails.env.test?
       policy.connect_src(*policy.connect_src, "http://localhost:3035", "ws://localhost:3035", "ws://#{ViteRuby.config.host_with_port}")
-      policy.script_src(*policy.script_src, :unsafe_eval, :blob, "http://#{ViteRuby.config.host_with_port}")
+      policy.script_src(*policy.script_src, "http://#{ViteRuby.config.host_with_port}")
       policy.img_src(*policy.img_src, "http://#{ViteRuby.config.host_with_port}")
-      policy.style_src(*policy.style_src, :unsafe_inline, "http://#{ViteRuby.config.host_with_port}")
+      policy.style_src(*policy.style_src, "http://#{ViteRuby.config.host_with_port}")
     end
 
     #     # Specify URI for violation reports
