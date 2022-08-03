@@ -24,7 +24,7 @@
     "@tailwindcss/typography": "^0.5.4",
     "alpinejs": "^3.10.3",
     "autoprefixer": "^10.4.8",
-    "chart.js": "^3.8.2",
+    "chart.js": "^3.9.1",
     "cssnano": "^5.1.12",
     "iconify-icon": "^1.0.0-beta.2",
     "postcss": "^8.4.14",
