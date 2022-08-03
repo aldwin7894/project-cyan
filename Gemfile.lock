@@ -112,10 +112,6 @@ GEM
     digest (3.1.0)
     dry-cli (0.7.0)
     erubi (1.11.0)
-    exception_handler (0.8.0.2)
-      bundler
-      rails (>= 4.2.0)
-      responders
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -289,7 +285,6 @@ DEPENDENCIES
   capybara (>= 3.26)
   cocoon (~> 1.2)
   devise (~> 4.8)
-  exception_handler (~> 0.8.0)
   graphql-client (~> 0.18.0)
   health_check (~> 3.1)
   httplog (~> 1.5)
