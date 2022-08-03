@@ -3,9 +3,6 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  # Verifies that versions and hashed value of the package contents in the project's package.json
-  config.webpacker.check_yarn_integrity = false
-
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -33,30 +30,8 @@ Rails.application.configure do
     "Expires" => 1.year.from_now.to_formatted_s(:rfc822)
   }
 
-  # Compress CSS using a preprocessor.
-  config.assets.css_compressor = :sass
-
-  # Compress JS
-  config.assets.js_compressor = :terser
-
-  # Do not fallback to assets pipeline if a precompiled asset is missed.
-  # config.assets.compile = false
-
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   config.asset_host = ENV.fetch("RAILS_ASSET_HOST")
-  # config.assets.prefix = "/web/#{ENV.fetch('S3_BUCKET_ENV') { 'development' }}/assets"
-
-  # Generate digests for assets URLs.
-  config.assets.digest = true
-  config.assets.enabled = true
-  config.assets.initialize_on_precompile = true
-
-  # Do not raise an error when an asset is not found.
-  config.assets.unknown_asset_fallback = true
-
-  # Image optim configs
-  config.assets.compress = true
-  config.assets.image_optim = true
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache

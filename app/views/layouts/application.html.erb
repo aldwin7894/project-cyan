@@ -8,17 +8,17 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 
-    <!-- Put favicon icon url here -->
-    <%= favicon_link_tag "favicon.png", rel: "shortcut icon", type: "image/png" %>
-    <%= favicon_link_tag "apple-touch-icon.png", rel: "apple-touch-icon", sizes: "152x152", type: "image/png" %>
-    <%= favicon_link_tag "apple-touch-icon-precomposed.png", rel: "apple-touch-icon-precomposed", sizes: "152x152", type: "image/png" %>
+    <!-- Put favicon icon url here 1`-->
+    <%= favicon_link_tag vite_asset_path("images/favicon.png"), rel: "shortcut icon", type: "image/png" %>
+    <%= favicon_link_tag vite_asset_path("images/apple-touch-icon.png"), rel: "apple-touch-icon", sizes: "152x152", type: "image/png" %>
+    <%= favicon_link_tag vite_asset_path("images/apple-touch-icon-precomposed.png"), rel: "apple-touch-icon-precomposed", sizes: "152x152", type: "image/png" %>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', 'data-turbo-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
+    <%= vite_client_tag %>
+    <%= vite_stylesheet_tag 'stylesheets/application.css.scss', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= vite_javascript_tag 'application', 'data-turbo-track': 'reload' %>
   </head>
 
   <body>

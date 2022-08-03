@@ -1,94 +1,130 @@
 <section class="flex flex-col flex-1 w-full">
   <div class="flex flex-row flex-wrap w-full">
-    <div class="phone:w-full bg-[#d11a9e] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px] px-4 py-4 flex flex-row ">
-      <div class="flex flex-col w-full h-full text-white">
+    <div class="phone:w-full bg-[#395B64] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px]">
+      <div class="flex flex-col w-full h-full px-4 py-4 text-white">
         <div class="text-lg font-bold">ABOUT ME</div>
+        <div class="grow">
+          <code>still being constructed.</code>
+        </div>
       </div>
     </div>
 
-    <div class="phone:w-full bg-[#5c053a] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px]">
+    <div class="phone:w-full bg-[#774360] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px]">
       <turbo-frame id="lastfm_stats" src="<%= lastfm_stats_path %>" loading="lazy">
-        <div class="w-full h-full px-4 py-4" x-data="">
-          <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="text-lg font-bold text-white hover:underline">LAST.FM</button>
+        <div class="flex flex-col w-full h-full px-4 py-4" x-data="">
+          <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="hover:underline text-lg font-bold text-left text-white">LAST.FM</button>
+          <div class="grow flex items-center justify-center">
+            <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
         </div>
       </turbo-frame>
     </div>
 
-    <div class="phone:w-full bg-[#1d1d1d] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px] px-4 py-4 text-white" x-data="">
-      <button x-on:click="window.open('https://anilist.co/user/CyanNyan/stats/anime/genres')" class="text-lg font-bold hover:underline">FAVORITE ANIME GENRES</button>
-      <turbo-frame id="favorite_anime_genres" src="<%= anilist_user_statistics_path %>" class="flex flex-row" loading="lazy">
+    <div class="phone:w-full bg-[#4C3575] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px]" x-data="">
+      <turbo-frame id="favorite_anime_genres" src="<%= anilist_user_statistics_path %>" loading="lazy">
+        <div class="flex flex-col w-full h-full px-4 py-4" x-data="">
+          <button x-on:click="window.open('https://anilist.co/user/CyanNyan/stats/anime/genres')" class="hover:underline text-lg font-bold text-left text-white">FAVORITE ANIME GENRES</button>
+          <div class="grow flex items-center justify-center">
+            <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </div>
       </turbo-frame>
     </div>
 
-    <div class="phone:w-full bg-[#046950] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px]">
+    <div class="phone:w-full bg-[#570530] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px]">
       <turbo-frame id="last_watched" src="<%= anilist_user_activities_path %>" loading="lazy">
-        <div class="w-full h-full px-4 py-4 text-white ">
-          <div class="text-lg font-bold">LAST WATCHED</div>
+        <div class="flex flex-col w-full h-full px-4 py-4">
+          <div class="text-lg font-bold text-left text-white">LAST WATCHED</div>
+          <div class="grow flex items-center justify-center">
+            <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
         </div>
       </turbo-frame>
     </div>
 
-    <div class="phone:w-full bg-[#3d2c5d] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px] px-4 py-4 text-white" x-data="">
-      <button x-on:click="window.open('https://anilist.co/user/CyanNyan/stats/anime/studios')" class="text-lg font-bold hover:underline">FAVORITE ANIME STUDIOS</button>
-      <turbo-frame id="favorite_anime_studios" src="<%= anilist_user_statistics_path %>" class="flex flex-row" loading="lazy">
+    <div class="phone:w-full bg-[#2D4263] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px]" x-data="">
+      <turbo-frame id="favorite_anime_studios" src="<%= anilist_user_statistics_path %>" loading="lazy">
+        <div class="flex flex-col w-full h-full px-4 py-4" x-data="">
+          <button x-on:click="window.open('https://anilist.co/user/CyanNyan/stats/anime/studios')" class="hover:underline text-lg font-bold text-left text-white">FAVORITE ANIME STUDIOS</button>
+          <div class="grow flex items-center justify-center">
+            <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </div>
       </turbo-frame>
     </div>
 
-    <div class="phone:w-full bg-[#cb7333] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px]">
-
+    <div class="phone:w-full bg-[#5C3D2E] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px]">
       <turbo-frame id="lastfm_top_artists" src="<%= lastfm_top_artists_path %>" loading="lazy">
-        <div class="w-full h-full px-4 py-4 text-white" x-data="">
-          <button x-on:click="window.open('https://www.last.fm/user/aldwin7894/library/artists?date_preset=ALL')" class="text-lg font-bold hover:underline">LAST.FM (TOP ARTISTS OF ALL TIME)</button>
+        <div class="flex flex-col w-full h-full px-4 py-4 text-white" x-data="">
+          <button x-on:click="window.open('https://www.last.fm/user/aldwin7894/library/artists?date_preset=ALL')" class="hover:underline text-lg font-bold text-left">LAST.FM (TOP ARTISTS OF ALL TIME)</button>
+          <div class="grow flex items-center justify-center">
+            <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
         </div>
       </turbo-frame>
     </div>
 
-    <div class="phone:w-full bg-[#2a184d] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px]">
+    <div class="phone:w-full bg-[#346751] desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px]">
       <turbo-frame id="last_watched_movie" src="<%= anilist_user_activities_path %>" loading="lazy">
-        <div class="w-full h-full px-4 py-4 text-white">
-          <div class="text-lg font-bold">LAST WATCHED ANIME MOVIE</div>
+        <div class="flex flex-col w-full h-full px-4 py-4">
+          <div class="text-lg font-bold text-left text-white">LAST WATCHED ANIME MOVIE</div>
+          <div class="grow flex items-center justify-center">
+            <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
         </div>
       </turbo-frame>
     </div>
 
-    <div class="phone:w-full flex flex-col desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px] text-white text-center">
-      <div class="bg-[#019edf] flex-1 w-full flex flex-col px-4 py-4" x-data="">
-        <button x-on:click="window.open('https://anilist.co/user/CyanNyan/stats/anime/overview')" class="text-lg font-bold hover:underline">Watched Anime</button>
-        <div class="flex flex-row flex-wrap gap-4 mt-4">
-          <div class="flex flex-col grow">
-            <turbo-frame id="total_watched_anime_time_last_week" class="font-mono text-2xl font-bold" src="<%= anilist_user_activities_path %>"></turbo-frame>
-
-            <div class="font-bold">LAST WEEK</div>
-
-            <turbo-frame id="total_watched_anime_ep_last_week" src="<%= anilist_user_activities_path %>"></turbo-frame>
-          </div>
-          <div class="flex flex-col grow">
-            <turbo-frame id="total_watched_anime_time" class="font-mono text-2xl font-bold" src="<%= anilist_user_statistics_path %>"></turbo-frame>
-
-            <div class="font-bold">ALL TIME</div>
-
-            <turbo-frame id="total_watched_anime_ep" src="<%= anilist_user_statistics_path %>"></turbo-frame>
+    <div class="phone:w-full bg-white desktop:w-1/2 desktop-lg:w-1/4 min-h-[330px]">
+      <div class="flex flex-col w-full h-full text-center text-white">
+        <div class="bg-[#019edf] flex-1 w-full flex flex-col px-4 py-4" x-data="">
+          <button x-on:click="window.open('https://anilist.co/user/CyanNyan/stats/anime/overview')" class="hover:underline text-lg font-bold">WATCHED ANIME</button>
+          <div class="grow flex flex-row flex-wrap gap-4">
+            <div class="grow flex flex-col items-center justify-center">
+              <turbo-frame id="total_watched_anime_last_week" src="<%= anilist_user_activities_path %>">
+                <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </turbo-frame>
+            </div>
+            <div class="grow flex flex-col items-center justify-center">
+              <turbo-frame id="total_watched_anime" src="<%= anilist_user_statistics_path %>">
+                <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </turbo-frame>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="bg-[#0199d8] flex-1 w-full flex flex-col px-4 py-4">
-        <div class="text-lg font-bold">Watched Anime Movies / OVA / Special</div>
-        <div class="flex flex-row flex-wrap gap-4 mt-4">
-          <div class="flex flex-col grow">
-            <turbo-frame id="total_watched_anime_movie_time_last_week" class="font-mono text-2xl font-bold" src="<%= anilist_user_activities_path %>"></turbo-frame>
-
-            <div class="font-bold">LAST WEEK</div>
-
-            <turbo-frame id="total_watched_anime_movie_last_week" src="<%= anilist_user_activities_path %>"></turbo-frame>
-          </div>
-          <div class="flex flex-col grow">
-            <turbo-frame id="total_watched_anime_movie_time" class="font-mono text-2xl font-bold" src="<%= anilist_user_statistics_path %>">
-            </turbo-frame>
-
-            <div class="font-bold">ALL TIME</div>
-
-            <turbo-frame id="total_watched_anime_movie" src="<%= anilist_user_statistics_path %>">
-            </turbo-frame>
+        <div class="bg-[#0199d8] flex-1 w-full flex flex-col px-4 py-4">
+          <p class="text-lg font-bold">WATCHED ANIME<wbr> MOVIES / OVA / SPECIALS</p>
+          <div class="grow flex flex-row flex-wrap gap-4">
+            <div class="grow flex flex-col items-center justify-center">
+              <turbo-frame id="total_watched_anime_movie_last_week" src="<%= anilist_user_activities_path %>">
+                <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </turbo-frame>
+            </div>
+            <div class="grow flex flex-col items-center justify-center">
+              <turbo-frame id="total_watched_anime_movie" src="<%= anilist_user_statistics_path %>">
+                <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </turbo-frame>
+            </div>
           </div>
         </div>
       </div>
@@ -96,17 +132,3 @@
   </div>
 </section>
 <%= render "partials/divider" %>
-<% content_for :page_script do %>
-  <script>
-    // var legendMargin = {
-    //   id: 'legendMargin',
-    //   beforeInit(chart, legend, options) {
-    //     const fitValue = chart.legend.fit;
-    //     chart.legend.fit = function fit() {
-    //       fitValue.bind(chart.legend)();
-    //       return this.width += 190;
-    //     }
-    //   }
-    // }
-  </script>
-<% end %>

@@ -46,3 +46,9 @@ yarn-debug.log*
 **/cache
 .asset_sync_remote_file_list_cache.json
 *dump*
+
+# Vite Ruby
+/public/vite*
+# Vite uses dotenv and suggests to ignore local-only env files. See
+# https://vitejs.dev/guide/env-and-mode.html#env-files
+*.local

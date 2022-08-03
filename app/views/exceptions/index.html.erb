@@ -1,0 +1,13 @@
+<div class="background-cyan-3 flex content-center justify-center w-screen h-screen">
+  <div class="bg-gradient-to-br from-cyan-700/90 to-pink-500/90 flex content-center justify-center w-full h-screen">
+    <div class="sm container flex flex-col flex-wrap content-center justify-center text-white" style="max-width: 500px">
+      <p class="error-text animate-pulse font-sans text-white"><%= @status%></p>
+      <p class="font-sans break-words"><%= @response %></p>
+      <p class="font-sans"><%= details[:message] %></p>
+    </div>
+  </div>
+</div>
+<div class="absolute bottom-0 w-screen mb-6 font-sans text-xl text-center text-white">
+	<span class="opacity-50">Take me</span>
+ 	<a class="border-b" href="/">back</a>
+</div>
