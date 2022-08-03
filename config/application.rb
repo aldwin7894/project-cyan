@@ -18,17 +18,7 @@ module Aldwin7894
     config.middleware.use Rack::Deflater
     config.middleware.use Rack::Brotli
 
-    config.exception_handler = {
-      dev:        true, # allows you to turn ExceptionHandler "on" in development
-      db:         nil, # allocates a "table name" into which exceptions are saved (defaults to nil)
-      email:      nil, # sends exception emails to a listed email (string // "you@email.com")
-
-      exceptions: {
-        all: {
-          layout: "exception", # define layout
-        }
-      }
-    }
+    config.exceptions_app = ->(env) { ExceptionsController.action(:index).call(env) }
 
     # Configuration for the application, engines, and railties goes here.
     #

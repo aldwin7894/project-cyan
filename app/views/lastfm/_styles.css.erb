@@ -55,9 +55,9 @@
   width: 600px;
   height: 122px;
   color: #<%=@foreground %>;
-  background-image: -webkit-linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= asset_data_uri  'lastfm.webp' %>");
-  background-image: -o-linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= asset_data_uri  'lastfm.webp' %>");
-  background-image: linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= asset_data_uri  'lastfm.webp' %>");
+  background-image: -webkit-linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= vite_asset_path 'images/lastfm.webp' %>");
+  background-image: -o-linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= vite_asset_path 'images/lastfm.webp' %>");
+  background-image: linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= vite_asset_path 'images/lastfm.webp' %>");
 }
 
 .lastfm-logo {

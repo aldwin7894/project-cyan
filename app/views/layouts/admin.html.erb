@@ -9,26 +9,26 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 
     <!-- Put favicon icon url here -->
-    <%= favicon_link_tag "favicon.png", rel: "shortcut icon", type: "image/png" %>
-    <%= favicon_link_tag "apple-touch-icon.png", rel: "apple-touch-icon", sizes: "152x152", type: "image/png" %>
-    <%= favicon_link_tag "apple-touch-icon-precomposed.png", rel: "apple-touch-icon-precomposed", sizes: "152x152", type: "image/png" %>
+    <%= favicon_link_tag vite_asset_path("images/favicon.png"), rel: "shortcut icon", type: "image/png" %>
+    <%= favicon_link_tag vite_asset_path("images/apple-touch-icon.png"), rel: "apple-touch-icon", sizes: "152x152", type: "image/png" %>
+    <%= favicon_link_tag vite_asset_path("images/apple-touch-icon-precomposed.png"), rel: "apple-touch-icon-precomposed", sizes: "152x152", type: "image/png" %>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbo-track': 'reload' %>
-    <%= stylesheet_pack_tag 'admin', 'data-turbo-track': 'reload' %>
-    <%= javascript_pack_tag 'admin', 'data-turbo-track': 'reload' %>
+    <%= vite_client_tag %>
+    <%= vite_stylesheet_tag 'stylesheets/admin.css.scss', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= vite_javascript_tag 'admin', 'data-turbo-track': 'reload' %>
   </head>
 
   <body>
-    <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200 font-roboto">
+    <div x-data="{ sidebarOpen: false }" class="font-roboto flex h-screen bg-gray-200">
       <%= render '/admin/shared/sidebar' %>
 
       <div class="flex flex-col flex-1 overflow-hidden">
         <%= render '/admin/shared/topbar' %>
 
-        <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200n">
+        <main class="bg-gray-200n flex-1 overflow-x-hidden overflow-y-auto">
           <div class="container px-6 py-8 mx-auto">
             <%= yield %>
           </div>

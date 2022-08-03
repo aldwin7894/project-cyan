@@ -55,4 +55,15 @@ Rails.application.routes.draw do
       )
     end
   end
+
+  # error pages
+  get "400", to: "exceptions#index"
+  get "403", to: "exceptions#index"
+  get "404", to: "exceptions#index"
+  get "405", to: "exceptions#index"
+  get "406", to: "exceptions#index"
+  get "409", to: "exceptions#index"
+  get "422", to: "exceptions#index"
+  get "500", to: "exceptions#index"
+  get "501", to: "exceptions#index"
 end

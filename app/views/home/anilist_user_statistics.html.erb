@@ -1,20 +1,25 @@
-<turbo-frame id="favorite_anime_genres" class="flex flex-row">
-  <div class="grow flex flex-col">
-    <div>
-      <ul>
-        <% @genre_list.each do |genre| %>
-          <li class="flex flex-row gap-2 mt-2">
-            <div class="w-[20px] h-[20px] my-auto" style="background: <%= genre[:backgroundColor] %>"></div>
-            <div><%= genre[:label] %></div>
-          </li>
-        <% end %>
-      </ul>
+<turbo-frame id="favorite_anime_genres">
+  <div class="flex flex-col w-full h-full px-4 py-4 text-white">
+    <button x-on:click="window.open('https://anilist.co/user/CyanNyan/stats/anime/genres')" class="hover:underline text-lg font-bold text-left text-white">FAVORITE ANIME GENRES</button>
+    <div class="flex flex-row">
+      <div class="grow flex flex-col">
+        <div>
+          <ul>
+            <% @genre_list.each do |genre| %>
+              <li class="flex flex-row gap-2 mt-2">
+                <div class="min-w-[20px] min-h-[20px] my-auto" style="background: <%= genre[:backgroundColor] %>"></div>
+                <div><%= genre[:label] %></div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="mx-auto xs:max-w-[200px] max-w-[300px]">
+        <canvas id="favoriteGenres" aria-label="Favorite Anime Genres" role="img">
+        Your browser does not support the canvas element.
+        </canvas>
+      </div>
     </div>
-  </div>
-  <div class="mx-auto xs:max-w-[200px] max-w-[300px]">
-    <canvas id="favoriteGenres" aria-label="Favorite Anime Genres" role="img">
-    Your browser does not support the canvas element.
-    </canvas>
   </div>
 
   <script>
@@ -47,23 +52,28 @@
   </script>
 </turbo-frame>
 
-<turbo-frame id="favorite_anime_studios" class="flex flex-row">
-  <div class="grow flex flex-col">
-    <div>
-      <ul>
-        <% @studio_list.each do |studio| %>
-          <li class="flex flex-row gap-2 mt-2">
-            <div class="w-[20px] h-[20px] my-auto" style="background: <%= studio[:backgroundColor] %>"></div>
-            <div><%= studio[:label] %></div>
-          </li>
-        <% end %>
-      </ul>
+<turbo-frame id="favorite_anime_studios">
+  <div class="flex flex-col w-full h-full px-4 py-4 text-white">
+    <button x-on:click="window.open('https://anilist.co/user/CyanNyan/stats/anime/studios')" class="hover:underline text-lg font-bold text-left text-white">FAVORITE ANIME STUDIOS</button>
+    <div class="flex flex-row">
+      <div class="grow flex flex-col">
+        <div>
+          <ul>
+            <% @studio_list.each do |studio| %>
+              <li class="flex flex-row gap-2 mt-2">
+                <div class="min-w-[20px] min-h-[20px] my-auto" style="background: <%= studio[:backgroundColor] %>"></div>
+                <div><%= studio[:label] %></div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="mx-auto xs:max-w-[200px] max-w-[300px]">
+        <canvas id="favoriteStudios" aria-label="Favorite Anime Studios" role="img">
+          Your browser does not support the canvas element.
+        </canvas>
+      </div>
     </div>
-  </div>
-  <div class="mx-auto xs:max-w-[200px] max-w-[300px]">
-    <canvas id="favoriteStudios" aria-label="Favorite Anime Studios" role="img">
-      Your browser does not support the canvas element.
-    </canvas>
   </div>
 
   <script>
@@ -96,18 +106,22 @@
   </script>
 </turbo-frame>
 
-<turbo-frame id="total_watched_anime_time" class="font-mono text-2xl font-bold">
-  <%= @total_watched_anime_time %>
-</turbo-frame>
-
-<turbo-frame id="total_watched_anime_ep">
-  <%= @total_watched_anime_ep %> episodes
-</turbo-frame>
-
-<turbo-frame id="total_watched_anime_movie_time" class="font-mono text-2xl font-bold">
-  <%= @total_watched_anime_movie_time %>
+<turbo-frame id="total_watched_anime">
+  <div class="font-mono text-2xl font-bold">
+    <%= @total_watched_anime_time %>
+  </div>
+  <div>ALL TIME</div>
+  <div>
+    <%= @total_watched_anime_ep %> episodes
+  </div>
 </turbo-frame>
 
 <turbo-frame id="total_watched_anime_movie">
-  <%= @total_watched_anime_movie %> movies / ova / specials
+  <div class="font-mono text-2xl font-bold">
+    <%= @total_watched_anime_movie_time %>
+  </div>
+  <div>ALL TIME</div>
+  <div>
+    <%= @total_watched_anime_movie %> movies / ova / specials
+  </div>
 </turbo-frame>
