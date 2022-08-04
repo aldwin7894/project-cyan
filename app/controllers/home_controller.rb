@@ -119,7 +119,7 @@ class HomeController < ApplicationController
   end
 
   def lastfm_stats
-    @album_art = File.join(ENV.fetch("RAILS_ASSET_HOST"), "/", "images/lastfm-placeholder.webp")
+    @album_art = nil
     @lastfm_recent = Rails.cache.fetch("LASTFM_RECENT_TRACKS", expires_in: 30.seconds, skip_nil: true) do
       LASTFM_CLIENT.user.get_recent_tracks(user: ENV.fetch("LASTFM_USERNAME"), limit: 1, extended: 1)
     end
@@ -128,7 +128,6 @@ class HomeController < ApplicationController
     end
 
     album_art = @lastfm_recent&.[]("image")&.[](3)&.[]("content")
-
     if album_art.present? && album_art.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
       img = Rails.cache.fetch(album_art, expires_in: 7.days, skip_nil: true) do
         HTTParty.get(album_art, format: :plain).body

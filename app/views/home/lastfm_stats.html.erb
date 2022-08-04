@@ -1,5 +1,5 @@
 <turbo-frame id="lastfm_stats">
-  <div class="w-full h-full bg-center" style="background-image: url(<%= @album_art %>)">
+  <div class="w-full h-full bg-center" style="background-image: url('<%= @album_art.present? ? @album_art : image_url_to_base64(vite_asset_url('images/lastfm-placeholder.webp')) %>')">
     <div class="w-full h-full backdrop-blur-sm backdrop-brightness-[40%] bg-gradient-to-tr from-cyan-700/30 to-pink-500/30 text-white flex flex-col items-stretch gap-5 px-4 py-4" x-data="">
       <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="hover:underline text-lg font-bold text-left">
         <% if @lastfm_recent['nowplaying'] %>
@@ -10,7 +10,7 @@
       </button>
       <div class="flex flex-col gap-2" x-data="">
         <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="w-[150px] mx-auto">
-          <img src="<%= @album_art %>" alt="albumart">
+          <img src="<%= @album_art.present? ? @album_art : image_url_to_base64(vite_asset_url('images/lastfm-placeholder.webp')) %>" alt="albumart">
         </button>
         <div class="flex flex-col text-center">
           <div class="text-[#3cb4f1] text-3xl font-bold line-clamp-2 break-words">
