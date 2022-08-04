@@ -55,9 +55,9 @@
   width: 600px;
   height: 122px;
   color: #<%=@foreground %>;
-  background-image: -webkit-linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= vite_asset_path 'images/lastfm.webp' %>");
-  background-image: -o-linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= vite_asset_path 'images/lastfm.webp' %>");
-  background-image: linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= vite_asset_path 'images/lastfm.webp' %>");
+  background-image: -webkit-linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= image_url_to_base64(vite_asset_url('images/lastfm.webp')) %>");
+  background-image: -o-linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= image_url_to_base64(vite_asset_url('images/lastfm.webp')) %>");
+  background-image: linear-gradient(rgba(<%=@background %>), rgba(<%=@background %>)), url("<%= image_url_to_base64(vite_asset_url('images/lastfm.webp')) %>");
 }
 
 .lastfm-logo {
@@ -88,7 +88,7 @@
   height: 102px;
   width: 102px;
   background-size: cover;
-  background-image: url("<%= @album_art %>");
+  background-image: url("<%= @album_art.present? ? @album_art : image_url_to_base64(vite_asset_url('images/lastfm-placeholder.webp')) %>");
   background-color: rgba(78, 85, 91, 0.8);
 }
 
