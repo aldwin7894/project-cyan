@@ -6,7 +6,7 @@ class LastfmController < ApplicationController
   def index
     @background = params[:bg]
     @foreground = params[:fg]
-    @album_art = File.join(ENV.fetch("RAILS_ASSET_HOST"), "/", "images/lastfm-placeholder.webp")
+    @album_art = nil
     @recent = Rails.cache.fetch("LASTFM_RECENT_TRACKS", expires_in: 30.seconds, skip_nil: true) do
       LASTFM_CLIENT.user.get_recent_tracks(user: params[:username], limit: 1, extended: 1)
     end
@@ -50,7 +50,7 @@ class LastfmController < ApplicationController
       format.svg
     end
   rescue Lastfm::ApiError
-    @album_art = File.join(ENV.fetch("RAILS_ASSET_HOST"), "/", "images/lastfm-placeholder.webp")
+    @album_art = nil
 
     respond_to do |format|
       format.svg
