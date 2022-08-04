@@ -17,6 +17,8 @@ module Aldwin7894
     config.x.feature.lograge = ENV.fetch("LOGRAGE", "false") == "true"
     config.middleware.use Rack::Deflater
     config.middleware.use Rack::Brotli
+    config.action_controller.forgery_protection_origin_check = false
+    config.session_store :cookie_store, key: "_app_session"
 
     config.exceptions_app = ->(env) { ExceptionsController.action(:index).call(env) }
 

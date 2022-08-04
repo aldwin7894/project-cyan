@@ -79,4 +79,4 @@ gem "s3_asset_deploy", "~> 1.0"
 
 gem "logstash-event", "~> 1.2"
 
-gem "rack-cors", "~> 1.1"
+gem "rack-cors", "~> 1.1", require: 'rack/cors'
