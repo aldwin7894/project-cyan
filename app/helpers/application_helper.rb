@@ -11,7 +11,7 @@ module ApplicationHelper
         data[:image] = res.body
         data[:ext] = ext[1]
       end
-      if %w(jpg jpeg gif png).include? data[:ext]
+      if %w(jpg jpeg gif png).include?(data[:ext]) && ENV.fetch("OPTIMIZE_IMAGE_ENABLED", false)
         data[:image] = Rails.configuration.x.image_optim.optimize_image_data(data[:image].to_s)
       end
       data.present? ? data : nil
