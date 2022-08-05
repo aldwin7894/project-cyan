@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Head -->
   <head>
-    <!-- Info -->
     <title>
       <%= "#{Rails.application.class.module_parent_name.downcase} | Error - #{@status} (#{@response})" %>
     </title>
 
-    <!-- Styling -->
-    <%= vite_client_tag %>
-    <%= vite_javascript_tag 'exception', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= render "layouts/ga" %>
 
     <%= favicon_link_tag vite_asset_path("images/favicon.png"), rel: "shortcut icon", type: "image/png" %>
     <%= favicon_link_tag vite_asset_path("images/apple-touch-icon.png"), rel: "apple-touch-icon", sizes: "152x152", type: "image/png" %>
     <%= favicon_link_tag vite_asset_path("images/apple-touch-icon-precomposed.png"), rel: "apple-touch-icon-precomposed", sizes: "152x152", type: "image/png" %>
 
-    <!-- Auth -->
     <%= csrf_meta_tags %>
+
+    <%= vite_client_tag %>
+    <%= vite_javascript_tag 'exception', media: 'all', 'data-turbo-track': 'reload' %>
   </head>
 
   <!-- Body -->

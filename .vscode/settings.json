@@ -1,3 +1,22 @@
 {
-  "eslint.packageManager": "yarn"
+  "eslint.packageManager": "yarn",
+  "solargraph.autoformat": true,
+  "solargraph.formatting": true,
+  "solargraph.useBundler": true,
+  "ruby.format": "rubocop",
+  "ruby.useBundler": true,
+  "ruby.useLanguageServer": true,
+  "ruby.rubocop.configFilePath": ".rubocop.yml",
+  "ruby.rubocop.useBundler": true,
+  "ruby.lint": {
+    "rubocop": {
+      "lint": true,
+      "rails": true,
+      "useBundler": true
+    }
+  },
+  "eslint.alwaysShowStatus": true,
+  "eslint.enable": true,
+  "eslint.format.enable": true,
+  "eslint.workingDirectories": ["./"]
 }

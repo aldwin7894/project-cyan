@@ -22,7 +22,7 @@ module Spotify
       }
       body = "grant_type=client_credentials"
 
-      res = HTTParty.post(ACCESS_TOKEN_URL, headers: headers, body: body)
+      res = HTTParty.post(ACCESS_TOKEN_URL, headers:, body:)
       res["access_token"]
     end
 
@@ -36,10 +36,10 @@ module Spotify
       "Authorization": "Bearer #{Spotify.get_access_token}"
     }
     query = {
-      ids: ids
+      ids:
     }
 
-    res = HTTParty.get(GET_ARTIST_URL, headers: headers, query: query)
+    res = HTTParty.get(GET_ARTIST_URL, headers:, query:)
     artists = JSON.parse(res.body)
     artists&.[]("artists")&.pluck("images")&.map { |x| x[0]["url"] }
   end
@@ -58,7 +58,7 @@ module Spotify
       type: "artist",
       limit: 1
     }
-    res = HTTParty.get(SEARCH_URL, headers: headers, query: query)
+    res = HTTParty.get(SEARCH_URL, headers:, query:)
     artist = JSON.parse(res.body)
     artist&.[]("artists")&.[]("items")&.[](0)&.[]("uri")&.split(":")&.last
   end

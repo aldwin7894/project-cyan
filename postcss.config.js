@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 const cssnano = require("cssnano")({
-  preset: "default",
+  preset: "advanced",
 });
 
 module.exports = {
@@ -15,8 +15,6 @@ module.exports = {
       stage: 3,
     }),
     require("autoprefixer"),
-
-    // only needed if you want to purge
     ...(process.env.NODE_ENV === "production" ? [cssnano] : []),
   ],
 };

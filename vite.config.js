@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig, splitVendorChunkPlugin } from "vite";
 import RubyPlugin from "vite-plugin-ruby";
 import FullReload from "vite-plugin-full-reload";
 import { brotliCompressSync } from "zlib";
@@ -13,9 +13,11 @@ export default defineConfig({
       customCompression: (content) => brotliCompressSync(Buffer.from(content)),
       fileName: ".br",
     }),
+    splitVendorChunkPlugin(),
   ],
   build: {
     emptyOutDir: true,
-    assetsInlineLimit: 24000
+    assetsInlineLimit: 24000,
+    cssCodeSplit: true,
   },
 });

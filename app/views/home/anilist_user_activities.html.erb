@@ -1,5 +1,5 @@
 <turbo-frame id="last_watched" class="w-full h-full">
-  <div class="w-full h-full bg-center bg-cover" style="background-image: url(<%= @user_activity&.first&.[]('media')&.[]('bannerImage') %>)">
+  <div class="w-full h-full bg-center bg-cover" style="background-image: url(<%= image_url_to_base64 @user_activity&.first&.[]('media')&.[]('bannerImage') %>)">
     <div class="backdrop-brightness-50 flex flex-col w-full h-full px-4 py-4 text-white">
       <div class="text-lg font-bold">LAST WATCHED</div>
         <a class="hover:underline text-4xl font-bold" href="<%= @user_activity&.first&.[]('media')&.[]('siteUrl') %>" target="_blank" rel="noopener">
@@ -14,7 +14,7 @@
 </turbo-frame>
 
 <turbo-frame id="last_watched_movie" class="w-full h-full">
-  <div class="w-full h-full bg-center bg-cover" style="background-image: url(<%= @last_watched_movie&.[]('media')&.[]('bannerImage') %>)">
+  <div class="w-full h-full bg-center bg-cover" style="background-image: url(<%= image_url_to_base64 @last_watched_movie&.[]('media')&.[]('bannerImage') %>)">
     <div class="backdrop-brightness-50 flex flex-col w-full h-full px-4 py-4 text-white">
       <div class="text-lg font-bold">LAST WATCHED ANIME MOVIE</div>
         <a class="hover:underline text-4xl font-bold" href="<%= @last_watched_movie&.[]('media')&.[]('siteUrl') %>" target="_blank" rel="noopener">
@@ -31,7 +31,7 @@
 <turbo-frame id="watched_anime" class="grid phone:grid-cols-1 gap-5 text-center tablet:grid-cols-2 laptop:grid-cols-5 min-h-[322px]" x-data="">
   <% @watched_anime&.first(5)&.each do |activity| %>
     <div class="flex flex-col">
-      <button x-on:click="window.open('<%= activity['media']['siteUrl'] %>')" class="mx-auto h-[250px] w-[177.5px] bg-auto bg-center bg-no-repeat bg-slate-400 drop-shadow-lg grayscale hover:grayscale-0" style="background-image: url(<%= activity['media']['coverImage']['large'] %>)">
+      <button x-on:click="window.open('<%= activity['media']['siteUrl'] %>')" class="mx-auto h-[250px] w-[177.5px] bg-auto bg-center bg-no-repeat bg-slate-400 drop-shadow-lg grayscale hover:grayscale-0" style="background-image: url(<%= image_url_to_base64 activity['media']['coverImage']['large'] %>)">
       </button>
       <button x-on:click="window.open('<%= activity['siteUrl'] %>')" class="text-md hover:underline text-red-500">
         <%= activity['status'].titleize %> <%= activity['progress'] %>
@@ -49,7 +49,7 @@
 <turbo-frame id="watched_movie" class="grid phone:grid-cols-1 gap-5 text-center tablet:grid-cols-2 laptop:grid-cols-5 min-h-[322px]" x-data="">
   <% @watched_movie&.first(5)&.each do |activity| %>
     <div class="flex flex-col">
-      <button x-on:click="window.open('<%= activity['media']['siteUrl'] %>')" class="mx-auto h-[250px] w-[177.5px] bg-cover bg-center drop-shadow-lg grayscale hover:grayscale-0" style="background-image: url(<%= activity['media']['coverImage']['large'] %>)">
+      <button x-on:click="window.open('<%= activity['media']['siteUrl'] %>')" class="mx-auto h-[250px] w-[177.5px] bg-cover bg-center drop-shadow-lg grayscale hover:grayscale-0" style="background-image: url(<%= image_url_to_base64 activity['media']['coverImage']['large'] %>)">
       </button>
       <button x-on:click="window.open('<%= activity['siteUrl'] %>')" class="text-md hover:underline text-red-500">
         <%= activity['status'].titleize %> <%= activity['progress'] %>

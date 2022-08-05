@@ -15,7 +15,7 @@ class HomeController < ApplicationController
     end
 
     @user_statistics = Rails.cache.fetch("ANILIST_USER_STATS_#{ENV.fetch('ANILIST_USERNAME')}", expires_in: 1.day, skip_nil: true) do
-      user_statistics = query(AniList::UserStatisticsQuery, user_id: user_id)
+      user_statistics = query(AniList::UserStatisticsQuery, user_id:)
       user_statistics.user.statistics.anime.to_h
     end
 
@@ -93,7 +93,7 @@ class HomeController < ApplicationController
       page = 1
 
       loop do
-        data = query(AniList::UserAnimeActivitiesQuery, date: last_week, user_id: user_id, page: page, per_page: 50)
+        data = query(AniList::UserAnimeActivitiesQuery, date: last_week, user_id:, page:, per_page: 50)
         user_activity.push(*data.page.activities.to_a.map(&:to_h))
 
         if data.page.page_info.has_next_page? == false
@@ -129,14 +129,7 @@ class HomeController < ApplicationController
 
     album_art = @lastfm_recent&.[]("image")&.[](3)&.[]("content")
     if album_art.present? && album_art.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
-      img = Rails.cache.fetch(album_art, expires_in: 7.days, skip_nil: true) do
-        HTTParty.get(album_art, format: :plain).body
-      end
-
-      if img.present?
-        base64 = Base64.strict_encode64(img).gsub(/\s+/, "")
-        @album_art = "data:image/#{File.extname(album_art).strip.downcase[1..-1]};base64,#{Rack::Utils.escape(base64)}"
-      end
+      @album_art = album_art
     end
 
     render layout: false

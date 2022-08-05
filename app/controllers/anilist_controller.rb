@@ -12,7 +12,7 @@ class AnilistController < ApplicationController
 
     page = 1
     loop do
-      data = query(AniList::UserFollowingQuery, user_id: id, page: page)
+      data = query(AniList::UserFollowingQuery, user_id: id, page:)
       @following_count ||= data.page.page_info.total
       @following.push(*data.page.following.map(&:name))
 
@@ -25,7 +25,7 @@ class AnilistController < ApplicationController
 
     page = 1
     loop do
-      data = query(AniList::UserFollowersQuery, user_id: id, page: page)
+      data = query(AniList::UserFollowersQuery, user_id: id, page:)
       @followers_count ||= data.page.page_info.total
       @followers.push(*data.page.followers.map(&:name))
 
