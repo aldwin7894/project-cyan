@@ -19,7 +19,7 @@ module ApplicationHelper
       data.present? ? data : nil
     end
 
-    if img[:image].present?
+    if img&.[](:image).present?
       base64 = Base64.strict_encode64(img[:image]).gsub(/\s+/, "")
       album_art = "data:image/#{img[:ext]};base64,#{Rack::Utils.escape(base64)}"
     end
