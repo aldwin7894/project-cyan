@@ -10,13 +10,16 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  'import/resolver': {
+  plugins: ["import"],
+  settings: {
+    "import/resolver": {
       alias: {
         map: [
-          ['~', './app/frontend'],
+          ["~", "./app/frontend"],
         ],
       },
     },
+  },
   rules: {
     quotes: [
       "error",

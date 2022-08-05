@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   private
     def query(definition, variables = {})
-      response = AniList::Client.query(definition, variables: variables)
+      response = AniList::Client.query(definition, variables:)
 
       if response.errors.any?
         raise QueryError.new(response.errors[:data].join(", "))

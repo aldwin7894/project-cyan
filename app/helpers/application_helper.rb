@@ -3,15 +3,24 @@
 module ApplicationHelper
   def image_url_to_base64(url)
     album_art = nil
-    img = Rails.cache.fetch(url, expires_in: 7.days, skip_nil: true) do
-      HTTParty.get(url, format: :plain, headers: { "Accept-Encoding" => "gzip,deflate,br" }).body
+    img = Rails.cache.fetch(url, expires_in: 1.month, skip_nil: true) do
+      data = {}
+      res = HTTParty.get(url, format: :plain, headers: { "Accept-Encoding" => "gzip,deflate,br" })
+      ext = res.headers.content_type.split("/")
+      if ext[0] == "image"
+        data[:image] = res.body
+        data[:ext] = ext[1]
+      end
+      if %w(jpg jpeg gif png).include? data[:ext]
+        data[:image] = Rails.configuration.x.image_optim.optimize_image_data(data[:image].to_s)
+      end
+      data.present? ? data : nil
     end
 
-    if img.present?
-      base64 = Base64.strict_encode64(img).gsub(/\s+/, "")
-      album_art = "data:image/#{File.extname(url).strip.downcase[1..-1]};base64,#{Rack::Utils.escape(base64)}"
+    if img[:image].present?
+      base64 = Base64.strict_encode64(img[:image]).gsub(/\s+/, "")
+      album_art = "data:image/#{img[:ext]};base64,#{Rack::Utils.escape(base64)}"
     end
-
     album_art
   end
 end
