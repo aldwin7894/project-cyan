@@ -1,15 +1,18 @@
 # frozen_string_literal: true
 
+require "addressable/uri"
+
 module ApplicationHelper
   def image_url_to_base64(url)
     album_art = nil
     if url.blank? then return album_art end
+    filetype = Addressable::URI.parse(url).extname.remove(".")
 
     img = Rails.cache.fetch(url, expires_in: 1.month, skip_nil: true) do
       data = {}
       res = HTTParty.get(url, format: :plain, headers: { "Accept-Encoding" => "gzip,deflate,br" })
       ext = res.headers.content_type.split("/")
-      if ext[0] == "image"
+      if ext[0] == "image" || (ext[0] == "plain" && filetype == "webp")
         data[:image] = res.body
         data[:ext] = ext[1]
       end
