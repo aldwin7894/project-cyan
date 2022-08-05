@@ -1,7 +1,7 @@
 <div class="main-container" xmlns="http://www.w3.org/1999/xhtml">
   <div class="lastfm-logo">
-    <%= image_tag image_url_to_base64(vite_asset_url("images/lastfm-logo.webp")), width: 25, height: 25 %>
-    <%= image_tag image_url_to_base64(vite_asset_url("images/lastfm-text.webp")), height: 15 %>
+    <img src="<%= image_url_to_base64(vite_asset_url('images/lastfm-logo.webp')) %>" width="25" height="25" alt="logo" />
+    <img src="<%= image_url_to_base64(vite_asset_url('images/lastfm-text.webp')) %>" height="15" alt="text" />
   </div>
   <% if @recent.present? %>
     <div class="album-container">
