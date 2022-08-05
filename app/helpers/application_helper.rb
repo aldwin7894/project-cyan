@@ -3,6 +3,8 @@
 module ApplicationHelper
   def image_url_to_base64(url)
     album_art = nil
+    if url.blank? then return album_art end
+
     img = Rails.cache.fetch(url, expires_in: 1.month, skip_nil: true) do
       data = {}
       res = HTTParty.get(url, format: :plain, headers: { "Accept-Encoding" => "gzip,deflate,br" })

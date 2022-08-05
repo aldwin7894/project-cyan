@@ -5,7 +5,14 @@ class ExceptionsController < ActionController::Base
   before_action :status
   layout "exception"
 
-  def index; end
+  def index
+    respond_to do |format|
+      format.html
+      format.xml
+      format.json
+      format.any { render "index", formats: [:html] }
+    end
+  end
 
   protected
     def status

@@ -2,13 +2,15 @@
   <div class="w-full h-full bg-center bg-cover" style="background-image: url(<%= image_url_to_base64 @user_activity&.first&.[]('media')&.[]('bannerImage') %>)">
     <div class="backdrop-brightness-50 flex flex-col w-full h-full px-4 py-4 text-white">
       <div class="text-lg font-bold">LAST WATCHED</div>
+
+      <% if @user_activity&.first.present? %>
         <a class="hover:underline text-4xl font-bold" href="<%= @user_activity&.first&.[]('media')&.[]('siteUrl') %>" target="_blank" rel="noopener">
           <%= @user_activity&.first&.[]('media')&.[]('title')&.[]('userPreferred') %>
         </a>
         <div class="self-end mt-auto">
           <a class="hover:underline grow text-lg" href="<%= @user_activity&.first&.[]('siteUrl') %>" target="_blank" rel="noopener">MORE INFO</a>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </turbo-frame>
@@ -17,13 +19,15 @@
   <div class="w-full h-full bg-center bg-cover" style="background-image: url(<%= image_url_to_base64 @last_watched_movie&.[]('media')&.[]('bannerImage') %>)">
     <div class="backdrop-brightness-50 flex flex-col w-full h-full px-4 py-4 text-white">
       <div class="text-lg font-bold">LAST WATCHED ANIME MOVIE</div>
+
+      <% if @last_watched_movie.present? %>
         <a class="hover:underline text-4xl font-bold" href="<%= @last_watched_movie&.[]('media')&.[]('siteUrl') %>" target="_blank" rel="noopener">
           <%= @last_watched_movie&.[]('media')&.[]('title')&.[]('userPreferred') %>
         </a>
         <div class="self-end mt-auto">
           <a class="hover:underline grow text-lg" href="<%= @last_watched_movie&.[]('siteUrl') %>" target="_blank" rel="noopener">MORE INFO</a>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </turbo-frame>
