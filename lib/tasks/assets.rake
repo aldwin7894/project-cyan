@@ -9,6 +9,10 @@ namespace :assets do
     puts "Execute vite build"
     Rake::Task["vite:clobber"].invoke
     Rake::Task["vite:build"].invoke
+
+    puts "Clear cache"
+    Rake::Task["tmp:clear"].invoke
+    Rake::Task["tmp:cache:clear"].invoke
   end
 
   desc "Remove 'node_modules' folder"
