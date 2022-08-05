@@ -12,7 +12,7 @@ module ApplicationHelper
       data = {}
       res = HTTParty.get(url, format: :plain, headers: { "Accept-Encoding" => "gzip,deflate,br" })
       ext = res.headers.content_type.split("/")
-      if ext[0] == "image" || (ext[0] == "plain" && filetype == "webp")
+      if ext[0] == "image" || (ext[0] == "text" && filetype == "webp")
         data[:image] = res.body
         data[:ext] = ext[1]
       end
