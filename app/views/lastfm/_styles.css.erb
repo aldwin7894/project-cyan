@@ -88,7 +88,7 @@
   height: 102px;
   width: 102px;
   background-size: cover;
-  background-image: url("<%= @album_art.present? ? @album_art : image_url_to_base64(vite_asset_url('images/lastfm-placeholder.webp')) %>");
+  background-image: url("<%= @album_art.present? ? image_url_to_base64(@album_art) : image_url_to_base64(vite_asset_url('images/lastfm-placeholder.webp')) %>");
   background-color: rgba(78, 85, 91, 0.8);
 }
 
