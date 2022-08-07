@@ -31,7 +31,7 @@ state_path "tmp/pids/server.state"
 bind "unix://tmp/sockets/server.sock"
 
 # Logging
-stdout_redirect "log/puma.stdout.log", "log/puma.stderr.log", true
+# stdout_redirect "log/puma.stdout.log", "log/puma.stderr.log", true
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked web server processes. If using threads and workers together
