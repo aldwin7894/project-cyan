@@ -45,6 +45,7 @@ yarn-debug.log*
 **/cache
 .asset_sync_remote_file_list_cache.json
 *dump*
+vendor
 
 # Vite Ruby
 /public/vite*
