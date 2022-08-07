@@ -94,3 +94,5 @@ gem "image_optim_pack", "~> 0.9.0"
 gem "image_optim", "~> 0.31.1"
 
 gem "addressable", "~> 2.8"
+
+gem "occson", "~> 4.1"
