@@ -1,13 +1,23 @@
-<div class="background-cyan-3 flex content-center justify-center w-screen h-screen">
-  <div class="bg-gradient-to-br from-cyan-700/90 to-pink-500/90 flex content-center justify-center w-full h-screen">
-    <div class="sm container flex flex-col flex-wrap content-center justify-center text-white" style="max-width: 500px">
-      <p class="error-text animate-pulse font-sans text-white"><%= @status%></p>
-      <p class="font-sans break-words"><%= @response %></p>
-      <p class="font-sans"><%= details[:message] %></p>
+<div class="background-cyan-<%= [1,2,3,4,5,6,7,8,9].shuffle.first %> flex content-center justify-center w-screen h-screen">
+  <div class="bg-gradient-to-br from-cyan-700/50 to-pink-500/50 flex content-center justify-center w-full h-screen">
+    <div class="sm container flex flex-row flex-wrap content-center justify-center text-center text-white">
+      <div class="bg-black/70 backdrop-blur-sm flex flex-col flex-wrap justify-center p-4">
+        <div class="w-full">
+          <video autoplay loop muted inline width="500" preload="auto" poster="<%= vite_asset_path 'images/cyan-confused.gif' %>">
+            <source src="<%= vite_asset_path 'images/cyan-confused.webm' %>" type="video/webm">
+            Your browser does not support the <video> tag
+          </video>
+        </div>
+      </div>
+      <div class="bg-black/70 backdrop-blur-sm min-w-[500px] max-w-[500px] flex flex-col flex-wrap p-4">
+        <p class="error-text animate-pulse font-sans text-white"><%= @status%></p>
+        <p class="font-sans text-xl font-bold break-words"><%= @response %></p>
+        <p class="line-clamp-6 font-sans"><%= details[:message] %></p>
+      </div>
     </div>
   </div>
 </div>
-<div class="absolute bottom-0 w-screen mb-6 font-sans text-xl text-center text-white">
-	<span class="opacity-50">Take me</span>
- 	<a class="border-b" href="/">back</a>
+<div class="absolute bottom-0 w-screen mb-6 font-sans text-2xl text-center text-white">
+	<span class="opacity-80">Take me</span>
+ 	<a class="border-b" href="<%= root_path %>">back</a>
 </div>

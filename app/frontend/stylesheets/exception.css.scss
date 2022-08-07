@@ -30,6 +30,48 @@
   background-position: center center;
 }
 
+.background-cyan-4 {
+  background-image: url('@/images/cyan-bg-4.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.background-cyan-5 {
+  background-image: url('@/images/cyan-bg-5.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.background-cyan-6 {
+  background-image: url('@/images/cyan-bg-6.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.background-cyan-7 {
+  background-image: url('@/images/cyan-bg-7.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.background-cyan-8 {
+  background-image: url('@/images/cyan-bg-8.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.background-cyan-9 {
+  background-image: url('@/images/cyan-bg-9.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 * {
   font-family: "Whitney SSm A", "Whitney SSm B", "Helvetica Neue", Helvetica, Arial, Sans-Serif;
 }
@@ -41,6 +83,6 @@
 
 @media (min-width: 768px) {
   .error-text {
-    font-size: 220px;
+    font-size: 180px;
   }
 }

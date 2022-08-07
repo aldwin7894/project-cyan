@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get "anilist_user_statistics", to: "home#anilist_user_statistics"
   get "lastfm_stats", to: "home#lastfm_stats"
   get "lastfm_top_artists", to: "home#lastfm_top_artists"
+  get "browserconfig", to: "home#browserconfig", constraints: lambda { |req| req.format == :xml }, as: "browserconfig"
+  get "site", to: "home#site", constraints: lambda { |req| req.format == :webmanifest }, as: "webmanifest"
 
   namespace :admin do
     # Redirect /admin to the dashboard page.
