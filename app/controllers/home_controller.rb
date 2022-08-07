@@ -158,6 +158,10 @@ class HomeController < ApplicationController
     render layout: false
   end
 
+  def browserconfig; end
+
+  def site; end
+
   def ping
     render plain: "Welcome to aldwin7894"
   end

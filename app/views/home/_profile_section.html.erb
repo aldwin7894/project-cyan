@@ -1,13 +1,13 @@
-<section class="flex-1 w-full background-cyan-3 phone:bg-auto tablet:bg-[length:150%] tablet:bg-[left_-40vw_top_-20vw]">
-  <div class="backdrop-blur-[1px] bg-gradient-to-tr from-black/60 to-pink-500/60">
+<section class="flex-1 w-full background-cyan-<%= [1,2,3,4,5,6,7,8,9].shuffle.first %> phone:bg-auto laptop:bg-[length:150%] laptop:bg-[right_-30vh_top_-30vh]">
+  <div class="bg-gradient-to-t from-[#453c64]/90 to-cyan-400/50">
     <div class="md:container md:mx-auto">
-      <div class="flex flex-col items-center py-16">
+      <div class="flex flex-col items-center py-16 min-h-[60vh]">
         <div>
           <%= image_tag vite_asset_path("images/cyan-avatar.webp"), class: "outline outline-white outline-5 rounded-full max-w-sm", width: 150, height: 150, alt: "avatar" %>
         </div>
         <div class="my-2 text-3xl font-medium text-white">Cyan★Nyan♪</div>
         <div class="text-slate-700 px-2 bg-white">/aldwin7894/</div>
-        <div class="flex flex-row flex-wrap justify-center gap-4 mt-8" x-data="">
+        <div class="flex flex-row flex-wrap justify-center gap-4 my-auto" x-data="">
           <button x-on:click="window.open('https://bit.ly/cyan-anilist')" class="text-white hover:text-[#02a9ff] h-fit">
             <iconify-icon icon="simple-icons:anilist" width="50"></iconify-icon>
           </button>
