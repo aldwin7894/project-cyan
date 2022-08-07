@@ -3,6 +3,7 @@
 require_relative "boot"
 
 require "rails/all"
+require "occson"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -10,6 +11,20 @@ Bundler.require(*Rails.groups)
 
 module Aldwin7894
   class Application < Rails::Application
+    # get env variables from occson
+    config.before_initialize do
+      source = Rails.env.production? ? "occson://0.1.0/.env.prod" : "occson://0.1.0/.env.dev"
+      access_token = ENV.fetch("OCCSON_ACCESS_TOKEN")
+      passphrase = ENV.fetch("OCCSON_PASSPHRASE")
+
+      document = Occson::Document.new(source, access_token, passphrase).download
+
+      document.split("\n").each do |line|
+        key, value = line.split("=", 2)
+
+        ENV.store(key, value)
+      end
+    end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     config.time_zone = "Singapore"
