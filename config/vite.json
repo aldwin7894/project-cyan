@@ -3,7 +3,7 @@
     "sourceCodeDir": "app/frontend",
     "entrypointsDir": "entrypoints",
     "additionalEntrypoints": [
-      "~/favicon/**/*"
+      "~/{assets,fonts,icons,images,favicon}/**/*"
     ]
   },
   "development": {
