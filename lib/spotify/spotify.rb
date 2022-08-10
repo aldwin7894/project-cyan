@@ -41,7 +41,9 @@ module Spotify
 
     res = HTTParty.get(GET_ARTIST_URL, headers:, query:)
     artists = JSON.parse(res.body)
-    artists&.[]("artists")&.pluck("images")&.map { |x| x[0]["url"] }
+    Rails.cache.fetch("#{ids.remove(",")}/SPOTIFY_ARTIST_IMAGES", expires_in: 1.week, skip_nil: true) do
+      artists&.[]("artists")&.pluck("images")&.map { |x| x[1]["url"] }
+    end
   end
 
   def Spotify.get_artist_id_by_name(name)
