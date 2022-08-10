@@ -12,7 +12,7 @@ namespace :assets do
 
     puts "Clear cache"
     Rake::Task["tmp:clear"].invoke
-    Rake::Task["tmp:cache:clear"].invoke
+    Rake::Task["tmp:cache:clear"].invoke if ENV.fetch("CLEAR_CACHE_STORE", false)
   end
 
   desc "Remove 'node_modules' folder"

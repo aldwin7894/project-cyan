@@ -19,5 +19,7 @@ export default defineConfig({
     emptyOutDir: true,
     assetsInlineLimit: 24000,
     cssCodeSplit: true,
+    target: "esnext",
+    sourcemap: false,
   },
 });
