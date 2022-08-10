@@ -1,0 +1,22 @@
+[
+  {
+    "label": "RUN LOCAL",
+    "commands": [
+      {
+        "name": "RAILS SERVER",
+        "main": true,
+        "script": "source .env.dev && rails s"
+      },
+      {
+        "name": "REDIS",
+        "main": true,
+        "script": "redis-server"
+      },
+      {
+        "name": "VITE",
+        "main": true,
+        "script": "yarn vite:dev"
+      }
+    ]
+  }
+]
