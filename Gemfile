@@ -45,7 +45,7 @@ group :development do
   gem "rubocop", "~> 1.35"
   gem "rubocop-rails", "~> 2.15"
   gem "rubocop-performance", "~> 1.14"
-  gem "rubocop-packaging", "~> 0.5.1"
+  gem "rubocop-packaging", "~> 0.5.2"
 end
 
 group :test do
