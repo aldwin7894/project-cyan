@@ -1358,10 +1358,10 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-iconify-icon@^1.0.0-beta.2:
-  version "1.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/iconify-icon/-/iconify-icon-1.0.0-beta.2.tgz#1cccd0fbacf55b379575b04c2dc651f98a0d1e44"
-  integrity sha512-a1MgokCwYqGLBzhsh7xceMEZ2r7CmT3Bh9Ce+23ww5/60fAl7ZvWm8jt98sEXXvGoAak/Qw+0cVpBR1QHAeQoA==
+iconify-icon@^1.0.0-beta.3:
+  version "1.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/iconify-icon/-/iconify-icon-1.0.0-beta.3.tgz#7c0c8165bd4ea95b2fa74be0a6611beb94fd8892"
+  integrity sha512-7vAcknliZ3YtbX1nXcNTQMa+m2eNYv6fpiouiuKyolLyuzRxv8mefNCahTcTb1bxPcoKBom1Mj7bN7fGjsKd0g==
   dependencies:
     "@iconify/types" "^2.0.0-beta.1"
 
