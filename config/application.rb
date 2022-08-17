@@ -12,7 +12,7 @@ Bundler.require(*Rails.groups)
 module Aldwin7894
   class Application < Rails::Application
     # get env variables from occson
-    config.before_initialize do
+    config.before_configuration do
       source = Rails.env.production? ? "occson://0.1.0/.env.prod" : "occson://0.1.0/.env.dev"
       access_token = ENV.fetch("OCCSON_ACCESS_TOKEN")
       passphrase = ENV.fetch("OCCSON_PASSPHRASE")
