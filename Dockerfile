@@ -5,6 +5,12 @@ ENV NPM_VERSION 8.16.0
 ENV YARN_VERSION 1.22.0
 ENV BUNDLE_PATH=/gems
 ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
+ENV RAILS_ENV="production"
+ENV NODE_ENV="production"
+ARG OCCSON_ACCESS_TOKEN_ARG
+ARG OCCSON_PASSPHRASE_ARG
+ENV OCCSON_ACCESS_TOKEN=$OCCSON_ACCESS_TOKEN_ARG
+ENV OCCSON_PASSPHRASE=$OCCSON_PASSPHRASE_ARG
 
 RUN apt-get update -yq \
   && apt-get install -yq --no-install-recommends \
@@ -33,7 +39,7 @@ WORKDIR /app
 RUN chmod -R 755 ./bin/* \
   && chmod -R 755 ./build.sh \
   && chmod -R 755 ./release-tasks.sh\
-  && bash -v ./build.sh "${RAILS_ENV}" "${NODE_ENV}"
+  && bash ./build.sh
 
 CMD ["bin/rails", "s", "-b", "0.0.0.0"]
 EXPOSE 3000

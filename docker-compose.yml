@@ -23,7 +23,12 @@ services:
     volumes:
       - 'redis:/data'
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - "OCCSON_ACCESS_TOKEN_ARG=${OCCSON_ACCESS_TOKEN}"
+        - "OCCSON_PASSPHRASE_ARG=${OCCSON_PASSPHRASE}"
     container_name: aldwin7894
     image: aldwin7894/aldwin7894:prod
     restart: always

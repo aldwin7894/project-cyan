@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 # exit on error
 set -e
+set -x
 
-yarn install --silent --frozen-lockfile
+yarn install --frozen-lockfile
 
 if [[ $RAILS_ENV == "production" ]]; then
-  BUNDLE_WITHOUT='development:test' BUNDLE_DEPLOYMENT=1 bin/bundle install -j4 --quiet
+  bin/bundle config set --local without "development test"
+  bin/bundle config set --local deployment true
+  bin/bundle install -j4
 
   echo "Precompiling Assets..."
   bin/rails assets:precompile
@@ -18,7 +21,7 @@ if [[ $RAILS_ENV == "production" ]]; then
 
   bash ./release-tasks.sh
 else
-  bin/bundle install --quiet
+  bin/bundle install
 fi
 
 if [ -f tmp/pids/server.pid ]; then
