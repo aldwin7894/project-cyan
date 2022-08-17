@@ -1,10 +1,10 @@
 FROM ruby:3.1.0-slim-bullseye
 
-ENV NODE_VERSION 14.18.2
-ENV NPM_VERSION 6.14.15
-ENV YARN_VERSION 1.22
-ENV NVM_DIR /usr/local/nvm
+ENV NODE_VERSION 14.20.0
+ENV NPM_VERSION 8.16.0
+ENV YARN_VERSION 1.22.0
 ENV BUNDLE_PATH=/gems
+ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
 RUN apt-get update -yq \
   && apt-get install -yq --no-install-recommends \
@@ -12,17 +12,17 @@ RUN apt-get update -yq \
   curl \
   libpq-dev \
   libjemalloc2 \
-  postgresql-client \
+  tar \
   git \
   tzdata \
+  && curl "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" -O \
+  && tar xzf "node-v$NODE_VERSION-linux-x64.tar.gz" \
+  && npm i -g npm@$NPM_VERSION yarn@$YARN_VERSION \
+  && npm cache clean --force \
+  && rm -f "/node-v$NODE_VERSION-linux-x64.tar.xz" \
   && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
   && apt-get clean \
-  && curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash \
-  && . ~/.bashrc \
-  && nvm install $NODE_VERSION \
-  && nvm alias default $NODE_VERSION \
-  && nvm use default \
-  && npm i -g npm@$NPM_VERSION yarn@$YARN_VERSION
+  && apt-get autoremove
 
 # enable jemalloc
 ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
