@@ -244,7 +244,6 @@ bower.json
 # Ignore precompiled javascript packs
 /public/packs
 /public/packs-test
-/public/assets
 
 # Ignore yarn files
 /yarn-error.log
@@ -306,3 +305,15 @@ build-iPhoneSimulator/
 # .rubocop-https?--*
 
 # End of https://www.toptal.com/developers/gitignore/api/node,ruby,rails,linux,macos
+
+**/cache
+.asset_sync_remote_file_list_cache.json
+*dump*
+vendor
+.git
+
+# Vite Ruby
+/public/vite*
+# Vite uses dotenv and suggests to ignore local-only env files. See
+# https://vitejs.dev/guide/env-and-mode.html#env-files
+*.local

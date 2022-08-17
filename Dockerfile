@@ -19,16 +19,13 @@ RUN apt-get update -yq \
   && tar xzf "node-v$NODE_VERSION-linux-x64.tar.gz" \
   && npm i -g npm@$NPM_VERSION yarn@$YARN_VERSION \
   && npm cache clean --force \
-  && rm -f "/node-v$NODE_VERSION-linux-x64.tar.xz" \
+  && rm -f "/node-v$NODE_VERSION-linux-x64.tar.gz" \
   && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
   && apt-get clean \
   && apt-get autoremove
 
 # enable jemalloc
 ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
-# add node and npm to path so the commands are available
-ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
-ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 COPY . /app
 WORKDIR /app

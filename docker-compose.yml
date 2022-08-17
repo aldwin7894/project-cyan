@@ -8,6 +8,8 @@ services:
       - TZ
       - POSTGRES_PASSWORD
       - POSTGRES_DB
+    ports:
+      - 5432:5432
     volumes:
       - "dbdata:/var/lib/postgresql/data"
   redis:
@@ -29,7 +31,7 @@ services:
       - db
       - redis
     ports:
-      - "3000:3000"
+      - 3000:3000
     environment:
       - "DATABASE_URL=postgres://postgres:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}"
       - REDIS_URL=redis://redis:6379
@@ -41,7 +43,6 @@ services:
       - OCCSON_ACCESS_TOKEN
       - OCCSON_PASSPHRASE
     volumes:
-      - .:/app
       - ruby-gems:/gems
 
 volumes:
