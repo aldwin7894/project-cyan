@@ -19,7 +19,7 @@ module Aldwin7894
 
       document = Occson::Document.new(source, access_token, passphrase).download
 
-      document.split("\n").each do |line|
+      document&.split("\n")&.each do |line|
         key, value = line.split("=", 2)
 
         ENV.store(key, value)

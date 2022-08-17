@@ -307,13 +307,10 @@ build-iPhoneSimulator/
 # End of https://www.toptal.com/developers/gitignore/api/node,ruby,rails,linux,macos
 
 **/cache
-.asset_sync_remote_file_list_cache.json
-*dump*
-vendor
 .git
-
-# Vite Ruby
-/public/vite*
-# Vite uses dotenv and suggests to ignore local-only env files. See
-# https://vitejs.dev/guide/env-and-mode.html#env-files
+.github
+.vscode
 *.local
+dump.rdb
+Dockerfile
+docker-compose.yml
