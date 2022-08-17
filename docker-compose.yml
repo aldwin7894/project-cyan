@@ -10,7 +10,6 @@ services:
       - POSTGRES_DB
     volumes:
       - "dbdata:/var/lib/postgresql/data"
-    env_file: .env
   redis:
     image: redis:latest
     command: redis-server
@@ -21,7 +20,6 @@ services:
       - "6379:6379"
     volumes:
       - 'redis:/data'
-    env_file: .env
   web:
     build: .
     container_name: aldwin7894
@@ -40,10 +38,11 @@ services:
       - RAILS_ENV
       - NODE_ENV
       - RAILS_ASSET_HOST
+      - OCCSON_ACCESS_TOKEN
+      - OCCSON_PASSPHRASE
     volumes:
       - .:/app
       - ruby-gems:/gems
-    env_file: .env
 
 volumes:
   dbdata:
