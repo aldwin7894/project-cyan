@@ -2,7 +2,8 @@ version: "3.9"
 
 services:
   db:
-    image: postgres:latest
+    container_name: aldwin7894-pg
+    image: postgres:14-alpine
     restart: always
     environment:
       - TZ
@@ -11,17 +12,19 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - "dbdata:/var/lib/postgresql/data"
+      - dbdata:/var/lib/postgresql/data
   redis:
-    image: redis:latest
-    command: redis-server
+    container_name: aldwin7894-redis
+    image: redis:alpine
+    command: redis-server /usr/local/etc/redis/redis.conf
     restart: always
     environment:
       - TZ
     ports:
-      - "6379:6379"
+      - 6379:6379
     volumes:
-      - 'redis:/data'
+      - redis:/data
+      - ./config/redis.conf:/usr/local/etc/redis/redis.conf
   web:
     build:
       context: .
@@ -29,7 +32,7 @@ services:
       args:
         - "OCCSON_ACCESS_TOKEN_ARG=${OCCSON_ACCESS_TOKEN}"
         - "OCCSON_PASSPHRASE_ARG=${OCCSON_PASSPHRASE}"
-    container_name: aldwin7894
+    container_name: aldwin7894-app
     image: aldwin7894/aldwin7894:prod
     restart: always
     depends_on:
