@@ -53,10 +53,7 @@ module Admin
     # DELETE /admin/users/1 or /admin/users/1.json
     def destroy
       @user.destroy
-      respond_to do |format|
-        format.html { redirect_to admin_users_url, notice: "User was successfully destroyed." }
-        format.json { head :no_content }
-      end
+      redirect_to admin_users_url, info: "User was successfully destroyed.", status: :see_other
     end
 
     private

@@ -1,0 +1,12 @@
+<%= turbo_stream.append "new_user" do %>
+  <% if @error %>
+    <script>
+      document.querySelector("form").reset();
+      Alpine.store("toasts").createToast("<%= @error %>", "error");
+    </script>
+  <% else %>
+    <script>
+      window.location.href = "<%= admin_dashboard_index_path %>";
+    </script>
+  <% end %>
+<% end %>

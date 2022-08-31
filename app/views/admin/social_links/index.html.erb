@@ -2,10 +2,10 @@
 
 <div class="mt-8">
   <div class="mt-6">
-    <div class="flex flex-col mt-3 sm:flex-row">
+    <div class="sm:flex-row flex flex-col mt-3">
       <div class="flex">
         <div class="relative">
-          <select class="block w-full h-full px-4 py-2 pr-8 leading-tight text-gray-700 bg-white border border-gray-400 rounded-l appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+          <select class="focus:outline-none focus:bg-white focus:border-gray-500 block w-full h-full px-4 py-2 pr-8 leading-tight text-gray-700 bg-white border border-gray-400 rounded-l appearance-none">
             <option>5</option>
             <option>10</option>
             <option>20</option>
@@ -19,7 +19,7 @@
         </div>
 
         <div class="relative">
-          <select class="block w-full h-full px-4 py-2 pr-8 leading-tight text-gray-700 bg-white border-t border-b border-r border-gray-400 rounded-r appearance-none sm:rounded-r-none sm:border-r-0 focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500">
+          <select class="sm:rounded-r-none sm:border-r-0 focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500 block w-full h-full px-4 py-2 pr-8 leading-tight text-gray-700 bg-white border-t border-b border-r border-gray-400 rounded-r appearance-none">
             <option>All</option>
             <option>Active</option>
             <option>Inactive</option>
@@ -33,20 +33,20 @@
         </div>
       </div>
 
-      <div class="relative block mt-2 sm:mt-0">
+      <div class="sm:mt-0 relative block mt-2">
         <span class="absolute inset-y-0 left-0 flex items-center pl-2">
           <svg viewBox="0 0 24 24" class="w-4 h-4 text-gray-500 fill-current">
               <path d="M10 4a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1114.32 4.906l5.387 5.387a1 1 0 01-1.414 1.414l-5.387-5.387A8 8 0 012 10z"></path>
           </svg>
         </span>
 
-        <input placeholder="Search" class="block w-full py-2 pl-8 pr-6 text-sm text-gray-700 placeholder-gray-400 bg-white border border-b border-gray-400 rounded-l rounded-r appearance-none sm:rounded-l-none focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
+        <input placeholder="Search" class="sm:rounded-l-none focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none block w-full py-2 pl-8 pr-6 text-sm text-gray-700 placeholder-gray-400 bg-white border border-b border-gray-400 rounded-l rounded-r appearance-none" />
       </div>
     </div>
 
     <div class="flex flex-col mt-6">
-        <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-            <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+        <div class="sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 py-2 -my-2 overflow-x-auto">
+            <div class="sm:rounded-lg inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow">
                 <table class="min-w-full">
                     <caption>Social Links</caption>
                     <thead>
@@ -88,7 +88,7 @@
                             <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
                               <div class="inline-flex space-x-4">
                                 <%= link_to 'Edit', edit_admin_social_link_path(social), class: "flex-1 px-6 py-3 bg-purple-600 rounded-md text-white font-medium tracking-wide hover:bg-purple-500 ml-3" %>
-                                <%= link_to 'Destroy', admin_social_link_path(social), class: "flex-1 px-6 py-3 bg-red-600 rounded-md text-white font-medium tracking-wide hover:bg-red-500 ml-3", method: :delete, data: { confirm: 'Are you sure?' } %>
+                                <%= link_to 'Destroy', admin_social_link_path(social), class: "flex-1 px-6 py-3 bg-red-600 rounded-md text-white font-medium tracking-wide hover:bg-red-500 ml-3", data: { turbo_confirm: 'Are you sure?', turbo_method: :delete } %>
                               </div>
                             </td>
                         </tr>
@@ -96,12 +96,12 @@
                     </tbody>
                 </table>
 
-                <div class="flex flex-col items-center px-5 py-5 bg-white border-t xs:flex-row xs:justify-between">
-                  <span class="text-xs text-gray-900 xs:text-sm">Showing 1 to 4 of 50 Entries</span>
+                <div class="xs:flex-row xs:justify-between flex flex-col items-center px-5 py-5 bg-white border-t">
+                  <span class="xs:text-sm text-xs text-gray-900">Showing 1 to 4 of 50 Entries</span>
 
-                  <div class="inline-flex mt-2 xs:mt-0">
-                    <button class="px-4 py-2 text-sm font-semibold text-gray-800 bg-gray-300 rounded-l hover:bg-gray-400">Prev</button>
-                    <button class="px-4 py-2 text-sm font-semibold text-gray-800 bg-gray-300 rounded-r hover:bg-gray-400">Next</button>
+                  <div class="xs:mt-0 inline-flex mt-2">
+                    <button class="hover:bg-gray-400 px-4 py-2 text-sm font-semibold text-gray-800 bg-gray-300 rounded-l">Prev</button>
+                    <button class="hover:bg-gray-400 px-4 py-2 text-sm font-semibold text-gray-800 bg-gray-300 rounded-r">Next</button>
                   </div>
                 </div>
             </div>

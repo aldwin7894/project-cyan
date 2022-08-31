@@ -5,6 +5,9 @@ class CreateSocialLinks < ActiveRecord::Migration[7.0]
     create_table :social_links do |t|
       t.string :name
       t.string :url
+      t.string :class
+      t.string :icon_name
+      t.string :icon_filename
       t.string :icon_url
       t.integer :status, default: 1
 

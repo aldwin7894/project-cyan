@@ -14,7 +14,7 @@ gem "pg"
 # Use Puma as the app server
 gem "puma", "~> 5.6"
 # Turbo gives you the speed of a single-page web application without having to write any JavaScript.
-gem "turbo-rails", "~> 1.1"
+gem "turbo-rails", github: "hotwired/turbo-rails", branch: "turbo-7-2-0"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.11"
 # Use Redis adapter to run Action Cable in production

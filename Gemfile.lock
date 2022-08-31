@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/hotwired/turbo-rails.git
+  revision: 717978b7bcc33a9566fc71d136858204ef3a3aeb
+  branch: turbo-7-2-0
+  specs:
+    turbo-rails (1.2.0.beta2)
+      actionpack (>= 6.0.0)
+      activejob (>= 6.0.0)
+      railties (>= 6.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -324,10 +334,6 @@ GEM
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.0)
-    turbo-rails (1.1.1)
-      actionpack (>= 6.0.0)
-      activejob (>= 6.0.0)
-      railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.2.0)
@@ -396,7 +402,7 @@ DEPENDENCIES
   selenium-webdriver
   solargraph (~> 0.46.0)
   solargraph-rails (~> 0.3.1)
-  turbo-rails (~> 1.1)
+  turbo-rails!
   tzinfo-data
   vite_rails (~> 3.0)
   webdrivers

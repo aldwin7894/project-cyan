@@ -2,6 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   layout "devise"
+  skip_before_action :verify_authenticity_token, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -11,16 +12,12 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    respond_to do |format|
-      self.resource = warden.authenticate(auth_options)
+    self.resource = warden.authenticate(auth_options)
 
-      if resource && resource.active_for_authentication?
-        sign_in(resource_name, resource)
-      else
-        @error = "Invalid username or password"
-      end
-
-      format.js
+    if resource && resource.active_for_authentication?
+      sign_in(resource_name, resource)
+    else
+      @error = "Invalid username or password"
     end
   end
 

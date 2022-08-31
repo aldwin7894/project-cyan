@@ -45,6 +45,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_01_13_035331) do
   create_table "game_ids", force: :cascade do |t|
     t.string "name"
     t.string "ign"
+    t.string "game_id"
+    t.string "icon_name"
+    t.string "icon_filename"
     t.string "icon_url"
     t.integer "status", default: 1
     t.datetime "created_at", null: false
@@ -54,6 +57,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_01_13_035331) do
   create_table "social_links", force: :cascade do |t|
     t.string "name"
     t.string "url"
+    t.string "class"
+    t.string "icon_name"
+    t.string "icon_filename"
     t.string "icon_url"
     t.integer "status", default: 1
     t.datetime "created_at", null: false

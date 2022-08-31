@@ -5,6 +5,9 @@ class CreateGameIds < ActiveRecord::Migration[7.0]
     create_table :game_ids do |t|
       t.string :name
       t.string :ign
+      t.string :game_id
+      t.string :icon_name
+      t.string :icon_filename
       t.string :icon_url
       t.integer :status, default: 1
 
