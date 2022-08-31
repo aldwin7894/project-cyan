@@ -34,6 +34,7 @@ module Aldwin7894
     config.middleware.use Rack::Brotli
     config.action_controller.forgery_protection_origin_check = false
     config.session_store :cookie_store, key: "_app_session"
+    config.action_view.form_with_generates_remote_forms = false
 
     config.exceptions_app = ->(env) { ExceptionsController.action(:index).call(env) }
 

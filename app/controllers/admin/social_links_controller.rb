@@ -53,10 +53,7 @@ module Admin
     # DELETE /admin/social-links/1 or /admin/social-links/1.json
     def destroy
       @social_link.destroy
-      respond_to do |format|
-        format.html { redirect_to admin_social_links_url, notice: "Social Link was successfully destroyed." }
-        format.json { head :no_content }
-      end
+      redirect_to admin_social_links_url, info: "Social Link was successfully destroyed.", status: :see_other
     end
 
     private
