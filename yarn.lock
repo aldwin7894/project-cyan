@@ -128,7 +128,7 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@hotwired/turbo-rails@^7.2.0":
+"@hotwired/turbo-rails@^7.2.0-beta.2":
   version "7.2.0-beta.2"
   resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-7.2.0-beta.2.tgz#e4a268f282e0d88410556ac1729ba70f7dd0a6b0"
   integrity sha512-KlBSQoT36/Ys8iP5L2aW9qLwlIATQiIB63T81/6EsL+UkkJQYrrb2oNyxnO/mdDseDoqKaaYFBrUnd5FqefzbA==
