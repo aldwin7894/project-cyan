@@ -2,3 +2,4 @@
 User-agent: *
 Disallow: /vite/
 Disallow: /assets/
+Disallow: /cdn-cgi/
