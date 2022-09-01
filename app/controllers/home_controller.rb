@@ -139,6 +139,9 @@ class HomeController < ApplicationController
     end
 
     render layout: false
+  rescue Lastfm::ApiError
+    @album_art = nil
+    render layout: false
   end
 
   def lastfm_top_artists
