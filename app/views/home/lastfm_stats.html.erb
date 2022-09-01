@@ -2,7 +2,7 @@
   <div class="w-full h-full bg-center" style="background-image: url('<%= @album_art.present? ? image_url_to_base64(@album_art) : image_url_to_base64(vite_asset_url('images/lastfm-placeholder.webp')) %>')">
     <div class="w-full h-full backdrop-blur-sm backdrop-brightness-[40%] bg-gradient-to-tr from-cyan-700/30 to-pink-500/30 text-white flex flex-col items-stretch gap-5 px-4 py-4" x-data="">
       <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="hover:underline text-lg font-bold text-left">
-        <% if @lastfm_recent['nowplaying'] %>
+        <% if @lastfm_recent&.[]('nowplaying') %>
           LAST.FM (NOW PLAYING)
         <% else %>
           LAST.FM
@@ -12,31 +12,45 @@
         <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="w-[150px] mx-auto">
           <img src="<%= @album_art.present? ? image_url_to_base64(@album_art) : image_url_to_base64(vite_asset_url('images/lastfm-placeholder.webp')) %>" alt="albumart">
         </button>
-        <div class="flex flex-col text-center">
-          <div class="text-[#3cb4f1] text-3xl font-bold line-clamp-2 break-words">
-            <%= @lastfm_recent['name'] %>
-          </div>
-          <div x-on:click="window.open('<%= @lastfm_recent['artist']['url'] %>')" class="line-clamp-1 hover:underline text-2xl cursor-pointer">
-            <%= "#{@lastfm_recent['artist']['name'].upcase}" %>
-          </div>
-          <% if @lastfm_recent['album']['content'].present? %>
-            <div x-on:click="window.open('<%= @lastfm_recent['album']['url'] %>')" class="text-[#e5ded3] italic text-xl hover:underline line-clamp-1 break-all cursor-pointer">
-              <%= "#{@lastfm_recent['album']['content']}" %>
+        <% if @lastfm_recent.present? %>
+          <div class="flex flex-col text-center">
+            <div class="text-[#3cb4f1] text-3xl font-bold line-clamp-2 break-words">
+              <%= @lastfm_recent['name'] %>
             </div>
-          <% end %>
-          <% if @lastfm_recent['nowplaying'].blank? %>
-            <div>
-              <div x-on:click="window.open('https://www.last.fm/user/aldwin7894/library')" class="hover:underline line-clamp-1 text-lg break-all cursor-pointer">
-                last played
-                <% if time_ago_in_words(Time.zone.at(@lastfm_recent['date']['uts'].to_i)) == 'less than a minute' %>
-                  just now
-                <% else %>
-                  <%= (time_ago_in_words(Time.zone.at(@lastfm_recent['date']['uts'].to_i)) +' ago').sub('about', '') %>
-                <% end %>
+            <div x-on:click="window.open('<%= @lastfm_recent['artist']['url'] %>')" class="line-clamp-1 hover:underline text-2xl cursor-pointer">
+              <%= "#{@lastfm_recent['artist']['name'].upcase}" %>
+            </div>
+            <% if @lastfm_recent['album']['content'].present? %>
+              <div x-on:click="window.open('<%= @lastfm_recent['album']['url'] %>')" class="text-[#e5ded3] italic text-xl hover:underline line-clamp-1 break-all cursor-pointer">
+                <%= "#{@lastfm_recent['album']['content']}" %>
               </div>
+            <% end %>
+            <% if @lastfm_recent['nowplaying'].blank? %>
+              <div>
+                <div x-on:click="window.open('https://www.last.fm/user/aldwin7894/library')" class="hover:underline line-clamp-1 text-lg break-all cursor-pointer">
+                  last played
+                  <% if time_ago_in_words(Time.zone.at(@lastfm_recent['date']['uts'].to_i)) == 'less than a minute' %>
+                    just now
+                  <% else %>
+                    <%= (time_ago_in_words(Time.zone.at(@lastfm_recent['date']['uts'].to_i)) +' ago').sub('about', '') %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="flex flex-col text-center">
+            <div class="text-[#3cb4f1] text-3xl font-bold line-clamp-2 break-words">
+              LAST.FM IS CURRENTLY DOWN!!
             </div>
-          <% end %>
-        </div>
+            <div class="line-clamp-1 text-2xl">
+              ¯\(ツ)/¯
+            </div>
+            <div class="text-[#e5ded3] italic text-xl line-clamp-1 break-all">
+              as always lol
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
