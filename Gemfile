@@ -15,8 +15,6 @@ gem "pg"
 gem "puma", "~> 5.6"
 # Turbo gives you the speed of a single-page web application without having to write any JavaScript.
 gem "turbo-rails", github: "hotwired/turbo-rails", branch: "turbo-7-2-0"
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem "jbuilder", "~> 2.11"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 5.0"
 # Use Active Model has_secure_password
@@ -68,8 +66,6 @@ gem "lastfm", "~> 1.27"
 gem "imgkit", "~> 1.6"
 
 gem "devise", "~> 4.8"
-
-gem "cocoon", "~> 1.2"
 
 gem "aws-sdk-s3", "~> 1"
 
