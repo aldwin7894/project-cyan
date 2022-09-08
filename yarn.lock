@@ -165,10 +165,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@iconify/types@^2.0.0-beta.1":
-  version "2.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@iconify/types/-/types-2.0.0-beta.1.tgz#0e5f7046336c50ecd7b956157ded03722f02d1ed"
-  integrity sha512-M8I8ReRIEj4oIddjUjw3CoKv1wfSX2F3CIDjn3RwxQSOz2nG7/s5r5BJxRHwr+t7p0RPkbyiR640/FQPDZjeYg==
+"@iconify/types@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@iconify/types/-/types-2.0.0.tgz#ab0e9ea681d6c8a1214f30cd741fe3a20cc57f57"
+  integrity sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -1365,12 +1365,12 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-iconify-icon@^1.0.0-beta.3:
-  version "1.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/iconify-icon/-/iconify-icon-1.0.0-beta.3.tgz#7c0c8165bd4ea95b2fa74be0a6611beb94fd8892"
-  integrity sha512-7vAcknliZ3YtbX1nXcNTQMa+m2eNYv6fpiouiuKyolLyuzRxv8mefNCahTcTb1bxPcoKBom1Mj7bN7fGjsKd0g==
+iconify-icon@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/iconify-icon/-/iconify-icon-1.0.0.tgz#8bba1d0181d9e3747aeec789744d4496829bcfa9"
+  integrity sha512-UY4PDCKQPpIGgDIx2yxM8wiOdMdLz0mb93dTV0Ox5hThwO8OA2zy8gDmjRReKqkPHK/mY7p/ivDaDGHE8O9xIw==
   dependencies:
-    "@iconify/types" "^2.0.0-beta.1"
+    "@iconify/types" "^2.0.0"
 
 ignore@^5.2.0:
   version "5.2.0"
