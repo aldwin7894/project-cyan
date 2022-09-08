@@ -34,7 +34,7 @@
     "postcss": "^8.4.14",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^15.0.0",
-    "postcss-preset-env": "^7.8.0",
+    "postcss-preset-env": "^7.8.1",
     "rollup-plugin-gzip": "^3.0.1",
     "sass": "^1.54.9",
     "tailwindcss": "^3.1.8",
