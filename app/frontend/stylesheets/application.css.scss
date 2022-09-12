@@ -1,6 +1,7 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "./utils/randomNum.css.scss";
 
 .background-1 {
   background-image: url('@/images/bg.webp');
@@ -86,4 +87,161 @@
 .turbo-progress-bar {
   height: 10px;
   background-color: cyan;
+}
+
+#equalizer {
+  display: inline-block;
+  background: transparent;
+  width: 60px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+
+  div[class^="eq-bar"] {
+    display: inline-block;
+    width: 9px;
+    transition: .5s;
+    animation: equalize 5s linear 2s infinite alternate;
+    position: absolute;
+    bottom: 0px;
+    height: 3px;
+    background: #0c0c0c;
+    transition: 0.5s;
+    opacity: 70%;
+    animation-delay: -1.9s;
+  }
+
+  .eq-bar-0 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-1 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-2 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-3 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-4 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-5 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-6 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-7 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-8 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-9 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-10 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-11 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-12 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-13 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-14 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-15 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-16 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-17 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-18 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-19 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-20 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-21 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-22 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-23 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-24 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-25 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-26 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-27 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-28 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-29 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-30 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-31 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-32 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-33 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-34 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-35 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-36 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-37 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-38 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-39 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-40 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+}
+
+@keyframes equalize {
+  0% {
+    height: 3px;
+  }
+  100% {
+    height: 80px;
+  }
 }
