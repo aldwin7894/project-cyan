@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.1.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem "rails", "~> 7.0.3"
+gem "rails", "~> 7.0.4"
 # use vite to build javascripts and assets
 gem "vite_rails", "~> 3.0"
 # Use postgres
@@ -41,8 +41,8 @@ group :development do
   gem "solargraph", "~> 0.46.0"
   gem "solargraph-rails", "~> 0.3.1"
   gem "rubocop", "~> 1.36"
-  gem "rubocop-rails", "~> 2.15"
-  gem "rubocop-performance", "~> 1.14"
+  gem "rubocop-rails", "~> 2.16"
+  gem "rubocop-performance", "~> 1.15"
   gem "rubocop-packaging", "~> 0.5.2"
 end
 
