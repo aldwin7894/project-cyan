@@ -42,7 +42,7 @@ group :development do
   gem "solargraph-rails", "~> 0.3.1"
   gem "rubocop", "~> 1.36"
   gem "rubocop-rails", "~> 2.16"
-  gem "rubocop-performance", "~> 1.14"
+  gem "rubocop-performance", "~> 1.15"
   gem "rubocop-packaging", "~> 0.5.2"
 end
 
