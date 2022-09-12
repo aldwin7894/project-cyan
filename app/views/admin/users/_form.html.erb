@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="mt-5 md:mt-0 md:col-span-2">
-        <%= form_for [:admin, user], class: 'w-full max-w-lg' do |f| %>
+        <%= form_for [:admin, user], class: "w-full max-w-lg" do |f| %>
           <div class="shadow sm:rounded-md sm:overflow-hidden">
             <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
               <div>
@@ -26,44 +26,44 @@
                   <%# <button type="button" class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     Change
                   </button> %>
-                  <%=f.label :photo, 'Change', class: "ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
-                  <%=f.file_field :photo, class: "hidden" %>
+                  <%= f.label :photo, "Change", class: "ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+                  <%= f.file_field :photo, class: "hidden" %>
                 </div>
               </div>
 
               <div class="grid grid-cols-3 gap-6">
                 <div class="col-span-3 sm:col-span-2">
-                  <%=f.label :username, class: "block text-sm font-medium text-gray-700"%>
+                  <%= f.label :username, class: "block text-sm font-medium text-gray-700" %>
 
                   <div class="mt-1 flex rounded-md shadow-sm">
-                    <%=f.text_field :username, class: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md", placeholder:"Username" %>
+                    <%= f.text_field :username, class: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md", placeholder: "Username" %>
                   </div>
                 </div>
               </div>
 
               <div class="col-span-6 sm:col-span-4">
-                <%=f.label :email, class: "block text-sm font-medium text-gray-700"%>
+                <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
 
-                <%=f.email_field :email, class: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md", placeholder:"Email Address", autocomplete: "email" %>
+                <%= f.email_field :email, class: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md", placeholder: "Email Address", autocomplete: "email" %>
                 <%# <input type="text" name="email_address" id="email_address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"> %>
               </div>
 
               <div class="grid grid-cols-3 gap-6">
                 <div class="col-span-3 sm:col-span-2">
-                  <%=f.label :password, class: "block text-sm font-medium text-gray-700"%>
+                  <%= f.label :password, class: "block text-sm font-medium text-gray-700" %>
 
                   <div class="mt-1 flex rounded-md shadow-sm">
-                    <%=f.password_field :password, class: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md", placeholder:"Password" %>
+                    <%= f.password_field :password, class: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md", placeholder: "Password" %>
                   </div>
                 </div>
               </div>
 
               <div class="grid grid-cols-3 gap-6">
                 <div class="col-span-3 sm:col-span-2">
-                  <%=f.label :password_confirmation, class: "block text-sm font-medium text-gray-700"%>
+                  <%= f.label :password_confirmation, class: "block text-sm font-medium text-gray-700" %>
 
                   <div class="mt-1 flex rounded-md shadow-sm">
-                    <%=f.password_field :password_confirmation, class: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md", placeholder:"Confirm Password" %>
+                    <%= f.password_field :password_confirmation, class: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md", placeholder: "Confirm Password" %>
                   </div>
                 </div>
               </div>
@@ -73,7 +73,7 @@
                 Save
               </button>
 
-              <a type="button" href="<%= admin_users_path%>" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              <a type="button" href="<%= admin_users_path %>" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Back
               </a>
             </div>

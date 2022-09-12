@@ -12,15 +12,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= vite_client_tag %>
-    <%= vite_javascript_tag 'admin', 'data-turbo-track': 'reload' %>
+    <%= vite_javascript_tag "admin", 'data-turbo-track': "reload" %>
   </head>
 
   <body>
     <div x-data="{ sidebarOpen: false }" class="font-roboto flex h-screen bg-gray-200">
-      <%= render '/admin/shared/sidebar' %>
+      <%= render "/admin/shared/sidebar" %>
 
       <div class="flex flex-col flex-1 overflow-hidden">
-        <%= render '/admin/shared/topbar' %>
+        <%= render "/admin/shared/topbar" %>
 
         <main class="bg-gray-200n flex-1 overflow-x-hidden overflow-y-auto">
           <div class="container px-6 py-8 mx-auto">
