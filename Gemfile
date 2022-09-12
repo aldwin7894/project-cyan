@@ -41,7 +41,7 @@ group :development do
   gem "solargraph", "~> 0.46.0"
   gem "solargraph-rails", "~> 0.3.1"
   gem "rubocop", "~> 1.36"
-  gem "rubocop-rails", "~> 2.15"
+  gem "rubocop-rails", "~> 2.16"
   gem "rubocop-performance", "~> 1.14"
   gem "rubocop-packaging", "~> 0.5.2"
 end
