@@ -1,4 +1,4 @@
-<div x-data class="absolute top-0 right-0 p-4 overflow-x-hidden min-w-1/4">
+<div x-data class="min-w-1/4 absolute top-0 right-0 p-4 overflow-x-hidden">
   <template
     x-for="(toast, index) in $store.toasts.list"
     :key="toast.id"
@@ -12,7 +12,7 @@
       x-transition:leave="transition ease-out duration-5000"
       x-transition:leave-start="transform translate-x-0 opacity-100"
       x-transition:leave-end="transform translate-x-full opacity-0"
-      class="bg-gray-900 bg-gradient-to-r text-white p-3 rounded mb-3 shadow-lg flex items-center"
+      class="bg-gradient-to-r flex items-center p-3 mb-3 text-white bg-gray-900 rounded shadow-lg"
       :class="{
         'from-blue-500 to-blue-600': toast.type === 'info',
         'from-green-500 to-green-600': toast.type === 'success',

@@ -44,6 +44,7 @@ group :development do
   gem "rubocop-rails", "~> 2.16"
   gem "rubocop-performance", "~> 1.15"
   gem "rubocop-packaging", "~> 0.5.2"
+  gem "erb_lint", "~> 0.2.0", require: false
 end
 
 group :test do

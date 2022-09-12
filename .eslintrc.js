@@ -5,12 +5,17 @@ module.exports = {
   },
   extends: [
     "airbnb-base",
+    "plugin:tailwindcss/recommended",
   ],
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["import"],
+  plugins: [
+    "import",
+    "html-erb",
+    "tailwindcss",
+  ],
   settings: {
     "import/resolver": {
       alias: {
