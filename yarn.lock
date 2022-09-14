@@ -128,18 +128,18 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@hotwired/turbo-rails@^7.2.0-beta.2":
-  version "7.2.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-7.2.0-beta.2.tgz#e4a268f282e0d88410556ac1729ba70f7dd0a6b0"
-  integrity sha512-KlBSQoT36/Ys8iP5L2aW9qLwlIATQiIB63T81/6EsL+UkkJQYrrb2oNyxnO/mdDseDoqKaaYFBrUnd5FqefzbA==
+"@hotwired/turbo-rails@^7.2.0-rc.1":
+  version "7.2.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-7.2.0-rc.1.tgz#a9e8f0befde92a731e93881f73ce18d2942ecf36"
+  integrity sha512-YgcUt9ivjcc2xsjfkadmoqlhH+ogea8og8v4Et1EjDRIWUxZwySQPYVpxmJEe+lEpd8teO0yOmbTVZx82CIVFQ==
   dependencies:
-    "@hotwired/turbo" "^7.2.0-beta.2"
+    "@hotwired/turbo" "^7.2.0-rc.1"
     "@rails/actioncable" "^7.0"
 
-"@hotwired/turbo@^7.2.0-beta.2":
-  version "7.2.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.2.0-beta.2.tgz#b05364e34078bef511dcddf11f8058ffe560ae26"
-  integrity sha512-fXkSOAOupGpP8wqD21JGCyBWjE1kKgOcpC3U0mVN7mbxBT8TjsLslTCguPZFPB7aZdi3YKbIwjulGggeAXsdHg==
+"@hotwired/turbo@^7.2.0-rc.1":
+  version "7.2.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.2.0-rc.1.tgz#a68eedb0e05e56aa001bd47abc5341b161086168"
+  integrity sha512-ba16MrRG8+FHOf8TAWUwSeFe9c4pUgTYpcTg2Dqp08DygALZ8Y+nExercce1hvO7dR9uSmb8U7sSZKTUddFU6w==
 
 "@humanwhocodes/config-array@^0.10.4":
   version "0.10.4"
