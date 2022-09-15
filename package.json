@@ -18,7 +18,7 @@
     "rails:prod:restart": "npx kill-port 3000 && yarn rails:prod"
   },
   "dependencies": {
-    "@hotwired/turbo-rails": "^7.2.0-rc.1",
+    "@hotwired/turbo-rails": "^7.2.0-rc.2",
     "@rails/actioncable": "^7.0.4",
     "@rails/activestorage": "^7.0.4",
     "@tailwindcss/aspect-ratio": "^0.4.2",
@@ -34,12 +34,12 @@
     "postcss": "^8.4.14",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^15.0.0",
-    "postcss-preset-env": "^7.8.1",
+    "postcss-preset-env": "^7.8.2",
     "rollup-plugin-gzip": "^3.0.1",
     "sass": "^1.54.9",
     "tailwindcss": "^3.1.8",
     "tw-elements": "^1.0.0-alpha12",
-    "vite": "^3.1.0",
+    "vite": "^3.1.1",
     "vite-plugin-full-reload": "^1.0.4",
     "vite-plugin-ruby": "^3.1.0"
   },
