@@ -31,13 +31,6 @@
   background-position: center center;
 }
 
-.background-cyan-3 {
-  background-image: url('@/images/cyan-bg-3.webp');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
 .background-cyan-4 {
   background-image: url('@/images/cyan-bg-4.webp');
   background-size: cover;
@@ -101,7 +94,6 @@
   div[class^="eq-bar"] {
     display: inline-block;
     width: 9px;
-    transition: .5s;
     animation: equalize 5s linear 2s infinite alternate;
     position: absolute;
     bottom: 0px;
