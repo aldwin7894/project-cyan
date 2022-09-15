@@ -18,7 +18,7 @@
     "rails:prod:restart": "npx kill-port 3000 && yarn rails:prod"
   },
   "dependencies": {
-    "@hotwired/turbo-rails": "^7.2.0-rc.1",
+    "@hotwired/turbo-rails": "^7.2.0-rc.2",
     "@rails/actioncable": "^7.0.4",
     "@rails/activestorage": "^7.0.4",
     "@tailwindcss/aspect-ratio": "^0.4.2",
