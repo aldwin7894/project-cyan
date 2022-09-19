@@ -78,7 +78,7 @@ gem "rack-brotli", "~> 1.2"
 
 gem "health_check", "~> 3.1"
 
-gem "httplog", "~> 1.5"
+gem "httplog", "~> 1.6"
 
 gem "s3_asset_deploy", "~> 1.0"
 
