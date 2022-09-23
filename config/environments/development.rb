@@ -26,7 +26,7 @@ Rails.application.configure do
     config.action_controller.enable_fragment_cache_logging = true
     Rack::MiniProfiler.config.disable_caching = false
 
-    config.cache_store = :redis_cache_store, { url: ENV.fetch("REDIS_URL", "redis://localhost:6379/1") }
+    config.cache_store = :redis_cache_store, { url: ENV.fetch("REDIS_URL", "redis://wsl.local:6379/1") }
     config.public_file_server.headers = {
       "Cache-Control" => "public, s-maxage=31536000, max-age=15552000",
       "Expires" => 1.year.from_now.to_formatted_s(:rfc822)
@@ -49,7 +49,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.default_url_options = { host: "wsl.local", port: 3000 }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -78,12 +78,13 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-  config.hosts << /[a-z0-9-]+\.ngrok\.io/
-  config.asset_host = ENV.fetch("RAILS_ASSET_HOST", "http://localhost:3036")
+  config.hosts << /[a-z0-9-]+\.ngrok\.io|wsl.local/
+  config.asset_host = ENV.fetch("RAILS_ASSET_HOST", "http://wsl.local:3036")
+  config.force_ssl = false
 
   # if Rails.const_defined? "Server"
   #   config.asset_host = "http://#{Rails::Server::Options.new.parse!(ARGV)[:Host]}:#{Rails::Server::Options.new.parse!(ARGV)[:Port]}"
   # else
-  #   config.asset_host = "http://localhost:3000"
+  #   config.asset_host = "http://wsl.local:3000"
   # end
 end

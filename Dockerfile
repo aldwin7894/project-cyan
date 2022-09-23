@@ -1,4 +1,4 @@
-FROM ruby:3.1.0-slim-bullseye
+FROM ruby:3.1.2-slim-bullseye
 
 ENV NODE_VERSION 14.20.0
 ENV NPM_VERSION 8.16.0
