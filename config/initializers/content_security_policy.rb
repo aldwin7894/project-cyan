@@ -19,14 +19,14 @@ Rails.application.configure do
     # Preventing ClickJacking
     policy.frame_ancestors :self
 
-    # Ensure that all requests will be sent over HTTPS with no fallback to HTTP.
-    policy.upgrade_insecure_requests
-
     if Rails.env.development? || Rails.env.test?
-      policy.connect_src(*policy.connect_src, "http://localhost:3035", "ws://localhost:3035", "ws://#{ViteRuby.config.host_with_port}")
+      policy.connect_src(*policy.connect_src, "http://wsl.local:3035", "ws://wsl.local:3035", "ws://#{ViteRuby.config.host_with_port}")
       policy.script_src(*policy.script_src, "http://#{ViteRuby.config.host_with_port}")
       policy.img_src(*policy.img_src, "http://#{ViteRuby.config.host_with_port}")
       policy.style_src(*policy.style_src, "http://#{ViteRuby.config.host_with_port}")
+    else
+      # Ensure that all requests will be sent over HTTPS with no fallback to HTTP.
+      policy.upgrade_insecure_requests
     end
 
     #     # Specify URI for violation reports

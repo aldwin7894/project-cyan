@@ -18,5 +18,8 @@
   "eslint.alwaysShowStatus": true,
   "eslint.enable": true,
   "eslint.format.enable": true,
-  "eslint.workingDirectories": ["./"]
+  "eslint.workingDirectories": ["./"],
+  "ruby.rubocop.autocorrectOnSave": true,
+  "ruby.rubocop.suppressRubocopWarnings": true,
+  "ruby.rubocop.useServer": true
 }

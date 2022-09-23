@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.0"
+ruby "3.1.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem "rails", "~> 7.0.4"
@@ -14,7 +14,7 @@ gem "pg"
 # Use Puma as the app server
 gem "puma", "~> 5.6"
 # Turbo gives you the speed of a single-page web application without having to write any JavaScript.
-gem "turbo-rails", github: "hotwired/turbo-rails", branch: "turbo-7-2-0"
+gem "turbo-rails", "~> 1.3"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 5.0"
 # Use Active Model has_secure_password
