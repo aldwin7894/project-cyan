@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/hotwired/turbo-rails.git
-  revision: 48d0731e48720b2130024e354be49a7b4aee4fbf
+  revision: c0fbfabb334dfeffd18f09c4627de3921ecac5c4
   branch: turbo-7-2-0
   specs:
     turbo-rails (1.2.0.beta2)
