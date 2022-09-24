@@ -1,44 +1,74 @@
-<section class="flex-1 w-full background-cyan-<%= [1, 2, 3, 4, 5, 6, 7, 8, 9].shuffle.first %> phone:bg-auto laptop:bg-[length:150%] laptop:bg-[right_-30vh_top_-30vh]">
-  <div class="bg-gradient-to-t from-[#453c64]/90 to-cyan-400/50">
-    <div class="md:container md:mx-auto">
-      <div class="flex flex-col items-center pt-16 pb-4 min-h-[60vh]">
-        <div>
-          <%= image_tag vite_asset_path("images/cyan-avatar.webp"), class: "outline outline-white outline-5 rounded-full max-w-sm", width: 150, height: 150, alt: "avatar" %>
+<section class="flex-1">
+  <div class="carousel slide carousel-fade relative" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
+    <div class="carousel-inner relative w-full overflow-hidden">
+      <% (1..9).to_a.shuffle.each_with_index do |num, i| %>
+        <div class="carousel-item relative float-left w-screen h-screen background-cyan-<%= num %> <%= i == 0 ? "active" : "" %>">
         </div>
-        <div class="my-2 text-3xl font-medium text-white">Cyan★Nyan♪</div>
-        <div class="text-slate-700 px-2 bg-white">/aldwin7894/</div>
-        <div class="flex flex-row flex-wrap justify-center gap-4 py-10 my-auto" x-data="">
-          <button x-on:click="window.open('https://bit.ly/cyan-anilist')" class="text-white hover:text-[#02a9ff] h-fit">
-            <iconify-icon icon="simple-icons:anilist" width="50"></iconify-icon>
-          </button>
-          <button x-on:click="window.open('https://bit.ly/cyan-mal')" class="h-fit text-white">
-            <iconify-icon icon="simple-icons:myanimelist" width="50" class="hover:bg-[#2f52a2] px-2 rounded-md"></iconify-icon>
-          </button>
-          <button x-on:click="window.open('https://spoti.fi/3PRGOmq')" class="text-white hover:text-[#1ed760] h-fit">
-            <iconify-icon icon="akar-icons:spotify-fill" width="50"></iconify-icon>
-          </button>
-          <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="text-white hover:text-[#ba0000] h-fit">
-            <iconify-icon icon="brandico:lastfm-rect" width="50" class="hover:bg-white rounded-[10px]"></iconify-icon>
-          </button>
-          <button x-on:click="window.open('https://bit.ly/cyan-musicbrainz')" class="text-white hover:text-[#eb743b] h-fit">
-            <iconify-icon icon="simple-icons:musicbrainz" width="50"></iconify-icon>
-          </button>
-          <button x-on:click="window.open('https://bit.ly/cyan-youtube')" class="text-white hover:text-[#ff0000] h-fit">
-            <iconify-icon icon="simple-icons:youtube" width="50"></iconify-icon>
-          </button>
-          <button x-on:click="window.open('https://bit.ly/cyan-twitch')" class="text-white hover:text-[#a970ff] h-fit">
-            <iconify-icon icon="simple-icons:twitch" width="50"></iconify-icon>
-          </button>
-          <button x-on:click="window.open('https://bit.ly/cyan-steam')" class="text-white hover:text-[#075a8e] h-fit">
-            <iconify-icon icon="simple-icons:steam" width="50" class="hover:bg-white hover:outline-[#075a8e] outline-2 outline outline-offset-[-1px] rounded-full"></iconify-icon>
-          </button>
-          <button x-on:click="window.open('https://bit.ly/cyan-osu')" class=" h-fit text-white">
-            <iconify-icon icon="simple-icons:osu" width="50" class="hover:bg-[#f170aa] rounded-full"></iconify-icon>
-          </button>
-          <button x-on:click="window.open('https://bit.ly/cyan-github')" class="hover:text-[#171a1e] text-white h-fit">
-            <iconify-icon icon="simple-icons:github" width="50" class="hover:bg-white hover:outline-[#171a1e] outline-2 outline outline-offset-[-1px] rounded-full"></iconify-icon>
-          </button>
+      <% end %>
+    </div>
+    <div class="flex flex-col w-screen h-screen z-10 absolute top-0 left-0 right-0 bg-gradient-to-t from-[#453c64]/90 to-cyan-400/50">
+      <div class="xs:grid-cols-none sm:grid-cols-none grid grid-cols-5 my-auto">
+        <div></div>
+        <div class="xs:items-center sm:items-center flex flex-col items-start col-span-3">
+          <div class="pb-3">
+            <%= image_tag vite_asset_path("images/cyan-avatar.gif"), class: "outline outline-white outline-5 rounded-full max-w-sm", width: 200, height: 200, alt: "avatar" %>
+          </div>
+          <div class="flex flex-col">
+            <div class="xs:text-5xl sm:text-5xl mb-2 text-6xl font-medium text-white">Cyan★Nyan♪</div>
+            <div class="text-slate-700 text bg-white/80 px-2 text-2xl text-center">／<b>aldwin7894</b>／</div>
+          </div>
+          <div class="phone:px-2 xs:justify-center sm:justify-center flex flex-row flex-wrap justify-start gap-4 pt-20" x-data="">
+            <button x-on:click="window.open('https://bit.ly/cyan-anilist')" class="text-white hover:text-[#02a9ff] h-fit">
+              <iconify-icon icon="simple-icons:anilist" width="50"></iconify-icon>
+            </button>
+            <button x-on:click="window.open('https://bit.ly/cyan-mal')" class="h-fit text-white">
+              <iconify-icon icon="simple-icons:myanimelist" width="50" class="hover:bg-[#2f52a2] px-2 rounded-md"></iconify-icon>
+            </button>
+            <button x-on:click="window.open('https://spoti.fi/3PRGOmq')" class="text-white hover:text-[#1ed760] h-fit">
+              <iconify-icon icon="akar-icons:spotify-fill" width="50"></iconify-icon>
+            </button>
+            <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="text-white hover:text-[#ba0000] h-fit">
+              <iconify-icon icon="brandico:lastfm-rect" width="50" class="hover:bg-white rounded-[10px]"></iconify-icon>
+            </button>
+            <button x-on:click="window.open('https://bit.ly/cyan-musicbrainz')" class="text-white hover:text-[#eb743b] h-fit">
+              <iconify-icon icon="simple-icons:musicbrainz" width="50"></iconify-icon>
+            </button>
+            <button x-on:click="window.open('https://bit.ly/cyan-youtube')" class="text-white hover:text-[#ff0000] h-fit">
+              <iconify-icon icon="simple-icons:youtube" width="50"></iconify-icon>
+            </button>
+            <button x-on:click="window.open('https://bit.ly/cyan-twitch')" class="text-white hover:text-[#a970ff] h-fit">
+              <iconify-icon icon="simple-icons:twitch" width="50"></iconify-icon>
+            </button>
+            <button x-on:click="window.open('https://bit.ly/cyan-steam')" class="text-white hover:text-[#075a8e] h-fit">
+              <iconify-icon icon="simple-icons:steam" width="50" class="hover:bg-white hover:outline-[#075a8e] outline-2 outline outline-offset-[-1px] rounded-full"></iconify-icon>
+            </button>
+            <button x-on:click="window.open('https://bit.ly/cyan-osu')" class=" h-fit text-white">
+              <iconify-icon icon="simple-icons:osu" width="50" class="hover:bg-[#f170aa] rounded-full"></iconify-icon>
+            </button>
+            <button x-on:click="window.open('https://bit.ly/cyan-github')" class="hover:text-[#171a1e] text-white h-fit">
+              <iconify-icon icon="simple-icons:github" width="50" class="hover:bg-white hover:outline-[#171a1e] outline-2 outline outline-offset-[-1px] rounded-full"></iconify-icon>
+            </button>
+          </div>
+          <div class="phone:px-2 xs:justify-center sm:justify-center flex flex-row flex-wrap justify-start gap-4 pt-10">
+            <% @game_ids.each do |game_id| %>
+              <button
+                type="button"
+                data-mdb-ripple="true"
+                data-mdb-ripple-color="light"
+                class="h-fit shine-effect rounded-md"
+                data-bs-toggle="popover"
+                data-bs-placement="bottom"
+                data-bs-trigger="focus"
+                data-bs-title="<%= game_id.name %>"
+                data-bs-content="<%= "ID: #{game_id.game_id}\nIGN: #{game_id.ign}" %>"
+              >
+                <%= image_tag vite_asset_path("images/icons/#{game_id.icon_filename}"), width: 50, alt: game_id.name %>
+                <div class="shine"></div>
+              </button>
+            <% end %>
+          </div>
         </div>
+        <div></div>
       </div>
     </div>
   </div>

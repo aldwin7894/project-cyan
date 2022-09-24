@@ -21,5 +21,8 @@
   "eslint.workingDirectories": ["./"],
   "ruby.rubocop.autocorrectOnSave": true,
   "ruby.rubocop.suppressRubocopWarnings": true,
-  "ruby.rubocop.useServer": true
+  "ruby.rubocop.useServer": true,
+  "[erb]": {
+    "editor.defaultFormatter": "manuelpuyol.erb-linter"
+  }
 }
