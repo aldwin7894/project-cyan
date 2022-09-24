@@ -9,7 +9,9 @@
   "development": {
     "autoBuild": true,
     "publicOutputDir": "vite-dev",
-    "port": 3036
+    "port": 3036,
+    "host": "wsl.local",
+    "https": false
   },
   "test": {
     "autoBuild": true,

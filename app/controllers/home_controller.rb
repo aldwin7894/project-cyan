@@ -7,7 +7,9 @@ class HomeController < ApplicationController
   ANIME_FORMATS = ["TV", "TV_SHORT", "ONA"]
   IGNORED_USER_STATUS = ["plans to watch", "paused watching", "dropped"]
 
-  def index; end
+  def index
+    @game_ids = GameId.where(status: 1).order(id: :asc)
+  end
 
   def anilist_user_statistics
     user_id = ENV.fetch("ANILIST_USER_ID")

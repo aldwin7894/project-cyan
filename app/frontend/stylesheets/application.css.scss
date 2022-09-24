@@ -237,3 +237,43 @@
     height: 80px;
   }
 }
+
+.shine {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transform: rotate(30deg);
+  transform-origin: top right;
+  width: 100%;
+  height: 65%;
+  opacity: 0.3;
+  background: linear-gradient(
+    0turn,
+    transparent 0%,
+    rgba(200, 200, 200, 0.4) 5%,
+    rgba(255, 255, 255, 0.2) 15%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.shine-effect {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  transform-origin: 100% 0;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    .shine {
+      height: 100%;
+      opacity: 1;
+    }
+  }
+}
+
+.popover-body {
+  white-space: pre;
+}
