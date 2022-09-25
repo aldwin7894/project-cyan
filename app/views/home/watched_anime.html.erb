@@ -1,17 +1,23 @@
-<turbo-frame id="watched_anime" class="grid phone:grid-cols-1 gap-5 text-center tablet:grid-cols-2 laptop:grid-cols-5 min-h-[322px]" x-data="">
-  <% @watched_anime&.first(5)&.each do |activity| %>
-    <div class="flex flex-col">
-      <button x-on:click="window.open('<%= activity["media"]["siteUrl"] %>')" class="mx-auto h-[250px] w-[177.5px] bg-auto bg-center bg-no-repeat bg-slate-400 drop-shadow-lg grayscale hover:grayscale-0" style="background-image: url(<%= image_url_to_base64 activity["media"]["coverImage"]["large"] %>)">
-      </button>
-      <button x-on:click="window.open('<%= activity["siteUrl"] %>')" class="text-md hover:underline text-red-500">
-        <%= activity["status"].titleize %> <%= activity["progress"] %>
-      </button>
-      <div class="line-clamp-1 text-lg font-bold break-all">
-        <%= activity["media"]["title"]["userPreferred"] %>
+<turbo-frame id="watched_anime" x-data="">
+  <div class="my-10 text-4xl <%= @watched_anime.empty? ? "opacity-0" : "" %>">
+    <iconify-icon icon="mdi:timer-play" width="35"></iconify-icon>
+    Recently watched episodes
+  </div>
+  <div class="grid phone:grid-cols-1 gap-5 text-center tablet:grid-cols-2 laptop:grid-cols-5 min-h-[322px]">
+    <% @watched_anime&.first(5)&.each do |activity| %>
+      <div class="flex flex-col">
+        <button x-on:click="window.open('<%= activity["media"]["siteUrl"] %>')" class="mx-auto h-[250px] w-[177.5px] bg-auto bg-center bg-no-repeat bg-slate-400 drop-shadow-lg grayscale hover:grayscale-0" style="background-image: url(<%= image_url_to_base64 activity["media"]["coverImage"]["large"] %>)">
+        </button>
+        <button x-on:click="window.open('<%= activity["siteUrl"] %>')" class="text-md hover:underline text-red-500">
+          <%= activity["status"].titleize %> <%= activity["progress"] %>
+        </button>
+        <div class="line-clamp-1 text-lg font-bold break-all">
+          <%= activity["media"]["title"]["userPreferred"] %>
+        </div>
+        <div class="text-slate-600 text-sm">
+          <%= Time.zone.at(activity["createdAt"].to_i).strftime("%B %e, %Y %r") %>
+        </div>
       </div>
-      <div class="text-slate-600 text-sm">
-        <%= Time.zone.at(activity["createdAt"].to_i).strftime("%B %e, %Y %r") %>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </turbo-frame>

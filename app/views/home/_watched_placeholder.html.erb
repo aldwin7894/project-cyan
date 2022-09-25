@@ -1,12 +1,18 @@
-<% 5.times.each do %>
-  <div class="flex flex-col gap-2 animate-pulse">
-    <button class="mx-auto h-[250px] w-[177.5px] rounded-lg bg-slate-200 drop-shadow-lg">
-    </button>
-    <div class="w-full h-[24px] rounded-lg bg-slate-200">
+<div class="animate-pulse flex flex-row gap-2 my-10 text-4xl">
+  <div class="w-[40px] h-[40px] rounded-full bg-slate-200"></div>
+  <div class="w-[40%] h-[40px] rounded-lg bg-slate-200"></div>
+</div>
+<div class="animate-pulse grid phone:grid-cols-1 gap-5 text-center tablet:grid-cols-2 laptop:grid-cols-5 min-h-[322px]">
+  <% 5.times.each do %>
+    <div class="flex flex-col items-center gap-1">
+      <button class="mx-auto h-[250px] w-[177.5px] rounded-lg bg-slate-200 drop-shadow-lg">
+      </button>
+      <div class="w-[65%] h-[24px] rounded-lg bg-slate-200">
+      </div>
+      <div class="w-full h-[20px] rounded-lg bg-slate-200">
+      </div>
+      <div class="w-[80%] h-[16px] rounded-lg bg-slate-200">
+      </div>
     </div>
-    <div class="w-full h-[20px] rounded-lg bg-slate-200">
-    </div>
-    <div class="w-full h-[16px] rounded-lg bg-slate-200">
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
