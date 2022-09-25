@@ -1,5 +1,5 @@
 <turbo-frame id="lastfm_stats">
-  <div class="w-full h-full bg-center" style="background-image: url('<%= @album_art.present? ? image_url_to_base64(@album_art) : image_url_to_base64(vite_asset_url("images/lastfm-placeholder.webp")) %>')">
+  <div class="w-full h-full bg-center bg-cover" style="background-image: url('<%= @album_art.present? ? image_url_to_base64(@album_art) : image_url_to_base64(vite_asset_url("images/lastfm-placeholder.webp")) %>')">
     <div class="w-full h-full backdrop-blur-sm backdrop-brightness-[40%] bg-gradient-to-tr from-cyan-700/30 to-pink-500/30 text-white flex flex-col items-stretch gap-5 px-4 py-4" x-data="">
       <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="hover:underline text-lg font-bold text-left">
         <% if @lastfm_recent&.[]('nowplaying') %>
@@ -8,54 +8,64 @@
           LAST.FM
         <% end %>
       </button>
-      <div class="flex flex-col gap-2" x-data="">
+      <div class="flex flex-col items-center gap-5" x-data="">
         <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="w-[150px] mx-auto">
-          <img src="<%= @album_art.present? ? image_url_to_base64(@album_art) : image_url_to_base64(vite_asset_url("images/lastfm-placeholder.webp")) %>" alt="albumart">
+          <img src="<%= @album_art.present? ? image_url_to_base64(@album_art) : image_url_to_base64(vite_asset_url("images/lastfm-placeholder.webp")) %>" alt="albumart" class="drop-shadow-xl">
         </button>
         <% if @lastfm_recent.present? %>
           <% if @lastfm_recent&.[]('nowplaying') %>
-            <div id="equalizer">
-              <div class="eq-bar-0 left-[-2px]"></div>
-              <div class="eq-bar-1 left-[10px]"></div>
-              <div class="eq-bar-2 left-[22px]"></div>
-              <div class="eq-bar-3 left-[34px]"></div>
-              <div class="eq-bar-4 left-[46px]"></div>
-              <div class="eq-bar-5 left-[58px]"></div>
-              <div class="eq-bar-6 left-[70px]"></div>
-              <div class="eq-bar-7 left-[82px]"></div>
-              <div class="eq-bar-8 left-[94px]"></div>
-              <div class="eq-bar-9 left-[106px]"></div>
-              <div class="eq-bar-10 left-[118px]"></div>
-              <div class="eq-bar-11 left-[130px]"></div>
-              <div class="eq-bar-12 left-[142px]"></div>
-              <div class="eq-bar-13 left-[154px]"></div>
-              <div class="eq-bar-14 left-[166px]"></div>
-              <div class="eq-bar-15 left-[178px]"></div>
-              <div class="eq-bar-16 left-[190px]"></div>
-              <div class="eq-bar-17 left-[202px]"></div>
-              <div class="eq-bar-18 left-[214px]"></div>
-              <div class="eq-bar-19 left-[226px]"></div>
-              <div class="eq-bar-20 left-[238px]"></div>
-              <div class="eq-bar-21 left-[250px]"></div>
-              <div class="eq-bar-22 left-[262px]"></div>
-              <div class="eq-bar-23 left-[274px]"></div>
-              <div class="eq-bar-24 left-[286px]"></div>
-              <div class="eq-bar-25 left-[298px]"></div>
-              <div class="eq-bar-26 left-[310px]"></div>
-              <div class="eq-bar-27 left-[322px]"></div>
-              <div class="eq-bar-28 left-[334px]"></div>
-              <div class="eq-bar-29 left-[346px]"></div>
-              <div class="eq-bar-30 left-[358px]"></div>
-              <div class="eq-bar-31 left-[370px]"></div>
-              <div class="eq-bar-32 left-[382px]"></div>
-              <div class="eq-bar-33 left-[394px]"></div>
-              <div class="eq-bar-34 left-[406px]"></div>
-              <div class="eq-bar-35 left-[418px]"></div>
-              <div class="eq-bar-36 left-[430px]"></div>
-              <div class="eq-bar-37 left-[442px]"></div>
-              <div class="eq-bar-38 left-[454px]"></div>
-              <div class="eq-bar-39 left-[466px]"></div>
-              <div class="eq-bar-40 left-[478px]"></div>
+            <div id="equalizer" class="flex flex-row justify-center w-full gap-0.5">
+              <div class="eq-bar-0 flex self-end"></div>
+              <div class="eq-bar-1 flex self-end"></div>
+              <div class="eq-bar-2 flex self-end"></div>
+              <div class="eq-bar-3 flex self-end"></div>
+              <div class="eq-bar-4 flex self-end"></div>
+              <div class="eq-bar-5 flex self-end"></div>
+              <div class="eq-bar-6 flex self-end"></div>
+              <div class="eq-bar-7 flex self-end"></div>
+              <div class="eq-bar-8 flex self-end"></div>
+              <div class="eq-bar-9 flex self-end"></div>
+              <div class="eq-bar-10 flex self-end"></div>
+              <div class="eq-bar-11 flex self-end"></div>
+              <div class="eq-bar-12 flex self-end"></div>
+              <div class="eq-bar-13 flex self-end"></div>
+              <div class="eq-bar-14 flex self-end"></div>
+              <div class="eq-bar-15 flex self-end"></div>
+              <div class="eq-bar-16 flex self-end"></div>
+              <div class="eq-bar-17 flex self-end"></div>
+              <div class="eq-bar-18 flex self-end"></div>
+              <div class="eq-bar-19 flex self-end"></div>
+              <div class="eq-bar-20 flex self-end"></div>
+              <div class="eq-bar-21 flex self-end"></div>
+              <div class="eq-bar-22 flex self-end"></div>
+              <div class="eq-bar-23 flex self-end"></div>
+              <div class="eq-bar-24 flex self-end"></div>
+              <div class="eq-bar-25 flex self-end"></div>
+              <div class="eq-bar-26 flex self-end"></div>
+              <div class="eq-bar-27 flex self-end"></div>
+              <div class="eq-bar-28 flex self-end"></div>
+              <div class="eq-bar-29 flex self-end"></div>
+              <div class="eq-bar-30 flex self-end"></div>
+              <div class="eq-bar-31 flex self-end"></div>
+              <div class="eq-bar-32 flex self-end"></div>
+              <div class="eq-bar-33 flex self-end"></div>
+              <div class="eq-bar-34 flex self-end"></div>
+              <div class="eq-bar-35 flex self-end"></div>
+              <div class="eq-bar-36 flex self-end"></div>
+              <div class="eq-bar-37 flex self-end"></div>
+              <div class="eq-bar-38 flex self-end"></div>
+              <div class="eq-bar-39 flex self-end"></div>
+              <div class="eq-bar-40 flex self-end"></div>
+              <div class="eq-bar-41 flex self-end"></div>
+              <div class="eq-bar-42 flex self-end"></div>
+              <div class="eq-bar-43 flex self-end"></div>
+              <div class="eq-bar-44 flex self-end"></div>
+              <div class="eq-bar-45 flex self-end"></div>
+              <div class="eq-bar-46 flex self-end"></div>
+              <div class="eq-bar-47 flex self-end"></div>
+              <div class="eq-bar-48 flex self-end"></div>
+              <div class="eq-bar-49 flex self-end"></div>
+              <div class="eq-bar-50 flex self-end"></div>
             </div>
           <% end %>
           <div class="flex flex-col text-center">

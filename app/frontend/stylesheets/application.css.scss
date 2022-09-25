@@ -83,20 +83,14 @@
 }
 
 #equalizer {
-  display: inline-block;
   background: transparent;
-  width: 60px;
   position: absolute;
-  left: 0;
   bottom: 0;
   z-index: -1;
 
   div[class^="eq-bar"] {
-    display: inline-block;
-    width: 9px;
+    width: 2vw;
     animation: equalize 5s linear 2s infinite alternate;
-    position: absolute;
-    bottom: 0px;
     height: 3px;
     background: #0c0c0c;
     transition: 0.5s;
@@ -225,6 +219,36 @@
     animation-duration: #{randomNum(350, 2000)}ms !important;
   }
   .eq-bar-40 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-41 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-42 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-43 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-44 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-45 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-46 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-47 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-48 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-49 {
+    animation-duration: #{randomNum(350, 2000)}ms !important;
+  }
+  .eq-bar-50 {
     animation-duration: #{randomNum(350, 2000)}ms !important;
   }
 }
