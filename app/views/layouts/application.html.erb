@@ -20,13 +20,15 @@
   </head>
 
   <body>
-    <main class="flex flex-col w-full h-full">
+    <%= render "layouts/loader" %>
+
+    <main class="flex flex-col hidden w-full h-full">
       <%= yield %>
     </main>
 
-    <footer class="text-gray-400 p-4 bg-[#151515] shadow md:flex md:items-center md:justify-between md:p-6">
-        <span class="sm:text-center text-sm">© 2022 aldwin7894. All Rights Reserved.
-        </span>
+    <footer class="text-gray-400 p-4 bg-[#151515] shadow md:flex md:items-center md:justify-between md:p-6 hidden">
+      <span class="sm:text-center text-sm">© 2022 aldwin7894. All Rights Reserved.
+      </span>
     </footer>
 
     <%= render "layouts/cf" %>
