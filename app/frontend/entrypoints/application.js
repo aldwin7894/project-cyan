@@ -20,11 +20,16 @@ popoverTriggerList.map((popoverTriggerEl) => new window.Popover(popoverTriggerEl
 
 // fade animations
 document.addEventListener("DOMContentLoaded", () => {
-  const element = document.getElementsByTagName("body")[0];
-  element.classList.add("animate__fadeIn", "animate__animated");
+  const loader = document.getElementById("loader");
+  const main = document.getElementsByTagName("main")[0];
+  const footer = document.getElementsByTagName("footer")[0];
 
-  element.addEventListener("animationend", () => {
-    element.classList.remove("animate__fadeIn", "animate__animated");
+  loader.classList.add("animate__animated", "animate__fadeOut");
+  loader.addEventListener("animationend", () => {
+    loader.classList.add("hidden");
+    main.classList.remove("hidden");
+    footer.classList.remove("hidden");
+    main.classList.add("animate__fadeIn", "animate__animated");
   });
 });
 document.addEventListener("turbo:before-fetch-response", (event) => {

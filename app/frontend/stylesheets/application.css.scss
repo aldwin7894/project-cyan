@@ -3,6 +3,10 @@
 @import "tailwindcss/utilities";
 @import "./utils/randomNum.css.scss";
 
+main {
+  opacity: 0;
+}
+
 .background-1 {
   background-image: url('@/images/bg.webp');
   background-size: cover;
