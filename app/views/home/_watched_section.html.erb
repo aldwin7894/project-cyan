@@ -1,17 +1,9 @@
 <section class="flex-1 mb-20">
   <div class="container mx-auto">
-    <div class="my-10 text-4xl">
-      <iconify-icon icon="mdi:timer-play" width="35"></iconify-icon>
-      Recently watched episodes
-    </div>
-    <turbo-frame id="watched_anime" src="<%= anilist_user_activities_path %>" class="grid phone:grid-cols-1 gap-5 text-center tablet:grid-cols-2 laptop:grid-cols-5 min-h-[322px]" loading="lazy">
+    <turbo-frame id="watched_anime" src="<%= anilist_user_activities_path %>" loading="lazy">
       <%= render "watched_placeholder" %>
     </turbo-frame>
-    <div class="my-10 text-4xl">
-      <iconify-icon icon="mdi:timer-play" width="35"></iconify-icon>
-      Recently watched movies / ova / specials
-    </div>
-    <turbo-frame id="watched_movie" src="<%= anilist_user_activities_path %>" class="grid gap-5 text-center phone:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-5" x-data="" loading="lazy">
+    <turbo-frame id="watched_movie" src="<%= anilist_user_activities_path %>" x-data="" loading="lazy">
       <%= render "watched_placeholder" %>
     </turbo-frame>
   </div>

@@ -955,6 +955,11 @@ module.exports = {
       40: "40",
       50: "50",
     },
+    animatedSettings: {
+      animatedSpeed: 1000,
+      animationDelaySpeed: 100,
+      classes: ["fadeIn", "fadeOut", "delay"],
+    },
   },
   variantOrder: [
     "first",
@@ -980,5 +985,6 @@ module.exports = {
     require("@tailwindcss/line-clamp"),
     require("@tailwindcss/aspect-ratio"),
     require("tw-elements/dist/plugin"),
+    require("tailwindcss-animatecss"),
   ],
 };
