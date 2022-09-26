@@ -38,7 +38,7 @@ group :development do
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem "rack-mini-profiler", "~> 3.0"
   gem "listen", "~> 3.7"
-  gem "solargraph", "~> 0.46.0"
+  gem "solargraph", "~> 0.47.0"
   gem "solargraph-rails", "~> 0.3.1"
   gem "rubocop", "~> 1.36"
   gem "rubocop-rails", "~> 2.16"
