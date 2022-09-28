@@ -10,7 +10,10 @@
       <div></div>
       <div class="xs:items-center sm:items-center flex flex-col items-start col-span-3">
         <div class="pb-3">
-          <%= image_tag vite_asset_path("images/cyan-avatar-2.webp"), class: "outline outline-white outline-5 rounded-full max-w-sm", width: 200, height: 200, alt: "avatar" %>
+          <video autoplay loop muted inline width="200" height="200" preload="auto" class="outline outline-white outline-5 max-w-sm rounded-full" poster="<%= vite_asset_url "images/cyan-avatar-2.webp" %>">
+            <source src="<%= vite_asset_url "images/cyan-avatar-2.webm" %>" type="video/webm">
+            Your browser does not support the <video> tag
+          </video>
         </div>
         <div class="flex flex-col">
           <div class="xs:text-5xl sm:text-5xl mb-2 text-6xl font-medium text-white">Cyan★Nyan♪</div>

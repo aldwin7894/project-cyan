@@ -1,9 +1,15 @@
-<div class="background-cyan-<%= [1, 2, 3, 4, 5, 6, 7, 8, 9].shuffle.first %> flex content-center justify-center w-screen h-screen">
+<% bg_index = [1, 2, 3, 4, 5, 6, 7, 8, 9].shuffle.first %>
+
+<% content_for :head_content do %>
+  <link rel="preload" as="image" href="<%= vite_asset_path("images/cyan-bg-#{bg_index}.webp") %>">
+<% end %>
+
+<div class="background-cyan-<%= bg_index %> flex content-center justify-center w-screen h-screen">
   <div class="bg-gradient-to-br from-cyan-700/50 to-pink-500/50 flex content-center justify-center w-full h-screen">
     <div class="lg:flex-col flex flex-row flex-wrap content-center justify-center text-white">
       <div class="border-r-white/10 lg:border-b-white/10 border-r-2 lg:border-b-2 bg-black/70 backdrop-blur-sm flex flex-col justify-center p-4 laptop:w-[500px] tablet:w-[80%] ">
         <div class="flex flex-col flex-wrap">
-          <video autoplay loop muted inline width="auto" preload="auto" poster="<%= vite_asset_url "images/cyan-confused.gif" %>">
+          <video autoplay loop muted inline width="auto" preload="auto" poster="<%= vite_asset_url "images/cyan-confused.webp" %>">
             <source src="<%= vite_asset_url "images/cyan-confused.webm" %>" type="video/webm">
             Your browser does not support the <video> tag
           </video>
