@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 /* eslint-disable global-require */
 module.exports = {
   content: [
@@ -363,39 +365,12 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        "ui-sans-serif",
-        "system-ui",
-        "-apple-system",
-        "BlinkMacSystemFont",
-        '"Segoe UI"',
-        "Roboto",
-        '"Helvetica Neue"',
-        "Arial",
-        '"Noto Sans"',
-        "sans-serif",
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-        '"Noto Color Emoji"',
+        '"Source Sans Pro"',
+        "Inter",
+        ...defaultTheme.fontFamily.sans,
       ],
-      serif: [
-        "ui-serif",
-        "Georgia",
-        "Cambria",
-        '"Times New Roman"',
-        "Times",
-        "serif",
-      ],
-      mono: [
-        "ui-monospace",
-        "SFMono-Regular",
-        "Menlo",
-        "Monaco",
-        "Consolas",
-        '"Liberation Mono"',
-        '"Courier New"',
-        "monospace",
-      ],
+      serif: defaultTheme.fontFamily.serif,
+      mono: defaultTheme.fontFamily.mono,
     },
     fontSize: {
       xs: ["0.75rem", { lineHeight: "1rem" }],

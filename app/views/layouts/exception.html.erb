@@ -5,6 +5,8 @@
       <%= "#{Rails.application.class.module_parent_name.downcase} | Error - #{@status} (#{@response})" %>
     </title>
 
+    <%= yield :head_content %>
+
     <%= render "layouts/ga" %>
     <%= render "layouts/favicon" %>
     <%= csrf_meta_tags %>

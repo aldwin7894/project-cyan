@@ -1,3 +1,9 @@
+<% content_for :head_content do %>
+  <% (1..9).to_a.each do |num| %>
+    <link rel="preload" as="image" href="<%= vite_asset_path("images/cyan-bg-#{num}.webp") %>">
+  <% end %>
+<% end %>
+
 <%= render "profile_section" %>
 <%= render "stats_section" %>
 <%= render "watched_section" %>
