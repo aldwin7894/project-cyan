@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3.0.2
-    
+
       - id: docker-publish
         name: Build image
         uses: bitovi/github-actions-docker-publish@main
@@ -21,7 +21,7 @@ jobs:
           image_tag: prod
           org_name: aldwin7894
           repo_name: aldwin7894
-          build_args: --build-arg OCCSON_ACCESS_TOKEN_ARG=${{ secrets.OCCSON_ACCESS_TOKEN }} --build-arg OCCSON_PASSPHRASE_ARG=${{ secrets.OCCSON_PASSPHRASE }} --build-arg RAILS_MASTER_KEY_ARG=${{ secrets.RAILS_MASTER_KEY }}
+          build_args: --build-arg TZ_ARG="Asia/Manila" --build-arg RAILS_ENV_ARG="production" --build-arg NODE_ENV_ARG="production" --build-arg OCCSON_ACCESS_TOKEN_ARG=${{ secrets.OCCSON_ACCESS_TOKEN }} --build-arg OCCSON_PASSPHRASE_ARG=${{ secrets.OCCSON_PASSPHRASE }} --build-arg RAILS_MASTER_KEY_ARG=${{ secrets.RAILS_MASTER_KEY }} --build-arg RAILS_ASSET_HOST_ARG=${{ secrets.RAILS_ASSET_HOST }}
           working-directory: .
       - run: |
           echo "Image Created:  ${{ env.image }}"

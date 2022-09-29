@@ -7,7 +7,11 @@ import gzipPlugin from "rollup-plugin-gzip";
 export default defineConfig({
   plugins: [
     RubyPlugin(),
-    FullReload(["config/routes.rb", "app/views/**/*"], { delay: 200 }),
+    ...(
+      process.env.NODE_ENV === "production"
+        ? [FullReload(["config/routes.rb", "app/views/**/*"], { delay: 200 })]
+        : []
+    ),
     gzipPlugin(),
     gzipPlugin({
       customCompression: (content) => brotliCompressSync(Buffer.from(content)),

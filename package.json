@@ -11,11 +11,10 @@
   },
   "scripts": {
     "anilist:schema:dump": "npx apollo schema:download --endpoint=https://graphql.anilist.co ./db/schema.json",
-    "vite:dev": "./bin/vite dev --debug",
-    "rails:dev": "RAILS_ENV=development NODE_ENV=development bundle exec rails s",
-    "rails:build": "RAILS_ENV=production NODE_ENV=production bash ./build.sh",
-    "rails:prod": "RAILS_ENV=production NODE_ENV=production bundle exec rails s",
-    "rails:prod:restart": "npx kill-port 3000 && yarn rails:prod"
+    "docker:build": ". ./.env && docker compose build web",
+    "docker:push": "docker compose push web",
+    "rails:dev": ". ./.env.dev && bundle exec rails s -b 0.0.0.0",
+    "vite:dev": "./bin/vite dev --debug"
   },
   "dependencies": {
     "@hotwired/turbo-rails": "^7.2.0",

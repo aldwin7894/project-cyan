@@ -30,9 +30,13 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        - "OCCSON_ACCESS_TOKEN_ARG=${OCCSON_ACCESS_TOKEN}"
-        - "OCCSON_PASSPHRASE_ARG=${OCCSON_PASSPHRASE}"
-        - "RAILS_MASTER_KEY_ARG=${RAILS_MASTER_KEY_ARG}"
+        - TZ_ARG=${TZ}
+        - RAILS_ENV_ARG=${RAILS_ENV}
+        - NODE_ENV_ARG=${NODE_ENV}
+        - OCCSON_ACCESS_TOKEN_ARG=${OCCSON_ACCESS_TOKEN}
+        - OCCSON_PASSPHRASE_ARG=${OCCSON_PASSPHRASE}
+        - RAILS_MASTER_KEY_ARG=${RAILS_MASTER_KEY}
+        - RAILS_ASSET_HOST_ARG=${RAILS_ASSET_HOST}
     container_name: aldwin7894-app
     image: aldwin7894/aldwin7894:prod
     restart: always
@@ -42,7 +46,7 @@ services:
     ports:
       - 3000:3000
     environment:
-      - "DATABASE_URL=postgres://postgres:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}"
+      - DATABASE_URL=postgres://postgres:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
       - REDIS_URL=redis://redis:6379
       - TZ=Asia/Manila
       - RAILS_MASTER_KEY
