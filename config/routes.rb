@@ -10,21 +10,21 @@ Rails.application.routes.draw do
       resources :users
       resources :social_links, path: "social-links"
     end
+
+    devise_for :users,
+      path: "",
+      controllers: {
+        sessions: "users/sessions",
+        passwords: "users/passwords"
+      },
+      path_names: {
+        sign_in: "/login",
+        password: "/forgot",
+        sign_out: "/logout"
+      }
   end
 
   root to: "home#index"
-
-  devise_for :users,
-    path: "",
-    controllers: {
-      sessions: "users/sessions",
-      passwords: "users/passwords"
-    },
-    path_names: {
-      sign_in: "/login",
-      password: "/forgot",
-      sign_out: "/logout"
-    }
 
   resources :lastfm
   resources :anilist

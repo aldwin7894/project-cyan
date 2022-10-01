@@ -293,7 +293,6 @@ Devise.setup do |config|
   #
   config.warden do |manager|
     manager.failure_app = TurboFailureApp
-    manager.strategies.add(:cf_jwt, Devise::Strategies::CfAccessAuthenticatable)
     manager.default_strategies(scope: :user).unshift :cf_jwt
     #   manager.intercept_401 = false
     #   manager.default_strategies(scope: :user).unshift :some_external_strategy
