@@ -70,8 +70,8 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     aws-eventstream (1.2.0)
-    aws-partitions (1.635.0)
-    aws-sdk-core (3.153.0)
+    aws-partitions (1.640.0)
+    aws-sdk-core (3.158.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.525.0)
       aws-sigv4 (~> 1.1)
@@ -83,7 +83,7 @@ GEM
       aws-sdk-core (~> 3, >= 3.127.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.4)
-    aws-sigv4 (1.5.1)
+    aws-sigv4 (1.5.2)
       aws-eventstream (~> 1, >= 1.0.2)
     backport (1.2.0)
     bcrypt (3.1.18)
@@ -120,7 +120,6 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
-    digest (3.1.0)
     dry-cli (0.7.0)
     e2mmap (0.1.0)
     erb_lint (0.2.0)
@@ -165,6 +164,7 @@ GEM
     jaro_winkler (1.5.4)
     jmespath (1.6.1)
     json (2.6.2)
+    jwt (2.5.0)
     kramdown (2.4.0)
       rexml
     kramdown-parser-gfm (1.1.0)
@@ -194,22 +194,16 @@ GEM
     mime-types-data (3.2022.0105)
     mini_mime (1.1.2)
     minitest (5.16.3)
-    msgpack (1.5.6)
+    msgpack (1.6.0)
     multi_xml (0.6.0)
-    net-imap (0.2.3)
-      digest
+    net-imap (0.3.1)
       net-protocol
-      strscan
-    net-pop (0.1.1)
-      digest
+    net-pop (0.1.2)
       net-protocol
-      timeout
     net-protocol (0.1.3)
       timeout
-    net-smtp (0.3.1)
-      digest
+    net-smtp (0.3.2)
       net-protocol
-      timeout
     newrelic_rpm (8.10.1)
     nio4r (2.5.8)
     nokogiri (1.13.8-x86_64-linux)
@@ -313,7 +307,7 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     smart_properties (1.17.0)
-    solargraph (0.47.1)
+    solargraph (0.47.2)
       backport (~> 1.2)
       benchmark
       bundler (>= 1.17.2)
@@ -331,7 +325,6 @@ GEM
     solargraph-rails (0.3.1)
       activesupport
       solargraph (>= 0.41.1)
-    strscan (3.0.4)
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.0)
@@ -351,7 +344,7 @@ GEM
       zeitwerk (~> 2.2)
     warden (1.2.9)
       rack (>= 2.0.9)
-    webdrivers (5.1.0)
+    webdrivers (5.2.0)
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (~> 4.0)
@@ -366,7 +359,7 @@ GEM
       nokogiri (~> 1.8)
     yard (0.9.28)
       webrick (~> 1.7.0)
-    zeitwerk (2.6.0)
+    zeitwerk (2.6.1)
 
 PLATFORMS
   x86_64-linux
@@ -385,6 +378,7 @@ DEPENDENCIES
   image_optim (~> 0.31.1)
   image_optim_pack (~> 0.9.1)
   imgkit (~> 1.6)
+  jwt (~> 2.5)
   lastfm (~> 1.27)
   listen (~> 3.7)
   lograge (~> 0.12.0)

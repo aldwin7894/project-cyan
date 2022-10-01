@@ -78,13 +78,7 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-  config.hosts << /[a-z0-9-]+\.ngrok\.io|wsl.local/
-  config.asset_host = ENV.fetch("RAILS_ASSET_HOST", "http://wsl.local:3036")
+  config.hosts << /[a-z0-9-]+\.ngrok\.io|.*.local/
+  # config.asset_host = ENV.fetch("RAILS_ASSET_HOST", "http://wsl.local:3036")
   config.force_ssl = false
-
-  # if Rails.const_defined? "Server"
-  #   config.asset_host = "http://#{Rails::Server::Options.new.parse!(ARGV)[:Host]}:#{Rails::Server::Options.new.parse!(ARGV)[:Port]}"
-  # else
-  #   config.asset_host = "http://wsl.local:3000"
-  # end
 end

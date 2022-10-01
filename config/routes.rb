@@ -2,6 +2,16 @@
 
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  constraints subdomain: "admin" do
+    scope module: "admin", as: "admin" do
+      # Redirect /admin to the dashboard page.
+      root to: redirect("dashboard")
+      resources :dashboard
+      resources :users
+      resources :social_links, path: "social-links"
+    end
+  end
+
   root to: "home#index"
 
   devise_for :users,
@@ -11,9 +21,9 @@ Rails.application.routes.draw do
       passwords: "users/passwords"
     },
     path_names: {
-      sign_in: "/admin/login",
-      password: "/admin/forgot",
-      sign_out: "/admin/logout"
+      sign_in: "/login",
+      password: "/forgot",
+      sign_out: "/logout"
     }
 
   resources :lastfm
@@ -26,14 +36,6 @@ Rails.application.routes.draw do
   get "lastfm_top_artists", to: "home#lastfm_top_artists"
   get "browserconfig", to: "home#browserconfig", constraints: lambda { |req| req.format == :xml }, as: "browserconfig"
   get "site", to: "home#site", constraints: lambda { |req| req.format == :webmanifest }, as: "webmanifest"
-
-  namespace :admin do
-    # Redirect /admin to the dashboard page.
-    root to: redirect("admin/dashboard")
-    resources :dashboard
-    resources :users
-    resources :social_links, path: "social-links"
-  end
 
   direct :cdn_image do |model, options|
     if model.respond_to?(:signed_id)

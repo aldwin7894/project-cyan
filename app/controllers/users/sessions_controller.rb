@@ -39,6 +39,6 @@ class Users::SessionsController < Devise::SessionsController
 
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(_resource)
-    root_path
+    admin_root_path
   end
 end
