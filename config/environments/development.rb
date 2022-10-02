@@ -26,7 +26,7 @@ Rails.application.configure do
     config.action_controller.enable_fragment_cache_logging = true
     Rack::MiniProfiler.config.disable_caching = false
 
-    config.cache_store = :redis_cache_store, { url: ENV.fetch("REDIS_URL", "redis://wsl.local:6379/1") }
+    config.cache_store = :redis_cache_store, { url: ENV.fetch("REDIS_URL", "redis://localhost:6379") }
     config.public_file_server.headers = {
       "Cache-Control" => "public, s-maxage=31536000, max-age=15552000",
       "Expires" => 1.year.from_now.to_formatted_s(:rfc822)
@@ -49,7 +49,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: "wsl.local", port: 3000 }
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

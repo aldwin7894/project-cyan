@@ -102,6 +102,13 @@ module AniList
               coverImage {
                 large
               }
+              studios(isMain: true) {
+                nodes {
+                  name
+                  isAnimationStudio
+                }
+              }
+              genres
             }
             createdAt
             status
