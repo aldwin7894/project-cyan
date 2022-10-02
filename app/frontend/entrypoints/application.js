@@ -13,10 +13,21 @@ window.Alpine = Alpine;
 window.Chart = Chart;
 Alpine.start();
 
-const popoverTriggerList = [].slice.call(
-  document.querySelectorAll('[data-bs-toggle="popover"]'),
-);
-popoverTriggerList.map((popoverTriggerEl) => new window.Popover(popoverTriggerEl));
+const initElems = () => {
+  // popover
+  const popoverTriggerList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="popover"]'),
+  );
+  popoverTriggerList.map((popoverTriggerEl) => new window.Popover(popoverTriggerEl));
+
+  // tooltip
+  const tooltipTriggerList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  );
+  tooltipTriggerList.map((tooltipTriggerEl) => new window.Tooltip(tooltipTriggerEl));
+};
+initElems();
+
 
 // fade animations
 document.addEventListener("DOMContentLoaded", () => {
@@ -38,4 +49,8 @@ document.addEventListener("turbo:before-fetch-response", (event) => {
   element.addEventListener("animationend", () => {
     element.classList.remove("animate__fadeIn", "animate__animated", "animate__delay");
   });
+});
+
+document.addEventListener("turbo:frame-load", () => {
+  initElems();
 });
