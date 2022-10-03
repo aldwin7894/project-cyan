@@ -44,11 +44,25 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 document.addEventListener("turbo:before-fetch-response", (event) => {
-  const element = document.getElementById(event.target.id);
+  const id = event.target.getAttribute("data-turbo-frame")
+    ? event.target.getAttribute("data-turbo-frame")
+    : event.target.id;
+  const element = document.getElementById(id);
   element.classList.add("animate__fadeIn", "animate__animated", "animate__delay");
   element.addEventListener("animationend", () => {
     element.classList.remove("animate__fadeIn", "animate__animated", "animate__delay");
   });
+});
+
+// FORCE PROGRSS BAR FOR TURBO
+document.addEventListener("turbo:before-fetch-request", () => {
+  Turbo.navigator.delegate.adapter.showProgressBar();
+});
+document.addEventListener("turbo:frame-render", () => {
+  Turbo.navigator.delegate.adapter.progressBar.hide()
+});
+document.addEventListener("turbo:before-stream-render", () => {
+  Turbo.navigator.delegate.adapter.progressBar.hide()
 });
 
 document.addEventListener("turbo:frame-load", () => {

@@ -1,0 +1,24 @@
+<section class="dark:bg-[#0b1622] flex items-center justify-center w-screen h-screen bg-white" x-data="{ submitDisabled: false }">
+  <div class="container">
+    <div class="md:py-12 md:px-6 dark:bg-[#172e48]/80 dark:text-white backdrop-blur-sm bg-[#edf1f5]/80 flex items-center justify-center px-2 py-10 text-black rounded-lg shadow-lg">
+      <div class="flex items-center justify-center w-full h-full">
+        <%= form_with(url: fetch_followers_anilist_index_path, method: :get, data: { turbo_frame: "anilist" }) do |f| %>
+          <%= f.hidden_field :format, value: "turbo_stream" %>
+          <%= f.label :username, "AniList Username:", class: "block mb-2", autocomplete: "off" %>
+          <div class="flex space-x-3">
+            <%= f.text_field :username, class: "laptop:w-96 py-3 px-4 rounded-full border focus:shadow-none focus:border-cyan-500 focus:outline-none dark:bg-[#151f2e] bg-[#fafafa]", autocomplete: "off" %>
+
+            <%= turbo_frame_tag "recaptcha" do %>
+              <div class="row mb-3">
+                <%= recaptcha_v3 action: "captcha" %>
+              </div>
+            <% end %>
+
+            <button type="submit" class="px-4 py-3 font-medium bg-cyan-700 text-white rounded flex items-center cursor-pointer hover:bg-cyan-600 disabled:bg-[#0b1622] disabled:text-slate-500 disabled:shadow-none" @click="submitDisabled = true" x-text="submitDisabled ? 'Checking...' : 'Check'">
+            </button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
