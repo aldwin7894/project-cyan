@@ -26,21 +26,29 @@ class LastfmController < ApplicationController
     @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"
 
     options = {
-      viewport: {
-        width: 600,
-        height: 122,
+      window_size: [600, 122],
+      browser_path: "/usr/bin/google-chrome",
+      browser_options: {
+        'no-sandbox': nil
       },
-      cache: true,
-      executable_path: "/usr/bin/google-chrome"
+      timeout: 60,
+      pending_connection_errors: false
     }
+
     respond_to do |format|
       format.png do
-        grover = Grover.new(render_to_string, **options)
-        send_data(grover.to_png, type: "image/png", disposition: :inline)
+        browser = Ferrum::Browser.new(**options)
+        browser.go_to("http://127.0.0.1:3000#{request.fullpath.gsub('.png', '.html')}")
+        screenshot = browser.screenshot(format: :png, encoding: :binary)
+        browser.quit
+        send_data(screenshot, type: "image/png", disposition: :inline)
       end
       format.jpg do
-        grover = Grover.new(render_to_string, **options)
-        send_data(grover.to_jpeg, type: "image/jpg", disposition: :inline)
+        browser = Ferrum::Browser.new(**options)
+        browser.go_to("http://127.0.0.1:3000#{request.fullpath.gsub('.jpg', '.html')}")
+        screenshot = browser.screenshot(format: :jpeg, encoding: :binary, quality: 100)
+        browser.quit
+        send_data(screenshot, type: "image/jpg", disposition: :inline)
       end
       format.html
       format.svg
