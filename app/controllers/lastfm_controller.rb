@@ -30,7 +30,8 @@ class LastfmController < ApplicationController
         width: 600,
         height: 122,
       },
-      cache: true
+      cache: true,
+      executable_path: "/usr/bin/google-chrome"
     }
     respond_to do |format|
       format.png do
