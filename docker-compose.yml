@@ -14,7 +14,7 @@ services:
     volumes:
       - dbdata:/var/lib/postgresql/data
     healthcheck:
-      test: "pg_isready"
+      test: pg_isready
       interval: 10s
       timeout: 5s
       retries: 5
@@ -68,9 +68,9 @@ services:
     volumes:
       - ruby-gems:/gems
     healthcheck:
-      test: curl -f http://web:3000/healthcheck
-      interval: 1m30s
-      timeout: 30s
+      test: wget -nv -t1 --spider http://web:3000/healthcheck || exit 1
+      interval: 5m
+      timeout: 10s
       retries: 5
       start_period: 10s
 
