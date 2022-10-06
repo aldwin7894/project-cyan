@@ -23,19 +23,24 @@ ENV BUNDLE_PATH=/gems
 ENV BUNDLE_WITHOUT="development test"
 ENV BUNDLE_DEPLOYMENT=true
 ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 
 WORKDIR /usr/src/app
 COPY . .
 
 RUN apt-get update -yq \
+  && apt-get install gnupg wget -yq \
+  && wget --quiet --output-document=- https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor > /etc/apt/trusted.gpg.d/google-archive.gpg \
+  && bash -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
+  && apt-get update -yq \
   && apt-get install -yq --no-install-recommends \
   build-essential \
-  curl \
+  google-chrome-stable \
   libpq-dev \
   libjemalloc2 \
   tar \
   tzdata \
-  && curl "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" -O \
+  && wget "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
   && mkdir -p "/node-v${NODE_VERSION}-linux-x64" \
   && tar xzf "node-v$NODE_VERSION-linux-x64.tar.gz" --directory / \
   && npm i -g npm@$NPM_VERSION yarn@$YARN_VERSION \
