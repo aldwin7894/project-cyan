@@ -50,5 +50,11 @@ RUN chmod -R 755 ./bin/* \
   && chmod -R 755 ./release-tasks.sh\
   && bash ./build.sh
 
-CMD ["bin/rails", "s", "-b", "0.0.0.0"]
+# Add a script to be executed every time the container starts.
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
+
+# Configure the main process to run when running the image
+CMD ["bin/rails", "s", "-b", "0.0.0.0"]
