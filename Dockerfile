@@ -24,9 +24,7 @@ ENV BUNDLE_WITHOUT="development test"
 ENV BUNDLE_DEPLOYMENT=true
 ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-
-WORKDIR /usr/src/app
-COPY . .
+ENV GROVER_NO_SANDBOX=true
 
 RUN apt-get update -yq \
   && apt-get install gnupg wget -yq \
@@ -48,13 +46,17 @@ RUN apt-get update -yq \
   && rm -f "./node-v$NODE_VERSION-linux-x64.tar.gz" \
   && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
   && apt-get clean \
-  && apt-get autoremove \
-  && chmod -R 755 ./bin/* \
-  && chmod -R 755 ./build.sh \
-  && bash ./build.sh
+  && apt-get autoremove
 
 # enable jemalloc
 ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+
+WORKDIR /usr/src/app
+COPY . .
+
+RUN chmod -R 755 ./bin/* \
+  && chmod -R 755 ./build.sh \
+  && bash ./build.sh
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
