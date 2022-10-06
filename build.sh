@@ -4,24 +4,22 @@ set -e
 set -x
 
 yarn install --frozen-lockfile
+bin/bundle install -j4
 
-if [[ $RAILS_ENV == "production" ]]; then
-  bin/bundle config set --local without "development test"
-  bin/bundle config set --local deployment true
-  bin/bundle install -j4
+echo "Precompiling Assets..."
+bin/rails assets:precompile
 
-  echo "Precompiling Assets..."
-  bin/rails assets:precompile
+echo "Cleaning Assets..."
+bin/rails assets:clean
 
-  # echo "Uploading Assets to S3..."
-  # bin/rails assets:s3_sync
+if [ "$RUN_DB_MIGRATIONS_DURING_RELEASE" == "true" ]; then
+  echo "Running Database Migrations..."
+  bin/rails db:migrate VERBOSE=true
+fi
 
-  echo "Cleaning Assets..."
-  bin/rails assets:clean
-
-  bash ./release-tasks.sh
-else
-  bin/bundle install
+if [ "$SEED_DB_DURING_RELEASE" == "true" ]; then
+  echo "Seeding Database..."
+  bin/rails db:seed
 fi
 
 if [ -f tmp/pids/server.pid ]; then

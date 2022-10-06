@@ -68,8 +68,6 @@ gem "imgkit", "~> 1.6"
 
 gem "devise", "~> 4.8"
 
-gem "aws-sdk-s3", "~> 1"
-
 gem "graphql-client", "~> 0.18.0"
 
 gem "lograge", "~> 0.12.0"
@@ -79,8 +77,6 @@ gem "rack-brotli", "~> 1.2"
 gem "health_check", "~> 3.1"
 
 gem "httplog", "~> 1.6"
-
-gem "s3_asset_deploy", "~> 1.0"
 
 gem "logstash-event", "~> 1.2"
 

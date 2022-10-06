@@ -20,7 +20,12 @@ ENV NODE_VERSION 14.20.0
 ENV NPM_VERSION 8.16.0
 ENV YARN_VERSION 1.22.0
 ENV BUNDLE_PATH=/gems
+ENV BUNDLE_WITHOUT="development test"
+ENV BUNDLE_DEPLOYMENT=true
 ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
+
+WORKDIR /usr/src/app
+COPY . .
 
 RUN apt-get update -yq \
   && apt-get install -yq --no-install-recommends \
@@ -31,24 +36,20 @@ RUN apt-get update -yq \
   tar \
   tzdata \
   && curl "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" -O \
-  && tar xzf "node-v$NODE_VERSION-linux-x64.tar.gz" \
+  && mkdir -p "/node-v${NODE_VERSION}-linux-x64" \
+  && tar xzf "node-v$NODE_VERSION-linux-x64.tar.gz" --directory / \
   && npm i -g npm@$NPM_VERSION yarn@$YARN_VERSION \
   && npm cache clean --force \
-  && rm -f "/node-v$NODE_VERSION-linux-x64.tar.gz" \
+  && rm -f "./node-v$NODE_VERSION-linux-x64.tar.gz" \
   && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
   && apt-get clean \
-  && apt-get autoremove
+  && apt-get autoremove \
+  && chmod -R 755 ./bin/* \
+  && chmod -R 755 ./build.sh \
+  && bash ./build.sh
 
 # enable jemalloc
 ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
-
-COPY . /app
-WORKDIR /app
-
-RUN chmod -R 755 ./bin/* \
-  && chmod -R 755 ./build.sh \
-  && chmod -R 755 ./release-tasks.sh\
-  && bash ./build.sh
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
