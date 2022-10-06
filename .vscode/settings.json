@@ -7,7 +7,7 @@
   "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
   "ruby.rubocop.configFilePath": ".rubocop.yml",
-  "ruby.rubocop.useBundler": true,
+  "ruby.rubocop.useBundler": false,
   "ruby.lint": {
     "rubocop": {
       "lint": true,
@@ -21,7 +21,7 @@
   "eslint.workingDirectories": ["./"],
   "ruby.rubocop.autocorrectOnSave": true,
   "ruby.rubocop.suppressRubocopWarnings": true,
-  "ruby.rubocop.useServer": true,
+  "ruby.rubocop.useServer": false,
   "[erb]": {
     "editor.defaultFormatter": "manuelpuyol.erb-linter"
   }
