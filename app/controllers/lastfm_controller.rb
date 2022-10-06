@@ -25,19 +25,21 @@ class LastfmController < ApplicationController
 
     @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"
 
+    options = {
+      viewport: {
+        width: 600,
+        height: 122,
+      },
+      cache: true
+    }
     respond_to do |format|
       format.png do
-        kit = IMGKit.new(
-          render_to_string,
-          width: 600,
-          height: 122,
-          quality: 60,
-          encoding: "utf-8",
-          images: true,
-          cache_dir: Rails.root.join("assets/images/cache")
-        )
-
-        send_data(kit.to_png, type: "image/png", disposition: :inline)
+        grover = Grover.new(render_to_string, **options)
+        send_data(grover.to_png, type: "image/png", disposition: :inline)
+      end
+      format.jpg do
+        grover = Grover.new(render_to_string, **options)
+        send_data(grover.to_jpeg, type: "image/jpg", disposition: :inline)
       end
       format.html
       format.svg

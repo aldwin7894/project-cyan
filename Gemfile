@@ -64,8 +64,6 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "lastfm", "~> 1.27"
 
-gem "imgkit", "~> 1.6"
-
 gem "devise", "~> 4.8"
 
 gem "graphql-client", "~> 0.18.0"
@@ -93,3 +91,5 @@ gem "occson", "~> 4.1"
 gem "jwt", "~> 2.5"
 
 gem "recaptcha", "~> 5.12"
+
+gem "grover", "~> 1.1"
