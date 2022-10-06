@@ -26,7 +26,9 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  resources :lastfm
+  resources :lastfm,
+    only: :index,
+    constraints: lambda { |req| ["html", "svg"].include? req.format }
   resources :anilist, only: [:index, :new] do
     collection do
       get "fetch_followers"
