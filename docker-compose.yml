@@ -13,6 +13,11 @@ services:
       - 5432:5432
     volumes:
       - dbdata:/var/lib/postgresql/data
+    healthcheck:
+      test: "pg_isready"
+      interval: 10s
+      timeout: 5s
+      retries: 5
   redis:
     container_name: aldwin7894-redis
     image: redis:alpine
@@ -25,6 +30,11 @@ services:
     volumes:
       - redis:/data
       - ./config/redis.conf:/usr/local/etc/redis/redis.conf
+    healthcheck:
+      test: redis-cli ping
+      interval: 10s
+      timeout: 5s
+      retries: 5
   web:
     build:
       context: .
@@ -57,6 +67,12 @@ services:
       - OCCSON_PASSPHRASE
     volumes:
       - ruby-gems:/gems
+    healthcheck:
+      test: curl -f http://web:3000/healthcheck
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 10s
 
 volumes:
   dbdata:
