@@ -3,7 +3,42 @@
 class LastfmController < ApplicationController
   layout "lastfm"
 
+  FERRUM_OPTIONS = {
+    window_size: [600, 122],
+    browser_path: "/usr/bin/google-chrome",
+    browser_options: {
+      'no-sandbox': nil
+    },
+    timeout: 60,
+    pending_connection_errors: false
+  }
+
   def index
+    generate_content(params)
+  rescue Lastfm::ApiError
+    @album_art = nil
+  ensure
+    respond_to do |format|
+      format.png do
+        browser = Ferrum::Browser.new(**FERRUM_OPTIONS)
+        browser.go_to("#{ENV.fetch('RAILS_HOST')}#{request.fullpath.gsub('.png', '.html')}")
+        screenshot = browser.screenshot(format: :png, encoding: :binary)
+        browser.quit
+        send_data(screenshot, type: "image/png", disposition: :inline)
+      end
+      format.jpg do
+        browser = Ferrum::Browser.new(**FERRUM_OPTIONS)
+        browser.go_to("#{ENV.fetch('RAILS_HOST')}#{request.fullpath.gsub('.jpg', '.html')}")
+        screenshot = browser.screenshot(format: :jpeg, encoding: :binary, quality: 100)
+        browser.quit
+        send_data(screenshot, type: "image/jpg", disposition: :inline)
+      end
+      format.html
+      format.svg
+    end
+  end
+
+  def generate_content(params)
     @background = params[:bg]
     @foreground = params[:fg]
     @album_art = nil
@@ -24,40 +59,5 @@ class LastfmController < ApplicationController
     end
 
     @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"
-
-    options = {
-      window_size: [600, 122],
-      browser_path: "/usr/bin/google-chrome",
-      browser_options: {
-        'no-sandbox': nil
-      },
-      timeout: 60,
-      pending_connection_errors: false
-    }
-
-    respond_to do |format|
-      format.png do
-        browser = Ferrum::Browser.new(**options)
-        browser.go_to("http://127.0.0.1:3000#{request.fullpath.gsub('.png', '.html')}")
-        screenshot = browser.screenshot(format: :png, encoding: :binary)
-        browser.quit
-        send_data(screenshot, type: "image/png", disposition: :inline)
-      end
-      format.jpg do
-        browser = Ferrum::Browser.new(**options)
-        browser.go_to("http://127.0.0.1:3000#{request.fullpath.gsub('.jpg', '.html')}")
-        screenshot = browser.screenshot(format: :jpeg, encoding: :binary, quality: 100)
-        browser.quit
-        send_data(screenshot, type: "image/jpg", disposition: :inline)
-      end
-      format.html
-      format.svg
-    end
-  rescue Lastfm::ApiError
-    @album_art = nil
-
-    respond_to do |format|
-      format.svg
-    end
   end
 end
