@@ -11,25 +11,25 @@ module ActiveStorageHelper
     url
   end
 
-  def move_to_uploads(blob, new_key, optimized)
-    old_key = blob.key
-    # Get the object to move from the bucket.
-    old_object = S3_BUCKET.object(old_key)
-    # Upload optimized image to new_key
-    S3_BUCKET.object(new_key).upload_file(optimized)
-    # Delete permanently the old file to avoid cluttering the root folder.
-    old_object.delete(version_id: old_object.version_id)
-    # Update the blob key from the database.
-    update_blob_key(blob, new_key, optimized)
+  # def move_to_uploads(blob, new_key, optimized)
+  #   old_key = blob.key
+  #   # Get the object to move from the bucket.
+  #   old_object = S3_BUCKET.object(old_key)
+  #   # Upload optimized image to new_key
+  #   S3_BUCKET.object(new_key).upload_file(optimized)
+  #   # Delete permanently the old file to avoid cluttering the root folder.
+  #   old_object.delete(version_id: old_object.version_id)
+  #   # Update the blob key from the database.
+  #   update_blob_key(blob, new_key, optimized)
 
-    logger.tagged("Active Storage Helper", blob.filename) {
-      logger.info "Successfully moved #{old_key} to #{new_key}."
-    }
-  rescue => e
-    logger.tagged("Active Storage Helper", blob.filename) {
-      logger.error "A problem has been encountered while moving #{blob.filename} to #{target_key}. #{e.full_message}"
-    }
-  end
+  #   logger.tagged("Active Storage Helper", blob.filename) {
+  #     logger.info "Successfully moved #{old_key} to #{new_key}."
+  #   }
+  # rescue => e
+  #   logger.tagged("Active Storage Helper", blob.filename) {
+  #     logger.error "A problem has been encountered while moving #{blob.filename} to #{target_key}. #{e.full_message}"
+  #   }
+  # end
 
   private
     def update_blob_key(blob, new_key, optimized)
