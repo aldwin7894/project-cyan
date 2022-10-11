@@ -39,7 +39,7 @@
     "tailwindcss": "^3.1.8",
     "tailwindcss-animatecss": "^3.0.0",
     "tw-elements": "^1.0.0-alpha12",
-    "vite": "^3.1.6",
+    "vite": "^3.1.7",
     "vite-plugin-full-reload": "^1.0.4",
     "vite-plugin-ruby": "^3.1.0"
   },
