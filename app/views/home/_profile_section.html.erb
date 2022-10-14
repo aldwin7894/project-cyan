@@ -1,4 +1,4 @@
-<section class="carousel slide carousel-fade relative flex w-screen h-screen" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
+<section class="carousel slide carousel-fade relative flex w-screen h-screen overflow-hidden" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
   <div class="carousel-inner relative flex-1">
     <% (1..9).to_a.shuffle.each_with_index do |num, i| %>
       <div class="w-full h-full carousel-item relative float-left background-cyan-<%= num %> <%= i == 0 ? "active" : "" %>">
@@ -22,34 +22,40 @@
           </div>
         </div>
         <div class="phone:px-2 xs:justify-center sm:justify-center flex flex-row flex-wrap justify-start gap-4 pt-20" x-data="">
-          <button x-on:click="window.open('https://bit.ly/cyan-anilist')" class="text-white hover:text-[#02a9ff] h-fit">
+          <button x-on:click="window.open('https://bit.ly/cyan-anilist')" class="text-white hover:text-[#02a9ff] h-fit" data-bs-toggle="tooltip" title="AniList">
             <iconify-icon icon="simple-icons:anilist" width="50"></iconify-icon>
           </button>
-          <button x-on:click="window.open('https://bit.ly/cyan-mal')" class="h-fit text-white">
+          <button x-on:click="window.open('https://bit.ly/cyan-mal')" class="h-fit text-white" data-bs-toggle="tooltip" title="MyAnimeList">
             <iconify-icon icon="simple-icons:myanimelist" width="50" class="hover:bg-[#2f52a2] px-2 rounded-md"></iconify-icon>
           </button>
-          <button x-on:click="window.open('https://spoti.fi/3PRGOmq')" class="text-white hover:text-[#1ed760] h-fit">
+          <button x-on:click="window.open('https://spoti.fi/3PRGOmq')" class="text-white hover:text-[#1ed760] h-fit" data-bs-toggle="tooltip" title="Spotify">
             <iconify-icon icon="akar-icons:spotify-fill" width="50"></iconify-icon>
           </button>
-          <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="text-white hover:text-[#ba0000] h-fit">
+          <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="text-white hover:text-[#ba0000] h-fit" data-bs-toggle="tooltip" title="last.fm">
             <iconify-icon icon="brandico:lastfm-rect" width="50" class="hover:bg-white rounded-[10px]"></iconify-icon>
           </button>
-          <button x-on:click="window.open('https://bit.ly/cyan-musicbrainz')" class="text-white hover:text-[#eb743b] h-fit">
+          <button x-on:click="window.open('https://bit.ly/cyan-musicbrainz')" class="text-white hover:text-[#eb743b] h-fit" data-bs-toggle="tooltip" title="MusicBrainz">
             <iconify-icon icon="simple-icons:musicbrainz" width="50"></iconify-icon>
           </button>
-          <button x-on:click="window.open('https://bit.ly/cyan-youtube')" class="text-white hover:text-[#ff0000] h-fit">
+          <button x-on:click="window.open('https://bit.ly/cyan-simkl')" class="hover:text-black h-fit text-white" data-bs-toggle="tooltip" title="Simkl">
+            <iconify-icon icon="simple-icons:simkl" width="50" class="hover:bg-white rounded-[10px]"></iconify-icon>
+          </button>
+          <button x-on:click="window.open('https://bit.ly/cyan-trakt')" class="hover:text-[#ed1c24] h-fit text-white" data-bs-toggle="tooltip" title="Trakt">
+            <iconify-icon icon="simple-icons:trakt" width="50"></iconify-icon>
+          </button>
+          <button x-on:click="window.open('https://bit.ly/cyan-youtube')" class="text-white hover:text-[#ff0000] h-fit" data-bs-toggle="tooltip" title="YouTube">
             <iconify-icon icon="simple-icons:youtube" width="50"></iconify-icon>
           </button>
-          <button x-on:click="window.open('https://bit.ly/cyan-twitch')" class="text-white hover:text-[#a970ff] h-fit">
+          <button x-on:click="window.open('https://bit.ly/cyan-twitch')" class="text-white hover:text-[#a970ff] h-fit" data-bs-toggle="tooltip" title="Twitch">
             <iconify-icon icon="simple-icons:twitch" width="50"></iconify-icon>
           </button>
-          <button x-on:click="window.open('https://bit.ly/cyan-steam')" class="text-white hover:text-[#075a8e] h-fit">
+          <button x-on:click="window.open('https://bit.ly/cyan-steam')" class="text-white hover:text-[#075a8e] h-fit" data-bs-toggle="tooltip" title="Steam">
             <iconify-icon icon="simple-icons:steam" width="50" class="hover:bg-white hover:outline-[#075a8e] outline-2 outline outline-offset-[-1px] rounded-full"></iconify-icon>
           </button>
-          <button x-on:click="window.open('https://bit.ly/cyan-osu')" class=" h-fit text-white">
+          <button x-on:click="window.open('https://bit.ly/cyan-osu')" class=" h-fit text-white" data-bs-toggle="tooltip" title="Osu!">
             <iconify-icon icon="simple-icons:osu" width="50" class="hover:bg-[#f170aa] rounded-full"></iconify-icon>
           </button>
-          <button x-on:click="window.open('https://bit.ly/cyan-github')" class="hover:text-[#171a1e] text-white h-fit">
+          <button x-on:click="window.open('https://bit.ly/cyan-github')" class="hover:text-[#171a1e] text-white h-fit" data-bs-toggle="tooltip" title="GitHub">
             <iconify-icon icon="simple-icons:github" width="50" class="hover:bg-white hover:outline-[#171a1e] outline-2 outline outline-offset-[-1px] rounded-full"></iconify-icon>
           </button>
         </div>
