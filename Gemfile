@@ -12,7 +12,7 @@ gem "vite_rails", "~> 3.0"
 # Use postgres
 gem "pg"
 # Use Puma as the app server
-gem "puma", "~> 5.6"
+gem "puma", "~> 6.0"
 # Turbo gives you the speed of a single-page web application without having to write any JavaScript.
 gem "turbo-rails", "~> 1.3"
 # Use Redis adapter to run Action Cable in production
