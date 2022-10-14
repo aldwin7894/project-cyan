@@ -87,7 +87,7 @@ class HomeController < ApplicationController
     user_id = ENV.fetch("ANILIST_USER_ID")
     @user_activity = []
     now = Time.zone.now.beginning_of_day
-    last_week = (now.beginning_of_day - 1.week).to_i
+    last_week = (now.beginning_of_day - 1.month).to_i
     page = 1
     loop do
       res = Rails.cache.fetch("#{now.to_i}_#{page}/ANILIST_USER_ACTIVITIES_#{ENV.fetch('ANILIST_USERNAME')}", expires_in: 30.minutes, skip_nil: true) do

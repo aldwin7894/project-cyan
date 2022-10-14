@@ -7,15 +7,17 @@ class AnilistController < ApplicationController
 
   def fetch_followers
     @success = false
-    return render layout: false if params[:username].blank?
+    return @error = "Username can't be empty" if params[:username].blank?
 
     id = Rails.cache.fetch("ANILIST_USER_ID_#{params[:username]}", expires_in: 1.week, skip_nil: true) do
       query(AniList::UserIdQuery, username: params[:username]).user.id
     end
-    return render layout: false if id.blank?
 
     captcha_valid = verify_recaptcha action: "captcha", minimum_score: 0.7
-    return render layout: false unless captcha_valid
+    unless captcha_valid
+      @error = "You're probably a bot, aren't you?"
+      return render layout: false
+    end
 
     @following_count = nil
     @followers_count = nil
@@ -48,5 +50,7 @@ class AnilistController < ApplicationController
       end
     end
     @success = true
+  rescue QueryError
+    @error = "Username not found"
   end
 end
