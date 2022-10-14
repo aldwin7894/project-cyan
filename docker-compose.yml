@@ -66,8 +66,6 @@ services:
       - RAILS_ASSET_HOST
       - OCCSON_ACCESS_TOKEN
       - OCCSON_PASSPHRASE
-    volumes:
-      - ruby-gems:/gems
     # healthcheck:
     #   test: wget -nv -t1 --spider http://web:3000/healthcheck || exit 1
     #   interval: 5m
@@ -78,4 +76,3 @@ services:
 volumes:
   dbdata:
   redis:
-  ruby-gems:
