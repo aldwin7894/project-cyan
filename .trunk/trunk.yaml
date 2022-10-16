@@ -1,0 +1,41 @@
+version: 0.1
+actions:
+  enabled:
+    - trunk-cache-prune
+    - trunk-upgrade-available
+runtimes:
+  enabled:
+    - go@1.18.3
+    - node@14.20.0
+    - ruby@3.1.0
+lint:
+  disabled:
+    - prettier
+  enabled:
+    - hadolint@2.10.0
+    - shellcheck@0.8.0
+    - shfmt@3.5.0
+    - svgo@2.8.0
+    - actionlint@1.6.21
+    - eslint@8.25.0:
+        packages:
+          - eslint-config-airbnb-base
+          - eslint-import-resolver-alias
+          - eslint-plugin-html-erb
+          - eslint-plugin-import
+          - eslint-plugin-tailwindcss
+    - git-diff-check
+    - gitleaks@8.15.0
+    - markdownlint@0.32.2
+    - rubocop@1.30.1:
+        packages:
+          - rubocop-packaging
+          - rubocop-performance
+          - rubocop-rails
+cli:
+  version: 0.18.1-beta
+plugins:
+  sources:
+    - id: trunk
+      ref: v0.0.5
+      uri: https://github.com/trunk-io/plugins

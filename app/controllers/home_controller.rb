@@ -76,8 +76,15 @@ class HomeController < ApplicationController
       @total_watched_anime_time = format_date(@user_statistics["minutesWatched"].to_i * 60)
       @total_watched_anime_ep = @user_statistics["episodesWatched"].to_i
     when "total_watched_anime_movie"
-      @total_watched_anime_movie_time = format_date(@user_statistics["formats"].to_a.select { |x| !ANIME_FORMATS.include? x["format"] }.map { |x| x["minutesWatched"].to_i }.sum * 60)
-      @total_watched_anime_movie = @user_statistics["formats"].to_a.select { |x| !ANIME_FORMATS.include? x["format"] }.map { |x| x["count"].to_i }.sum
+      @total_watched_anime_movie_time = format_date(
+        @user_statistics["formats"]
+          .to_a
+          .select { |x| ANIME_FORMATS.exclude? x["format"] }
+          .map { |x| x["minutesWatched"].to_i }.sum * 60
+      )
+      @total_watched_anime_movie = @user_statistics["formats"].to_a
+                                     .select { |x| ANIME_FORMATS.exclude? x["format"] }
+                                     .map { |x| x["count"].to_i }.sum
     end
 
     render turbo_frame_request_id, layout: false
@@ -87,11 +94,12 @@ class HomeController < ApplicationController
     user_id = ENV.fetch("ANILIST_USER_ID")
     @user_activity = []
     now = Time.zone.now.beginning_of_day
-    last_week = (now.beginning_of_day - 1.month).to_i
+    last_week = (now.beginning_of_day - 1.week).to_i
+    last_month = (now.beginning_of_day - 1.month).to_i
     page = 1
     loop do
       res = Rails.cache.fetch("#{now.to_i}_#{page}/ANILIST_USER_ACTIVITIES_#{ENV.fetch('ANILIST_USERNAME')}", expires_in: 30.minutes, skip_nil: true) do
-        data = query(AniList::UserAnimeActivitiesQuery, date: last_week, user_id:, page:, per_page: 50)
+        data = query(AniList::UserAnimeActivitiesQuery, date: last_month, user_id:, page:, per_page: 50)
         { data: data.page.activities.to_a.map(&:to_h), has_next_page: data.page.page_info.has_next_page? }
       end
 
@@ -103,7 +111,7 @@ class HomeController < ApplicationController
       end
     end
 
-    @user_activity = @user_activity.select { |x| !IGNORED_USER_STATUS.include? x["status"] }
+    @user_activity = @user_activity.select { |x| IGNORED_USER_STATUS.exclude? x["status"] }
 
     case turbo_frame_request_id
     when "last_watched"
@@ -113,14 +121,24 @@ class HomeController < ApplicationController
     when "watched_anime"
       @watched_anime = @user_activity.select { |x| ANIME_FORMATS.include? x["media"]["format"] }
     when "watched_movie"
-      @watched_movie = @user_activity.select { |x| !ANIME_FORMATS.include? x["media"]["format"] }
+      @watched_movie = @user_activity.select { |x| ANIME_FORMATS.exclude? x["media"]["format"] }
     when "total_watched_anime_last_week"
-      @total_watched_anime_time_last_week = format_date(@user_activity.map { |x| x["media"]["duration"].to_i }.sum * 60)
-      @total_watched_anime_ep_last_week = @user_activity.size
+      @total_watched_anime_time_last_week = format_date(
+        @user_activity
+          .select { |x| x["createdAt"] >= last_week }
+          .map { |x| x["media"]["duration"].to_i }
+          .sum * 60
+      )
+      @total_watched_anime_ep_last_week = @user_activity.select { |x| x["createdAt"] >= last_week }.size
     when "total_watched_anime_movie_last_week"
-      @watched_movie = @user_activity.select { |x| !ANIME_FORMATS.include? x["media"]["format"] }
-      @total_watched_anime_movie_time_last_week = format_date(@watched_movie.map { |x| x["media"]["duration"].to_i }.sum * 60)
-      @total_watched_anime_movie_last_week = @watched_movie.size
+      @watched_movie = @user_activity.select { |x| ANIME_FORMATS.exclude? x["media"]["format"] }
+      @total_watched_anime_movie_time_last_week = format_date(
+        @watched_movie
+          .select { |x| x["createdAt"] >= last_week }
+          .map { |x| x["media"]["duration"].to_i }
+          .sum * 60
+      )
+      @total_watched_anime_movie_last_week = @watched_movie.select { |x| x["createdAt"] >= last_week }.size
     end
 
     render turbo_frame_request_id, layout: false
@@ -148,7 +166,8 @@ class HomeController < ApplicationController
 
   def lastfm_top_artists
     @lastfm_top_artists = Rails.cache.fetch("LASTFM_TOP_ARTISTS", expires_in: 1.week, skip_nil: true) do
-      LASTFM_CLIENT.user.get_top_artists(user: ENV.fetch("LASTFM_USERNAME"), period: "overall", limit: 12)
+      LASTFM_CLIENT.user
+        .get_top_artists(user: ENV.fetch("LASTFM_USERNAME"), period: "overall", limit: 12)
     end
 
     artist_names = @lastfm_top_artists.pluck("name")
