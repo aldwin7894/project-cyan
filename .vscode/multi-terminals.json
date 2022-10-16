@@ -5,7 +5,7 @@
       {
         "name": "RAILS SERVER",
         "main": true,
-        "script": "source .env.dev && rails s -b 0.0.0.0"
+        "script": "yarn rails:dev"
       },
       {
         "name": "VITE",

@@ -38,13 +38,13 @@ group :development do
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem "rack-mini-profiler", "~> 3.0"
   gem "listen", "~> 3.7"
-  gem "solargraph", "~> 0.47.0"
-  gem "solargraph-rails", "~> 0.3.1"
-  gem "rubocop", "~> 1.36"
-  gem "rubocop-rails", "~> 2.16"
-  gem "rubocop-performance", "~> 1.15"
-  gem "rubocop-packaging", "~> 0.5.2"
-  gem "erb_lint", "~> 0.2.0", require: false
+  gem "solargraph"
+  gem "solargraph-rails"
+  gem "rubocop"
+  gem "rubocop-rails"
+  gem "rubocop-performance"
+  gem "rubocop-packaging"
+  gem "erb_lint"
 end
 
 group :test do

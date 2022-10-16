@@ -10,7 +10,12 @@ AllCops:
   # to ignore them, so only the ones explicitly set in this file are enabled.
   DisabledByDefault: true
   SuggestExtensions: false
+  NewCops: enable
   Exclude:
+    - "app/frontend/**/*"
+    - "app/views/**/*.erb"
+    - "**/log/**/*"
+    - "**/public/**/*"
     - "**/tmp/**/*"
     - "**/templates/**/*"
     - "**/vendor/**/*"
@@ -28,6 +33,17 @@ AllCops:
 Performance:
   Exclude:
     - "**/test/**/*"
+
+Rails:
+  Enabled: true
+
+# Correct usage of Date methods in Rails. Use Time.zone.today over Date.today
+Rails/Date:
+  Enabled: true
+
+# Correct usage of TimeZone methods in Rails
+Rails/TimeZone:
+  Enabled: true
 
 # Prefer assert_not over assert !
 Rails/AssertNot:
@@ -128,7 +144,7 @@ Layout/IndentationWidth:
 
 Layout/MultilineMethodCallIndentation:
   Enabled: true
-  EnforcedStyle: aligned
+  EnforcedStyle: indented_relative_to_receiver
 
 Layout/LeadingCommentSpace:
   Enabled: true
