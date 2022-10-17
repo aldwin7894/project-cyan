@@ -5040,10 +5040,10 @@ svgo@^2.7.0:
     picocolors "^1.0.0"
     stable "^0.1.8"
 
-tailwindcss-animatecss@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/tailwindcss-animatecss/-/tailwindcss-animatecss-3.0.0.tgz#80fd1210a8480ff9b7ca4fe3b7b28d8ddaa1a050"
-  integrity sha512-xnrkGRuOUhkyuOcLK65J8qnJxpiVeROjCoLOyn8u0YkYFxfnhLhP5iHEI9kU2IJzdx0mzBIsbqhN+dObgzbSxA==
+tailwindcss-animatecss@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/tailwindcss-animatecss/-/tailwindcss-animatecss-3.0.1.tgz#230d9cfd9123bda92e01304a7b19590adabbcdfb"
+  integrity sha512-6eI760N9FVDL4+vNDX5jnbCkRCLL5rTQv9ok92Py8bhZUUPQUFfZsSLlr9z4RmlyXuyc4aQrh5axGz5ElmMXiA==
   dependencies:
     "@release-it/conventional-changelog" "^5.1.0"
     release-it "^15.4.1"
