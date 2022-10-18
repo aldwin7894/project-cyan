@@ -1,10 +1,10 @@
 <turbo-frame id="watched_movie" x-data="">
-  <div class="dark:text-white my-10 text-4xl <%= @watched_movie.empty? ? "opacity-0" : "" %>">
+  <div class="dark:text-white my-10 text-4xl phone:text-center tablet:text-left <%= @watched_movie.empty? ? "opacity-0" : "" %>">
     <iconify-icon icon="mdi:timer-play" width="35"></iconify-icon>
     Recently watched movies / ova / specials
   </div>
-  <div class="phone:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-5 grid gap-5 text-center min-h-[322px]">
-    <% @watched_movie&.first(5)&.each do |activity| %>
+  <div class="phone:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-6 grid gap-5 text-center min-h-[322px]">
+    <% @watched_movie&.first(6)&.each do |activity| %>
       <%= render "home/watched_elem", formats: [:html], activity: %>
     <% end %>
   </div>

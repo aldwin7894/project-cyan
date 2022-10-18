@@ -21,7 +21,7 @@ module.exports = {
       tablet: "576px",
       laptop: "992px",
       desktop: "1200px",
-      "desktop-lg": "1640px",
+      "desktop-lg": "1840px",
     },
     colors: ({ colors }) => ({
       primary: "#0B1622",
