@@ -9,3 +9,4 @@ Mime::Type.register "image/png", :png
 Mime::Type.register "application/pdf", :pdf
 Mime::Type.register "image/svg+xml", :svg
 Mime::Type.register "application/manifest+json", :webmanifest
+Mime::Type.register "image/webp", :webp
