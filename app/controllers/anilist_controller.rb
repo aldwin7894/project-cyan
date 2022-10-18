@@ -14,7 +14,7 @@ class AnilistController < ApplicationController
     end
 
     captcha_valid = verify_recaptcha action: "captcha", minimum_score: 0.7
-    unless captcha_valid
+    unless captcha_valid || Rails.env.development?
       @error = "You're probably a bot, aren't you?"
       return render layout: false
     end

@@ -9,14 +9,14 @@
         </script>
       <% end %>
     <% else %>
-      <div class="bg-primary flex flex-col w-screen h-screen px-4 py-4 font-sans">
+      <div class="bg-primary flex flex-col w-full h-full px-4 py-4">
         <div class="max-w-sm mx-auto mb-6 font-sans text-3xl font-semibold text-center text-white">
           <span class="opacity-80">Take me</span>
           <%= link_to "Back", anilist_index_path, class: "hover:text-cyan-400 border-b", target: "anilist" %>
         </div>
         <div class="phone:flex-col laptop:flex-row phone:items-center laptop:items-start container relative flex justify-between gap-5 text-center">
           <div class="bg-secondary h-fit w-full max-w-sm px-10 py-5 border-b-4 border-blue-400 rounded-md">
-            <h1 class="text-2xl font-bold text-white">
+            <h1 class="border-b-white mb-5 text-2xl font-bold text-white border-b-2">
               Not Following You
             </h1>
             <ul class="list-none">
@@ -29,7 +29,7 @@
           </div>
 
           <div class="bg-secondary h-fit w-full max-w-sm px-10 py-5 border-b-4 border-blue-400 rounded-md">
-            <h1 class="text-2xl font-bold text-white">
+            <h1 class="border-b-white mb-5 text-2xl font-bold text-white border-b-2">
               You're Not Following
             </h1>
             <ul class="list-none">
@@ -42,7 +42,7 @@
           </div>
 
           <div class="bg-secondary h-fit w-full max-w-sm px-10 py-5 border-b-4 border-blue-400 rounded-md">
-            <h1 class="text-2xl font-bold text-white">
+            <h1 class="border-b-white mb-5 text-2xl font-bold text-white border-b-2">
               <%= "Following (#{@following_count})" %>
             </h1>
             <ul class="list-none">
@@ -55,7 +55,7 @@
           </div>
 
           <div class="bg-secondary h-fit w-full max-w-sm px-10 py-5 border-b-4 border-blue-400 rounded-md">
-            <h1 class="text-2xl font-bold text-white">
+            <h1 class="border-b-white mb-5 text-2xl font-bold text-white border-b-2">
               <%= "Followers (#{@followers_count})" %>
             </h1>
             <ul class="list-none">
