@@ -3,11 +3,11 @@
 require "addressable/uri"
 
 module ApplicationHelper
+  IMAGE_FILETYPES = ["jpg", "jpeg", "gif", "png", "webp"]
   def image_url_to_base64(url)
     image = nil
     return image if url.blank?
 
-    IMAGE_FILETYPES = ["jpg", "jpeg", "gif", "png", "webp"]
     filetype = Addressable::URI.parse(url).extname.remove(".")
 
     img = Rails.cache.fetch(url, expires_in: 1.month, skip_nil: true) do
