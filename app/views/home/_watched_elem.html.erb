@@ -1,5 +1,5 @@
 <div class="flex flex-col">
-  <button x-on:click="window.open('<%= activity["media"]["siteUrl"] %>')" class="mx-auto h-[324px] w-[230px] bg-auto bg-center bg-no-repeat bg-slate-400 drop-shadow-lg">
+  <button x-on:click="window.open('<%= activity["media"]["siteUrl"] %>')" class="mx-auto h-[350px] w-[248px] bg-auto bg-center bg-no-repeat bg-slate-400 drop-shadow-lg">
     <img src="<%= image_url_to_base64 activity["media"]["coverImage"]["large"] %>" class="grayscale-[50%] hover:grayscale-0 drop-shadow-lg w-full h-full" alt="<%= activity["media"]["title"]["userPreferred"] %>">
     <div class="dark:text-white dark:bg-black/80 bg-white/80 drop-shadow-lg absolute bottom-0 left-0 flex flex-col w-full gap-2 px-2 py-2 text-left">
       <div><%= activity["media"]["studios"]["nodes"].select { |x| x["isAnimationStudio"] == true }.first(2).pluck("name").join(", ") %></div>
