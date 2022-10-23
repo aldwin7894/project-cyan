@@ -4,6 +4,7 @@ require "spotify/spotify"
 
 class HomeController < ApplicationController
   include FormatDateHelper
+  rescue_from QueryError, with: :render_empty
   ANIME_FORMATS = ["TV", "TV_SHORT", "ONA"]
   IGNORED_USER_STATUS = ["plans to watch", "paused watching", "dropped"]
 
@@ -195,4 +196,9 @@ class HomeController < ApplicationController
   def ping
     render plain: "Welcome to aldwin7894"
   end
+
+  private
+    def render_empty
+      render turbo_frame_request_id, layout: false if turbo_frame_request_id.present?
+    end
 end
