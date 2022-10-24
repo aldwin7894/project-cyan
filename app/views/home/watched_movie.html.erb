@@ -1,5 +1,5 @@
 <turbo-frame id="watched_movie" x-data="">
-  <div class="dark:text-white my-10 text-4xl phone:text-center tablet:text-left <%= @watched_movie.empty? ? "opacity-0" : "" %>">
+  <div class="dark:text-white my-10 text-4xl phone:text-center tablet:text-left <%= @watched_movie.blank? ? "opacity-0" : "" %>">
     <iconify-icon icon="mdi:timer-play" width="35"></iconify-icon>
     Recently watched movies / ova / specials
   </div>

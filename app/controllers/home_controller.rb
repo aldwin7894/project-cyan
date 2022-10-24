@@ -5,6 +5,7 @@ require "spotify/spotify"
 class HomeController < ApplicationController
   include FormatDateHelper
   rescue_from QueryError, with: :render_empty
+  rescue_from StandardError, with: :render_empty
   ANIME_FORMATS = ["TV", "TV_SHORT", "ONA"]
   IGNORED_USER_STATUS = ["plans to watch", "paused watching", "dropped"]
 
@@ -199,6 +200,11 @@ class HomeController < ApplicationController
 
   private
     def render_empty
-      render turbo_frame_request_id, layout: false if turbo_frame_request_id.present?
+      respond_to do |format|
+        format.html do
+          return render turbo_frame_request_id, layout: false if turbo_frame_request?
+          render layout: false
+        end
+      end
     end
 end

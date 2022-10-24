@@ -1,5 +1,5 @@
 <turbo-frame id="watched_anime" x-data="">
-  <div class="dark:text-white my-10 text-4xl phone:text-center tablet:text-left <%= @watched_anime.empty? ? "opacity-0" : "" %>">
+  <div class="dark:text-white my-10 text-4xl phone:text-center tablet:text-left <%= @watched_anime.blank? ? "opacity-0" : "" %>">
     <iconify-icon icon="mdi:timer-play" width="35"></iconify-icon>
     Recently watched episodes
   </div>
