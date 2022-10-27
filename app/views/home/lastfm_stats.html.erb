@@ -1,6 +1,6 @@
 <turbo-frame id="lastfm_stats">
   <div class="w-full h-full bg-center bg-cover" style="background-image: url('<%= @album_art.present? ? image_url_to_base64(@album_art) : image_url_to_base64(vite_asset_url("images/lastfm-placeholder.webp")) %>')">
-    <div class="w-full h-full backdrop-blur-sm backdrop-brightness-[40%] bg-gradient-to-tr from-cyan-700/30 to-pink-500/30 text-white flex flex-col items-stretch gap-5 px-4 py-4" x-data="">
+    <div class="backdrop-brightness-100 bg-gradient-radial from-transparent to-black/95 flex flex-col items-stretch w-full h-full gap-5 px-4 py-4 text-white" x-data="">
       <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="hover:underline text-lg font-bold text-left">
         <% if @lastfm_recent&.[]('nowplaying') %>
           LAST.FM (NOW PLAYING)
@@ -8,10 +8,8 @@
           LAST.FM
         <% end %>
       </button>
-      <div class="flex flex-col items-center gap-5" x-data="">
-        <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="w-[150px] mx-auto">
-          <img src="<%= @album_art.present? ? image_url_to_base64(@album_art) : image_url_to_base64(vite_asset_url("images/lastfm-placeholder.webp")) %>" alt="albumart" class="drop-shadow-xl">
-        </button>
+      <div class="flex flex-col items-center justify-end h-full gap-5" x-data="">
+        <button></button>
         <% if @lastfm_recent.present? %>
           <% if @lastfm_recent&.[]('nowplaying') %>
             <div id="equalizer" class="flex flex-row justify-center w-full gap-0.5">
@@ -68,18 +66,24 @@
               <div class="eq-bar-50 flex self-end"></div>
             </div>
           <% end %>
-          <div class="flex flex-col text-center">
-            <div class="text-[#3cb4f1] text-3xl font-bold line-clamp-2 break-words">
-              <%= @lastfm_recent["name"] %>
-            </div>
-            <div x-on:click="window.open('<%= @lastfm_recent["artist"]["url"] %>')" class="line-clamp-1 hover:underline text-2xl cursor-pointer">
+          <div class="flex flex-col gap-1 text-left">
+            <div x-on:click="window.open('<%= @lastfm_recent["artist"]["url"] %>')" class="line-clamp-1 hover:underline text-2xl font-bold cursor-pointer">
               <%= "#{@lastfm_recent['artist']['name'].upcase}" %>
             </div>
             <% if @lastfm_recent['album']['content'].present? %>
-              <div x-on:click="window.open('<%= @lastfm_recent["album"]["url"] %>')" class="text-[#e5ded3] italic text-xl hover:underline line-clamp-1 break-all cursor-pointer">
+              <% if @lastfm_recent['album']['mbid'].present? %>
+                <div x-on:click="window.open('<%= "https://musicbrainz.org/release/#{@lastfm_recent["album"]["mbid"]}" %>')" class="text-[#e5ded3] italic text-xl hover:underline line-clamp-1 break-all cursor-pointer font-bold"
+                >
+              <% else %>
+                <div class="text-[#e5ded3] italic text-xl line-clamp-1 break-all font-bold"
+                >
+              <% end %>
                 <%= "#{@lastfm_recent['album']['content']}" %>
               </div>
             <% end %>
+            <div x-on:click="window.open('<%= @lastfm_recent["url"] %>')" class="text-[#3cb4f1] text-4xl font-bold line-clamp-2 break-words hover:underline cursor-pointer">
+              <%= @lastfm_recent["name"] %>
+            </div>
             <% if @lastfm_recent['nowplaying'].blank? %>
               <div>
                 <div x-on:click="window.open('https://www.last.fm/user/aldwin7894/library')" class="hover:underline line-clamp-1 text-lg break-all cursor-pointer">
