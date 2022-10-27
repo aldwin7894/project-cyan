@@ -143,7 +143,7 @@ module.exports = {
     backgroundColor: ({ theme }) => ({
       ...theme("colors"),
       white: "#fafafa",
-      black: "#202020"
+      black: "#202020",
     }),
     backgroundImage: {
       none: "none",
@@ -159,6 +159,8 @@ module.exports = {
       "gradient-to-l": "linear-gradient(to left, var(--tw-gradient-stops))",
       "gradient-to-tl":
         "linear-gradient(to top left, var(--tw-gradient-stops))",
+      "gradient-radial":
+        "radial-gradient(var(--tw-gradient-stops))",
     },
     backgroundOpacity: ({ theme }) => theme("opacity"),
     backgroundPosition: {
