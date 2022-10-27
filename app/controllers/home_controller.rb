@@ -157,7 +157,7 @@ class HomeController < ApplicationController
 
     album_art = @lastfm_recent&.[]("image")&.[](3)&.[]("content")
     if album_art.present? && album_art.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
-      @album_art = album_art
+      @album_art = album_art.split("300x300").join("500x0")
     end
 
     render layout: false
