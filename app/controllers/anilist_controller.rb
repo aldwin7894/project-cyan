@@ -24,8 +24,15 @@ class AnilistController < ApplicationController
     @following = []
     @followers = []
 
+    cooldown = Rails.cache.fetch("ANILIST_FOLLOW_CHECKER_CD")
+    if Time.zone.now.to_i <= cooldown.to_i
+      cd_mins = ((cooldown - Time.zone.now) / 60.0).round
+      return @error = "On cooldown, please try again after #{cd_mins} #{'minute'.pluralize(cd_mins)}."
+    end
+
     page = 1
     loop do
+      sleep 0.5
       data = query(AniList::UserFollowingQuery, user_id: id, page:)
       @following_count ||= data.page.page_info.total
       @following.push(*data.page.following.map(&:name))
@@ -39,6 +46,7 @@ class AnilistController < ApplicationController
 
     page = 1
     loop do
+      sleep 0.5
       data = query(AniList::UserFollowersQuery, user_id: id, page:)
       @followers_count ||= data.page.page_info.total
       @followers.push(*data.page.followers.map(&:name))
@@ -49,8 +57,16 @@ class AnilistController < ApplicationController
         page += 1
       end
     end
+
+
+    Rails.cache.fetch("ANILIST_FOLLOW_CHECKER_CD", expires_in: 2.minutes) do
+      now = Time.zone.now
+      now += 2.minutes
+      now
+    end
     @success = true
   rescue QueryError
+    Rails.cache.write("ANILIST_FOLLOW_CHECKER_CD", nil)
     @error = "Username not found"
   end
 end
