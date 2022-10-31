@@ -27,7 +27,7 @@
     "alpinejs": "^3.10.5",
     "autoprefixer": "^10.4.12",
     "chart.js": "^3.9.1",
-    "cssnano": "^5.1.13",
+    "cssnano": "^5.1.14",
     "cssnano-preset-advanced": "^5.3.9",
     "iconify-icon": "^1.0.1",
     "postcss": "^8.4.18",
