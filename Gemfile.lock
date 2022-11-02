@@ -106,7 +106,7 @@ GEM
     diff-lcs (1.5.0)
     dry-cli (0.7.0)
     e2mmap (0.1.0)
-    erb_lint (0.2.0)
+    erb_lint (0.3.0)
       activesupport
       better_html (>= 2.0.1)
       parser (>= 2.7.1.4)
