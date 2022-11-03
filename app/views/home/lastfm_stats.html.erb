@@ -1,5 +1,5 @@
 <turbo-frame id="lastfm_stats">
-  <div class="w-full h-full bg-center bg-cover" style="background-image: url('<%= @album_art.present? ? image_url_to_base64(@album_art) : image_url_to_base64(vite_asset_url("images/lastfm-placeholder.webp")) %>')">
+  <div class="w-full h-full bg-center bg-cover" style="background-image: url('<%= @album_art.present? ? image_url_to_base64(@album_art) : image_url_to_base64(vite_asset_url("images/lastfm-placeholder-2.webp")) %>')">
     <div class="backdrop-brightness-100 bg-gradient-radial from-transparent to-black/95 flex flex-col items-stretch w-full h-full gap-5 px-4 py-4 text-white" x-data="">
       <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="hover:underline text-lg font-bold text-left">
         <% if @lastfm_recent&.[]('nowplaying') %>
