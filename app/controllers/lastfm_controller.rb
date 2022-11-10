@@ -41,6 +41,7 @@ class LastfmController < ApplicationController
   def generate_content(params)
     @background = params[:bg]
     @foreground = params[:fg]
+    @bottom_line = params[:line]
     @album_art = nil
     @recent = Rails.cache.fetch("LASTFM_RECENT_TRACKS", expires_in: 30.seconds, skip_nil: true) do
       LASTFM_CLIENT.user.get_recent_tracks(user: params[:username], limit: 1, extended: 1)
