@@ -133,6 +133,9 @@
   width: 600px;
   height: 122px;
   color: #<%= @foreground %>;
+  <% if @bottom_line.present? %>
+    border-bottom: 4px solid #<%= @bottom_line %>;
+  <% end %>
   background-image: -webkit-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= image_url_to_base64(vite_asset_url("images/lastfm.webp")) %>");
   background-image: -o-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= image_url_to_base64(vite_asset_url("images/lastfm.webp")) %>");
   background-image: linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= image_url_to_base64(vite_asset_url("images/lastfm.webp")) %>");
