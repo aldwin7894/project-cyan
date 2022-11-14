@@ -106,7 +106,7 @@ GEM
     diff-lcs (1.5.0)
     dry-cli (0.7.0)
     e2mmap (0.1.0)
-    erb_lint (0.3.0)
+    erb_lint (0.3.1)
       activesupport
       better_html (>= 2.0.1)
       parser (>= 2.7.1.4)
@@ -115,7 +115,7 @@ GEM
       smart_properties
     erubi (1.11.0)
     exifr (1.3.10)
-    ferrum (0.12)
+    ferrum (0.13)
       addressable (~> 2.5)
       concurrent-ruby (~> 1.1)
       webrick (~> 1.7)
@@ -264,7 +264,7 @@ GEM
     reverse_markdown (2.1.1)
       nokogiri
     rexml (3.2.5)
-    rubocop (1.38.0)
+    rubocop (1.39.0)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.1.2.1)
@@ -321,10 +321,10 @@ GEM
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.3.0)
-    vite_rails (3.0.12)
+    vite_rails (3.0.13)
       railties (>= 5.1, < 8)
       vite_ruby (~> 3.0, >= 3.2.2)
-    vite_ruby (3.2.7)
+    vite_ruby (3.2.11)
       dry-cli (~> 0.7.0)
       rack-proxy (~> 0.6, >= 0.6.1)
       zeitwerk (~> 2.2)
@@ -345,7 +345,7 @@ GEM
       nokogiri (~> 1.8)
     yard (0.9.28)
       webrick (~> 1.7.0)
-    zeitwerk (2.6.1)
+    zeitwerk (2.6.6)
 
 PLATFORMS
   x86_64-linux
@@ -357,7 +357,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise (~> 4.8)
   erb_lint
-  ferrum (~> 0.12)
+  ferrum (~> 0.13)
   graphql-client (~> 0.18.0)
   health_check (~> 3.1)
   httplog (~> 1.6)
