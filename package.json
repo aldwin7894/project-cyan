@@ -41,7 +41,7 @@
     "tw-elements": "^1.0.0-alpha12",
     "vite": "^3.2.3",
     "vite-plugin-full-reload": "^1.0.4",
-    "vite-plugin-ruby": "^3.1.0"
+    "vite-plugin-ruby": "^3.1.2"
   },
   "version": "0.1.0",
   "browserslist": [
