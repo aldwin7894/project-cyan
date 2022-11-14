@@ -15,7 +15,7 @@ class HomeController < ApplicationController
 
   def anilist_user_statistics
     user_id = ENV.fetch("ANILIST_USER_ID")
-    @user_statistics = Rails.cache.fetch("ANILIST_USER_STATS_#{ENV.fetch('ANILIST_USERNAME')}", expires_in: 30.minutes, skip_nil: true) do
+    @user_statistics = Rails.cache.fetch("ANILIST_USER_STATS_#{ENV.fetch('ANILIST_USERNAME')}", expires_in: 4.hours, skip_nil: true) do
       user_statistics = query(AniList::UserStatisticsQuery, user_id:)
       user_statistics.user.statistics.anime.to_h
     end
@@ -100,7 +100,7 @@ class HomeController < ApplicationController
     last_month = (now.beginning_of_day - 1.month).to_i
     page = 1
     loop do
-      res = Rails.cache.fetch("#{now.to_i}_#{page}/ANILIST_USER_ACTIVITIES_#{ENV.fetch('ANILIST_USERNAME')}", expires_in: 30.minutes, skip_nil: true) do
+      res = Rails.cache.fetch("#{now.to_i}_#{page}/ANILIST_USER_ACTIVITIES_#{ENV.fetch('ANILIST_USERNAME')}", expires_in: 4.hours, skip_nil: true) do
         data = query(AniList::UserAnimeActivitiesQuery, date: last_month, user_id:, page:, per_page: 50)
         { data: data.page.activities.to_a.map(&:to_h), has_next_page: data.page.page_info.has_next_page? }
       end
