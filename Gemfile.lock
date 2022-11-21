@@ -79,7 +79,7 @@ GEM
       erubi (~> 1.4)
       parser (>= 2.4)
       smart_properties
-    bootsnap (1.13.0)
+    bootsnap (1.14.0)
       msgpack (~> 1.2)
     brotli (0.4.0)
     builder (3.2.4)
