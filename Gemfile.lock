@@ -79,7 +79,7 @@ GEM
       erubi (~> 1.4)
       parser (>= 2.4)
       smart_properties
-    bootsnap (1.13.0)
+    bootsnap (1.14.0)
       msgpack (~> 1.2)
     brotli (0.4.0)
     builder (3.2.4)
@@ -133,7 +133,7 @@ GEM
     httparty (0.20.0)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
-    httplog (1.6.0)
+    httplog (1.6.2)
       rack (>= 2.0)
       rainbow (>= 2.0.0)
     i18n (1.12.0)
@@ -191,7 +191,7 @@ GEM
       timeout
     net-smtp (0.3.2)
       net-protocol
-    newrelic_rpm (8.13.0)
+    newrelic_rpm (8.13.1)
     nio4r (2.5.8)
     nokogiri (1.13.9-x86_64-linux)
       racc (~> 1.4)
@@ -200,7 +200,7 @@ GEM
     parallel (1.22.1)
     parser (3.1.2.1)
       ast (~> 2.4.1)
-    pg (1.4.4)
+    pg (1.4.5)
     progress (3.6.0)
     public_suffix (5.0.0)
     puma (6.0.0)
@@ -255,7 +255,7 @@ GEM
       redis-client (>= 0.9.0)
     redis-client (0.10.0)
       connection_pool
-    regexp_parser (2.6.0)
+    regexp_parser (2.6.1)
     request_store (1.5.1)
       rack (>= 1.4)
     responders (3.0.1)
@@ -281,7 +281,7 @@ GEM
     rubocop-performance (1.15.1)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rails (2.17.2)
+    rubocop-rails (2.17.3)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
