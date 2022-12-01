@@ -6,7 +6,6 @@ class AnilistController < ApplicationController
   def new; end
 
   def fetch_followers(following = [], followers = [], following_page = 1, followers_page = 1, following_done = false, followers_done = false)
-    begin
       @success = false
       return @error = "Username can't be empty" if params[:username].blank?
 
