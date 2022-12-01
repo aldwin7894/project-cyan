@@ -29,11 +29,11 @@ Rails.application.routes.draw do
   resources :lastfm,
     only: :index,
     constraints: lambda { |req| ["html", "svg"].include? req.format }
-  # resources :anilist, only: [:index, :new] do
-  #   collection do
-  #     get "fetch_followers"
-  #   end
-  # end
+  resources :anilist, only: [:index, :new] do
+    collection do
+      get "fetch_followers"
+    end
+  end
   # resources :listenbrainz
   get "ping", to: "home#ping"
   get "anilist_user_activities", to: "home#anilist_user_activities"
