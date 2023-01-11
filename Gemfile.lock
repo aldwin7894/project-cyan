@@ -143,7 +143,7 @@ GEM
       image_size (>= 1.5, < 4)
       in_threads (~> 1.3)
       progress (~> 3.0, >= 3.0.1)
-    image_optim_pack (0.9.1.20221226-x86_64-linux)
+    image_optim_pack (0.9.1.20230107-x86_64-linux)
       fspath (>= 2.1, < 4)
       image_optim (~> 0.19)
     image_size (3.2.0)
@@ -158,7 +158,7 @@ GEM
     lastfm (1.27.4)
       httparty
       xml-simple
-    listen (3.7.1)
+    listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     lograge (0.12.0)
@@ -187,7 +187,7 @@ GEM
       timeout
     net-smtp (0.3.3)
       net-protocol
-    newrelic_rpm (8.14.0)
+    newrelic_rpm (8.15.0)
     nio4r (2.5.8)
     nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
@@ -360,7 +360,7 @@ DEPENDENCIES
   image_optim_pack (~> 0.9.1)
   jwt (~> 2.6)
   lastfm (~> 1.27)
-  listen (~> 3.7)
+  listen (~> 3.8)
   lograge (~> 0.12.0)
   logstash-event (~> 1.2)
   newrelic_rpm (~> 8)
