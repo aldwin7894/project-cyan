@@ -136,7 +136,7 @@ h6 {
 }
 
 span, em, b, strong, i, p {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .offline {
@@ -157,10 +157,10 @@ span, em, b, strong, i, p {
 
 .large-image {
   position: absolute;
-  height: 50px;
-  width: 50px;
+  height: 64px;
+  width: 64px;
   background-size: cover;
   right: 0px;
-  top: 10px;
+  top: 5px;
   background-image: url("<%= image_url_to_base64(@activity&.[](:large_image)) %>");
 }
