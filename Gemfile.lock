@@ -103,6 +103,16 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
+    discordrb (3.4.0)
+      discordrb-webhooks (~> 3.3.0)
+      ffi (>= 1.9.24)
+      opus-ruby
+      rest-client (>= 2.0.0)
+      websocket-client-simple (>= 0.3.0)
+    discordrb-webhooks (3.3.0)
+      rest-client (>= 2.1.0.rc1)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
     dry-cli (0.7.0)
     e2mmap (0.1.0)
     erb_lint (0.3.1)
@@ -113,6 +123,7 @@ GEM
       rubocop
       smart_properties
     erubi (1.11.0)
+    event_emitter (0.2.6)
     exifr (1.3.10)
     ferrum (0.13)
       addressable (~> 2.5)
@@ -129,6 +140,9 @@ GEM
       graphql
     health_check (3.1.0)
       railties (>= 5.0)
+    http-accept (1.7.0)
+    http-cookie (1.0.5)
+      domain_name (~> 0.5)
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
@@ -175,6 +189,9 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mime-types (3.4.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2022.0105)
     mini_mime (1.1.2)
     minitest (5.16.3)
     msgpack (1.6.0)
@@ -187,11 +204,14 @@ GEM
       timeout
     net-smtp (0.3.3)
       net-protocol
+    netrc (0.11.0)
     newrelic_rpm (8.15.0)
     nio4r (2.5.8)
     nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
     occson (4.1.0)
+    opus-ruby (1.0.1)
+      ffi
     orm_adapter (0.5.0)
     parallel (1.22.1)
     parser (3.2.0.0)
@@ -257,6 +277,11 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rest-client (2.1.0)
+      http-accept (>= 1.7.0, < 2.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     reverse_markdown (2.1.1)
       nokogiri
     rexml (3.2.5)
@@ -315,6 +340,9 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.8.2)
     unicode-display_width (2.4.2)
     vite_rails (3.0.13)
       railties (>= 5.1, < 8)
@@ -331,6 +359,9 @@ GEM
       selenium-webdriver (~> 4.0)
     webrick (1.7.0)
     websocket (1.2.9)
+    websocket-client-simple (0.6.0)
+      event_emitter
+      websocket
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -351,6 +382,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise (~> 4.8)
+  discordrb (~> 3.4)
   erb_lint
   ferrum (~> 0.13)
   graphql-client (~> 0.18.0)

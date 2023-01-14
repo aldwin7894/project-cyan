@@ -34,6 +34,10 @@ Rails.application.routes.draw do
       get "fetch_followers"
     end
   end
+  resources :discord_banner,
+    path: "discord-banner",
+    only: :index,
+    constraints: lambda { |req| ["html", "svg"].include? req.format }
   # resources :listenbrainz
   get "ping", to: "home#ping"
   get "anilist_user_activities", to: "home#anilist_user_activities"
