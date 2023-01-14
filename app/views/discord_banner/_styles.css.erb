@@ -83,16 +83,26 @@
   margin-left: 2px;
 }
 
-.activity-details {
-  color: #E5DED3;
-  font-style: italic;
+.activity-details-container {
   display: flex;
   align-items: center;
 }
 
+.spotify {
+  min-width: 24px;
+}
+
+.activity-details {
+  color: #E5DED3;
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
 .username,
 .activity-title,
-.activity-details,
 .status-container {
   white-space: nowrap;
   overflow: hidden;
