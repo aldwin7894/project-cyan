@@ -94,4 +94,4 @@ gem "recaptcha", "~> 5.12"
 
 gem "ferrum", "~> 0.13"
 
-gem "discordrb", "~> 3.4"
+gem "discordrb", github: "shardlab/discordrb", branch: "threads"

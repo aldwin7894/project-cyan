@@ -3,11 +3,17 @@
 class DiscordBannerController < ApplicationController
   layout "discord-banner"
 
+  DISCORD_BOT = Discordrb::Bot.new(token: ENV.fetch("DISCORD_BOT_TOKEN"), log_mode: :verbose, intents: :all, ignore_bots: true, suppress_ready: true)
+  DISCORD_BOT.include! PresenceUpdate
+  at_exit { DISCORD_BOT.stop if DISCORD_BOT.connected? }
+  DISCORD_BOT.run(true) unless DISCORD_BOT.connected?
+
   def index
     generate_content(params)
-  rescue StandardError
+  rescue StandardError => e
     @large_image = nil
     @icon = nil
+    raise e
   ensure
     respond_to do |format|
       format.html
@@ -22,7 +28,7 @@ class DiscordBannerController < ApplicationController
     @large_image = nil
     @icon = nil
 
-    current_user = DiscordBot::BOT.user(ENV.fetch("DISCORD_USER_ID"))
+    current_user = DISCORD_BOT.user(ENV.fetch("DISCORD_USER_ID"))
     activity = current_user&.activities&.to_a&.first
     large_image = activity&.assets&.large_image_url("jpg")
     icon = ""
