@@ -13,7 +13,6 @@ class DiscordBannerController < ApplicationController
   rescue StandardError => e
     @large_image = nil
     @icon = nil
-    raise e
   ensure
     respond_to do |format|
       format.html
@@ -38,6 +37,9 @@ class DiscordBannerController < ApplicationController
       large_image = "https://i.scdn.co/image/#{activity&.assets&.large_image_url&.split(':')&.last&.split('.')&.first.gsub('b273', '4851')}"
       title = "Listening to Spotify"
     elsif activity&.type == 0 || activity&.type == 4
+      if large_image.include?("jellyfin")
+        large_image = "https://#{large_image.split("https/").last.split(".jpg").first}?fillWidth=64&quality=80"
+      end
       title = "Playing #{activity&.name}"
     elsif activity&.type == 1
       title = "Streaming #{activity&.name}"

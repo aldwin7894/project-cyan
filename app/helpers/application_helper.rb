@@ -13,7 +13,7 @@ module ApplicationHelper
     img = Rails.cache.fetch(url, expires_in: 1.month, skip_nil: true) do
       data = {}
       res = HTTParty.get(url, format: :plain, headers: { "Accept-Encoding" => "gzip,deflate,br" })
-      ext = res.headers.content_type.split("/")
+      ext = res.headers&.content_type&.split("/")
       if ext[0] == "image" || IMAGE_FILETYPES.include?(filetype)
         data[:image] = res.body
         data[:ext] = ext[1]
@@ -29,5 +29,7 @@ module ApplicationHelper
       image = "data:image/#{img[:ext]};base64,#{Rack::Utils.escape(base64)}"
     end
     image
+  rescue StandardError
+    nil
   end
 end
