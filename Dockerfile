@@ -82,6 +82,7 @@ RUN apt-get update -yq \
   libjemalloc2 \
   tzdata \
   postgresql-client \
+  git \
   && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
   && apt-get clean \
   && apt-get autoremove
