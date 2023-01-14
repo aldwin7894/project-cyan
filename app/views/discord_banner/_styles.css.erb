@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  font-size: 100%;
+  line-height: 1.3;
+}
+
+.main-container {
+  position: relative;
+  width: 600px;
+  height: 122px;
+  color: #<%= @foreground %>;
+  <% if @bottom_line.present? %>
+    border-bottom: 4px solid #<%= @bottom_line %>;
+  <% end %>
+  background-image: -webkit-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= image_url_to_base64(vite_asset_url("images/discord.webp")) %>");
+  background-image: -o-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= image_url_to_base64(vite_asset_url("images/discord.webp")) %>");
+  background-image: linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= image_url_to_base64(vite_asset_url("images/discord.webp")) %>");
+  background-color: rgba(<%= @background %>);
+}
+
+.discord-logo {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+}
+
+.discord-logo svg {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 5px;
+}
+
+.avatar-container {
+  display: inline-block;
+  vertical-align: top;
+  width: 102px;
+  height: 102px;
+  padding: 10px;
+}
+
+.avatar {
+  border-radius: 9999px;
+  outline-style: solid;
+  outline-color: #fff;
+  height: 102px;
+  width: 102px;
+  background-size: cover;
+  background-image: url("<%= image_url_to_base64(@avatar) %>");
+  background-color: rgba(78, 85, 91, 0.8);
+}
+
+.status {
+  position: absolute;
+  left: 90px;
+  bottom: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 9999px;
+  background: rgba(<%= @background %>);
+}
+
+.info-container {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  width: 449px;
+  height: 112px;
+  padding: 5px 10px;
+}
+
+.username {
+  color: #3CB4F1;
+}
+
+.activity-title {
+  margin-left: 2px;
+}
+
+.activity-details {
+  color: #E5DED3;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+}
+
+.username,
+.activity-title,
+.activity-details,
+.status-container {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 18.72px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 13.28px;
+}
+
+h6 {
+  font-size: 10.72px;
+}
+
+span, em, b, strong, i, p {
+  font-size: 12px;
+}
+
+.offline {
+  color: #777e8d;
+}
+
+.online {
+  color: #62a45c;
+}
+
+.idle {
+  color: #e6ae25;
+}
+
+.dnd {
+  color: #cc5345;
+}
+
+.large-image {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background-size: cover;
+  right: 0px;
+  top: 10px;
+  background-image: url("<%= image_url_to_base64(@activity&.[](:large_image)) %>");
+}

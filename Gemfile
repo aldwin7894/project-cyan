@@ -93,3 +93,5 @@ gem "jwt", "~> 2.6"
 gem "recaptcha", "~> 5.12"
 
 gem "ferrum", "~> 0.13"
+
+gem "discordrb", "~> 3.4"
