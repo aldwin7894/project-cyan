@@ -30,6 +30,7 @@ RUN apt-get update -yq \
   build-essential \
   libpq-dev \
   tar \
+  git \
   && wget --quiet "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
   && mkdir -p "/node-v${NODE_VERSION}-linux-x64" \
   && tar xzf "node-v$NODE_VERSION-linux-x64.tar.gz" --directory / \
@@ -82,7 +83,6 @@ RUN apt-get update -yq \
   libjemalloc2 \
   tzdata \
   postgresql-client \
-  git \
   && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
   && apt-get clean \
   && apt-get autoremove
