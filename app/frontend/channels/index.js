@@ -2,4 +2,4 @@
 // Channel files must be named *_channel.js.
 
 const channels = import.meta.globEager("./*_channel.js");
-Object.keys(channels).forEach((path) => channels[path]());
+Object.keys(channels).forEach(path => channels[path]());

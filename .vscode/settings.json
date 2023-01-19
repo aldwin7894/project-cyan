@@ -49,5 +49,8 @@
   "tailwindCSS.emmetCompletions": true,
   "tailwindCSS.codeActions": true,
   "tailwindCSS.colorDecorators": true,
-  "tailwindCSS.hovers": true
+  "tailwindCSS.hovers": true,
+  "trunk.inlineDecoratorsForAllExtensions": true,
+  "trunk.trunkGrayOutNonBlockingIssues": true,
+  "trunk.trace.server": "messages"
 }

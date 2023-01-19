@@ -2,7 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
         with:
           docker_username: ${{ secrets.DOCKERHUB_USERNAME }}
           docker_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          checkout: 'false'
+          checkout: "false"
           image_tag: prod
           org_name: aldwin7894
           repo_name: aldwin7894

@@ -7,14 +7,12 @@ import gzipPlugin from "rollup-plugin-gzip";
 export default defineConfig({
   plugins: [
     RubyPlugin(),
-    ...(
-      process.env.NODE_ENV === "production"
-        ? [FullReload(["config/routes.rb", "app/views/**/*"], { delay: 200 })]
-        : []
-    ),
+    ...(process.env.NODE_ENV === "production"
+      ? [FullReload(["config/routes.rb", "app/views/**/*"], { delay: 200 })]
+      : []),
     gzipPlugin(),
     gzipPlugin({
-      customCompression: (content) => brotliCompressSync(Buffer.from(content)),
+      customCompression: content => brotliCompressSync(Buffer.from(content)),
       fileName: ".br",
     }),
     splitVendorChunkPlugin(),
@@ -39,8 +37,9 @@ export default defineConfig({
             "turbo",
           ];
 
-          if (chunks.some((x) => id.includes(x)))
-            return chunks.find((x) => id.includes(x));
+          if (chunks.some(x => id.includes(x))) {
+            return chunks.find(x => id.includes(x));
+          }
           return "vendor";
         },
       },
