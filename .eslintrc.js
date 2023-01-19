@@ -30,5 +30,6 @@ module.exports = {
     "comma-dangle": ["error", "only-multiline"],
     "no-undef": "warn",
     "prettier/prettier": "error",
+    "import/no-extraneous-dependencies": "off",
   },
 };
