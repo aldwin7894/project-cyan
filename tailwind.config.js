@@ -159,8 +159,7 @@ module.exports = {
       "gradient-to-l": "linear-gradient(to left, var(--tw-gradient-stops))",
       "gradient-to-tl":
         "linear-gradient(to top left, var(--tw-gradient-stops))",
-      "gradient-radial":
-        "radial-gradient(var(--tw-gradient-stops))",
+      "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
     },
     backgroundOpacity: ({ theme }) => theme("opacity"),
     backgroundPosition: {
@@ -370,11 +369,7 @@ module.exports = {
       DEFAULT: "1",
     },
     fontFamily: {
-      sans: [
-        '"Source Sans Pro"',
-        "Inter",
-        ...defaultTheme.fontFamily.sans,
-      ],
+      sans: ['"Source Sans Pro"', "Inter", ...defaultTheme.fontFamily.sans],
       serif: defaultTheme.fontFamily.serif,
       mono: defaultTheme.fontFamily.mono,
     },

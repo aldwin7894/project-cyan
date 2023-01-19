@@ -1,3 +1,5 @@
+/* global Turbo */
+
 import "iconify-icon";
 import "@hotwired/turbo-rails";
 import * as ActiveStorage from "@rails/activestorage";
@@ -18,16 +20,19 @@ const initElems = () => {
   const popoverTriggerList = [].slice.call(
     document.querySelectorAll('[data-bs-toggle="popover"]'),
   );
-  popoverTriggerList.map((popoverTriggerEl) => new window.Popover(popoverTriggerEl));
+  popoverTriggerList.map(
+    popoverTriggerEl => new window.Popover(popoverTriggerEl),
+  );
 
   // tooltip
   const tooltipTriggerList = [].slice.call(
-    document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    document.querySelectorAll('[data-bs-toggle="tooltip"]'),
   );
-  tooltipTriggerList.map((tooltipTriggerEl) => new window.Tooltip(tooltipTriggerEl));
+  tooltipTriggerList.map(
+    tooltipTriggerEl => new window.Tooltip(tooltipTriggerEl),
+  );
 };
 initElems();
-
 
 // fade animations
 document.addEventListener("DOMContentLoaded", () => {
@@ -43,14 +48,22 @@ document.addEventListener("DOMContentLoaded", () => {
     main.classList.add("animate__fadeIn", "animate__animated");
   });
 });
-document.addEventListener("turbo:before-fetch-response", (event) => {
+document.addEventListener("turbo:before-fetch-response", event => {
   const id = event.target.getAttribute("data-turbo-frame")
     ? event.target.getAttribute("data-turbo-frame")
     : event.target.id;
   const element = document.getElementById(id);
-  element.classList.add("animate__fadeIn", "animate__animated", "animate__delay");
+  element.classList.add(
+    "animate__fadeIn",
+    "animate__animated",
+    "animate__delay",
+  );
   element.addEventListener("animationend", () => {
-    element.classList.remove("animate__fadeIn", "animate__animated", "animate__delay");
+    element.classList.remove(
+      "animate__fadeIn",
+      "animate__animated",
+      "animate__delay",
+    );
   });
 });
 
@@ -59,10 +72,10 @@ document.addEventListener("turbo:before-fetch-request", () => {
   Turbo.navigator.delegate.adapter.showProgressBar();
 });
 document.addEventListener("turbo:frame-render", () => {
-  Turbo.navigator.delegate.adapter.progressBar.hide()
+  Turbo.navigator.delegate.adapter.progressBar.hide();
 });
 document.addEventListener("turbo:before-stream-render", () => {
-  Turbo.navigator.delegate.adapter.progressBar.hide()
+  Turbo.navigator.delegate.adapter.progressBar.hide();
 });
 
 document.addEventListener("turbo:frame-load", () => {

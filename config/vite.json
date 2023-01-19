@@ -2,9 +2,7 @@
   "all": {
     "sourceCodeDir": "app/frontend",
     "entrypointsDir": "entrypoints",
-    "additionalEntrypoints": [
-      "~/{assets,fonts,icons,images,favicon}/**/*"
-    ]
+    "additionalEntrypoints": ["~/{assets,fonts,icons,images,favicon}/**/*"]
   },
   "development": {
     "autoBuild": true,

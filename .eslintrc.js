@@ -3,25 +3,16 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    "airbnb-base",
-    "plugin:tailwindcss/recommended",
-  ],
+  extends: ["airbnb-base", "plugin:tailwindcss/recommended", "prettier"],
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: [
-    "import",
-    "html-erb",
-    "tailwindcss",
-  ],
+  plugins: ["import", "html-erb", "tailwindcss", "prettier"],
   settings: {
     "import/resolver": {
       alias: {
-        map: [
-          ["~", "./app/frontend"],
-        ],
+        map: [["~", "./app/frontend"]],
       },
     },
   },
@@ -36,5 +27,8 @@ module.exports = {
     ],
     "no-underscore-dangle": "off",
     "no-param-reassign": "off",
+    "comma-dangle": ["error", "only-multiline"],
+    "no-undef": "warn",
+    "prettier/prettier": "error",
   },
 };

@@ -1,8 +1,8 @@
 glob: "**/*.{html,text,js}{+*,}.erb"
 exclude:
-  - '**/vendor/**/*'
-  - '**/node_modules/**/*'
-  - 'app/views/layouts/exception.html.erb'
+  - "**/vendor/**/*"
+  - "**/node_modules/**/*"
+  - "app/views/layouts/exception.html.erb"
 EnableDefaultLinters: true
 linters:
   SpaceInHtmlTag:
