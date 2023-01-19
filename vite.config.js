@@ -23,26 +23,26 @@ export default defineConfig({
     cssCodeSplit: true,
     target: "esnext",
     sourcemap: false,
-    rollupOptions: {
-      output: {
-        compact: true,
-        manualChunks(id) {
-          const chunks = [
-            "chart.js",
-            "alpinejs",
-            "tw-elements",
-            "iconify-icon",
-            "tailwindcss",
-            "rails",
-            "turbo",
-          ];
+    // rollupOptions: {
+    //   output: {
+    //     compact: true,
+    //     manualChunks(id) {
+    //       const chunks = [
+    //         "chart.js",
+    //         "alpinejs",
+    //         "tw-elements",
+    //         "iconify-icon",
+    //         "tailwindcss",
+    //         "@hotwired",
+    //         "@rails",
+    //       ];
 
-          if (chunks.some(x => id.includes(x))) {
-            return chunks.find(x => id.includes(x));
-          }
-          return "vendor";
-        },
-      },
-    },
+    //       if (chunks.some(x => id.includes(x))) {
+    //         return chunks.find(x => id.includes(x));
+    //       }
+    //       return "vendor";
+    //     },
+    //   },
+    // },
   },
 });
