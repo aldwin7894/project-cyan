@@ -21,28 +21,29 @@ export default defineConfig({
     emptyOutDir: true,
     assetsInlineLimit: 24000,
     cssCodeSplit: true,
-    target: "esnext",
+    target: ["chrome87", "firefox78"],
+    minify: "terser",
     sourcemap: false,
-    // rollupOptions: {
-    //   output: {
-    //     compact: true,
-    //     manualChunks(id) {
-    //       const chunks = [
-    //         "chart.js",
-    //         "alpinejs",
-    //         "tw-elements",
-    //         "iconify-icon",
-    //         "tailwindcss",
-    //         "@hotwired",
-    //         "@rails",
-    //       ];
+    rollupOptions: {
+      output: {
+        compact: true,
+        manualChunks(id) {
+          const chunks = [
+            "chart.js",
+            "alpinejs",
+            "tw-elements",
+            "iconify-icon",
+            "tailwindcss",
+            "@hotwired",
+            "@rails",
+          ];
 
-    //       if (chunks.some(x => id.includes(x))) {
-    //         return chunks.find(x => id.includes(x));
-    //       }
-    //       return "vendor";
-    //     },
-    //   },
-    // },
+          if (chunks.some(x => id.includes(x))) {
+            return chunks.find(x => id.includes(x));
+          }
+          return "vendor";
+        },
+      },
+    },
   },
 });
