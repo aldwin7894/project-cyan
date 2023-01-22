@@ -35,9 +35,11 @@
       <%= @username %>
     </h1>
     <div class="playing-container">
-      <h3 class="activity-title">
-        <%= @activity&.[](:title) %>
-      </h3>
+      <% if @activity&.[](:title).present? %>
+        <h3 class="activity-title">
+          <%= @activity&.[](:title) %>
+        </h3>
+      <% end %>
       <h4 class="status-container">
         Status:&#160;
         <% if @online_status == :offline %>
