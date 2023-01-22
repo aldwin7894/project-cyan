@@ -81,11 +81,17 @@
 
 .activity-title {
   margin-left: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  padding-right: 10px;
 }
 
 .activity-details-container {
   display: flex;
   align-items: center;
+  max-width: 350px;
 }
 
 .spotify {
@@ -93,21 +99,24 @@
 }
 
 .activity-details {
-  color: #E5DED3;
+  color: #E8C896;
   font-style: italic;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 0;
+  width: 100%;
 }
 
-.username,
-.activity-title,
-.status-container {
+.username {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
+}
+
+.status-container {
+  flex: 0 1 auto;
 }
 
 h1 {
@@ -163,4 +172,20 @@ span, em, b, strong, i, p {
   right: 0px;
   top: 5px;
   background-image: url("<%= image_url_to_base64(@activity&.[](:large_image)) %>");
+}
+
+.playing-container {
+  display: flex;
+  max-width: 390px;
+  align-items: center;
+}
+
+.activity-subdetails-container {
+  color: #0FD0BE;
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  max-width: 350px;
 }
