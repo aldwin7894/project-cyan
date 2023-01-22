@@ -34,9 +34,23 @@
     <h1 class="username mb-0">
       <%= @username %>
     </h1>
-    <h3 class="activity-title">
-      <%= @activity&.[](:title) %>
-    </h3>
+    <div class="playing-container">
+      <h3 class="activity-title">
+        <%= @activity&.[](:title) %>
+      </h3>
+      <h4 class="status-container">
+        Status:&#160;
+        <% if @online_status == :offline %>
+          <span class="offline">Offline</span>
+        <% elsif @client_status == :online %>
+          <span class="online">Online</span>
+        <% elsif @client_status == :idle %>
+          <span class="idle">Idle</span>
+        <% elsif @client_status == :dnd %>
+          <span class="dnd">Do not disturb</span>
+        <% end %>
+      </h4>
+    </div>
     <h4 class="activity-details-container">
       <% if @activity&.[](:name) == "Spotify" %>
         <svg class="spotify" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,17 +61,8 @@
         <%= @activity&.[](:details) %>
       </div>
     </h4>
-    <h4 class="status-container">
-      Status:&#160;
-      <% if @online_status == :offline %>
-        <span class="offline">Offline</span>
-      <% elsif @client_status == :online %>
-        <span class="online">Online</span>
-      <% elsif @client_status == :idle %>
-        <span class="idle">Idle</span>
-      <% elsif @client_status == :dnd %>
-        <span class="dnd">Do not disturb</span>
-      <% end %>
+    <h4 class="activity-subdetails-container">
+      <%= @activity&.[](:subdetails) %>&#160;
     </h4>
   </div>
 </div>

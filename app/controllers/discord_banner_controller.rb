@@ -10,7 +10,7 @@ class DiscordBannerController < ApplicationController
     ignore_bots: true,
     suppress_ready: true
   )
-  DISCORD_BOT.include! PresenceUpdate
+  # DISCORD_BOT.include! PresenceUpdate
   at_exit { DISCORD_BOT.stop if DISCORD_BOT.connected? }
   DISCORD_BOT.run(true) unless DISCORD_BOT.connected?
 
@@ -35,9 +35,10 @@ class DiscordBannerController < ApplicationController
 
     current_user = DISCORD_BOT.user(ENV.fetch("DISCORD_USER_ID"))
     activity = current_user&.activities&.to_a&.first
-    large_image = activity&.assets&.large_image_url("jpg")
+    large_image = activity&.assets&.large_image_url("png")
     icon = ""
     details = "#{activity&.state} - #{activity&.details}" if activity.present?
+    subdetails = "#{activity&.assets&.large_text}" if activity.present?
 
     if activity&.name == "Spotify" && activity&.type == 2
       large_image = "https://i.scdn.co/image/#{activity&.assets&.large_image_url&.split(':')&.last&.split('.')&.first.gsub('b273', '4851')}"
@@ -66,6 +67,7 @@ class DiscordBannerController < ApplicationController
       name: activity&.name,
       title:,
       details:,
+      subdetails:,
       large_image:,
       icon:
     }
