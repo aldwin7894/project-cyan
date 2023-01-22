@@ -45,7 +45,7 @@ class DiscordBannerController < ApplicationController
       title = "Listening to Spotify"
     elsif activity&.type == 0 || activity&.type == 4
       if activity&.name == "Jellyfin" && large_image.include?("jellyfin")
-        large_image = "https://#{large_image.split("https/").last.split(".jpg").first}?fillWidth=64&quality=80"
+        large_image = "https://#{large_image.split("https/").last.split(".png").first}?fillWidth=64&quality=80"
         details = "#{activity&.details} - #{activity&.state}"
       end
       title = "Playing #{activity&.name}"
