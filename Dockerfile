@@ -42,7 +42,24 @@ RUN apt-get update -yq \
   && apt-get autoremove
 
 WORKDIR /usr/src/app
-COPY . .
+COPY ./app ./app
+COPY ./assets ./assets
+COPY ./bin ./bin
+COPY ./config ./config
+COPY ./db ./db
+COPY ./lib ./lib
+COPY ./log ./log
+COPY ./public ./public
+COPY ./storage ./storage
+COPY ./test ./test
+COPY ./vendor ./vendor
+COPY Gemfile* .
+COPY yarn.lock .
+COPY .* .
+COPY *.js .
+COPY *.json .
+COPY Rakefile .
+COPY ./build.sh .
 
 RUN chmod -R 755 ./bin/* \
   && chmod -R 755 ./build.sh \
@@ -76,7 +93,7 @@ ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 RUN apt-get update -yq \
   && apt-get install gnupg wget -yq --no-install-recommends \
   && wget --quiet --output-document=- https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor > /etc/apt/trusted.gpg.d/google-archive.gpg \
-  && bash -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
+  && bash -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
   && apt-get update -yq \
   && apt-get install -yq --no-install-recommends \
   google-chrome-stable \
