@@ -59,7 +59,8 @@ COPY .* .
 COPY *.js .
 COPY *.json .
 COPY Rakefile .
-COPY ./build.sh .
+COPY build.sh .
+COPY config.ru .
 
 RUN chmod -R 755 ./bin/* \
   && chmod -R 755 ./build.sh \
@@ -113,10 +114,12 @@ COPY --from=build-env /gems /gems
 COPY --from=build-env "/node-v${NODE_VERSION}-linux-x64" "/node-v${NODE_VERSION}-linux-x64"
 
 # Add a script to be executed every time the container starts.
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-USER nonroot
-ENTRYPOINT ["entrypoint.sh"]
+COPY entrypoint.sh .
+RUN chmod +x ./entrypoint.sh
+RUN groupadd -r docker && useradd -r -g docker docker
+RUN chown -R docker:docker /usr/src/app
+USER docker
+ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
 EXPOSE 3000
 
 # Configure the main process to run when running the image
