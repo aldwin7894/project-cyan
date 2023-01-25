@@ -42,17 +42,17 @@ RUN apt-get update -yq \
   && apt-get autoremove
 
 WORKDIR /usr/src/app
-COPY ./app ./app
-COPY ./assets ./assets
-COPY ./bin ./bin
-COPY ./config ./config
-COPY ./db ./db
-COPY ./lib ./lib
-COPY ./log ./log
-COPY ./public ./public
-COPY ./storage ./storage
-COPY ./test ./test
-COPY ./vendor ./vendor
+COPY app/ ./app/
+COPY assets/ ./assets/
+COPY bin/ ./bin/
+COPY config/ ./config/
+COPY db/ ./db/
+COPY lib/ ./lib/
+COPY log/ ./log/
+COPY public/ ./public/
+COPY storage/ ./storage/
+COPY test/ ./test/
+COPY vendor/ ./vendor/
 COPY Gemfile* .
 COPY yarn.lock .
 COPY .* .
@@ -115,6 +115,7 @@ COPY --from=build-env "/node-v${NODE_VERSION}-linux-x64" "/node-v${NODE_VERSION}
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
+USER nonroot
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
