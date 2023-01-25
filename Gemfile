@@ -55,10 +55,6 @@ group :test do
   gem "webdrivers"
 end
 
-group :production do
-  gem "newrelic_rpm", "~> 8"
-end
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -95,3 +91,9 @@ gem "recaptcha", "~> 5.12"
 gem "ferrum", "~> 0.13"
 
 gem "discordrb", github: "shardlab/discordrb", branch: "threads"
+
+gem "opentelemetry-sdk"
+
+gem "opentelemetry-exporter-otlp"
+
+gem "opentelemetry-instrumentation-all"

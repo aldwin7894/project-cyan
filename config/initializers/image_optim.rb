@@ -1,6 +1,5 @@
 Rails.configuration.x.image_optim = ImageOptim.new(
   nice: 20,
-  verbose: Rails.env.development?,
   allow_lossy: true,
   gifsicle: {
     level: 2,
