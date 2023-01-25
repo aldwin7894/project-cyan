@@ -314,3 +314,4 @@ build-iPhoneSimulator/
 dump.rdb
 Dockerfile
 docker-compose.yml
+/public/vite*
