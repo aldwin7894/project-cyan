@@ -43,7 +43,6 @@ RUN apt-get update -yq \
 
 WORKDIR /usr/src/app
 COPY app/ ./app/
-COPY assets/ ./assets/
 COPY bin/ ./bin/
 COPY config/ ./config/
 COPY db/ ./db/
@@ -52,6 +51,7 @@ COPY log/ ./log/
 COPY public/ ./public/
 COPY storage/ ./storage/
 COPY test/ ./test/
+COPY tmp/ ./tmp/
 COPY vendor/ ./vendor/
 COPY Gemfile* .
 COPY yarn.lock .
