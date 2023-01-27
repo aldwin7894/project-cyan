@@ -3,10 +3,6 @@
   "solargraph.autoformat": true,
   "solargraph.formatting": true,
   "solargraph.useBundler": true,
-  "eslint.alwaysShowStatus": true,
-  "eslint.enable": true,
-  "eslint.format.enable": true,
-  "eslint.workingDirectories": ["./"],
   "[erb]": {
     "editor.defaultFormatter": "manuelpuyol.erb-linter"
   },
@@ -52,5 +48,8 @@
   "tailwindCSS.hovers": true,
   "trunk.inlineDecoratorsForAllExtensions": true,
   "trunk.trunkGrayOutNonBlockingIssues": true,
-  "trunk.trace.server": "messages"
+  "trunk.trace.server": "messages",
+  "editor.defaultFormatter": "trunk.io",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true
 }

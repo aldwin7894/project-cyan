@@ -1,6 +1,12 @@
 version: 0.1
 cli:
-  version: 1.3.2
+  version: 1.4.0
+merge:
+  required_statuses:
+    - Trunk Check
+    - SonarCloud Scan
+    - CodeQL
+    - GitGuardian Security Checks
 plugins:
   sources:
     - id: trunk
@@ -22,13 +28,13 @@ lint:
     - linters: [ALL]
       paths:
         - bin
-        - log
-        - public
-        - test
-        - config/*
+        - log/**
+        - public/**
+        - test/**
+        - config/**
         - app/frontend/fonts
         - app/frontend/favicon
-        - db/*
+        - db/**
   enabled:
     - eslint@8.32.0:
         packages:
