@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "discordrb"
+
 class DiscordBannerController < ApplicationController
   layout "discord-banner"
 
@@ -10,7 +12,6 @@ class DiscordBannerController < ApplicationController
     ignore_bots: true,
     suppress_ready: true
   )
-  # DISCORD_BOT.include! PresenceUpdate
   at_exit { DISCORD_BOT.stop if DISCORD_BOT.connected? }
   DISCORD_BOT.run(true) unless DISCORD_BOT.connected?
 
