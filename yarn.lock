@@ -2143,10 +2143,10 @@ eslint-visitor-keys@^3.3.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-3.3.0.tgz#f6480fa6b1f30efe2d1968aa8ac745b862469826"
   integrity sha512-mQ+suqKJVyeuwGYHAdjMFqjCyfl8+Ldnxuyp3ldiMBFKkvytrXUZWaiPCEav8qDHKty44bD+qV1IP4T+w+xXRA==
 
-eslint@^8.32.0:
-  version "8.32.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.32.0.tgz#d9690056bb6f1a302bd991e7090f5b68fbaea861"
-  integrity sha512-nETVXpnthqKPFyuY2FNjz/bEd6nbosRgKbkgS/y1C7LJop96gYHWpiguLecMHQ2XCPxn77DS0P+68WzG6vkZSQ==
+eslint@^8.33.0:
+  version "8.33.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.33.0.tgz#02f110f32998cb598c6461f24f4d306e41ca33d7"
+  integrity sha512-WjOpFQgKK8VrCnAtl8We0SUOy/oVZ5NHykyMiagV1M9r8IFpIJX7DduK6n1mpfhlG7T1NLWm2SuD8QB7KFySaA==
   dependencies:
     "@eslint/eslintrc" "^1.4.1"
     "@humanwhocodes/config-array" "^0.11.8"
@@ -2783,10 +2783,10 @@ human-signals@^3.0.1:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-3.0.1.tgz#c740920859dafa50e5a3222da9d3bf4bb0e5eef5"
   integrity sha512-rQLskxnM/5OCldHo+wNXbpVgDn5A17CUoKX+7Sokwaknlq7CdSnphy0W39GU8dw59XiCXmFXDg4fRuckQRKewQ==
 
-iconify-icon@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/iconify-icon/-/iconify-icon-1.0.2.tgz#18ce2557e95dd3c8877f6f3b3111e569a24a138d"
-  integrity sha512-mehAvz2a4eUAlPo76Wul4zzsPNr3hbOHiauMhPrTVIdLOt0AnccnNloh1EeTO3tYeBv7iaJZfdCPHczvi+CkXQ==
+iconify-icon@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/iconify-icon/-/iconify-icon-1.0.3.tgz#b0d73016994d23542711147d8c68c669ef48b7d2"
+  integrity sha512-pyWLbx8IBfD2G3M0hULuvUBwoowrZtXEKyeAXhD2AlbNYTSDPmWGhgPYaRAnVIuBjMAZ4dCyEHmaYgnlDZc0XQ==
   dependencies:
     "@iconify/types" "^2.0.0"
 
@@ -4377,10 +4377,10 @@ postcss-place@^8.0.0:
   dependencies:
     postcss-value-parser "^4.2.0"
 
-postcss-preset-env@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/postcss-preset-env/-/postcss-preset-env-8.0.0.tgz#17830b4a9f3317c47be092345c96e52317471c27"
-  integrity sha512-/kFWdq109OONR2Hl3T3nmo1dOdS7lHB6kF/nPaBn/2lGjQ99f/j5vGBYvupSmSni+F7T/0A0Xb0nfbJLnxwdjA==
+postcss-preset-env@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/postcss-preset-env/-/postcss-preset-env-8.0.1.tgz#d249c137febc037dd5dbb97e18f94dba4dd0cda8"
+  integrity sha512-IUbymw0JlUbyVG+I85963PNWgPp3KhnFa1sxU7M/2dGthxV8e297P0VV5W9XcyypoH4hirH2fp1c6fmqh6YnSg==
   dependencies:
     "@csstools/postcss-cascade-layers" "^3.0.0"
     "@csstools/postcss-color-function" "^2.0.0"

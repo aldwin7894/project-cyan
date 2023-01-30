@@ -5,13 +5,14 @@ on:
   push:
     branches: [master]
   pull_request:
-    branches: [master, "!dependabot/**"]
+    branches: [master]
     types: [opened, synchronize, reopened]
 
 jobs:
   build:
     name: Trunk Lint
     runs-on: ${{ matrix.os }}
+    if: ${{ github.actor != 'dependabot[bot]' }}
     strategy:
       matrix:
         os: [ubuntu-latest]
