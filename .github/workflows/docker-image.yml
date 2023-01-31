@@ -30,7 +30,7 @@ jobs:
 
       - id: docker-build
         name: Build and push image
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           push: true
           tags: aldwin7894/aldwin7894:prod
