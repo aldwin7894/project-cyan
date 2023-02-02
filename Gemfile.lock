@@ -174,7 +174,7 @@ GEM
     in_threads (1.6.0)
     jaro_winkler (1.5.4)
     json (2.6.3)
-    jwt (2.6.0)
+    jwt (2.7.0)
     kodachroma (1.0.2)
     kramdown (2.4.0)
       rexml
@@ -590,7 +590,7 @@ DEPENDENCIES
   httplog (~> 1.6)
   image_optim (~> 0.31.2)
   image_optim_pack (~> 0.9.1)
-  jwt (~> 2.6)
+  jwt (~> 2.7)
   kodachroma (~> 1.0)
   lastfm (~> 1.27)
   listen (~> 3.8)
