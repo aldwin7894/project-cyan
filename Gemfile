@@ -97,3 +97,5 @@ gem "opentelemetry-sdk"
 gem "opentelemetry-exporter-otlp"
 
 gem "opentelemetry-instrumentation-all"
+
+gem "kodachroma", "~> 1.0"

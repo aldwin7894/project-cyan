@@ -4,10 +4,16 @@ require "graphql/client"
 require "graphql/client/http"
 
 module AniList
-  Http ||= GraphQL::Client::HTTP.new("https://graphql.anilist.co")
+  Http ||= GraphQL::Client::HTTP.new("https://graphql.anilist.co") do
+    def headers(context)
+      {
+        "Authorization": ENV.fetch("ANILIST_OAUTH_TOKEN")
+      }
+    end
+  end
 
   # Fetch latest schema on init, this will make a network request
-  Schema ||= GraphQL::Client.load_schema(Dir[File.join(Rails.root, "db", "schema.json")][0])
+  Schema ||= GraphQL::Client.load_schema(Dir[Rails.root.join("db/schema.json")][0])
 
   Client ||= GraphQL::Client.new(schema: Schema, execute: Http)
 
@@ -100,7 +106,8 @@ module AniList
                 userPreferred
               }
               coverImage {
-                large
+                extraLarge
+                color
               }
               studios(isMain: true) {
                 nodes {
@@ -109,6 +116,9 @@ module AniList
                 }
               }
               genres
+              mediaListEntry {
+                score
+              }
             }
             createdAt
             status

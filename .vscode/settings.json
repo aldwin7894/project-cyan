@@ -14,6 +14,16 @@
     "editor.defaultFormatter": "trunk.io",
     "editor.formatOnSave": true
   },
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.codeActions": true,
+  "tailwindCSS.colorDecorators": true,
+  "tailwindCSS.hovers": true,
+  "trunk.inlineDecoratorsForAllExtensions": true,
+  "trunk.trunkGrayOutNonBlockingIssues": true,
+  "trunk.trace.server": "messages",
+  "editor.defaultFormatter": "trunk.io",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#004a4d",
     "activityBar.background": "#004a4d",
@@ -42,14 +52,7 @@
     "titleBar.inactiveBackground": "#004a4d99",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "tailwindCSS.emmetCompletions": true,
-  "tailwindCSS.codeActions": true,
-  "tailwindCSS.colorDecorators": true,
-  "tailwindCSS.hovers": true,
-  "trunk.inlineDecoratorsForAllExtensions": true,
-  "trunk.trunkGrayOutNonBlockingIssues": true,
-  "trunk.trace.server": "messages",
-  "editor.defaultFormatter": "trunk.io",
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true
+  "tailwindCSS.includeLanguages": {
+    "erb": "html"
+  }
 }
