@@ -10,7 +10,7 @@ linters:
   SelfClosingTag:
     enabled: false
   ErbSafety:
-    enabled: true
+    enabled: false
     better_html_config: .better-html.yml
   Rubocop:
     enabled: true

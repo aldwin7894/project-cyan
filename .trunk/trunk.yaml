@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 1.4.0
+  version: 1.4.1
 merge:
   required_statuses:
     - Trunk Check
@@ -10,7 +10,7 @@ merge:
 plugins:
   sources:
     - id: trunk
-      ref: v0.0.8
+      ref: v0.0.9
       uri: https://github.com/trunk-io/plugins
 runtimes:
   enabled:
@@ -36,7 +36,7 @@ lint:
         - app/frontend/favicon
         - db/**
   enabled:
-    - eslint@8.32.0:
+    - eslint@8.33.0:
         packages:
           - eslint-config-airbnb-base
           - eslint-import-resolver-alias

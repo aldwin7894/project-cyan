@@ -1,18 +1,22 @@
 <% content_for :head_content do %>
-  <% (1..5).to_a.each do |num| %>
+  <% (1..10).to_a.each do |num| %>
     <link rel="preload" as="image" href="<%= vite_asset_path("images/ailane-bg-#{num}.webp") %>">
   <% end %>
 <% end %>
 
-<section class="carousel slide carousel-fade relative flex w-screen min-h-screen font-sans" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
-  <div class="carousel-inner relative flex-1">
-    <% (1..5).to_a.shuffle.each_with_index do |num, i| %>
-      <div class="w-full h-full carousel-item relative float-left background-ailane-<%= num %> <%= i == 0 ? "active" : "" %>">
+<section>
+  <div class="carousel slide carousel-fade relative flex w-screen min-h-screen font-sans" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
+    <div class="carousel-inner relative flex-1">
+      <% (1..10).to_a.shuffle.each_with_index do |num, i| %>
+        <div class="w-full h-full carousel-item relative float-left background-ailane-<%= num %> <%= i == 0 ? "active" : "" %>">
+        </div>
+      <% end %>
+
+      <div class="dark:bg-bg--dark/80 bg-bg--light/80 relative z-10 min-h-screen">
+        <turbo-frame id="anilist" class="flex items-center justify-center min-h-screen">
+          <%= render "anilist/new" %>
+        </turbo-frame>
       </div>
-    <% end %>
+    </div>
   </div>
-  <div class="dark:bg-[#0b1622]/90 bg-white/80 min-h-screen z-10 absolute top-0 left-0 right-0"></div>
-  <turbo-frame id="anilist" class="absolute top-0 left-0 right-0 z-10 flex items-center justify-center min-h-screen">
-    <%= render "anilist/new" %>
-  </turbo-frame>
 </section>
