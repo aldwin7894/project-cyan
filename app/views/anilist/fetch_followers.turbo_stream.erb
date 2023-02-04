@@ -5,21 +5,23 @@
 
       <% if @error %>
         <script>
-          Alpine.store("toasts").createToast("<%= @error.html_safe %>", "error");
+          Alpine.store("toasts").createToast("<%= sanitize @error %>", "error");
         </script>
       <% end %>
     <% else %>
-      <div class="bg-primary flex flex-col w-full h-full min-h-screen px-4 py-4">
-        <div class="max-w-sm mx-auto mb-6 font-sans text-3xl font-semibold text-center text-white">
+      <div class="backdrop-blur-sm flex flex-col w-full h-screen px-4 py-4">
+        <div class="dark:text-text--dark text-text--light max-w-sm mx-auto mb-6 font-sans text-3xl font-semibold text-center">
           <span class="opacity-80">Take me</span>
-          <%= link_to "Back", anilist_index_path, class: "hover:text-cyan-400 border-b", target: "anilist" %>
+          <%= link_to "Back", anilist_index_path, class: "hover:text-[#3DB4F2] border-b", target: "anilist" %>
         </div>
-        <div class="phone:flex-col laptop:flex-row phone:items-center laptop:items-start container relative flex justify-between gap-5 text-center">
-          <div class="bg-secondary h-fit w-full max-w-sm px-10 py-5 border-b-4 border-blue-400 rounded-md">
-            <h1 class="border-b-white mb-5 text-2xl font-bold text-white border-b-2">
-              Not Following You
-            </h1>
-            <ul class="list-none">
+        <div class="phone:flex-col phone:overflow-y-scroll laptop:flex-row phone:items-center laptop:items-start container relative flex justify-between gap-5 my-auto text-center">
+          <div class="dark:bg-fg--dark bg-fg--light h-fit w-full max-w-sm border-b-4 border-blue-400 rounded-md">
+            <div class="bg-inherit sticky top-0 px-10 pt-5 mb-5">
+              <h1 class="border-b-text--light dark:border-b-text--dark dark:text-text--dark text-text--light text-2xl font-bold border-b-2">
+                <%= sanitize "Not Following You (<span class='text-[#3DB4F2]'>#{(@following - @followers).size}</span>)" %>
+              </h1>
+            </div>
+            <ul class="laptop:h-[70vh] laptop:overflow-y-scroll list-none mx-5">
               <% (@following - @followers).each do |f| %>
                 <li class="hover:text-cyan-400 text-blue-400">
                   <%= link_to f, "https://anilist.co/user/#{f}", target: "_blank", rel: "noreferrer noopener" %>
@@ -28,11 +30,13 @@
             </ul>
           </div>
 
-          <div class="bg-secondary h-fit w-full max-w-sm px-10 py-5 border-b-4 border-blue-400 rounded-md">
-            <h1 class="border-b-white mb-5 text-2xl font-bold text-white border-b-2">
-              You're Not Following
-            </h1>
-            <ul class="list-none">
+          <div class="dark:bg-fg--dark bg-fg--light h-fit w-full max-w-sm border-b-4 border-blue-400 rounded-md">
+            <div class="bg-inherit sticky top-0 px-10 pt-5 mb-5">
+              <h1 class="border-b-text--light dark:border-b-text--dark dark:text-text--dark text-text--light text-2xl font-bold border-b-2">
+                <%= sanitize "You're Not Following (<span class='text-[#3DB4F2]'>#{(@followers - @following).size}</span>)" %>
+              </h1>
+            </div>
+            <ul class="laptop:h-[70vh] laptop:overflow-y-scroll list-none mx-5">
               <% (@followers - @following).each do |f| %>
                 <li class="hover:text-cyan-400 text-blue-400">
                   <%= link_to f, "https://anilist.co/user/#{f}", target: "_blank", rel: "noreferrer noopener" %>
@@ -41,11 +45,14 @@
             </ul>
           </div>
 
-          <div class="bg-secondary h-fit w-full max-w-sm px-10 py-5 border-b-4 border-blue-400 rounded-md">
-            <h1 class="border-b-white mb-5 text-2xl font-bold text-white border-b-2">
-              <%= "Following (#{@following_count})" %>
-            </h1>
-            <ul class="list-none">
+          <div class="dark:bg-fg--dark bg-fg--light h-fit w-full max-w-sm border-b-4 border-blue-400 rounded-md">
+            <div class="bg-inherit sticky top-0 px-10 pt-5 mb-5">
+              <h1 class="border-b-text--light dark:border-b-text--dark dark:text-text--dark text-text--light text-2xl font-bold border-b-2">
+                <%= sanitize "Following (<span class='text-[#3DB4F2]'>#{@following_count}</span>)" %>
+              </h1>
+            </div>
+
+            <ul class="laptop:h-[70vh] laptop:overflow-y-scroll list-none mx-5">
               <% @following.each do |f| %>
                 <li class="hover:text-cyan-400 text-blue-400">
                   <%= link_to f, "https://anilist.co/user/#{f}", target: "_blank", rel: "noreferrer noopener" %>
@@ -54,11 +61,14 @@
             </ul>
           </div>
 
-          <div class="bg-secondary h-fit w-full max-w-sm px-10 py-5 border-b-4 border-blue-400 rounded-md">
-            <h1 class="border-b-white mb-5 text-2xl font-bold text-white border-b-2">
-              <%= "Followers (#{@followers_count})" %>
-            </h1>
-            <ul class="list-none">
+          <div class="dark:bg-fg--dark bg-fg--light h-fit w-full max-w-sm border-b-4 border-blue-400 rounded-md">
+            <div class="bg-inherit sticky top-0 px-10 pt-5 mb-5">
+              <h1 class="border-b-text--light dark:border-b-text--dark dark:text-text--dark text-text--light text-2xl font-bold border-b-2">
+                <%= sanitize "Followers (<span class='text-[#3DB4F2]'>#{@followers_count}</span>)" %>
+              </h1>
+            </div>
+
+            <ul class="laptop:h-[70vh] laptop:overflow-y-scroll list-none mx-5">
               <% @followers.each do |f| %>
                 <li class="hover:text-cyan-400 text-blue-400">
                   <%= link_to f, "https://anilist.co/user/#{f}", target: "_blank", rel: "noreferrer noopener" %>

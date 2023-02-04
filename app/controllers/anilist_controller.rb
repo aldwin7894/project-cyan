@@ -25,7 +25,7 @@ class AnilistController < ApplicationController
     @followers = followers
 
     cooldown = Rails.cache.fetch("ANILIST_FOLLOW_CHECKER_CD")
-    if Time.zone.now.to_i <= cooldown.to_i
+    if Time.zone.now.to_i <= cooldown.to_i && !Rails.env.development?
       cd_mins = ((cooldown - Time.zone.now) / 60.0).round
       return @error = "On cooldown, please try again after #{cd_mins} #{'minute'.pluralize(cd_mins)}."
     end
@@ -34,7 +34,7 @@ class AnilistController < ApplicationController
     loop do
       break if @following_done
 
-      sleep 0.5
+      sleep 0.5 unless Rails.env.development?
       data = query(AniList::UserFollowingQuery, user_id: id, page: @following_page)
       @following_count ||= data.page.page_info.total
       @following.push(*data.page.following.map(&:name))
@@ -51,7 +51,7 @@ class AnilistController < ApplicationController
     loop do
       break if @followers_done
 
-      sleep 0.5
+      sleep 0.5 unless Rails.env.development?
       data = query(AniList::UserFollowersQuery, user_id: id, page: @followers_page)
       @followers_count ||= data.page.page_info.total
       @followers.push(*data.page.followers.map(&:name))
