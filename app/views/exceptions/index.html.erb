@@ -1,4 +1,4 @@
-<% bg_index = [1, 2, 3, 4, 5, 6, 7, 8, 9].shuffle.first %>
+<% bg_index = (1..15).shuffle.first %>
 
 <% content_for :head_content do %>
   <link rel="preload" as="image" href="<%= vite_asset_path("images/cyan-bg-#{bg_index}.webp") %>">
