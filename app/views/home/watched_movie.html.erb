@@ -3,7 +3,7 @@
     <iconify-icon icon="mdi:timer-play" width="35"></iconify-icon>
     Recently watched movies / ova / specials
   </div>
-  <div class="phone:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-6 grid gap-5 text-center min-h-[322px]">
+  <div class="phone:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 desktop-lg:grid-cols-6 grid gap-5 text-center min-h-[322px]">
     <% @watched_movie&.first(6)&.each do |activity| %>
       <%= render "home/watched_elem", formats: [:html], activity: %>
     <% end %>

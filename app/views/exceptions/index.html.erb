@@ -1,31 +1,47 @@
-<% bg_index = (1..15).shuffle.first %>
+<% bg_index = (1..15).to_a.shuffle.first %>
 
 <% content_for :head_content do %>
   <link rel="preload" as="image" href="<%= vite_asset_path("images/cyan-bg-#{bg_index}.webp") %>">
 <% end %>
 
-<div class="background-cyan-<%= bg_index %> flex content-center justify-center w-screen h-screen">
-  <div class="bg-gradient-to-br from-cyan-700/50 to-pink-500/50 flex content-center justify-center w-full h-screen">
-    <div class="lg:flex-col flex flex-row flex-wrap content-center justify-center text-white">
-      <div class="border-r-white/10 lg:border-b-white/10 border-r-2 lg:border-b-2 bg-black/70 backdrop-blur-sm flex flex-col justify-center p-4 laptop:w-[500px] tablet:w-[80%] ">
-        <div class="flex flex-col flex-wrap">
+<main class="overflow-x-clip w-full h-full" x-data="">
+  <section class="background-cyan-<%= bg_index %> w-screen h-screen">
+    <div class="bg-gradient-to-br from-cyan-700/50 to-pink-500/50 w-full h-full py-12">
+      <div class="laptop:flex phone:landscape:flex phone:landscape:items-center laptop:items-center laptop:gap-12 laptop:py-0 bg-bg--light/80 dark:bg-black/90 container w-full h-full px-12 py-6 rounded-lg">
+        <div class="laptop:w-1/2 laptop:mt-0 laptop:order-2 relative w-full">
+          <div class="text-text--light dark:text-text--dark mb-2 text-xl font-bold text-right">
+            「シアン」
+          </div>
           <video autoplay loop muted inline width="auto" preload="auto" poster="<%= vite_asset_url "images/cyan-confused.webp" %>">
             <source src="<%= vite_asset_url "images/cyan-confused.webm" %>" type="video/webm">
             Your browser does not support the <video> tag
           </video>
         </div>
-      </div>
-      <div class="bg-black/70 backdrop-blur-sm p-4 text-center laptop:w-[500px] tablet:w-[80%]">
-        <div class="flex flex-col flex-wrap">
-          <p class="error-text animate-pulse font-sans text-white"><%= @status %></p>
-          <p class="font-sans text-xl font-bold break-words"><%= @response %></p>
-          <p class="line-clamp-6 font-sans"><%= details[:message] %></p>
+
+        <div class="laptop:w-1/2 laptop:order-1 text-text--light dark:text-text--dark w-full">
+          <p class="error-text animate-pulse font-serif">
+            <%= @status %>
+          </p>
+          <div class="flex items-center gap-2 font-sans text-xl font-bold break-words">
+            <%= @response %>
+            <iconify-icon icon="ic:twotone-error" class="text-red-400"></iconify-icon>
+          </div>
+          <p class="line-clamp-6 font-sans">
+            <%= details[:message] %>
+          </p>
+
+          <div class="gap-x-3 flex items-center mt-6">
+            <button class="gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700 flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg" x-on:click="window.history.back()">
+              <iconify-icon icon="ic:baseline-arrow-back"></iconify-icon>
+              <span>Go back</span>
+            </button>
+
+            <button class="shrink-0 sm:w-auto hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600 w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg" x-on:click="window.location.replace('<%= root_path %>')">
+                Take me home
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-<div class="absolute bottom-0 w-screen mb-6 font-sans text-3xl font-semibold text-center text-white">
-  <span class="opacity-80">Take me</span>
-  <a class="hover:text-cyan-400 border-b" href="<%= root_path %>">back</a>
-</div>
+  </section>
+</main>

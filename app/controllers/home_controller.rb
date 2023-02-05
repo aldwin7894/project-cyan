@@ -4,6 +4,7 @@ require "spotify/spotify"
 
 class HomeController < ApplicationController
   include FormatDateHelper
+  layout "application"
   rescue_from QueryError, with: :render_empty
   rescue_from StandardError, with: :render_empty
   ANIME_FORMATS = ["TV", "TV_SHORT", "ONA"]

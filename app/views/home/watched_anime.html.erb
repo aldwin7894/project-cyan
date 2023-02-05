@@ -3,7 +3,7 @@
     <iconify-icon icon="mdi:timer-play" width="35"></iconify-icon>
     Recently watched episodes
   </div>
-  <div class="grid phone:grid-cols-1 gap-5 text-center tablet:grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-6 min-h-[322px]">
+  <div class="grid phone:grid-cols-1 gap-5 text-center tablet:grid-cols-2 laptop:grid-cols-3 desktop-lg:grid-cols-6 min-h-[322px]">
     <% @watched_anime&.first(6)&.each do |activity| %>
       <%= render "home/watched_elem", formats: [:html], activity: %>
     <% end %>
