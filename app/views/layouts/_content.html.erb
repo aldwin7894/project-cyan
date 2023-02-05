@@ -1,0 +1,17 @@
+<%= render "layouts/loader" %>
+
+<main class="overflow-x-clip hidden w-full h-full">
+  <%= yield %>
+</main>
+
+<footer class="dark:text-[#bfb3a4] text-gray-400 p-4 bg-[#151515] shadow md:flex md:items-center md:justify-between md:p-6 hidden">
+  <div class="xs:flex-col container flex flex-row gap-2">
+    <span class="xs:text-center xs:order-3 flex-1 text-sm">© 2022 aldwin7894. All Rights Reserved.</span>
+    <%= link_to "Home", root_path, class: "hover:text-cyan-600 text-center text-md xs:order-1 px-2", target: "_top" %>
+    <%= link_to "AniList Follow Checker", anilist_index_path, class: "hover:text-cyan-600 text-center text-md xs:order-2 px-2", target: "_top" %>
+  </div>
+</footer>
+
+<%= render "layouts/cf" %>
+<%= render partial: "partials/toasts" %>
+<%= yield :page_script %>
