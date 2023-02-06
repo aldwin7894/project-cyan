@@ -27,22 +27,6 @@ export default defineConfig({
     rollupOptions: {
       output: {
         compact: true,
-        manualChunks(id) {
-          const chunks = [
-            "chart.js",
-            "alpinejs",
-            "tw-elements",
-            "iconify-icon",
-            "tailwindcss",
-            "@hotwired",
-            "@rails",
-          ];
-
-          if (chunks.some(x => id.includes(x))) {
-            return chunks.find(x => id.includes(x));
-          }
-          return "vendor";
-        },
       },
     },
   },
