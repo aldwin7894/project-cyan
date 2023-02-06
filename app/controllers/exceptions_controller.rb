@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ExceptionsController < ActionController::Base
+class ExceptionsController < ApplicationController
   respond_to :html, :xml, :json
   before_action :status
   layout "exception"

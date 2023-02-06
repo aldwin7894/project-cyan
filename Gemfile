@@ -44,7 +44,7 @@ group :development do
   gem "rubocop-rails"
   gem "rubocop-performance"
   gem "rubocop-packaging"
-  gem "erb_lint"
+  gem "erb_lint", require: false
 end
 
 group :test do

@@ -10,8 +10,9 @@
     <%= render "layouts/ga" %>
     <%= render "layouts/favicon" %>
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
     <%= vite_client_tag %>
-    <%= vite_javascript_tag 'exception', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= vite_javascript_tag "exception", 'data-turbo-track': "reload" %>
   </head>
 
   <!-- Body -->
