@@ -29,5 +29,15 @@ export default defineConfig({
         compact: true,
       },
     },
+    terserOptions: {
+      compress: {
+        defaults: true,
+        drop_console: true,
+        ecma: 2021,
+      },
+      format: {
+        comments: false,
+      },
+    },
   },
 });
