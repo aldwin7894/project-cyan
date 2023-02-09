@@ -1,4 +1,4 @@
-FROM ruby:3.2.0-slim-bullseye AS build-env
+FROM ruby:3.2.1-slim-bullseye AS build-env
 
 ARG TZ_ARG
 ARG RAILS_ENV_ARG
@@ -67,7 +67,7 @@ RUN chmod -R 755 ./bin/* \
   && bash ./build.sh
 
 #==============================================
-FROM ruby:3.2.0-slim-bullseye
+FROM ruby:3.2.1-slim-bullseye
 
 ARG TZ_ARG
 ARG RAILS_ENV_ARG
