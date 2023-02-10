@@ -16,9 +16,9 @@
   <% if @bottom_line.present? %>
     border-bottom: 4px solid #<%= @bottom_line %>;
   <% end %>
-  background-image: -webkit-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= image_url_to_base64(vite_asset_url("images/discord.webp")) %>");
-  background-image: -o-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= image_url_to_base64(vite_asset_url("images/discord.webp")) %>");
-  background-image: linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= image_url_to_base64(vite_asset_url("images/discord.webp")) %>");
+  background-image: -webkit-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= vite_url_to_base64(vite_asset_url("images/discord.webp")) %>");
+  background-image: -o-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= vite_url_to_base64(vite_asset_url("images/discord.webp")) %>");
+  background-image: linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= vite_url_to_base64(vite_asset_url("images/discord.webp")) %>");
   background-color: rgba(<%= @background %>);
 }
 
@@ -52,7 +52,7 @@
   height: 102px;
   width: 102px;
   background-size: cover;
-  background-image: url("<%= image_url_to_base64(@avatar) %>");
+  background-image: url("<%= cached_image_url_to_base64(@avatar) %>");
   background-color: rgba(78, 85, 91, 0.8);
 }
 
@@ -171,7 +171,7 @@ span, em, b, strong, i, p {
   background-size: cover;
   right: 0px;
   top: 5px;
-  background-image: url("<%= image_url_to_base64(@activity&.[](:large_image)) %>");
+  background-image: url("<%= cached_image_url_to_base64(@activity&.[](:large_image)) %>");
 }
 
 .playing-container {

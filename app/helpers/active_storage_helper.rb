@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 module ActiveStorageHelper
-  def optimize_image(blob)
-    url = nil
+  # def optimize_image(blob)
+  #   url = nil
 
-    blob.open do |file|
-      url = ImageOptim.new(config_paths: "config/image_optim.yml").optimize_image(file).to_s
-    end
+  #   blob.open do |file|
+  #     url = ImageOptim.new(config_paths: "config/image_optim.yml").optimize_image(file).to_s
+  #   end
 
-    url
-  end
+  #   url
+  # end
 
   # def move_to_uploads(blob, new_key, optimized)
   #   old_key = blob.key

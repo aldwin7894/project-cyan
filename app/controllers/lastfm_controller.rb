@@ -54,7 +54,7 @@ class LastfmController < ApplicationController
       timestamp = @recent["date"]["uts"].to_i
     end
 
-    album_art = @recent&.[]("image")&.[](3)&.[]("content")
+    album_art = @recent&.[]("image")&.[](2)&.[]("content")
     if album_art.present? && album_art.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
       @album_art = album_art
     end

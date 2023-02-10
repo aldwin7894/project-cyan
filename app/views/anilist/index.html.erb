@@ -1,5 +1,7 @@
+<% bgs = (1..10).to_a.shuffle %>
+
 <% content_for :head_content do %>
-  <% (1..10).to_a.each do |num| %>
+  <% bgs.first(5).each do |num| %>
     <link rel="preload" as="image" href="<%= vite_asset_path("images/ailane-bg-#{num}.webp") %>">
   <% end %>
 <% end %>
@@ -7,7 +9,7 @@
 <section>
   <div class="carousel slide carousel-fade relative flex w-screen min-h-screen font-sans" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
     <div class="carousel-inner relative flex-1">
-      <% (1..10).to_a.shuffle.each_with_index do |num, i| %>
+      <% bgs.each_with_index do |num, i| %>
         <div class="w-full h-full carousel-item relative float-left background-ailane-<%= num %> <%= i == 0 ? "active" : "" %>">
         </div>
       <% end %>

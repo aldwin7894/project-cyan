@@ -1,7 +1,7 @@
 <section>
   <div class="carousel slide carousel-fade relative flex w-screen min-h-screen overflow-hidden" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
     <div class="carousel-inner relative flex-1">
-      <% (1..15).to_a.shuffle.each_with_index do |num, i| %>
+      <% bgs.each_with_index do |num, i| %>
         <div class="w-full h-full carousel-item relative float-left background-cyan-<%= num %> <%= i == 0 ? "active" : "" %>">
         </div>
       <% end %>
@@ -73,7 +73,7 @@
                   data-bs-title="<%= game_id.name %>"
                   data-bs-content="<%= "ID: #{game_id.game_id}\nIGN: #{game_id.ign}" %>"
                 >
-                  <%= image_tag vite_asset_path("images/icons/#{game_id.icon_filename}"), width: 50, alt: game_id.name %>
+                  <%= image_tag vite_asset_path("images/icons/#{game_id.icon_filename}"), width: 50, height: 50, alt: game_id.name %>
                   <div class="shine"></div>
                 </button>
               <% end %>

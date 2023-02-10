@@ -16,9 +16,9 @@
   <% if @bottom_line.present? %>
     border-bottom: 4px solid #<%= @bottom_line %>;
   <% end %>
-  background-image: -webkit-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= image_url_to_base64(vite_asset_url("images/lastfm.webp")) %>");
-  background-image: -o-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= image_url_to_base64(vite_asset_url("images/lastfm.webp")) %>");
-  background-image: linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= image_url_to_base64(vite_asset_url("images/lastfm.webp")) %>");
+  background-image: -webkit-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= vite_url_to_base64(vite_asset_url("images/lastfm.webp")) %>");
+  background-image: -o-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= vite_url_to_base64(vite_asset_url("images/lastfm.webp")) %>");
+  background-image: linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= vite_url_to_base64(vite_asset_url("images/lastfm.webp")) %>");
   background-color: rgba(<%= @background %>);
 }
 
@@ -50,7 +50,7 @@
   height: 102px;
   width: 102px;
   background-size: cover;
-  background-image: url("<%= @album_art.present? ? image_url_to_base64(@album_art) : image_url_to_base64(vite_asset_url("images/lastfm-placeholder.webp")) %>");
+  background-image: url("<%= @album_art.present? ? cached_image_url_to_base64(@album_art) : vite_url_to_base64(vite_asset_url("images/lastfm-placeholder.webp")) %>");
   background-color: rgba(78, 85, 91, 0.8);
 }
 

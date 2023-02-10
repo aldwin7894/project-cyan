@@ -76,10 +76,6 @@ gem "logstash-event", "~> 1.2"
 
 gem "rack-cors", "~> 1.1", require: "rack/cors"
 
-gem "image_optim_pack", "~> 0.9.1"
-
-gem "image_optim", "~> 0.31.2"
-
 gem "addressable", "~> 2.8"
 
 gem "occson", "~> 4.1"

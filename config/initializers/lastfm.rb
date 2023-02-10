@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "lastfm"
+
 LASTFM_API_KEY = ENV.fetch("LASTFM_API_KEY")
 LASTFM_API_SECRET = ENV.fetch("LASTFM_API_SECRET")
 LASTFM_CLIENT = Lastfm.new(LASTFM_API_KEY, LASTFM_API_SECRET)

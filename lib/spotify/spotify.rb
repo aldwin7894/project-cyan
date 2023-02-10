@@ -22,7 +22,8 @@ module Spotify
       }
       body = "grant_type=client_credentials"
 
-      res = HTTParty.post(ACCESS_TOKEN_URL, headers:, body:)
+      res = HTTParty.post(ACCESS_TOKEN_URL, headers:, body:, timeout: 10)
+      return if res.code >= 300
       res["access_token"]
     end
 
@@ -39,7 +40,8 @@ module Spotify
       ids:
     }
 
-    res = HTTParty.get(GET_ARTIST_URL, headers:, query:)
+    res = HTTParty.get(GET_ARTIST_URL, headers:, query:, timeout: 10)
+    return if res.code >= 300
     artists = JSON.parse(res.body)
     Rails.cache.fetch("#{ids.remove(",")}/SPOTIFY_ARTIST_IMAGES", expires_in: 1.week, skip_nil: true) do
       artists&.[]("artists")&.pluck("images")&.map { |x| x[1]["url"] }
@@ -60,7 +62,8 @@ module Spotify
       type: "artist",
       limit: 1
     }
-    res = HTTParty.get(SEARCH_URL, headers:, query:)
+    res = HTTParty.get(SEARCH_URL, headers:, query:, timeout: 10)
+    return if res.code >= 300
     artist = JSON.parse(res.body)
     artist&.[]("artists")&.[]("items")&.[](0)&.[]("uri")&.split(":")&.last
   end

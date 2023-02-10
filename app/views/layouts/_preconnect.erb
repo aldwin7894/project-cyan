@@ -1,0 +1,4 @@
+<% if !Rails.env.development? %>
+<link rel="preconnect" href="<%= ENV.fetch("RAILS_ASSET_HOST") %>" />
+<link rel="dns-prefetch" href="<%= ENV.fetch("RAILS_ASSET_HOST") %>" />
+<% end %>

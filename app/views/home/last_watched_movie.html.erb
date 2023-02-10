@@ -1,5 +1,5 @@
 <turbo-frame id="last_watched_movie" class="w-full h-full">
-  <div class="w-full h-full bg-center bg-cover" style="background-image: url(<%= image_url_to_base64 @last_watched_movie&.[]("media")&.[]("bannerImage") %>)">
+  <div class="w-full h-full bg-center bg-cover" style="background-image: url(<%= cached_image_url_to_base64 @last_watched_movie&.[]("media")&.[]("bannerImage") %>)">
     <div class="backdrop-brightness-50 flex flex-col w-full h-full px-4 py-4 text-white">
       <div class="text-lg font-bold">LAST WATCHED ANIME MOVIE</div>
 

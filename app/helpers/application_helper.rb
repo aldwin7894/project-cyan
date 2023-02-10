@@ -4,30 +4,61 @@ require "addressable/uri"
 
 module ApplicationHelper
   IMAGE_FILETYPES = ["jpg", "jpeg", "gif", "png", "webp"]
-  def image_url_to_base64(url)
+  def cached_image_url_to_base64(url)
     image = nil
     return image if url.blank?
 
     filetype = Addressable::URI.parse(url).extname.remove(".")
 
-    img = Rails.cache.fetch(url, expires_in: 1.month, skip_nil: true) do
+    img = Rails.cache.fetch(url, expires_in: 1.week, skip_nil: true) do
       data = {}
-      res = HTTParty.get(url, format: :plain, headers: { "Accept-Encoding" => "gzip,deflate,br" })
+      res = HTTParty.get(
+        url,
+        format: :plain,
+        headers: { "Accept-Encoding" => "gzip,deflate,br" },
+        timeout: 10
+      )
+      return if res.code >= 300
+
       ext = res.headers&.content_type&.split("/")
       if ext[0] == "image" || IMAGE_FILETYPES.include?(filetype)
         data[:image] = res.body
         data[:ext] = ext[1]
       end
-      if %w(jpg jpeg gif png).include?(data[:ext]) && ENV.fetch("OPTIMIZE_IMAGE_ENABLED", false)
-        data[:image] = Rails.configuration.x.image_optim.optimize_image_data(data[:image].to_s)
-      end
+
       data.presence ? data : nil
     end
 
-    if img&.[](:image).present?
-      base64 = Base64.strict_encode64(img[:image]).gsub(/\s+/, "")
-      image = "data:image/#{img[:ext]};base64,#{Rack::Utils.escape(base64)}"
+    return url if img.blank?
+
+    base64 = Base64.strict_encode64(img[:image]).gsub(/\s+/, "")
+    image = "data:image/#{img[:ext]};base64,#{Rack::Utils.escape(base64)}"
+    image
+  rescue StandardError
+    nil
+  end
+
+  def vite_url_to_base64(url)
+    image = nil
+    ext = nil
+    return image if url.blank?
+
+    img = Rails.cache.fetch("ASSETS/#{url}", expires_in: 1.month, skip_nil: true) do
+      res = HTTParty.get(
+        url,
+        format: :plain,
+        headers: { "Accept-Encoding" => "gzip,deflate,br" },
+        timeout: 10
+      )
+      return if res.code >= 300
+      ext = res.headers&.content_type
+      res.body
     end
+
+    return url unless img.present? && ext.present?
+
+    base64 = Base64.strict_encode64(img).gsub(/\s+/, "")
+    image = "data:#{ext};base64,#{Rack::Utils.escape(base64)}"
     image
   rescue StandardError
     nil
