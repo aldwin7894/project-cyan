@@ -43,7 +43,7 @@ module ApplicationHelper
     ext = nil
     return image if url.blank?
 
-    img = Rails.cache.fetch("ASSETS/#{url}", expires_in: 1.month, skip_nil: true) do
+    asset = Rails.cache.fetch("ASSETS/#{url}", expires_in: 1.month, skip_nil: true) do
       res = HTTParty.get(
         url,
         format: :plain,
@@ -52,13 +52,14 @@ module ApplicationHelper
       )
       return if res.code >= 300
       ext = res.headers&.content_type
-      res.body
+
+      { data: res.body, ext: }
     end
 
-    return url unless img.present? && ext.present?
+    return url unless asset.present? && asset[:ext].present?
 
-    base64 = Base64.strict_encode64(img).gsub(/\s+/, "")
-    image = "data:#{ext};base64,#{Rack::Utils.escape(base64)}"
+    base64 = Base64.strict_encode64(asset[:data]).gsub(/\s+/, "")
+    image = "data:#{asset[:ext]};base64,#{Rack::Utils.escape(base64)}"
     image
   rescue StandardError
     nil
