@@ -54,5 +54,6 @@
   },
   "tailwindCSS.includeLanguages": {
     "erb": "html"
-  }
+  },
+  "git.enableCommitSigning": true
 }
