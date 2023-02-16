@@ -9,15 +9,16 @@
     <meta name="description" content="Checks your following and followers list on AniList, and also lists out users that you don't follow yet or doesn't follow you.">
     <meta name="author" content="aldwin7894">
 
-    <%= yield :head_content %>
-
     <%= render "layouts/preconnect" %>
     <%= render "layouts/favicon" %>
     <%= render "layouts/ga" %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= vite_client_tag %>
     <%= vite_javascript_tag "application", 'data-turbo-track': "reload", defer: "defer" %>
+
+    <%= yield :head_content %>
   </head>
 
   <body class="dark:bg-black bg-bg--light">

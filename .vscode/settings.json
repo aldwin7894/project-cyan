@@ -55,5 +55,6 @@
   "tailwindCSS.includeLanguages": {
     "erb": "html"
   },
-  "git.enableCommitSigning": true
+  "git.enableCommitSigning": true,
+  "alpine-intellisense.settings.languageScopes": "html,erb"
 }

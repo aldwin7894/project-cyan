@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   has_one_attached :photo
+  enum :status, { Inactive: 0, Active: 1 }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable,

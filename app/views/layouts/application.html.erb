@@ -9,15 +9,16 @@
     <meta name="description" content="aldwin7894's personal web app which contains some random stats about anime, games and music (and probably some useful tools in the near future :3).">
     <meta name="author" content="aldwin7894">
 
-    <%= yield :head_content %>
-
     <%= render "layouts/preconnect" %>
     <%= render "layouts/favicon" %>
     <%= render "layouts/ga" %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= vite_client_tag %>
     <%= vite_javascript_tag "application", 'data-turbo-track': "reload", defer: "defer" %>
+
+    <%= yield :head_content %>
   </head>
 
   <body class="dark:bg-black bg-bg--light">

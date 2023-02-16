@@ -74,7 +74,7 @@ gem "httplog", "~> 1.6"
 
 gem "logstash-event", "~> 1.2"
 
-gem "rack-cors", "~> 1.1", require: "rack/cors"
+gem "rack-cors", "~> 2.0", require: "rack/cors"
 
 gem "addressable", "~> 2.8"
 

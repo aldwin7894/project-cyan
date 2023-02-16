@@ -5,15 +5,16 @@
       <%= "Cyan★Nyan♪ | Error - #{@status} (#{@response})" %>
     </title>
 
-    <%= yield :head_content %>
-
     <%= render "layouts/preconnect" %>
     <%= render "layouts/favicon" %>
     <%= render "layouts/ga" %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= vite_client_tag %>
     <%= vite_javascript_tag "exception", 'data-turbo-track': "reload", defer: "defer" %>
+
+    <%= yield :head_content %>
   </head>
 
   <!-- Body -->

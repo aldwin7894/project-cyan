@@ -9,12 +9,6 @@ import "tw-elements";
 import "../channels";
 import "~/stylesheets/application.css.scss";
 
-ActiveStorage.start();
-
-window.Alpine = Alpine;
-window.Chart = Chart;
-Alpine.start();
-
 const initElems = () => {
   // popover
   const popoverTriggerList = [].slice.call(
@@ -35,7 +29,7 @@ const initElems = () => {
 initElems();
 
 // fade animations
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
   const main = document.getElementsByTagName("main")[0];
   const footer = document.getElementsByTagName("footer")[0];
@@ -81,3 +75,9 @@ document.addEventListener("turbo:before-stream-render", () => {
 document.addEventListener("turbo:frame-load", () => {
   initElems();
 });
+
+ActiveStorage.start();
+
+window.Alpine = Alpine;
+window.Chart = Chart;
+Alpine.start();

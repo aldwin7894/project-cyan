@@ -411,7 +411,7 @@ GEM
     rack-brotli (1.2.0)
       brotli (>= 0.1.7)
       rack (>= 1.4)
-    rack-cors (1.1.1)
+    rack-cors (2.0.0)
       rack (>= 2.0.0)
     rack-mini-profiler (3.0.0)
       rack (>= 1.2.0)
@@ -586,7 +586,7 @@ DEPENDENCIES
   pg
   puma (~> 6.1)
   rack-brotli (~> 1.2)
-  rack-cors (~> 1.1)
+  rack-cors (~> 2.0)
   rack-mini-profiler (~> 3.0)
   rails (~> 7.0.4)
   recaptcha (~> 5.12)
