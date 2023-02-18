@@ -9,8 +9,9 @@ ruby "3.2.1"
 gem "rails", "~> 7.0.4"
 # use vite to build javascripts and assets
 gem "vite_rails", "~> 3.0"
-# Use postgres
-gem "pg"
+# Use mongodb
+gem "mongoid"
+gem "bson_ext"
 # Use Puma as the app server
 gem "puma", "~> 6.1"
 # Turbo gives you the speed of a single-page web application without having to write any JavaScript.
@@ -95,3 +96,5 @@ gem "opentelemetry-exporter-otlp"
 gem "opentelemetry-instrumentation-all"
 
 gem "kodachroma", "~> 1.0"
+
+gem "responders", "~> 3.1"
