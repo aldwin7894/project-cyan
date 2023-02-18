@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
-class SocialLink < ApplicationRecord
-  has_one_attached :icon
-  enum :status, { Inactive: 0, Active: 1 }
+class SocialLink
+  include Mongoid::Document
+  include Mongoid::Timestamps
+
+  field :name, type: String
+  field :url, type: String
+  field :class, type: String
+  field :icon_name, type: String
+  field :icon_filename, type: String
+  field :icon_url, type: String
+  field :status, type: String, default: 1
 end

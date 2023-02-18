@@ -2,23 +2,15 @@ version: "3.9"
 
 services:
   db:
-    container_name: aldwin7894-pg
-    image: postgres:14-alpine
-    restart: always
-    user: postgres
+    container_name: aldwin7894-mongo
+    image: mongo:6.0.4
     environment:
       - TZ
-      - POSTGRES_PASSWORD
-      - POSTGRES_DB
-    ports:
-      - 5432:5432
+      - MONGO_INITDB_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD
+    restart: always
     volumes:
-      - dbdata:/var/lib/postgresql/data
-    healthcheck:
-      test: pg_isready
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      - dbdata:/data/db
   redis:
     container_name: aldwin7894-redis
     image: redis:alpine

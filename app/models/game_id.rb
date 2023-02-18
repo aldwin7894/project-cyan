@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
-class GameId < ApplicationRecord
-  has_one_attached :icon
-  enum :status, { Inactive: 0, Active: 1 }
+class GameId
+  include Mongoid::Document
+  include Mongoid::Timestamps
+
+  field :name, type: String
+  field :ign, type: String
+  field :game_id, type: String
+  field :icon_name, type: String
+  field :icon_filename, type: String
+  field :icon_url, type: String
+  field :status, type: Integer, default: 1
 end
