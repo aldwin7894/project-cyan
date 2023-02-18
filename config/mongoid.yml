@@ -1,7 +1,6 @@
 production:
   clients:
     default:
-      database: aldwin7894_production
       uri: <%= ENV.fetch("DATABASE_URL") %>
       options:
         auth_mech: :scram
