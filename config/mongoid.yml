@@ -4,6 +4,9 @@ production:
       database: aldwin7894_production
       uri: <%= ENV.fetch("DATABASE_URL") %>
       options:
+        auth_mech: :scram
+        auth_source: admin
+        max_pool_size: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   # Configure available database clients. (required)
@@ -11,16 +14,16 @@ development:
     # Defines the default client. (required)
     default:
       # Mongoid can connect to a URI accepted by the driver:
-      # uri: mongodb://user:password@mongodb.domain.com:27017/aldwin7894_development
+      uri: <%= ENV.fetch("DATABASE_URL") %>
 
       # Otherwise define the parameters separately.
       # This defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: aldwin7894_development
+      # database: aldwin7894_development
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
-      hosts:
-        - localhost:27017
+      # hosts:
+      #   - localhost:27017
       options:
         # Note that all options listed below are Ruby driver client options (the mongo gem).
         # Please refer to the driver documentation of the version of the mongo gem you are using
@@ -52,11 +55,11 @@ development:
         # :mongodb_cr, :mongodb_x509, and :plain. Note that all authentication
         # mechanisms require username and password, with the exception of :mongodb_x509.
         # Default on mongoDB 3.0 is :scram, default on 2.4 and 2.6 is :plain.
-        # auth_mech: :scram
+        auth_mech: :scram
 
         # The database or source to authenticate the user against.
         # (default: the database specified above or admin)
-        # auth_source: admin
+        auth_source: admin
 
         # Force a the driver cluster to behave in a certain manner instead of auto-
         # discovering. Can be one of: :direct, :replica_set, :sharded. Set to :direct

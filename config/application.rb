@@ -17,6 +17,9 @@ Bundler.require(*Rails.groups)
 
 module Aldwin7894
   class Application < Rails::Application
+    # Use the responders controller from the responders gem
+    config.app_generators.scaffold_controller :responders_controller
+
     # get env variables from occson
     config.before_configuration do
       source = Rails.env.production? ? "occson://0.1.0/.env.prod" : "occson://0.1.0/.env.dev"

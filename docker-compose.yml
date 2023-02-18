@@ -4,11 +4,13 @@ services:
   db:
     container_name: aldwin7894-mongo
     image: mongo:6.0.4
+    restart: always
     environment:
       - TZ
       - MONGO_INITDB_ROOT_USERNAME
       - MONGO_INITDB_ROOT_PASSWORD
-    restart: always
+    ports:
+      - 27017:27017
     volumes:
       - dbdata:/data/db
   redis:
@@ -49,7 +51,7 @@ services:
     ports:
       - 3000:3000
     environment:
-      - DATABASE_URL=postgres://postgres:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      - DATABASE_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@db:27017/${MONGO_DB}
       - REDIS_URL=redis://redis:6379
       - TZ=Asia/Manila
       - RAILS_MASTER_KEY

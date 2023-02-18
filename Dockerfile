@@ -100,7 +100,6 @@ RUN apt-get update -yq \
   google-chrome-stable \
   libjemalloc2 \
   tzdata \
-  postgresql-client \
   && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
   && apt-get clean \
   && apt-get autoremove
