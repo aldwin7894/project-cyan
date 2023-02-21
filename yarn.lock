@@ -2761,10 +2761,10 @@ human-signals@^3.0.1:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-3.0.1.tgz#c740920859dafa50e5a3222da9d3bf4bb0e5eef5"
   integrity sha512-rQLskxnM/5OCldHo+wNXbpVgDn5A17CUoKX+7Sokwaknlq7CdSnphy0W39GU8dw59XiCXmFXDg4fRuckQRKewQ==
 
-iconify-icon@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/iconify-icon/-/iconify-icon-1.0.5.tgz#0a85b69dd63b9a7a2cd73d680ad1d141293ded1c"
-  integrity sha512-vr5IzIy30MQ2n/2M8Aw7jP/IaDmGUwMvDx64S77Zm5elSECYXIzNc3m8ktqbSFfp2XvyfNZk4jJhz1hN3+xKYg==
+iconify-icon@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/iconify-icon/-/iconify-icon-1.0.7.tgz#d7e1f5d45a88486abcc977583da62e6e9e635572"
+  integrity sha512-MxaO3Jhf3f5ymPWGHR9x74f90TNKcq1D+B2iGucGhVtqAgbC9EtM06kKiTGH2CKELNnexckwhrA3/+OpT4HKFw==
   dependencies:
     "@iconify/types" "^2.0.0"
 
