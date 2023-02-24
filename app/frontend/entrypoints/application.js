@@ -28,6 +28,30 @@ const initElems = () => {
 };
 initElems();
 
+const fadeIn = id =>
+  new Promise((resolve, _reject) => {
+    const element = document.getElementById(id);
+    element.classList.add(
+      "animate__fadeIn",
+      "animate__animated",
+      "animate__delay",
+    );
+
+    function handleAnimationEnd(event) {
+      event.stopPropagation();
+      element.classList.remove(
+        "animate__fadeIn",
+        "animate__animated",
+        "animate__delay",
+      );
+      resolve("Animation ended");
+    }
+
+    element.addEventListener("animationend", handleAnimationEnd, {
+      once: true,
+    });
+  });
+
 // fade animations
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
@@ -46,19 +70,7 @@ document.addEventListener("turbo:before-fetch-response", event => {
   const id = event.target.getAttribute("data-turbo-frame")
     ? event.target.getAttribute("data-turbo-frame")
     : event.target.id;
-  const element = document.getElementById(id);
-  element.classList.add(
-    "animate__fadeIn",
-    "animate__animated",
-    "animate__delay",
-  );
-  element.addEventListener("animationend", () => {
-    element.classList.remove(
-      "animate__fadeIn",
-      "animate__animated",
-      "animate__delay",
-    );
-  });
+  fadeIn(id);
 });
 
 // FORCE PROGRSS BAR FOR TURBO
@@ -73,7 +85,7 @@ document.addEventListener("turbo:before-stream-render", () => {
 });
 
 document.addEventListener("turbo:frame-load", () => {
-  initElems();
+  setInterval(() => initElems(), 100);
 });
 
 ActiveStorage.start();

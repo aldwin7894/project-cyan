@@ -32,5 +32,6 @@ module.exports = {
     "no-undef": "warn",
     "prettier/prettier": "error",
     "import/no-extraneous-dependencies": "off",
+    "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
   },
 };

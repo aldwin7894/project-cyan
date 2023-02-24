@@ -300,3 +300,8 @@ main {
 .popover-body {
   white-space: pre;
 }
+
+.animate__fadeIn,
+.animate__fadeOut {
+  will-change: opacity;
+}

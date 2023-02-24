@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 1.5.0
+  version: 1.5.1
 merge:
   required_statuses:
     - Trunk Check
@@ -10,7 +10,7 @@ merge:
 plugins:
   sources:
     - id: trunk
-      ref: v0.0.11
+      ref: v0.0.12
       uri: https://github.com/trunk-io/plugins
 runtimes:
   enabled:
