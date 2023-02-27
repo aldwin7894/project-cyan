@@ -1,7 +1,7 @@
 # My Personal Web App
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=aldwin7894_aldwin7894&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=aldwin7894_aldwin7894)
-[![CodeQL](https://github.com/aldwin7894/aldwin7894/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/aldwin7894/aldwin7894/actions/workflows/codeql-analysis.yml)
+[![CodeQL](https://github.com/aldwin7894/project-cyan/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/aldwin7894/project-cyan/actions/workflows/codeql-analysis.yml)
 
 ###### _Nothing to see here, lol_
 
