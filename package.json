@@ -1,8 +1,8 @@
 {
-  "name": "aldwin7894",
+  "name": "project-cyan",
   "private": false,
-  "repository": "git@github.com:aldwin7894/aldwin7894.git",
-  "author": "aldwin7894 <14094252+aldwin7894@users.noreply.github.com>",
+  "repository": "git@github.com:aldwin7894/project-cyan.git",
+  "author": "aldwin7894 <cyan@aldwin7894.win>",
   "license": "MIT",
   "engines": {
     "npm": ">= 9.4",
@@ -55,7 +55,7 @@
   "devDependencies": {
     "@types/node": "^18.14.1",
     "@typescript-eslint/parser": "^5.53.0",
-    "eslint": "^8.34.0",
+    "eslint": "^8.35.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-alias": "^1.1.2",
