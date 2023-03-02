@@ -6,27 +6,44 @@ import * as ActiveStorage from "@rails/activestorage";
 import Alpine from "alpinejs";
 import Chart from "chart.js/auto";
 import "tw-elements";
+import tippy, { followCursor } from "tippy.js";
 import "../channels";
+import "tippy.js/dist/tippy.css";
+import "tippy.js/themes/light.css";
+import "tippy.js/animations/perspective-subtle.css";
+import "tippy.js/animations/shift-away-subtle.css";
 import "~/stylesheets/application.css.scss";
 
-const initElems = () => {
+const initElems = (parent = null) => {
   // popover
-  const popoverTriggerList = [].slice.call(
-    document.querySelectorAll('[data-bs-toggle="popover"]'),
+  const tippyPopoverList = [].slice.call(
+    (parent || document).querySelectorAll("[data-tippy=popover]"),
   );
-  popoverTriggerList.map(
-    popoverTriggerEl => new window.Popover(popoverTriggerEl),
-  );
+  tippy(tippyPopoverList, {
+    theme: "light",
+    trigger: "click",
+    animation: "shift-away-subtle",
+    placement: "bottom",
+    content(reference) {
+      const id = reference.getAttribute("data-tippy-template");
+      const template = document.getElementById(id);
+      return template.innerHTML;
+    },
+    allowHTML: true,
+  });
 
   // tooltip
-  const tooltipTriggerList = [].slice.call(
-    document.querySelectorAll('[data-bs-toggle="tooltip"]'),
+  const tippyTooltipList = [].slice.call(
+    (parent || document).querySelectorAll("[data-tippy=tooltip]"),
   );
-  tooltipTriggerList.map(
-    tooltipTriggerEl => new window.Tooltip(tooltipTriggerEl),
-  );
+  tippy(tippyTooltipList, {
+    theme: "light",
+    placement: "top",
+    followCursor: "horizontal",
+    animation: "perspective-subtle",
+    plugins: [followCursor],
+  });
 };
-initElems();
 
 const fadeIn = id =>
   new Promise((resolve, _reject) => {
@@ -39,6 +56,7 @@ const fadeIn = id =>
 
     function handleAnimationEnd(event) {
       event.stopPropagation();
+      initElems(element);
       element.classList.remove(
         "animate__fadeIn",
         "animate__animated",
@@ -64,6 +82,7 @@ window.addEventListener("load", () => {
     main.classList.remove("hidden");
     footer.classList.remove("hidden");
     main.classList.add("animate__fadeIn", "animate__animated");
+    initElems();
   });
 });
 document.addEventListener("turbo:before-fetch-response", event => {
@@ -84,12 +103,9 @@ document.addEventListener("turbo:before-stream-render", () => {
   Turbo.navigator.delegate.adapter.progressBar.hide();
 });
 
-document.addEventListener("turbo:frame-load", () => {
-  setInterval(() => initElems(), 100);
-});
-
 ActiveStorage.start();
 
 window.Alpine = Alpine;
 window.Chart = Chart;
+window.tippy = tippy;
 Alpine.start();

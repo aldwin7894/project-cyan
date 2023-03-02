@@ -297,11 +297,47 @@ main {
   }
 }
 
-.popover-body {
-  white-space: pre;
-}
-
 .animate__fadeIn,
 .animate__fadeOut {
   will-change: opacity;
+}
+
+.tippy-box {
+  max-width: 276px !important;
+  text-align: center;
+  border-radius: 0.5rem;
+}
+
+.tippy-box[data-theme~="light"] {
+  @apply dark:bg-[#0b1622] dark:text-white py-2 px-4 text-sm;
+}
+
+.tippy-box[data-theme~="light"][data-placement^="top"] > .tippy-arrow::before {
+  @apply border-t-cyan-500;
+}
+
+.tippy-box[data-theme~="light"][data-placement^="left"] > .tippy-arrow::before {
+  @apply border-l-cyan-500;
+}
+
+.tippy-box[data-theme~="light"][data-placement^="right"]
+  > .tippy-arrow::before {
+  @apply border-r-cyan-500;
+}
+
+.tippy-box[data-theme~="light"][data-placement^="bottom"]
+  > .tippy-arrow::before {
+  @apply border-b-cyan-500;
+}
+
+.tippy-popover-header {
+  padding: 0.5rem 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.tippy-popover-body {
+  padding-top: 0.5rem;
+  white-space: pre-line;
 }
