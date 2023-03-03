@@ -2,6 +2,7 @@
 
 class LastfmController < ApplicationController
   layout "lastfm"
+  before_action :check_if_from_cloudfront
 
   FERRUM_OPTIONS = {
     window_size: [600, 122],

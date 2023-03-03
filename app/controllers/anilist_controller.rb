@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class AnilistController < ApplicationController
+  before_action :check_if_from_cloudfront
+
   def index; end
 
   def new; end

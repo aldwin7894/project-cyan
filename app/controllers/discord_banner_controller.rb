@@ -4,6 +4,7 @@ require "discordrb"
 
 class DiscordBannerController < ApplicationController
   layout "discord-banner"
+  before_action :check_if_from_cloudfront
 
   DISCORD_BOT = Discordrb::Bot.new(
     token: ENV.fetch("DISCORD_BOT_TOKEN"),

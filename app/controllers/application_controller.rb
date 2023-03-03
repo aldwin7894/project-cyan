@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
   respond_to :html
 
-  before_action :check_if_from_cloudfront
   class QueryError < StandardError; end
 
   private

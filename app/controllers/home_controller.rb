@@ -7,6 +7,8 @@ class HomeController < ApplicationController
   layout "application"
   rescue_from QueryError, with: :render_empty
   rescue_from StandardError, with: :render_empty
+  before_action :check_if_from_cloudfront
+
   ANIME_FORMATS = ["TV", "TV_SHORT", "ONA"]
   IGNORED_USER_STATUS = ["plans to watch", "paused watching", "dropped"]
 
