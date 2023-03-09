@@ -24,7 +24,7 @@
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.9",
-    "alpinejs": "^3.11.1",
+    "alpinejs": "^3.12.0",
     "autoprefixer": "^10.4.13",
     "chart.js": "^4.2.1",
     "cssnano": "^5.1.15",
