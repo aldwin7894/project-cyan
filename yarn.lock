@@ -4895,10 +4895,10 @@ safe-regex-test@^1.0.0:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-sass@^1.59.2:
-  version "1.59.2"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.59.2.tgz#537f6d11614d4f20f97696f23ad358ee398b1937"
-  integrity sha512-jJyO6SmbzkJexF8MUorHx5tAilcgabioYxT/BHbY4+OvoqmbHxsYlrjZ8Adhqcgl6Zqwie0TgMXLCAmPFxXOuw==
+sass@^1.59.3:
+  version "1.59.3"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.59.3.tgz#a1ddf855d75c70c26b4555df4403e1bbf8e4403f"
+  integrity sha512-QCq98N3hX1jfTCoUAsF3eyGuXLsY7BCnCEg9qAact94Yc21npG2/mVOqoDvE0fCbWDqiM4WlcJQla0gWG2YlxQ==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
@@ -5221,10 +5221,10 @@ svgo@^2.7.0:
     picocolors "^1.0.0"
     stable "^0.1.8"
 
-tailwindcss-animatecss@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/tailwindcss-animatecss/-/tailwindcss-animatecss-3.0.2.tgz#7effa30aadaaa4cbb941c26950b77592ff3fead9"
-  integrity sha512-kguolbYn3SiY59m5kuNf3BJAXXqXRb2ToSpik20yYVtFws5SD8Hnogjb7wz7ZKBEh3bfZFDoUOzgvgsiRq/5Ew==
+tailwindcss-animatecss@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/tailwindcss-animatecss/-/tailwindcss-animatecss-3.0.3.tgz#9eb16b6a2352352d17f671785d8522628b825519"
+  integrity sha512-Trqv3k0UePMtjM4dlnlwF85q9MZE2yBuYeJKQXiIW1g1YTvE0JB1+KDI0oWGsdqKGe+OOjWd8BAf+BgOb87Ivg==
   dependencies:
     "@release-it/conventional-changelog" "^5.1.0"
     release-it "^15.4.1"
