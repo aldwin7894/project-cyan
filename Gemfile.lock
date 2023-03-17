@@ -417,7 +417,7 @@ GEM
     rack-brotli (1.2.0)
       brotli (>= 0.1.7)
       rack (>= 1.4)
-    rack-cors (2.0.0)
+    rack-cors (2.0.1)
       rack (>= 2.0.0)
     rack-mini-profiler (3.0.0)
       rack (>= 1.2.0)
