@@ -5575,13 +5575,13 @@ vite-plugin-full-reload@^1.0.5:
     picocolors "^1.0.0"
     picomatch "^2.3.1"
 
-vite-plugin-ruby@^3.1.3:
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/vite-plugin-ruby/-/vite-plugin-ruby-3.1.3.tgz#893ee7dc3b25daf5611c16c3dc0ca3420e6a801c"
-  integrity sha512-Y7j0lL8xNMSN1c2/sKBlaLkp0nFtxNFU9/kUReX/GMTOAk8fBylrR9ZdC3fej6EnYzbO3VDtfDDyWzYaoCW3hA==
+vite-plugin-ruby@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/vite-plugin-ruby/-/vite-plugin-ruby-3.2.1.tgz#fe2e2572c450a74d9342d64d183985f32583c0ce"
+  integrity sha512-GBSplgICiQb/pweEZzXtWrJhvOo33ljE7taAVbxDOXCbm4X3w0mFUmowxFf4I7oePtLPIZRU8N+JHCcBYzNIng==
   dependencies:
     debug "^4.3.4"
-    fast-glob "^3.2.11"
+    fast-glob "^3.2.12"
 
 vite@^4.1.4:
   version "4.1.4"
