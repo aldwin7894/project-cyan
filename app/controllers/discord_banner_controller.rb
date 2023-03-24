@@ -5,6 +5,17 @@ require "discordrb"
 class DiscordBannerController < ApplicationController
   layout "discord-banner"
   before_action :check_if_from_cloudfront
+  after_action :set_no_cache_headers
+
+  FERRUM_OPTIONS = {
+    window_size: [600, 126],
+    browser_path: "/usr/bin/google-chrome",
+    browser_options: {
+      'no-sandbox': nil
+    },
+    timeout: 60,
+    pending_connection_errors: false
+  }
 
   DISCORD_BOT = Discordrb::Bot.new(
     token: ENV.fetch("DISCORD_BOT_TOKEN"),
@@ -23,6 +34,20 @@ class DiscordBannerController < ApplicationController
     @icon = nil
   ensure
     respond_to do |format|
+      format.png do
+        browser = Ferrum::Browser.new(**FERRUM_OPTIONS)
+        browser.go_to("#{ENV.fetch('RAILS_HOST')}#{request.fullpath.gsub('.png', '.html')}")
+        screenshot = browser.screenshot(format: :png, encoding: :binary)
+        browser.quit
+        send_data(screenshot, type: "image/png", disposition: :inline)
+      end
+      format.jpg do
+        browser = Ferrum::Browser.new(**FERRUM_OPTIONS)
+        browser.go_to("#{ENV.fetch('RAILS_HOST')}#{request.fullpath.gsub('.jpg', '.html')}")
+        screenshot = browser.screenshot(format: :jpeg, encoding: :binary, quality: 100)
+        browser.quit
+        send_data(screenshot, type: "image/jpg", disposition: :inline)
+      end
       format.html
       format.svg
     end

@@ -22,4 +22,9 @@ class ApplicationController < ActionController::Base
         response.data
       end
     end
+    def set_no_cache_headers
+      headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+      headers["Pragma"] = "no-cache"
+      headers["Expires"] = "-1"
+    end
 end

@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
   resources :lastfm,
     only: :index,
-    constraints: lambda { |req| ["html", "svg"].include? req.format }
+    constraints: lambda { |req| ["html", "svg", "png", "jpg"].include? req.format }
   resources :anilist, only: [:index, :new] do
     collection do
       get "fetch_followers"
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   resources :discord_banner,
     path: "discord-banner",
     only: :index,
-    constraints: lambda { |req| ["html", "svg"].include? req.format }
+    constraints: lambda { |req| ["html", "svg", "png", "jpg"].include? req.format }
   # resources :listenbrainz
   get "ping", to: "home#ping"
   get "anilist_user_activities", to: "home#anilist_user_activities"
