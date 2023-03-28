@@ -123,7 +123,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     dry-cli (1.0.0)
     e2mmap (0.1.0)
-    erb_lint (0.3.1)
+    erb_lint (0.4.0)
       activesupport
       better_html (>= 2.0.1)
       parser (>= 2.7.1.4)
@@ -486,7 +486,7 @@ GEM
       rubocop-ast (>= 1.26.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.27.0)
+    rubocop-ast (1.28.0)
       parser (>= 3.2.1.0)
     rubocop-packaging (0.5.2)
       rubocop (>= 1.33, < 2.0)
