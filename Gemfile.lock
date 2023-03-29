@@ -123,7 +123,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     dry-cli (1.0.0)
     e2mmap (0.1.0)
-    erb_lint (0.3.1)
+    erb_lint (0.4.0)
       activesupport
       better_html (>= 2.0.1)
       parser (>= 2.7.1.4)
@@ -410,7 +410,7 @@ GEM
     parser (3.2.1.1)
       ast (~> 2.4.1)
     public_suffix (5.0.1)
-    puma (6.1.1)
+    puma (6.2.0)
       nio4r (~> 2.0)
     racc (1.6.2)
     rack (2.2.6.4)
@@ -486,7 +486,7 @@ GEM
       rubocop-ast (>= 1.26.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.27.0)
+    rubocop-ast (1.28.0)
       parser (>= 3.2.1.0)
     rubocop-packaging (0.5.2)
       rubocop (>= 1.33, < 2.0)
@@ -500,7 +500,7 @@ GEM
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
-    selenium-webdriver (4.8.2)
+    selenium-webdriver (4.8.5)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
@@ -591,7 +591,7 @@ DEPENDENCIES
   opentelemetry-exporter-otlp
   opentelemetry-instrumentation-all
   opentelemetry-sdk
-  puma (~> 6.1)
+  puma (~> 6.2)
   rack-brotli (~> 1.2)
   rack-cors (~> 2.0)
   rack-mini-profiler (~> 3.0)
