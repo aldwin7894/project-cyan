@@ -23,8 +23,8 @@ class ApplicationController < ActionController::Base
       end
     end
     def set_no_cache_headers
-      headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
-      headers["Pragma"] = "no-cache"
-      headers["Expires"] = "-1"
+      expires_in 0.seconds, public: false, must_revalidate: true
+      response.set_header("Pragma", "no-cache")
+      response.set_header("Expires", "0")
     end
 end
