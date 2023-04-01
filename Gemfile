@@ -87,7 +87,7 @@ gem "recaptcha", "~> 5.12"
 
 gem "ferrum", "~> 0.13"
 
-gem "discordrb", github: "shardlab/discordrb", branch: "threads"
+gem "discordrb", github: "shardlab/discordrb", branch: "main", ref: "2011ac6"
 
 gem "opentelemetry-sdk"
 
