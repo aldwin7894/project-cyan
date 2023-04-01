@@ -58,21 +58,22 @@
 
 .status {
   position: absolute;
-  left: 90px;
+  left: 85px;
   bottom: 10px;
   width: 30px;
   height: 30px;
   border-radius: 9999px;
-  background: rgba(<%= @background %>);
+  padding: 3px;
+  background: rgba(<%= @background.split(",").first(3).join(",") %>);
 }
 
 .info-container {
   display: inline-block;
   position: relative;
   vertical-align: top;
-  width: 449px;
+  width: 455px;
   height: 112px;
-  padding: 5px 10px;
+  padding: 5px 5px;
 }
 
 .username {
@@ -91,7 +92,7 @@
 .activity-details-container {
   display: flex;
   align-items: center;
-  max-width: 350px;
+  max-width: 395px;
 }
 
 .spotify {
@@ -166,7 +167,7 @@ span, em, b, strong, i, p {
 
 .large-image {
   position: absolute;
-  height: 64px;
+  height: 86px;
   width: 64px;
   background-size: cover;
   right: 0px;
@@ -188,4 +189,6 @@ span, em, b, strong, i, p {
   text-overflow: ellipsis;
   min-width: 0;
   max-width: 350px;
+  position: absolute;
+  bottom: 7px;
 }
