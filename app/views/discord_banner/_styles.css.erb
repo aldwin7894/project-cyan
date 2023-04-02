@@ -76,10 +76,6 @@
   padding: 5px 5px;
 }
 
-.username {
-  color: #3CB4F1;
-}
-
 .activity-title {
   margin-left: 2px;
   white-space: nowrap;
@@ -110,10 +106,14 @@
 }
 
 .username {
+  color: #3CB4F1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
+  -webkit-text-size-adjust: auto;
+  text-size-adjust: auto;
+  line-height: normal;
 }
 
 .status-container {
@@ -169,7 +169,8 @@ span, em, b, strong, i, p {
   position: absolute;
   height: 86px;
   width: 64px;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   right: 0px;
   top: 5px;
   background-image: url("<%= cached_image_url_to_base64(@activity&.[](:large_image)) %>");
