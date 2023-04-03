@@ -113,7 +113,7 @@ GEM
     connection_pool (2.4.0)
     crass (1.0.6)
     date (3.3.3)
-    devise (4.9.0)
+    devise (4.9.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0)
@@ -181,7 +181,7 @@ GEM
       railties (>= 4)
       request_store (~> 1.0)
     logstash-event (1.2.02)
-    loofah (2.19.1)
+    loofah (2.20.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.8.1)
@@ -574,7 +574,7 @@ DEPENDENCIES
   bson (~> 4.15)
   byebug
   capybara (>= 3.26)
-  devise (~> 4.8)
+  devise (~> 4.9)
   discordrb!
   erb_lint
   ferrum (~> 0.13)
