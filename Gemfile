@@ -61,7 +61,7 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "lastfm", "~> 1.27"
 
-gem "devise", "~> 4.8"
+gem "devise", "~> 4.9"
 
 gem "graphql-client", "~> 0.18.0"
 
