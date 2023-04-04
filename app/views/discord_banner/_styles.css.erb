@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   font-size: 100%;
@@ -16,9 +16,7 @@
   <% if @bottom_line.present? %>
     border-bottom: 4px solid #<%= @bottom_line %>;
   <% end %>
-  background-image: -webkit-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= vite_url_to_base64(vite_asset_url("images/discord.webp")) %>");
-  background-image: -o-linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= vite_url_to_base64(vite_asset_url("images/discord.webp")) %>");
-  background-image: linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url("<%= vite_url_to_base64(vite_asset_url("images/discord.webp")) %>");
+  background-image: linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url(<%= vite_url_to_base64(vite_asset_url("images/discord.webp")) %>);
   background-color: rgba(<%= @background %>);
 }
 
@@ -52,7 +50,7 @@
   height: 102px;
   width: 102px;
   background-size: cover;
-  background-image: url("<%= cached_image_url_to_base64(@avatar) %>");
+  background-image: url(<%= cached_image_url_to_base64(@avatar) %>);
   background-color: rgba(78, 85, 91, 0.8);
 }
 
@@ -173,7 +171,7 @@ span, em, b, strong, i, p {
   background-repeat: no-repeat;
   right: 0px;
   top: 5px;
-  background-image: url("<%= cached_image_url_to_base64(@activity&.[](:large_image)) %>");
+  background-image: url(<%= cached_image_url_to_base64(@activity&.[](:large_image)) %>);
 }
 
 .playing-container {
