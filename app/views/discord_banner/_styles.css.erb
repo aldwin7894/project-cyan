@@ -12,6 +12,7 @@
   position: relative;
   width: 600px;
   height: 122px;
+  display: flex;
   color: #<%= @foreground %>;
   <% if @bottom_line.present? %>
     border-bottom: 4px solid #<%= @bottom_line %>;
@@ -36,11 +37,7 @@
 }
 
 .avatar-container {
-  display: inline-block;
-  vertical-align: top;
-  width: 102px;
-  height: 102px;
-  padding: 10px;
+  padding: 10px 7px;
 }
 
 .avatar {
@@ -66,12 +63,10 @@
 }
 
 .info-container {
-  display: inline-block;
   position: relative;
-  vertical-align: top;
-  width: 455px;
+  width: 100%;
   height: 112px;
-  padding: 5px 5px;
+  padding: 5px 10px;
 }
 
 .activity-title {
@@ -169,20 +164,20 @@ span, em, b, strong, i, p {
   width: 64px;
   background-size: contain;
   background-repeat: no-repeat;
-  right: 0px;
+  background-position: top center;
+  right: 10px;
   top: 5px;
   background-image: url(<%= cached_image_url_to_base64(@activity&.[](:large_image)) %>);
 }
 
 .playing-container {
   display: flex;
-  max-width: 390px;
+  max-width: 395px;
   align-items: center;
 }
 
 .activity-subdetails-container {
   color: #0FD0BE;
-  font-style: italic;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
