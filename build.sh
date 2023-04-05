@@ -27,16 +27,16 @@ bin/rails assets:precompile
 echo "Cleaning Assets..."
 bin/rails assets:clean
 
-if [ "$RUN_DB_MIGRATIONS_DURING_RELEASE" == "true" ]; then
+if [[ ${RUN_DB_MIGRATIONS_DURING_RELEASE} == "true" ]]; then
 	echo "Running Database Migrations..."
 	bin/rails db:migrate VERBOSE=true
 fi
 
-if [ "$SEED_DB_DURING_RELEASE" == "true" ]; then
+if [[ ${SEED_DB_DURING_RELEASE} == "true" ]]; then
 	echo "Seeding Database..."
 	bin/rails db:seed
 fi
 
-if [ -f tmp/pids/server.pid ]; then
+if [[ -f tmp/pids/server.pid ]]; then
 	rm -f tmp/pids/server.pid
 fi

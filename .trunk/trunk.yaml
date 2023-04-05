@@ -36,6 +36,7 @@ lint:
         - app/frontend/fonts
         - app/frontend/favicon
         - db/**
+        - node_modules/**
   enabled:
     - eslint@8.37.0:
         packages:

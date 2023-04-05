@@ -30,7 +30,7 @@
   <button x-on:click="window.open('<%= activity["siteUrl"] %>')" class="text-md hover:underline text-red-500">
     <%= activity["status"].titleize %> <%= activity["progress"] %>
   </button>
-  <div class="dark:text-white line-clamp-1 text-lg font-bold break-all" title="<%= activity["media"]["title"]["userPreferred"] %>" data-tippy="tooltip" data-tippy-content="<%= activity["media"]["title"]["userPreferred"] %>">
+  <div class="dark:text-white line-clamp-1 text-lg font-bold break-words" title="<%= activity["media"]["title"]["userPreferred"] %>" data-tippy="tooltip" data-tippy-content="<%= activity["media"]["title"]["userPreferred"] %>">
     <%= activity["media"]["title"]["userPreferred"] %>
   </div>
   <div class="dark:text-[#bfb3a4] text-slate-600 text-sm">

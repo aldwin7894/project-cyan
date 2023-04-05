@@ -72,10 +72,10 @@
             </div>
             <% if @lastfm_recent['album']['content'].present? %>
               <% if @lastfm_recent['album']['mbid'].present? %>
-                <div x-on:click="window.open('<%= "https://musicbrainz.org/release/#{@lastfm_recent["album"]["mbid"]}" %>')" class="text-[#e5ded3] italic text-xl hover:underline line-clamp-1 break-all cursor-pointer font-bold"
+                <div x-on:click="window.open('<%= "https://musicbrainz.org/release/#{@lastfm_recent["album"]["mbid"]}" %>')" class="text-[#e5ded3] italic text-xl hover:underline line-clamp-1 break-words cursor-pointer font-bold"
                 >
               <% else %>
-                <div class="text-[#e5ded3] italic text-xl line-clamp-1 break-all font-bold"
+                <div class="text-[#e5ded3] italic text-xl line-clamp-1 break-words font-bold"
                 >
               <% end %>
                 <%= "#{@lastfm_recent['album']['content']}" %>
@@ -86,7 +86,7 @@
             </div>
             <% if @lastfm_recent['nowplaying'].blank? %>
               <div>
-                <div x-on:click="window.open('https://www.last.fm/user/aldwin7894/library')" class="hover:underline line-clamp-1 text-lg break-all cursor-pointer">
+                <div x-on:click="window.open('https://www.last.fm/user/aldwin7894/library')" class="hover:underline line-clamp-1 text-lg break-words cursor-pointer">
                   last played
                   <% if time_ago_in_words(Time.zone.at(@lastfm_recent['date']['uts'].to_i)) == 'less than a minute' %>
                     just now
@@ -105,7 +105,7 @@
             <div class="line-clamp-1 text-2xl">
               ¯\(ツ)/¯
             </div>
-            <div class="text-[#e5ded3] italic text-xl line-clamp-1 break-all">
+            <div class="text-[#e5ded3] italic text-xl line-clamp-1 break-words">
               as always lol
             </div>
           </div>

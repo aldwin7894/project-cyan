@@ -12,23 +12,23 @@ AllCops:
   SuggestExtensions: false
   NewCops: enable
   Exclude:
-    - "app/frontend/**/*"
-    - "app/views/**/*.erb"
+    - app/frontend/**/*
+    - app/views/**/*.erb
     - "**/log/**/*"
     - "**/public/**/*"
     - "**/tmp/**/*"
     - "**/templates/**/*"
     - "**/vendor/**/*"
-    - "actionpack/lib/action_dispatch/journey/parser.rb"
-    - "actionmailbox/test/dummy/**/*"
-    - "actiontext/test/dummy/**/*"
+    - actionpack/lib/action_dispatch/journey/parser.rb
+    - actionmailbox/test/dummy/**/*
+    - actiontext/test/dummy/**/*
     - "**/node_modules/**/*"
     - "**/bin/**/*"
     - "**/config/**/*"
     - "**/db/**/*"
-    - "Gemfile"
-    - "Rakefile"
-    - "config.ru"
+    - Gemfile
+    - Rakefile
+    - config.ru
 
 Performance:
   Exclude:
@@ -191,14 +191,14 @@ Style/FrozenStringLiteralComment:
   EnforcedStyle: always
   SafeAutoCorrect: true
   Exclude:
-    - "actionview/test/**/*.builder"
-    - "actionview/test/**/*.ruby"
-    - "actionpack/test/**/*.builder"
-    - "actionpack/test/**/*.ruby"
-    - "activestorage/db/migrate/**/*.rb"
-    - "activestorage/db/update_migrate/**/*.rb"
-    - "actionmailbox/db/migrate/**/*.rb"
-    - "actiontext/db/migrate/**/*.rb"
+    - actionview/test/**/*.builder
+    - actionview/test/**/*.ruby
+    - actionpack/test/**/*.builder
+    - actionpack/test/**/*.ruby
+    - activestorage/db/migrate/**/*.rb
+    - activestorage/db/update_migrate/**/*.rb
+    - actionmailbox/db/migrate/**/*.rb
+    - actiontext/db/migrate/**/*.rb
 
 Style/RedundantFreeze:
   Enabled: true

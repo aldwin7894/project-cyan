@@ -1,5 +1,5 @@
-name: "SonarCloud Scan"
-run-name: "SonarCloud Scan"
+name: SonarCloud Scan
+run-name: SonarCloud Scan
 
 on:
   push:
