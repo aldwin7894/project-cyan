@@ -39,7 +39,7 @@
         <% if @activity&.[](:title).present? %>
           <h4 class="activity-title">
             <%= @activity&.[](:title) %>
-          </h3>
+          </h4>
         <% end %>
         <h5 class="status-container">
           Status:&#160;
@@ -52,7 +52,7 @@
           <% elsif @client_status == :dnd %>
             <span class="dnd">Do not disturb</span>
           <% end %>
-        </h4>
+        </h5>
       </div>
       <h4 class="activity-details-container">
         <% if @activity&.[](:name) == "Spotify" %>
