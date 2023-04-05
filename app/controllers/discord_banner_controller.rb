@@ -89,8 +89,8 @@ class DiscordBannerController < ApplicationController
         subdetails = activity&.state
       when "Music"
         title = "Listening to #{activity&.name}"
-        details = "#{activity&.details} - #{activity&.assets&.large_text}"
-        subdetails = activity&.state
+        details = activity&.details
+        subdetails = "#{activity&.state} - #{activity&.assets&.large_text}"
       else
         case activity_type
         when 0

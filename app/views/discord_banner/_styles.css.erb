@@ -104,17 +104,11 @@
 .activity-details {
   color: #E8C896;
   font-style: italic;
-  word-break: break-word;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 0;
   width: 100%;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  <% if @activity&.[](:details)&.length.to_i > 38 %>
-    font-size: 12px;
-  <% end %>
 }
 
 .username {
@@ -194,9 +188,15 @@ h6 {
 
 .activity-subdetails-container {
   color: #0FD0BE;
-  white-space: nowrap;
+  work-break: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 0;
   max-width: 350px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  <% if @activity&.[](:subdetails)&.length.to_i > 37 %>
+    font-size: 12px;
+  <% end %>
 }
