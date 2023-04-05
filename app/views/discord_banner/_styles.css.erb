@@ -85,7 +85,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  <% if @activity&.[](:title)&.length.to_i > 27 %>
+  <% if @activity&.[](:title)&.length.to_i > 23 %>
     font-size: 12px;
   <% end %>
 }
@@ -94,6 +94,7 @@
   display: flex;
   align-items: center;
   max-width: 395px;
+  margin-bottom: 2px;
 }
 
 .spotify {
@@ -111,7 +112,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  <% if @activity&.[](:details)&.length.to_i > 43 %>
+  <% if @activity&.[](:details)&.length.to_i > 38 %>
     font-size: 12px;
   <% end %>
 }
@@ -156,12 +157,8 @@ h6 {
   font-size: 10.72px;
 }
 
-span, em, b, strong, i, p {
-  font-size: 12px;
-}
-
 .offline {
-  color: #777e8d;
+  color: #97a0b3;
 }
 
 .online {
@@ -173,7 +170,7 @@ span, em, b, strong, i, p {
 }
 
 .dnd {
-  color: #cc5345;
+  color: tomato;
 }
 
 .large-image {
@@ -192,6 +189,7 @@ span, em, b, strong, i, p {
   display: flex;
   max-width: 395px;
   align-items: center;
+  margin-bottom: 2px;
 }
 
 .activity-subdetails-container {
