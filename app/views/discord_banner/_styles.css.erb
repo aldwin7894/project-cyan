@@ -85,7 +85,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  <% if @activity&.[](:title).length > 27 %>
+  <% if @activity&.[](:title)&.length.to_i > 27 %>
     font-size: 12px;
   <% end %>
 }
@@ -111,7 +111,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  <% if @activity&.[](:details).length > 43 %>
+  <% if @activity&.[](:details)&.length.to_i > 43 %>
     font-size: 12px;
   <% end %>
 }
