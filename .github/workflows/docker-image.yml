@@ -33,7 +33,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: aldwin7894/aldwin7894:prod
+          tags: aldwin7894/project-cyan:prod
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
           secrets: |
@@ -49,8 +49,3 @@ jobs:
         run: |
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
-
-      - name: Result
-        run: |
-          echo "Image ID:   ${{ steps.docker-build.outputs.imageid }}"
-          echo "Digest:     ${{ steps.docker-build.outputs.digest }}"

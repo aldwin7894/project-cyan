@@ -43,7 +43,7 @@ services:
         - RAILS_MASTER_KEY
         - RAILS_ASSET_HOST
     container_name: aldwin7894-app
-    image: aldwin7894/aldwin7894:prod
+    image: aldwin7894/project-cyan:prod
     restart: always
     depends_on:
       - db
