@@ -65,17 +65,29 @@
 .info-container {
   position: relative;
   width: 100%;
-  height: 112px;
-  padding: 5px 10px;
+  height: 120px;
+  padding: 0 10px 5px 10px;
+  display: inline-grid;
+}
+
+.info-subcontainer {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .activity-title {
   margin-left: 2px;
-  white-space: nowrap;
+  word-break: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
   flex: 1;
   padding-right: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  <% if @activity&.[](:title).length > 27 %>
+    font-size: 12px;
+  <% end %>
 }
 
 .activity-details-container {
@@ -91,11 +103,17 @@
 .activity-details {
   color: #E8C896;
   font-style: italic;
-  white-space: nowrap;
+  word-break: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 0;
   width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  <% if @activity&.[](:details).length > 43 %>
+    font-size: 12px;
+  <% end %>
 }
 
 .username {
@@ -114,7 +132,7 @@
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 28px;
 }
 
 h2 {
@@ -139,7 +157,7 @@ h6 {
 }
 
 span, em, b, strong, i, p {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .offline {
@@ -162,7 +180,7 @@ span, em, b, strong, i, p {
   position: absolute;
   height: 86px;
   width: 64px;
-  background-size: contain;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: top center;
   right: 10px;

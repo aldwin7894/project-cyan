@@ -61,53 +61,56 @@ class DiscordBannerController < ApplicationController
     @icon = nil
 
     current_user = DISCORD_BOT.user(ENV.fetch("DISCORD_USER_ID"))
-    activity = current_user&.activities&.to_a&.first
-    large_image = activity&.assets&.large_image_url("png")
-    icon = ""
-    details = "#{activity&.state} - #{activity&.details}" if activity.present?
-    subdetails = "#{activity&.assets&.large_text}" if activity.present?
-    title = "Playing #{activity&.name}"
-    activity_name = activity&.name
-    activity_type = activity&.type
-
-    case activity_name
-    when "Spotify"
-      large_image = "https://i.scdn.co/image/#{activity&.assets&.large_image_url&.split(':')&.last&.split('.')&.first.gsub('b273', '4851')}"
-      title = "Listening to Spotify"
-    when "Jellyfin" && large_image.include?("jellyfin")
-      title = "Watching from #{activity&.name}"
-      large_image = "https://#{large_image.split("https/").last.split(".png").first}?fillWidth=64&quality=80"
-      details = activity&.details
-      subdetails = activity&.state
-    when "Music"
-      title = "Listening to #{activity&.name}"
-      details = "#{activity&.details} - #{activity&.assets&.large_text}"
-      subdetails = activity&.state
-    else
-      case activity_type
-      when 0
-        title = "Playing #{activity&.name}"
-      when 1
-        title = "Streaming #{activity&.name}"
-      when 2
-        title = "Listening to #{activity&.name}"
-      when 3
-        title = "Watching from #{activity&.name}"
-      when 4
-        title = "Playing #{activity&.name}"
-      when 5
-        title = "Competing #{activity&.name}"
-      end
-    end
-
     @username = current_user.username
     @username += "##{current_user.discriminator}" if params[:disc] == "true"
     @online_status = current_user.status
     @device = current_user.client_status.keys.first
     @client_status = current_user.client_status.values.first
     @avatar = current_user.avatar_url
+    activity = current_user&.activities&.to_a&.first
+
+    if activity.present?
+      large_image = activity&.assets&.large_image_url("png")
+      icon = ""
+      details = "#{activity&.state} - #{activity&.details}"
+      subdetails = "#{activity&.assets&.large_text}"
+      title = "Playing #{activity&.name}"
+      activity_name = activity&.name
+      activity_type = activity&.type
+
+      case activity_name
+      when "Spotify"
+        large_image = "https://i.scdn.co/image/#{activity&.assets&.large_image_url&.split(':')&.last&.split('.')&.first.gsub('b273', '4851')}"
+        title = "Listening on Spotify"
+      when "Jellyfin"
+        title = "Watching on #{activity&.name}"
+        large_image = "https://#{large_image.split("https/").last.split(".png").first}?fillWidth=64&quality=80" if large_image.include? "jellyfin."
+        details = activity&.details.remove!("Watching").strip
+        subdetails = activity&.state
+      when "Music"
+        title = "Listening to #{activity&.name}"
+        details = "#{activity&.details} - #{activity&.assets&.large_text}"
+        subdetails = activity&.state
+      else
+        case activity_type
+        when 0
+          title = "Playing #{activity&.name}"
+        when 1
+          title = "Streaming #{activity&.name}"
+        when 2
+          title = "Listening to #{activity&.name}"
+        when 3
+          title = "Watching on #{activity&.name}"
+        when 4
+          title = "Playing #{activity&.name}"
+        when 5
+          title = "Competing #{activity&.name}"
+        end
+      end
+    end
+
     @activity = {
-      name: activity&.name,
+      name: activity_name,
       title:,
       details:,
       subdetails:,
