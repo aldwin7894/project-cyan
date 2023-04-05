@@ -34,14 +34,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        - TZ_ARG=${TZ}
-        - RAILS_ENV_ARG=${RAILS_ENV}
-        - NODE_ENV_ARG=${NODE_ENV}
-        - OCCSON_ACCESS_TOKEN_ARG=${OCCSON_ACCESS_TOKEN}
-        - OCCSON_PASSPHRASE_ARG=${OCCSON_PASSPHRASE}
-        - RAILS_MASTER_KEY_ARG=${RAILS_MASTER_KEY}
-        - RAILS_ASSET_HOST_ARG=${RAILS_ASSET_HOST}
+      secrets:
+        - TZ
+        - RAILS_ENV
+        - NODE_ENV
+        - OCCSON_ACCESS_TOKEN
+        - OCCSON_PASSPHRASE
+        - RAILS_MASTER_KEY
+        - RAILS_ASSET_HOST
     container_name: aldwin7894-app
     image: aldwin7894/aldwin7894:prod
     restart: always
@@ -68,5 +68,23 @@ services:
     #   start_period: 10s
 
 volumes:
+  # trunk-ignore(yamllint/empty-values)
   dbdata:
+  # trunk-ignore(yamllint/empty-values)
   redis:
+
+secrets:
+  TZ:
+    environment: TZ
+  RAILS_ENV:
+    environment: RAILS_ENV
+  NODE_ENV:
+    environment: NODE_ENV
+  OCCSON_ACCESS_TOKEN:
+    environment: OCCSON_ACCESS_TOKEN
+  OCCSON_PASSPHRASE:
+    environment: OCCSON_PASSPHRASE
+  RAILS_MASTER_KEY:
+    environment: RAILS_MASTER_KEY
+  RAILS_ASSET_HOST:
+    environment: RAILS_ASSET_HOST

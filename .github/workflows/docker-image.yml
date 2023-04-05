@@ -2,7 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: ["master"]
+    branches: [master]
 
 jobs:
   build:
@@ -36,14 +36,14 @@ jobs:
           tags: aldwin7894/aldwin7894:prod
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
-          build-args: |
-            TZ_ARG="Asia/Manila"
-            RAILS_ENV_ARG="production"
-            NODE_ENV_ARG="production"
-            OCCSON_ACCESS_TOKEN_ARG=${{ secrets.OCCSON_ACCESS_TOKEN }}
-            OCCSON_PASSPHRASE_ARG=${{ secrets.OCCSON_PASSPHRASE }}
-            RAILS_MASTER_KEY_ARG=${{ secrets.RAILS_MASTER_KEY }}
-            RAILS_ASSET_HOST_ARG=${{ secrets.RAILS_ASSET_HOST }}
+          secrets: |
+            TZ="Asia/Manila"
+            RAILS_ENV="production"
+            NODE_ENV="production"
+            OCCSON_ACCESS_TOKEN=${{ secrets.OCCSON_ACCESS_TOKEN }}
+            OCCSON_PASSPHRASE=${{ secrets.OCCSON_PASSPHRASE }}
+            RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}
+            RAILS_ASSET_HOST=${{ secrets.RAILS_ASSET_HOST }}
 
       - name: Move cache
         run: |
