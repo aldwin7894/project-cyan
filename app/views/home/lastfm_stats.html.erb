@@ -70,7 +70,7 @@
             <div x-on:click="window.open('<%= @lastfm_recent["artist"]["url"] %>')" class="line-clamp-1 hover:underline text-2xl font-bold cursor-pointer">
               <%= "#{@lastfm_recent['artist']['name'].upcase}" %>
             </div>
-            <% if @lastfm_recent['album']['content'].present? %>
+            <% if @lastfm_recent['album']['#text'].present? %>
               <% if @lastfm_recent['album']['mbid'].present? %>
                 <div x-on:click="window.open('<%= "https://musicbrainz.org/release/#{@lastfm_recent["album"]["mbid"]}" %>')" class="text-[#e5ded3] italic text-xl hover:underline line-clamp-1 break-words cursor-pointer font-bold"
                 >
@@ -78,7 +78,7 @@
                 <div class="text-[#e5ded3] italic text-xl line-clamp-1 break-words font-bold"
                 >
               <% end %>
-                <%= "#{@lastfm_recent['album']['content']}" %>
+                <%= "#{@lastfm_recent['album']['#text']}" %>
               </div>
             <% end %>
             <div x-on:click="window.open('<%= @lastfm_recent["url"] %>')" class="text-[#3cb4f1] text-4xl font-bold line-clamp-2 break-words hover:underline cursor-pointer">

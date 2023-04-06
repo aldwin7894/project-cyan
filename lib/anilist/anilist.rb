@@ -129,4 +129,17 @@ module AniList
       }
     }
   GRAPHQL
+
+  UserAnimeActivitiesLastPageQuery  = AniList::Client.parse <<-'GRAPHQL'
+    query($user_id: Int!, $page: Int, $per_page: Int, $date: Int) {
+      Page(page: $page, perPage: $per_page) {
+        pageInfo {
+          lastPage
+        }
+        activities(userId: $user_id, createdAt_greater: $date, sort: ID_DESC, type: ANIME_LIST) {
+          __typename
+        }
+      }
+    }
+  GRAPHQL
 end

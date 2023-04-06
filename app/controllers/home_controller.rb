@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spotify/spotify"
+require "lastfm/lastfm"
 
 class HomeController < ApplicationController
   include FormatDateHelper
@@ -18,7 +19,7 @@ class HomeController < ApplicationController
 
   def anilist_user_statistics
     user_id = ENV.fetch("ANILIST_USER_ID")
-    @user_statistics = Rails.cache.fetch("ANILIST_USER_STATS_#{ENV.fetch('ANILIST_USERNAME')}", expires_in: 4.hours, skip_nil: true) do
+    @user_statistics = Rails.cache.fetch("ANILIST_USER_STATS_#{ENV.fetch('ANILIST_USERNAME')}", expires_in: 1.day, skip_nil: true) do
       user_statistics = query(AniList::UserStatisticsQuery, user_id:)
       user_statistics.user.statistics.anime.to_h
     end
@@ -102,8 +103,13 @@ class HomeController < ApplicationController
     last_week = (now.beginning_of_day - 1.week).to_i
     last_month = (now.beginning_of_day - 1.month).to_i
     page = 1
+
+    data = query(AniList::UserAnimeActivitiesLastPageQuery, date: last_month, user_id:, page:, per_page: 50)
+    last_page = data.page.page_info.last_page
+
     loop do
-      res = Rails.cache.fetch("#{now.to_i}_#{page}/ANILIST_USER_ACTIVITIES_#{ENV.fetch('ANILIST_USERNAME')}", expires_in: 4.hours, skip_nil: true) do
+      expires_in = last_page === page ? 8.hours : 1.week
+      res = Rails.cache.fetch("#{now.to_i}_#{page}/ANILIST_USER_ACTIVITIES_#{ENV.fetch('ANILIST_USERNAME')}", expires_in:, skip_nil: true) do
         data = query(AniList::UserAnimeActivitiesQuery, date: last_month, user_id:, page:, per_page: 50)
         { data: data.page.activities.to_a.map(&:to_h), has_next_page: data.page.page_info.has_next_page? }
       end
@@ -152,33 +158,32 @@ class HomeController < ApplicationController
   def lastfm_stats
     @album_art = nil
     @lastfm_recent = Rails.cache.fetch("LASTFM_RECENT_TRACKS", expires_in: 30.seconds, skip_nil: true) do
-      LASTFM_CLIENT.user.get_recent_tracks(user: ENV.fetch("LASTFM_USERNAME"), limit: 1, extended: 1)
+      LastFM.get_recent_tracks(user: ENV.fetch("LASTFM_USERNAME"), limit: 1, extended: 1)
     end
     if @lastfm_recent.is_a? Array
       @lastfm_recent = @lastfm_recent.first
     end
 
-    album_art = @lastfm_recent&.[]("image")&.[](3)&.[]("content")
+    album_art = @lastfm_recent&.[]("image")&.[](3)&.[]("#text")
     if album_art.present? && album_art.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
       @album_art = album_art.split("300x300").join("400x400")
     end
 
     render layout: false
-  rescue Lastfm::ApiError
+  rescue LastFM::ApiError
     @album_art = nil
     render layout: false
   end
 
   def lastfm_top_artists
     @lastfm_top_artists = Rails.cache.fetch("LASTFM_TOP_ARTISTS", expires_in: 1.week, skip_nil: true) do
-      LASTFM_CLIENT.user
-        .get_top_artists(user: ENV.fetch("LASTFM_USERNAME"), period: "overall", limit: 12)
+      LastFM.get_top_artists(user: ENV.fetch("LASTFM_USERNAME"), period: "overall", limit: 12)
     end
 
     artist_names = @lastfm_top_artists.pluck("name")
     artist_ids = []
     artist_names.each do |name|
-      artist_id = Rails.cache.fetch("SPOTIFY_ARTIST_ID_#{name.parameterize(separator: '_')}", expires_in: 1.week, skip_nil: true) do
+      artist_id = Rails.cache.fetch("SPOTIFY_ARTIST_ID_#{name.parameterize(separator: '_')}", expires_in: 1.month, skip_nil: true) do
         Spotify.get_artist_id_by_name(name)
       end
       artist_ids.push(artist_id)
@@ -190,6 +195,9 @@ class HomeController < ApplicationController
       artist
     end
 
+    render layout: false
+  rescue LastFM::ApiError
+    @lastfm_top_artists = []
     render layout: false
   end
 

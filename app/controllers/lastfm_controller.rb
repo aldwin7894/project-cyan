@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "lastfm/lastfm"
+
 class LastfmController < ApplicationController
   layout "lastfm"
   before_action :check_if_from_cloudfront
@@ -17,7 +19,7 @@ class LastfmController < ApplicationController
 
   def index
     generate_content(params)
-  rescue Lastfm::ApiError
+  rescue LastFM::ApiError
     @album_art = nil
   ensure
     respond_to do |format|
@@ -46,7 +48,7 @@ class LastfmController < ApplicationController
     @bottom_line = params[:line]
     @album_art = nil
     @recent = Rails.cache.fetch("LASTFM_RECENT_TRACKS", expires_in: 30.seconds, skip_nil: true) do
-      LASTFM_CLIENT.user.get_recent_tracks(user: ENV.fetch("LASTFM_USERNAME"), limit: 1, extended: 1)
+      LastFM.get_recent_tracks(user: ENV.fetch("LASTFM_USERNAME"), limit: 1, extended: 1)
     end
 
     if @recent.is_a? Array
@@ -56,7 +58,7 @@ class LastfmController < ApplicationController
       timestamp = @recent["date"]["uts"].to_i
     end
 
-    album_art = @recent&.[]("image")&.[](2)&.[]("content")
+    album_art = @recent&.[]("image")&.[](2)&.[]("#text")
     if album_art.present? && album_art.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
       @album_art = album_art
     end

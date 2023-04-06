@@ -19,9 +19,9 @@
       <h3 class="artist-name">
         <%= "#{@recent['artist']['name'].upcase}" %>
       </h3>
-      <% if @recent['album']['content'].present? %>
+      <% if @recent['album']['#text'].present? %>
         <h4 class="album-name">
-          <%= "#{@recent['album']['content']}" %>
+          <%= "#{@recent['album']['#text']}" %>
         </h4>
       <% end %>
       <div class="status-container">

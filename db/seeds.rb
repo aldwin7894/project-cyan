@@ -18,3 +18,6 @@ GameId.create(name: "Love Live! All Stars (JP Server)", ign: "CyanNyan", game_id
 GameId.create(name: "SHOW BY ROCK!! FES A LIVE (JP Server)", ign: "CyanNyan", game_id: "UEKGJQ58", icon_filename: "shobafes.webp")
 GameId.create(name: "Uma Musume Pretty Derby (JP Server)", ign: "CyanNyan", game_id: "258149676", icon_filename: "umamusume.webp")
 GameId.create(name: "Revue Starlight Re LIVE (EN Server)", ign: "CyanNyan", game_id: "6328475113", icon_filename: "revue.webp")
+
+SpotifyArtistWhitelist.delete_all
+SpotifyArtistWhitelist.create(name: "Heavenly", spotify_id: "7j3etSXgd9ZLYIUW7KWnpd")

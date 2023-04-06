@@ -59,7 +59,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "lastfm", "~> 1.27"
+gem "httparty", "~> 0.21.0"
 
 gem "devise", "~> 4.9"
 

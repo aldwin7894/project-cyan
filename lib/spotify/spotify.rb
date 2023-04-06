@@ -4,9 +4,6 @@ module Spotify
   ACCESS_TOKEN_URL = "https://accounts.spotify.com/api/token"
   GET_ARTIST_URL = "https://api.spotify.com/v1/artists"
   SEARCH_URL = "https://api.spotify.com/v1/search"
-  ARTISTS_WHITELIST = {
-    "Heavenly": "7j3etSXgd9ZLYIUW7KWnpd"
-  }
   JSON_HEADER = {
     "Accept": "application/json",
     "Content-Type": "application/json",
@@ -50,7 +47,9 @@ module Spotify
 
   def Spotify.get_artist_id_by_name(name)
     if name.blank? then return end
-    if ARTISTS_WHITELIST[name.to_sym] then return ARTISTS_WHITELIST[name.to_sym] end
+
+    whitelist = SpotifyArtistWhitelist.find_by(name:)
+    if whitelist.present? then return whitelist.spotify_id end
 
     headers = {
       **JSON_HEADER,
