@@ -85,8 +85,8 @@ class DiscordBannerController < ApplicationController
       when "Jellyfin"
         title = "Watching on #{activity&.name}"
         large_image = "https://#{large_image.split("https/").last.split(".png").first}?fillWidth=64&quality=80" if large_image.include? "jellyfin."
-        details = activity&.details.remove!("Watching").strip
-        subdetails = activity&.state
+        details = activity&.state
+        subdetails = activity&.details.remove!("Watching").strip
       when "Music"
         title = "Listening to #{activity&.name}"
         details = activity&.details
