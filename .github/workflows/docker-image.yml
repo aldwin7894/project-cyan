@@ -1,4 +1,5 @@
 name: Docker Image CI
+permissions: read-all
 
 on:
   push:
@@ -37,9 +38,9 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
           secrets: |
-            TZ="Asia/Manila"
-            RAILS_ENV="production"
-            NODE_ENV="production"
+            TZ=${{ secrets.TZ }}
+            RAILS_ENV=${{ secrets.RAILS_ENV }}
+            NODE_ENV=${{ secrets.NODE_ENV }}
             OCCSON_ACCESS_TOKEN=${{ secrets.OCCSON_ACCESS_TOKEN }}
             OCCSON_PASSPHRASE=${{ secrets.OCCSON_PASSPHRASE }}
             RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}

@@ -1,14 +1,10 @@
 {
   "name": "project-cyan",
+  "version": "0.1.0",
   "private": false,
   "repository": "git@github.com:aldwin7894/project-cyan.git",
-  "author": "aldwin7894 <cyan@aldwin7894.win>",
   "license": "MIT",
-  "engines": {
-    "npm": ">= 9.4",
-    "node": "18.12.0",
-    "yarn": ">= 1.22"
-  },
+  "author": "aldwin7894 <cyan@aldwin7894.win>",
   "scripts": {
     "anilist:schema:dump": "npx apollo schema:download --endpoint=https://graphql.anilist.co ./db/schema.json",
     "docker:build": ". ./.env && docker compose build web",
@@ -16,6 +12,13 @@
     "rails:dev": ". ./.env.dev && bundle exec rails s -b 0.0.0.0",
     "vite:dev": "./bin/vite dev --debug"
   },
+  "browserslist": [
+    "defaults",
+    "chrome >= 87",
+    "firefox >= 78",
+    "safari >= 13",
+    "edge >= 88"
+  ],
   "dependencies": {
     "@hotwired/turbo-rails": "^7.3.0",
     "@rails/actioncable": "^7.0.4",
@@ -44,14 +47,6 @@
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-ruby": "^3.2.1"
   },
-  "version": "0.1.0",
-  "browserslist": [
-    "defaults",
-    "chrome >= 87",
-    "firefox >= 78",
-    "safari >= 13",
-    "edge >= 88"
-  ],
   "devDependencies": {
     "@types/node": "^18.15.11",
     "@typescript-eslint/parser": "^5.57.1",
@@ -65,5 +60,10 @@
     "eslint-plugin-tailwindcss": "^3.11.0",
     "prettier": "^2.8.7",
     "typescript": "^5.0.3"
+  },
+  "engines": {
+    "node": "18.12.0",
+    "npm": ">= 9.4",
+    "yarn": ">= 1.22"
   }
 }

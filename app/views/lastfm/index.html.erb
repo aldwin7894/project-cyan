@@ -3,7 +3,7 @@
   <%= render partial: "lastfm/styles", formats: [:css] %>
 </style>
 
-<% if @recent&.[]('nowplaying') %>
+<% if @recent&.[]("@attr")&.[]('nowplaying').present? %>
   <script type="text/javascript">
     <%= render partial: "lastfm/timer", formats: [:js] %>
   </script>

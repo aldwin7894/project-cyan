@@ -2,7 +2,7 @@
   <div class="w-full h-full bg-center bg-cover" style="background-image: url('<%= @album_art.present? ? cached_image_url_to_base64(@album_art) : vite_url_to_base64(vite_asset_url("images/lastfm-placeholder-2.webp")) %>')">
     <div class="backdrop-brightness-100 bg-gradient-radial from-transparent to-black/95 flex flex-col items-stretch w-full h-full gap-5 px-4 py-4 text-white" x-data="">
       <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="hover:underline text-lg font-bold text-left">
-        <% if @lastfm_recent&.[]('nowplaying') %>
+        <% if @lastfm_recent&.[]("@attr")&.[]('nowplaying').present? %>
           LAST.FM (NOW PLAYING)
         <% else %>
           LAST.FM
@@ -11,7 +11,7 @@
       <div class="flex flex-col items-center justify-end h-full gap-5" x-data="">
         <button></button>
         <% if @lastfm_recent.present? %>
-          <% if @lastfm_recent&.[]('nowplaying') %>
+          <% if @lastfm_recent&.[]("@attr")&.[]('nowplaying').present? %>
             <div id="equalizer" class="flex flex-row justify-center w-full gap-0.5 mix-blend-overlay">
               <div class="eq-bar-0 flex self-end"></div>
               <div class="eq-bar-1 flex self-end"></div>
@@ -67,6 +67,11 @@
             </div>
           <% end %>
           <div class="flex flex-col w-full gap-0 text-left">
+            <% if @lastfm_recent&.[]("@attr")&.[]('nowplaying').present? %>
+              <div id="elapsed-time" class="text-xl">
+                <%= @elapsed_time %>
+              </div>
+            <% end %>
             <div x-on:click="window.open('<%= @lastfm_recent["artist"]["url"] %>')" class="line-clamp-1 hover:underline text-2xl font-bold cursor-pointer">
               <%= "#{@lastfm_recent['artist']['name'].upcase}" %>
             </div>
@@ -84,7 +89,7 @@
             <div x-on:click="window.open('<%= @lastfm_recent["url"] %>')" class="text-[#3cb4f1] text-4xl font-bold line-clamp-2 break-words hover:underline cursor-pointer">
               <%= @lastfm_recent["name"] %>
             </div>
-            <% if @lastfm_recent['nowplaying'].blank? %>
+            <% if @lastfm_recent&.[]("@attr")&.[]('nowplaying').blank? %>
               <div>
                 <div x-on:click="window.open('https://www.last.fm/user/aldwin7894/library')" class="hover:underline line-clamp-1 text-lg break-words cursor-pointer">
                   last played
@@ -113,4 +118,14 @@
       </div>
     </div>
   </div>
+
+  <% if @lastfm_recent&.[]("@attr")&.[]('nowplaying').present? %>
+    <script type="text/javascript">
+      document.addEventListener('turbo:frame-load', (event) => {
+        if (event.target.id === "lastfm_stats") {
+          <%= render partial: "lastfm/timer", formats: [:js] %>
+        }
+      });
+    </script>
+  <% end %>
 </turbo-frame>

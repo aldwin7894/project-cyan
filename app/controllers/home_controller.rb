@@ -161,13 +161,18 @@ class HomeController < ApplicationController
       LastFM.get_recent_tracks(user: ENV.fetch("LASTFM_USERNAME"), limit: 1, extended: 1)
     end
     if @lastfm_recent.is_a? Array
+      timestamp = @lastfm_recent.last["date"]["uts"].to_i
       @lastfm_recent = @lastfm_recent.first
+    else
+      timestamp = @lastfm_recent["date"]["uts"].to_i
     end
 
     album_art = @lastfm_recent&.[]("image")&.[](3)&.[]("#text")
     if album_art.present? && album_art.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
       @album_art = album_art.split("300x300").join("400x400")
     end
+
+    @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"
 
     render layout: false
   rescue LastFM::ApiError

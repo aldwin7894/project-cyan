@@ -96,5 +96,8 @@ USER docker
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
 EXPOSE 3000
 
+HEALTHCHECK  --interval=5m --timeout=3s \
+  CMD wget --no-verbose --tries=1 --spider http://0.0.0.0:3000/ping || exit 1
+
 # Configure the main process to run when running the image
 CMD ["bin/rails", "s", "-b", "0.0.0.0"]

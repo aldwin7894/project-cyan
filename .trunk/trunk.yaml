@@ -10,7 +10,7 @@ merge:
 plugins:
   sources:
     - id: trunk
-      ref: v0.0.14
+      ref: v0.0.15
       uri: https://github.com/trunk-io/plugins
 runtimes:
   enabled:
@@ -61,3 +61,5 @@ lint:
     - hadolint@2.12.0
     - gitleaks@8.16.2
     - yamllint@1.30.0
+    - checkov@2.3.152
+    - sort-package-json@2.4.1
