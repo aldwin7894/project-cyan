@@ -4,8 +4,6 @@ ENV NODE_VERSION 18.12.0
 ENV NPM_VERSION 8.16.0
 ENV YARN_VERSION 1.22.0
 ENV BUNDLE_PATH=/gems
-ENV BUNDLE_WITHOUT="development test"
-ENV BUNDLE_DEPLOYMENT=true
 ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
 RUN apt-get update -yq \
@@ -62,8 +60,6 @@ FROM ruby:3.2.1-slim-bullseye
 
 ENV NODE_VERSION 18.12.0
 ENV BUNDLE_PATH=/gems
-ENV BUNDLE_WITHOUT="development test"
-ENV BUNDLE_DEPLOYMENT=true
 ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
 RUN apt-get update -yq \
@@ -96,7 +92,7 @@ USER docker
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
 EXPOSE 3000
 
-HEALTHCHECK  --interval=5m --timeout=3s \
+HEALTHCHECK --interval=5m --timeout=10s --retries=5 --start-period=10s  \
   CMD wget --no-verbose --tries=1 --spider http://0.0.0.0:3000/ping || exit 1
 
 # Configure the main process to run when running the image

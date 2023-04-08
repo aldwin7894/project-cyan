@@ -18,6 +18,11 @@ export OCCSON_PASSPHRASE
 export RAILS_MASTER_KEY
 export RAILS_ASSET_HOST
 
+if [[ ${RAILS_ENV} == "production" ]]; then
+	export BUNDLE_WITHOUT="development test"
+	export BUNDLE_DEPLOYMENT=true
+fi
+
 yarn install --frozen-lockfile
 bin/bundle install -j4
 

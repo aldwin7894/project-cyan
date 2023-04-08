@@ -30,6 +30,15 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  redisinsight:
+    container_name: aldwin7894-redisinsight
+    image: redislabs/redisinsight:latest
+    restart: always
+    ports:
+      - 8001:8001
+    volumes:
+      - redisinsight:/db
+
   web:
     build:
       context: .
@@ -51,7 +60,7 @@ services:
     ports:
       - 3000:3000
     environment:
-      - DATABASE_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@db:27017/${MONGO_DB}
+      - DATABASE_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@192.168.100.10:27017/${MONGO_DB}
       - REDIS_URL=redis://redis:6379
       - TZ=Asia/Manila
       - RAILS_MASTER_KEY
@@ -60,18 +69,13 @@ services:
       - RAILS_ASSET_HOST
       - OCCSON_ACCESS_TOKEN
       - OCCSON_PASSPHRASE
-    # healthcheck:
-    #   test: wget -nv -t1 --spider http://web:3000/healthcheck || exit 1
-    #   interval: 5m
-    #   timeout: 10s
-    #   retries: 5
-    #   start_period: 10s
 
+# trunk-ignore-begin(yamllint/empty-values)
 volumes:
-  # trunk-ignore(yamllint/empty-values)
   dbdata:
-  # trunk-ignore(yamllint/empty-values)
   redis:
+  redisinsight:
+# trunk-ignore-end(yamllint/empty-values)
 
 secrets:
   TZ:
