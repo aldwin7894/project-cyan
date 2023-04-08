@@ -115,7 +115,21 @@ class DiscordBannerController < ApplicationController
       details:,
       subdetails:,
       large_image:,
-      icon:
+      icon:,
+      details_width: estimate_text_width(details),
+      subdetails_width: estimate_text_width(subdetails),
     }
+  end
+
+  def estimate_text_width(text)
+    alphanumeric_regex = /[^a-zA-Z0-9_]/i
+    symbol_regex = /[^ !@#$%^&*()+=\[\]{};':",.\/<>?-]/i
+    alphanumeric = text.gsub(alphanumeric_regex, "")
+    symbols = text.gsub(symbol_regex, "")
+    non_alphanumeric = text.tr(symbols + alphanumeric, "").length * 14.5
+    alphanumeric = alphanumeric.length * 8.91
+    symbols = symbols.length * 7.0
+
+    (alphanumeric + symbols + non_alphanumeric).ceil
   end
 end

@@ -90,25 +90,8 @@
   <% end %>
 }
 
-.activity-details-container {
-  display: flex;
-  align-items: center;
-  max-width: 395px;
-  margin-bottom: 2px;
-}
-
 .spotify {
   min-width: 24px;
-}
-
-.activity-details {
-  color: #E8C896;
-  font-style: italic;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
-  width: 100%;
 }
 
 .username {
@@ -186,17 +169,59 @@ h6 {
   margin-bottom: 2px;
 }
 
+<% width = @activity&.[](:details_width).to_i %>
+.activity-details-container {
+  color: #E8C896;
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: 0;
+  max-width: 395px;
+  margin-bottom: 2px;
+
+  <% if width > 395 %>
+    -webkit-mask-image: linear-gradient(var(--mask-direction, to right), hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 20%, hsl(0 0% 0% / 1) 80%, hsl(0 0% 0% / 0));
+    mask-image: linear-gradient(var(--mask-direction, to right), hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 20%, hsl(0 0% 0% / 1) 80%, hsl(0 0% 0% / 0));
+  <% end %>
+}
+
+.activity-details-container span {
+  <% if width > 395 %>
+    <% duration = ((width / 395).ceil * 5) + 10 %>
+    <% overflow = (width - (width * 0.3).ceil) %>
+    animation: marquee <%= duration %>s linear infinite alternate;
+    --overflow: -<%= overflow %>px;
+  <% end %>
+  position: relative;
+  left: calc(var(--overflow) * -0.15);
+}
+
+<% width = @activity&.[](:subdetails_width).to_i %>
 .activity-subdetails-container {
   color: #0FD0BE;
-  work-break: break-word;
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   min-width: 0;
-  max-width: 350px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  <% if @activity&.[](:subdetails)&.length.to_i > 37 %>
-    font-size: 12px;
+  max-width: 360px;
+
+  <% if width > 360 %>
+    -webkit-mask-image: linear-gradient(var(--mask-direction, to right), hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 20%, hsl(0 0% 0% / 1) 80%, hsl(0 0% 0% / 0));
+    mask-image: linear-gradient(var(--mask-direction, to right), hsl(0 0% 0% / 0), hsl(0 0% 0% / 1) 20%, hsl(0 0% 0% / 1) 80%, hsl(0 0% 0% / 0));
   <% end %>
+}
+
+.activity-subdetails-container span {
+  <% if width > 360 %>
+    <% duration = ((width / 360).ceil * 5) + 10 %>
+    <% overflow = (width / 2).ceil %>
+    animation: marquee <%= duration %>s linear infinite alternate;
+    --overflow: -<%= overflow %>px;
+  <% end %>
+  position: relative;
+  left: calc(var(--overflow) * -0.15);
+}
+
+@keyframes marquee {
+  from { left: calc(var(--overflow) * -0.15) }
+  to { left: var(--overflow) }
 }
