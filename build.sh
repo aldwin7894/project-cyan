@@ -19,8 +19,8 @@ export RAILS_MASTER_KEY
 export RAILS_ASSET_HOST
 
 if [[ ${RAILS_ENV} == "production" ]]; then
-	export BUNDLE_WITHOUT="development test"
-	export BUNDLE_DEPLOYMENT=true
+	bin/bundle config without "development test"
+	bin/bundle config frozen "true"
 fi
 
 yarn install --frozen-lockfile
