@@ -274,7 +274,7 @@ span, em, b, strong, i, p {
   border-radius: 5px;
   width: 102px;
   height: 102px;
-  background: url(<%= vite_url_to_base64(vite_asset_url("images/lastfm-placeholder-3-sprite.webp")) %>) left center;
+  background: url(<%= @recent.blank? || @album_art.blank? ? vite_url_to_base64(vite_asset_url("images/lastfm-placeholder-3-sprite.webp")) : nil %>) left center;
   background-size: cover;
   border: 3px solid white;
   animation: play 3.5s steps(11) infinite;
