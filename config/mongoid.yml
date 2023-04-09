@@ -196,8 +196,6 @@ production:
         auth_mech: :scram
         auth_source: admin
         max_pool_size: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-        skip_version_check: true
-        safe: true
   options:
     app_name: project-cyan
     raise_not_found_error: false
