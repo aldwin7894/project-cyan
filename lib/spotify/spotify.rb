@@ -37,12 +37,26 @@ module Spotify
       ids:
     }
 
-    res = HTTParty.get(GET_ARTIST_URL, headers:, query:, timeout: 10)
-    return if res.code >= 300
-    artists = JSON.parse(res.body)
-    Rails.cache.fetch("#{ids.remove(",")}/SPOTIFY_ARTIST_IMAGES", expires_in: 1.week, skip_nil: true) do
-      artists&.[]("artists")&.pluck("images")&.map { |x| x[1]["url"] }
+    cache_key = "#{ids.remove(",")}/SPOTIFY_ARTIST_IMAGES"
+    if Rails.cache.exist? cache_key
+      Rails.logger.tagged("CACHE", "Spotify.get_artists_images", cache_key) do
+        Rails.logger.info("HIT")
+      end
+      artist_images = Rails.cache.fetch(cache_key)
+    else
+      Rails.logger.tagged("CACHE", "Spotify.get_artists_images", cache_key) do
+        Rails.logger.info("MISS")
+      end
+      artist_images = Rails.cache.fetch(cache_key, expires_in: 1.week, skip_nil: true) do
+        res = HTTParty.get(GET_ARTIST_URL, headers:, query:, timeout: 10)
+        return if res.code >= 300
+
+        artists = JSON.parse(res.body)
+        artists&.[]("artists")&.pluck("images")&.map { |x| x[1]["url"] }
+      end
     end
+
+    artist_images
   end
 
   def Spotify.get_artist_id_by_name(name)
@@ -61,9 +75,26 @@ module Spotify
       type: "artist",
       limit: 1
     }
-    res = HTTParty.get(SEARCH_URL, headers:, query:, timeout: 10)
-    return if res.code >= 300
-    artist = JSON.parse(res.body)
-    artist&.[]("artists")&.[]("items")&.[](0)&.[]("uri")&.split(":")&.last
+
+    cache_key = "SPOTIFY_ARTIST_ID_#{name.parameterize(separator: '_')}"
+    if Rails.cache.exist? cache_key
+      Rails.logger.tagged("CACHE", "Spotify.get_artist_id_by_name", cache_key) do
+        Rails.logger.info("HIT")
+      end
+      artist_id = Rails.cache.fetch(cache_key)
+    else
+      Rails.logger.tagged("CACHE", "Spotify.get_artist_id_by_name", cache_key) do
+        Rails.logger.info("MISS")
+      end
+      artist_id = Rails.cache.fetch(cache_key, expires_in: 1.month, skip_nil: true) do
+        res = HTTParty.get(SEARCH_URL, headers:, query:, timeout: 10)
+        return if res.code >= 300
+
+        artist = JSON.parse(res.body)
+        artist&.[]("artists")&.[]("items")&.[](0)&.[]("uri")&.split(":")&.last
+      end
+    end
+
+    artist_id
   end
 end

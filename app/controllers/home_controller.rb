@@ -21,11 +21,23 @@ class HomeController < ApplicationController
     user_id = ENV.fetch("ANILIST_USER_ID")
     now = Time.zone.now
     end_of_day = now.end_of_day
-    @user_statistics = Rails.cache.fetch("ANILIST_USER_STATS_#{ENV.fetch('ANILIST_USERNAME')}", expires_in: (end_of_day.to_i - now.to_i).seconds, skip_nil: true) do
-      user_statistics = query(AniList::UserStatisticsQuery, user_id:)
-      user_statistics.user.statistics.anime.to_h
-    end
     colors = ["#ed2626", "#ab2425", "#712625"]
+
+    cache_key = "ANILIST_USER_STATS_#{ENV.fetch('ANILIST_USERNAME').upcase}"
+    if Rails.cache.exist? cache_key
+      logger.tagged("CACHE", "anilist_user_statistics", cache_key) do
+        logger.info("HIT")
+      end
+      @user_statistics = Rails.cache.fetch(cache_key)
+    else
+      logger.tagged("CACHE", "anilist_user_statistics", cache_key) do
+        logger.info("MISS")
+      end
+      @user_statistics = Rails.cache.fetch(cache_key, expires_in: (end_of_day.to_i - now.to_i).seconds, skip_nil: true) do
+        user_statistics = query(AniList::UserStatisticsQuery, user_id:)
+        user_statistics.user.statistics.anime.to_h
+      end
+    end
 
     case turbo_frame_request_id
     when "favorite_anime_genres"
@@ -106,22 +118,34 @@ class HomeController < ApplicationController
     last_month = (now - 1.month).beginning_of_month.to_i
     page = 1
 
-    data = query(AniList::UserAnimeActivitiesLastPageQuery, date: last_month, user_id:, page:, per_page: 50)
-    last_page = data.page.page_info.last_page
+    # disable querying last page temporarily, until anilist fixes it
+    # data = query(AniList::UserAnimeActivitiesLastPageQuery, date: last_month, user_id:, page:, per_page: 50)
+    # last_page = data.page.page_info.last_page
 
     loop do
-      expires_in = last_page === page ? 8.hours : 1.week
-      res = Rails.cache.fetch("#{last_month.to_i}_#{page}/ANILIST_USER_ACTIVITIES_#{ENV.fetch('ANILIST_USERNAME')}", expires_in:, skip_nil: true) do
+      cache_key = "#{last_month.to_i}_#{page}/ANILIST_USER_ACTIVITIES_#{ENV.fetch('ANILIST_USERNAME').upcase}"
+      if !Rails.cache.exist? cache_key
+        logger.tagged("CACHE", "anilist_user_activities", cache_key) do
+          logger.info("MISS")
+        end
         data = query(AniList::UserAnimeActivitiesQuery, date: last_month, user_id:, page:, per_page: 50)
-        { data: data.page.activities.to_a.map(&:to_h), has_next_page: data.page.page_info.has_next_page? }
+        has_next_page = data.page.page_info.has_next_page?
+        expires_in = has_next_page == false ? 8.hours : 1.week
+        res = Rails.cache.fetch(cache_key, expires_in:, skip_nil: true) do
+          { data: data.page.activities.to_a.map(&:to_h), has_next_page: }
+        end
+      else
+        logger.tagged("CACHE", "anilist_user_activities", cache_key) do
+          logger.info("HIT")
+        end
+        res = Rails.cache.fetch(cache_key)
+        has_next_page = res[:has_next_page]
       end
 
       @user_activity.push(*res[:data])
-      if res[:has_next_page] == false
-        break
-      else
-        page += 1
-      end
+      break if has_next_page == false
+
+      page += 1
     end
 
     @user_activity = @user_activity.select { |x| IGNORED_USER_STATUS.exclude? x["status"] }
@@ -159,9 +183,8 @@ class HomeController < ApplicationController
 
   def lastfm_stats
     @album_art = nil
-    @lastfm_recent = Rails.cache.fetch("LASTFM_RECENT_TRACKS", expires_in: 30.seconds, skip_nil: true) do
-      LastFM.get_recent_tracks(user: ENV.fetch("LASTFM_USERNAME"), limit: 1, extended: 1)
-    end
+    @lastfm_recent = LastFM.get_recent_tracks(user: ENV.fetch("LASTFM_USERNAME"), limit: 1, extended: 1)
+
     if @lastfm_recent.is_a? Array
       timestamp = @lastfm_recent.last["date"]["uts"].to_i
       @lastfm_recent = @lastfm_recent.first
@@ -183,16 +206,12 @@ class HomeController < ApplicationController
   end
 
   def lastfm_top_artists
-    @lastfm_top_artists = Rails.cache.fetch("LASTFM_TOP_ARTISTS", expires_in: 1.week, skip_nil: true) do
-      LastFM.get_top_artists(user: ENV.fetch("LASTFM_USERNAME"), period: "overall", limit: 12)
-    end
+    @lastfm_top_artists = LastFM.get_top_artists(user: ENV.fetch("LASTFM_USERNAME"), period: "overall", limit: 12)
 
     artist_names = @lastfm_top_artists.pluck("name")
     artist_ids = []
     artist_names.each do |name|
-      artist_id = Rails.cache.fetch("SPOTIFY_ARTIST_ID_#{name.parameterize(separator: '_')}", expires_in: 1.month, skip_nil: true) do
-        Spotify.get_artist_id_by_name(name)
-      end
+      artist_id = Spotify.get_artist_id_by_name(name)
       artist_ids.push(artist_id)
     end
     images = Spotify.get_artists_images(artist_ids.join(","))

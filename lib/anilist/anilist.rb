@@ -18,11 +18,11 @@ module AniList
   Client ||= GraphQL::Client.new(schema: Schema, execute: Http)
 
   UserIdQuery = Client.parse <<-'GRAPHQL'
-      query($username: String) {
-        User(name: $username) {
-          id
-        }
+    query($username: String) {
+      User(name: $username) {
+        id
       }
+    }
   GRAPHQL
 
   UserFollowersQuery = AniList::Client.parse <<-'GRAPHQL'
@@ -91,11 +91,9 @@ module AniList
     query($user_id: Int!, $page: Int, $per_page: Int, $date: Int) {
       Page(page: $page, perPage: $per_page) {
         pageInfo {
-          total
           hasNextPage
         }
         activities(userId: $user_id, createdAt_greater: $date, sort: ID_DESC, type: ANIME_LIST) {
-          __typename
           ... on ListActivity {
             media {
               format

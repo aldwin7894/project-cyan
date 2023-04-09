@@ -31,7 +31,7 @@ HttpLog.configure do |config|
 
   # Limit logging based on URL patterns
   config.url_whitelist_pattern = /.*/
-  config.url_blacklist_pattern = /newrelic|amazonaws/
+  config.url_blacklist_pattern = /newrelic|amazonaws|192\.168\./
 
   # Mask sensitive information in request and response JSON data.
   # Enable global JSON masking by setting the parameter to `/.*/`

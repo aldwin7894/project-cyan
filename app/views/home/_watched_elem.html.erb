@@ -27,13 +27,13 @@
       <% end %>
     </div>
   </button>
-  <button x-on:click="window.open('<%= activity["siteUrl"] %>')" class="text-md hover:underline text-red-500">
+  <div x-on:click="window.open('<%= activity["siteUrl"] %>')" class="text-md hover:underline hover:cursor-pointer text-red-500">
     <%= activity["status"].titleize %> <%= activity["progress"] %>
-  </button>
-  <div class="dark:text-white line-clamp-2 text-lg font-bold break-words" title="<%= activity["media"]["title"]["userPreferred"] %>" data-tippy="tooltip" data-tippy-content="<%= activity["media"]["title"]["userPreferred"] %>">
+  </div>
+  <div x-on:click="window.open('<%= activity["media"]["siteUrl"] %>')" class="dark:text-white line-clamp-1 hover:underline hover:cursor-pointer text-lg font-bold" data-tippy="tooltip" data-tippy-content="<%= activity["media"]["title"]["userPreferred"] %>">
     <%= activity["media"]["title"]["userPreferred"] %>
   </div>
-  <div class="dark:text-[#bfb3a4] text-slate-600 text-sm">
+  <div x-on:click="window.open('<%= activity["siteUrl"] %>')" class="dark:text-[#bfb3a4] text-slate-600 text-sm hover:underline hover:cursor-pointer">
     <%= Time.zone.at(activity["createdAt"].to_i).strftime("%B %e, %Y %r") %>
   </div>
 </div>

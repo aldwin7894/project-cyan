@@ -32,12 +32,14 @@ module LastFM
       user:,
     }
 
-    res = HTTParty.get(BASE_URL, headers:, query:, timeout: 10)
-    unless res.success?
-      raise ApiError.new(res["message"], res["error"])
-    end
+    Rails.cache.fetch("LASTFM_RECENT_TRACKS", expires_in: 30.seconds, skip_nil: true) do
+      res = HTTParty.get(BASE_URL, headers:, query:, timeout: 10)
+      unless res.success?
+        raise ApiError.new(res["message"], res["error"])
+      end
 
-    res["recenttracks"]["track"]
+      res["recenttracks"]["track"]
+    end
   end
 
   def LastFM.get_top_artists(user:, period:, limit:)
@@ -53,11 +55,26 @@ module LastFM
       user:,
     }
 
-    res = HTTParty.get(BASE_URL, headers:, query:, timeout: 10)
-    unless res.success?
-      raise ApiError.new(res["message"], res["error"])
+    cache_key = "LASTFM_TOP_ARTISTS"
+    if Rails.cache.exist? cache_key
+      Rails.logger.tagged("CACHE", "LastFM.get_top_artists", cache_key) do
+        Rails.logger.info("HIT")
+      end
+      top_artists = Rails.cache.fetch(cache_key)
+    else
+      Rails.logger.tagged("CACHE", "LastFM.get_top_artists", cache_key) do
+        Rails.logger.info("MISS")
+      end
+      top_artists = Rails.cache.fetch(cache_key, expires_in: 1.week, skip_nil: true) do
+        res = HTTParty.get(BASE_URL, headers:, query:, timeout: 10)
+        unless res.success?
+          raise ApiError.new(res["message"], res["error"])
+        end
+
+        res["topartists"]["artist"]
+      end
     end
 
-    res["topartists"]["artist"]
+    top_artists
   end
 end

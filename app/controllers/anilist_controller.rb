@@ -11,7 +11,7 @@ class AnilistController < ApplicationController
     @success = false
     return @error = "Username can't be empty" if params[:username].blank?
 
-    id = Rails.cache.fetch("ANILIST_USER_ID_#{params[:username]}", expires_in: 1.week, skip_nil: true) do
+    id = Rails.cache.fetch("ANILIST_USER_ID_#{params[:username]}", expires_in: 1.year, skip_nil: true) do
       query(AniList::UserIdQuery, username: params[:username]).user.id
     end
 
