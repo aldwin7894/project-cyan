@@ -38,14 +38,16 @@ lint:
         - db/**
         - node_modules/**
   enabled:
-    - eslint@8.37.0:
+    - eslint@8.38.0:
         packages:
           - eslint-config-airbnb-base
+          - eslint-config-prettier
           - eslint-import-resolver-alias
           - eslint-plugin-html-erb
           - eslint-plugin-import
+          - eslint-plugin-prettier
           - eslint-plugin-tailwindcss
-    - rubocop@1.39.0:
+    - rubocop@1.49.0:
         packages:
           - rubocop-packaging
           - rubocop-performance

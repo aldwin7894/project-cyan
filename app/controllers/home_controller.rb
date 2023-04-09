@@ -213,7 +213,7 @@ class HomeController < ApplicationController
   def site; end
 
   def ping
-    render plain: "Welcome to aldwin7894"
+    render plain: "Welcome to project-cyan"
   end
 
   private

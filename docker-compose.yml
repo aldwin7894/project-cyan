@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   db:
-    container_name: aldwin7894-mongo
+    container_name: project-cyan-mongo
     image: mongo:4.4
     restart: always
     environment:
@@ -14,7 +14,7 @@ services:
     volumes:
       - dbdata:/data/db
   redis:
-    container_name: aldwin7894-redis
+    container_name: project-cyan-redis
     image: redis:alpine
     command: redis-server /usr/local/etc/redis/redis.conf
     restart: always
@@ -31,7 +31,7 @@ services:
       timeout: 5s
       retries: 5
   redisinsight:
-    container_name: aldwin7894-redisinsight
+    container_name: project-cyan-redisinsight
     image: redislabs/redisinsight:latest
     restart: always
     ports:
@@ -51,7 +51,7 @@ services:
         - OCCSON_PASSPHRASE
         - RAILS_MASTER_KEY
         - RAILS_ASSET_HOST
-    container_name: aldwin7894-app
+    container_name: project-cyan-app
     image: aldwin7894/project-cyan:prod
     restart: always
     depends_on:
