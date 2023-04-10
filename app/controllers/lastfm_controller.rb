@@ -9,9 +9,10 @@ class LastfmController < ApplicationController
 
   FERRUM_OPTIONS = {
     window_size: [600, 122],
-    browser_path: "/usr/bin/#{Rails.env.development? ? 'chromium-browser' : 'chromium'}",
+    browser_path: "/usr/bin/microsoft-edge-beta",
     browser_options: {
-      'no-sandbox': nil
+      'no-sandbox': nil,
+      'no-first-run': nil
     },
     timeout: 60,
     pending_connection_errors: false
