@@ -6,7 +6,8 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  docker-image:
+    name: Build Docker Image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

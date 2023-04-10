@@ -9,7 +9,7 @@ class DiscordBannerController < ApplicationController
 
   FERRUM_OPTIONS = {
     window_size: [600, 126],
-    browser_path: "/usr/bin/google-chrome",
+    browser_path: "/usr/bin/#{Rails.env.development? ? 'chromium-browser' : 'chromium'}",
     browser_options: {
       'no-sandbox': nil
     },

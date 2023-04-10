@@ -1,4 +1,4 @@
-FROM ruby:3.2.1-slim-bullseye AS build-env
+FROM ruby:3.2.2-slim-bullseye AS build-env
 
 ENV NODE_VERSION 18.12.0
 ENV NPM_VERSION 8.16.0
@@ -18,10 +18,7 @@ RUN apt-get update -yq \
   && tar xzf "node-v$NODE_VERSION-linux-x64.tar.gz" --directory / \
   && npm i -g npm@$NPM_VERSION yarn@$YARN_VERSION \
   && npm cache clean --force \
-  && rm -f "./node-v$NODE_VERSION-linux-x64.tar.gz" \
-  && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
-  && apt-get clean \
-  && apt-get autoremove
+  && rm -f "./node-v$NODE_VERSION-linux-x64.tar.gz"
 
 WORKDIR /usr/src/app
 COPY app/ ./app/
@@ -56,19 +53,17 @@ RUN --mount=type=secret,id=TZ \
     && bash ./build.sh
 
 #==============================================
-FROM ruby:3.2.1-slim-bullseye
+FROM ruby:3.2.2-slim-bullseye
 
 ENV NODE_VERSION 18.12.0
 ENV BUNDLE_PATH=/gems
 ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
 RUN apt-get update -yq \
-  && apt-get install gnupg wget -yq --no-install-recommends \
-  && wget --quiet --output-document=- https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor > /etc/apt/trusted.gpg.d/google-archive.gpg \
-  && bash -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
-  && apt-get update -yq \
   && apt-get install -yq --no-install-recommends \
-  google-chrome-stable \
+  gnupg \
+  wget \
+  chromium \
   libjemalloc2 \
   tzdata \
   && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
