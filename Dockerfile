@@ -93,4 +93,4 @@ HEALTHCHECK --interval=5m --timeout=10s --retries=5 --start-period=10s  \
   CMD wget --no-verbose --tries=1 --spider http://0.0.0.0:3000/ping || exit 1
 
 # Configure the main process to run when running the image
-CMD ["LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2", "bin/rails", "s", "-b", "0.0.0.0"]
+CMD ["bin/rails", "s", "-b", "0.0.0.0"]

@@ -6,5 +6,8 @@ if [[ -f tmp/pids/server.pid ]]; then
 	rm -f tmp/pids/server.pid
 fi
 
+# Enable jemalloc
+export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+
 # Then exec the container's main process (what's set as CMD in the Dockerfile).
 exec "$@"
