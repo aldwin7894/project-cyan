@@ -74,9 +74,6 @@ RUN apt-get update -yq \
   && apt-get clean \
   && apt-get autoremove
 
-# enable jemalloc
-ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
-
 WORKDIR /usr/src/app
 COPY --from=build-env /usr/src/app .
 COPY --from=build-env /usr/local/bundle /usr/local/bundle
@@ -96,4 +93,4 @@ HEALTHCHECK --interval=5m --timeout=10s --retries=5 --start-period=10s  \
   CMD wget --no-verbose --tries=1 --spider http://0.0.0.0:3000/ping || exit 1
 
 # Configure the main process to run when running the image
-CMD ["bin/rails", "s", "-b", "0.0.0.0"]
+CMD ["LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2", "bin/rails", "s", "-b", "0.0.0.0"]
