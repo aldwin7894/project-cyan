@@ -3,37 +3,37 @@
 <% text_color = Kodachroma.paint(color).dark? ? "text-white" : "text-black" %>
 
 <div class="flex flex-col">
-  <button x-on:click="window.open('<%= activity["media"]["siteUrl"] %>')" class="mx-auto h-[350px] w-full bg-center bg-cover drop-shadow-lg" style="background-image: url(<%= cached_image_url_to_base64 activity["media"]["coverImage"]["extraLarge"] %>)">
+  <a href="<%= activity["media"]["siteUrl"] %>" rel="noopener noreferrer" class="mx-auto h-[350px] w-full bg-center bg-cover drop-shadow-lg" style="background-image: url(<%= cached_image_url_to_base64 activity["media"]["coverImage"]["extraLarge"] %>)">
     <div class="w-full h-full hover:opacity-[.08] absolute top-0 bottom-0 right-0 left-0 bg-black opacity-0 transition-opacity ease-linear"></div>
     <div class="dark:text-white dark:bg-black/80 bg-white/80 drop-shadow-lg absolute bottom-0 left-0 flex flex-col w-full gap-2 px-2 py-2 text-left">
       <div class="gap-x-4 flex flex-row">
-        <div class="line-clamp-2 flex flex-1">
+        <h3 class="line-clamp-2 flex flex-1">
           <%= activity["media"]["studios"]["nodes"].select { |x| x["isAnimationStudio"] == true }.first(2).pluck("name").join(", ") %>
-        </div>
-        <div class="flex-0 flex items-center gap-1">
+        </h3>
+        <h3 class="flex-0 flex items-center gap-1">
           <%= activity["media"]["mediaListEntry"]["score"] %>
           <iconify-icon icon="material-symbols:star" class="text-[#d0011b] dark:text-[gold]"></iconify-icon>
-        </div>
+        </h3>
       </div>
       <% if !activity["media"]["genres"].blank? %>
-        <div class="flex flex-row flex-wrap gap-1">
+        <h3 class="flex flex-row flex-wrap gap-1">
           <% activity["media"]["genres"].first(3).each do |genre| %>
             <span
               class="align-center w-max flex px-3 py-1 text-xs font-semibold rounded-full <%= text_color %>" style="background-color: <%= color %>">
               <%= genre.downcase %>
             </span>
           <% end %>
-        </div>
+        </h3>
       <% end %>
     </div>
-  </button>
-  <div x-on:click="window.open('<%= activity["siteUrl"] %>')" class="text-md hover:underline hover:cursor-pointer text-red-500">
-    <%= activity["status"].titleize %> <%= activity["progress"] %>
-  </div>
-  <div x-on:click="window.open('<%= activity["media"]["siteUrl"] %>')" class="dark:text-white line-clamp-1 hover:underline hover:cursor-pointer text-lg font-bold" data-tippy="tooltip" data-tippy-content="<%= activity["media"]["title"]["userPreferred"] %>">
-    <%= activity["media"]["title"]["userPreferred"] %>
-  </div>
-  <div x-on:click="window.open('<%= activity["siteUrl"] %>')" class="dark:text-[#bfb3a4] text-slate-600 text-sm hover:underline hover:cursor-pointer">
-    <%= Time.zone.at(activity["createdAt"].to_i).strftime("%B %e, %Y %r") %>
-  </div>
+  </a>
+  <a href="<%= activity["siteUrl"] %>" rel="noopener noreferrer" class="text-md hover:underline text-red-500">
+    <h3><%= activity["status"].titleize %> <%= activity["progress"] %></h3>
+  </a>
+  <a href="<%= activity["media"]["siteUrl"] %>" rel="noopener noreferrer" class="dark:text-white line-clamp-1 hover:underline text-lg font-bold" data-tippy="tooltip" data-tippy-content="<%= activity["media"]["title"]["userPreferred"] %>">
+    <h3><%= activity["media"]["title"]["userPreferred"] %></h3>
+  </a>
+  <a href="<%= activity["siteUrl"] %>" rel="noopener noreferrer" class="dark:text-[#bfb3a4] text-slate-600 text-sm hover:underline">
+    <h3><%= Time.zone.at(activity["createdAt"].to_i).strftime("%B %e, %Y %r") %></h3>
+  </a>
 </div>

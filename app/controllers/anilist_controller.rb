@@ -36,7 +36,7 @@ class AnilistController < ApplicationController
     loop do
       break if @following_done
 
-      sleep 0.5 unless Rails.env.development?
+      sleep 0.3 unless Rails.env.development?
       data = query(AniList::UserFollowingQuery, user_id: id, page: @following_page)
       @following_count ||= data.page.page_info.total
       @following.push(*data.page.following.map(&:name))
@@ -53,7 +53,7 @@ class AnilistController < ApplicationController
     loop do
       break if @followers_done
 
-      sleep 0.5 unless Rails.env.development?
+      sleep 0.3 unless Rails.env.development?
       data = query(AniList::UserFollowersQuery, user_id: id, page: @followers_page)
       @followers_count ||= data.page.page_info.total
       @followers.push(*data.page.followers.map(&:name))
@@ -68,18 +68,23 @@ class AnilistController < ApplicationController
 
 
     Rails.cache.fetch("ANILIST_FOLLOW_CHECKER_CD", expires_in: 2.minutes) do
-      now = Time.zone.now
-      now += 2.minutes
-      now
+      2.minutes.from_now
     end
     @success = true
   rescue QueryError => error
-    if error.to_s.include? "429 Too Many Requests"
-      sleep 15
-      fetch_followers(@following, @followers, @following_page, @followers_page, @following_done, @followers_done)
-      return
+    logger.tagged("ANILIST", "fetch_followers") do
+      logger.error(error)
     end
-    Rails.cache.write("ANILIST_FOLLOW_CHECKER_CD", nil)
-    @error = "Username not found"
+
+    case error.to_s
+    when "429 Too Many Requests"
+      sleep 10
+      fetch_followers(@following, @followers, @following_page, @followers_page, @following_done, @followers_done)
+    when "404 Not Found"
+      Rails.cache.write("ANILIST_FOLLOW_CHECKER_CD", nil)
+      @error = "#{params[:username]} was not found or has a private profile."
+    else
+      @error = "Something went wrong, plesae try again later."
+    end
   end
 end

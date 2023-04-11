@@ -1,8 +1,8 @@
 <turbo-frame id="watched_anime" x-data="">
-  <div class="dark:text-white my-10 text-4xl phone:text-center tablet:text-left <%= @watched_anime.blank? ? "opacity-0" : "" %>">
+  <h2 class="dark:text-white my-10 text-4xl phone:text-center tablet:text-left <%= @watched_anime.blank? ? "opacity-0" : "" %>">
     <iconify-icon icon="mdi:timer-play" width="35"></iconify-icon>
     Recently watched episodes
-  </div>
+  </h2>
   <div class="grid phone:grid-cols-1 gap-5 text-center tablet:grid-cols-2 laptop:grid-cols-3 desktop-lg:grid-cols-6 min-h-[322px]">
     <% @watched_anime&.first(6)&.each do |activity| %>
       <%= render "home/watched_elem", formats: [:html], activity: %>

@@ -1,6 +1,8 @@
 <turbo-frame id="favorite_anime_genres">
   <div class="flex flex-col w-full h-full px-4 py-4 text-white">
-    <button x-on:click="window.open('https://anilist.co/user/CyanNyan/stats/anime/genres')" class="hover:underline text-lg font-bold text-left text-white">FAVORITE ANIME GENRES</button>
+    <a href="https://anilist.co/user/CyanNyan/stats/anime/genres" rel="noopener noreferrer" class="hover:underline text-lg font-bold text-left text-white">
+      <h2>FAVORITE ANIME GENRES</h2>
+    </a>
     <div class="flex flex-row">
       <div class="grow flex flex-col">
         <div>
@@ -8,7 +10,7 @@
             <% @genre_list.each do |genre| %>
               <li class="flex flex-row gap-2 mt-2">
                 <div class="min-w-[20px] min-h-[20px] my-auto" style="background: <%= genre[:backgroundColor] %>"></div>
-                <div><%= genre[:label] %></div>
+                <h3><%= genre[:label] %></h3>
               </li>
             <% end %>
           </ul>

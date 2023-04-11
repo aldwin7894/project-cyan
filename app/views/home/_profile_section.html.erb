@@ -3,6 +3,7 @@
     <div class="carousel-inner relative flex-1">
       <% bgs.each_with_index do |num, i| %>
         <div class="w-full h-full carousel-item relative float-left background-cyan-<%= num %> <%= i == 0 ? "active" : "" %>">
+          <img src="<%= vite_asset_path "images/cyan-bg-#{num}.webp" %>" alt="carousel-item" class="visually-hidden">
         </div>
       <% end %>
 
@@ -17,48 +18,48 @@
               </video>
             </div>
             <div class="flex flex-col">
-              <div class="xs:text-5xl sm:text-5xl mb-2 text-6xl font-medium text-white">Cyan★Nyan♪</div>
-              <div class="dark:bg-black/80 dark:text-[#fffdfa] text-slate-700 bg-white/80 px-2 text-2xl text-center">
+              <h1 class="xs:text-5xl sm:text-5xl mb-2 text-6xl font-medium text-white">Cyan★Nyan♪</h1>
+              <h1 class="dark:bg-black/80 dark:text-[#fffdfa] text-slate-700 bg-white/80 px-2 text-2xl text-center">
                 ／<strong>aldwin7894</strong>／
-              </div>
+              </h1>
             </div>
             <div class="phone:px-2 xs:justify-center sm:justify-center desktop:pt-20 flex flex-row flex-wrap justify-start gap-4 pt-10" x-data="">
-              <button x-on:click="window.open('https://bit.ly/cyan-anilist')" class="text-white hover:text-[#02a9ff] h-fit" title="AniList" aria-label="AniList" data-tippy="tooltip" data-tippy-content="AniList">
+              <a href="https://bit.ly/cyan-anilist" rel="noopener noreferrer" class="text-white hover:text-[#02a9ff] h-fit" aria-label="AniList" data-tippy="tooltip" data-tippy-content="AniList">
                 <iconify-icon icon="simple-icons:anilist" width="50"></iconify-icon>
-              </button>
-              <button x-on:click="window.open('https://bit.ly/cyan-mal')" class="h-fit text-white" title="MyAnimeList" aria-label="MyAnimeList" data-tippy="tooltip" data-tippy-content="MyAnimeList">
+              </a>
+              <a href="https://bit.ly/cyan-mal" rel="noopener noreferrer" class="h-fit text-white"  aria-label="MyAnimeList" data-tippy="tooltip" data-tippy-content="MyAnimeList">
                 <iconify-icon icon="simple-icons:myanimelist" width="50" class="hover:bg-[#2f52a2] px-2 rounded-md"></iconify-icon>
-              </button>
-              <button x-on:click="window.open('https://spoti.fi/3PRGOmq')" class="text-white hover:text-[#1ed760] h-fit" title="Spotify" aria-label="Spotify" data-tippy="tooltip" data-tippy-content="Spotify">
+              </a>
+              <a href="https://spoti.fi/3PRGOmq" rel="noopener noreferrer" class="text-white hover:text-[#1ed760] h-fit" aria-label="Spotify" data-tippy="tooltip" data-tippy-content="Spotify">
                 <iconify-icon icon="akar-icons:spotify-fill" width="50"></iconify-icon>
-              </button>
-              <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="text-white hover:text-[#ba0000] h-fit" title="last.fm" aria-label="last.fm" data-tippy="tooltip" data-tippy-content="last.fm">
+              </a>
+              <a href="https://bit.ly/cyan-lastfm" rel="noopener noreferrer" class="text-white hover:text-[#ba0000] h-fit" aria-label="last.fm" data-tippy="tooltip" data-tippy-content="last.fm">
                 <iconify-icon icon="brandico:lastfm-rect" width="50" class="hover:bg-white rounded-[10px]"></iconify-icon>
-              </button>
-              <button x-on:click="window.open('https://bit.ly/cyan-musicbrainz')" class="text-white hover:text-[#eb743b] h-fit" title="MusicBrainz" aria-label="MusicBrainz" data-tippy="tooltip" data-tippy-content="MusicBrainz">
+              </a>
+              <a href="https://bit.ly/cyan-musicbrainz" rel="noopener noreferrer" class="text-white hover:text-[#eb743b] h-fit" aria-label="MusicBrainz" data-tippy="tooltip" data-tippy-content="MusicBrainz">
                 <iconify-icon icon="simple-icons:musicbrainz" width="50"></iconify-icon>
-              </button>
-              <button x-on:click="window.open('https://bit.ly/cyan-simkl')" class="hover:text-black h-fit text-white" title="Simkl" aria-label="Simkl" data-tippy="tooltip" data-tippy-content="Simkl">
+              </a>
+              <a href="https://bit.ly/cyan-simkl" class="hover:text-black h-fit text-white" aria-label="Simkl" data-tippy="tooltip" data-tippy-content="Simkl">
                 <iconify-icon icon="simple-icons:simkl" width="50" class="hover:bg-white rounded-[10px]"></iconify-icon>
-              </button>
-              <button x-on:click="window.open('https://bit.ly/cyan-trakt')" class="hover:text-[#ed1c24] h-fit text-white" title="Trakt" aria-label="Trakt" data-tippy="tooltip" data-tippy-content="Trakt">
+              </a>
+              <a href="https://bit.ly/cyan-trakt" rel="noopener noreferrer" class="hover:text-[#ed1c24] h-fit text-white" aria-label="Trakt" data-tippy="tooltip" data-tippy-content="Trakt">
                 <iconify-icon icon="simple-icons:trakt" width="50"></iconify-icon>
-              </button>
-              <button x-on:click="window.open('https://bit.ly/cyan-youtube')" class="text-white hover:text-[#ff0000] h-fit" data-tippy="tooltip" data-tippy-content="YouTube" title="YouTube" aria-label="YouTube">
+              </a>
+              <a href="https://bit.ly/cyan-youtube" rel="noopener noreferrer" class="text-white hover:text-[#ff0000] h-fit" data-tippy="tooltip" data-tippy-content="YouTube" aria-label="YouTube">
                 <iconify-icon icon="simple-icons:youtube" width="50"></iconify-icon>
-              </button>
-              <button x-on:click="window.open('https://bit.ly/cyan-twitch')" class="text-white hover:text-[#a970ff] h-fit" title="Twitch" aria-label="Twitch" data-tippy="tooltip" data-tippy-content="Twitch">
+              </a>
+              <a href="https://bit.ly/cyan-twitch" rel="noopener noreferrer" class="text-white hover:text-[#a970ff] h-fit" aria-label="Twitch" data-tippy="tooltip" data-tippy-content="Twitch">
                 <iconify-icon icon="simple-icons:twitch" width="50"></iconify-icon>
-              </button>
-              <button x-on:click="window.open('https://bit.ly/cyan-steam')" class="text-white hover:text-[#075a8e] h-fit" title="Steam" aria-label="Steam" data-tippy="tooltip" data-tippy-content="Steam">
+              </a>
+              <a href="https://bit.ly/cyan-steam" rel="noopener noreferrer" class="text-white hover:text-[#075a8e] h-fit" aria-label="Steam" data-tippy="tooltip" data-tippy-content="Steam">
                 <iconify-icon icon="simple-icons:steam" width="50" class="hover:bg-white hover:outline-[#075a8e] outline-2 outline outline-offset-[-1px] rounded-full"></iconify-icon>
-              </button>
-              <button x-on:click="window.open('https://bit.ly/cyan-osu')" class=" h-fit text-white" title="Osu!" aria-label="Osu!" data-tippy="tooltip" data-tippy-content="Osu!">
+              </a>
+              <a href="https://bit.ly/cyan-osu" rel="noopener noreferrer" class=" h-fit text-white" aria-label="Osu!" data-tippy="tooltip" data-tippy-content="Osu!">
                 <iconify-icon icon="simple-icons:osu" width="50" class="hover:bg-[#f170aa] rounded-full"></iconify-icon>
-              </button>
-              <button x-on:click="window.open('https://bit.ly/cyan-github')" class="hover:text-[#171a1e] text-white h-fit" title="GitHub" aria-label="GitHub" data-tippy="tooltip" data-tippy-content="GitHub">
+              </a>
+              <a href="https://bit.ly/cyan-github" rel="noopener noreferrer" class="hover:text-[#171a1e] text-white h-fit" aria-label="GitHub" data-tippy="tooltip" data-tippy-content="GitHub">
                 <iconify-icon icon="simple-icons:github" width="50" class="hover:bg-white hover:outline-[#171a1e] outline-2 outline outline-offset-[-1px] rounded-full"></iconify-icon>
-              </button>
+              </a>
             </div>
             <div class="phone:px-2 xs:justify-center sm:justify-center flex flex-row flex-wrap justify-start col-span-12 gap-4 pt-10">
               <% @game_ids&.each do |game_id| %>
@@ -78,7 +79,7 @@
                 <div id="popover<%= game_id.id %>" role="tooltip" class="hidden">
                   <div class="max-w-[226px] dark:bg-[#0b1622] dark:text-white">
                     <h3 class="tippy-popover-header   border-b-black dark:border-b-white border-b-[1px]"><%= game_id.name %></h3>
-                    <div class="tippy-popover-body text-left"><%= "ID: #{game_id.game_id}\nIGN: #{game_id.ign}" %></div>
+                    <h3 class="tippy-popover-body text-left"><%= "ID: #{game_id.game_id}\nIGN: #{game_id.ign}" %></h3>
                   </div>
                 </div>
               <% end %>

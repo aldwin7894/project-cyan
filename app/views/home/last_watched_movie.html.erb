@@ -1,14 +1,14 @@
 <turbo-frame id="last_watched_movie" class="w-full h-full">
   <div class="w-full h-full bg-center bg-cover" style="background-image: url(<%= cached_image_url_to_base64 @last_watched_movie&.[]("media")&.[]("bannerImage") %>)">
     <div class="backdrop-brightness-50 flex flex-col w-full h-full px-4 py-4 text-white">
-      <div class="text-lg font-bold">LAST WATCHED ANIME MOVIE</div>
+      <h2 class="text-lg font-bold">LAST WATCHED ANIME MOVIE</h2>
 
       <% if @last_watched_movie.present? %>
-        <a class="hover:underline text-4xl font-bold" href="<%= @last_watched_movie&.[]("media")&.[]("siteUrl") %>" target="_blank" rel="noopener">
-          <%= @last_watched_movie&.[]("media")&.[]("title")&.[]("userPreferred") %>
+        <a class="hover:underline text-4xl font-bold" href="<%= @last_watched_movie&.[]("media")&.[]("siteUrl") %>" rel="noopener noreferrer">
+          <h3><%= @last_watched_movie&.[]("media")&.[]("title")&.[]("userPreferred") %></h3>
         </a>
         <div class="self-end mt-auto">
-          <a class="hover:underline grow text-lg" href="<%= @last_watched_movie&.[]("siteUrl") %>" target="_blank" rel="noopener">MORE INFO</a>
+          <a class="hover:underline grow text-lg" href="<%= @last_watched_movie&.[]("siteUrl") %>" rel="noopener noreferrer">MORE INFO</a>
         </div>
       <% end %>
     </div>

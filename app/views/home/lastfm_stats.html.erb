@@ -1,15 +1,16 @@
 <turbo-frame id="lastfm_stats">
   <div class="w-full h-full bg-center bg-cover" style="background-image: url('<%= @album_art.present? ? cached_image_url_to_base64(@album_art) : vite_url_to_base64(vite_asset_url("images/lastfm-placeholder-2.webp")) %>')">
     <div class="backdrop-brightness-100 bg-gradient-radial from-transparent to-black/95 flex flex-col items-stretch w-full h-full gap-5 px-4 py-4 text-white" x-data="">
-      <button x-on:click="window.open('https://bit.ly/cyan-lastfm')" class="hover:underline text-lg font-bold text-left">
-        <% if @lastfm_recent&.[]("@attr")&.[]('nowplaying').present? %>
-          LAST.FM (NOW PLAYING)
-        <% else %>
-          LAST.FM
-        <% end %>
-      </button>
+      <a href="https://bit.ly/cyan-lastfm" rel="noopener noreferrer" class="hover:underline text-lg font-bold text-left">
+        <h2>
+          <% if @lastfm_recent&.[]("@attr")&.[]('nowplaying').present? %>
+            LAST.FM (NOW PLAYING)
+          <% else %>
+            LAST.FM
+          <% end %>
+        </h2>
+      </a>
       <div class="flex flex-col items-center justify-end h-full gap-5" x-data="">
-        <button></button>
         <% if @lastfm_recent.present? %>
           <% if @lastfm_recent&.[]("@attr")&.[]('nowplaying').present? %>
             <div id="equalizer" class="flex flex-row justify-center w-full gap-0.5 mix-blend-overlay">
@@ -72,33 +73,33 @@
                 <%= @elapsed_time %>
               </div>
             <% end %>
-            <div x-on:click="window.open('<%= @lastfm_recent["artist"]["url"] %>')" class="line-clamp-1 hover:underline text-2xl font-bold cursor-pointer">
-              <%= "#{@lastfm_recent['artist']['name'].upcase}" %>
-            </div>
+            <a href="<%= @lastfm_recent["artist"]["url"] %>" rel="noopener noreferrer" class="line-clamp-1 hover:underline text-2xl font-bold">
+              <h3><%= "#{@lastfm_recent['artist']['name'].upcase}" %></h3>
+            </a>
             <% if @lastfm_recent['album']['#text'].present? %>
               <% if @lastfm_recent['album']['mbid'].present? %>
-                <div x-on:click="window.open('<%= "https://musicbrainz.org/release/#{@lastfm_recent["album"]["mbid"]}" %>')" class="text-[#e5ded3] italic text-xl hover:underline line-clamp-1 break-words cursor-pointer font-bold"
+                <a href="<%= "https://musicbrainz.org/release/#{@lastfm_recent["album"]["mbid"]}" %>" rel="noopener noreferrer" class="text-[#e5ded3] italic text-xl hover:underline line-clamp-1 break-words font-bold"
                 >
               <% else %>
-                <div class="text-[#e5ded3] italic text-xl line-clamp-1 break-words font-bold"
+                <a href="javascript:void(0);" class="text-[#e5ded3] italic text-xl line-clamp-1 break-words font-bold cursor-default"
                 >
               <% end %>
-                <%= "#{@lastfm_recent['album']['#text']}" %>
-              </div>
+                <h3><%= "#{@lastfm_recent['album']['#text']}" %></h3>
+              </a>
             <% end %>
-            <div x-on:click="window.open('<%= @lastfm_recent["url"] %>')" class="text-[#3cb4f1] text-4xl font-bold line-clamp-2 break-words hover:underline cursor-pointer">
-              <%= @lastfm_recent["name"] %>
-            </div>
+            <a href="<%= @lastfm_recent["url"] %>" rel="noopener noreferrer" class="text-[#3cb4f1] text-4xl font-bold line-clamp-2 break-words hover:underline">
+              <h3><%= @lastfm_recent["name"] %></h3>
+            </a>
             <% if @lastfm_recent&.[]("@attr")&.[]('nowplaying').blank? %>
               <div>
-                <div x-on:click="window.open('https://www.last.fm/user/aldwin7894/library')" class="hover:underline line-clamp-1 text-lg break-words cursor-pointer">
+                <a href="https://www.last.fm/user/aldwin7894/library" rel="noopener noreferrer" class="hover:underline line-clamp-1 text-lg break-words">
                   last played
                   <% if time_ago_in_words(Time.zone.at(@lastfm_recent['date']['uts'].to_i)) == 'less than a minute' %>
                     just now
                   <% else %>
                     <%= (time_ago_in_words(Time.zone.at(@lastfm_recent["date"]["uts"].to_i)) + " ago").sub("about", "") %>
                   <% end %>
-                </div>
+                </a>
               </div>
             <% end %>
           </div>
