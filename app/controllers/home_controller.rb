@@ -130,7 +130,7 @@ class HomeController < ApplicationController
         end
         data = query(AniList::UserAnimeActivitiesQuery, date: last_month, user_id:, page:, per_page: 50)
         has_next_page = data.page.page_info.has_next_page?
-        expires_in = page == 1 ? 8.hours : 1.week
+        expires_in = has_next_page == false ? 4.hours : 1.week
         res = Rails.cache.fetch(cache_key, expires_in:, skip_nil: true) do
           { data: data.page.activities.to_a.map(&:to_h), has_next_page: }
         end
@@ -148,7 +148,7 @@ class HomeController < ApplicationController
       page += 1
     end
 
-    @user_activity = @user_activity.select { |x| IGNORED_USER_STATUS.exclude? x["status"] }
+    @user_activity = @user_activity.reverse.select { |x| IGNORED_USER_STATUS.exclude? x["status"] }
 
     case turbo_frame_request_id
     when "last_watched"

@@ -93,7 +93,7 @@ module AniList
         pageInfo {
           hasNextPage
         }
-        activities(userId: $user_id, createdAt_greater: $date, sort: ID_DESC, type: ANIME_LIST) {
+        activities(userId: $user_id, createdAt_greater: $date, sort: ID, type: ANIME_LIST) {
           ... on ListActivity {
             media {
               format
@@ -107,7 +107,7 @@ module AniList
                 extraLarge
                 color
               }
-              studios(isMain: true) {
+              studios(isMain: true, sort: FAVOURITES_DESC) {
                 nodes {
                   name
                   isAnimationStudio
