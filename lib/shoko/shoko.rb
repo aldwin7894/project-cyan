@@ -50,7 +50,6 @@ module Shoko
       res = HTTParty.get(BASE_URL + url, headers:, query:, timeout: 10, format: :plain)
       unless res.success?
         raise ApiError.new("Shoko API error")
-        break
       end
 
       res = JSON.parse res, symbolize_names: true
