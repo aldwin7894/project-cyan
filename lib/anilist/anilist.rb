@@ -103,6 +103,8 @@ module AniList
               title {
                 userPreferred
               }
+              seasonYear
+              idMal
               coverImage {
                 extraLarge
                 color
@@ -116,6 +118,16 @@ module AniList
               genres
               mediaListEntry {
                 score
+              }
+              relations {
+                nodes {
+                  title {
+                    userPreferred
+                  }
+                  format
+                  seasonYear
+                  idMal
+                }
               }
             }
             createdAt

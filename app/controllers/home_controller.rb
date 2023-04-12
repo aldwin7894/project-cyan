@@ -2,6 +2,7 @@
 
 require "spotify/spotify"
 require "lastfm/lastfm"
+require "shoko/shoko"
 
 class HomeController < ApplicationController
   include FormatDateHelper
@@ -153,8 +154,10 @@ class HomeController < ApplicationController
     case turbo_frame_request_id
     when "last_watched"
       @last_watched = @user_activity&.first
+      @last_watched = user_activity_fetch_fanart(user_activity: @last_watched)
     when "last_watched_movie"
       @last_watched_movie = @user_activity.find { |x| x["media"]["format"] == "MOVIE" }
+      @last_watched = user_activity_fetch_fanart(user_activity: @last_watched_movie)
     when "watched_anime"
       @watched_anime = @user_activity.select { |x| ANIME_FORMATS.include? x["media"]["format"] }
     when "watched_movie"
@@ -243,5 +246,25 @@ class HomeController < ApplicationController
           render layout: false
         end
       end
+    end
+
+    def user_activity_fetch_fanart(user_activity:)
+      name = user_activity["media"]["title"]["userPreferred"]
+      year = user_activity["media"]["seasonYear"]
+      mal_id = user_activity["media"]["idMal"]
+      parent = user_activity["media"]["relations"]["nodes"].find { |x| x["format"] == "TV" }
+      parent_name = nil
+      parent_year = nil
+      parent_mal_id = nil
+      if parent.present?
+        parent_name = parent["title"]["userPreferred"]
+        parent_year = parent["seasonYear"]
+        parent_mal_id = parent["idMal"]
+      end
+
+      fanart = Shoko.get_series_fanart_by_name(name:, year:, mal_id:, parent_name:, parent_year:, parent_mal_id:)
+      user_activity["media"]["bannerImage"] = fanart if fanart.present?
+
+      user_activity
     end
 end
