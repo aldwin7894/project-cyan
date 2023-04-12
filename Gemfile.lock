@@ -213,7 +213,7 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.5.9)
-    nokogiri (1.14.2-x86_64-linux)
+    nokogiri (1.14.3-x86_64-linux)
       racc (~> 1.4)
     occson (4.1.1)
     opentelemetry-api (1.1.0)
