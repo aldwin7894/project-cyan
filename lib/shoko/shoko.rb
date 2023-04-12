@@ -26,10 +26,10 @@ module Shoko
     }
     url = "Series/Search"
     series = nil
-    name.gsub!(/[^0-9A-Za-z !\/()]/, "")
-    name.gsub!(/[^-]/, " ")
-    parent_name&.gsub!(/[^0-9A-Za-z !\/()]/, "")
-    parent_name&.gsub!(/[^-]/, " ")
+    name.gsub!(/[^0-9A-Za-z \-:!\/()]/, "")
+    name.gsub!("-", " ")
+    parent_name&.gsub!(/[^0-9A-Za-z \-:!\/()]/, "")
+    parent_name&.gsub!("-", " ")
     possible_queries = [
       { name:, mal_id: },
       { name: "#{name} (#{year})", mal_id: },
@@ -49,14 +49,15 @@ module Shoko
       }
       res = HTTParty.get(BASE_URL + url, headers:, query:, timeout: 10, format: :plain)
       unless res.success?
-        raise ApiError.new(res["message"], res["error"])
+        raise ApiError.new("Shoko API error")
         break
       end
 
       res = JSON.parse res, symbolize_names: true
 
-      if res.is_a?(Array) && res&.first&.[](:IDs)&.[](:MAL)&.include?(possible_queries[index][:mal_id])
+      if res.is_a?(Array) && res&.first&.[](:IDs)&.[](:MAL)&.include?(possible_queries[index][:mal_id]) && res&.first&.[](:Images)&.[](:Fanarts).present?
         series = res
+        break
       end
 
       index += 1
@@ -64,7 +65,7 @@ module Shoko
 
     fanart_url = nil
     if series.is_a? Array
-      fanart = res.first[:Images][:Fanarts].first
+      fanart = series.first[:Images][:Fanarts].first
       source = fanart[:Source]
       id = fanart[:ID]
       fanart_url = get_fanart_url(id:, source:)
