@@ -9,6 +9,9 @@
   html {
     font-family: "Source Sans Pro", Inter, sans-serif;
   }
+  body {
+    text-rendering: optimizeLegibility;
+  }
 }
 
 @media print {

@@ -26,9 +26,10 @@ module Shoko
     }
     url = "Series/Search"
     series = nil
-    name.gsub!(/[^0-9A-Za-z \-:!\/()]/, "")
+    whitelisted_regex = /[^0-9A-Za-z \-:!\/().?,☆★×'";\[\]]/
+    name.gsub!(whitelisted_regex, "")
     name.gsub!("-", " ")
-    parent_name&.gsub!(/[^0-9A-Za-z \-:!\/()]/, "")
+    parent_name&.gsub!(whitelisted_regex, "")
     parent_name&.gsub!("-", " ")
     possible_queries = [
       { name:, mal_id: },
@@ -42,6 +43,9 @@ module Shoko
     index = 0
     loop do
       break if index > possible_queries.length - 1
+      Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index][:name]) do
+        Rails.logger.info("START")
+      end
       query = {
         query: possible_queries[index][:name],
         fuzzy: false,
@@ -55,8 +59,15 @@ module Shoko
       res = JSON.parse res, symbolize_names: true
 
       if res.is_a?(Array) && res&.first&.[](:IDs)&.[](:MAL)&.include?(possible_queries[index][:mal_id]) && res&.first&.[](:Images)&.[](:Fanarts).present?
+        Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index][:name]) do
+          Rails.logger.info("FOUND")
+        end
         series = res
         break
+      end
+
+      Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index][:name]) do
+        Rails.logger.info("NOT FOUND")
       end
 
       index += 1
