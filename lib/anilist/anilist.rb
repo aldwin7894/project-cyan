@@ -102,6 +102,7 @@ module AniList
               duration
               title {
                 userPreferred
+                english
               }
               seasonYear
               idMal

@@ -26,26 +26,31 @@ module Shoko
     }
     url = "Series/Search"
     series = nil
-    whitelisted_regex = /[^0-9A-Za-z \-:!\/().?,☆★×'";\[\]]/
-    name.gsub!(whitelisted_regex, "")
-    name.gsub!("-", " ")
-    parent_name&.gsub!(whitelisted_regex, "")
-    parent_name&.gsub!("-", " ")
+
+    Rails.logger.tagged("SHOKO", "FIND SERIES", name) do
+      Rails.logger.info("START")
+    end
+
     possible_queries = [
       { name:, mal_id: },
       { name: "#{name} (#{year})", mal_id: },
     ]
     possible_queries += [
-      { name: parent_name, mal_id: parent_mal_id },
-      { name: "#{parent_name} (#{parent_year})", mal_id: parent_mal_id }
+      { name: sanitize(name), mal_id: },
+      { name: alternative(name), mal_id: },
+      { name: "#{sanitize(name)} (#{year})", mal_id: },
+      { name: "#{alternative(name)} (#{year})", mal_id: },
+    ]
+    possible_queries += [
+      { name: sanitize(parent_name), mal_id: parent_mal_id },
+      { name: alternative(parent_name), mal_id: parent_mal_id },
+      { name: "#{sanitize(parent_name)} (#{parent_year})", mal_id: parent_mal_id },
+      { name: "#{alternative(parent_name)} (#{parent_year})", mal_id: parent_mal_id }
     ] if parent_name.present? && parent_year.present? && parent_mal_id.present?
 
     index = 0
     loop do
       break if index > possible_queries.length - 1
-      Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index][:name]) do
-        Rails.logger.info("START")
-      end
       query = {
         query: possible_queries[index][:name],
         fuzzy: false,
@@ -58,16 +63,21 @@ module Shoko
 
       res = JSON.parse res, symbolize_names: true
 
-      if res.is_a?(Array) && res&.first&.[](:IDs)&.[](:MAL)&.include?(possible_queries[index][:mal_id]) && res&.first&.[](:Images)&.[](:Fanarts).present?
-        Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index][:name]) do
-          Rails.logger.info("FOUND")
+      if res.is_a?(Array) && res&.first&.[](:IDs)&.[](:MAL)&.include?(possible_queries[index][:mal_id])
+        if res&.first&.[](:Images)&.[](:Fanarts).present?
+          Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index][:name]) do
+            Rails.logger.info("FOUND")
+          end
+          series = res
+          break
         end
-        series = res
-        break
-      end
-
-      Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index][:name]) do
-        Rails.logger.info("NOT FOUND")
+        Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index][:name]) do
+          Rails.logger.info("NO FANARTS")
+        end
+      else
+        Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index][:name]) do
+          Rails.logger.info("NOT FOUND")
+        end
       end
 
       index += 1
@@ -82,10 +92,28 @@ module Shoko
     end
 
     fanart_url
+  rescue ApiError
+    nil
   end
 
   private
     def get_fanart_url(id:, source:)
       "#{BASE_URL}Image/#{source}/Fanart/#{id}"
+    end
+
+    def alternative(string)
+      string = string.gsub(/\b(wo)\b/, "o")
+      string = string.gsub(/\b-\b/, " ")
+      string = string.gsub(/★|☆/, " ")
+      string
+    end
+
+    def sanitize(string)
+      whitelisted_regex = /[^0-9A-Za-z \-:!\/().?,★☆×'";\[\]]/
+      string = string.gsub(whitelisted_regex, "")
+      string = string.gsub(/(?<=\s)-(?=[A-Za-z])/, "")
+      string = string.gsub(/(?<=[A-Za-z])-(?=\s)/, "")
+      string.strip
+      string
     end
 end
