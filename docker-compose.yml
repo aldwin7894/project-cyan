@@ -15,8 +15,10 @@ services:
       - dbdata:/data/db
   redis:
     container_name: project-cyan-redis
-    image: redis:alpine
-    command: redis-server /usr/local/etc/redis/redis.conf
+    build:
+      context: ./config/redis/
+      dockerfile: Dockerfile
+    pull_policy: build
     restart: always
     environment:
       - TZ
@@ -24,12 +26,6 @@ services:
       - 6379:6379
     volumes:
       - redis:/data
-      - ./config/redis:/usr/local/etc/redis
-    healthcheck:
-      test: redis-cli ping
-      interval: 10s
-      timeout: 5s
-      retries: 5
   redisinsight:
     container_name: project-cyan-redisinsight
     image: redislabs/redisinsight:latest
