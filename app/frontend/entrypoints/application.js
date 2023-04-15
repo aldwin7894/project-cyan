@@ -48,6 +48,7 @@ const initElems = (parent = null) => {
 const fadeIn = id =>
   new Promise((resolve, _reject) => {
     const element = document.getElementById(id);
+    element.style.willChange = "opacity";
     element.classList.add(
       "animate__fadeIn",
       "animate__animated",
@@ -62,6 +63,7 @@ const fadeIn = id =>
         "animate__animated",
         "animate__delay",
       );
+      element.style.willChange = "auto";
       resolve("Animation ended");
     }
 

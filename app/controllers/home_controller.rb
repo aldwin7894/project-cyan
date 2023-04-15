@@ -154,10 +154,10 @@ class HomeController < ApplicationController
     case turbo_frame_request_id
     when "last_watched"
       last_watched = @user_activity&.first
-      @last_watched = user_activity_fetch_fanart(user_activity: last_watched)
+      @last_watched = user_activity_fetch_fanart(activity: last_watched)
     when "last_watched_movie"
       last_watched_movie = @user_activity.find { |x| x["media"]["format"] == "MOVIE" }
-      @last_watched_movie = user_activity_fetch_fanart(user_activity: last_watched_movie)
+      @last_watched_movie = user_activity_fetch_fanart(activity: last_watched_movie)
     when "watched_anime"
       @watched_anime = @user_activity.select { |x| ANIME_FORMATS.include? x["media"]["format"] }
     when "watched_movie"
@@ -239,7 +239,11 @@ class HomeController < ApplicationController
   end
 
   private
-    def render_empty
+    def render_empty(exception)
+      logger.tagged("HomeController", action_name) do
+        logger.error(exception)
+      end
+
       respond_to do |format|
         format.html do
           return render turbo_frame_request_id, layout: false if turbo_frame_request?
@@ -248,7 +252,8 @@ class HomeController < ApplicationController
       end
     end
 
-    def user_activity_fetch_fanart(user_activity:)
+    def user_activity_fetch_fanart(activity:)
+      user_activity = activity.deep_dup
       name = user_activity["media"]["format"] == "TV" ?
         user_activity["media"]["title"]["userPreferred"] :
         user_activity["media"]["title"]["english"]

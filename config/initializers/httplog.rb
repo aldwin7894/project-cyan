@@ -14,7 +14,7 @@ HttpLog.configure do |config|
   # Tweak which parts of the HTTP cycle to log...
   # config.log_connect   = true
   # config.log_request   = true
-  # config.log_headers   = false
+  config.log_headers   = true
   # config.log_data      = true
   # config.log_status    = true
   # config.log_response  = true
@@ -45,8 +45,8 @@ HttpLog.configure do |config|
   config.graylog_formatter = nil
 
   # Mask the values of sensitive request parameters
-  config.filter_parameters = %w[password]
+  config.filter_parameters = %w[password api_key apikey authorization]
 
   # Customize the prefix with a proc or lambda
-  config.prefix = -> { "[httplog] #{Time.zone.now} " }
+  config.prefix = -> { "[EXTERNAL] " }
 end

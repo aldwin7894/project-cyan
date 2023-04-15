@@ -1004,7 +1004,7 @@ module.exports = {
     },
     animatedSettings: {
       animatedSpeed: 1000,
-      animationDelaySpeed: 100,
+      animationDelaySpeed: 500,
       classes: ["fadeIn", "fadeOut", "delay"],
     },
   },
