@@ -11,7 +11,7 @@ class AnilistController < ApplicationController
     @success = false
     return @error = "Username can't be empty" if params[:username].blank?
 
-    id = Rails.cache.fetch("ANILIST_USER_ID_#{params[:username]}", expires_in: 1.year, skip_nil: true) do
+    id = Rails.cache.fetch("ANILIST/#{params[:username]}/USER_ID", expires_in: 1.year, skip_nil: true) do
       query(AniList::UserIdQuery, username: params[:username]).user.id
     end
 
@@ -26,7 +26,7 @@ class AnilistController < ApplicationController
     @following = following
     @followers = followers
 
-    cooldown = Rails.cache.fetch("ANILIST_FOLLOW_CHECKER_CD")
+    cooldown = Rails.cache.fetch("ANILIST/FOLLOW_CHECKER_CD")
     if Time.zone.now.to_i <= cooldown.to_i && !Rails.env.development?
       cd_mins = ((cooldown - Time.zone.now) / 60.0).round
       return @error = "On cooldown, please try again after #{cd_mins} #{'minute'.pluralize(cd_mins)}."
@@ -67,7 +67,7 @@ class AnilistController < ApplicationController
     end
 
 
-    Rails.cache.fetch("ANILIST_FOLLOW_CHECKER_CD", expires_in: 2.minutes) do
+    Rails.cache.fetch("ANILIST/FOLLOW_CHECKER_CD", expires_in: 2.minutes) do
       2.minutes.from_now
     end
     @success = true

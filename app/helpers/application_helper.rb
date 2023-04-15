@@ -10,7 +10,7 @@ module ApplicationHelper
 
     filetype = Addressable::URI.parse(url).extname.remove(".")
 
-    img = Rails.cache.fetch(url, expires_in: 1.week, skip_nil: true) do
+    img = Rails.cache.fetch("IMAGES/#{url}", expires_in: 1.week, skip_nil: true) do
       data = {}
       res = HTTParty.get(
         url,

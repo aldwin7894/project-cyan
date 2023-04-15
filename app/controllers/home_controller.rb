@@ -24,7 +24,7 @@ class HomeController < ApplicationController
     end_of_day = now.end_of_day
     colors = ["#ed2626", "#ab2425", "#712625"]
 
-    cache_key = "ANILIST_USER_STATS_#{ENV.fetch('ANILIST_USERNAME').upcase}"
+    cache_key = "ANILIST/#{ENV.fetch('ANILIST_USERNAME')}/USER_STATS"
     if Rails.cache.exist? cache_key
       logger.tagged("CACHE", "anilist_user_statistics", cache_key) do
         logger.info("HIT")
@@ -94,15 +94,22 @@ class HomeController < ApplicationController
         ]
       })
     when "total_watched_anime"
-      @total_watched_anime_time = format_date(@user_statistics["minutesWatched"].to_i * 60)
+      @total_watched_anime_time_mins = @user_statistics["minutesWatched"].to_i
+      @total_watched_anime_time = format_date(@total_watched_anime_time_mins * 60)
       @total_watched_anime_ep = @user_statistics["episodesWatched"].to_i
+
+      statuses = @user_statistics["statuses"].to_a
+      @total_completed_anime = statuses.find { |x| x["status"] == "COMPLETED" }["count"].to_i
+      @total_planning_anime = statuses.find { |x| x["status"] == "PLANNING" }["count"].to_i
+      @total_dropped_anime = statuses.find { |x| x["status"] == "DROPPED" }["count"].to_i
+      @total_current_anime = statuses.find { |x| x["status"] == "CURRENT" }["count"].to_i
+      @total_paused_anime = statuses.find { |x| x["status"] == "PAUSED" }["count"].to_i
     when "total_watched_anime_movie"
-      @total_watched_anime_movie_time = format_date(
-        @user_statistics["formats"]
-          .to_a
-          .select { |x| ANIME_FORMATS.exclude? x["format"] }
-          .map { |x| x["minutesWatched"].to_i }.sum * 60
-      )
+      @total_watched_anime_movie_time_mins = @user_statistics["formats"]
+                                               .to_a
+                                               .select { |x| ANIME_FORMATS.exclude? x["format"] }
+                                               .map { |x| x["minutesWatched"].to_i }.sum
+      @total_watched_anime_movie_time = format_date(@total_watched_anime_movie_time_mins * 60)
       @total_watched_anime_movie = @user_statistics["formats"].to_a
                                      .select { |x| ANIME_FORMATS.exclude? x["format"] }
                                      .map { |x| x["count"].to_i }.sum
@@ -124,7 +131,7 @@ class HomeController < ApplicationController
     # last_page = data.page.page_info.last_page
 
     loop do
-      cache_key = "#{last_month.to_i}_#{page}/ANILIST_USER_ACTIVITIES_#{ENV.fetch('ANILIST_USERNAME').upcase}"
+      cache_key = "ANILIST/#{ENV.fetch('ANILIST_USERNAME')}/#{last_month.to_i}_#{page}/USER_ACTIVITIES"
       if !Rails.cache.exist? cache_key
         logger.tagged("CACHE", "anilist_user_activities", cache_key) do
           logger.info("MISS")
@@ -163,21 +170,19 @@ class HomeController < ApplicationController
     when "watched_movie"
       @watched_movie = @user_activity.select { |x| ANIME_FORMATS.exclude? x["media"]["format"] }
     when "total_watched_anime_last_week"
-      @total_watched_anime_time_last_week = format_date(
-        @user_activity
-          .select { |x| x["createdAt"] >= last_week }
-          .map { |x| x["media"]["duration"].to_i }
-          .sum * 60
-      )
+      @total_watched_anime_time_last_week_mins = @user_activity
+                                                   .select { |x| x["createdAt"] >= last_week }
+                                                   .map { |x| x["media"]["duration"].to_i }
+                                                   .sum
+      @total_watched_anime_time_last_week = format_date(@total_watched_anime_time_last_week_mins * 60)
       @total_watched_anime_ep_last_week = @user_activity.select { |x| x["createdAt"] >= last_week }.size
     when "total_watched_anime_movie_last_week"
       @watched_movie = @user_activity.select { |x| ANIME_FORMATS.exclude? x["media"]["format"] }
-      @total_watched_anime_movie_time_last_week = format_date(
-        @watched_movie
-          .select { |x| x["createdAt"] >= last_week }
-          .map { |x| x["media"]["duration"].to_i }
-          .sum * 60
-      )
+      @total_watched_anime_movie_time_last_week_mins = @watched_movie
+                                                         .select { |x| x["createdAt"] >= last_week }
+                                                         .map { |x| x["media"]["duration"].to_i }
+                                                         .sum
+      @total_watched_anime_movie_time_last_week = format_date(@total_watched_anime_movie_time_last_week_mins * 60)
       @total_watched_anime_movie_last_week = @watched_movie.select { |x| x["createdAt"] >= last_week }.size
     end
 

@@ -1,9 +1,50 @@
 <turbo-frame id="total_watched_anime">
-  <h3 class="font-mono text-2xl font-bold">
-    <%= @total_watched_anime_time %>
+  <h3 class="font-mono text-lg" data-tippy="tooltip" data-tippy-content="<%= @total_watched_anime_time_mins.to_fs(:delimited) %>m">
+    <% @total_watched_anime_time.each do |time, uom| %>
+      <span class="text-2xl font-bold"><%= time %></span><%= uom %>
+    <% end %>
   </h3>
   <h3>ALL TIME</h3>
-  <h3>
-    <%= @total_watched_anime_ep %> episodes
-  </h3>
+  <button
+    aria-label="<%= @total_watched_anime_ep.to_fs(:delimited) %> episodes"
+    class="text-opacity-80 text-white"
+    data-tippy="popover"
+    data-tippy-template="popover_watched_anime_stats"
+  >
+    <%= @total_watched_anime_ep.to_fs(:delimited) %> episodes
+  </button>
+  <div id="popover_watched_anime_stats" role="tooltip" class="hidden">
+    <div class="max-w-[226px] dark:bg-[#0b1622] dark:text-white">
+      <table class="w-28">
+        <thead>
+          <tr>
+            <th class="w-fit"></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-left"><%= @total_completed_anime.to_fs(:delimited) %></td>
+            <td class="text-right">COMPLETED</td>
+          </tr>
+          <tr>
+            <td class="text-left"><%= @total_current_anime.to_fs(:delimited) %></td>
+            <td class="text-right">CURRENT</td>
+          </tr>
+          <tr>
+            <td class="text-left"><%= @total_planning_anime.to_fs(:delimited) %></td>
+            <td class="text-right">PLANNING</td>
+          </tr>
+          <tr>
+            <td class="text-left"><%= @total_paused_anime.to_fs(:delimited) %></td>
+            <td class="text-right">PAUSED</td>
+          </tr>
+          <tr>
+            <td class="text-left"><%= @total_dropped_anime.to_fs(:delimited) %></td>
+            <td class="text-right">DROPPED</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </turbo-frame>

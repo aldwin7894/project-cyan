@@ -32,7 +32,7 @@ module LastFM
       user:,
     }
 
-    Rails.cache.fetch("LASTFM_RECENT_TRACKS", expires_in: 30.seconds, skip_nil: true) do
+    Rails.cache.fetch("LASTFM/#{user}/RECENT_TRACKS", expires_in: 30.seconds, skip_nil: true) do
       res = HTTParty.get(BASE_URL, headers:, query:, timeout: 10)
       unless res.success?
         raise ApiError.new(res["message"], res["error"])
@@ -55,7 +55,7 @@ module LastFM
       user:,
     }
 
-    cache_key = "LASTFM_TOP_ARTISTS"
+    cache_key = "LASTFM/#{user}/TOP_ARTISTS"
     if Rails.cache.exist? cache_key
       Rails.logger.tagged("CACHE", "LastFM.get_top_artists", cache_key) do
         Rails.logger.info("HIT")

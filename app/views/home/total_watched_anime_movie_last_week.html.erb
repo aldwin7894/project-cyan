@@ -1,9 +1,11 @@
 <turbo-frame id="total_watched_anime_movie_last_week">
-  <h3 class="font-mono text-2xl font-bold">
-    <%= @total_watched_anime_movie_time_last_week %>
+  <h3 class="font-mono text-lg" data-tippy="tooltip" data-tippy-content="<%= @total_watched_anime_movie_time_last_week_mins.to_fs(:delimited) %>m">
+    <% @total_watched_anime_movie_time_last_week.each do |time, uom| %>
+      <span class="text-2xl font-bold"><%= time %></span><%= uom %>
+    <% end %>
   </h3>
   <h3>LAST WEEK</h3>
-  <h3>
-    <%= @total_watched_anime_movie_last_week %> movies / ova / specials
+  <h3 class="text-opacity-80 text-white">
+    <%= @total_watched_anime_movie_last_week.to_fs(:delimited) %> movies / ova / specials
   </h3>
 </turbo-frame>

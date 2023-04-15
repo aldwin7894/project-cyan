@@ -10,7 +10,7 @@ module Spotify
   }
 
   def Spotify.get_access_token
-    token = Rails.cache.fetch("SPOTIFY_ACCESS_TOKEN", expires_in: 1.hour, skip_nil: true) do
+    token = Rails.cache.fetch("SPOTIFY/ACCESS_TOKEN", expires_in: 1.hour, skip_nil: true) do
       authorization = Base64.urlsafe_encode64(ENV.fetch("SPOTIFY_CLIENT_ID") + ":" + ENV.fetch("SPOTIFY_CLIENT_SECRET"))
       headers = {
         "Authorization": "Basic #{authorization}",
@@ -37,7 +37,7 @@ module Spotify
       ids:
     }
 
-    cache_key = "#{ids.remove(",")}/SPOTIFY_ARTIST_IMAGES"
+    cache_key = "SPOTIFY/#{ids.remove(",")}/ARTIST_IMAGES"
     if Rails.cache.exist? cache_key
       Rails.logger.tagged("CACHE", "Spotify.get_artists_images", cache_key) do
         Rails.logger.info("HIT")
@@ -76,7 +76,7 @@ module Spotify
       limit: 1
     }
 
-    cache_key = "SPOTIFY_ARTIST_ID_#{name.parameterize(separator: '_')}"
+    cache_key = "SPOTIFY/#{name.parameterize(separator: '_')}/ARTIST_ID"
     if Rails.cache.exist? cache_key
       Rails.logger.tagged("CACHE", "Spotify.get_artist_id_by_name", cache_key) do
         Rails.logger.info("HIT")
