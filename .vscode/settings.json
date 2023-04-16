@@ -24,6 +24,10 @@
   "editor.defaultFormatter": "trunk.io",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
+  "tailwindCSS.includeLanguages": {
+    "erb": "html"
+  },
+  "git.enableCommitSigning": true,
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#004a4d",
     "activityBar.background": "#004a4d",
@@ -51,10 +55,5 @@
     "titleBar.border": "#004a4d",
     "titleBar.inactiveBackground": "#004a4d99",
     "titleBar.inactiveForeground": "#e7e7e799"
-  },
-  "tailwindCSS.includeLanguages": {
-    "erb": "html"
-  },
-  "git.enableCommitSigning": true,
-  "alpine-intellisense.settings.languageScopes": "html,erb"
+  }
 }

@@ -75,11 +75,12 @@ const fadeIn = id =>
 // fade animations
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
-  const main = document.getElementsByTagName("main")[0];
-  const footer = document.getElementsByTagName("footer")[0];
+  const main = document.getElementById("main");
+  const footer = document.getElementById("footer");
 
   loader.classList.add("animate__animated", "animate__fadeOut");
   loader.addEventListener("animationend", () => {
+    loader.classList.remove("animate__animated", "animate__fadeOut");
     loader.classList.add("hidden");
     main.classList.remove("hidden");
     footer.classList.remove("hidden");
