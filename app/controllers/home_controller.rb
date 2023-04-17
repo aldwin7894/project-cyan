@@ -259,7 +259,7 @@ class HomeController < ApplicationController
 
     def user_activity_fetch_fanart(activity:)
       user_activity = activity.deep_dup
-      name = user_activity["media"]["format"] == "TV" || user_activity["media"]["countryOfOrigin"] == "CN" ?
+      name = user_activity["media"]["format"] == "TV" && user_activity["media"]["countryOfOrigin"] != "CN" ?
         user_activity["media"]["title"]["userPreferred"] :
         user_activity["media"]["title"]["english"]
       year = user_activity["media"]["seasonYear"]
