@@ -105,6 +105,8 @@ module Shoko
       string = string.gsub(/\b(wo)\b/, "o")
       string = string.gsub(/\b-\b/, " ")
       string = string.gsub(/★|☆/, " ")
+      string = string.gsub(/ü/, "u")
+      string = string.gsub(/Ü/, "U")
       string
     end
 

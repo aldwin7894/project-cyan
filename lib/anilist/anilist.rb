@@ -104,6 +104,7 @@ module AniList
                 userPreferred
                 english
               }
+              countryOfOrigin
               seasonYear
               idMal
               coverImage {
