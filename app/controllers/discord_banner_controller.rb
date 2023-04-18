@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "discord_bot/discord_bot"
-
 class DiscordBannerController < ApplicationController
   layout "discord-banner"
   before_action :check_if_from_cloudfront
@@ -45,6 +43,8 @@ class DiscordBannerController < ApplicationController
   end
 
   def generate_content(params)
+    require "discord_bot/discord_bot"
+
     @background = params[:bg]
     @foreground = params[:fg]
     @bottom_line = params[:line]
