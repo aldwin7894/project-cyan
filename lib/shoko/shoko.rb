@@ -27,6 +27,14 @@ module Shoko
     url = "Series/Search"
     series = nil
 
+    cache_key = "SHOKO/#{name.parameterize(separator: '_')}/FANART_URL"
+    if Rails.cache.exist? cache_key
+      Rails.logger.tagged("CACHE", "Shoko.get_series_fanart_by_name", cache_key) do
+        Rails.logger.info("HIT")
+      end
+      return Rails.cache.fetch(cache_key)
+    end
+
     Rails.logger.tagged("SHOKO", "FIND SERIES", name) do
       Rails.logger.info("START")
     end
@@ -88,7 +96,13 @@ module Shoko
       fanart = series.first[:Images][:Fanarts].first
       source = fanart[:Source]
       id = fanart[:ID]
-      fanart_url = get_fanart_url(id:, source:)
+
+      Rails.logger.tagged("CACHE", "Shoko.get_series_fanart_by_name", cache_key) do
+        Rails.logger.info("MISS")
+      end
+      fanart_url = Rails.cache.fetch(cache_key, expires_in: 1.month, skip_nil: true) do
+        get_fanart_url(id:, source:)
+      end
     end
 
     fanart_url

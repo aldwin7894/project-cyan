@@ -40,4 +40,9 @@ export default defineConfig({
       },
     },
   },
+  server: {
+    watch: {
+      ignored: ["**/.trunk/**"],
+    },
+  },
 });
