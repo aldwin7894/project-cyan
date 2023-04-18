@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "discordrb"
+require "discord_bot/discord_bot"
 
 class DiscordBannerController < ApplicationController
   layout "discord-banner"
@@ -51,7 +51,7 @@ class DiscordBannerController < ApplicationController
     @large_image = nil
     @icon = nil
 
-    current_user = DISCORD_BOT.user(ENV.fetch("DISCORD_USER_ID"))
+    current_user = DiscordBot::BOT.user(ENV.fetch("DISCORD_USER_ID"))
     @username = current_user.username
     @username += "##{current_user.discriminator}" if params[:disc] == "true"
     @online_status = current_user.status
