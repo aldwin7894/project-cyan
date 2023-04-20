@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 1.8.0
+  version: 1.8.1
 merge:
   required_statuses:
     - Trunk Check
@@ -10,7 +10,7 @@ merge:
 plugins:
   sources:
     - id: trunk
-      ref: v0.0.15
+      ref: v0.0.16
       uri: https://github.com/trunk-io/plugins
 runtimes:
   enabled:
@@ -61,7 +61,7 @@ lint:
     - git-diff-check
     - shellcheck@0.9.0
     - hadolint@2.12.0
-    - gitleaks@8.16.2
+    - gitleaks@8.16.3
     - yamllint@1.30.0
-    - checkov@2.3.178
+    - checkov@2.3.189
     - sort-package-json@2.4.1

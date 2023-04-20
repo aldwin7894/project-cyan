@@ -26,6 +26,8 @@ module Shoko
     }
     url = "Series/Search"
     series = nil
+    name = name.downcase
+    parent_name = parent_name&.downcase
 
     cache_key = "SHOKO/#{name.parameterize(separator: '_')}/FANART_URL"
     if Rails.cache.exist? cache_key
@@ -41,17 +43,17 @@ module Shoko
 
     possible_queries = [
       { name:, mal_id: },
-      { name: "#{name} (#{year})", mal_id: },
-    ]
-    possible_queries += [
       { name: sanitize(name), mal_id: },
       { name: alternative(name), mal_id: },
+      { name: "#{name} (#{year})", mal_id: },
       { name: "#{sanitize(name)} (#{year})", mal_id: },
       { name: "#{alternative(name)} (#{year})", mal_id: },
     ]
     possible_queries += [
+      { name: parent_name, mal_id: },
       { name: sanitize(parent_name), mal_id: parent_mal_id },
       { name: alternative(parent_name), mal_id: parent_mal_id },
+      { name: "#{parent_name} (#{year})", mal_id: parent_mal_id },
       { name: "#{sanitize(parent_name)} (#{parent_year})", mal_id: parent_mal_id },
       { name: "#{alternative(parent_name)} (#{parent_year})", mal_id: parent_mal_id }
     ] if parent_name.present? && parent_year.present? && parent_mal_id.present?
@@ -120,7 +122,7 @@ module Shoko
       string = string.gsub(/\b-\b/, " ")
       string = string.gsub(/★|☆/, " ")
       string = string.gsub(/ü/, "u")
-      string = string.gsub(/Ü/, "U")
+      string = string.gsub(/mahoutsukai/, "mahou tsukai")
       string
     end
 

@@ -1,6 +1,7 @@
+<% cover = @last_watched&.[]("media")&.[]("bannerImage") %>
 <turbo-frame id="last_watched" class="w-full h-full">
-  <div class="w-full h-full transition-all duration-1000 bg-center bg-cover" style="background-image: url(<%= cached_image_url_to_base64 @last_watched&.[]("media")&.[]("bannerImage") %>)">
-    <div class="backdrop-brightness-50 flex flex-col w-full h-full px-4 py-4 text-white">
+  <div class="w-full h-full transition-all duration-1000 bg-center bg-cover" style="background: no-repeat center<%= cover.present? ? "/cover url(#{cached_image_url_to_base64(cover)})" : "/75% url(#{vite_asset_path("images/bvl-logo.webp")}); background-color: darkred" %>">
+    <div class="<%= cover.present? ? "backdrop-brightness-50" : "backdrop-brightness-[0.2]" %> flex flex-col w-full h-full px-4 py-4 text-white">
       <h2 class="text-shadow shadow-black text-lg font-bold">LAST WATCHED</h2>
 
       <% if @last_watched.present? %>
