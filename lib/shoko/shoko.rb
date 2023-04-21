@@ -123,6 +123,7 @@ module Shoko
       string = string.gsub(/★|☆/, " ")
       string = string.gsub(/ü/, "u")
       string = string.gsub(/mahoutsukai/, "mahou tsukai")
+      string = string.gsub(/[\[\]]/, "")
       string
     end
 
