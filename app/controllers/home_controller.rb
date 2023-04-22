@@ -13,6 +13,7 @@ class HomeController < ApplicationController
 
   ANIME_FORMATS = ["TV", "TV_SHORT", "ONA"]
   IGNORED_USER_STATUS = ["plans to watch", "paused watching", "dropped"]
+  ANIME_RELATIONS = ["PREQUEL", "SEQUEL", "PARENT", "SIDE_STORY", "ALTERNATIVE"]
 
   def index
     @game_ids = GameId.where(status: 1).order(id: :asc)
@@ -264,17 +265,17 @@ class HomeController < ApplicationController
         user_activity["media"]["title"]["english"]
       year = user_activity["media"]["seasonYear"]
       mal_id = user_activity["media"]["idMal"]
-      parent = user_activity["media"]["relations"]["nodes"].find { |x| x["format"] == "TV" }
-      parent_name = nil
-      parent_year = nil
-      parent_mal_id = nil
-      if parent.present?
-        parent_name = parent["title"]["userPreferred"]
-        parent_year = parent["seasonYear"]
-        parent_mal_id = parent["idMal"]
+      alternatives = user_activity["media"]["relations"]["edges"].select do |x|
+        ANIME_RELATIONS.include?(x["relationType"]) && x["node"]["format"] == "TV"
+      end.map do |x|
+        {
+          name: x["node"]["title"]["userPreferred"],
+          year: x["node"]["seasonYear"],
+          mal_id: x["node"]["idMal"]
+        }
       end
 
-      fanart = Shoko.get_series_fanart_by_name(name:, year:, mal_id:, parent_name:, parent_year:, parent_mal_id:)
+      fanart = Shoko.get_series_fanart_by_name(name:, year:, mal_id:, alternatives:)
       user_activity["media"]["bannerImage"] = fanart if fanart.present?
 
       user_activity

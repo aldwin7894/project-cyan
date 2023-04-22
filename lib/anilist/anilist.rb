@@ -122,13 +122,16 @@ module AniList
                 score
               }
               relations {
-                nodes {
-                  title {
-                    userPreferred
+                edges {
+                  relationType(version: 2)
+                  node {
+                    title {
+                      userPreferred
+                    }
+                    format
+                    seasonYear
+                    idMal
                   }
-                  format
-                  seasonYear
-                  idMal
                 }
               }
             }

@@ -20,14 +20,13 @@ module Shoko
     end
   end
 
-  def Shoko.get_series_fanart_by_name(name:, year:, mal_id:, parent_name: nil, parent_year: nil, parent_mal_id: nil)
+  def Shoko.get_series_fanart_by_name(name:, year:, mal_id:, alternatives: [])
     headers = {
       **JSON_HEADER
     }
     url = "Series/Search"
     series = nil
     name = name.downcase
-    parent_name = parent_name&.downcase
 
     cache_key = "SHOKO/#{name.parameterize(separator: '_')}/FANART_URL"
     if Rails.cache.exist? cache_key
@@ -49,14 +48,21 @@ module Shoko
       { name: "#{sanitize(name)} (#{year})", mal_id: },
       { name: "#{alternative(name)} (#{year})", mal_id: },
     ]
-    possible_queries += [
-      { name: parent_name, mal_id: },
-      { name: sanitize(parent_name), mal_id: parent_mal_id },
-      { name: alternative(parent_name), mal_id: parent_mal_id },
-      { name: "#{parent_name} (#{year})", mal_id: parent_mal_id },
-      { name: "#{sanitize(parent_name)} (#{parent_year})", mal_id: parent_mal_id },
-      { name: "#{alternative(parent_name)} (#{parent_year})", mal_id: parent_mal_id }
-    ] if parent_name.present? && parent_year.present? && parent_mal_id.present?
+    alternatives.each do |alt|
+      alt_name = alt&.[](:name)&.downcase
+      alt_year = alt&.[](:year)
+      alt_mal_id = alt&.[](:mal_id)
+
+      possible_queries += [
+        { name: alt_name, mal_id: },
+        { name: sanitize(alt_name), mal_id: alt_mal_id },
+        { name: alternative(alt_name), mal_id: alt_mal_id },
+        { name: "#{alt_name} (#{year})", mal_id: alt_mal_id },
+        { name: "#{sanitize(alt_name)} (#{alt_year})", mal_id: alt_mal_id },
+        { name: "#{alternative(alt_name)} (#{alt_year})", mal_id: alt_mal_id }
+      ] if alt_name.present? && alt_year.present? && alt_mal_id.present?
+    end
+    possible_queries.uniq!
 
     index = 0
     loop do
@@ -124,6 +130,9 @@ module Shoko
       string = string.gsub(/ü/, "u")
       string = string.gsub(/mahoutsukai/, "mahou tsukai")
       string = string.gsub(/[\[\]]/, "")
+      string = string.gsub(/(season|part) \d+/, "")
+      string = string.gsub(/(\d{1}st|\d{1}nd|\d{1}rd|\d+th) season/, "")
+      string.strip!
       string
     end
 
@@ -132,7 +141,7 @@ module Shoko
       string = string.gsub(whitelisted_regex, "")
       string = string.gsub(/(?<=\s)-(?=[A-Za-z])/, "")
       string = string.gsub(/(?<=[A-Za-z])-(?=\s)/, "")
-      string.strip
+      string.strip!
       string
     end
 end
