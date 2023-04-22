@@ -263,6 +263,7 @@ class HomeController < ApplicationController
       name = user_activity["media"]["format"] == "TV" && user_activity["media"]["countryOfOrigin"] != "CN" ?
         user_activity["media"]["title"]["userPreferred"] :
         user_activity["media"]["title"]["english"]
+      name ||= user_activity["media"]["title"]["userPreferred"]
       year = user_activity["media"]["seasonYear"]
       mal_id = user_activity["media"]["idMal"]
       alternatives = user_activity["media"]["relations"]["edges"].select do |x|
