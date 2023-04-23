@@ -29,6 +29,7 @@ module.exports = {
       ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
       pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       bounce: "bounce 1s infinite",
+      "spin-reduce": "spin 1.5s linear infinite",
     },
     aria: {
       checked: 'checked="true"',
@@ -128,6 +129,7 @@ module.exports = {
       2: "2px",
       4: "4px",
       8: "8px",
+      16: "16px",
     },
     boxShadow: {
       sm: "0 1px 2px 0 rgb(0 0 0 / 0.05)",

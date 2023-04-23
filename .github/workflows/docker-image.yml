@@ -1,5 +1,6 @@
 name: Docker Image CI
 permissions: read-all
+concurrency: production
 
 on:
   push:
@@ -9,6 +10,7 @@ jobs:
   docker-image:
     name: Build Docker Image
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Checkout
         uses: actions/checkout@v3

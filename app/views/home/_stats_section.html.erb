@@ -17,9 +17,7 @@
             <h2>LAST.FM</h2>
           </a>
           <div class="grow flex items-center justify-center">
-            <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
+            <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
           </div>
         </div>
       </turbo-frame>
@@ -32,9 +30,7 @@
             <h2>FAVORITE ANIME GENRES</h2>
           </a>
           <div class="grow flex items-center justify-center">
-            <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
+            <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
           </div>
         </div>
       </turbo-frame>
@@ -45,9 +41,7 @@
         <div class="flex flex-col w-full h-full px-4 py-4">
           <h2 class="text-lg font-bold text-left text-white">LAST WATCHED</h2>
           <div class="grow flex items-center justify-center">
-            <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
+            <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
           </div>
         </div>
       </turbo-frame>
@@ -60,9 +54,7 @@
             <h2>FAVORITE ANIME STUDIOS</h2>
           </a>
           <div class="grow flex items-center justify-center">
-            <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
+            <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
           </div>
         </div>
       </turbo-frame>
@@ -75,9 +67,7 @@
             <h2>LAST.FM (TOP ARTISTS OF ALL TIME)</h2>
           </a>
           <div class="grow flex items-center justify-center">
-            <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
+            <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
           </div>
         </div>
       </turbo-frame>
@@ -88,9 +78,7 @@
         <div class="flex flex-col w-full h-full px-4 py-4">
           <h2 class="text-lg font-bold text-left text-white">LAST WATCHED ANIME MOVIE</h2>
           <div class="grow flex items-center justify-center">
-            <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
+            <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
           </div>
         </div>
       </turbo-frame>
@@ -105,16 +93,12 @@
           <div class="grow flex flex-row flex-wrap gap-4">
             <div class="grow flex flex-col items-center justify-center">
               <turbo-frame id="total_watched_anime_last_week" src="<%= anilist_user_activities_path %>" loading="lazy">
-                <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
-                  <span class="visually-hidden">Loading...</span>
-                </div>
+                <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
               </turbo-frame>
             </div>
             <div class="grow flex flex-col items-center justify-center">
               <turbo-frame id="total_watched_anime" src="<%= anilist_user_statistics_path %>" loading="lazy">
-                <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
-                  <span class="visually-hidden">Loading...</span>
-                </div>
+                <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
               </turbo-frame>
             </div>
           </div>
@@ -126,16 +110,12 @@
           <div class="grow flex flex-row flex-wrap gap-4">
             <div class="grow flex flex-col items-center justify-center">
               <turbo-frame id="total_watched_anime_movie_last_week" src="<%= anilist_user_activities_path %>" loading="lazy">
-                <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
-                  <span class="visually-hidden">Loading...</span>
-                </div>
+                <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
               </turbo-frame>
             </div>
             <div class="grow flex flex-col items-center justify-center">
               <turbo-frame id="total_watched_anime_movie" src="<%= anilist_user_statistics_path %>" loading="lazy">
-                <div class="spinner-border animate-spin inline-block w-8 h-8 text-white border-4 rounded-full" role="status">
-                  <span class="visually-hidden">Loading...</span>
-                </div>
+                <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
               </turbo-frame>
             </div>
           </div>
