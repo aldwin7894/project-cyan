@@ -6,8 +6,8 @@ class DiscordBannerController < ApplicationController
   before_action :set_no_cache_headers
 
   content_security_policy(only: :index) do |policy|
-    policy.img_src(*policy.img_src.reject! { |x| x == :data })
-  end
+    policy.img_src(*policy.img_src.reject { |x| x == :data })
+  end unless Rails.env.development?
 
   # FERRUM_OPTIONS = {
   #   window_size: [600, 126],
