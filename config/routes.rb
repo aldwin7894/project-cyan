@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
   resources :lastfm,
     only: :index,
-    constraints: lambda { |req| ["html", "svg", "png", "jpg"].include? req.format }
+    constraints: lambda { |req| ["html", "svg"].include? req.format }
   resources :anilist, only: [:index, :new] do
     collection do
       get "fetch_followers"
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   resources :discord_banner,
     path: "discord-banner",
     only: :index,
-    constraints: lambda { |req| ["html", "svg", "png", "jpg"].include? req.format }
+    constraints: lambda { |req| ["html", "svg"].include? req.format }
   # resources :listenbrainz
   get "ping", to: "home#ping"
   get "anilist_user_activities", to: "home#anilist_user_activities"
@@ -47,29 +47,6 @@ Rails.application.routes.draw do
   get "lastfm_top_artists", to: "home#lastfm_top_artists"
   get "browserconfig", to: "home#browserconfig", constraints: lambda { |req| req.format == :xml }, as: "browserconfig"
   get "site", to: "home#site", constraints: lambda { |req| req.format == :webmanifest }, as: "webmanifest"
-
-  direct :cdn_image do |model, options|
-    if model.respond_to?(:signed_id)
-      route_for(
-        :rails_service_blob_proxy,
-        model.signed_id,
-        model.filename,
-        options.merge(host: ENV["RAILS_ASSET_HOST"])
-      )
-    else
-      signed_blob_id = model.blob.signed_id
-      variation_key  = model.variation.key
-      filename       = model.blob.filename
-
-      route_for(
-        :rails_blob_representation_proxy,
-        signed_blob_id,
-        variation_key,
-        filename,
-        options.merge(host: ENV["RAILS_ASSET_HOST"])
-      )
-    end
-  end
 
   # error pages
   get "400", to: "exceptions#index"

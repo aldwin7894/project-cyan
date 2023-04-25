@@ -85,7 +85,7 @@ gem "jwt", "~> 2.7"
 
 gem "recaptcha", "~> 5.12"
 
-gem "ferrum", "~> 0.13"
+# gem "ferrum", "~> 0.13"
 
 gem "discordrb", github: "shardlab/discordrb", branch: "main", ref: "2011ac6"
 

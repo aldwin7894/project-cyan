@@ -1,12 +1,12 @@
 <turbo-frame id="lastfm_top_artists">
-  <div class="w-full h-full transition-all duration-1000 bg-center bg-cover" style="background-image: url('<%= cached_image_url_to_base64 @lastfm_top_artists.shuffle.first&.[]("image") %>')">
+  <div class="w-full h-full transition-all duration-1000 bg-center bg-cover" style="background-image: url('<%= @lastfm_top_artists.shuffle.first&.[]("image") %>')">
     <div class="flex flex-col w-full h-full px-4 py-4 text-white backdrop-blur-sm backdrop-brightness-[40%] bg-gradient-to-br from-cyan-700/30 to-pink-500/30" x-data="">
       <a href="https://www.last.fm/user/aldwin7894/library/artists?date_preset=ALL" rel="noopener noreferrer" class="hover:underline self-start text-lg font-bold text-left">
         <h3>LAST.FM (TOP ARTISTS OF ALL TIME)</h3>
       </a>
       <div class="flex flex-row flex-wrap items-center content-center justify-center gap-2 my-auto">
         <% @lastfm_top_artists.each do |artist| %>
-          <a href="<%= artist["url"] %>" rel="noopener noreferrer" style="background-image: url('<%= cached_image_url_to_base64 artist["image"] %>')" class="w-[100px] h-[100px] bg-cover bg-center outline outline-white/10 outline-3 transition-all duration-1000">
+          <a href="<%= artist["url"] %>" rel="noopener noreferrer" style="background-image: url('<%= artist["image"] %>')" class="w-[100px] h-[100px] bg-cover bg-center outline outline-white/10 outline-3 transition-all duration-1000">
             <div class="flex flex-col text-center w-full h-full px-1 py-1 opacity-0 hover:backdrop-brightness-[25%] hover:opacity-100 ">
               <h3 class="line-clamp-3 break-words"><%= artist["name"] %></h3>
               <h3 class="self-end mt-auto text-[10px] w-full">Rank <%= artist["rank"] %> | Plays <%= artist["playcount"] %></h3>

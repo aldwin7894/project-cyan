@@ -59,15 +59,15 @@ ENV NODE_VERSION 18.12.0
 ENV BUNDLE_PATH=/gems
 ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
+# Install MS Edge for Ferrum
+# && wget --quiet --output-document=- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/trusted.gpg.d/microsoft-edge-beta.gpg \
+# && bash -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" >> /etc/apt/sources.list.d/microsoft-edge-beta.list' \
+# && apt get install microsoft-edge-beta
+
 RUN apt-get update -yq \
   && apt-get install -yq --no-install-recommends \
   gnupg \
   wget \
-  && wget --quiet --output-document=- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/trusted.gpg.d/microsoft-edge-beta.gpg \
-  && bash -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" >> /etc/apt/sources.list.d/microsoft-edge-beta.list' \
-  && apt-get update -yq \
-  && apt-get install -yq --no-install-recommends \
-  microsoft-edge-beta \
   libjemalloc2 \
   tzdata \
   && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \

@@ -38,7 +38,7 @@ lint:
         - db/**
         - node_modules/**
   enabled:
-    - eslint@8.38.0:
+    - eslint@8.39.0:
         packages:
           - eslint-config-airbnb-base
           - eslint-config-prettier
@@ -55,13 +55,13 @@ lint:
     - shfmt@3.5.0
     - svgo@3.0.2
     - oxipng@8.0.0
-    - prettier@2.8.7
+    - prettier@2.8.8
     - markdownlint@0.33.0
     - actionlint@1.6.24
     - git-diff-check
     - shellcheck@0.9.0
     - hadolint@2.12.0
     - gitleaks@8.16.3
-    - yamllint@1.30.0
-    - checkov@2.3.192
+    - yamllint@1.31.0
+    - checkov@2.3.199
     - sort-package-json@2.4.1

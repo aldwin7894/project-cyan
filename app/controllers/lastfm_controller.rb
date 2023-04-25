@@ -7,16 +7,20 @@ class LastfmController < ApplicationController
   before_action :check_if_from_cloudfront
   before_action :set_no_cache_headers
 
-  FERRUM_OPTIONS = {
-    window_size: [600, 122],
-    browser_path: "/usr/bin/microsoft-edge-beta",
-    browser_options: {
-      'no-sandbox': nil,
-      'no-first-run': nil
-    },
-    timeout: 60,
-    pending_connection_errors: false
-  }
+  content_security_policy(only: :index) do |policy|
+    policy.img_src(*policy.img_src.reject! { |x| x == :data })
+  end
+
+  # FERRUM_OPTIONS = {
+  #   window_size: [600, 122],
+  #   browser_path: "/usr/bin/microsoft-edge-beta",
+  #   browser_options: {
+  #     'no-sandbox': nil,
+  #     'no-first-run': nil
+  #   },
+  #   timeout: 60,
+  #   pending_connection_errors: false
+  # }
 
   def index
     generate_content(params)
@@ -24,20 +28,20 @@ class LastfmController < ApplicationController
     @album_art = nil
   ensure
     respond_to do |format|
-      format.png do
-        browser = Ferrum::Browser.new(**FERRUM_OPTIONS)
-        browser.go_to("#{ENV.fetch('RAILS_HOST')}#{request.fullpath.gsub('.png', '.html')}")
-        screenshot = browser.screenshot(format: :png, encoding: :binary)
-        browser.quit
-        send_data(screenshot, type: "image/png", disposition: :inline)
-      end
-      format.jpg do
-        browser = Ferrum::Browser.new(**FERRUM_OPTIONS)
-        browser.go_to("#{ENV.fetch('RAILS_HOST')}#{request.fullpath.gsub('.jpg', '.html')}")
-        screenshot = browser.screenshot(format: :jpeg, encoding: :binary, quality: 100)
-        browser.quit
-        send_data(screenshot, type: "image/jpg", disposition: :inline)
-      end
+      # format.png do
+      #   browser = Ferrum::Browser.new(**FERRUM_OPTIONS)
+      #   browser.go_to("#{ENV.fetch('RAILS_HOST')}#{request.fullpath.gsub('.png', '.html')}")
+      #   screenshot = browser.screenshot(format: :png, encoding: :binary)
+      #   browser.quit
+      #   send_data(screenshot, type: "image/png", disposition: :inline)
+      # end
+      # format.jpg do
+      #   browser = Ferrum::Browser.new(**FERRUM_OPTIONS)
+      #   browser.go_to("#{ENV.fetch('RAILS_HOST')}#{request.fullpath.gsub('.jpg', '.html')}")
+      #   screenshot = browser.screenshot(format: :jpeg, encoding: :binary, quality: 100)
+      #   browser.quit
+      #   send_data(screenshot, type: "image/jpg", disposition: :inline)
+      # end
       format.html
       format.svg
     end
