@@ -7,7 +7,7 @@
     <div class="album-container">
       <div class="<%= @album_art.present? ? "album-cover" : "lastfm-placeholder-3" %>">
         <% if @recent['loved'] == "1" %>
-          <img src="<%= vite_url_to_base64(vite_asset_url("images/heart.webp")) %>" width="27" height="27" class="album-love" />
+          <img src="<%= vite_url_to_base64(vite_asset_url("images/heart.webp")) %>" width="27" height="27" class="album-love" alt="love" />
         <% end %>
       </div>
     </div>

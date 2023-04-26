@@ -1,4 +1,16 @@
 <turbo-frame id="lastfm_top_artists">
+  <% if @lastfm_top_artists.present? %>
+    <script>
+      <% @lastfm_top_artists.each do |artist| %>
+        var res = document.createElement("link");
+        res.rel = "preload";
+        res.as = "image";
+        res.href = "<%= artist["image"] %>";
+        document.head.appendChild(res);
+      <% end %>
+    </script>
+  <% end %>
+
   <div class="w-full h-full transition-all duration-1000 bg-center bg-cover" style="background-image: url('<%= @lastfm_top_artists.shuffle.first&.[]("image") %>')">
     <div class="flex flex-col w-full h-full px-4 py-4 text-white backdrop-blur-sm backdrop-brightness-[40%] bg-gradient-to-br from-cyan-700/30 to-pink-500/30" x-data="">
       <a href="https://www.last.fm/user/aldwin7894/library/artists?date_preset=ALL" rel="noopener noreferrer" class="hover:underline self-start text-lg font-bold text-left">

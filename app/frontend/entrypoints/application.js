@@ -88,11 +88,14 @@ window.addEventListener("load", () => {
     initElems();
   });
 });
-document.addEventListener("turbo:before-fetch-response", event => {
+document.addEventListener("turbo:before-frame-render", event => {
   const id = event.target.getAttribute("data-turbo-frame")
     ? event.target.getAttribute("data-turbo-frame")
     : event.target.id;
+
+  event.preventDefault();
   fadeIn(id);
+  event.detail.resume();
 });
 
 // FORCE PROGRSS BAR FOR TURBO

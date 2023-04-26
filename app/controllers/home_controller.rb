@@ -166,10 +166,12 @@ class HomeController < ApplicationController
     when "last_watched_movie"
       last_watched_movie = @user_activity.find { |x| x["media"]["format"] == "MOVIE" }
       @last_watched_movie = user_activity_fetch_fanart(activity: last_watched_movie)
-    when "watched_anime"
+    when /watched_anime_\d+/
       @watched_anime = @user_activity.select { |x| ANIME_FORMATS.include? x["media"]["format"] }
-    when "watched_movie"
+      turbo_frame_request_id = "watched_anime"
+    when /watched_movie_\d+/
       @watched_movie = @user_activity.select { |x| ANIME_FORMATS.exclude? x["media"]["format"] }
+      turbo_frame_request_id = "watched_movie"
     when "total_watched_anime_last_week"
       @total_watched_anime_time_last_week_mins = @user_activity
                                                    .select { |x| x["createdAt"] >= last_week }

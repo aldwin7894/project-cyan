@@ -1,10 +1,27 @@
 <section class="flex-1 mb-20">
   <div class="container mx-auto">
-    <turbo-frame id="watched_anime" src="<%= anilist_user_activities_path %>" loading="lazy">
-      <%= render "watched_placeholder" %>
-    </turbo-frame>
-    <turbo-frame id="watched_movie" src="<%= anilist_user_activities_path %>" x-data="" loading="lazy">
-      <%= render "watched_placeholder" %>
-    </turbo-frame>
+    <h2 class="dark:text-white phone:text-center tablet:text-left my-10 text-4xl">
+      <iconify-icon icon="mdi:timer-play" width="35"></iconify-icon>
+      Recently watched episodes
+    </h2>
+    <div class="grid phone:grid-cols-1 gap-5 text-center tablet:grid-cols-2 laptop:grid-cols-3 desktop-lg:grid-cols-6 min-h-[322px]">
+      <% (0..5).each do |index| %>
+        <turbo-frame id="watched_anime_<%= index %>" src="<%= anilist_user_activities_path %>" loading="lazy">
+          <%= render "watched_placeholder" %>
+        </turbo-frame>
+      <% end %>
+    </div>
+
+    <h2 class="dark:text-white phone:text-center tablet:text-left my-10 text-4xl">
+      <iconify-icon icon="mdi:timer-play" width="35"></iconify-icon>
+      Recently watched movies / ova / specials
+    </h2>
+    <div class="phone:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 desktop-lg:grid-cols-6 grid gap-5 text-center min-h-[322px]">
+      <% (0..5).each do |index| %>
+        <turbo-frame id="watched_movie_<%= index %>" src="<%= anilist_user_activities_path %>" loading="lazy">
+          <%= render "watched_placeholder" %>
+        </turbo-frame>
+      <% end %>
+    </div>
   </div>
 </section>

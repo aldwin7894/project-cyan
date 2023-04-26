@@ -1,11 +1,16 @@
-<turbo-frame id="watched_anime" x-data="">
-  <h2 class="dark:text-white my-10 text-4xl phone:text-center tablet:text-left <%= @watched_anime.blank? ? "opacity-0" : "" %>">
-    <iconify-icon icon="mdi:timer-play" width="35"></iconify-icon>
-    Recently watched episodes
-  </h2>
-  <div class="grid phone:grid-cols-1 gap-5 text-center tablet:grid-cols-2 laptop:grid-cols-3 desktop-lg:grid-cols-6 min-h-[322px]">
-    <% @watched_anime&.first(6)&.each do |activity| %>
+<% (0..5).each do |index| %>
+  <turbo-frame id="watched_anime_<%= index %>">
+    <% activity = @watched_anime&.[](index) %>
+    <% if activity.present? %>
+      <script>
+        var res = document.createElement("link");
+        res.rel = "preload";
+        res.as = "image";
+        res.href = "<%= activity["media"]["coverImage"]["extraLarge"] %>";
+        document.head.appendChild(res);
+      </script>
+
       <%= render "home/watched_elem", formats: [:html], activity: %>
     <% end %>
-  </div>
-</turbo-frame>
+  </turbo-frame>
+<% end %>
