@@ -28,6 +28,10 @@
     "erb": "html"
   },
   "git.enableCommitSigning": true,
+  "sonarlint.connectedMode.project": {
+    "connectionId": "aldwin7894",
+    "projectKey": "aldwin7894:project-cyan"
+  },
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#004a4d",
     "activityBar.background": "#004a4d",
@@ -55,9 +59,5 @@
     "titleBar.border": "#004a4d",
     "titleBar.inactiveBackground": "#004a4d99",
     "titleBar.inactiveForeground": "#e7e7e799"
-  },
-  "sonarlint.connectedMode.project": {
-    "connectionId": "aldwin7894",
-    "projectKey": "aldwin7894:project-cyan"
   }
 }

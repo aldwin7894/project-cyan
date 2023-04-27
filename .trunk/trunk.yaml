@@ -63,5 +63,5 @@ lint:
     - hadolint@2.12.0
     - gitleaks@8.16.3
     - yamllint@1.31.0
-    - checkov@2.3.199
+    - checkov@2.3.201
     - sort-package-json@2.4.1
