@@ -69,7 +69,7 @@ module Shoko
       break if index > possible_queries.length - 1
       query = {
         query: possible_queries[index][:name],
-        fuzzy: false,
+        fuzzy: true,
         limit: 1
       }
       res = HTTParty.get(BASE_URL + url, headers:, query:, timeout: 10, format: :plain)

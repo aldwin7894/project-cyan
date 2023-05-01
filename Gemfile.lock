@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/shardlab/discordrb.git
-  revision: 2011ac63da2c5dde1ff3bea06e1b471325128575
+  revision: faace0fa54babd44643794a4899d6c9e07464ffa
   ref: 2011ac6
   branch: main
   specs:
@@ -137,7 +137,7 @@ GEM
     globalid (1.1.0)
       activesupport (>= 5.0)
     google-protobuf (3.22.3-x86_64-linux)
-    googleapis-common-protos-types (1.5.0)
+    googleapis-common-protos-types (1.6.0)
       google-protobuf (~> 3.14)
     graphql (2.0.21)
     graphql-client (0.18.0)
@@ -154,7 +154,7 @@ GEM
     httplog (1.6.2)
       rack (>= 2.0)
       rainbow (>= 2.0.0)
-    i18n (1.12.0)
+    i18n (1.13.0)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.4)
     json (2.6.3)
@@ -306,7 +306,7 @@ GEM
       opentelemetry-api (~> 1.0)
       opentelemetry-common (~> 0.19.3)
       opentelemetry-instrumentation-base (~> 0.22.0)
-    opentelemetry-instrumentation-grape (0.1.0)
+    opentelemetry-instrumentation-grape (0.1.1)
       opentelemetry-api (~> 1.1.0)
       opentelemetry-instrumentation-base (~> 0.22.0)
       opentelemetry-instrumentation-rack (~> 0.21)
@@ -405,13 +405,13 @@ GEM
       ffi
     orm_adapter (0.5.0)
     parallel (1.23.0)
-    parser (3.2.2.0)
+    parser (3.2.2.1)
       ast (~> 2.4.1)
     public_suffix (5.0.1)
     puma (6.2.2)
       nio4r (~> 2.0)
     racc (1.6.2)
-    rack (2.2.6.4)
+    rack (2.2.7)
     rack-brotli (1.2.0)
       brotli (>= 0.1.7)
       rack (>= 1.4)
@@ -538,7 +538,7 @@ GEM
     vite_rails (3.0.14)
       railties (>= 5.1, < 8)
       vite_ruby (~> 3.0, >= 3.2.2)
-    vite_ruby (3.3.0)
+    vite_ruby (3.3.1)
       dry-cli (>= 0.7, < 2)
       rack-proxy (~> 0.6, >= 0.6.1)
       zeitwerk (~> 2.2)
@@ -558,7 +558,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yard (0.9.34)
-    zeitwerk (2.6.7)
+    zeitwerk (2.6.8)
 
 PLATFORMS
   x86_64-linux
