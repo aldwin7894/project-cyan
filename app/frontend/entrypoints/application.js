@@ -24,6 +24,7 @@ const initElems = (parent = null) => {
     trigger: "click",
     animation: "shift-away-subtle",
     placement: "bottom",
+    interactive: true,
     content(reference) {
       const id = reference.getAttribute("data-tippy-template");
       const template = document.getElementById(id);

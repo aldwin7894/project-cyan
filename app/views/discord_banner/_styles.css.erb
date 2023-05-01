@@ -17,7 +17,6 @@
   <% if @bottom_line.present? %>
     border-bottom: 4px solid #<%= @bottom_line %>;
   <% end %>
-  background-image: linear-gradient(rgba(<%= @background %>), rgba(<%= @background %>)), url(<%= vite_url_to_base64(vite_asset_url("images/discord.webp")) %>);
   background-color: rgba(<%= @background %>);
 }
 
