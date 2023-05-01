@@ -45,7 +45,7 @@
     "tw-elements": "^1.0.0-alpha13",
     "vite": "^4.3.3",
     "vite-plugin-full-reload": "^1.0.5",
-    "vite-plugin-ruby": "^3.2.1"
+    "vite-plugin-ruby": "^3.2.2"
   },
   "devDependencies": {
     "@types/node": "^18.16.0",
