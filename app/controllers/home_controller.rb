@@ -10,6 +10,7 @@ class HomeController < ApplicationController
   rescue_from QueryError, with: :render_empty
   rescue_from StandardError, with: :render_empty
   before_action :check_if_from_cloudfront
+  before_action :check_if_turbo_frame, only: %i(lastfm_stats lastfm_top_artists anilist_user_statistics anilist_user_activities)
 
   ANIME_FORMATS = ["TV", "TV_SHORT", "ONA"]
   IGNORED_USER_STATUS = ["plans to watch", "paused watching", "dropped"]
@@ -282,5 +283,9 @@ class HomeController < ApplicationController
       user_activity["media"]["bannerImage"] = fanart if fanart.present?
 
       user_activity
+    end
+
+    def check_if_turbo_frame
+      return render layout: false unless turbo_frame_request?
     end
 end
