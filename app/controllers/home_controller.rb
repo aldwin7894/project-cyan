@@ -116,7 +116,7 @@ class HomeController < ApplicationController
                                      .map { |x| x["count"].to_i }.sum
     end
 
-    render turbo_frame_request_id, layout: false
+    render template: "home/#{turbo_frame_request_id}", layout: false
   end
 
   def anilist_user_activities
@@ -189,7 +189,7 @@ class HomeController < ApplicationController
       @total_watched_anime_movie_last_week = @watched_movie.select { |x| x["createdAt"] >= last_week }.size
     end
 
-    render turbo_frame_request_id, layout: false
+    render template: "home/#{turbo_frame_request_id}", layout: false
   end
 
   def lastfm_stats
@@ -210,10 +210,10 @@ class HomeController < ApplicationController
 
     @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"
 
-    render layout: false
+    render template: "home/lastfm_stats", layout: false
   rescue LastFM::ApiError
     @album_art = nil
-    render layout: false
+    render template: "home/lastfm_stats", layout: false
   end
 
   def lastfm_top_artists
@@ -232,10 +232,10 @@ class HomeController < ApplicationController
       artist
     end
 
-    render layout: false
+    render template: "home/lastfm_top_artists", layout: false
   rescue LastFM::ApiError
     @lastfm_top_artists = []
-    render layout: false
+    render template: "home/lastfm_top_artists", layout: false
   end
 
   def browserconfig; end
@@ -254,7 +254,7 @@ class HomeController < ApplicationController
 
       respond_to do |format|
         format.html do
-          return render turbo_frame_request_id, layout: false if turbo_frame_request?
+          return render template: "home/#{turbo_frame_request_id}", layout: false if turbo_frame_request?
           render layout: false
         end
       end
