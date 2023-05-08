@@ -43,7 +43,7 @@
     "terser": "^5.17.1",
     "tippy.js": "^6.3.7",
     "tw-elements": "^1.0.0-alpha13",
-    "vite": "^4.3.4",
+    "vite": "^4.3.5",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-ruby": "^3.2.2"
   },
