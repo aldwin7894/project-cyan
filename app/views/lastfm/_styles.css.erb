@@ -45,8 +45,6 @@
   border-radius: 5px;
   height: 102px;
   width: 102px;
-  background-size: cover;
-  background-image: url(<%= @album_art.present? ? cached_image_url_to_base64(@album_art) : nil %>);
   background-color: rgba(78, 85, 91, 0.8);
 }
 
@@ -273,7 +271,7 @@ span, em, b, strong, i, p {
   border-radius: 5px;
   width: 102px;
   height: 102px;
-  background: url(<%= @recent.blank? || @album_art.blank? ? vite_url_to_base64(vite_asset_url("images/lastfm-placeholder-3-sprite.webp")) : nil %>) left center;
+  background: url(<%#= @recent.blank? || @album_art.blank? ? vite_url_to_base64(vite_asset_url("images/lastfm-placeholder-3-sprite.webp")) : nil %>) left center;
   background-size: cover;
   border: 3px solid white;
   animation: play 3.5s steps(11) infinite;

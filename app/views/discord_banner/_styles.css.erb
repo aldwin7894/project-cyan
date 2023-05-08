@@ -41,12 +41,8 @@
 
 .avatar {
   border-radius: 9999px;
-  outline-style: solid;
-  outline-color: #fff;
   height: 102px;
   width: 102px;
-  background-size: cover;
-  background-image: url(<%= cached_image_url_to_base64(@avatar) %>);
   background-color: rgba(78, 85, 91, 0.8);
 }
 
@@ -158,7 +154,6 @@ h6 {
   background-position: top center;
   right: 10px;
   top: 5px;
-  background-image: url(<%= cached_image_url_to_base64(@activity&.[](:large_image)) %>);
 }
 
 .playing-container {

@@ -10,7 +10,7 @@ merge:
 plugins:
   sources:
     - id: trunk
-      ref: v0.0.16
+      ref: v0.0.17
       uri: https://github.com/trunk-io/plugins
 runtimes:
   enabled:
@@ -38,7 +38,7 @@ lint:
         - db/**
         - node_modules/**
   enabled:
-    - eslint@8.39.0:
+    - eslint@8.40.0:
         packages:
           - eslint-config-airbnb-base
           - eslint-config-prettier
@@ -63,5 +63,6 @@ lint:
     - hadolint@2.12.0
     - gitleaks@8.16.3
     - yamllint@1.31.0
-    - checkov@2.3.220
+    - checkov@2.3.228
     - sort-package-json@2.4.1
+    - brakeman@5.4.0

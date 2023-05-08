@@ -4,29 +4,7 @@
   </div>
 
   <div class="avatar-container">
-    <div class="avatar">
-      <% if @online_status == :offline %>
-        <svg xmlns="http://www.w3.org/2000/svg" class="status" width="1em" height="1em" viewBox="0 0 24 24"><path fill="#97a0b3" d="M12 15q1.25 0 2.125-.875T15 12q0-1.25-.875-2.125T12 9q-1.25 0-2.125.875T9 12q0 1.25.875 2.125T12 15Zm0 7q-2.075 0-3.9-.788q-1.825-.787-3.175-2.137q-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175q1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138q1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175q-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"/></svg>
-      <% else %>
-        <% if @device == :mobile %>
-          <% if @client_status == :online %>
-            <svg xmlns="http://www.w3.org/2000/svg" class="status" width="1em" height="1em" viewBox="0 0 24 24"><path fill="#62a45c" d="M10.5 20h3q.2 0 .35-.15q.15-.15.15-.35q0-.2-.15-.35q-.15-.15-.35-.15h-3q-.2 0-.35.15q-.15.15-.15.35q0 .2.15.35q.15.15.35.15ZM7 23q-.825 0-1.412-.587Q5 21.825 5 21V3q0-.825.588-1.413Q6.175 1 7 1h10q.825 0 1.413.587Q19 2.175 19 3v18q0 .825-.587 1.413Q17.825 23 17 23Zm0-7h10V6H7Z"/></svg>
-          <% elsif @client_status == :idle %>
-            <svg xmlns="http://www.w3.org/2000/svg" class="status" width="1em" height="1em" viewBox="0 0 24 24"><path fill="#e6ae25" d="M10.5 20h3q.2 0 .35-.15q.15-.15.15-.35q0-.2-.15-.35q-.15-.15-.35-.15h-3q-.2 0-.35.15q-.15.15-.15.35q0 .2.15.35q.15.15.35.15ZM7 23q-.825 0-1.412-.587Q5 21.825 5 21V3q0-.825.588-1.413Q6.175 1 7 1h10q.825 0 1.413.587Q19 2.175 19 3v18q0 .825-.587 1.413Q17.825 23 17 23Zm0-7h10V6H7Z"/></svg>
-          <% elsif @client_status == :dnd %>
-            <svg xmlns="http://www.w3.org/2000/svg" class="status" width="1em" height="1em" viewBox="0 0 24 24"><path fill="tomato" d="M10.5 20h3q.2 0 .35-.15q.15-.15.15-.35q0-.2-.15-.35q-.15-.15-.35-.15h-3q-.2 0-.35.15q-.15.15-.15.35q0 .2.15.35q.15.15.35.15ZM7 23q-.825 0-1.412-.587Q5 21.825 5 21V3q0-.825.588-1.413Q6.175 1 7 1h10q.825 0 1.413.587Q19 2.175 19 3v18q0 .825-.587 1.413Q17.825 23 17 23Zm0-7h10V6H7Z"/></svg>
-          <% end %>
-        <% else %>
-          <% if @client_status == :online %>
-            <svg xmlns="http://www.w3.org/2000/svg" class="status" width="1em" height="1em" viewBox="0 0 24 24"><path fill="#62a45c" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Z"/></svg>
-          <% elsif @client_status == :idle %>
-            <svg xmlns="http://www.w3.org/2000/svg" class="status" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><g transform="translate(256 0) scale(-1 1)"><path fill="#e6ae25" d="M224.3 154.9A100 100 0 1 1 101 31.7a7.9 7.9 0 0 1 10.3 8.1a5.7 5.7 0 0 1-.3 1.8A84 84 0 0 0 214.3 145l2.2-.4a8.1 8.1 0 0 1 7.8 5.7a7.2 7.2 0 0 1 0 4.6Z"/></g></svg>
-          <% elsif @client_status == :dnd %>
-            <svg xmlns="http://www.w3.org/2000/svg" class="status" width="1em" height="1em" viewBox="0 0 24 24"><path fill="tomato" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm4 11H8c-.55 0-1-.45-1-1s.45-1 1-1h8c.55 0 1 .45 1 1s-.45 1-1 1z"/></svg>
-          <% end %>
-        <% end %>
-      <% end %>
-    </div>
+    <div class="avatar"></div>
   </div>
 
   <div class="info-container">

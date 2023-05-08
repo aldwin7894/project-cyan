@@ -11,10 +11,20 @@
     <pattern id="background" patternUnits="userSpaceOnUse" width="600" height="126" x="0" y="0">
       <image href="<%= vite_url_to_base64(vite_asset_url("images/lastfm.webp")) %>" x="0" y="0" width="600" height="126"></image>
     </pattern>
+    <pattern id="album-cover" patternUnits="userSpaceOnUse" width="102" height="102" x="10" y="10">
+      <image href="<%= @album_art.present? ? cached_image_url_to_base64(@album_art) : vite_url_to_base64(vite_asset_url("images/lastfm-placeholder-3.webp")) %>" x="0" y="0" width="102" height="102"></image>
+    </pattern>
+    <pattern id="album-love" patternUnits="userSpaceOnuse" width="27" height="27" x="0" y="0">
+      <image href="<%= vite_url_to_base64(vite_asset_url("images/heart.webp")) %>" width="27" height="27"></image>
+    </pattern>
   </defs>
 
   <rect width="600" height="126" fill="url(#background)"></rect>
   <foreignObject width="600px" height="126px">
     <%= render partial: "lastfm/content", formats: [:html] %>
   </foreignObject>
+  <rect width="102" height="102" fill="url(#album-cover)" x="10" y="10" rx="5" stroke="white" stroke-width="<%= @recent.blank? || @album_art.blank? ? 3 : 0 %>"></rect>
+  <% if @recent&.[]('loved') == "1" %>
+    <rect width="27" height="27" class="album-love" fill="url(#album-love)" x="90" y="5"></rect>
+  <% end %>
 </svg>
