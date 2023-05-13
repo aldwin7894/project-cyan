@@ -12,9 +12,19 @@
       <image href="<%= vite_url_to_base64(vite_asset_url("images/lastfm.webp")) %>" x="0" y="0" width="600" height="126"></image>
     </pattern>
     <pattern id="album-cover" patternUnits="userSpaceOnUse" width="102" height="102" x="10" y="10">
-      <image href="<%= @album_art.present? ? cached_image_url_to_base64(@album_art) : vite_url_to_base64(vite_asset_url("images/lastfm-placeholder-3.webp")) %>" x="0" y="0" width="102" height="102" style="image-rendering: pixelated"></image>
+      <image href="<%= @album_art.present? ? cached_image_url_to_base64(@album_art) : vite_url_to_base64(vite_asset_url("images/lastfm-placeholder-3-sprite.webp")) %>" style="image-rendering: pixelated">
+        <animate
+          attributeType="XML"
+          attributeName="x"
+          values="0; -102; -204; -306; -408; -510; -612; -714; -816; -918; -1020; -1122"
+          keyTimes="0; 0.1; 0.2; 0.3; 0.4; 0.5; 0.6; 0.65; 0.7; 0.8; 0.9; 1"
+          dur="3.5s"
+          begin="0s"
+          calcMode="discrete"
+          repeatCount="indefinite" />
+      </image>
     </pattern>
-    <pattern id="album-love" patternUnits="userSpaceOnuse" width="27" height="27" x="0" y="0">
+    <pattern id="album-love" patternUnits="userSpaceOnUse" width="27" height="27" x="0" y="0">
       <image href="<%= vite_url_to_base64(vite_asset_url("images/heart.webp")) %>" width="27" height="27"></image>
     </pattern>
   </defs>

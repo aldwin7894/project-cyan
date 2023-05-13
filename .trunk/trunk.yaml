@@ -16,7 +16,7 @@ runtimes:
   enabled:
     - python@3.10.8
     - go@1.19.5
-    - node@>=18.12.0
+    - node@>=18.16.0
     - ruby@>=3.2.0
 actions:
   enabled:
@@ -63,6 +63,6 @@ lint:
     - hadolint@2.12.0
     - gitleaks@8.16.3
     - yamllint@1.31.0
-    - checkov@2.3.233
+    - checkov@2.3.238
     - sort-package-json@2.4.1
     - brakeman@5.4.0

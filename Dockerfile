@@ -1,6 +1,6 @@
 FROM ruby:3.2.2-slim-bullseye AS build-env
 
-ENV NODE_VERSION 18.12.0
+ENV NODE_VERSION 18.16.0
 ENV NPM_VERSION 8.16.0
 ENV YARN_VERSION 1.22.0
 ENV BUNDLE_PATH=/gems
@@ -55,7 +55,7 @@ RUN --mount=type=secret,id=TZ \
 #==============================================
 FROM ruby:3.2.2-slim-bullseye
 
-ENV NODE_VERSION 18.12.0
+ENV NODE_VERSION 18.16.0
 ENV BUNDLE_PATH=/gems
 ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
