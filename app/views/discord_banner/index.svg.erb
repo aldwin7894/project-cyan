@@ -12,10 +12,10 @@
       <image href="<%= vite_url_to_base64(vite_asset_url("images/discord.webp")) %>" x="0" y="0" width="600" height="126"></image>
     </pattern>
     <pattern id="avatar" patternUnits="userSpaceOnUse" width="102" height="102" x="10" y="12">
-      <image href="<%= cached_image_url_to_base64(@avatar) %>" x="0" y="0" width="102" height="102" style="image-rendering: pixelated"></image>
+      <image href="<%= cached_image_url_to_base64(@avatar) %>" x="0" y="0" width="102" height="102"></image>
     </pattern>
     <pattern id="large-image" patternUnits="userSpaceOnUse" width="64" height="86" x="526" y="5">
-      <image href="<%= cached_image_url_to_base64(@activity&.[](:large_image)) %>" preserveAspectRatio="<%= @activity&.[](:large_image)&.include?("jellyfin.") ? "none" : "xMidYMin" %>" x="0" y="0" width="64" height="86" style="image-rendering: pixelated"></image>
+      <image href="<%= cached_image_url_to_base64(@activity&.[](:large_image)) %>" preserveAspectRatio="<%= @activity&.[](:large_image)&.include?("jellyfin.") ? "none" : "xMidYMin" %>" x="0" y="0" width="64" height="86"></image>
     </pattern>
   </defs>
 
