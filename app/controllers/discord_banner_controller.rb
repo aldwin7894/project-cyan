@@ -65,11 +65,12 @@ class DiscordBannerController < ApplicationController
     activity = current_user&.activities&.to_a&.first
 
     if activity.present?
+      title = "Playing #{activity&.name}"
+      details = [activity&.state, activity&.details].compact_blank.join(" - ")
+      subdetails = "#{activity&.assets&.large_text}"
       large_image = activity&.assets&.large_image_url("png")
       icon = ""
-      details = "#{activity&.state} - #{activity&.details}"
-      subdetails = "#{activity&.assets&.large_text}"
-      title = "Playing #{activity&.name}"
+
       activity_name = activity&.name
       activity_type = activity&.type
 
@@ -85,11 +86,13 @@ class DiscordBannerController < ApplicationController
       when "Music"
         title = "Listening to #{activity&.name}"
         details = activity&.details
-        subdetails = "#{activity&.state} - #{activity&.assets&.large_text}"
+        subdetails = [activity&.state, activity&.assets&.large_text].compact_blank.join(" - ")
       else
         case activity_type
         when 0
-          title = "Playing #{activity&.name}"
+          title = details.present? ? "Playing #{activity&.name}" : "Playing a game"
+          details = details.presence || activity&.name
+          subdetails = subdetails.presence || (activity&.timestamps&.start.present? ? "for #{helpers.time_ago_in_words(Time.zone.at(activity.timestamps.start.in_time_zone.to_i)).sub("about", "")}" : "")
         when 1
           title = "Streaming #{activity&.name}"
         when 2
