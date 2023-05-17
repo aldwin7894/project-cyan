@@ -10,7 +10,7 @@
       <div class="flex flex-col w-screen min-h-screen z-10 relative bg-gradient-to-t from-[#453c64]/90 to-cyan-400/50 py-10">
         <div class="grid grid-cols-8 my-auto">
           <div></div>
-          <div class="xs:items-center sm:items-center portrait:text-center flex flex-col items-start col-span-6">
+          <div class="tablet:items-center portrait:text-center laptop:items-start flex flex-col col-span-6">
             <div class="pb-3">
               <video autoplay loop muted inline playsinline defaultMuted oncontextmenu="return false;" preload="auto" class="outline outline-white outline-5 w-52 portrait:mx-auto rounded-full" poster="<%= vite_asset_url "images/cyan-avatar-2.webp" %>">
                 <source src="<%= vite_asset_url "images/cyan-avatar-2.webm" %>" type="video/webm">
@@ -18,12 +18,12 @@
               </video>
             </div>
             <div class="flex flex-col">
-              <h1 class="xs:text-5xl sm:text-5xl mb-2 text-6xl font-medium text-white">Cyan★Nyan♪</h1>
+              <h1 class="phone:text-4xl tablet:text-5xl laptop:text-6xl mb-2 font-medium text-white">Cyan★Nyan♪</h1>
               <h1 class="dark:bg-black/80 dark:text-[#fffdfa] text-slate-700 bg-white/80 px-2 text-2xl text-center">
                 ／<strong>aldwin7894</strong>／
               </h1>
             </div>
-            <div class="phone:px-2 xs:justify-center sm:justify-center desktop:pt-20 flex flex-row flex-wrap justify-start gap-4 pt-10" x-data="">
+            <div class="phone:px-2 tablet:justify-center laptop:justify-start desktop:pt-20 flex flex-row flex-wrap justify-around gap-4 pt-10" x-data="">
               <a href="https://bit.ly/cyan-anilist" rel="noopener noreferrer" class="text-white hover:text-[#02a9ff] h-fit" aria-label="AniList" data-tippy="tooltip" data-tippy-content="AniList">
                 <iconify-icon icon="simple-icons:anilist" width="50"></iconify-icon>
               </a>
@@ -61,7 +61,7 @@
                 <iconify-icon icon="simple-icons:github" width="50" class="hover:bg-white hover:outline-[#171a1e] outline-2 outline outline-offset-[-1px] rounded-full"></iconify-icon>
               </a>
             </div>
-            <div class="phone:px-2 xs:justify-center sm:justify-center flex flex-row flex-wrap justify-start col-span-12 gap-4 pt-10">
+            <div class="phone:px-2 tablet:justify-center laptop:justify-start flex flex-row flex-wrap justify-around col-span-12 gap-4 pt-10">
               <% @game_ids&.each do |game_id| %>
                 <button
                   aria-label="<%= game_id.name %>"

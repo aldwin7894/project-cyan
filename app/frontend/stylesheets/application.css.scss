@@ -339,3 +339,12 @@ main {
   padding-top: 0.5rem;
   white-space: pre-line;
 }
+
+.grecaptcha-badge {
+  @media (min-width: theme("screens.xs.min")) {
+    bottom: 120px !important;
+  }
+  @media (min-width: theme("screens.sm.min")) {
+    bottom: 60px !important;
+  }
+}

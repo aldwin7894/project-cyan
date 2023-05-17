@@ -7,15 +7,15 @@
 <% end %>
 
 <section>
-  <div class="carousel slide carousel-fade relative flex w-screen min-h-screen font-sans" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
+  <div class="carousel slide carousel-fade relative flex w-screen min-h-[calc(100vh-56px)] font-sans" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
     <div class="carousel-inner relative flex-1">
       <% bgs.each_with_index do |num, i| %>
         <div class="w-full h-full carousel-item relative float-left background-ailane-<%= num %> <%= i == 0 ? "active" : "" %>">
         </div>
       <% end %>
 
-      <div class="dark:bg-bg--dark/80 bg-bg--light/80 relative z-10 min-h-screen">
-        <turbo-frame id="anilist" class="flex items-center justify-center min-h-screen">
+      <div class="dark:bg-bg--dark/80 bg-bg--light/80 relative z-10 flex min-h-full">
+        <turbo-frame id="anilist" class="flex items-center justify-center flex-1">
           <%= render "anilist/new" %>
         </turbo-frame>
       </div>

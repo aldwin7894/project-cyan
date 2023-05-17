@@ -98,6 +98,10 @@ document.addEventListener("turbo:before-frame-render", event => {
   fadeIn(id);
   event.detail.resume();
 });
+document.addEventListener("turbo:before-stream-render", event => {
+  const id = event.target.target;
+  if (event.target.action === "update") fadeIn(id);
+});
 
 // FORCE PROGRSS BAR FOR TURBO
 document.addEventListener("turbo:before-fetch-request", () => {

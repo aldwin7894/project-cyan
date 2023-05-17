@@ -4,7 +4,7 @@
       <h2>FAVORITE ANIME GENRES</h2>
     </a>
     <div class="flex flex-row">
-      <div class="grow flex flex-col">
+      <div class="grow flex flex-col min-w-[150px]">
         <div>
           <ul>
             <% @genre_list.each do |genre| %>
@@ -16,7 +16,7 @@
           </ul>
         </div>
       </div>
-      <div class="mx-auto xs:max-w-[200px] max-w-[300px]">
+      <div class="mx-auto max-w-[300px]">
         <canvas id="favoriteGenres" aria-label="Favorite Anime Genres" role="img">
         Your browser does not support the canvas element.
         </canvas>
