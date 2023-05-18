@@ -266,7 +266,7 @@ class HomeController < ApplicationController
     end
 
     def check_if_turbo_frame
-      return render layout: false unless turbo_frame_request?
+      return head(:unprocessable_entity) unless turbo_frame_request?
     end
 
     def fetch_anilist_user_activities
