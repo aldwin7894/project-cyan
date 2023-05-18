@@ -1,15 +1,7 @@
-<% (0..5).each do |index| %>
-  <turbo-frame id="watched_anime_<%= index %>">
+<% (0..5).each do |index| %>"
+  <turbo-frame id="watched_anime_<%= @index %>_<%= index %>">
     <% activity = @watched_anime&.[](index) %>
     <% if activity.present? %>
-      <script>
-        var res = document.createElement("link");
-        res.rel = "preload";
-        res.as = "image";
-        res.href = "<%= activity["media"]["coverImage"]["extraLarge"] %>";
-        document.head.appendChild(res);
-      </script>
-
       <%= render "home/watched_elem", formats: [:html], activity: %>
     <% end %>
   </turbo-frame>

@@ -10,7 +10,7 @@ class HomeController < ApplicationController
   rescue_from QueryError, with: :render_empty
   rescue_from StandardError, with: :render_empty
   before_action :check_if_from_cloudfront
-  before_action :check_if_turbo_frame, only: %i(lastfm_stats lastfm_top_artists anilist_user_statistics anilist_user_activities)
+  before_action :check_if_turbo_frame, only: %i(lastfm_stats lastfm_top_artists anilist_user_statistics anilist_user_activities watched_anime_section watched_movie_section)
 
   ANIME_FORMATS = ["TV", "TV_SHORT", "ONA"]
   IGNORED_USER_STATUS = ["plans to watch", "paused watching", "dropped"]
@@ -117,62 +117,30 @@ class HomeController < ApplicationController
                                      .map { |x| x["count"].to_i }.sum
     end
 
-    render template: "home/#{turbo_frame_request_id}", layout: false
+    render template: "home/#{turbo_frame_request_id}", layout: false if turbo_frame_request?
   end
 
   def anilist_user_activities
-    user_id = ENV.fetch("ANILIST_USER_ID")
-    @user_activity = []
     now = Time.zone.now.beginning_of_day
     last_week = (now - 1.week).beginning_of_week.to_i
-    last_month = (now - 1.month).beginning_of_month.to_i
-    page = 1
-
-    # disable querying last page temporarily, until anilist fixes it
-    # data = query(AniList::UserAnimeActivitiesLastPageQuery, date: last_month, user_id:, page:, per_page: 50)
-    # last_page = data.page.page_info.last_page
-
-    loop do
-      cache_key = "ANILIST/#{ENV.fetch('ANILIST_USERNAME')}/#{last_month.to_i}_#{page}/USER_ACTIVITIES"
-      if !Rails.cache.exist? cache_key
-        logger.tagged("CACHE", "anilist_user_activities", cache_key) do
-          logger.info("MISS")
-        end
-        data = query(AniList::UserAnimeActivitiesQuery, date: last_month, user_id:, page:, per_page: 50)
-        has_next_page = data.page.page_info.has_next_page?
-        expires_in = has_next_page == false ? 4.hours : 1.week
-        res = Rails.cache.fetch(cache_key, expires_in:, skip_nil: true) do
-          { data: data.page.activities.to_a.map(&:to_h), has_next_page: }
-        end
-      else
-        logger.tagged("CACHE", "anilist_user_activities", cache_key) do
-          logger.info("HIT")
-        end
-        res = Rails.cache.fetch(cache_key)
-        has_next_page = res[:has_next_page]
-      end
-
-      @user_activity.push(*res[:data])
-      break if has_next_page == false
-
-      page += 1
-    end
-
-    @user_activity = @user_activity.reverse.select { |x| IGNORED_USER_STATUS.exclude? x["status"] }
+    @user_activity = fetch_anilist_user_activities
+    turbo_frame = turbo_frame_request_id
 
     case turbo_frame_request_id
     when "last_watched"
-      last_watched = @user_activity&.first
+      last_watched = @user_activity.select { |x| ANIME_FORMATS.include? x["media"]["format"] }&.first
       @last_watched = user_activity_fetch_fanart(activity: last_watched)
     when "last_watched_movie"
       last_watched_movie = @user_activity.find { |x| x["media"]["format"] == "MOVIE" }
       @last_watched_movie = user_activity_fetch_fanart(activity: last_watched_movie)
-    when /watched_anime_\d+/
-      @watched_anime = @user_activity.select { |x| ANIME_FORMATS.include? x["media"]["format"] }
-      turbo_frame_request_id = "watched_anime"
-    when /watched_movie_\d+/
-      @watched_movie = @user_activity.select { |x| ANIME_FORMATS.exclude? x["media"]["format"] }
-      turbo_frame_request_id = "watched_movie"
+    when /watched_anime_\d_\d+/
+      @index = turbo_frame_request_id.scan(/\d/).first.to_i
+      @watched_anime = @user_activity.select { |x| ANIME_FORMATS.include? x["media"]["format"] }&.each_slice(6)&.to_a&.[](@index)
+      turbo_frame = "watched_anime"
+    when /watched_movie_\d_\d+/
+      @index = turbo_frame_request_id.scan(/\d/).first.to_i
+      @watched_movie = @user_activity.select { |x| ANIME_FORMATS.exclude? x["media"]["format"] }&.each_slice(6)&.to_a&.[](@index)
+      turbo_frame = "watched_movie"
     when "total_watched_anime_last_week"
       @total_watched_anime_time_last_week_mins = @user_activity
                                                    .select { |x| x["createdAt"] >= last_week }
@@ -190,7 +158,19 @@ class HomeController < ApplicationController
       @total_watched_anime_movie_last_week = @watched_movie.select { |x| x["createdAt"] >= last_week }.size
     end
 
-    render template: "home/#{turbo_frame_request_id}", layout: false
+    render template: "home/#{turbo_frame}", layout: false if turbo_frame_request?
+  end
+
+  def watched_anime_section
+    @user_activity = fetch_anilist_user_activities
+    @watched_anime = @user_activity.select { |x| ANIME_FORMATS.include? x["media"]["format"] }
+    render template: "home/#{turbo_frame_request_id}", layout: false if turbo_frame_request?
+  end
+
+  def watched_movie_section
+    @user_activity = fetch_anilist_user_activities
+    @watched_movie = @user_activity.select { |x| ANIME_FORMATS.exclude? x["media"]["format"] }
+    render template: "home/#{turbo_frame_request_id}", layout: false if turbo_frame_request?
   end
 
   def lastfm_stats
@@ -211,10 +191,10 @@ class HomeController < ApplicationController
 
     @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"
 
-    render template: "home/lastfm_stats", layout: false
+    render template: "home/lastfm_stats", layout: false if turbo_frame_request?
   rescue LastFM::ApiError
     @album_art = nil
-    render template: "home/lastfm_stats", layout: false
+    render template: "home/lastfm_stats", layout: false if turbo_frame_request?
   end
 
   def lastfm_top_artists
@@ -233,10 +213,10 @@ class HomeController < ApplicationController
       artist
     end
 
-    render template: "home/lastfm_top_artists", layout: false
+    render template: "home/lastfm_top_artists", layout: false if turbo_frame_request?
   rescue LastFM::ApiError
     @lastfm_top_artists = []
-    render template: "home/lastfm_top_artists", layout: false
+    render template: "home/lastfm_top_artists", layout: false if turbo_frame_request?
   end
 
   def browserconfig; end
@@ -249,14 +229,14 @@ class HomeController < ApplicationController
 
   private
     def render_empty(exception)
-      logger.tagged("HomeController", action_name) do
+      logger.tagged("ERROR", "HomeController", action_name) do
         logger.error(exception)
       end
 
       respond_to do |format|
         format.html do
           return render template: "home/#{turbo_frame_request_id}", layout: false if turbo_frame_request?
-          render layout: false
+          render nothing: true
         end
       end
     end
@@ -287,5 +267,42 @@ class HomeController < ApplicationController
 
     def check_if_turbo_frame
       return render layout: false unless turbo_frame_request?
+    end
+
+    def fetch_anilist_user_activities
+      user_id = ENV.fetch("ANILIST_USER_ID")
+      user_activity = []
+      now = Time.zone.now.beginning_of_day
+      last_month = (now - 1.month).beginning_of_month.to_i
+      page = 1
+
+      loop do
+        cache_key = "ANILIST/#{ENV.fetch('ANILIST_USERNAME')}/#{last_month.to_i}_#{page}/USER_ACTIVITIES"
+        if !Rails.cache.exist? cache_key
+          Rails.logger.tagged("CACHE", "anilist_user_activities", cache_key) do
+            Rails.logger.info("MISS")
+          end
+          data = query(AniList::UserAnimeActivitiesQuery, date: last_month, user_id:, page:, per_page: 50)
+          has_next_page = data.page.page_info.has_next_page?
+          expires_in = has_next_page == false ? 4.hours : 1.week
+          res = Rails.cache.fetch(cache_key, expires_in:, skip_nil: true) do
+            { data: data.page.activities.to_a.map(&:to_h), has_next_page: }
+          end
+        else
+          Rails.logger.tagged("CACHE", "anilist_user_activities", cache_key) do
+            Rails.logger.info("HIT")
+          end
+          res = Rails.cache.fetch(cache_key)
+          has_next_page = res[:has_next_page]
+        end
+
+        user_activity.push(*res[:data])
+        break if has_next_page == false
+
+        page += 1
+      end
+
+      user_activity = user_activity.reverse.select { |x| IGNORED_USER_STATUS.exclude? x["status"] }
+      user_activity
     end
 end

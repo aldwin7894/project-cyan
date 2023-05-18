@@ -1,0 +1,49 @@
+<turbo-frame id="watched_movie_section">
+  <div class="absolute inset-y-0 left-[-10px] z-10 flex items-center">
+    <button @click="swiper.slidePrev()" class="lg:-ml-4 focus:outline-none flex items-center justify-center w-10 h-10 -ml-2 bg-white rounded-full shadow">
+      <iconify-icon icon="material-symbols:chevron-left" width="20" height="20"></iconify-icon>
+    </button>
+  </div>
+  <div class="right-[-10px] absolute inset-y-0 z-10 flex items-center">
+    <button @click="swiper.slideNext()" class="lg:-mr-4 focus:outline-none flex items-center justify-center w-10 h-10 -mr-2 bg-white rounded-full shadow">
+      <iconify-icon icon="material-symbols:chevron-right" width="20" height="20"></iconify-icon>
+    </button>
+  </div>
+
+  <div
+    id="watched_movie_swiper"
+    class="overflow-hidden"
+    x-init="swiper = new Swiper('#watched_movie_swiper', {
+      slidesPerView: 'auto',
+      spaceBetween: 20,
+      speed: 500,
+      autoplay: {
+        delay: 5000
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1
+        },
+        576: {
+          slidesPerView: 2
+        },
+        768: {
+          slidesPerView: 3
+        },
+        1536: {
+          slidesPerView: 6
+        }
+      }
+    });"
+  >
+    <div class="swiper-wrapper text-center">
+      <% @watched_movie.each_slice(6).first(4).each_with_index do |(*activities), index| %>
+        <% activities.each_index do |index2| %>
+          <turbo-frame id="watched_movie_<%= "#{index}_#{index2}" %>" src="<%= anilist_user_activities_path %>" loading="lazy" class="swiper-slide">
+            <%= render "watched_placeholder" %>
+          </turbo-frame>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</turbo-frame>

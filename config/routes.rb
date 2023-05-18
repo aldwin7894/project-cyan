@@ -43,6 +43,8 @@ Rails.application.routes.draw do
   get "ping", to: "home#ping"
   get "anilist_user_activities", to: "home#anilist_user_activities"
   get "anilist_user_statistics", to: "home#anilist_user_statistics"
+  get "watched_anime_section", to: "home#watched_anime_section"
+  get "watched_movie_section", to: "home#watched_movie_section"
   get "lastfm_stats", to: "home#lastfm_stats"
   get "lastfm_top_artists", to: "home#lastfm_top_artists"
   get "browserconfig", to: "home#browserconfig", constraints: lambda { |req| req.format == :xml }, as: "browserconfig"
