@@ -1,8 +1,7 @@
 <turbo-frame id="lastfm_top_artists">
   <% if @lastfm_top_artists.present? %>
     <div
-      class="w-full h-full transition-all duration-1000 bg-center bg-cover"
-      style="background-image: url('<%= @lastfm_top_artists.shuffle.first&.[]("image") %>')"
+      class="visually-hidden hidden"
       x-data="{res: null}"
       x-init="
         <% @lastfm_top_artists.each do |artist| %>
@@ -13,21 +12,56 @@
           document.head.appendChild(res);
         <% end %>
       "
-    >
-      <div class="flex flex-col w-full h-full py-4 text-white backdrop-blur-sm backdrop-brightness-[40%] bg-gradient-to-br from-cyan-700/30 to-pink-500/30 overflow-y-auto" x-data="">
+    ></div>
+    <div class="w-full h-full transition-all duration-1000 bg-center bg-cover" style="background-image: url('<%= @lastfm_top_artists.shuffle.first&.[]("image") %>')">
+      <div class="flex flex-col w-full h-full pt-4 text-white backdrop-blur-sm backdrop-brightness-[40%] bg-gradient-to-br from-cyan-700/30 to-pink-500/30 overflow-hidden" x-data="{swiper: null}">
         <a href="https://www.last.fm/user/aldwin7894/library/artists?date_preset=ALL" rel="noopener noreferrer" class="hover:underline self-start px-4 text-lg font-bold text-left">
           <h3>LAST.FM (TOP ARTISTS OF ALL TIME)</h3>
         </a>
-        <div class="md:grid-cols-3 sm:grid-cols-3 xs:grid-cols-4 grid items-center content-center justify-center grid-cols-4 gap-2 px-4 m-auto">
-          <% @lastfm_top_artists.each do |artist| %>
-            <a href="<%= artist["url"] %>" rel="noopener noreferrer" style="background-image: url('<%= artist["image"] %>')" class="w-[100px] h-[100px] bg-cover bg-center outline outline-white/10 outline-3 transition-all duration-1000">
-              <div class="flex flex-col text-center w-full h-full px-1 py-1 opacity-0 hover:backdrop-brightness-[25%] hover:opacity-100 ">
-                <h3 class="line-clamp-3 break-words"><%= artist["name"] %></h3>
-                <h3 class="self-end mt-auto text-[10px] w-full">Rank <%= artist["rank"] %> | Plays <%= artist["playcount"] %></h3>
+        <div
+          id="lastfm_top_artists_swiper"
+          class="relative h-full overflow-hidden"
+          x-init="swiper = new Swiper('#lastfm_top_artists_swiper', {
+            effect: 'coverflow',
+            slidesPerView: 'auto',
+            coverflowEffect: {
+              rotate: 50,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: true,
+            },
+          });"
+        >
+          <div class="left-2 absolute inset-y-0 z-10 flex items-center">
+            <button @click="swiper.slidePrev()" class="lg:-ml-4 focus:outline-none text-text--light flex items-center justify-center w-10 h-10 -ml-2 bg-white rounded-full shadow">
+              <iconify-icon icon="material-symbols:chevron-left" width="20" height="20"></iconify-icon>
+            </button>
+          </div>
+          <div class="right-2 absolute inset-y-0 z-10 flex items-center">
+            <button @click="swiper.slideNext()" class="lg:-mr-4 focus:outline-none text-text--light flex items-center justify-center w-10 h-10 -mr-2 bg-white rounded-full shadow">
+              <iconify-icon icon="material-symbols:chevron-right" width="20" height="20"></iconify-icon>
+            </button>
+          </div>
+
+          <div class="swiper-wrapper">
+            <% @lastfm_top_artists.each_slice(4).each do |artists| %>
+              <div class="swiper-slide flex items-center justify-center">
+                <div class="w-fit grid grid-cols-2 grid-rows-2 gap-2 px-4">
+                  <% artists.each_with_index do |artist, index| %>
+                    <a href="<%= artist["url"] %>" rel="noopener noreferrer" style="background-image: url('<%= artist["image"] %>')" class="w-[130px] h-[130px] bg-cover bg-center outline outline-white/10 outline-3 transition-all duration-1000">
+                      <div class="flex flex-col text-center w-full h-full px-1 py-1 opacity-0 hover:backdrop-brightness-[25%] hover:opacity-100 ">
+                        <h3 class="line-clamp-3 break-words"><%= artist["name"] %></h3>
+                        <h3 class="self-end mt-auto text-[12px] w-full">Rank <%= artist["@attr"]["rank"] %> | Plays <%= artist["playcount"] %></h3>
+                      </div>
+                    </a>
+                  <% end %>
+                </div>
               </div>
-            </a>
-          <% end %>
+            <% end %>
+          </div>
         </div>
+      </div>
     </div>
   <% end %>
 </turbo-frame>

@@ -28,7 +28,7 @@ module Shoko
     series = nil
     name = name.downcase
 
-    cache_key = "SHOKO/#{name.parameterize(separator: '_')}/FANART_URL"
+    cache_key = "SHOKO/#{name.downcase.gsub(/\s/, "_")}/FANART_URL"
     if Rails.cache.exist? cache_key
       Rails.logger.tagged("CACHE", "Shoko.get_series_fanart_by_name", cache_key) do
         Rails.logger.info("HIT")

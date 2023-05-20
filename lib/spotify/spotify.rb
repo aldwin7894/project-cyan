@@ -76,7 +76,7 @@ module Spotify
       limit: 1
     }
 
-    cache_key = "SPOTIFY/#{name.parameterize(separator: '_')}/ARTIST_ID"
+    cache_key = "SPOTIFY/#{name.downcase.gsub(/\s/, "_")}/ARTIST_ID"
     if Rails.cache.exist? cache_key
       Rails.logger.tagged("CACHE", "Spotify.get_artist_id_by_name", cache_key) do
         Rails.logger.info("HIT")

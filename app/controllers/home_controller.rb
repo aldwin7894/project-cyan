@@ -198,7 +198,7 @@ class HomeController < ApplicationController
   end
 
   def lastfm_top_artists
-    @lastfm_top_artists = LastFM.get_top_artists(user: ENV.fetch("LASTFM_USERNAME"), period: "overall", limit: 12)
+    @lastfm_top_artists = LastFM.get_top_artists(user: ENV.fetch("LASTFM_USERNAME"), period: "overall", limit: 20)
 
     artist_names = @lastfm_top_artists.pluck("name")
     artist_ids = []
