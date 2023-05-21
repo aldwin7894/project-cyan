@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/shardlab/discordrb.git
-  revision: faace0fa54babd44643794a4899d6c9e07464ffa
+  revision: 4551619ecdfacf438ad1dd18b55e1906effaf80a
   ref: 2011ac6
   branch: main
   specs:
@@ -110,7 +110,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     concurrent-ruby (1.2.2)
-    connection_pool (2.4.0)
+    connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.3)
     devise (4.9.2)
@@ -139,7 +139,7 @@ GEM
     google-protobuf (3.23.1-x86_64-linux)
     googleapis-common-protos-types (1.6.0)
       google-protobuf (~> 3.14)
-    graphql (2.0.21)
+    graphql (2.0.22)
     graphql-client (0.18.0)
       activesupport (>= 3.0)
       graphql
@@ -195,7 +195,7 @@ GEM
       activemodel (>= 5.1, < 7.1, != 7.0.0)
       mongo (>= 2.18.0, < 3.0.0)
       ruby2_keywords (~> 0.0.5)
-    msgpack (1.7.0)
+    msgpack (1.7.1)
     multi_xml (0.6.0)
     net-imap (0.3.4)
       date
@@ -208,7 +208,7 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.5.9)
-    nokogiri (1.15.0-x86_64-linux)
+    nokogiri (1.15.1-x86_64-linux)
       racc (~> 1.4)
     occson (4.1.1)
     opentelemetry-api (1.1.0)
@@ -242,19 +242,19 @@ GEM
     opentelemetry-instrumentation-active_support (0.4.0)
       opentelemetry-api (~> 1.0)
       opentelemetry-instrumentation-base (~> 0.22.0)
-    opentelemetry-instrumentation-all (0.35.0)
+    opentelemetry-instrumentation-all (0.36.0)
       opentelemetry-instrumentation-active_model_serializers (~> 0.20.0)
       opentelemetry-instrumentation-aws_sdk (~> 0.4.0)
       opentelemetry-instrumentation-bunny (~> 0.20.0)
       opentelemetry-instrumentation-concurrent_ruby (~> 0.21.0)
-      opentelemetry-instrumentation-dalli (~> 0.23.0)
+      opentelemetry-instrumentation-dalli (~> 0.24.0)
       opentelemetry-instrumentation-delayed_job (~> 0.20.0)
       opentelemetry-instrumentation-ethon (~> 0.21.0)
       opentelemetry-instrumentation-excon (~> 0.21.0)
       opentelemetry-instrumentation-faraday (~> 0.23.0)
       opentelemetry-instrumentation-grape (~> 0.1.0)
-      opentelemetry-instrumentation-graphql (~> 0.25.0)
-      opentelemetry-instrumentation-http (~> 0.22.0)
+      opentelemetry-instrumentation-graphql (~> 0.26.0)
+      opentelemetry-instrumentation-http (~> 0.23.0)
       opentelemetry-instrumentation-http_client (~> 0.22.0)
       opentelemetry-instrumentation-koala (~> 0.20.0)
       opentelemetry-instrumentation-lmdb (~> 0.22.0)
@@ -287,7 +287,7 @@ GEM
     opentelemetry-instrumentation-concurrent_ruby (0.21.0)
       opentelemetry-api (~> 1.0)
       opentelemetry-instrumentation-base (~> 0.22.0)
-    opentelemetry-instrumentation-dalli (0.23.0)
+    opentelemetry-instrumentation-dalli (0.24.0)
       opentelemetry-api (~> 1.0)
       opentelemetry-common (~> 0.19.3)
       opentelemetry-instrumentation-base (~> 0.22.0)
@@ -310,10 +310,10 @@ GEM
       opentelemetry-api (~> 1.1.0)
       opentelemetry-instrumentation-base (~> 0.22.0)
       opentelemetry-instrumentation-rack (~> 0.21)
-    opentelemetry-instrumentation-graphql (0.25.0)
+    opentelemetry-instrumentation-graphql (0.26.0)
       opentelemetry-api (~> 1.0)
       opentelemetry-instrumentation-base (~> 0.22.0)
-    opentelemetry-instrumentation-http (0.22.0)
+    opentelemetry-instrumentation-http (0.23.0)
       opentelemetry-api (~> 1.0)
       opentelemetry-instrumentation-base (~> 0.22.0)
     opentelemetry-instrumentation-http_client (0.22.0)
@@ -488,7 +488,7 @@ GEM
       parser (>= 3.2.1.0)
     rubocop-packaging (0.5.2)
       rubocop (>= 1.33, < 2.0)
-    rubocop-performance (1.17.1)
+    rubocop-performance (1.18.0)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
     rubocop-rails (2.19.1)

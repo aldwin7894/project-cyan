@@ -6,7 +6,7 @@ import Alpine from "alpinejs";
 import Chart from "chart.js/auto";
 import "tw-elements";
 import tippy, { followCursor } from "tippy.js";
-import Swiper, { Autoplay } from "swiper";
+import Swiper, { EffectCoverflow } from "swiper";
 import "../channels";
 
 import "tippy.js/dist/tippy.css";
@@ -116,7 +116,7 @@ document.addEventListener("turbo:before-stream-render", () => {
   Turbo.navigator.delegate.adapter.progressBar.hide();
 });
 
-Swiper.use([Autoplay]);
+Swiper.use([EffectCoverflow]);
 
 window.Alpine = Alpine;
 window.Chart = Chart;
