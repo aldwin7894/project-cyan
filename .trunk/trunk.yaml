@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 1.9.1
+  version: 1.10.0
 merge:
   required_statuses:
     - Trunk Check
@@ -38,7 +38,7 @@ lint:
         - db/**
         - node_modules/**
   enabled:
-    - eslint@8.40.0:
+    - eslint@8.41.0:
         packages:
           - eslint-config-airbnb-base
           - eslint-config-prettier
@@ -62,7 +62,7 @@ lint:
     - shellcheck@0.9.0
     - hadolint@2.12.0
     - gitleaks@8.16.3
-    - yamllint@1.31.0
-    - checkov@2.3.247
+    - yamllint@1.32.0
+    - checkov@2.3.257
     - sort-package-json@2.4.1
     - brakeman@5.4.0

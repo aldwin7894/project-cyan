@@ -11,7 +11,7 @@
     res.href = '<%= activity["media"]["coverImage"]["extraLarge"] %>';
     document.head.appendChild(res);"
 >
-  <a href="<%= activity["media"]["siteUrl"] %>" rel="noopener noreferrer" class="mx-auto h-[350px] w-full max-w-[240px] bg-center bg-cover drop-shadow-lg" style="background-image: url(<%= activity["media"]["coverImage"]["extraLarge"] %>)">
+  <a href="<%= activity["media"]["siteUrl"] %>" rel="noopener noreferrer" target="_blank" class="mx-auto h-[350px] w-full max-w-[240px] bg-center bg-cover drop-shadow-lg" style="background-image: url(<%= activity["media"]["coverImage"]["extraLarge"] %>)">
     <div class="w-full h-full hover:opacity-[.08] absolute top-0 bottom-0 right-0 left-0 bg-black opacity-0 transition-opacity ease-linear"></div>
     <div class="dark:text-white dark:bg-black/80 bg-white/80 drop-shadow-lg absolute bottom-0 left-0 flex flex-col w-full gap-2 px-2 py-2 text-left">
       <div class="gap-x-4 flex flex-row">
@@ -35,13 +35,13 @@
       <% end %>
     </div>
   </a>
-  <a href="<%= activity["siteUrl"] %>" rel="noopener noreferrer" class="text-md hover:underline text-red-500">
+  <a href="<%= activity["siteUrl"] %>" rel="noopener noreferrer" target="_blank" class="text-md hover:underline text-red-500">
     <h3><%= activity["status"].titleize %> <%= activity["progress"] %></h3>
   </a>
-  <a href="<%= activity["media"]["siteUrl"] %>" rel="noopener noreferrer" class="dark:text-white line-clamp-1 hover:underline text-lg font-bold" data-tippy="tooltip" data-tippy-content="<%= activity["media"]["title"]["userPreferred"] %>">
+  <a href="<%= activity["media"]["siteUrl"] %>" rel="noopener noreferrer" target="_blank" class="dark:text-white line-clamp-1 hover:underline text-lg font-bold" data-tippy="tooltip" data-tippy-content="<%= activity["media"]["title"]["userPreferred"] %>">
     <h3><%= activity["media"]["title"]["userPreferred"] %></h3>
   </a>
-  <a href="<%= activity["siteUrl"] %>" rel="noopener noreferrer" class="dark:text-[#bfb3a4] text-slate-600 text-sm hover:underline">
+  <a href="<%= activity["siteUrl"] %>" rel="noopener noreferrer" target="_blank" class="dark:text-[#bfb3a4] text-slate-600 text-sm hover:underline">
     <h3><%= Time.zone.at(activity["createdAt"].to_i).strftime("%B %e, %Y %r") %></h3>
   </a>
 </div>

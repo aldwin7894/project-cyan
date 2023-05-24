@@ -14,7 +14,7 @@
   ></div>
   <div class="w-full h-full transition-all duration-1000 bg-center bg-cover" style="background-image: url('<%= @album_art.presence || vite_asset_path("images/lastfm-placeholder-2.webp") %>')">
     <div class="backdrop-brightness-100 bg-gradient-radial from-transparent to-black/95 flex flex-col items-stretch w-full h-full gap-5 px-4 py-4 text-white" x-data="">
-      <a href="https://bit.ly/cyan-lastfm" rel="noopener noreferrer" class="hover:underline text-lg font-bold text-left">
+      <a href="https://www.last.fm/user/aldwin7894" rel="noopener noreferrer" target="_blank" class="hover:underline text-lg font-bold text-left">
         <h2>
           <% if @lastfm_recent&.[]("@attr")&.[]('nowplaying').present? %>
             LAST.FM (NOW PLAYING)
@@ -86,12 +86,12 @@
                 <%= @elapsed_time %>
               </div>
             <% end %>
-            <a href="<%= @lastfm_recent["artist"]["url"] %>" rel="noopener noreferrer" class="line-clamp-1 hover:underline text-2xl font-bold">
+            <a href="<%= @lastfm_recent["artist"]["url"] %>" rel="noopener noreferrer" target="_blank" class="line-clamp-1 hover:underline text-2xl font-bold">
               <h3><%= "#{@lastfm_recent['artist']['name'].upcase}" %></h3>
             </a>
             <% if @lastfm_recent['album']['#text'].present? %>
               <% if @lastfm_recent['album']['mbid'].present? %>
-                <a href="<%= "https://musicbrainz.org/release/#{@lastfm_recent["album"]["mbid"]}" %>" rel="noopener noreferrer" class="text-[#e5ded3] italic text-xl hover:underline line-clamp-1 break-words font-bold"
+                <a href="<%= "https://musicbrainz.org/release/#{@lastfm_recent["album"]["mbid"]}" %>" rel="noopener noreferrer" target="_blank" class="text-[#e5ded3] italic text-xl hover:underline line-clamp-1 break-words font-bold"
                 >
               <% else %>
                 <a href="javascript:void(0);" class="text-[#e5ded3] italic text-xl line-clamp-1 break-words font-bold cursor-default"
@@ -100,12 +100,12 @@
                 <h3><%= "#{@lastfm_recent['album']['#text']}" %></h3>
               </a>
             <% end %>
-            <a href="<%= @lastfm_recent["url"] %>" rel="noopener noreferrer" class="text-[#3cb4f1] text-4xl font-bold line-clamp-2 break-words hover:underline">
+            <a href="<%= @lastfm_recent["url"] %>" rel="noopener noreferrer" target="_blank" class="text-[#3cb4f1] text-4xl font-bold line-clamp-2 break-words hover:underline">
               <h3><%= @lastfm_recent["name"] %></h3>
             </a>
             <% if @lastfm_recent&.[]("@attr")&.[]('nowplaying').blank? %>
               <div>
-                <a href="https://www.last.fm/user/aldwin7894/library" rel="noopener noreferrer" class="hover:underline line-clamp-1 text-lg break-words">
+                <a href="https://www.last.fm/user/aldwin7894/library" rel="noopener noreferrer" target="_blank" class="hover:underline line-clamp-1 text-lg break-words">
                   last played
                   <% if time_ago_in_words(Time.zone.at(@lastfm_recent['date']['uts'].to_i)) == 'less than a minute' %>
                     just now
