@@ -1,17 +1,10 @@
 <turbo-frame id="lastfm_stats">
-  <div
-    class="visually-hidden hidden"
-    x-data="{res: null}"
-    x-init="
-      <% if @album_art.present? %>
-        res = document.createElement('link');
-        res.rel = 'preload';
-        res.as = 'image';
-        res.href = '<%= @album_art %>';
-        document.head.appendChild(res);
-      <% end %>
-    "
-  ></div>
+  <% if @album_art.present? %>
+    <div class="visually-hidden hidden">
+      <img src="<%= @album_art %>" alt="lastfm-bg">
+    </div>
+  <% end %>
+
   <div class="w-full h-full transition-all duration-1000 bg-center bg-cover" style="background-image: url('<%= @album_art.presence || vite_asset_path("images/lastfm-placeholder-2.webp") %>')">
     <div class="backdrop-brightness-100 bg-gradient-radial from-transparent to-black/95 flex flex-col items-stretch w-full h-full gap-5 px-4 py-4 text-white" x-data="">
       <a href="https://www.last.fm/user/aldwin7894" rel="noopener noreferrer" target="_blank" class="hover:underline text-lg font-bold text-left">
