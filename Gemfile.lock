@@ -408,7 +408,7 @@ GEM
     parser (3.2.2.1)
       ast (~> 2.4.1)
     public_suffix (5.0.1)
-    puma (6.2.2)
+    puma (6.3.0)
       nio4r (~> 2.0)
     racc (1.6.2)
     rack (2.2.7)
@@ -586,7 +586,7 @@ DEPENDENCIES
   opentelemetry-exporter-otlp
   opentelemetry-instrumentation-all
   opentelemetry-sdk
-  puma (~> 6.2)
+  puma (~> 6.3)
   rack-brotli (~> 1.2)
   rack-cors (~> 2.0)
   rack-mini-profiler (~> 3.0)
