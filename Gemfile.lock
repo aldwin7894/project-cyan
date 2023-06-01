@@ -212,7 +212,7 @@ GEM
       racc (~> 1.4)
     occson (4.1.1)
     opentelemetry-api (1.1.0)
-    opentelemetry-common (0.19.6)
+    opentelemetry-common (0.19.7)
       opentelemetry-api (~> 1.0)
     opentelemetry-exporter-otlp (0.24.0)
       google-protobuf (~> 3.19)
@@ -394,12 +394,12 @@ GEM
       opentelemetry-semantic_conventions (>= 1.8.0)
     opentelemetry-registry (0.2.0)
       opentelemetry-api (~> 1.1)
-    opentelemetry-sdk (1.2.0)
+    opentelemetry-sdk (1.2.1)
       opentelemetry-api (~> 1.1)
       opentelemetry-common (~> 0.19.3)
       opentelemetry-registry (~> 0.2)
       opentelemetry-semantic_conventions
-    opentelemetry-semantic_conventions (1.8.0)
+    opentelemetry-semantic_conventions (1.10.0)
       opentelemetry-api (~> 1.0)
     opus-ruby (1.0.1)
       ffi
