@@ -34,7 +34,7 @@
     "postcss": "^8.4.23",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^15.1.0",
-    "postcss-preset-env": "^8.4.1",
+    "postcss-preset-env": "^8.4.2",
     "rollup-plugin-gzip": "^3.1.0",
     "sass": "^1.62.1",
     "swiper": "^9.3.2",
