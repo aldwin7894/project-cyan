@@ -2,15 +2,11 @@
 <% color = (color.presence || "#00FFFF") %>
 <% text_color = Kodachroma.paint(color).dark? ? "text-white" : "text-black" %>
 
-<div
-  class="flex flex-col"
-  x-data="{res: null}"
-  x-init="res = document.createElement('link');
-    res.rel = 'preload';
-    res.as = 'image';
-    res.href = '<%= activity["media"]["coverImage"]["extraLarge"] %>';
-    document.head.appendChild(res);"
->
+<div class="flex flex-col">
+  <div class="visually-hidden hidden">
+  <img src="<%= activity["media"]["coverImage"]["extraLarge"] %>" alt="cover-image">
+  </div>
+
   <a href="<%= activity["media"]["siteUrl"] %>" rel="noopener noreferrer" target="_blank" class="mx-auto h-[350px] w-full max-w-[240px] bg-center bg-cover drop-shadow-lg" style="background-image: url(<%= activity["media"]["coverImage"]["extraLarge"] %>)">
     <div class="w-full h-full hover:opacity-[.08] absolute top-0 bottom-0 right-0 left-0 bg-black opacity-0 transition-opacity ease-linear"></div>
     <div class="dark:text-white dark:bg-black/80 bg-white/80 drop-shadow-lg absolute bottom-0 left-0 flex flex-col w-full gap-2 px-2 py-2 text-left">

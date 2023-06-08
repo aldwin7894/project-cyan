@@ -52,20 +52,30 @@ const fadeIn = id =>
   new Promise((resolve, _reject) => {
     const element = document.getElementById(id);
     element.style.willChange = "opacity";
-    element.classList.add(
-      "animate__fadeIn",
-      "animate__animated",
-      "animate__delay",
-    );
+    element.classList.add("animate__fadeIn", "animate__animated");
 
     function handleAnimationEnd(event) {
       event.stopPropagation();
       initElems(element);
-      element.classList.remove(
-        "animate__fadeIn",
-        "animate__animated",
-        "animate__delay",
-      );
+      element.classList.remove("animate__fadeIn", "animate__animated");
+      element.style.willChange = "auto";
+      resolve("Animation ended");
+    }
+
+    element.addEventListener("animationend", handleAnimationEnd, {
+      once: true,
+    });
+  });
+
+const fadeOut = id =>
+  new Promise((resolve, _reject) => {
+    const element = document.getElementById(id);
+    element.style.willChange = "opacity";
+    element.classList.add("animate__fadeOut", "animate__animated");
+
+    function handleAnimationEnd(event) {
+      event.stopPropagation();
+      element.classList.remove("animate__fadeOut", "animate__animated");
       element.style.willChange = "auto";
       resolve("Animation ended");
     }
@@ -97,12 +107,42 @@ document.addEventListener("turbo:before-frame-render", event => {
     : event.target.id;
 
   event.preventDefault();
-  fadeIn(id);
-  event.detail.resume();
+  fadeOut(id)
+    .then(async () => {
+      event.detail.resume();
+      await fadeIn(id);
+    })
+    .catch(() => {});
 });
 document.addEventListener("turbo:before-stream-render", event => {
   const id = event.target.target;
-  if (event.target.action === "update") fadeIn(id);
+  const element = event.target.templateElement.content.firstElementChild;
+  if (
+    event.target.action === "update" &&
+    event.target.firstElementChild instanceof HTMLTemplateElement
+  ) {
+    event.preventDefault();
+    fadeOut(id)
+      .then(async () => {
+        element.style.willChange = "opacity";
+        element.classList.add("animate__fadeIn", "animate__animated");
+
+        element.addEventListener(
+          "animationend",
+          ev => {
+            ev.stopPropagation();
+            element.classList.remove("animate__fadeOut", "animate__animated");
+            element.style.willChange = "auto";
+          },
+          {
+            once: true,
+          },
+        );
+
+        event.target.performAction();
+      })
+      .catch(() => {});
+  }
 });
 
 // FORCE PROGRSS BAR FOR TURBO

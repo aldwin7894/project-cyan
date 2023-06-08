@@ -38,7 +38,7 @@ lint:
         - db/**
         - node_modules/**
   enabled:
-    - eslint@8.41.0:
+    - eslint@8.42.0:
         packages:
           - eslint-config-airbnb-base
           - eslint-config-prettier
@@ -61,8 +61,8 @@ lint:
     - git-diff-check
     - shellcheck@0.9.0
     - hadolint@2.12.0
-    - gitleaks@8.16.3
+    - gitleaks@8.16.4
     - yamllint@1.32.0
-    - checkov@2.3.262
+    - checkov@2.3.283
     - sort-package-json@2.4.1
     - brakeman@5.4.0

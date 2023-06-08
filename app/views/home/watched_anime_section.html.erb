@@ -37,7 +37,7 @@
       <% @watched_anime.each_slice(6).first(4).each_with_index do |(*activities), index| %>
         <% activities.each_index do |index2| %>
           <turbo-frame id="watched_anime_<%= "#{index}_#{index2}" %>" src="<%= anilist_user_activities_path %>" loading="lazy" class="swiper-slide">
-            <div></div>
+            <%= render "home/watched_placeholder" %>
           </turbo-frame>
         <% end %>
       <% end %>
