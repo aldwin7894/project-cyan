@@ -62,7 +62,7 @@ class HomeController < ApplicationController
         labels: @genre_list.pluck(:label),
         datasets: [
           {
-            label: "Favorite Genres",
+            label: "Count",
             data: @genre_list.pluck(:value),
             backgroundColor: @genre_list.pluck(:backgroundColor),
             hoverOffset: 4
@@ -88,7 +88,7 @@ class HomeController < ApplicationController
         labels: @studio_list.pluck(:label),
         datasets: [
           {
-            label: "Favorite Studios",
+            label: "Count",
             data: @studio_list.pluck(:value),
             backgroundColor: @studio_list.pluck(:backgroundColor),
             hoverOffset: 4

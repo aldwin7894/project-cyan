@@ -64,4 +64,14 @@ module ApplicationHelper
   rescue StandardError
     nil
   end
+
+  def anilist_progress_text(activity)
+    return if activity.blank?
+
+    if activity["status"].strip === "completed"
+      return activity["status"].capitalize
+    end
+
+    "#{activity["status"].capitalize} #{activity["progress"].to_s.split(" - ").last}"
+  end
 end
