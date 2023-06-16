@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/shardlab/discordrb.git
-  revision: 4551619ecdfacf438ad1dd18b55e1906effaf80a
+  revision: 984826cbc1378620f63dc83958734bbd3926b9f2
   ref: 2011ac6
   branch: main
   specs:
@@ -136,7 +136,7 @@ GEM
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
-    google-protobuf (3.23.2-x86_64-linux)
+    google-protobuf (3.23.3-x86_64-linux)
     googleapis-common-protos-types (1.6.0)
       google-protobuf (~> 3.14)
     graphql (2.0.22)
@@ -197,7 +197,7 @@ GEM
       ruby2_keywords (~> 0.0.5)
     msgpack (1.7.1)
     multi_xml (0.6.0)
-    net-imap (0.3.4)
+    net-imap (0.3.6)
       date
       net-protocol
     net-pop (0.1.2)
@@ -392,7 +392,7 @@ GEM
       opentelemetry-api (~> 1.0)
       opentelemetry-instrumentation-base (~> 0.22.1)
       opentelemetry-semantic_conventions (>= 1.8.0)
-    opentelemetry-registry (0.2.0)
+    opentelemetry-registry (0.3.0)
       opentelemetry-api (~> 1.1)
     opentelemetry-sdk (1.2.1)
       opentelemetry-api (~> 1.1)
@@ -411,7 +411,7 @@ GEM
     public_suffix (5.0.1)
     puma (6.3.0)
       nio4r (~> 2.0)
-    racc (1.7.0)
+    racc (1.7.1)
     rack (2.2.7)
     rack-brotli (1.2.0)
       brotli (>= 0.1.7)
