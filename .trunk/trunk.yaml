@@ -1,6 +1,6 @@
 version: 0.1
 cli:
-  version: 1.11.0
+  version: 1.11.1
 merge:
   required_statuses:
     - Trunk Check
@@ -10,7 +10,7 @@ merge:
 plugins:
   sources:
     - id: trunk
-      ref: v0.0.17
+      ref: v0.0.20
       uri: https://github.com/trunk-io/plugins
 runtimes:
   enabled:
@@ -25,6 +25,9 @@ actions:
     - trunk-fmt-pre-commit
     - trunk-upgrade-available
 lint:
+  disabled:
+    - trivy
+    - osv-scanner
   ignore:
     - linters: [ALL]
       paths:
@@ -63,6 +66,8 @@ lint:
     - hadolint@2.12.0
     - gitleaks@8.17.0
     - yamllint@1.32.0
-    - checkov@2.3.296
+    - checkov@2.3.301
     - sort-package-json@2.4.1
     - brakeman@5.4.0
+    - terrascan@1.18.1
+    - trufflehog@3.40.0

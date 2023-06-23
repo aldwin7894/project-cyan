@@ -59,5 +59,8 @@
     "titleBar.border": "#004a4d",
     "titleBar.inactiveBackground": "#004a4d99",
     "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "trunk.io"
   }
 }

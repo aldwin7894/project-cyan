@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/shardlab/discordrb.git
   revision: 984826cbc1378620f63dc83958734bbd3926b9f2
-  ref: 2011ac6
+  ref: 984826c
   branch: main
   specs:
     discordrb (3.4.2)
@@ -85,7 +85,7 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     backport (1.2.0)
-    bcrypt (3.1.18)
+    bcrypt (3.1.19)
     benchmark (0.2.1)
     better_html (2.0.1)
       actionview (>= 6.0)
@@ -139,7 +139,7 @@ GEM
     google-protobuf (3.23.3-x86_64-linux)
     googleapis-common-protos-types (1.6.0)
       google-protobuf (~> 3.14)
-    graphql (2.0.22)
+    graphql (2.0.23)
     graphql-client (0.18.0)
       activesupport (>= 3.0)
       graphql
@@ -164,6 +164,7 @@ GEM
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
+    language_server-protocol (3.17.0.3)
     listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -189,7 +190,7 @@ GEM
     mime-types-data (3.2023.0218.1)
     mini_mime (1.1.2)
     minitest (5.18.1)
-    mongo (2.18.2)
+    mongo (2.19.0)
       bson (>= 4.14.1, < 5.0.0)
     mongoid (8.0.3)
       activemodel (>= 5.1, < 7.1, != 7.0.0)
@@ -476,8 +477,9 @@ GEM
     reverse_markdown (2.1.1)
       nokogiri
     rexml (3.2.5)
-    rubocop (1.52.1)
+    rubocop (1.53.0)
       json (~> 2.3)
+      language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
       parser (>= 3.2.2.3)
       rainbow (>= 2.2.2, < 4.0)
@@ -526,7 +528,7 @@ GEM
       solargraph
     thor (1.2.2)
     tilt (2.2.0)
-    timeout (0.3.2)
+    timeout (0.4.0)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)

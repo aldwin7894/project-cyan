@@ -6,7 +6,7 @@ require "graphql/client/http"
 namespace :anilist do
   desc "Update AniList GraphQL schema"
   task dump_anilist_graphql: :environment do
-    filename = Dir[File.join(Rails.root, "db", "schema.json")][0]
+    filename = Rails.root.join("db/schema.json").to_s
 
     puts "Dumping Anilist GraphQL Schema ..."
     GraphQL::Client.dump_schema(GraphQL::Client::HTTP.new("https://graphql.anilist.co"), filename)
