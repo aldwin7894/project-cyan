@@ -1,5 +1,4 @@
 {
-  "eslint.packageManager": "yarn",
   "solargraph.autoformat": true,
   "solargraph.formatting": true,
   "solargraph.useBundler": true,

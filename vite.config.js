@@ -42,7 +42,7 @@ export default defineConfig({
   },
   server: {
     watch: {
-      ignored: ["**/.trunk/**"],
+      ignored: ["**/.trunk/**", "**/tmp/**", "**/log/**"],
     },
   },
 });

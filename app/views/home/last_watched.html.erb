@@ -8,7 +8,7 @@
       <% if @last_watched.present? %>
         <a class="hover:underline" href="<%= @last_watched&.[]("media")&.[]("siteUrl") %>" rel="noopener noreferrer">
           <h3 class="text-shadow shadow-black text-4xl font-bold"><%= @last_watched&.[]("media")&.[]("title")&.[]("userPreferred") %></h3>
-          <span class="text-gray-300/60 text-shadow shadow-black text-2xl"><%= @last_watched&.[]("media")&.[]("seasonYear") %></span>
+          <span class="text-gray-200/80 text-shadow shadow-black text-2xl"><%= @last_watched&.[]("media")&.[]("seasonYear") %></span>
         </a>
         <div class="self-end mt-auto">
           <a class="hover:underline grow text-shadow shadow-black text-lg" href="<%= @last_watched&.[]("siteUrl") %>" rel="noopener noreferrer">MORE INFO</a>
