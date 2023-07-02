@@ -250,7 +250,7 @@ class HomeController < ApplicationController
       year = user_activity["media"]["seasonYear"]
       mal_id = user_activity["media"]["idMal"]
       alternatives = user_activity["media"]["relations"]["edges"].select do |x|
-        ANIME_RELATIONS.include?(x["relationType"]) && x["node"]["format"] == "TV"
+        ANIME_RELATIONS.include?(x["relationType"]) && ["TV", "ONA"].include?(x["node"]["format"])
       end.map do |x|
         {
           name: x["node"]["title"]["userPreferred"],

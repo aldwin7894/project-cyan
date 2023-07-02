@@ -44,10 +44,13 @@ module Shoko
       { name:, mal_id: },
       { name: sanitize(name), mal_id: },
       { name: alternative(name), mal_id: },
+    ]
+    possible_queries += [
       { name: "#{name} (#{year})", mal_id: },
       { name: "#{sanitize(name)} (#{year})", mal_id: },
       { name: "#{alternative(name)} (#{year})", mal_id: },
-    ]
+    ] if year.present?
+
     alternatives.each do |alt|
       alt_name = alt&.[](:name)&.downcase
       alt_year = alt&.[](:year)
@@ -57,10 +60,13 @@ module Shoko
         { name: alt_name, mal_id: },
         { name: sanitize(alt_name), mal_id: alt_mal_id },
         { name: alternative(alt_name), mal_id: alt_mal_id },
+      ] if alt_name.present?
+
+      possible_queries += [
         { name: "#{alt_name} (#{year})", mal_id: alt_mal_id },
         { name: "#{sanitize(alt_name)} (#{alt_year})", mal_id: alt_mal_id },
         { name: "#{alternative(alt_name)} (#{alt_year})", mal_id: alt_mal_id }
-      ] if alt_name.present? && alt_year.present? && alt_mal_id.present?
+      ] if alt_year.present?
     end
     possible_queries.uniq!
 
@@ -130,6 +136,7 @@ module Shoko
       string = string.gsub(/mahoutsukai/, "mahou tsukai")
       string = string.gsub(/[\[\]]/, "")
       string = string.gsub(/(season|part) \d+/, "")
+      string = string.gsub(/\d+$/, "")
       string = string.gsub(/(\d{1}st|\d{1}nd|\d{1}rd|\d+th) season/, "")
       string.strip!
       string
