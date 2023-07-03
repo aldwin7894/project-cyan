@@ -6,7 +6,8 @@ import Alpine from "alpinejs";
 import Chart from "chart.js/auto";
 import "tw-elements";
 import tippy, { followCursor } from "tippy.js";
-import Swiper, { EffectCoverflow } from "swiper";
+import Swiper from "swiper";
+import { EffectCoverflow } from "swiper/modules";
 import "../channels";
 
 import "tippy.js/dist/tippy.css";
