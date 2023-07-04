@@ -3090,10 +3090,10 @@ svgo@^3.0.2:
     csso "^5.0.5"
     picocolors "^1.0.0"
 
-swiper@^10.0.2:
-  version "10.0.2"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-10.0.2.tgz#4444494c6dd7502a0b54e646360119de1f89e790"
-  integrity sha512-b/3L+Z+88vWXt4d32tup9w+otQEHCwW/qas+C7WKimv5GGGMi3HHeLNp2fPt8BeaP9Th17itujmjKXONben6AA==
+swiper@^10.0.3:
+  version "10.0.3"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-10.0.3.tgz#27d61b74cc3a3b360ac4c6d8e2f30f9a38d33dfa"
+  integrity sha512-jpsUDo+EmNq7N59vRCo5aDZXLF8EfWJWlTdm1jkqEH+ph8DuMTJuLjcNunN8Q88bqVxo6vceYBGIrpRIwrEGcA==
 
 tailwindcss-animatecss@^3.0.4:
   version "3.0.4"
