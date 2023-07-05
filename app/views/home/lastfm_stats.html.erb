@@ -130,7 +130,7 @@
     <script>
       document.addEventListener('turbo:frame-load', (event) => {
         if (event.target.id === "lastfm_stats") {
-          <%= render partial: "lastfm/timer", formats: [:js] %>
+          <%= render partial: "music_np_banner/timer", formats: [:js] %>
         }
       });
     </script>

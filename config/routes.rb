@@ -27,8 +27,11 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  resources :lastfm,
-    only: :index,
+  get "music-np-banner/lastfm",
+    to: "music_np_banner#lastfm",
+    constraints: lambda { |req| ["html", "svg"].include? req.format }
+  get "music-np-banner/listenbrainz",
+    to: "music_np_banner#listenbrainz",
     constraints: lambda { |req| ["html", "svg"].include? req.format }
   resources :anilist, only: [:index, :new] do
     collection do
@@ -39,7 +42,6 @@ Rails.application.routes.draw do
     path: "discord-banner",
     only: :index,
     constraints: lambda { |req| ["html", "svg"].include? req.format }
-  # resources :listenbrainz
   get "ping", to: "home#ping"
   get "anilist_user_activities", to: "home#anilist_user_activities"
   get "anilist_user_statistics", to: "home#anilist_user_statistics"
