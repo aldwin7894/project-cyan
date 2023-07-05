@@ -8,5 +8,5 @@
 <br>
 <br>
 
-![img](https://aldwin7894.win/lastfm.svg?username=aldwin7894&bg=29,31,32,0.8&fg=ffffff&line=768ee3)
+![img](https://aldwin7894.win/music-np-banner/lastfm.svg?bg=29,31,32,0.8&fg=ffffff&line=768ee3)
 ![img](https://aldwin7894.win/discord-banner.svg?bg=29,31,32,0.8&fg=ffffff&line=768ee3)
