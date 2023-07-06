@@ -10,9 +10,12 @@
   <div class="info-container">
     <div class="large-image"></div>
     <div class="info-subcontainer">
-      <h1 class="username">
-        <%= @username %>
-      </h1>
+      <div class="username">
+        <h1><%= @display_name %></h1>
+        <% if @display_username %>
+          <h3>／<%= @username %>／</h3>
+        <% end %>
+      </div>
       <div class="playing-container">
         <% if @activity&.[](:title).present? %>
           <h4 class="activity-title">

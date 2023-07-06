@@ -52,12 +52,13 @@ class DiscordBannerController < ApplicationController
     @background = params[:bg]
     @foreground = params[:fg]
     @bottom_line = params[:line]
+    @display_username = params[:username] == "true"
     @large_image = nil
     @icon = nil
 
     current_user = DiscordBot::BOT.user(ENV.fetch("DISCORD_USER_ID"))
+    @display_name = current_user.display_name
     @username = current_user.username
-    @username += "##{current_user.discriminator}" if params[:disc] == "true"
     @online_status = current_user.status
     @device = current_user.client_status.keys.first
     @client_status = current_user.client_status.values.first

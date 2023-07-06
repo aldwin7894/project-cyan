@@ -46,6 +46,7 @@ group :development do
   gem "rubocop-performance"
   gem "rubocop-packaging"
   gem "erb_lint", require: false
+  gem "brakeman"
 end
 
 group :test do
@@ -87,7 +88,7 @@ gem "recaptcha", "~> 5.12"
 
 # gem "ferrum", "~> 0.13"
 
-gem "discordrb", github: "shardlab/discordrb", branch: "main", ref: "984826c"
+gem "discordrb", "~> 3.5.0"
 
 gem "opentelemetry-sdk"
 
