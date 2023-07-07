@@ -62,11 +62,7 @@ class MusicNpBannerController < ApplicationController
       timestamp = @recent["date"]["uts"].to_i
     end
 
-    album_art = @recent&.[]("image")&.[](2)&.[]("#text")
-    if album_art.present? && album_art.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
-      @album_art = album_art
-    end
-
+    @album_art = LastFM.get_cover_art_url(@recent)
     @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"
   end
 
@@ -113,10 +109,7 @@ class MusicNpBannerController < ApplicationController
 
     release_mbid = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("release_mbid")
     recording_mbid = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("recording_mbid")
-
-    if release_mbid.present?
-      @album_art = ListenBrainz.get_cover_art_url(release_mbid:, size: 250)
-    end
+    @album_art = ListenBrainz.get_cover_art_url(release_mbid:, size: 250)
     @loved = true if loved_tracks.any? { |x| x["recording_mbid"] === recording_mbid }
 
     timestamp = @recent["listened_at"].to_i

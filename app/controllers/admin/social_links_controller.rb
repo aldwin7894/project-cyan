@@ -11,6 +11,7 @@ module Admin
 
     # GET /admin/social-links/1 or /admin/social-links/1.json
     def show
+      # show
     end
 
     # GET /admin/social-links/new
@@ -20,6 +21,7 @@ module Admin
 
     # GET /admin/social-links/1/edit
     def edit
+      # edit
     end
 
     # POST /admin/social-links or /admin/social-links.json

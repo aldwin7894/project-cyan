@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class DiscordBannerController < ApplicationController
+  include DiscordHelper
   layout "discord-banner"
   before_action :check_if_from_cloudfront
   before_action :set_no_cache_headers
@@ -81,7 +82,7 @@ class DiscordBannerController < ApplicationController
         title = "Listening on Spotify"
       when "Jellyfin"
         title = "Watching on #{activity&.name}"
-        large_image = "https://#{large_image.split("https/").last.split(".png").first}?fillWidth=64&quality=80" if large_image.include? "jellyfin."
+        large_image = get_jellyfin_poster_url(large_image)
         details = activity&.state
         subdetails = activity&.details.remove!("Watching").strip
       when "Music"
@@ -91,9 +92,9 @@ class DiscordBannerController < ApplicationController
       else
         case activity_type
         when 0
-          title = details.present? ? "Playing #{activity&.name}" : "Playing a game"
+          title = "Playing #{activity&.name || 'Playing a game'}"
           details = details.presence || activity&.name
-          subdetails = subdetails.presence || (activity&.timestamps&.start.present? ? "for #{helpers.time_ago_in_words(Time.zone.at(activity.timestamps.start.in_time_zone.to_i)).sub("about", "")}" : "")
+          subdetails = subdetails.presence || get_playing_elapsed_time(activity&.timestamps&.start)
         when 1
           title = "Streaming #{activity&.name}"
         when 2
@@ -104,6 +105,8 @@ class DiscordBannerController < ApplicationController
           title = "Playing #{activity&.name}"
         when 5
           title = "Competing #{activity&.name}"
+        else
+          title = "Playing #{activity&.name}"
         end
       end
     end

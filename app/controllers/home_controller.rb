@@ -115,6 +115,7 @@ class HomeController < ApplicationController
       @total_watched_anime_movie = @user_statistics["formats"].to_a
                                      .select { |x| ANIME_FORMATS.exclude? x["format"] }
                                      .map { |x| x["count"].to_i }.sum
+    else return render nothing: true
     end
 
     render template: "home/#{turbo_frame_request_id}", layout: false if turbo_frame_request?
@@ -156,6 +157,7 @@ class HomeController < ApplicationController
                                                          .sum
       @total_watched_anime_movie_time_last_week = format_date(@total_watched_anime_movie_time_last_week_mins * 60)
       @total_watched_anime_movie_last_week = @watched_movie.select { |x| x["createdAt"] >= last_week }.size
+    else return render nothing: true
     end
 
     render template: "home/#{turbo_frame}", layout: false if turbo_frame_request?
@@ -219,9 +221,13 @@ class HomeController < ApplicationController
     render template: "home/lastfm_top_artists", layout: false if turbo_frame_request?
   end
 
-  def browserconfig; end
+  def browserconfig
+    # browserconfig.xml
+  end
 
-  def site; end
+  def site
+    # site.webmanifest
+  end
 
   def ping
     render plain: "Welcome to project-cyan"

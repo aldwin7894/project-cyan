@@ -3,9 +3,13 @@
 class AnilistController < ApplicationController
   before_action :check_if_from_cloudfront
 
-  def index; end
+  def index
+    # index
+  end
 
-  def new; end
+  def new
+    # new
+  end
 
   def fetch_followers(following = [], followers = [], following_page = 1, followers_page = 1, following_done = false, followers_done = false)
     @success = false

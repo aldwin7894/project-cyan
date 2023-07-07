@@ -11,6 +11,7 @@ module Admin
 
     # GET /admin/game-ids/1 or /admin/game-ids/1.json
     def show
+      # show
     end
 
     # GET /admin/game-ids/new
@@ -20,6 +21,7 @@ module Admin
 
     # GET /admin/game-ids/1/edit
     def edit
+      # edit
     end
 
     # POST /admin/game-ids or /admin/game-ids.json

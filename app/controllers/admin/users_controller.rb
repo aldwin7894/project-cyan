@@ -11,6 +11,7 @@ module Admin
 
     # GET /admin/users/1 or /admin/users/1.json
     def show
+      # show
     end
 
     # GET /admin/users/new
@@ -20,6 +21,7 @@ module Admin
 
     # GET /admin/users/1/edit
     def edit
+      # edit
     end
 
     # POST /admin/users or /admin/users.json
