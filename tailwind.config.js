@@ -3,11 +3,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 const plugin = require("tailwindcss/plugin");
 
 module.exports = {
-  content: [
-    "./public/**/*.html",
-    "./app/**/*.{html,js,erb,rb}",
-    "./node_modules/tw-elements/dist/js/**/*.js",
-  ],
+  content: ["./public/**/*.html", "./app/**/*.{html,js,erb,rb}"],
   darkMode: "media", // or 'class'
   theme: {
     extend: {
