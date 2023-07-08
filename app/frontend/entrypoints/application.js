@@ -3,18 +3,16 @@
 import "iconify-icon";
 import "@hotwired/turbo-rails";
 import Alpine from "alpinejs";
-import Chart from "chart.js/auto";
-import "tw-elements";
+import { Chart, PieController, ArcElement, Tooltip } from "chart.js";
 import tippy, { followCursor } from "tippy.js";
-import Swiper from "swiper";
-import { EffectCoverflow } from "swiper/modules";
+import Swiper from "swiper/bundle";
 import "../channels";
 
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
 import "tippy.js/animations/perspective-subtle.css";
 import "tippy.js/animations/shift-away-subtle.css";
-import "swiper/css";
+import "swiper/css/bundle";
 import "~/stylesheets/application.css.scss";
 
 const initElems = (parent = null) => {
@@ -157,7 +155,7 @@ document.addEventListener("turbo:before-stream-render", () => {
   Turbo.navigator.delegate.adapter.progressBar.hide();
 });
 
-Swiper.use([EffectCoverflow]);
+Chart.register([PieController, ArcElement, Tooltip]);
 
 window.Alpine = Alpine;
 window.Chart = Chart;
