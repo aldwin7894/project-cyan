@@ -3,22 +3,11 @@
     <div
       id="profile-carousel"
       class="swiper w-full h-full"
-      x-init="new Swiper('#profile-carousel', {
-        effect: 'fade',
-        loop: true,
-        spaceBetween: 30,
-        slidesPerView: 1,
-        speed: 700,
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false
-        }
-      });"
     >
       <div class="swiper-wrapper">
         <% bgs.each do |num| %>
-          <div class="swiper-slide">
-            <img src="<%= vite_asset_path "images/cyan-bg-#{num}.webp" %>" alt="carousel-item" class="block w-full" />
+          <div class="swiper-slide background-cyan-<%= num %>">
+            <img src="<%= vite_asset_path "images/cyan-bg-#{num}.webp" %>" alt="carousel-item" class="visually-hidden hidden" />
           </div>
         <% end %>
       </div>

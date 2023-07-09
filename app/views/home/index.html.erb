@@ -4,6 +4,25 @@
   <% bgs.each do |num| %>
     <link rel="preload" as="image" href="<%= vite_asset_path("images/cyan-bg-#{num}.webp") %>">
   <% end %>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const swiper = new Swiper('#profile-carousel', {
+        effect: 'fade',
+        loop: true,
+        speed: 1000,
+        threshold: 40,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false
+        },
+        fadeEffect: {
+          crossFade: true
+        },
+      });
+      swiper.translateTo(window.screen.width * -1, 0, false, false);
+    })
+  </script>
 <% end %>
 
 <%= render "profile_section", bgs: %>
