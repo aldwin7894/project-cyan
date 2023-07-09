@@ -3,7 +3,11 @@
   "solargraph.formatting": true,
   "solargraph.useBundler": true,
   "[erb]": {
-    "editor.defaultFormatter": "manuelpuyol.erb-linter"
+    "editor.defaultFormatter": "elia.erb-formatter",
+    "editor.formatOnSave": true
+  },
+  "files.associations": {
+    "*.html.erb": "erb"
   },
   "[ruby]": {
     "editor.defaultFormatter": "trunk.io",

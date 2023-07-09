@@ -46,6 +46,7 @@ group :development do
   gem "rubocop-performance"
   gem "rubocop-packaging"
   gem "erb_lint", require: false
+  gem "erb-formatter"
   gem "brakeman"
 end
 

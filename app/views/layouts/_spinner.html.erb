@@ -1,8 +1,43 @@
 <% add_class ||= "w-32 h-32 border-16 text-cyan-600" %>
 <div class="relative flex items-center justify-center">
-  <div class="absolute border-gray-400 border-solid rounded-full <%= add_class %>">
+  <div
+    class="
+      absolute
+      border-gray-400
+      border-solid
+      rounded-full
+      <%= add_class %>
+    "
+  >
   </div>
-  <div class="absolute spinner-border animate-spin inline-block rounded-full motion-reduce:animate-spin-reduce <%= add_class %>" role="status">
-    <span class="visually-hidden !absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+  <div
+    class="
+      absolute
+      border-solid
+      border-current
+      border-r-transparent
+      border-l-transparent
+      animate-spin
+      inline-block
+      rounded-full
+      motion-reduce:animate-spin-reduce
+      <%= add_class %>
+    "
+    role="status"
+  >
+    <span
+      class="
+        visually-hidden
+        !absolute
+        !-m-px
+        !h-px
+        !w-px
+        !overflow-hidden
+        !whitespace-nowrap
+        !border-0
+        !p-0
+        ![clip:rect(0,0,0,0)]
+      "
+    >Loading...</span>
   </div>
 </div>

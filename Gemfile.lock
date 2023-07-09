@@ -118,6 +118,8 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     dry-cli (1.0.0)
     e2mmap (0.1.0)
+    erb-formatter (0.4.3)
+      syntax_tree (~> 6.0)
     erb_lint (0.4.0)
       activesupport
       better_html (>= 2.0.1)
@@ -404,6 +406,7 @@ GEM
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
+    prettier_print (1.2.1)
     public_suffix (5.0.1)
     puma (6.3.0)
       nio4r (~> 2.0)
@@ -522,6 +525,8 @@ GEM
     solargraph-rails (1.1.0)
       activesupport
       solargraph
+    syntax_tree (6.1.1)
+      prettier_print (>= 1.2.0)
     thor (1.2.2)
     tilt (2.2.0)
     timeout (0.4.0)
@@ -572,6 +577,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise (~> 4.9)
   discordrb (~> 3.5.0)
+  erb-formatter
   erb_lint
   graphql-client (~> 0.18.0)
   health_check (~> 3.1)
