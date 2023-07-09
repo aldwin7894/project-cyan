@@ -7,7 +7,7 @@ class MusicNpBannerController < ApplicationController
   before_action :check_if_from_cloudfront
   before_action :set_no_cache_headers
 
-  content_security_policy(only: :index) do |policy|
+  content_security_policy(only: %i(lastfm listenbrainz)) do |policy|
     policy.img_src.reject! { |x| x == :data }
   end unless Rails.env.development?
 
