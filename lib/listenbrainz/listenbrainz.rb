@@ -29,7 +29,7 @@ module ListenBrainz
     }
 
     Rails.cache.fetch("LISTENBRAINZ/#{user}/RECENT_TRACKS", expires_in: 5.minutes, skip_nil: true) do
-      res = HTTParty.get("#{BASE_URL}/user/#{user}/listens", headers:, query:, timeout: 10)
+      res = HTTParty.get("#{BASE_URL}user/#{user}/listens", headers:, query:, timeout: 10)
       unless res.success?
         raise ApiError.new(res["error"], res["code"])
       end
@@ -44,7 +44,7 @@ module ListenBrainz
     }
 
     Rails.cache.fetch("LISTENBRAINZ/#{user}/NOW_PLAYING", expires_in: 30.seconds, skip_nil: true) do
-      res = HTTParty.get("#{BASE_URL}/user/#{user}/playing-now", headers:, timeout: 10)
+      res = HTTParty.get("#{BASE_URL}user/#{user}/playing-now", headers:, timeout: 10)
       unless res.success?
         raise ApiError.new(res["error"], res["code"])
       end
@@ -59,7 +59,7 @@ module ListenBrainz
     }
 
     Rails.cache.fetch("LISTENBRAINZ/#{user}/LOVED_TRACKS", expires_in: 1.day, skip_nil: true) do
-      res = HTTParty.get("#{BASE_URL}/feedback/user/#{user}/get-feedback", headers:, timeout: 10)
+      res = HTTParty.get("#{BASE_URL}feedback/user/#{user}/get-feedback", headers:, timeout: 10)
       unless res.success?
         raise ApiError.new(res["error"], res["code"])
       end
@@ -72,8 +72,8 @@ module ListenBrainz
     return nil unless release_mbid.present? && size.present?
 
     url = "#{CAA_BASE_URL}release/#{release_mbid}/front-#{size}"
-    res = HTTParty.head(url)
-    return nil unless res.success?
+    res = HTTParty.head(url, follow_redirects: false)
+    return nil unless res.success? || res.redirection?
 
     url
   end

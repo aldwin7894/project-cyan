@@ -2,9 +2,9 @@
 
 module DiscordHelper
   def get_jellyfin_poster_url(url)
-    return nil unless url.includes("jellyfin.")
+    return nil unless url.include?("jellyfin.")
 
-    "https://#{large_image.split("https/").last.split(".png").first}?fillWidth=64&quality=80"
+    "https://#{url.split("https/").last.split(".png").first}?fillWidth=64&quality=80"
   end
 
   def get_playing_elapsed_time(start_time)
