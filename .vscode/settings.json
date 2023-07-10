@@ -65,5 +65,6 @@
   },
   "[jsonc]": {
     "editor.defaultFormatter": "trunk.io"
-  }
+  },
+  "erb-formatter.lineLength": 120
 }
