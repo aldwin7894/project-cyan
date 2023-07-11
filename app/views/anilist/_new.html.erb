@@ -1,9 +1,30 @@
-<div class="container" x-data="{ submitDisabled: false }">
-  <div class="dark:bg-fg--dark/80 dark:text-text--dark backdrop-blur-sm bg-fg--light/50 text-text--light flex items-center justify-center p-8 rounded-lg shadow-lg">
+<div class="container relative" x-data="{ submitDisabled: false }">
+  <div
+    class="
+      dark:bg-fg--dark/80
+      dark:text-text--dark
+      backdrop-blur-sm
+      bg-fg--light/50
+      text-text--light
+      relative
+      flex
+      items-center
+      justify-center
+      p-8
+      rounded-lg
+      shadow-lg
+      top-[calc(45%-56px)]
+      xs:top-[calc(45%-116px)]
+      pointer-events-auto
+    "
+  >
     <%= form_with(url: fetch_followers_anilist_index_path, method: :get, data: { turbo_frame: "anilist" }, html: { class: "max-w-lg flex flex-col flex-1 gap-3" }) do |f| %>
       <%= f.hidden_field :format, value: "turbo_stream" %>
       <%= f.label :username, "AniList Username:", class: "block font-bold", autocomplete: "off" %>
-      <%= f.text_field :username, class: "w-full block py-3 px-4 rounded-full border focus:shadow-none focus:border-cyan-500 focus:outline-none dark:bg-fg--dark bg-fg--light", autocomplete: "off" %>
+      <%= f.text_field :username,
+                   class:
+                     "w-full block py-3 px-4 rounded-full border focus:shadow-none focus:border-cyan-500 focus:outline-none dark:bg-fg--dark bg-fg--light",
+                   autocomplete: "off" %>
 
       <div class="flex flex-row justify-end">
         <%= turbo_frame_tag "recaptcha" do %>
@@ -12,7 +33,12 @@
           </div>
         <% end %>
 
-        <button type="submit" class="bg-cyan-700 hover:bg-cyan-600 dark:disabled:bg-bg--dark dark:disabled:text-text--dark disabled:bg-bg--light disabled:text-text--light disabled:shadow-none flex items-center px-4 py-3 font-medium text-white rounded cursor-pointer" @click="submitDisabled = true" x-text="submitDisabled ? 'Checking...' : 'Check'">
+        <button
+          type="submit"
+          class=" bg-cyan-700 hover:bg-cyan-600 dark:disabled:bg-bg--dark dark:disabled:text-text--dark disabled:bg-bg--light disabled:text-text--light disabled:shadow-none flex items-center px-4 py-3 font-medium text-white rounded cursor-pointer"
+          @click="submitDisabled = true"
+          x-text="submitDisabled ? 'Checking...' : 'Check'"
+        >
         </button>
       </div>
     <% end %>

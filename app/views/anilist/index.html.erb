@@ -1,24 +1,52 @@
 <% bgs = (1..10).to_a.shuffle %>
 
 <% content_for :head_content do %>
-  <% bgs.each do |num| %>
-    <link rel="preload" as="image" href="<%= vite_asset_path("images/ailane-bg-#{num}.webp") %>">
-  <% end %>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const swiper = new Swiper('#anilist-carousel', {
+        effect: 'fade',
+        loop: true,
+        speed: 1000,
+        threshold: 40,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false
+        },
+        fadeEffect: {
+          crossFade: true
+        },
+      });
+      swiper.translateTo(window.screen.width * -1, 0, false, false);
+    })
+  </script>
 <% end %>
 
 <section>
-  <div class="carousel slide carousel-fade relative flex w-screen min-h-[calc(100vh-56px)] font-sans" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
-    <div class="carousel-inner relative flex-1">
-      <% bgs.each_with_index do |num, i| %>
-        <div class="w-full h-full carousel-item relative float-left background-ailane-<%= num %> <%= i == 0 ? "active" : "" %>">
-        </div>
-      <% end %>
-
-      <div class="dark:bg-bg--dark/80 bg-bg--light/80 relative z-10 flex min-h-full">
-        <turbo-frame id="anilist" class="flex items-center justify-center flex-1">
-          <%= render "anilist/new" %>
-        </turbo-frame>
+  <div
+    class="
+      relative
+      flex
+      w-screen
+      min-h-[calc(100vh-56px)]
+      xs:min-h-[calc(100vh-116px)]
+      max-h-[calc(100vh-56px)]
+      xs:max-h-[calc(100vh-116px)]
+      font-sans
+    "
+  >
+    <div id="anilist-carousel" class="swiper absolute top-0 left-0 w-full h-full">
+      <div class="swiper-wrapper">
+        <% bgs.each do |num| %>
+          <div class="swiper-slide background-ailane-<%= num %>">
+            <img src="<%= vite_asset_path "images/ailane-bg-#{num}.webp" %>" alt="carousel-item" class="visually-hidden hidden"/>
+          </div>
+        <% end %>
       </div>
+    </div>
+    <div class="dark:bg-bg--dark/80 bg-bg--light/80 tablet:overflow-y-hidden relative z-10 flex w-full pointer-events-none">
+      <turbo-frame id="anilist" class="flex justify-center flex-1">
+        <%= render "anilist/new" %>
+      </turbo-frame>
     </div>
   </div>
 </section>

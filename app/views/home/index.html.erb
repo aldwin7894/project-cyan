@@ -1,10 +1,6 @@
 <% bgs = (1..15).to_a.shuffle %>
 
 <% content_for :head_content do %>
-  <% bgs.each do |num| %>
-    <link rel="preload" as="image" href="<%= vite_asset_path("images/cyan-bg-#{num}.webp") %>">
-  <% end %>
-
   <script>
     window.addEventListener("DOMContentLoaded", () => {
       const swiper = new Swiper('#profile-carousel', {
