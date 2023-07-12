@@ -42,4 +42,4 @@ jobs:
         uses: trunk-io/trunk-action@v1
         with:
           cache: true
-          post-annotations: true
+          trunk-token: ${{ secrets.TRUNK_TOKEN }}
