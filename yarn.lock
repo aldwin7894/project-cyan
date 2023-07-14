@@ -514,10 +514,10 @@
   resolved "https://registry.yarnpkg.com/@tailwindcss/aspect-ratio/-/aspect-ratio-0.4.2.tgz#9ffd52fee8e3c8b20623ff0dcb29e5c21fb0a9ba"
   integrity sha512-8QPrypskfBa7QIMuKHg2TA7BqES6vhBrDLOv8Unb6FcFyd3TjKbc6lcmb9UPQHxfl24sXoJ41ux/H7qQQvfaSQ==
 
-"@tailwindcss/forms@^0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.5.3.tgz#e4d7989686cbcaf416c53f1523df5225332a86e7"
-  integrity sha512-y5mb86JUoiUgBjY/o6FJSFZSEttfb3Q5gllE4xoKjAAD+vBrnIhE4dViwUuow3va8mpH4s9jyUbUbrRGoRdc2Q==
+"@tailwindcss/forms@^0.5.4":
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.5.4.tgz#5316a782fd95369eb5b6fd01d46323b3dce656a2"
+  integrity sha512-YAm12D3R7/9Mh4jFbYSMnsd6jG++8KxogWgqs7hbdo/86aWjjlIEvL7+QYdVELmAI0InXTpZqFIg5e7aDVWI2Q==
   dependencies:
     mini-svg-data-uri "^1.2.3"
 
@@ -2922,10 +2922,10 @@ tailwindcss-animatecss@^3.0.4:
   resolved "https://registry.yarnpkg.com/tailwindcss-animatecss/-/tailwindcss-animatecss-3.0.4.tgz#e36f6921abb062503511019b539ae91a14999a26"
   integrity sha512-Fu8RK6qZ625VafKciffYttfanG6rOQPkv4ox6FvIfCAJZzGoKjnExiy5Lb4IEQxJhSaazNXbUvVyhPjGaZ2EcA==
 
-tailwindcss@^3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.3.2.tgz#2f9e35d715fdf0bbf674d90147a0684d7054a2d3"
-  integrity sha512-9jPkMiIBXvPc2KywkraqsUfbfj+dHDb+JPWtSJa9MLFdrPyazI7q6WX2sUrm7R9eVR7qqv3Pas7EvQFzxKnI6w==
+tailwindcss@^3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.3.3.tgz#90da807393a2859189e48e9e7000e6880a736daf"
+  integrity sha512-A0KgSkef7eE4Mf+nKJ83i75TMyq8HqY3qmFIJSWy8bNt0v1lG7jUcpGpoTFxAwYcWOphcTBLPPJg+bDfhDf52w==
   dependencies:
     "@alloc/quick-lru" "^5.2.0"
     arg "^5.0.2"
@@ -2947,7 +2947,6 @@ tailwindcss@^3.3.2:
     postcss-load-config "^4.0.1"
     postcss-nested "^6.0.1"
     postcss-selector-parser "^6.0.11"
-    postcss-value-parser "^4.2.0"
     resolve "^1.22.2"
     sucrase "^3.32.0"
 
@@ -3086,10 +3085,10 @@ vite-plugin-ruby@^3.2.2:
     debug "^4.3.4"
     fast-glob "^3.2.12"
 
-vite@^4.4.3:
-  version "4.4.3"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-4.4.3.tgz#dfaf86f4cba3058bf2724e2e2c88254fb0f21a5a"
-  integrity sha512-IMnXQXXWgLi5brBQx/4WzDxdzW0X3pjO4nqFJAuNvwKtxzAmPzFE1wszW3VDpAGQJm3RZkm/brzRdyGsnwgJIA==
+vite@^4.4.4:
+  version "4.4.4"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-4.4.4.tgz#b76e6049c0e080cb54e735ad2d18287753752118"
+  integrity sha512-4mvsTxjkveWrKDJI70QmelfVqTm+ihFAb6+xf4sjEU2TmUCTlVX87tmg/QooPEMQb/lM9qGHT99ebqPziEd3wg==
   dependencies:
     esbuild "^0.18.10"
     postcss "^8.4.25"
