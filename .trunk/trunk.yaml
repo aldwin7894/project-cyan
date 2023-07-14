@@ -1,6 +1,11 @@
 version: 0.1
+repo:
+  repo:
+    host: github.com
+    owner: aldwin7894
+    name: project-cyan
 cli:
-  version: 1.11.1
+  version: 1.12.0
 merge:
   required_statuses:
     - Trunk Check
@@ -68,8 +73,8 @@ lint:
     - hadolint@2.12.0
     - gitleaks@8.17.0
     - yamllint@1.32.0
-    - checkov@2.3.318
+    - checkov@2.3.324
     - sort-package-json@2.5.1
     - brakeman@5.4.0
     - terrascan@1.18.1
-    - trufflehog@3.43.0
+    - trufflehog@3.44.0

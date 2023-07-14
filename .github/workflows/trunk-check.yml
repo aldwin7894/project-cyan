@@ -26,20 +26,22 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby }}
-          bundler-cache: true
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-          cache: yarn
-      - name: Install Node Dependencies
-        run: yarn install --frozen-lockfile
+      # - name: Setup Ruby
+      #   uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: ${{ matrix.ruby }}
+      #     bundler-cache: true
+      # - name: Setup Node
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: ${{ matrix.node }}
+      #     cache: yarn
+      # - name: Install Node Dependencies
+      #   run: yarn install --frozen-lockfile
       - name: Run Trunk Check
         uses: trunk-io/trunk-action@v1
         with:
           cache: true
           trunk-token: ${{ secrets.TRUNK_TOKEN }}
+          setup-deps: true
+          save-annotations: true
