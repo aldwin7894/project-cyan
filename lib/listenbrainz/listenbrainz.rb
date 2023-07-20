@@ -44,7 +44,7 @@ module ListenBrainz
     }
 
     Rails.cache.fetch("LISTENBRAINZ/#{user}/NOW_PLAYING", expires_in: 30.seconds, skip_nil: true) do
-      res = HTTParty.get("#{BASE_URL}user/#{user}/playing-now", headers:, timeout: 10)
+      res = HTTParty.get("#{BASE_URL}user/#{user}/playing-now", headers:, query:, timeout: 10)
       unless res.success?
         raise ApiError.new(res["error"], res["code"])
       end
@@ -58,14 +58,33 @@ module ListenBrainz
       **JSON_HEADER
     }
 
-    Rails.cache.fetch("LISTENBRAINZ/#{user}/LOVED_TRACKS", expires_in: 1.day, skip_nil: true) do
-      res = HTTParty.get("#{BASE_URL}feedback/user/#{user}/get-feedback", headers:, timeout: 10)
-      unless res.success?
-        raise ApiError.new(res["error"], res["code"])
+    offset = 0
+    total = 1
+    data = []
+    loop do
+      break if offset > total
+
+      query = {
+        score: 1,
+        count: 100,
+        offset:
+      }
+      result = Rails.cache.fetch("LISTENBRAINZ/#{user}/LOVED_TRACKS/#{offset}", expires_in: 2.weeks, skip_nil: true) do
+        sleep 0.3
+        res = HTTParty.get("#{BASE_URL}feedback/user/#{user}/get-feedback", headers:, query:, timeout: 10)
+        unless res.success?
+          raise ApiError.new(res["error"], res["code"])
+        end
+
+        res
       end
 
-      res["feedback"]
+      data.push(*result["feedback"])
+      total = result["total_count"]
+      offset += 100
     end
+
+    data
   end
 
   def ListenBrainz.get_cover_art_url(release_mbid:, size:)

@@ -81,7 +81,6 @@ GEM
       smart_properties
     bootsnap (1.16.0)
       msgpack (~> 1.2)
-    brakeman (6.0.0)
     brotli (0.4.0)
     bson (4.15.0)
     builder (3.2.4)
@@ -133,7 +132,7 @@ GEM
     globalid (1.1.0)
       activesupport (>= 5.0)
     google-protobuf (3.23.4-x86_64-linux)
-    googleapis-common-protos-types (1.6.0)
+    googleapis-common-protos-types (1.7.0)
       google-protobuf (~> 3.14)
     graphql (2.0.24)
     graphql-client (0.18.0)
@@ -193,7 +192,7 @@ GEM
       concurrent-ruby (>= 1.0.5, < 2.0)
       mongo (>= 2.18.0, < 3.0.0)
       ruby2_keywords (~> 0.0.5)
-    msgpack (1.7.1)
+    msgpack (1.7.2)
     multi_xml (0.6.0)
     net-imap (0.3.6)
       date
@@ -386,7 +385,7 @@ GEM
       opentelemetry-common (~> 0.19.3)
       opentelemetry-instrumentation-base (~> 0.22.1)
       opentelemetry-instrumentation-rack (~> 0.21)
-    opentelemetry-instrumentation-trilogy (0.56.1)
+    opentelemetry-instrumentation-trilogy (0.56.2)
       opentelemetry-api (~> 1.0)
       opentelemetry-instrumentation-base (~> 0.22.1)
       opentelemetry-semantic_conventions (>= 1.8.0)
@@ -407,7 +406,7 @@ GEM
       ast (~> 2.4.1)
       racc
     prettier_print (1.2.1)
-    public_suffix (5.0.1)
+    public_suffix (5.0.3)
     puma (6.3.0)
       nio4r (~> 2.0)
     racc (1.7.1)
@@ -571,7 +570,6 @@ PLATFORMS
 DEPENDENCIES
   addressable (~> 2.8)
   bootsnap (>= 1.4.4)
-  brakeman
   bson (~> 4.15)
   byebug
   capybara (>= 3.26)
@@ -617,4 +615,4 @@ RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.4.15
+   2.4.17
