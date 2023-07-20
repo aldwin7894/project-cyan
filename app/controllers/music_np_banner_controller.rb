@@ -110,7 +110,7 @@ class MusicNpBannerController < ApplicationController
     release_mbid = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("release_mbid")
     recording_mbid = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("recording_mbid")
     @album_art = ListenBrainz.get_cover_art_url(release_mbid:, size: 250)
-    @loved = true if loved_tracks.any? { |x| x["recording_mbid"] === recording_mbid }
+    @loved = loved_tracks.any? { |x| x["recording_mbid"] === recording_mbid.to_s }
 
     timestamp = @recent["listened_at"].to_i
     @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"

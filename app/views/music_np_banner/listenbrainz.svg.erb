@@ -1,15 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="600px" height="126px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <title>Cyan★Nyan♪ | ListenBrainz Now Playing Banner</title>
   <%= render partial: "music_np_banner/svg_defs", formats: [:xml] %>
-
   <foreignObject width="600px" height="126px">
-    <%= render partial: "music_np_banner/listenbrainz_content", formats: [:html] %>
+  <%= render partial: "music_np_banner/listenbrainz_content", formats: [:html] %>
   </foreignObject>
-  <rect width="102" height="102" fill="url(#album-cover)" x="10" y="10" rx="5" stroke="white" stroke-width="<%= @recent.blank? || @album_art.blank? ? 3 : 0 %>"></rect>
-  <% if @loved %>
+  <rect
+    width="102"
+    height="102"
+    fill="url(#album-cover)"
+    x="10"
+    y="10"
+    rx="5"
+    stroke="white"
+    stroke-width="<%= @recent.blank? || @album_art.blank? ? 3 : 0 %>"
+  ></rect>
+  <% if @loved === true %>
     <rect width="27" height="27" class="album-love" fill="url(#album-love)" x="90" y="5"></rect>
   <% end %>
 </svg>
