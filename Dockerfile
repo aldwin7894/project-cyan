@@ -1,8 +1,8 @@
-FROM ruby:3.2.2-slim-bullseye AS build-env
+FROM ruby:3.2.2-slim-bookworm AS build-env
 
-ENV NODE_VERSION 18.16.0
-ENV NPM_VERSION 8.16.0
-ENV YARN_VERSION 1.22.0
+ENV NODE_VERSION 18.17.0
+ENV NPM_VERSION 9.8.1
+ENV YARN_VERSION 1.22.19
 ENV BUNDLE_PATH=/gems
 ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
@@ -53,9 +53,9 @@ RUN --mount=type=secret,id=TZ \
     && bash ./build.sh
 
 #==============================================
-FROM ruby:3.2.2-slim-bullseye
+FROM ruby:3.2.2-slim-bookworm
 
-ENV NODE_VERSION 18.16.0
+ENV NODE_VERSION 18.17.0
 ENV BUNDLE_PATH=/gems
 ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
