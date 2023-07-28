@@ -66,7 +66,7 @@ gem "devise", "~> 4.9"
 
 gem "graphql-client", "~> 0.18.0"
 
-gem "lograge", "~> 0.12.0"
+gem "lograge", "~> 0.13.0"
 
 gem "rack-brotli", "~> 1.2"
 
