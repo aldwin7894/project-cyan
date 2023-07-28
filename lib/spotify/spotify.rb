@@ -112,10 +112,10 @@ module Spotify
       end
       album_art = Rails.cache.fetch(cache_key)
     else
-      Rails.logger.tagged("CACHE", "Spotify.get_artists_images", cache_key) do
+      Rails.logger.tagged("CACHE", "Spotify.get_album_art", cache_key) do
         Rails.logger.info("MISS")
       end
-      album_art = Rails.cache.fetch(cache_key, expires_in: 1.week, skip_nil: true) do
+      album_art = Rails.cache.fetch(cache_key, expires_in: 1.month, skip_nil: true) do
         res = HTTParty.get("#{SPOTIFY_BASE_URL}/albums/#{album_id}", headers:, timeout: 10)
         return if res.code >= 300
 
