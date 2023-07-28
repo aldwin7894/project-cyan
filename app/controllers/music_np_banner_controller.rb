@@ -2,6 +2,7 @@
 
 require "lastfm/lastfm"
 require "listenbrainz/listenbrainz"
+require "spotify/spotify"
 
 class MusicNpBannerController < ApplicationController
   before_action :check_if_from_cloudfront
@@ -108,8 +109,16 @@ class MusicNpBannerController < ApplicationController
     end
 
     release_mbid = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("release_mbid")
+    release_mbid ||= @recent&.[]("track_metadata")&.[]("mbid_mapping")&.[]("release_mbid")
     recording_mbid = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("recording_mbid")
-    @album_art = ListenBrainz.get_cover_art_url(release_mbid:, size: 250)
+    recording_mbid ||= @recent&.[]("track_metadata")&.[]("mbid_mapping")&.[]("recording_mbid")
+    spotify_album_id = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("spotify_album_id")
+
+    if release_mbid.present?
+      @album_art = ListenBrainz.get_cover_art_url(release_mbid:, size: 250)
+    elsif spotify_album_id
+      @album_art = Spotify.get_album_art(album_id: spotify_album_id&.split("/").pop)
+    end
     @loved = loved_tracks.any? { |x| x["recording_mbid"] === recording_mbid.to_s }
 
     timestamp = @recent["listened_at"].to_i

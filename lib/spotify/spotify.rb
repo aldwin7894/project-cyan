@@ -2,8 +2,7 @@
 
 module Spotify
   ACCESS_TOKEN_URL = "https://accounts.spotify.com/api/token"
-  GET_ARTIST_URL = "https://api.spotify.com/v1/artists"
-  SEARCH_URL = "https://api.spotify.com/v1/search"
+  SPOTIFY_BASE_URL = "https://api.spotify.com/v1"
   JSON_HEADER = {
     "Accept": "application/json",
     "Content-Type": "application/json",
@@ -27,7 +26,7 @@ module Spotify
     token
   end
 
-  def Spotify.get_artists_images(ids)
+  def Spotify.get_artists_images(ids:)
     if ids.blank? then return end
     headers = {
       **JSON_HEADER,
@@ -48,7 +47,7 @@ module Spotify
         Rails.logger.info("MISS")
       end
       artist_images = Rails.cache.fetch(cache_key, expires_in: 1.week, skip_nil: true) do
-        res = HTTParty.get(GET_ARTIST_URL, headers:, query:, timeout: 10)
+        res = HTTParty.get("#{SPOTIFY_BASE_URL}/artists", headers:, query:, timeout: 10)
         return if res.code >= 300
 
         artists = JSON.parse(res.body)
@@ -59,7 +58,7 @@ module Spotify
     artist_images
   end
 
-  def Spotify.get_artist_id_by_name(name)
+  def Spotify.get_artist_id_by_name(name:)
     if name.blank? then return end
 
     whitelist = SpotifyArtistWhitelist.find_by(name:)
@@ -87,7 +86,7 @@ module Spotify
         Rails.logger.info("MISS")
       end
       artist_id = Rails.cache.fetch(cache_key, expires_in: 1.month, skip_nil: true) do
-        res = HTTParty.get(SEARCH_URL, headers:, query:, timeout: 10)
+        res = HTTParty.get("#{SPOTIFY_BASE_URL}/search", headers:, query:, timeout: 10)
         return if res.code >= 300
 
         artist = JSON.parse(res.body)
@@ -96,5 +95,35 @@ module Spotify
     end
 
     artist_id
+  end
+
+  def Spotify.get_album_art(album_id:)
+    if album_id.blank? then return end
+
+    headers = {
+      **JSON_HEADER,
+      "Authorization": "Bearer #{Spotify.get_access_token}"
+    }
+
+    cache_key = "SPOTIFY/#{album_id}/ALBUM_ART"
+    if Rails.cache.exist? cache_key
+      Rails.logger.tagged("CACHE", "Spotify.get_album_art", cache_key) do
+        Rails.logger.info("HIT")
+      end
+      album_art = Rails.cache.fetch(cache_key)
+    else
+      Rails.logger.tagged("CACHE", "Spotify.get_artists_images", cache_key) do
+        Rails.logger.info("MISS")
+      end
+      album_art = Rails.cache.fetch(cache_key, expires_in: 1.week, skip_nil: true) do
+        res = HTTParty.get("#{SPOTIFY_BASE_URL}/albums/#{album_id}", headers:, timeout: 10)
+        return if res.code >= 300
+
+        album = JSON.parse(res.body)
+        album&.[]("images")&.first&.[]("url")
+      end
+    end
+
+    album_art
   end
 end

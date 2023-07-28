@@ -205,10 +205,10 @@ class HomeController < ApplicationController
     artist_names = @lastfm_top_artists.pluck("name")
     artist_ids = []
     artist_names.each do |name|
-      artist_id = Spotify.get_artist_id_by_name(name)
+      artist_id = Spotify.get_artist_id_by_name(name:)
       artist_ids.push(artist_id)
     end
-    images = Spotify.get_artists_images(artist_ids.join(","))
+    images = Spotify.get_artists_images(ids: artist_ids.join(","))
 
     @lastfm_top_artists = @lastfm_top_artists.each_with_index.map do |artist, i|
       artist["image"] = images[i]
