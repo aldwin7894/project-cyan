@@ -15,12 +15,9 @@ concurrency:
 jobs:
   trunk-check:
     name: Trunk Check
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     permissions:
       checks: write
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
