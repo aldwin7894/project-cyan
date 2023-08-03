@@ -43,7 +43,7 @@ module ListenBrainz
       **JSON_HEADER
     }
 
-    Rails.cache.fetch("LISTENBRAINZ/#{user}/NOW_PLAYING", expires_in: 30.seconds, skip_nil: true) do
+    Rails.cache.fetch("LISTENBRAINZ/#{user}/NOW_PLAYING", expires_in: 2.minutes, skip_nil: true) do
       res = HTTParty.get("#{BASE_URL}user/#{user}/playing-now", headers:, timeout: 10)
       unless res.success?
         raise ApiError.new(res["error"], res["code"])
