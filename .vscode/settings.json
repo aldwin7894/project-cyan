@@ -26,7 +26,8 @@
   "trunk.trace.server": "messages",
   "editor.defaultFormatter": "trunk.io",
   "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "formattingToggle.affects": ["editor.formatOnSave"],
   "tailwindCSS.includeLanguages": {
     "erb": "html"
   },

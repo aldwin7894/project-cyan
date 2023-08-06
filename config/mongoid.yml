@@ -159,11 +159,6 @@ development:
     # existing method. (default: false)
     # scope_overwrite_exception: false
 
-    # Use ActiveSupport's time zone in time operations instead of
-    # the Ruby default time zone. See the time zone section below for
-    # further information. (default: true)
-    use_activesupport_time_zone: true
-
     # Return stored times as UTC. See the time zone section below for
     # further information. Most applications should not use this option.
     # (default: false)
@@ -171,7 +166,7 @@ development:
 
     # (Deprecated) In MongoDB 4.0 and earlier, set whether to create
     # indexes in the background by default. (default: false)
-    # background_indexing: false
+    background_indexing: true
 
 test:
   clients:
@@ -186,7 +181,6 @@ test:
   options:
     app_name: project-cyan
     raise_not_found_error: false
-    use_activesupport_time_zone: true
 
 production:
   clients:
@@ -199,4 +193,4 @@ production:
   options:
     app_name: project-cyan
     raise_not_found_error: false
-    use_activesupport_time_zone: true
+    background_indexing: true

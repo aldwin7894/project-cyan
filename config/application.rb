@@ -43,6 +43,7 @@ module Aldwin7894
     config.action_controller.forgery_protection_origin_check = false
     config.session_store :cookie_store, key: "_app_session"
     config.action_view.form_with_generates_remote_forms = false
+    config.mongoid.logger = Logger.new(STDERR, :warn)
 
     config.generators do |g|
       g.orm :mongoid

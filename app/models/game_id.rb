@@ -11,4 +11,6 @@ class GameId
   field :icon_filename, type: String
   field :icon_url, type: String
   field :status, type: Integer, default: 1
+
+  index({ game_id: 1 }, { unique: true })
 end
