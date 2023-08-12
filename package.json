@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "@hotwired/turbo-rails": "^7.3.0",
-    "@rails/actioncable": "^7.0.6",
+    "@rails/actioncable": "^7.0.7",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.4",
     "@tailwindcss/typography": "^0.5.9",
@@ -37,20 +37,20 @@
     "postcss-import": "^15.1.0",
     "postcss-preset-env": "^9.1.1",
     "rollup-plugin-gzip": "^3.1.0",
-    "sass": "^1.64.2",
+    "sass": "^1.65.1",
     "swiper": "^10.1.0",
     "tailwindcss": "^3.3.3",
     "tailwindcss-animatecss": "^3.0.4",
     "terser": "^5.19.2",
     "tippy.js": "^6.3.7",
-    "vite": "^4.4.8",
+    "vite": "^4.4.9",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-ruby": "^3.2.2"
   },
   "devDependencies": {
     "@types/node": "^20.4.2",
-    "@typescript-eslint/parser": "^6.2.1",
-    "eslint": "^8.46.0",
+    "@typescript-eslint/parser": "^6.3.0",
+    "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-html-erb": "^1.0.1",
@@ -58,7 +58,7 @@
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "prettier": "^3.0.1",
-    "prettier-plugin-tailwindcss": "^0.4.1",
+    "prettier-plugin-tailwindcss": "^0.5.2",
     "typescript": "^5.1.6"
   },
   "engines": {
