@@ -1,1 +1,3 @@
-Rack::MiniProfiler.config.disable_caching = false
+if Rails.env.development?
+  Rack::MiniProfiler.config.disable_caching = false
+end
