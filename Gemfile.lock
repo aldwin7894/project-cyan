@@ -208,7 +208,7 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
-    occson (4.1.1)
+    occson (4.2.0)
     opentelemetry-api (1.2.1)
     opentelemetry-common (0.20.0)
       opentelemetry-api (~> 1.0)
@@ -412,7 +412,7 @@ GEM
       racc
     prettier_print (1.2.1)
     public_suffix (5.0.3)
-    puma (6.3.0)
+    puma (6.3.1)
       nio4r (~> 2.0)
     racc (1.7.1)
     rack (2.2.8)
@@ -496,7 +496,7 @@ GEM
       parser (>= 3.2.1.0)
     rubocop-packaging (0.5.2)
       rubocop (>= 1.33, < 2.0)
-    rubocop-performance (1.18.0)
+    rubocop-performance (1.19.0)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
     rubocop-rails (2.20.2)
@@ -593,7 +593,7 @@ DEPENDENCIES
   lograge (~> 0.13.0)
   logstash-event (~> 1.2)
   mongoid (~> 8.1)
-  occson (~> 4.1)
+  occson (~> 4.2)
   opentelemetry-exporter-otlp
   opentelemetry-instrumentation-all
   opentelemetry-sdk
