@@ -10,9 +10,9 @@
       <% end %>
     <% else %>
       <div class="backdrop-blur-sm p6-4 flex flex-col flex-1 w-full py-4">
-        <div class="dark:text-text--dark text-text--light max-w-sm mx-auto mb-6 font-sans text-3xl font-semibold text-center">
+        <div class="dark:text-white max-w-sm mx-auto mb-6 font-sans text-3xl font-semibold text-center text-black">
           <div class="pointer-events-auto">
-            <span class="opacity-80">Take me</span>
+            <span class="dark:opacity-80">Take me</span>
             <%= link_to "Back", anilist_index_path, class: "hover:text-[#3DB4F2] border-b", target: "anilist" %>
           </div>
         </div>
@@ -36,9 +36,9 @@
           "
         >
           <div
-            class=" dark:bg-fg--dark bg-fg--light h-fit tablet:h-full w-full max-w-sm pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto"
+            class=" dark:bg-fg--dark/90 bg-fg--light/80 h-fit tablet:h-full w-full max-w-sm pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto"
           >
-            <div class="bg-inherit sticky top-0 px-10 pt-5 mb-5">
+            <div class="sticky top-0 px-10 pt-5 mb-5 bg-transparent">
               <h1
                 class=" border-b-text--light dark:border-b-text--dark dark:text-text--dark text-text--light text-2xl font-bold border-b-2"
               >
@@ -47,7 +47,7 @@
             </div>
             <ul class="desktop:h-[70vh] dark:[color-scheme:dark] desktop:overflow-y-auto list-none mx-5">
               <% (@following - @followers).each do |f| %>
-                <li class="hover:text-cyan-400 text-blue-400">
+                <li class="hover:text-cyan-400 dark:text-blue-400 text-[#5c728a] font-semibold">
                   <%= link_to f, "https://anilist.co/user/#{f}", target: "_blank", rel: "noreferrer noopener" %>
                 </li>
               <% end %>
@@ -55,9 +55,9 @@
           </div>
 
           <div
-            class=" dark:bg-fg--dark bg-fg--light h-fit tablet:h-full w-full max-w-sm pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto"
+            class=" dark:bg-fg--dark/90 bg-fg--light/80 h-fit tablet:h-full w-full max-w-sm pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto"
           >
-            <div class="bg-inherit sticky top-0 px-10 pt-5 mb-5">
+            <div class="sticky top-0 px-10 pt-5 mb-5 bg-transparent">
               <h1
                 class=" border-b-text--light dark:border-b-text--dark dark:text-text--dark text-text--light text-2xl font-bold border-b-2"
               >
@@ -66,7 +66,7 @@
             </div>
             <ul class="desktop:h-[70vh] dark:[color-scheme:dark] desktop:overflow-y-auto list-none mx-5">
               <% (@followers - @following).each do |f| %>
-                <li class="hover:text-cyan-400 text-blue-400">
+                <li class="hover:text-cyan-400 dark:text-blue-400 text-[#5c728a] font-semibold">
                   <%= link_to f, "https://anilist.co/user/#{f}", target: "_blank", rel: "noreferrer noopener" %>
                 </li>
               <% end %>
@@ -74,9 +74,9 @@
           </div>
 
           <div
-            class=" dark:bg-fg--dark bg-fg--light h-fit tablet:h-full w-full max-w-sm pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto"
+            class=" dark:bg-fg--dark/90 bg-fg--light/80 h-fit tablet:h-full w-full max-w-sm pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto"
           >
-            <div class="bg-inherit sticky top-0 px-10 pt-5 mb-5">
+            <div class="sticky top-0 px-10 pt-5 mb-5 bg-transparent">
               <h1
                 class=" border-b-text--light dark:border-b-text--dark dark:text-text--dark text-text--light text-2xl font-bold border-b-2"
               >
@@ -86,7 +86,7 @@
 
             <ul class="desktop:h-[70vh] dark:[color-scheme:dark] desktop:overflow-y-auto list-none mx-5">
               <% @following.each do |f| %>
-                <li class="hover:text-cyan-400 text-blue-400">
+                <li class="hover:text-cyan-400 dark:text-blue-400 text-[#5c728a] font-semibold">
                   <%= link_to f, "https://anilist.co/user/#{f}", target: "_blank", rel: "noreferrer noopener" %>
                 </li>
               <% end %>
@@ -94,9 +94,9 @@
           </div>
 
           <div
-            class=" dark:bg-fg--dark bg-fg--light h-fit tablet:h-full w-full max-w-sm pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto"
+            class=" dark:bg-fg--dark/90 bg-fg--light/80 h-fit tablet:h-full w-full max-w-sm pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto"
           >
-            <div class="bg-inherit sticky top-0 px-10 pt-5 mb-5">
+            <div class="sticky top-0 px-10 pt-5 mb-5 bg-transparent">
               <h1
                 class=" border-b-text--light dark:border-b-text--dark dark:text-text--dark text-text--light text-2xl font-bold border-b-2"
               >
@@ -106,7 +106,7 @@
 
             <ul class="desktop:h-[70vh] dark:[color-scheme:dark] desktop:overflow-y-auto list-none mx-5">
               <% @followers.each do |f| %>
-                <li class="hover:text-cyan-400 text-blue-400">
+                <li class="hover:text-cyan-400 dark:text-blue-400 text-[#5c728a] font-semibold">
                   <%= link_to f, "https://anilist.co/user/#{f}", target: "_blank", rel: "noreferrer noopener" %>
                 </li>
               <% end %>

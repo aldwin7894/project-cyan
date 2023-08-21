@@ -71,7 +71,7 @@ HealthCheck.setup do |config|
   config.rabbitmq_config = {}
 
   # When redis url/password is non-standard
-  config.redis_url = ENV.fetch("REDIS_URL", "redis://wsl.local:6379/1")
+  config.redis_url = ENV.fetch("REDIS_URL", "redis://localhost:6379/1")
   # Only included if set, as url can optionally include passwords as well
   config.redis_password = nil
 

@@ -8,7 +8,7 @@
     "autoBuild": true,
     "publicOutputDir": "vite-dev",
     "port": 3036,
-    "host": "wsl.local",
+    "host": "localhost",
     "https": false
   },
   "test": {
