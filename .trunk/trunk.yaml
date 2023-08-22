@@ -5,7 +5,7 @@ repo:
     owner: aldwin7894
     name: project-cyan
 cli:
-  version: 1.14.0
+  version: 1.14.1
 merge:
   required_statuses:
     - Trunk Check
@@ -34,6 +34,7 @@ lint:
     - trivy
     - osv-scanner
     - brakeman
+    - trufflehog
   ignore:
     - linters: [ALL]
       paths:
@@ -77,4 +78,3 @@ lint:
     - checkov@2.4.4
     - sort-package-json@2.5.1
     - terrascan@1.18.3
-    - trufflehog@3.48.0

@@ -1,12 +1,52 @@
 <turbo-frame id="watched_movie_section">
   <div class="absolute inset-y-0 left-[-10px] z-10 flex items-center pointer-events-none">
-    <button @click="swiper.slidePrev()" class="lg:-ml-4 focus:outline-none flex items-center justify-center w-10 h-10 -ml-2 bg-white rounded-full shadow pointer-events-auto">
-      <iconify-icon icon="material-symbols:chevron-left" width="20" height="20"></iconify-icon>
+    <button
+      id="watched_movie_prev"
+      class="
+        disabled:invisible
+        disabled:pointer-events-none
+        bg-[#019edf]
+        text-white
+        visible
+        lg:-ml-4
+        focus:outline-none
+        flex
+        items-center
+        justify-center
+        w-10
+        h-10
+        -ml-2
+        rounded-full
+        shadow
+        pointer-events-auto
+      "
+    >
+      <iconify-icon icon="material-symbols:chevron-left" width="30" height="30"></iconify-icon>
     </button>
   </div>
   <div class="right-[-10px] absolute inset-y-0 z-10 flex items-center pointer-events-none">
-    <button @click="swiper.slideNext()" class="lg:-mr-4 focus:outline-none pointer-events-auto flex items-center justify-center w-10 h-10 -mr-2 bg-white rounded-full shadow">
-      <iconify-icon icon="material-symbols:chevron-right" width="20" height="20"></iconify-icon>
+    <button
+      id="watched_movie_next"
+      class="
+        disabled:invisible
+        disabled:pointer-events-none
+        bg-[#019edf]
+        text-white
+        visible
+        lg:-mr-4
+        focus:outline-none
+        flex
+        items-center
+        justify-center
+        w-10
+        h-10
+        -mr-2
+        rounded-full
+        shadow
+        pointer-events-auto
+      "
+    >
+      <iconify-icon icon="material-symbols:chevron-right" width="30" height="30"></iconify-icon>
     </button>
   </div>
 
@@ -30,13 +70,24 @@
         1536: {
           slidesPerView: 6
         }
+      },
+      navigation: {
+        disabledClass: 'disabled',
+        hiddenClass: 'invisible',
+        prevEl: '#watched_movie_prev',
+        nextEl: '#watched_movie_next'
       }
     });"
   >
     <div class="swiper-wrapper text-center">
       <% @watched_movie.each_slice(6).first(4).each_with_index do |(*activities), index| %>
         <% activities.each_index do |index2| %>
-          <turbo-frame id="watched_movie_<%= "#{index}_#{index2}" %>" src="<%= anilist_user_activities_path %>" loading="lazy" class="swiper-slide">
+          <turbo-frame
+            id="watched_movie_<%= "#{index}_#{index2}" %>"
+            src="<%= anilist_user_activities_path %>"
+            loading="lazy"
+            class="swiper-slide"
+          >
             <%= render "home/watched_placeholder" %>
           </turbo-frame>
         <% end %>

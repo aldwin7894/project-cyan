@@ -68,7 +68,7 @@ module ApplicationHelper
   def anilist_progress_text(activity)
     return if activity.blank?
 
-    if activity["status"].strip === "completed"
+    if ["completed", "rewatched"].include? activity["status"].strip
       return activity["status"].capitalize
     end
 
