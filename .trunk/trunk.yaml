@@ -15,12 +15,12 @@ merge:
 plugins:
   sources:
     - id: trunk
-      ref: v1.2.1
+      ref: v1.2.2
       uri: https://github.com/trunk-io/plugins
 runtimes:
   enabled:
     - python@3.10.8
-    - go@1.19.5
+    - go@1.21.0
     - node@>=18.17.0
     - ruby@>=3.2.0
 actions:
@@ -73,8 +73,8 @@ lint:
     - git-diff-check
     - shellcheck@0.9.0
     - hadolint@2.12.0
-    - gitleaks@8.17.0
+    - gitleaks@8.18.0
     - yamllint@1.32.0
-    - checkov@2.4.4
+    - checkov@2.4.9
     - sort-package-json@2.5.1
     - terrascan@1.18.3
