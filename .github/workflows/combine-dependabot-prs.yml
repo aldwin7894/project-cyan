@@ -38,7 +38,7 @@ jobs:
         uses: github/combine-prs@v3.1.2
         with:
           github_token: ${{ secrets.PAT }}
-          branch_prefix: ${{ github.event.inputs.branchPrefix }}
-          ci_required: ${{ github.event.inputs.mustBeGreen }}
-          combine_branch_name: ${{ github.event.inputs.combineBranchName }}
-          ignore_label: ${{ github.event.inputs.ignoreLabel }}
+          branch_prefix: ${{ inputs.branchPrefix }}
+          ci_required: ${{ inputs.mustBeGreen }}
+          combine_branch_name: ${{ inputs.combineBranchName }}
+          ignore_label: ${{ inputs.ignoreLabel }}
