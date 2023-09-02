@@ -53,13 +53,7 @@ Rails.application.routes.draw do
   get "site", to: "home#site", constraints: lambda { |req| req.format == :webmanifest }, as: "webmanifest"
 
   # error pages
-  get "400", to: "exceptions#index"
-  get "403", to: "exceptions#index"
-  get "404", to: "exceptions#index"
-  get "405", to: "exceptions#index"
-  get "406", to: "exceptions#index"
-  get "409", to: "exceptions#index"
-  get "422", to: "exceptions#index"
-  get "500", to: "exceptions#index"
-  get "501", to: "exceptions#index"
+  %w(400 403 404 405 406 409 422 500 501).each do |code|
+    get code, to: "exceptions#index", defaults: { code: }
+  end
 end

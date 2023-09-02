@@ -7,10 +7,10 @@ class ExceptionsController < ApplicationController
 
   def index
     respond_to do |format|
-      format.html
-      format.xml
-      format.json
-      format.any { render "index", formats: [:html] }
+      format.html { render status: params[:code] }
+      format.xml { render status: params[:code] }
+      format.json { render status: params[:code] }
+      format.any { render "index", formats: [:html], status: params[:code] }
     end
   end
 

@@ -49,7 +49,7 @@ module Aldwin7894
       g.orm :mongoid
     end
 
-    config.exceptions_app = ->(env) { ExceptionsController.action(:index).call(env) }
+    config.exceptions_app = self.routes
 
     # Configuration for the application, engines, and railties goes here.
     #
