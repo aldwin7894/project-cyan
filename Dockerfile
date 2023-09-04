@@ -59,6 +59,9 @@ ENV NODE_VERSION 18.17.0
 ENV BUNDLE_PATH=/gems
 ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
+# Enable jemalloc
+ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+
 # Install MS Edge for Ferrum
 # && wget --quiet --output-document=- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/trusted.gpg.d/microsoft-edge-beta.gpg \
 # && bash -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" >> /etc/apt/sources.list.d/microsoft-edge-beta.list' \
