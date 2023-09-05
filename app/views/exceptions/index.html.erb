@@ -7,14 +7,45 @@
 <main class="overflow-x-clip w-full h-full" x-data="">
   <section class="background-cyan-<%= bg_index %> w-screen h-screen">
     <div class="bg-gradient-to-br from-cyan-700/50 to-pink-500/50 w-full h-full py-12">
-      <div class="laptop:flex phone:landscape:flex phone:landscape:items-center laptop:items-center laptop:gap-12 laptop:py-0 bg-bg--light/80 dark:bg-black/90 container w-full h-full px-12 py-6 rounded-lg">
+      <div
+        class="
+          laptop:flex
+          phone:landscape:flex
+          phone:landscape:items-center
+          laptop:items-center
+          laptop:gap-12
+          laptop:py-0
+          bg-bg--light/80
+          dark:bg-black/90
+          container
+          w-full
+          h-full
+          px-12
+          py-6
+          overflow-hidden
+          rounded-lg
+        "
+      >
         <div class="laptop:w-1/2 laptop:mt-0 laptop:order-2 relative w-full">
           <div class="text-text--light dark:text-text--dark mb-2 text-xl font-bold text-right">
             「シアン」
           </div>
-          <video autoplay loop muted inline playsinline defaultMuted oncontextmenu="return false;" width="auto" preload="auto" poster="<%= vite_asset_url "images/cyan-confused.webp" %>">
+          <video
+            autoplay
+            loop
+            muted
+            inline
+            playsinline
+            defaultMuted
+            oncontextmenu="return false;"
+            width="auto"
+            preload="auto"
+            poster="<%= vite_asset_url "images/cyan-confused.webp" %>"
+          >
             <source src="<%= vite_asset_url "images/cyan-confused.webm" %>" type="video/webm">
-            Your browser does not support the <video> tag
+            Your browser does not support the
+            <video></video>
+            tag
           </video>
         </div>
 
@@ -31,14 +62,15 @@
           </p>
 
           <div class="gap-x-3 flex items-center mt-6">
-            <button class="gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700 flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg" x-on:click="window.history.back()">
+            <%= link_to :back, class: "gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700 flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg" do %>
               <iconify-icon icon="ic:baseline-arrow-back"></iconify-icon>
-              <span>Go back</span>
-            </button>
+              <span class="whitespace-nowrap">Go back</span>
+            <% end %>
 
-            <button class="shrink-0 sm:w-auto hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600 w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg" x-on:click="window.location.replace('<%= root_path %>')">
-                Take me home
-            </button>
+            <%= link_to root_path, class: "gap-x-2 sm:w-auto hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600 w-1/2 px-5 py-2 text-sm tracking-wide flex items-center justify-center text-white transition-colors duration-200 bg-blue-500 rounded-lg" do %>
+              <iconify-icon icon="ic:baseline-home"></iconify-icon>
+              <span class="whitespace-nowrap">Take me home</span>
+            <% end %>
           </div>
         </div>
       </div>

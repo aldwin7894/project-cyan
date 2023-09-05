@@ -15,7 +15,7 @@
       <div class="flex flex-col w-full h-full px-4 py-4 text-white">
         <h2 class="text-lg font-bold">ABOUT ME</h2>
         <h3 class="grow flex flex-col">
-          <%= ENV.fetch("ABOUT_ME", "<span></span>").html_safe %>
+          <%= ENV.fetch("ABOUT_ME", "<span></span>").html_safe.force_encoding("UTF-8") %>
         </h3>
       </div>
     </div>
