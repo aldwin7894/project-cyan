@@ -6,7 +6,7 @@ permissions:
 
 on:
   schedule:
-    - cron: "0 1 * * 3"
+    - cron: 0 1 * * 3
   workflow_dispatch:
     # trunk-ignore-begin(checkov)
     inputs:
@@ -16,9 +16,12 @@ on:
         default: dependabot
       mustBeGreen:
         description: Only combine PRs that are green (status is success). Set to false if repo does not run checks
-        type: boolean
         required: true
-        default: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
       combineBranchName:
         description: Name of the branch to combine PRs into
         required: true
@@ -38,7 +41,7 @@ jobs:
         uses: github/combine-prs@v3.1.2
         with:
           github_token: ${{ secrets.PAT }}
-          branch_prefix: ${{ inputs.branchPrefix || "dependabot" }}
-          ci_required: ${{ inputs.mustBeGreen || true }}
-          combine_branch_name: ${{ inputs.combineBranchName || "combine-prs-branch" }}
-          ignore_label: ${{ inputs.ignoreLabel || "nocombine" }}
+          branch_prefix: ${{ inputs.branchPrefix || 'dependabot' }}
+          ci_required: ${{ (inputs.mustBeGreen || 'true') == 'true' }}
+          combine_branch_name: ${{ inputs.combineBranchName || 'combine-prs-branch' }}
+          ignore_label: ${{ inputs.ignoreLabel || 'nocombine' }}

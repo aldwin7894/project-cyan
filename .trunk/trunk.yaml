@@ -5,7 +5,7 @@ repo:
     owner: aldwin7894
     name: project-cyan
 cli:
-  version: 1.14.2
+  version: 1.15.0
 merge:
   required_statuses:
     - Trunk Check
