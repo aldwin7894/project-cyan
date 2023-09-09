@@ -48,9 +48,9 @@
     "vite-plugin-ruby": "^3.2.2"
   },
   "devDependencies": {
-    "@types/node": "^20.5.9",
+    "@types/node": "^20.6.0",
     "@typescript-eslint/parser": "^6.6.0",
-    "eslint": "^8.48.0",
+    "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-html-erb": "^1.0.1",

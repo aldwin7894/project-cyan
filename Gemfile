@@ -64,6 +64,8 @@ gem "httparty", "~> 0.21.0"
 
 gem "devise", "~> 4.9"
 
+gem "graphql", "~> 2.0.27"
+
 gem "graphql-client", "~> 0.18.0"
 
 gem "lograge", "~> 0.13.0"
