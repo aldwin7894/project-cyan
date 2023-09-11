@@ -135,7 +135,7 @@ GEM
     google-protobuf (3.24.3-x86_64-linux)
     googleapis-common-protos-types (1.8.0)
       google-protobuf (~> 3.18)
-    graphql (2.0.27)
+    graphql (2.1.0)
     graphql-client (0.18.0)
       activesupport (>= 3.0)
       graphql
@@ -583,7 +583,7 @@ DEPENDENCIES
   discordrb (~> 3.5.0)
   erb-formatter
   erb_lint
-  graphql (~> 2.0.27)
+  graphql (~> 2.1.0)
   graphql-client (~> 0.18.0)
   health_check (~> 3.1)
   httparty (~> 0.21.0)
