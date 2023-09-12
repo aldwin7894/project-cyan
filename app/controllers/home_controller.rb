@@ -48,7 +48,7 @@ class HomeController < ApplicationController
       genre_statistics = @user_statistics["genres"].first(6).map do |genre|
         { name: genre["genre"], count: genre["count"].to_i }
       end
-      genre_total_count = genre_statistics.pluck(:count).sum
+      genre_total_count = genre_statistics&.pluck(:count)&.sum.to_i
       @genre_list = genre_statistics.map.with_index do |genre, index|
         percentage = ((genre[:count].to_d / genre_total_count) * 100).ceil
 
@@ -74,7 +74,7 @@ class HomeController < ApplicationController
       studio_statistics = @user_statistics["studios"].first(6).map do |studio|
         { name: studio["studio"]["name"], count: studio["count"].to_i }
       end
-      studio_total_count = studio_statistics.pluck(:count).sum
+      studio_total_count = studio_statistics&.pluck(:count)&.sum.to_i
       @studio_list = studio_statistics.map.with_index do |studio, index|
         percentage = ((studio[:count].to_d / studio_total_count) * 100).ceil
 
@@ -96,25 +96,25 @@ class HomeController < ApplicationController
         ]
       })
     when "total_watched_anime"
-      @total_watched_anime_time_mins = @user_statistics["minutesWatched"].to_i
+      @total_watched_anime_time_mins = @user_statistics&.[]("minutesWatched").to_i
       @total_watched_anime_time = format_date(@total_watched_anime_time_mins * 60)
-      @total_watched_anime_ep = @user_statistics["episodesWatched"].to_i
+      @total_watched_anime_ep = @user_statistics&.[]("episodesWatched").to_i
 
       statuses = @user_statistics["statuses"].to_a
-      @total_completed_anime = statuses.find { |x| x["status"] == "COMPLETED" }["count"].to_i
-      @total_planning_anime = statuses.find { |x| x["status"] == "PLANNING" }["count"].to_i
-      @total_dropped_anime = statuses.find { |x| x["status"] == "DROPPED" }["count"].to_i
-      @total_current_anime = statuses.find { |x| x["status"] == "CURRENT" }["count"].to_i
-      @total_paused_anime = statuses.find { |x| x["status"] == "PAUSED" }["count"].to_i
+      @total_completed_anime = statuses.find { |x| x["status"] == "COMPLETED" }&.[]("count").to_i
+      @total_planning_anime = statuses.find { |x| x["status"] == "PLANNING" }&.[]("count").to_i
+      @total_dropped_anime = statuses.find { |x| x["status"] == "DROPPED" }&.[]("count").to_i
+      @total_current_anime = statuses.find { |x| x["status"] == "CURRENT" }&.[]("count").to_i
+      @total_paused_anime = statuses.find { |x| x["status"] == "PAUSED" }&.[]("count").to_i
     when "total_watched_anime_movie"
       @total_watched_anime_movie_time_mins = @user_statistics["formats"]
                                                .to_a
                                                .select { |x| ANIME_FORMATS.exclude? x["format"] }
-                                               .map { |x| x["minutesWatched"].to_i }.sum
+                                               .map { |x| x&.[]("minutesWatched").to_i }.sum
       @total_watched_anime_movie_time = format_date(@total_watched_anime_movie_time_mins * 60)
       @total_watched_anime_movie = @user_statistics["formats"].to_a
                                      .select { |x| ANIME_FORMATS.exclude? x["format"] }
-                                     .map { |x| x["count"].to_i }.sum
+                                     .map { |x| x&.[]("count").to_i }.sum
     else return render nothing: true
     end
 
@@ -145,7 +145,7 @@ class HomeController < ApplicationController
     when "total_watched_anime_last_week"
       @total_watched_anime_time_last_week_mins = @user_activity
                                                    .select { |x| x["createdAt"] >= last_week }
-                                                   .map { |x| x["media"]["duration"].to_i }
+                                                   .map { |x| x&.[]("media")&.[]("duration").to_i }
                                                    .sum
       @total_watched_anime_time_last_week = format_date(@total_watched_anime_time_last_week_mins * 60)
       @total_watched_anime_ep_last_week = @user_activity.select { |x| x["createdAt"] >= last_week }.size
@@ -153,7 +153,7 @@ class HomeController < ApplicationController
       @watched_movie = @user_activity.select { |x| ANIME_FORMATS.exclude? x["media"]["format"] }
       @total_watched_anime_movie_time_last_week_mins = @watched_movie
                                                          .select { |x| x["createdAt"] >= last_week }
-                                                         .map { |x| x["media"]["duration"].to_i }
+                                                         .map { |x| x&.[]("media")&.[]("duration").to_i }
                                                          .sum
       @total_watched_anime_movie_time_last_week = format_date(@total_watched_anime_movie_time_last_week_mins * 60)
       @total_watched_anime_movie_last_week = @watched_movie.select { |x| x["createdAt"] >= last_week }.size
@@ -272,7 +272,7 @@ class HomeController < ApplicationController
     end
 
     def check_if_turbo_frame
-      return head(:unprocessable_entity) unless turbo_frame_request?
+      head(:unprocessable_entity) unless turbo_frame_request?
     end
 
     def fetch_anilist_user_activities

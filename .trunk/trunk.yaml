@@ -48,7 +48,7 @@ lint:
         - db/**
         - node_modules/**
   enabled:
-    - eslint@8.48.0:
+    - eslint@8.49.0:
         packages:
           - eslint-config-airbnb-base
           - eslint-config-prettier
