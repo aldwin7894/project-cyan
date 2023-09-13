@@ -36,7 +36,7 @@ jobs:
 
       - id: docker-build
         name: Build and push image
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           push: true
           tags: aldwin7894/project-cyan:prod
