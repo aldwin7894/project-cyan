@@ -412,7 +412,7 @@ GEM
       racc
     prettier_print (1.2.1)
     public_suffix (5.0.3)
-    puma (6.3.1)
+    puma (6.4.0)
       nio4r (~> 2.0)
     racc (1.7.1)
     rack (2.2.8)
@@ -598,7 +598,7 @@ DEPENDENCIES
   opentelemetry-exporter-otlp
   opentelemetry-instrumentation-all
   opentelemetry-sdk
-  puma (~> 6.3)
+  puma (~> 6.4)
   rack-brotli (~> 1.2)
   rack-cors (~> 2.0)
   rack-mini-profiler (~> 3.1)
