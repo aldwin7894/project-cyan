@@ -1,0 +1,32 @@
+{
+  "files.associations": {
+    "*.html.erb": "erb"
+  },
+  "[ruby]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+  },
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.codeActions": true,
+  "tailwindCSS.colorDecorators": true,
+  "tailwindCSS.hovers": true,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "formattingToggle.affects": ["editor.formatOnSave"],
+  "tailwindCSS.includeLanguages": {
+    "erb": "html"
+  },
+  "git.enableCommitSigning": true,
+  "sonarlint.connectedMode.project": {
+    "connectionId": "aldwin7894",
+    "projectKey": "aldwin7894:project-cyan"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
+}

@@ -8,7 +8,6 @@ on:
   schedule:
     - cron: 0 1 * * 3
   workflow_dispatch:
-    # trunk-ignore-begin(checkov)
     inputs:
       branchPrefix:
         description: Branch prefix to find combinable PRs based on
@@ -30,7 +29,6 @@ on:
         description: Exclude PRs with this label
         required: true
         default: nocombine
-    # trunk-ignore-end(checkov)
 
 jobs:
   combine-prs:
