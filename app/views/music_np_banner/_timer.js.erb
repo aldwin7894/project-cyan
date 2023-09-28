@@ -1,5 +1,7 @@
-interval = setInterval(function () {
-  const elapsed = document.getElementById("elapsed-time").textContent.split(':');
+setInterval(function () {
+  const elapsed = document
+    .getElementById("elapsed-time")
+    .textContent.split(":");
 
   //by parsing integer, I avoid all extra string processing
   let minutes = parseInt(elapsed[0], 10);
@@ -7,8 +9,9 @@ interval = setInterval(function () {
 
   ++seconds;
 
-  minutes = (seconds > 59) ? ++minutes : minutes;
-  seconds = (seconds > 59) ? 0 : seconds;
-  seconds = (seconds < 10) ? '0' + seconds : seconds; minutes=(minutes < 10) ? '0' + minutes : minutes;
-  document.getElementById("elapsed-time").textContent = minutes + ':' + seconds;
+  minutes = seconds > 59 ? ++minutes : minutes;
+  seconds = seconds > 59 ? 0 : seconds;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  document.getElementById("elapsed-time").textContent = minutes + ":" + seconds;
 }, 1000);

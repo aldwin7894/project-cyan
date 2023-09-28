@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <title>Cyan★Nyan♪ | aldwin7894</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta http-equiv="content-type" content="text/html" />
-    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta http-equiv="content-type" content="text/html"/>
+    <meta charset="UTF-8"/>
     <meta name="keywords" content="aldwin7894, CyanNyan, CyanNyann, AniList, AL, MyAnimeList, MAL, last.fm, project-cyan">
     <meta name="description" content="aldwin7894's personal web app which contains some random stats about anime, games and music (and probably some useful tools in the near future :3).">
     <meta name="author" content="aldwin7894">
@@ -17,12 +17,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= vite_client_tag %>
-    <%= vite_javascript_tag "application", 'data-turbo-track': "reload", defer: "defer" %>
+    <%= vite_javascript_tag "application", "data-turbo-track": "reload", defer: "defer" %>
 
     <%= yield :head_content %>
   </head>
 
-  <body class="dark:bg-black bg-bg--light overflow-x-hidden">
+  <body class="overflow-x-hidden dark:bg-black bg-bg--light">
     <%= render "layouts/content" %>
   </body>
 </html>

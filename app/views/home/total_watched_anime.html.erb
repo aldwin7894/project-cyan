@@ -5,13 +5,9 @@
     <% end %>
   </h3>
   <h3>ALL TIME</h3>
-  <button
-    aria-label="<%= @total_watched_anime_ep.to_fs(:delimited) %> episodes"
-    class="text-opacity-80 text-white"
-    data-tippy="popover"
-    data-tippy-template="popover_watched_anime_stats"
-  >
-    <%= @total_watched_anime_ep.to_fs(:delimited) %> episodes
+  <button aria-label="<%= @total_watched_anime_ep.to_fs(:delimited) %> episodes" class="text-white text-opacity-80" data-tippy="popover" data-tippy-template="popover_watched_anime_stats">
+    <%= @total_watched_anime_ep.to_fs(:delimited) %>
+    episodes
   </button>
   <div id="popover_watched_anime_stats" role="tooltip" class="hidden">
     <div class="max-w-[226px] dark:bg-[#0b1622] dark:text-white">

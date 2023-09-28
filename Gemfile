@@ -39,14 +39,16 @@ group :development do
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem "rack-mini-profiler", "~> 3.1"
   gem "listen", "~> 3.8"
-  gem "solargraph"
-  gem "solargraph-rails"
   gem "rubocop"
   gem "rubocop-rails"
   gem "rubocop-performance"
   gem "rubocop-packaging"
-  gem "erb_lint", require: false
   gem "erb-formatter"
+  gem "ruby-lsp", require: false
+  gem "ruby-lsp-rails"
+  gem "sorbet"
+  gem "sorbet-runtime"
+  gem "tapioca", require: false
 end
 
 group :test do
@@ -92,11 +94,11 @@ gem "recaptcha", "~> 5.12"
 
 gem "discordrb", "~> 3.5.0"
 
-gem "opentelemetry-sdk"
+# gem "opentelemetry-sdk"
 
-gem "opentelemetry-exporter-otlp"
+# gem "opentelemetry-exporter-otlp"
 
-gem "opentelemetry-instrumentation-all"
+# gem "opentelemetry-instrumentation-all"
 
 gem "kodachroma", "~> 1.0"
 

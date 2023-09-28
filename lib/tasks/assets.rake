@@ -5,7 +5,7 @@
 
 namespace :assets do
   desc "Vite build"
-  task :precompile do
+  task precompile: :environment do
     puts "Execute vite build"
     Rake::Task["vite:clobber"].invoke
     Rake::Task["vite:build"].invoke
@@ -16,7 +16,7 @@ namespace :assets do
   end
 
   desc "Remove 'node_modules' folder"
-  task :clean do
+  task clean: :environment do
     puts "Removing node_modules folder"
     FileUtils.remove_dir("node_modules", true)
   end

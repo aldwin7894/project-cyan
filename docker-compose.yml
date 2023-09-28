@@ -66,12 +66,10 @@ services:
       - OCCSON_ACCESS_TOKEN
       - OCCSON_PASSPHRASE
 
-# trunk-ignore-begin(yamllint/empty-values)
 volumes:
   dbdata:
   redis:
   redisinsight:
-# trunk-ignore-end(yamllint/empty-values)
 
 secrets:
   TZ:

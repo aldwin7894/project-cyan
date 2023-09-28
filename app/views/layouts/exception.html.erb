@@ -12,11 +12,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= vite_client_tag %>
-    <%= vite_javascript_tag "exception", 'data-turbo-track': "reload", defer: "defer" %>
+    <%= vite_javascript_tag "exception", "data-turbo-track": "reload", defer: "defer" %>
 
     <%= yield :head_content %>
   </head>
-
   <!-- Body -->
   <body>
     <%= yield %>

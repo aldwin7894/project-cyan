@@ -1,0 +1,9 @@
+--dir
+.
+--ignore=coverage/
+--ignore=db/
+--ignore=lib/templates/
+--ignore=log/
+--ignore=public/
+--ignore=tmp/
+--ignore=vendor/
