@@ -6,6 +6,5 @@ package-lock.json
 yarn.lock
 package.json
 coverage
-.trunk/
 public/
 db/

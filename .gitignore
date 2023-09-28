@@ -54,3 +54,8 @@ vendor
 # https://vitejs.dev/guide/env-and-mode.html#env-files
 *.local
 .scannerwork
+
+# VSCode
+.vscode/*
+!.vscode/multi-terminals.json
+!.vscode/*.shared.json

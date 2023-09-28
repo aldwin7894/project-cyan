@@ -10,6 +10,10 @@
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true
   },
+  "[erb]": {
+    "editor.defaultFormatter": "elia.erb-formatter",
+    "editor.formatOnSave": true
+  },
   "tailwindCSS.emmetCompletions": true,
   "tailwindCSS.codeActions": true,
   "tailwindCSS.colorDecorators": true,
@@ -17,8 +21,12 @@
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.formatOnPaste": true,
   "editor.formatOnType": true,
-  "formattingToggle.affects": ["editor.formatOnSave"],
+  "formattingToggle.affects": [
+    "editor.formatOnSave"
+  ],
   "tailwindCSS.includeLanguages": {
+    "javascript": "javascript",
+    "html": "html",
     "erb": "html"
   },
   "git.enableCommitSigning": true,
@@ -28,5 +36,10 @@
   },
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
-  }
+  },
+  "emmet.includeLanguages": {
+    "*.html.erb": "html",
+    "erb": "html"
+  },
+  "erb-formatter.lineLength": 500,
 }

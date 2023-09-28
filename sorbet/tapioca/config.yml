@@ -1,0 +1,20 @@
+gem:
+  exclude:
+    - rubocop
+    - rubocop-rails
+    - rubocop-performance
+    - rubocop-packaging
+    - occson
+    - httplog
+    - health_check
+    - rack-brotli
+    - erb-formatter
+    - responders
+    - recaptcha
+    - jwt
+    - rack-cors
+    - logstash-event
+    - graphql
+    - tzinfo-data
+dsl:
+  verify: true
