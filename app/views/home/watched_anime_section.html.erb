@@ -10,7 +10,7 @@
     </button>
   </div>
 
-  <div id="watched_anime_swiper" class="overflow-hidden" x-init="swiper = new Swiper('#watched_anime_swiper', { slidesPerView: 'auto', spaceBetween: 20, speed: 500, breakpoints: { 320: { slidesPerView: 1 }, 576: { slidesPerView: 2 }, 768: { slidesPerView: 3 }, 1536: { slidesPerView: 6 } }, navigation: { disabledClass: 'disabled', hiddenClass: 'invisible', prevEl: '#watched_anime_prev', nextEl: '#watched_anime_next' } });">
+  <div id="watched_anime_swiper" class="overflow-hidden" x-init="swiper = new Swiper('#watched_anime_swiper', { slidesPerView: 'auto', spaceBetween: 20, speed: 500, breakpoints: { 320: { slidesPerView: 1 }, 576: { slidesPerView: 2 }, 900: { slidesPerView: 3 }, 1100: { slidesPerView: 4 }, 1350: { slidesPerView: 5 }, 1600: { slidesPerView: 6 } }, navigation: { disabledClass: 'disabled', hiddenClass: 'invisible', prevEl: '#watched_anime_prev', nextEl: '#watched_anime_next' } });">
     <div class="text-center swiper-wrapper">
       <% @watched_anime.each_slice(6).first(4).each_with_index do |(*activities), index| %>
         <% activities.each_index do |index2| %>

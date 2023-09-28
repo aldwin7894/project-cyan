@@ -1,26 +1,5 @@
 <% bgs = (1..15).to_a.shuffle %>
 
-<% content_for :head_content do %>
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const swiper = new Swiper('#profile-carousel', {
-        effect: 'fade',
-        loop: true,
-        speed: 1000,
-        threshold: 40,
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false
-        },
-        fadeEffect: {
-          crossFade: true
-        },
-      });
-      swiper.translateTo(window.screen.width * -1, 0, false, false);
-    })
-  </script>
-<% end %>
-
 <%= render "profile_section", bgs: %>
 <%= render "stats_section" %>
 <%= render "watched_section" %>

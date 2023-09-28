@@ -1,6 +1,6 @@
-<section>
+<section x-data="{swiper: null}">
   <div class="relative flex w-screen min-h-screen">
-    <div id="profile-carousel" class="absolute top-0 left-0 w-full h-full swiper">
+    <div id="profile-carousel" class="absolute top-0 left-0 w-full h-full swiper" x-init="swiper = new Swiper('#profile-carousel', { effect: 'fade', loop: true, speed: 1000, threshold: 40, autoplay: { delay: 5000, disableOnInteraction: false }, fadeEffect: { crossFade: true }, }); swiper.translateTo(window.screen.width * -1, 0, false, false);">
       <div class="swiper-wrapper">
         <% bgs.each do |num| %>
           <div class="swiper-slide background-cyan-<%= num %>">
@@ -12,7 +12,7 @@
     <div class=" relative flex flex-col w-full z-10 bg-gradient-to-t from-[#453c64]/90 to-cyan-400/50 py-10 pointer-events-none ">
       <div class="grid grid-cols-8 my-auto">
         <div></div>
-        <div class="flex flex-col col-span-6  tablet:items-center portrait:text-center laptop:items-start">
+        <div class="flex flex-col col-span-6 tablet:items-center portrait:text-center laptop:items-start">
           <div class="pb-3">
             <video autoplay loop muted inline playsinline defaultMuted oncontextmenu="return false;" preload="auto" class="rounded-full outline outline-white outline-5 w-52 portrait:mx-auto" poster="<%= vite_asset_url "images/cyan-avatar-2.webp" %>">
               <source src="<%= vite_asset_url "images/cyan-avatar-2.webm" %>" type="video/webm">
@@ -21,12 +21,12 @@
             </video>
           </div>
           <div class="flex flex-col">
-            <h1 class="mb-2 font-medium text-white  phone:text-4xl tablet:text-5xl laptop:text-6xl">Cyan★Nyan♪</h1>
+            <h1 class="mb-2 font-medium text-white phone:text-4xl tablet:text-5xl laptop:text-6xl">Cyan★Nyan♪</h1>
             <h1 class=" dark:bg-black/80 dark:text-[#fffdfa] text-slate-700 bg-white/80 px-2 text-2xl text-center ">
               ／<strong>aldwin7894</strong>／
             </h1>
           </div>
-          <div class="flex flex-row flex-wrap justify-around gap-4 pt-10 pointer-events-auto  phone:px-2 tablet:justify-center laptop:justify-start desktop:pt-20">
+          <div class="flex flex-row flex-wrap justify-around gap-4 pt-10 pointer-events-auto phone:px-2 tablet:justify-center laptop:justify-start desktop:pt-20">
             <a href="https://anilist.co/user/CyanNyan/" rel="noopener noreferrer" target="_blank" class="text-white hover:text-[#02a9ff] h-fit" aria-label="AniList" data-tippy="tooltip" data-tippy-content="AniList">
               <iconify-icon icon="simple-icons:anilist" width="50"></iconify-icon>
             </a>
@@ -57,7 +57,7 @@
             <a href="https://steamcommunity.com/id/aldwin7894/" rel="noopener noreferrer" target="_blank" class="text-white hover:text-[#075a8e] h-fit" aria-label="Steam" data-tippy="tooltip" data-tippy-content="Steam">
               <iconify-icon icon="simple-icons:steam" width="50" class=" hover:bg-white hover:outline-[#075a8e] outline-2 outline outline-offset-[-1px] rounded-full "></iconify-icon>
             </a>
-            <a href="https://osu.ppy.sh/users/10038123" rel="noopener noreferrer" target="_blank" class="text-white  h-fit" aria-label="Osu!" data-tippy="tooltip" data-tippy-content="Osu!">
+            <a href="https://osu.ppy.sh/users/10038123" rel="noopener noreferrer" target="_blank" class="text-white h-fit" aria-label="Osu!" data-tippy="tooltip" data-tippy-content="Osu!">
               <iconify-icon icon="simple-icons:osu" width="50" class="hover:bg-[#f170aa] rounded-full"></iconify-icon>
             </a>
             <a href="https://github.com/aldwin7894" rel="noopener noreferrer" target="_blank" class="hover:text-[#171a1e] text-white h-fit" aria-label="GitHub" data-tippy="tooltip" data-tippy-content="GitHub">
