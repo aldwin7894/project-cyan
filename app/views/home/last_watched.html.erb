@@ -3,15 +3,15 @@
 <turbo-frame id="last_watched" class="w-full h-full">
   <div class="w-full h-full transition-all duration-1000 bg-center bg-cover" style="background: no-repeat center<%= cover.present? ? "/cover url(#{cover})" : "/75% url(#{vite_asset_path("images/bvl-logo.webp")}); background-color: darkred" %>">
     <div class="<%= cover.present? ? "backdrop-brightness-50" : "backdrop-brightness-[0.2]" %> flex flex-col w-full h-full px-4 py-4 text-white">
-      <h2 class="text-shadow shadow-black text-lg font-bold">LAST WATCHED</h2>
+      <h2 class="text-lg font-bold text-shadow shadow-black">LAST WATCHED</h2>
 
       <% if @last_watched.present? %>
         <a class="hover:underline" href="<%= @last_watched&.[]("media")&.[]("siteUrl") %>" rel="noopener noreferrer">
-          <h3 class="text-shadow shadow-black text-4xl font-bold"><%= @last_watched&.[]("media")&.[]("title")&.[]("userPreferred") %></h3>
-          <span class="text-gray-200/80 text-shadow shadow-black text-2xl"><%= @last_watched&.[]("media")&.[]("seasonYear") %></span>
+          <h3 class="text-4xl font-bold text-shadow shadow-black"><%= @last_watched&.[]("media")&.[]("title")&.[]("userPreferred") %></h3>
+          <span class="text-2xl text-gray-200/80 text-shadow shadow-black"><%= @last_watched&.[]("media")&.[]("seasonYear") %></span>
         </a>
         <div class="self-end mt-auto">
-          <a class="hover:underline grow text-shadow shadow-black text-lg" href="<%= @last_watched&.[]("siteUrl") %>" rel="noopener noreferrer">MORE INFO</a>
+          <a class="text-lg hover:underline grow text-shadow shadow-black" href="<%= @last_watched&.[]("siteUrl") %>" rel="noopener noreferrer">MORE INFO</a>
         </div>
       <% end %>
     </div>

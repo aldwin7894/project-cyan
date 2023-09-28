@@ -1,13 +1,13 @@
 <turbo-frame id="lastfm_stats">
   <% if @album_art.present? %>
-    <div class="visually-hidden hidden">
+    <div class="hidden visually-hidden">
       <img src="<%= @album_art %>" alt="lastfm-bg">
     </div>
   <% end %>
 
   <div class="w-full h-full transition-all duration-1000 bg-center bg-cover" style="background-image: url('<%= @album_art.presence || vite_asset_path("images/lastfm-placeholder-2.webp") %>')">
-    <div class="backdrop-brightness-100 bg-gradient-radial from-transparent to-black/95 flex flex-col items-stretch w-full h-full gap-5 px-4 py-4 text-white" x-data="">
-      <a href="https://www.last.fm/user/aldwin7894" rel="noopener noreferrer" target="_blank" class="hover:underline text-lg font-bold text-left">
+    <div class="flex flex-col items-stretch w-full h-full gap-5 px-4 py-4 text-white backdrop-brightness-100 bg-gradient-radial from-transparent to-black/95" x-data="">
+      <a href="https://www.last.fm/user/aldwin7894" rel="noopener noreferrer" target="_blank" class="text-lg font-bold text-left hover:underline">
         <h2>
           <% if @lastfm_recent&.[]("@attr")&.[]('nowplaying').present? %>
             LAST.FM (NOW PLAYING)
@@ -20,57 +20,57 @@
         <% if @lastfm_recent.present? %>
           <% if @lastfm_recent&.[]("@attr")&.[]('nowplaying').present? %>
             <div id="equalizer" class="flex flex-row justify-center w-full gap-0.5 mix-blend-overlay">
-              <div class="eq-bar-0 flex self-end"></div>
-              <div class="eq-bar-1 flex self-end"></div>
-              <div class="eq-bar-2 flex self-end"></div>
-              <div class="eq-bar-3 flex self-end"></div>
-              <div class="eq-bar-4 flex self-end"></div>
-              <div class="eq-bar-5 flex self-end"></div>
-              <div class="eq-bar-6 flex self-end"></div>
-              <div class="eq-bar-7 flex self-end"></div>
-              <div class="eq-bar-8 flex self-end"></div>
-              <div class="eq-bar-9 flex self-end"></div>
-              <div class="eq-bar-10 flex self-end"></div>
-              <div class="eq-bar-11 flex self-end"></div>
-              <div class="eq-bar-12 flex self-end"></div>
-              <div class="eq-bar-13 flex self-end"></div>
-              <div class="eq-bar-14 flex self-end"></div>
-              <div class="eq-bar-15 flex self-end"></div>
-              <div class="eq-bar-16 flex self-end"></div>
-              <div class="eq-bar-17 flex self-end"></div>
-              <div class="eq-bar-18 flex self-end"></div>
-              <div class="eq-bar-19 flex self-end"></div>
-              <div class="eq-bar-20 flex self-end"></div>
-              <div class="eq-bar-21 flex self-end"></div>
-              <div class="eq-bar-22 flex self-end"></div>
-              <div class="eq-bar-23 flex self-end"></div>
-              <div class="eq-bar-24 flex self-end"></div>
-              <div class="eq-bar-25 flex self-end"></div>
-              <div class="eq-bar-26 flex self-end"></div>
-              <div class="eq-bar-27 flex self-end"></div>
-              <div class="eq-bar-28 flex self-end"></div>
-              <div class="eq-bar-29 flex self-end"></div>
-              <div class="eq-bar-30 flex self-end"></div>
-              <div class="eq-bar-31 flex self-end"></div>
-              <div class="eq-bar-32 flex self-end"></div>
-              <div class="eq-bar-33 flex self-end"></div>
-              <div class="eq-bar-34 flex self-end"></div>
-              <div class="eq-bar-35 flex self-end"></div>
-              <div class="eq-bar-36 flex self-end"></div>
-              <div class="eq-bar-37 flex self-end"></div>
-              <div class="eq-bar-38 flex self-end"></div>
-              <div class="eq-bar-39 flex self-end"></div>
-              <div class="eq-bar-40 flex self-end"></div>
-              <div class="eq-bar-41 flex self-end"></div>
-              <div class="eq-bar-42 flex self-end"></div>
-              <div class="eq-bar-43 flex self-end"></div>
-              <div class="eq-bar-44 flex self-end"></div>
-              <div class="eq-bar-45 flex self-end"></div>
-              <div class="eq-bar-46 flex self-end"></div>
-              <div class="eq-bar-47 flex self-end"></div>
-              <div class="eq-bar-48 flex self-end"></div>
-              <div class="eq-bar-49 flex self-end"></div>
-              <div class="eq-bar-50 flex self-end"></div>
+              <div class="flex self-end eq-bar-0"></div>
+              <div class="flex self-end eq-bar-1"></div>
+              <div class="flex self-end eq-bar-2"></div>
+              <div class="flex self-end eq-bar-3"></div>
+              <div class="flex self-end eq-bar-4"></div>
+              <div class="flex self-end eq-bar-5"></div>
+              <div class="flex self-end eq-bar-6"></div>
+              <div class="flex self-end eq-bar-7"></div>
+              <div class="flex self-end eq-bar-8"></div>
+              <div class="flex self-end eq-bar-9"></div>
+              <div class="flex self-end eq-bar-10"></div>
+              <div class="flex self-end eq-bar-11"></div>
+              <div class="flex self-end eq-bar-12"></div>
+              <div class="flex self-end eq-bar-13"></div>
+              <div class="flex self-end eq-bar-14"></div>
+              <div class="flex self-end eq-bar-15"></div>
+              <div class="flex self-end eq-bar-16"></div>
+              <div class="flex self-end eq-bar-17"></div>
+              <div class="flex self-end eq-bar-18"></div>
+              <div class="flex self-end eq-bar-19"></div>
+              <div class="flex self-end eq-bar-20"></div>
+              <div class="flex self-end eq-bar-21"></div>
+              <div class="flex self-end eq-bar-22"></div>
+              <div class="flex self-end eq-bar-23"></div>
+              <div class="flex self-end eq-bar-24"></div>
+              <div class="flex self-end eq-bar-25"></div>
+              <div class="flex self-end eq-bar-26"></div>
+              <div class="flex self-end eq-bar-27"></div>
+              <div class="flex self-end eq-bar-28"></div>
+              <div class="flex self-end eq-bar-29"></div>
+              <div class="flex self-end eq-bar-30"></div>
+              <div class="flex self-end eq-bar-31"></div>
+              <div class="flex self-end eq-bar-32"></div>
+              <div class="flex self-end eq-bar-33"></div>
+              <div class="flex self-end eq-bar-34"></div>
+              <div class="flex self-end eq-bar-35"></div>
+              <div class="flex self-end eq-bar-36"></div>
+              <div class="flex self-end eq-bar-37"></div>
+              <div class="flex self-end eq-bar-38"></div>
+              <div class="flex self-end eq-bar-39"></div>
+              <div class="flex self-end eq-bar-40"></div>
+              <div class="flex self-end eq-bar-41"></div>
+              <div class="flex self-end eq-bar-42"></div>
+              <div class="flex self-end eq-bar-43"></div>
+              <div class="flex self-end eq-bar-44"></div>
+              <div class="flex self-end eq-bar-45"></div>
+              <div class="flex self-end eq-bar-46"></div>
+              <div class="flex self-end eq-bar-47"></div>
+              <div class="flex self-end eq-bar-48"></div>
+              <div class="flex self-end eq-bar-49"></div>
+              <div class="flex self-end eq-bar-50"></div>
             </div>
           <% end %>
           <div class="flex flex-col w-full gap-0 text-left">
@@ -79,7 +79,7 @@
                 <%= @elapsed_time %>
               </div>
             <% end %>
-            <a href="<%= @lastfm_recent["artist"]["url"] %>" rel="noopener noreferrer" target="_blank" class="line-clamp-1 hover:underline text-2xl font-bold">
+            <a href="<%= @lastfm_recent["artist"]["url"] %>" rel="noopener noreferrer" target="_blank" class="text-2xl font-bold line-clamp-1 hover:underline">
               <h3><%= "#{@lastfm_recent['artist']['name'].upcase}" %></h3>
             </a>
             <% if @lastfm_recent['album']['#text'].present? %>
@@ -98,7 +98,7 @@
             </a>
             <% if @lastfm_recent&.[]("@attr")&.[]('nowplaying').blank? %>
               <div>
-                <a href="https://www.last.fm/user/aldwin7894/library" rel="noopener noreferrer" target="_blank" class="hover:underline line-clamp-1 text-lg break-words">
+                <a href="https://www.last.fm/user/aldwin7894/library" rel="noopener noreferrer" target="_blank" class="text-lg break-words hover:underline line-clamp-1">
                   last played
                   <% if time_ago_in_words(Time.zone.at(@lastfm_recent['date']['uts'].to_i)) == 'less than a minute' %>
                     just now
@@ -114,7 +114,7 @@
             <div class="text-[#3cb4f1] text-3xl font-bold line-clamp-2 break-words">
               LAST.FM IS CURRENTLY DOWN!!
             </div>
-            <div class="line-clamp-1 text-2xl">
+            <div class="text-2xl line-clamp-1">
               ¯\(ツ)/¯
             </div>
             <div class="text-[#e5ded3] italic text-xl line-clamp-1 break-words">

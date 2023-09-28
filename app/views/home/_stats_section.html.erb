@@ -1,222 +1,101 @@
 <section class="flex-1">
   <div class="flex flex-row flex-wrap w-full">
-    <div
-      class="
-        phone:w-full
-        bg-[#395B64]
-        tablet:w-1/2
-        desktop:w-1/3
-        desktop-lg:w-1/4
-        min-h-[400px]
-        tablet:h-[400px]
-        overflow-hidden
-      "
-    >
+    <div class=" phone:w-full bg-[#395B64] tablet:w-1/2 desktop:w-1/3 desktop-lg:w-1/4 min-h-[400px] tablet:h-[400px] overflow-hidden ">
       <div class="flex flex-col w-full h-full px-4 py-4 text-white">
         <h2 class="text-lg font-bold">ABOUT ME</h2>
-        <h3 class="grow flex flex-col">
+        <h3 class="flex flex-col grow">
           <%= ENV.fetch("ABOUT_ME", "<span></span>").html_safe.force_encoding("UTF-8") %>
         </h3>
       </div>
     </div>
 
-    <div
-      class="
-        phone:w-full
-        bg-[#774360]
-        tablet:w-1/2
-        desktop:w-1/3
-        desktop-lg:w-1/4
-        min-h-[400px]
-        tablet:h-[400px]
-        overflow-hidden
-      "
-    >
+    <div class=" phone:w-full bg-[#774360] tablet:w-1/2 desktop:w-1/3 desktop-lg:w-1/4 min-h-[400px] tablet:h-[400px] overflow-hidden ">
       <turbo-frame id="lastfm_stats" src="<%= lastfm_stats_path %>" loading="lazy">
         <div class="flex flex-col w-full h-full px-4 py-4" x-data="">
-          <a
-            href="https://www.last.fm/user/aldwin7894"
-            rel="noopener noreferrer"
-            target="_blank"
-            class="hover:underline text-lg font-bold text-left text-white"
-          >
+          <a href="https://www.last.fm/user/aldwin7894" rel="noopener noreferrer" target="_blank" class="text-lg font-bold text-left text-white hover:underline">
             <h2>LAST.FM</h2>
           </a>
-          <div class="grow flex items-center justify-center">
+          <div class="flex items-center justify-center grow">
             <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
           </div>
         </div>
       </turbo-frame>
     </div>
 
-    <div
-      class="
-        phone:w-full
-        bg-[#4C3575]
-        tablet:w-1/2
-        desktop:w-1/3
-        desktop-lg:w-1/4
-        min-h-[400px]
-        tablet:h-[400px]
-        overflow-x-auto
-        overflow-y-hidden
-      "
-      x-data=""
-    >
+    <div class=" phone:w-full bg-[#4C3575] tablet:w-1/2 desktop:w-1/3 desktop-lg:w-1/4 min-h-[400px] tablet:h-[400px] overflow-x-auto overflow-y-hidden " x-data="">
       <turbo-frame id="favorite_anime_genres" src="<%= anilist_user_statistics_path %>" loading="lazy">
         <div class="flex flex-col w-full h-full px-4 py-4" x-data="">
-          <a
-            href="https://anilist.co/user/CyanNyan/stats/anime/genres"
-            rel="noopener noreferrer"
-            target="_blank"
-            class="hover:underline text-lg font-bold text-left text-white"
-          >
+          <a href="https://anilist.co/user/CyanNyan/stats/anime/genres" rel="noopener noreferrer" target="_blank" class="text-lg font-bold text-left text-white hover:underline">
             <h2>FAVORITE ANIME GENRES</h2>
           </a>
-          <div class="grow flex items-center justify-center">
+          <div class="flex items-center justify-center grow">
             <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
           </div>
         </div>
       </turbo-frame>
     </div>
 
-    <div
-      class="
-        phone:w-full
-        bg-[#570530]
-        tablet:w-1/2
-        desktop:w-1/3
-        desktop-lg:w-1/4
-        min-h-[400px]
-        tablet:h-[400px]
-        overflow-hidden
-      "
-    >
+    <div class=" phone:w-full bg-[#570530] tablet:w-1/2 desktop:w-1/3 desktop-lg:w-1/4 min-h-[400px] tablet:h-[400px] overflow-hidden ">
       <turbo-frame id="last_watched" src="<%= anilist_user_activities_path %>" loading="lazy">
         <div class="flex flex-col w-full h-full px-4 py-4">
           <h2 class="text-lg font-bold text-left text-white">LAST WATCHED</h2>
-          <div class="grow flex items-center justify-center">
+          <div class="flex items-center justify-center grow">
             <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
           </div>
         </div>
       </turbo-frame>
     </div>
 
-    <div
-      class="
-        phone:w-full
-        bg-[#2D4263]
-        tablet:w-1/2
-        desktop:w-1/3
-        desktop-lg:w-1/4
-        min-h-[400px]
-        tablet:h-[400px]
-        overflow-x-auto
-        overflow-y-hidden
-      "
-      x-data=""
-    >
+    <div class=" phone:w-full bg-[#2D4263] tablet:w-1/2 desktop:w-1/3 desktop-lg:w-1/4 min-h-[400px] tablet:h-[400px] overflow-x-auto overflow-y-hidden " x-data="">
       <turbo-frame id="favorite_anime_studios" src="<%= anilist_user_statistics_path %>" loading="lazy">
         <div class="flex flex-col w-full h-full px-4 py-4" x-data="">
-          <a
-            href="https://anilist.co/user/CyanNyan/stats/anime/studios"
-            rel="noopener noreferrer"
-            target="_blank"
-            class="hover:underline text-lg font-bold text-left text-white"
-          >
+          <a href="https://anilist.co/user/CyanNyan/stats/anime/studios" rel="noopener noreferrer" target="_blank" class="text-lg font-bold text-left text-white hover:underline">
             <h2>FAVORITE ANIME STUDIOS</h2>
           </a>
-          <div class="grow flex items-center justify-center">
+          <div class="flex items-center justify-center grow">
             <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
           </div>
         </div>
       </turbo-frame>
     </div>
 
-    <div
-      class="
-        phone:w-full
-        bg-[#5C3D2E]
-        tablet:w-1/2
-        desktop:w-1/3
-        desktop-lg:w-1/4
-        min-h-[400px]
-        tablet:h-[400px]
-        overflow-hidden
-      "
-    >
+    <div class=" phone:w-full bg-[#5C3D2E] tablet:w-1/2 desktop:w-1/3 desktop-lg:w-1/4 min-h-[400px] tablet:h-[400px] overflow-hidden ">
       <turbo-frame id="lastfm_top_artists" src="<%= lastfm_top_artists_path %>" loading="lazy">
         <div class="flex flex-col w-full h-full px-4 py-4 text-white" x-data="">
-          <a
-            href="https://www.last.fm/user/aldwin7894/library/artists?date_preset=ALL"
-            rel="noopener noreferrer"
-            target="_blank"
-            class="hover:underline text-lg font-bold text-left"
-          >
+          <a href="https://www.last.fm/user/aldwin7894/library/artists?date_preset=ALL" rel="noopener noreferrer" target="_blank" class="text-lg font-bold text-left hover:underline">
             <h2>LAST.FM (TOP ARTISTS OF ALL TIME)</h2>
           </a>
-          <div class="grow flex items-center justify-center">
+          <div class="flex items-center justify-center grow">
             <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
           </div>
         </div>
       </turbo-frame>
     </div>
 
-    <div
-      class="
-        dark:[color-scheme:dark]
-        phone:w-full
-        bg-[#346751]
-        tablet:w-1/2
-        desktop:w-1/3
-        desktop-lg:w-1/4
-        min-h-[400px]
-        tablet:h-[400px]
-        overflow-x-hidden
-        overflow-y-auto
-      "
-    >
+    <div class=" dark:[color-scheme:dark] phone:w-full bg-[#346751] tablet:w-1/2 desktop:w-1/3 desktop-lg:w-1/4 min-h-[400px] tablet:h-[400px] overflow-x-hidden overflow-y-auto ">
       <turbo-frame id="last_watched_movie" src="<%= anilist_user_activities_path %>" loading="lazy">
         <div class="flex flex-col w-full h-full px-4 py-4">
           <h2 class="text-lg font-bold text-left text-white">LAST WATCHED ANIME MOVIE</h2>
-          <div class="grow flex items-center justify-center">
+          <div class="flex items-center justify-center grow">
             <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
           </div>
         </div>
       </turbo-frame>
     </div>
 
-    <div
-      class="
-        dark:[color-scheme:dark]
-        phone:w-full
-        bg-white
-        tablet:w-1/2
-        desktop:w-2/3
-        desktop-lg:w-1/4
-        min-h-[400px]
-        tablet:h-[400px]
-        overflow-x-hidden
-        overflow-y-auto
-      "
-    >
+    <div class=" dark:[color-scheme:dark] phone:w-full bg-white tablet:w-1/2 desktop:w-2/3 desktop-lg:w-1/4 min-h-[400px] tablet:h-[400px] overflow-x-hidden overflow-y-auto ">
       <div class="flex flex-col w-full h-full text-center text-white">
         <div class="bg-[#019edf] flex-1 w-full flex flex-col px-4 py-4" x-data="">
-          <a
-            href="https://anilist.co/user/CyanNyan/stats/anime/overview"
-            rel="noopener noreferrer"
-            target="_blank"
-            class="hover:underline text-lg font-bold"
-          >
+          <a href="https://anilist.co/user/CyanNyan/stats/anime/overview" rel="noopener noreferrer" target="_blank" class="text-lg font-bold hover:underline">
             <h2>WATCHED ANIME</h2>
           </a>
-          <div class="grow flex flex-row flex-wrap gap-4">
-            <div class="grow flex flex-col items-center justify-center">
+          <div class="flex flex-row flex-wrap gap-4 grow">
+            <div class="flex flex-col items-center justify-center grow">
               <turbo-frame id="total_watched_anime_last_week" src="<%= anilist_user_activities_path %>" loading="lazy">
                 <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
               </turbo-frame>
             </div>
-            <div class="grow flex flex-col items-center justify-center">
+            <div class="flex flex-col items-center justify-center grow">
               <turbo-frame id="total_watched_anime" src="<%= anilist_user_statistics_path %>" loading="lazy">
                 <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
               </turbo-frame>
@@ -224,21 +103,16 @@
           </div>
         </div>
         <div class="bg-[#0199d8] flex-1 w-full flex flex-col px-4 py-4">
-          <a
-            href="https://anilist.co/user/CyanNyan/stats/anime/overview"
-            rel="noopener noreferrer"
-            target="_blank"
-            class="hover:underline text-lg font-bold"
-          >
+          <a href="https://anilist.co/user/CyanNyan/stats/anime/overview" rel="noopener noreferrer" target="_blank" class="text-lg font-bold hover:underline">
             <h2>WATCHED ANIME MOVIES&nbsp;/&nbsp;OVA&nbsp;/&nbsp;SPECIALS</h2>
           </a>
-          <div class="grow flex flex-row flex-wrap gap-4">
-            <div class="grow flex flex-col items-center justify-center">
+          <div class="flex flex-row flex-wrap gap-4 grow">
+            <div class="flex flex-col items-center justify-center grow">
               <turbo-frame id="total_watched_anime_movie_last_week" src="<%= anilist_user_activities_path %>" loading="lazy">
                 <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
               </turbo-frame>
             </div>
-            <div class="grow flex flex-col items-center justify-center">
+            <div class="flex flex-col items-center justify-center grow">
               <turbo-frame id="total_watched_anime_movie" src="<%= anilist_user_statistics_path %>" loading="lazy">
                 <%= render partial: "layouts/spinner", locals: { add_class: "w-10 h-10 border-8 text-white" } %>
               </turbo-frame>

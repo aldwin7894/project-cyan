@@ -1,6 +1,6 @@
 <div class="main-container" xmlns="http://www.w3.org/1999/xhtml">
   <div class="listenbrainz-logo">
-    <img src="<%= vite_url_to_base64(vite_asset_url("images/listenbrainz-logo.svg")) %>" height="30" alt="logo" />
+    <img src="<%= vite_url_to_base64(vite_asset_url("images/listenbrainz-logo.svg")) %>" height="30" alt="logo"/>
   </div>
   <% if @recent.present? %>
     <div class="album-container">
@@ -9,7 +9,7 @@
     </div>
 
     <div class="track-container">
-      <h2 class="track-name mb-0">
+      <h2 class="mb-0 track-name">
         <%= @recent["track_metadata"]["track_name"] %>
       </h2>
       <h3 class="artist-name">
@@ -55,7 +55,7 @@
       <div class="album-cover"></div>
     </div>
     <div class="track-container">
-      <h2 class="track-name mb-0">
+      <h2 class="mb-0 track-name">
         LISTENBRAINZ IS CURRENTLY DOWN!!
       </h2>
       <h3 class="artist-name">
