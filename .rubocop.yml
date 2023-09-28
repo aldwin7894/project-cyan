@@ -26,6 +26,7 @@ AllCops:
     - "**/bin/**/*"
     - "**/config/**/*"
     - "**/db/**/*"
+    - "**/sorbet/rbi/**/*"
     - Gemfile
     - Rakefile
     - config.ru
