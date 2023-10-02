@@ -48,7 +48,7 @@ class DiscordBannerController < ApplicationController
   end
 
   def generate_content(params)
-    require "discord_bot/discord_bot"
+    require "discord_bot"
 
     @background = params[:bg]
     @foreground = params[:fg]

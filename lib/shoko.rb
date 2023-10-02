@@ -1,7 +1,7 @@
 # frozen_string_literal: true
+# typed: true
 
 module Shoko
-  extend self
   SHOKO_API_KEY = ENV.fetch("SHOKO_API_KEY")
   BASE_URL = ENV.fetch("SHOKO_BASE_URL")
   JSON_HEADER = {
@@ -20,12 +20,17 @@ module Shoko
     end
   end
 
-  def Shoko.get_series_fanart_by_name(name:, year:, mal_id:, alternatives: [])
+  class Client
+    include HTTParty
+    persistent_connection_adapter
+    base_uri BASE_URL
+
+    def get_series_fanart_by_name(name:, year:, mal_id:, alternatives: [])
     headers = {
       **JSON_HEADER
     }
     url = "Series/Search"
-    series = nil
+    series = T.let(nil, T.nilable(T::Array[T.untyped]))
     name = name.downcase
 
     cache_key = "SHOKO/#{name.downcase.gsub(/\s/, "_")}/FANART_URL"
@@ -74,7 +79,7 @@ module Shoko
     loop do
       break if index > possible_queries.length - 1
       query = {
-        query: possible_queries[index][:name],
+        query: possible_queries[index]&.[](:name),
         fuzzy: true,
         limit: 1
       }
@@ -85,19 +90,19 @@ module Shoko
 
       res = JSON.parse res, symbolize_names: true
 
-      if res.is_a?(Array) && res&.first&.[](:IDs)&.[](:MAL)&.include?(possible_queries[index][:mal_id])
-        if res&.first&.[](:Images)&.[](:Fanarts).present?
-          Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index][:name]) do
+      if res.is_a?(Array) && res.first&.[](:IDs)&.[](:MAL)&.include?(possible_queries[index]&.[](:mal_id))
+        if res.first&.[](:Images)&.[](:Fanarts).present?
+          Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index]&.[](:name)) do
             Rails.logger.info("FOUND")
           end
           series = res
           break
         end
-        Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index][:name]) do
+        Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index]&.[](:name)) do
           Rails.logger.info("NO FANARTS")
         end
       else
-        Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index][:name]) do
+        Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index]&.[](:name)) do
           Rails.logger.info("NOT FOUND")
         end
       end
@@ -150,4 +155,5 @@ module Shoko
       string.strip!
       string
     end
+  end
 end

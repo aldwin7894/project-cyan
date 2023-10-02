@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# typed: true
 
 class AnilistController < ApplicationController
   before_action :check_if_from_cloudfront
@@ -40,7 +41,7 @@ class AnilistController < ApplicationController
     loop do
       break if @following_done
 
-      sleep 0.3 unless Rails.env.development?
+      sleep 0.2 unless Rails.env.development?
       data = query(AniList::UserFollowingQuery, user_id: id, page: @following_page)
       @following_count ||= data.page.page_info.total
       @following.push(*data.page.following.map(&:name))
@@ -57,7 +58,7 @@ class AnilistController < ApplicationController
     loop do
       break if @followers_done
 
-      sleep 0.3 unless Rails.env.development?
+      sleep 0.2 unless Rails.env.development?
       data = query(AniList::UserFollowersQuery, user_id: id, page: @followers_page)
       @followers_count ||= data.page.page_info.total
       @followers.push(*data.page.followers.map(&:name))

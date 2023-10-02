@@ -55,6 +55,7 @@ end
 class HTTParty::Basement
   include ::HTTParty
   include ::HTTParty::ModuleInheritableAttributes
+  extend ::HTTParty::Persistent::ClassMethods
   extend ::HTTParty::ClassMethods
   extend ::HTTParty::ModuleInheritableAttributes::ClassMethods
 

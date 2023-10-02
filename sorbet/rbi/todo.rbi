@@ -6,12 +6,7 @@
 
 module ::HealthCheck; end
 module ::HttpLog; end
-module ::Recaptcha::Adapters::ControllerMethods; end
-module ::Recaptcha::Adapters::ViewMethods; end
-module ::Responders::ControllerMethod; end
 module AbstractController::Logger::ClassMethods; end
-module ActionController::RespondWith::ClassMethods; end
-module ActionController::Responder; end
 module ActionController::UrlFor::ClassMethods; end
 module ActionDispatch::Routing::UrlFor::ClassMethods; end
 module ActionView::Helpers::FormHelper::ClassMethods; end
@@ -25,22 +20,8 @@ module ActiveModel::Serializers::JSON::ClassMethods; end
 module ActiveRecord::ConnectionAdapters::DatabaseStatements; end
 module ActiveRecord::ConnectionAdapters::SchemaStatements; end
 module Aldwin7894::Application::Occson::Document; end
-module AniList::Client; end
-module ApplicationResponder::Responders::FlashResponder; end
-module ApplicationResponder::Responders::HttpCacheResponder; end
-module CfAccessAuthenticatable::JWT; end
-module CfAccessAuthenticatable::JWT::DecodeError; end
-module Devise::ConfirmationsController; end
-module Devise::OmniauthCallbacksController; end
-module Devise::PasswordsController; end
-module Devise::RegistrationsController; end
-module Devise::SessionsController; end
-module Devise::UnlocksController; end
+module ApplicationController::ApplicationResponder; end
 module Google::Protobuf::EnumDescriptor; end
-module GraphQL::Language::Nodes::Document; end
-module GraphQL::Language::Visitor; end
-module GraphQL::Query::Context; end
-module GraphQL::Schema::Field; end
 module Mongoid::Association::Accessors::ClassMethods; end
 module Mongoid::Association::Builders::ClassMethods; end
 module Mongoid::Association::ClassMethods; end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# typed: true
 
 require "active_support/core_ext/integer/time"
 
@@ -81,4 +82,13 @@ Rails.application.configure do
   config.hosts << /[a-z0-9-]+\.ngrok\.io|.*.local|.*.aldwin7894.win/
   # config.asset_host = ENV.fetch("RAILS_ASSET_HOST", "http://wsl.local:3036")
   config.force_ssl = false
+
+  # Use default logging formatter so that PID and timestamp are not suppressed.
+  config.log_formatter = ::Logger::Formatter.new
+
+  # Use a different logger for distributed setups.
+  # require "syslog/logger"
+  logger           = ActiveSupport::Logger.new(STDOUT)
+  logger.formatter = config.log_formatter
+  config.logger    = ActiveSupport::TaggedLogging.new(logger)
 end

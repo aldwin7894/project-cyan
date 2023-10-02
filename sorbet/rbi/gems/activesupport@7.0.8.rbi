@@ -10640,7 +10640,6 @@ class ActiveSupport::TestCase < ::Minitest::Test
   include ::ActiveSupport::Testing::Deprecation
   include ::ActiveSupport::Testing::TimeHelpers
   include ::ActiveSupport::Testing::FileFixtures
-  include ::Turbo::TestAssertions
   extend ::ActiveSupport::Callbacks::ClassMethods
   extend ::ActiveSupport::DescendantsTracker
   extend ::ActiveSupport::Testing::SetupAndTeardown::ClassMethods
@@ -11528,6 +11527,20 @@ class ActiveSupport::Testing::SimpleStubs::Stub < ::Struct
     def members; end
     def new(*_arg0); end
   end
+end
+
+# source://activesupport//lib/active_support/testing/stream.rb#5
+module ActiveSupport::Testing::Stream
+  private
+
+  # source://activesupport//lib/active_support/testing/stream.rb#23
+  def capture(stream); end
+
+  # source://activesupport//lib/active_support/testing/stream.rb#17
+  def quietly(&block); end
+
+  # source://activesupport//lib/active_support/testing/stream.rb#7
+  def silence_stream(stream); end
 end
 
 # Logs a "PostsControllerTest: test name" heading before each test to

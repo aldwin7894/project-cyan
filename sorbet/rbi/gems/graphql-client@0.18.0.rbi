@@ -570,6 +570,73 @@ class GraphQL::Client::FragmentDefinition < ::GraphQL::Client::Definition
   def new(obj, *args); end
 end
 
+# Public: Basic HTTP network adapter.
+#
+#   GraphQL::Client.new(
+#     execute: GraphQL::Client::HTTP.new("http://graphql-swapi.parseapp.com/")
+#   )
+#
+# Assumes GraphQL endpoint follows the express-graphql endpoint conventions.
+#   https://github.com/graphql/express-graphql#http-usage
+#
+# Production applications should consider implementing there own network
+# adapter. This class exists for trivial stock usage and allows for minimal
+# request header configuration.
+#
+# source://graphql-client//lib/graphql/client/http.rb#20
+class GraphQL::Client::HTTP
+  # Public: Create HTTP adapter instance for a single GraphQL endpoint.
+  #
+  #   GraphQL::Client::HTTP.new("http://graphql-swapi.parseapp.com/") do
+  #     def headers(context)
+  #       { "User-Agent": "My Client" }
+  #     end
+  #   end
+  #
+  # uri - String endpoint URI
+  # block - Optional block to configure class
+  #
+  # @return [HTTP] a new instance of HTTP
+  #
+  # source://graphql-client//lib/graphql/client/http.rb#31
+  def initialize(uri, &block); end
+
+  # Public: Extension point for subclasses to customize the Net:HTTP client
+  #
+  # Returns a Net::HTTP object
+  #
+  # source://graphql-client//lib/graphql/client/http.rb#85
+  def connection; end
+
+  # Public: Make an HTTP request for GraphQL query.
+  #
+  # Implements Client's "execute" adapter interface.
+  #
+  # document - The Query GraphQL::Language::Nodes::Document
+  # operation_name - The String operation definition name
+  # variables - Hash of query variables
+  # context - An arbitrary Hash of values which you can access
+  #
+  # Returns { "data" => ... , "errors" => ... } Hash.
+  #
+  # source://graphql-client//lib/graphql/client/http.rb#58
+  def execute(document:, operation_name: T.unsafe(nil), variables: T.unsafe(nil), context: T.unsafe(nil)); end
+
+  # Public: Extension point for subclasses to set custom request headers.
+  #
+  # Returns Hash of String header names and values.
+  #
+  # source://graphql-client//lib/graphql/client/http.rb#44
+  def headers(_context); end
+
+  # Public: Parsed endpoint URI
+  #
+  # Returns URI.
+  #
+  # source://graphql-client//lib/graphql/client/http.rb#39
+  def uri; end
+end
+
 # Public: Implements a read only hash where keys can be accessed by
 # strings, symbols, snake or camel case.
 #

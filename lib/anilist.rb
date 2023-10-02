@@ -1,23 +1,29 @@
 # frozen_string_literal: true
+# typed: true
 
 require "graphql/client"
 require "graphql/client/http"
 
 module AniList
-  Http ||= GraphQL::Client::HTTP.new("https://graphql.anilist.co") do
+  Http = GraphQL::Client::HTTP.new("https://graphql.anilist.co") do
     def headers(context)
       {
         "Authorization": ENV.fetch("ANILIST_OAUTH_TOKEN")
       }
     end
+    def connection
+      @connection ||= super
+      @connection.start unless @connection.started?
+      @connection
+    end
   end
 
   # Fetch latest schema on init, this will make a network request
-  Schema ||= GraphQL::Client.load_schema(Dir[Rails.root.join("db/schema.json")][0])
+  Schema = GraphQL::Client.load_schema(Dir[Rails.root.join("db/schema.json")][0])
 
-  Client ||= GraphQL::Client.new(schema: Schema, execute: Http)
+  AnilistClient = GraphQL::Client.new(schema: Schema, execute: Http)
 
-  UserIdQuery = Client.parse <<-'GRAPHQL'
+  UserIdQuery = AnilistClient.parse <<-'GRAPHQL'
     query($username: String) {
       User(name: $username) {
         id
@@ -25,7 +31,7 @@ module AniList
     }
   GRAPHQL
 
-  UserFollowersQuery = AniList::Client.parse <<-'GRAPHQL'
+  UserFollowersQuery = AnilistClient.parse <<-'GRAPHQL'
     query($user_id: Int!, $page: Int) {
       Page(page: $page, perPage: 50) {
         pageInfo {
@@ -39,7 +45,7 @@ module AniList
     }
   GRAPHQL
 
-  UserFollowingQuery = AniList::Client.parse <<-'GRAPHQL'
+  UserFollowingQuery = AnilistClient.parse <<-'GRAPHQL'
     query($user_id: Int!, $page: Int) {
       Page(page: $page, perPage: 50) {
         pageInfo {
@@ -53,7 +59,7 @@ module AniList
     }
   GRAPHQL
 
-  UserStatisticsQuery = AniList::Client.parse <<-'GRAPHQL'
+  UserStatisticsQuery = AnilistClient.parse <<-'GRAPHQL'
     query($user_id: Int!) {
       User(id: $user_id) {
         statistics {
@@ -87,7 +93,7 @@ module AniList
     }
   GRAPHQL
 
-  UserAnimeActivitiesQuery  = AniList::Client.parse <<-'GRAPHQL'
+  UserAnimeActivitiesQuery = AnilistClient.parse <<-'GRAPHQL'
     query($user_id: Int!, $page: Int, $per_page: Int, $date: Int) {
       Page(page: $page, perPage: $per_page) {
         pageInfo {
@@ -145,7 +151,7 @@ module AniList
     }
   GRAPHQL
 
-  UserAnimeActivitiesLastPageQuery  = AniList::Client.parse <<-'GRAPHQL'
+  UserAnimeActivitiesLastPageQuery = AnilistClient.parse <<-'GRAPHQL'
     query($user_id: Int!, $page: Int, $per_page: Int, $date: Int) {
       Page(page: $page, perPage: $per_page) {
         pageInfo {

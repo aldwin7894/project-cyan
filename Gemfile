@@ -103,3 +103,5 @@ gem "discordrb", "~> 3.5.0"
 gem "kodachroma", "~> 1.0"
 
 gem "responders", "~> 3.1"
+
+gem "persistent_httparty", "~> 0.1.2"

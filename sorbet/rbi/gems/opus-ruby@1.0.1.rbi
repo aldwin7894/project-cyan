@@ -11,14 +11,20 @@ module Opus
   def opus_decode(*_arg0); end
   def opus_decode_float(*_arg0); end
   def opus_decoder_create(*_arg0); end
+
+  # source://ffi/1.16.2/lib/ffi/variadic.rb#61
   def opus_decoder_ctl(*args); end
+
   def opus_decoder_destroy(*_arg0); end
   def opus_decoder_get_size(*_arg0); end
   def opus_decoder_init(*_arg0); end
   def opus_encode(*_arg0); end
   def opus_encode_float(*_arg0); end
   def opus_encoder_create(*_arg0); end
+
+  # source://ffi/1.16.2/lib/ffi/variadic.rb#61
   def opus_encoder_ctl(*args); end
+
   def opus_encoder_destroy(*_arg0); end
   def opus_encoder_get_size(*_arg0); end
   def opus_encoder_init(*_arg0); end
@@ -27,14 +33,20 @@ module Opus
     def opus_decode(*_arg0); end
     def opus_decode_float(*_arg0); end
     def opus_decoder_create(*_arg0); end
+
+    # source://ffi/1.16.2/lib/ffi/variadic.rb#61
     def opus_decoder_ctl(*args); end
+
     def opus_decoder_destroy(*_arg0); end
     def opus_decoder_get_size(*_arg0); end
     def opus_decoder_init(*_arg0); end
     def opus_encode(*_arg0); end
     def opus_encode_float(*_arg0); end
     def opus_encoder_create(*_arg0); end
+
+    # source://ffi/1.16.2/lib/ffi/variadic.rb#61
     def opus_encoder_ctl(*args); end
+
     def opus_encoder_destroy(*_arg0); end
     def opus_encoder_get_size(*_arg0); end
     def opus_encoder_init(*_arg0); end

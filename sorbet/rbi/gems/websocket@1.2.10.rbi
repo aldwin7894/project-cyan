@@ -668,7 +668,7 @@ class WebSocket::Frame::Incoming::Server < ::WebSocket::Frame::Incoming
   def outgoing_masking?; end
 end
 
-# Construct or parse incoming WebSocket Frame.
+# Construct or parse outgoing WebSocket Frame.
 #
 # @example
 #   frame = WebSocket::Frame::Outgoing::Server.new(version: @handshake.version, data: "Hello", type: :text)
@@ -754,6 +754,18 @@ class WebSocket::Handshake::Base
   # source://websocket//lib/websocket/handshake/base.rb#34
   def <<(data); end
 
+  # Return default port for protocol (80 for ws, 443 for wss)
+  #
+  # source://websocket//lib/websocket/handshake/base.rb#70
+  def default_port; end
+
+  # Check if provided port is a default one
+  #
+  # @return [Boolean]
+  #
+  # source://websocket//lib/websocket/handshake/base.rb#75
+  def default_port?; end
+
   # Is parsing of data finished?
   #
   # @return [Boolena] True if request was completely parsed or error occured. False otherwise
@@ -783,9 +795,7 @@ class WebSocket::Handshake::Base
   # source://websocket//lib/websocket/handshake/base.rb#10
   def path; end
 
-  # Returns the value of attribute port.
-  #
-  # source://websocket//lib/websocket/handshake/base.rb#10
+  # source://websocket//lib/websocket/handshake/base.rb#79
   def port; end
 
   # Returns the value of attribute protocols.
@@ -834,7 +844,7 @@ class WebSocket::Handshake::Base
   #   @handshake.uri #=> "ws://example.com/path?query=true"
   # @return [String] Full URI with protocol
   #
-  # source://websocket//lib/websocket/handshake/base.rb#73
+  # source://websocket//lib/websocket/handshake/base.rb#87
   def uri; end
 
   # Is parsed data valid?
@@ -855,25 +865,25 @@ class WebSocket::Handshake::Base
   #
   # @param message [String] Error message to set
   #
-  # source://websocket//lib/websocket/handshake/base.rb#92
+  # source://websocket//lib/websocket/handshake/base.rb#106
   def error=(message); end
 
   # Parse data imported to handshake and sets state to finished if necessary.
   #
   # @return [Boolean] True if finished parsing. False if not all data received yet.
   #
-  # source://websocket//lib/websocket/handshake/base.rb#101
+  # source://websocket//lib/websocket/handshake/base.rb#115
   def parse_data; end
 
   # Number of lines after header that should be handled as belonging to handshake. Any data after those lines will be handled as leftovers.
   #
   # @return [Integer] Number of lines
   #
-  # source://websocket//lib/websocket/handshake/base.rb#86
+  # source://websocket//lib/websocket/handshake/base.rb#100
   def reserved_leftover_lines; end
 end
 
-# source://websocket//lib/websocket/handshake/base.rb#97
+# source://websocket//lib/websocket/handshake/base.rb#111
 WebSocket::Handshake::Base::HEADER = T.let(T.unsafe(nil), Regexp)
 
 # Construct or parse a client WebSocket handshake.
@@ -1425,7 +1435,7 @@ class WebSocket::Handshake::Server < ::WebSocket::Handshake::Base
 
   # Port of server according to client header
   #
-  # @return [String] port
+  # @return [Integer] port
   #
   # source://websocket//lib/websocket/handshake/server.rb#137
   def port; end

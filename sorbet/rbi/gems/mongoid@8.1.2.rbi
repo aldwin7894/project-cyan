@@ -22353,6 +22353,7 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   extend ::Mongoid::Equality::ClassMethods
   extend ::Mongoid::Findable
   extend ::OrmAdapter::ToAdapter
+  extend ::Devise::Models
   extend ::Mongoid::Document::ClassMethods
   extend ::Mongoid::Traversable::DiscriminatorAssignment
 

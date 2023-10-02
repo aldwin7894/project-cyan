@@ -4629,6 +4629,10 @@ module DeviseHelper
   def devise_error_messages!; end
 end
 
+module Mongoid::Document::ClassMethods
+  include ::Devise::Models
+end
+
 module Warden::Mixins; end
 
 # source://devise//lib/devise/rails/warden_compat.rb#3

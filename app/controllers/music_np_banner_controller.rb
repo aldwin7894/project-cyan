@@ -1,8 +1,9 @@
 # frozen_string_literal: true
+# typed: true
 
-require "lastfm/lastfm"
-require "listenbrainz/listenbrainz"
-require "spotify/spotify"
+require "lastfm"
+require "listenbrainz"
+require "spotify"
 
 class MusicNpBannerController < ApplicationController
   before_action :check_if_from_cloudfront
@@ -54,7 +55,8 @@ class MusicNpBannerController < ApplicationController
     @bottom_line = params[:line]
     @album_art = nil
 
-    @recent = LastFM.get_recent_tracks(user: ENV.fetch("LASTFM_USERNAME"), limit: 1, extended: 1)
+    lastfm = LastFM::Client.new
+    @recent = lastfm.get_recent_tracks(user: ENV.fetch("LASTFM_USERNAME"), limit: 1, extended: 1)
 
     if @recent.is_a? Array
       timestamp = @recent.last["date"]["uts"].to_i
@@ -63,7 +65,7 @@ class MusicNpBannerController < ApplicationController
       timestamp = @recent["date"]["uts"].to_i
     end
 
-    @album_art = LastFM.get_cover_art_url(@recent)
+    @album_art = lastfm.get_cover_art_url(@recent)
     @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"
   end
 
@@ -98,11 +100,13 @@ class MusicNpBannerController < ApplicationController
     @bottom_line = params[:line]
     @album_art = nil
 
-    now_playing = ListenBrainz.get_now_playing(user: ENV.fetch("LISTENBRAINZ_USERNAME"))
-    loved_tracks = ListenBrainz.get_loved_tracks(user: ENV.fetch("LISTENBRAINZ_USERNAME"))
+    listenbrainz = ListenBrainz::Client.new
+    spotify = Spotify::Client.new
+    now_playing = listenbrainz.get_now_playing(user: ENV.fetch("LISTENBRAINZ_USERNAME"))
+    loved_tracks = listenbrainz.get_loved_tracks(user: ENV.fetch("LISTENBRAINZ_USERNAME"))
 
     if now_playing["listens"].blank?
-      recent = ListenBrainz.get_recent_tracks(user: ENV.fetch("LISTENBRAINZ_USERNAME"), limit: 1)
+      recent = listenbrainz.get_recent_tracks(user: ENV.fetch("LISTENBRAINZ_USERNAME"), limit: 1)
       @recent = recent["listens"].first
     else
       @recent = now_playing["listens"].first
@@ -115,9 +119,9 @@ class MusicNpBannerController < ApplicationController
     spotify_album_id = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("spotify_album_id")
 
     if release_mbid.present?
-      @album_art = ListenBrainz.get_cover_art_url(release_mbid:, size: 250)
+      @album_art = listenbrainz.get_cover_art_url(release_mbid:, size: 250)
     elsif spotify_album_id
-      @album_art = Spotify.get_album_art(album_id: spotify_album_id&.split("/").pop)
+      @album_art = spotify.get_album_art(album_id: spotify_album_id&.split("/").pop)
     end
     @loved = loved_tracks.any? { |x| x["recording_mbid"] === recording_mbid.to_s }
 

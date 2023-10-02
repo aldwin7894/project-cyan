@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# typed: true
 
 require "active_support/core_ext/integer/time"
 
@@ -90,13 +91,9 @@ Rails.application.configure do
 
   # Use a different logger for distributed setups.
   # require "syslog/logger"
-  config.logger = ActiveSupport::Logger.new(STDOUT)
-
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
-    logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
-  end
+  logger           = ActiveSupport::Logger.new(STDOUT)
+  logger.formatter = config.log_formatter
+  config.logger    = ActiveSupport::TaggedLogging.new(logger)
 
   # Do not dump schema after migrations.
   # config.active_record.dump_schema_after_migration = false

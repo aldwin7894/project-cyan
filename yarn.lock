@@ -555,10 +555,10 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
-"@types/node@^20.7.0":
-  version "20.7.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.7.1.tgz#06d732ead0bd5ad978ef0ea9cbdeb24dc8717514"
-  integrity sha512-LT+OIXpp2kj4E2S/p91BMe+VgGX2+lfO+XTpfXhh+bCk2LkQtHZSub8ewFBMGP5ClysPjTDFa4sMI8Q3n4T0wg==
+"@types/node@^20.8.0":
+  version "20.8.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.8.0.tgz#10ddf0119cf20028781c06d7115562934e53f745"
+  integrity sha512-LzcWltT83s1bthcvjBmiBvGJiiUe84NWRHkw+ZV6Fr41z2FbIzvc815dk2nQ3RAKMuN2fkenM/z3Xv2QzEpYxQ==
 
 "@typescript-eslint/parser@^6.7.3":
   version "6.7.3"
@@ -2897,10 +2897,19 @@ postcss-zindex@^6.0.0:
   resolved "https://registry.yarnpkg.com/postcss-zindex/-/postcss-zindex-6.0.0.tgz#fc38021b9e9cb0b091497bc23f9ff32e7088308e"
   integrity sha512-lNim6f01ClwALn0J50yyoR+qOu10GXub+xucEB7+x8VwXl+iNJSj/QgXg45XpSoLsWD5HIofVrG/pPrMFcdbig==
 
-postcss@^8.4.23, postcss@^8.4.27, postcss@^8.4.30, postcss@^8.4.4:
+postcss@^8.4.23, postcss@^8.4.27, postcss@^8.4.4:
   version "8.4.30"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.30.tgz#0e0648d551a606ef2192a26da4cabafcc09c1aa7"
   integrity sha512-7ZEao1g4kd68l97aWG/etQKPKq07us0ieSZ2TnFDk11i0ZfDW2AwKHYU8qv4MZKqN2fdBfg+7q0ES06UA73C1g==
+  dependencies:
+    nanoid "^3.3.6"
+    picocolors "^1.0.0"
+    source-map-js "^1.0.2"
+
+postcss@^8.4.31:
+  version "8.4.31"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.31.tgz#92b451050a9f914da6755af352bdc0192508656d"
+  integrity sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==
   dependencies:
     nanoid "^3.3.6"
     picocolors "^1.0.0"

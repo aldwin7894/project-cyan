@@ -1,11 +1,13 @@
 # frozen_string_literal: true
+# typed: true
 
-require "spotify/spotify"
-require "lastfm/lastfm"
-require "shoko/shoko"
+require "spotify"
+require "lastfm"
+require "shoko"
 
 class HomeController < ApplicationController
   include FormatDateHelper
+  include Turbo::Frames::FrameRequest
   layout "application"
   rescue_from QueryError, with: :render_empty
   rescue_from StandardError, with: :render_empty
@@ -177,7 +179,8 @@ class HomeController < ApplicationController
 
   def lastfm_stats
     @album_art = nil
-    @lastfm_recent = LastFM.get_recent_tracks(user: ENV.fetch("LASTFM_USERNAME"), limit: 1, extended: 1)
+    lastfm = LastFM::Client.new
+    @lastfm_recent = lastfm.get_recent_tracks(user: ENV.fetch("LASTFM_USERNAME"), limit: 1, extended: 1)
 
     if @lastfm_recent.is_a? Array
       timestamp = @lastfm_recent.last["date"]["uts"].to_i
@@ -200,15 +203,17 @@ class HomeController < ApplicationController
   end
 
   def lastfm_top_artists
-    @lastfm_top_artists = LastFM.get_top_artists(user: ENV.fetch("LASTFM_USERNAME"), period: "overall", limit: 20)
+    lastfm = LastFM::Client.new
+    spotify = Spotify::Client.new
+    @lastfm_top_artists = lastfm.get_top_artists(user: ENV.fetch("LASTFM_USERNAME"), period: "overall", limit: 20)
 
     artist_names = @lastfm_top_artists.pluck("name")
     artist_ids = []
     artist_names.each do |name|
-      artist_id = Spotify.get_artist_id_by_name(name:)
+      artist_id = spotify.get_artist_id_by_name(name:)
       artist_ids.push(artist_id)
     end
-    images = Spotify.get_artists_images(ids: artist_ids.join(","))
+    images = spotify.get_artists_images(ids: artist_ids.join(","))
 
     @lastfm_top_artists = @lastfm_top_artists.each_with_index.map do |artist, i|
       artist["image"] = images[i]
@@ -265,7 +270,8 @@ class HomeController < ApplicationController
         }
       end
 
-      fanart = Shoko.get_series_fanart_by_name(name:, year:, mal_id:, alternatives:)
+      shoko = Shoko::Client.new
+      fanart = shoko.get_series_fanart_by_name(name:, year:, mal_id:, alternatives:)
       user_activity["media"]["bannerImage"] = fanart if fanart.present?
 
       user_activity

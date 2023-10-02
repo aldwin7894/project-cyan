@@ -1,11 +1,12 @@
 # frozen_string_literal: true
+# typed: true
 
-require "anilist/anilist"
+require "anilist"
 require "application_responder"
 
 class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
-  respond_to :html
+  respond_to? :html
 
   class QueryError < StandardError; end
 
@@ -14,7 +15,7 @@ class ApplicationController < ActionController::Base
       raise "Operation not possible." if request.headers["HTTP_USER_AGENT"] == "Amazon CloudFront"
     end
     def query(definition, variables = {})
-      response = AniList::Client.query(definition, variables:)
+      response = AniList::AnilistClient.query(definition, variables:)
 
       if response.errors.any?
         raise QueryError.new(response.errors[:data].join(", "))
