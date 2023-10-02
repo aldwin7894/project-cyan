@@ -47,7 +47,6 @@ group :development do
   gem "ruby-lsp", require: false
   gem "ruby-lsp-rails"
   gem "sorbet"
-  gem "sorbet-runtime"
   gem "tapioca", require: false
 end
 
@@ -105,3 +104,5 @@ gem "kodachroma", "~> 1.0"
 gem "responders", "~> 3.1"
 
 gem "persistent_httparty", "~> 0.1.2"
+
+gem "sorbet-runtime", "~> 0.5.11054"

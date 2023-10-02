@@ -411,7 +411,7 @@ DEPENDENCIES
   ruby-lsp-rails
   selenium-webdriver
   sorbet
-  sorbet-runtime
+  sorbet-runtime (~> 0.5.11054)
   tapioca
   turbo-rails (~> 1.4)
   tzinfo-data
