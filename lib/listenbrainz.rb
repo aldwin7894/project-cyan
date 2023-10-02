@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 # typed: true
 
+require "sorbet-runtime"
+
 module ListenBrainz
   LISTENBRAINZ_USER_TOKEN = ENV.fetch("LISTENBRAINZ_USER_TOKEN")
   CAA_BASE_URL = "https://coverartarchive.org/"
