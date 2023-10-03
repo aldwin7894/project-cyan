@@ -306,13 +306,13 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sorbet (0.5.11054)
-      sorbet-static (= 0.5.11054)
-    sorbet-runtime (0.5.11054)
-    sorbet-static (0.5.11054-x86_64-linux)
-    sorbet-static-and-runtime (0.5.11054)
-      sorbet (= 0.5.11054)
-      sorbet-runtime (= 0.5.11054)
+    sorbet (0.5.11061)
+      sorbet-static (= 0.5.11061)
+    sorbet-runtime (0.5.11061)
+    sorbet-static (0.5.11061-x86_64-linux)
+    sorbet-static-and-runtime (0.5.11061)
+      sorbet (= 0.5.11061)
+      sorbet-runtime (= 0.5.11061)
     spoom (1.2.4)
       erubi (>= 1.10.0)
       sorbet-static-and-runtime (>= 0.5.10187)
@@ -411,7 +411,7 @@ DEPENDENCIES
   ruby-lsp-rails
   selenium-webdriver
   sorbet
-  sorbet-runtime (~> 0.5.11054)
+  sorbet-runtime (~> 0.5.11061)
   tapioca
   turbo-rails (~> 1.4)
   tzinfo-data
