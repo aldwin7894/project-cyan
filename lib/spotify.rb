@@ -13,6 +13,8 @@ module Spotify
     include HTTParty
     persistent_connection_adapter
     base_uri ACCESS_TOKEN_URL
+    default_timeout 30
+    open_timeout 10
 
     def get_access_token
       token = Rails.cache.fetch("SPOTIFY/ACCESS_TOKEN", expires_in: 1.hour, skip_nil: true) do
@@ -24,7 +26,7 @@ module Spotify
         }
         body = "grant_type=client_credentials"
 
-        res = self.class.post("/", headers:, body:, timeout: 10)
+        res = self.class.post("/", headers:, body:)
         return if res.code >= 300
         res["access_token"]
       end
@@ -38,6 +40,8 @@ module Spotify
     persistent_connection_adapter
     base_uri SPOTIFY_BASE_URL
     SPOTIFY_AUTH = Spotify::Auth.new
+    default_timeout 30
+    open_timeout 10
 
     def get_artists_images(ids:)
       if ids.blank? then return end
@@ -61,7 +65,7 @@ module Spotify
           Rails.logger.info("MISS")
         end
         artist_images = Rails.cache.fetch(cache_key, expires_in: 1.week, skip_nil: true) do
-          res = self.class.get("/artists", headers:, query:, timeout: 10)
+          res = self.class.get("/artists", headers:, query:)
           return if res.code >= 300
 
           artists = JSON.parse(res.body)
@@ -100,7 +104,7 @@ module Spotify
           Rails.logger.info("MISS")
         end
         artist_id = Rails.cache.fetch(cache_key, expires_in: 1.month, skip_nil: true) do
-          res = self.class.get("/search", headers:, query:, timeout: 10)
+          res = self.class.get("/search", headers:, query:)
           return if res.code >= 300
 
           artist = JSON.parse(res.body)
@@ -130,7 +134,7 @@ module Spotify
           Rails.logger.info("MISS")
         end
         album_art = Rails.cache.fetch(cache_key, expires_in: 1.month, skip_nil: true) do
-          res = self.class.get("/albums/#{album_id}", headers:, timeout: 10)
+          res = self.class.get("/albums/#{album_id}", headers:)
           return if res.code >= 300
 
           album = JSON.parse(res.body)

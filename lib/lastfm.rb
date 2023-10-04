@@ -24,6 +24,8 @@ module LastFM
     include HTTParty
     persistent_connection_adapter
     base_uri BASE_URL
+    default_timeout 30
+    open_timeout 10
 
     def get_recent_tracks(user:, limit:, extended:)
       headers = {
@@ -39,7 +41,7 @@ module LastFM
       }
 
       Rails.cache.fetch("LASTFM/#{user}/RECENT_TRACKS", expires_in: 30.seconds, skip_nil: true) do
-        res = self.class.get("/", headers:, query:, timeout: 10)
+        res = self.class.get("/", headers:, query:)
         unless res.success?
           raise ApiError.new(res["message"], res["error"])
         end
@@ -72,7 +74,7 @@ module LastFM
           Rails.logger.info("MISS")
         end
         top_artists = Rails.cache.fetch(cache_key, expires_in: 1.week, skip_nil: true) do
-          res = self.class.get("/", headers:, query:, timeout: 10)
+          res = self.class.get("/", headers:, query:)
           unless res.success?
             raise ApiError.new(res["message"], res["error"])
           end
