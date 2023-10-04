@@ -105,4 +105,4 @@ gem "responders", "~> 3.1"
 
 gem "persistent_httparty", "~> 0.1.2"
 
-gem "sorbet-runtime", "~> 0.5.11054"
+gem "sorbet-runtime", "~> 0.5.11061"
