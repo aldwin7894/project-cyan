@@ -27,6 +27,8 @@ module ListenBrainz
     include HTTParty
     persistent_connection_adapter
     base_uri BASE_URL
+    default_timeout 30
+    open_timeout 10
 
     def get_recent_tracks(user:, limit:)
       headers = {
@@ -37,7 +39,7 @@ module ListenBrainz
       }
 
       Rails.cache.fetch("LISTENBRAINZ/#{user}/RECENT_TRACKS", expires_in: 5.minutes, skip_nil: true) do
-        res = self.class.get("#{BASE_URL}user/#{user}/listens", headers:, query:, timeout: 10)
+        res = self.class.get("#{BASE_URL}user/#{user}/listens", headers:, query:)
         unless res.success?
           raise ApiError.new(res["error"], res["code"])
         end
@@ -52,7 +54,7 @@ module ListenBrainz
       }
 
       Rails.cache.fetch("LISTENBRAINZ/#{user}/NOW_PLAYING", expires_in: 2.minutes, skip_nil: true) do
-        res = self.class.get("#{BASE_URL}user/#{user}/playing-now", headers:, timeout: 10)
+        res = self.class.get("#{BASE_URL}user/#{user}/playing-now", headers:)
         unless res.success?
           raise ApiError.new(res["error"], res["code"])
         end
@@ -79,7 +81,7 @@ module ListenBrainz
         }
         result = Rails.cache.fetch("LISTENBRAINZ/#{user}/LOVED_TRACKS/#{offset}", expires_in: 2.weeks, skip_nil: true) do
           sleep 0.3
-          res = self.class.get("#{BASE_URL}feedback/user/#{user}/get-feedback", headers:, query:, timeout: 10)
+          res = self.class.get("#{BASE_URL}feedback/user/#{user}/get-feedback", headers:, query:)
           unless res.success?
             raise ApiError.new(res["error"], res["code"])
           end
