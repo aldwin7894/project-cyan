@@ -65,7 +65,7 @@ gem "httparty", "~> 0.21.0"
 
 gem "devise", "~> 4.9"
 
-gem "graphql", "~> 2.0.27"
+gem "graphql", "~> 2.1.1"
 
 gem "graphql-client", "~> 0.18.0"
 
@@ -105,4 +105,4 @@ gem "responders", "~> 3.1"
 
 gem "persistent_httparty", "~> 0.1.2"
 
-gem "sorbet-runtime", "~> 0.5.11054"
+gem "sorbet-runtime", "~> 0.5.11061"

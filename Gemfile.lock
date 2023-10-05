@@ -116,7 +116,7 @@ GEM
       concurrent-ruby (>= 1.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    graphql (2.0.27)
+    graphql (2.1.1)
     graphql-client (0.18.0)
       activesupport (>= 3.0)
       graphql
@@ -306,13 +306,13 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sorbet (0.5.11054)
-      sorbet-static (= 0.5.11054)
-    sorbet-runtime (0.5.11054)
-    sorbet-static (0.5.11054-x86_64-linux)
-    sorbet-static-and-runtime (0.5.11054)
-      sorbet (= 0.5.11054)
-      sorbet-runtime (= 0.5.11054)
+    sorbet (0.5.11061)
+      sorbet-static (= 0.5.11061)
+    sorbet-runtime (0.5.11061)
+    sorbet-static (0.5.11061-x86_64-linux)
+    sorbet-static-and-runtime (0.5.11061)
+      sorbet (= 0.5.11061)
+      sorbet-runtime (= 0.5.11061)
     spoom (1.2.4)
       erubi (>= 1.10.0)
       sorbet-static-and-runtime (>= 0.5.10187)
@@ -382,7 +382,7 @@ DEPENDENCIES
   devise (~> 4.9)
   discordrb (~> 3.5.0)
   erb-formatter
-  graphql (~> 2.0.27)
+  graphql (~> 2.1.1)
   graphql-client (~> 0.18.0)
   health_check (~> 3.1)
   httparty (~> 0.21.0)
@@ -411,7 +411,7 @@ DEPENDENCIES
   ruby-lsp-rails
   selenium-webdriver
   sorbet
-  sorbet-runtime (~> 0.5.11054)
+  sorbet-runtime (~> 0.5.11061)
   tapioca
   turbo-rails (~> 1.4)
   tzinfo-data
