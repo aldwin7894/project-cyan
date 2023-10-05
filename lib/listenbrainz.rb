@@ -39,7 +39,7 @@ module ListenBrainz
       }
 
       Rails.cache.fetch("LISTENBRAINZ/#{user}/RECENT_TRACKS", expires_in: 5.minutes, skip_nil: true) do
-        res = self.class.get("#{BASE_URL}user/#{user}/listens", headers:, query:)
+        res = self.class.get("/user/#{user}/listens", headers:, query:)
         unless res.success?
           raise ApiError.new(res["error"], res["code"])
         end
@@ -54,7 +54,7 @@ module ListenBrainz
       }
 
       Rails.cache.fetch("LISTENBRAINZ/#{user}/NOW_PLAYING", expires_in: 2.minutes, skip_nil: true) do
-        res = self.class.get("#{BASE_URL}user/#{user}/playing-now", headers:)
+        res = self.class.get("/user/#{user}/playing-now", headers:)
         unless res.success?
           raise ApiError.new(res["error"], res["code"])
         end
@@ -76,35 +76,35 @@ module ListenBrainz
 
         query = {
           score: 1,
-          count: 100,
+          count: 1000,
           offset:
         }
-        result = Rails.cache.fetch("LISTENBRAINZ/#{user}/LOVED_TRACKS/#{offset}", expires_in: 2.weeks, skip_nil: true) do
-          sleep 0.3
-          res = self.class.get("#{BASE_URL}feedback/user/#{user}/get-feedback", headers:, query:)
+        result = Rails.cache.fetch("LISTENBRAINZ/#{user}/LOVED_TRACKS/#{offset}", expires_in: 1.month, skip_nil: true) do
+          sleep 0.1
+          res = self.class.get("/feedback/user/#{user}/get-feedback", headers:, query:)
           unless res.success?
             raise ApiError.new(res["error"], res["code"])
           end
 
-          res
+          res.to_h
         end
 
         data.push(*result["feedback"])
         total = result["total_count"]
-        offset += 100
+        offset += 1000
       end
 
       data
     end
+  end
 
-    def get_cover_art_url(release_mbid:, size:)
-      return nil unless release_mbid.present? && size.present?
+  def self.get_cover_art_url(release_mbid:, size:)
+    return nil unless release_mbid.present? && size.present?
 
-      url = "#{CAA_BASE_URL}release/#{release_mbid}/front-#{size}"
-      res = self.class.head(url, follow_redirects: false)
-      return nil unless res.success? || res.redirection?
+    url = "#{CAA_BASE_URL}release/#{release_mbid}/front-#{size}"
+    res = HTTParty.head(url, follow_redirects: false, timeout: 30, open_timeout: 10)
+    return nil unless res.success? || res.redirection?
 
-      url
-    end
+    url
   end
 end

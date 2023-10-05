@@ -85,15 +85,15 @@ module LastFM
 
       top_artists
     end
+  end
 
-    def get_cover_art_url(track)
-      url = track&.[]("image")&.[](2)&.[]("#text")
-      return nil unless url.present? && url.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
+  def self.get_cover_art_url(track)
+    url = track&.[]("image")&.[](2)&.[]("#text")
+    return nil unless url.present? && url.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
 
-      res = self.class.head(url)
-      return nil unless res.success?
+    res = HTTParty.head(url, timeout: 30, open_timeout: 10)
+    return nil unless res.success?
 
-      url
-    end
+    url
   end
 end

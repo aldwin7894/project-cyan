@@ -65,7 +65,7 @@ class MusicNpBannerController < ApplicationController
       timestamp = @recent["date"]["uts"].to_i
     end
 
-    @album_art = lastfm.get_cover_art_url(@recent)
+    @album_art = LastFM.get_cover_art_url(@recent)
     @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"
   end
 
@@ -119,7 +119,7 @@ class MusicNpBannerController < ApplicationController
     spotify_album_id = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("spotify_album_id")
 
     if release_mbid.present?
-      @album_art = listenbrainz.get_cover_art_url(release_mbid:, size: 250)
+      @album_art = ListenBrainz.get_cover_art_url(release_mbid:, size: 250)
     elsif spotify_album_id
       @album_art = spotify.get_album_art(album_id: spotify_album_id&.split("/").pop)
     end
