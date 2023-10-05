@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 # typed: true
 
+require "brotli"
+
 module LastFM
   LASTFM_API_KEY = ENV.fetch("LASTFM_API_KEY")
   LASTFM_API_SECRET = ENV.fetch("LASTFM_API_SECRET")
@@ -8,6 +10,7 @@ module LastFM
   JSON_HEADER = {
     "Accept": "application/json",
     "Content-Type": "application/json",
+    "Accept-Encoding": "br,gzip,deflate"
   }
 
   class Error < StandardError; end
@@ -91,8 +94,8 @@ module LastFM
     url = track&.[]("image")&.[](2)&.[]("#text")
     return nil unless url.present? && url.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
 
-    res = HTTParty.head(url, timeout: 30, open_timeout: 10)
-    return nil unless res.success?
+    # res = self.class.head(url)
+    # return nil unless res.success?
 
     url
   end

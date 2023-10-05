@@ -106,3 +106,5 @@ gem "responders", "~> 3.1"
 gem "persistent_httparty", "~> 0.1.2"
 
 gem "sorbet-runtime"
+
+gem "brotli", "~> 0.4.0"

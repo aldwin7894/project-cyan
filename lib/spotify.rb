@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 # typed: true
 
+require "brotli"
+
 module Spotify
   ACCESS_TOKEN_URL = "https://accounts.spotify.com/api/token"
   SPOTIFY_BASE_URL = "https://api.spotify.com/v1"
   JSON_HEADER = {
     "Accept": "application/json",
     "Content-Type": "application/json",
+    "Accept-Encoding": "br,gzip,deflate"
   }
 
   class Auth

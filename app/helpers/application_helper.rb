@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "addressable/uri"
+require "brotli"
 
 module ApplicationHelper
   IMAGE_FILETYPES = ["jpg", "jpeg", "gif", "png", "webp"]
@@ -15,10 +16,11 @@ module ApplicationHelper
       res = HTTParty.get(
         url,
         format: :plain,
-        headers: { "Accept-Encoding" => "gzip,deflate,br" },
-        timeout: 10
+        headers: { "Accept-Encoding" => "br,gzip,deflate" },
+        timeout: 30,
+        open_timeout: 10
       )
-      return if res.code >= 300
+      return nil unless res.success?
 
       ext = res.headers&.content_type&.split("/")
       if ext[0] == "image" || IMAGE_FILETYPES.include?(filetype)
@@ -47,10 +49,11 @@ module ApplicationHelper
       res = HTTParty.get(
         url,
         format: :plain,
-        headers: { "Accept-Encoding" => "gzip,deflate,br" },
-        timeout: 10
+        headers: { "Accept-Encoding" => "br,gzip,deflate" },
+        timeout: 30,
+        open_timeout: 10
       )
-      return if res.code >= 300
+      return nil unless res.success?
       ext = res.headers&.content_type
 
       { data: res.body, ext: }

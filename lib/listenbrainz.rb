@@ -2,6 +2,7 @@
 # typed: true
 
 require "sorbet-runtime"
+require "brotli"
 
 module ListenBrainz
   LISTENBRAINZ_USER_TOKEN = ENV.fetch("LISTENBRAINZ_USER_TOKEN")
@@ -10,6 +11,7 @@ module ListenBrainz
   JSON_HEADER = {
     "Accept": "application/json",
     "Content-Type": "application/json",
+    "Accept-Encoding": "br,gzip,deflate",
     "Authorization": "Token #{LISTENBRAINZ_USER_TOKEN}"
   }
 
@@ -102,8 +104,8 @@ module ListenBrainz
     return nil unless release_mbid.present? && size.present?
 
     url = "#{CAA_BASE_URL}release/#{release_mbid}/front-#{size}"
-    res = HTTParty.head(url, follow_redirects: false, timeout: 30, open_timeout: 10)
-    return nil unless res.success? || res.redirection?
+    # res = self.class.head(url, follow_redirects: false)
+    # return nil unless res.success? || res.redirection?
 
     url
   end
