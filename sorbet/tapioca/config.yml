@@ -12,6 +12,10 @@ gem:
     - rack-cors
     - logstash-event
     - tzinfo-data
+    - sorbet
+    - tapioca
+    - ruby-lsp
+    - ruby-lsp-rails
 dsl:
   verify: true
 annotations:

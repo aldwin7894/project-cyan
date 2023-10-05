@@ -48,5 +48,6 @@ module Mongoid::Timestamps::Created::ClassMethods; end
 module Mongoid::Timestamps::Created::Short::ClassMethods; end
 module Mongoid::Timestamps::Updated::ClassMethods; end
 module Mongoid::Timestamps::Updated::Short::ClassMethods; end
+module RBI::TypedParam; end
 module Rack::Brotli; end
 module Rack::Cors; end
