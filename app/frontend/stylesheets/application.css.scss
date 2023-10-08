@@ -39,7 +39,7 @@ main {
   bottom: 0;
   z-index: -1;
 
-  div[class^="eq-bar"] {
+  div[class*="eq-bar"] {
     width: 2vw;
     animation: equalize 5s linear 2s infinite alternate;
     height: 3px;
@@ -260,7 +260,7 @@ main {
   }
 
   100% {
-    height: 130px;
+    height: 20vh;
   }
 }
 
