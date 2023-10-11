@@ -98,6 +98,11 @@ module ViteRails::TagHelpers
   # source://vite_rails//lib/vite_rails/tag_helpers.rb#38
   def vite_javascript_tag(*names, type: T.unsafe(nil), asset_type: T.unsafe(nil), skip_preload_tags: T.unsafe(nil), skip_style_tags: T.unsafe(nil), crossorigin: T.unsafe(nil), media: T.unsafe(nil), **options); end
 
+  # Public: Renders a <picture> tag with one or more Vite asset sources.
+  #
+  # source://vite_rails//lib/vite_rails/tag_helpers.rb#83
+  def vite_picture_tag(*sources, &block); end
+
   # Public: Renders a script tag to enable HMR with React Refresh.
   #
   # source://vite_rails//lib/vite_rails/tag_helpers.rb#13
@@ -117,12 +122,12 @@ module ViteRails::TagHelpers
 
   # Internal: Returns the current manifest loaded by Vite Ruby.
   #
-  # source://vite_rails//lib/vite_rails/tag_helpers.rb#85
+  # source://vite_rails//lib/vite_rails/tag_helpers.rb#98
   def vite_manifest; end
 
   # Internal: Renders a modulepreload link tag.
   #
-  # source://vite_rails//lib/vite_rails/tag_helpers.rb#90
+  # source://vite_rails//lib/vite_rails/tag_helpers.rb#103
   def vite_preload_tag(*sources, crossorigin:, **options); end
 end
 
