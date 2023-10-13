@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "@hotwired/turbo-rails": "^7.3.0",
-    "@rails/actioncable": "^7.1.0",
+    "@rails/actioncable": "^7.1.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.6",
     "@tailwindcss/typography": "^0.5.10",
@@ -37,7 +37,7 @@
     "postcss-import": "^15.1.0",
     "postcss-preset-env": "^9.2.0",
     "rollup-plugin-gzip": "^3.1.0",
-    "sass": "^1.69.2",
+    "sass": "^1.69.3",
     "swiper": "^10.3.1",
     "tailwindcss": "^3.3.3",
     "tailwindcss-animatecss": "^3.0.4",
