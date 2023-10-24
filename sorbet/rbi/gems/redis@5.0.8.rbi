@@ -95,19 +95,19 @@ class Redis
 
   private
 
-  # source://redis//lib/redis.rb#179
+  # source://redis//lib/redis.rb#164
   def _subscription(method, timeout, channels, block); end
 
   # source://redis//lib/redis.rb#134
   def initialize_client(options); end
 
-  # source://redis//lib/redis.rb#173
+  # source://redis//lib/redis.rb#158
   def send_blocking_command(command, timeout, &block); end
 
-  # source://redis//lib/redis.rb#165
+  # source://redis//lib/redis.rb#150
   def send_command(command, &block); end
 
-  # source://redis//lib/redis.rb#161
+  # source://redis//lib/redis.rb#146
   def synchronize; end
 
   class << self
@@ -169,16 +169,13 @@ class Redis::Client < ::RedisClient
   # source://redis//lib/redis/client.rb#60
   def db; end
 
-  # source://redis//lib/redis/client.rb#120
-  def disable_reconnection(&block); end
-
   # source://redis//lib/redis/client.rb#64
   def host; end
 
   # source://redis//lib/redis/client.rb#48
   def id; end
 
-  # source://redis//lib/redis/client.rb#124
+  # source://redis//lib/redis/client.rb#120
   def inherit_socket!; end
 
   # source://redis//lib/redis/client.rb#114
@@ -1378,6 +1375,22 @@ module Redis::Commands::Pubsub
   # source://redis//lib/redis/commands/pubsub.rb#43
   def punsubscribe(*channels); end
 
+  # Post a message to a channel in a shard.
+  #
+  # source://redis//lib/redis/commands/pubsub.rb#54
+  def spublish(channel, message); end
+
+  # Listen for messages published to the given channels in a shard.
+  #
+  # source://redis//lib/redis/commands/pubsub.rb#59
+  def ssubscribe(*channels, &block); end
+
+  # Listen for messages published to the given channels in a shard.
+  # Throw a timeout error if there is no messages for a timeout period.
+  #
+  # source://redis//lib/redis/commands/pubsub.rb#65
+  def ssubscribe_with_timeout(timeout, *channels, &block); end
+
   # Listen for messages published to the given channels.
   #
   # source://redis//lib/redis/commands/pubsub.rb#16
@@ -1393,6 +1406,11 @@ module Redis::Commands::Pubsub
   #
   # source://redis//lib/redis/commands/pubsub.rb#11
   def subscribed?; end
+
+  # Stop listening for messages posted to the given channels in a shard.
+  #
+  # source://redis//lib/redis/commands/pubsub.rb#70
+  def sunsubscribe(*channels); end
 
   # Stop listening for messages posted to the given channels.
   #
@@ -4153,7 +4171,7 @@ class Redis::SubscribedClient
   # source://redis//lib/redis/subscribe.rb#10
   def call_v(command); end
 
-  # source://redis//lib/redis/subscribe.rb#40
+  # source://redis//lib/redis/subscribe.rb#52
   def close; end
 
   # source://redis//lib/redis/subscribe.rb#24
@@ -4162,8 +4180,14 @@ class Redis::SubscribedClient
   # source://redis//lib/redis/subscribe.rb#28
   def psubscribe_with_timeout(timeout, *channels, &block); end
 
-  # source://redis//lib/redis/subscribe.rb#36
+  # source://redis//lib/redis/subscribe.rb#44
   def punsubscribe(*channels); end
+
+  # source://redis//lib/redis/subscribe.rb#32
+  def ssubscribe(*channels, &block); end
+
+  # source://redis//lib/redis/subscribe.rb#36
+  def ssubscribe_with_timeout(timeout, *channels, &block); end
 
   # source://redis//lib/redis/subscribe.rb#16
   def subscribe(*channels, &block); end
@@ -4171,45 +4195,57 @@ class Redis::SubscribedClient
   # source://redis//lib/redis/subscribe.rb#20
   def subscribe_with_timeout(timeout, *channels, &block); end
 
-  # source://redis//lib/redis/subscribe.rb#32
+  # source://redis//lib/redis/subscribe.rb#48
+  def sunsubscribe(*channels); end
+
+  # source://redis//lib/redis/subscribe.rb#40
   def unsubscribe(*channels); end
 
   protected
 
-  # source://redis//lib/redis/subscribe.rb#46
+  # source://redis//lib/redis/subscribe.rb#58
   def subscription(start, stop, channels, block, timeout = T.unsafe(nil)); end
 end
 
-# source://redis//lib/redis/subscribe.rb#66
+# source://redis//lib/redis/subscribe.rb#82
 class Redis::Subscription
   # @return [Subscription] a new instance of Subscription
   # @yield [_self]
   # @yieldparam _self [Redis::Subscription] the object that the method was called on
   #
-  # source://redis//lib/redis/subscribe.rb#69
+  # source://redis//lib/redis/subscribe.rb#85
   def initialize; end
 
   # Returns the value of attribute callbacks.
   #
-  # source://redis//lib/redis/subscribe.rb#67
+  # source://redis//lib/redis/subscribe.rb#83
   def callbacks; end
 
-  # source://redis//lib/redis/subscribe.rb#82
+  # source://redis//lib/redis/subscribe.rb#98
   def message(&block); end
 
-  # source://redis//lib/redis/subscribe.rb#94
+  # source://redis//lib/redis/subscribe.rb#110
   def pmessage(&block); end
 
-  # source://redis//lib/redis/subscribe.rb#86
+  # source://redis//lib/redis/subscribe.rb#102
   def psubscribe(&block); end
 
-  # source://redis//lib/redis/subscribe.rb#90
+  # source://redis//lib/redis/subscribe.rb#106
   def punsubscribe(&block); end
 
-  # source://redis//lib/redis/subscribe.rb#74
+  # source://redis//lib/redis/subscribe.rb#122
+  def smessage(&block); end
+
+  # source://redis//lib/redis/subscribe.rb#114
+  def ssubscribe(&block); end
+
+  # source://redis//lib/redis/subscribe.rb#90
   def subscribe(&block); end
 
-  # source://redis//lib/redis/subscribe.rb#78
+  # source://redis//lib/redis/subscribe.rb#118
+  def sunsubscribe(&block); end
+
+  # source://redis//lib/redis/subscribe.rb#94
   def unsubscribe(&block); end
 end
 

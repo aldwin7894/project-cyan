@@ -108,7 +108,7 @@
 #   end
 #
 #   # Support for "UTF8=ACCEPT" implies support for "ENABLE"
-#   imap.enable :utf8 if imap.auth_capable?("UTF8=ACCEPT")
+#   imap.enable :utf8 if imap.capable?("UTF8=ACCEPT")
 #
 #   namespaces  = imap.namespace if imap.capable?(:namespace)
 #   mbox_prefix = namespaces&.personal&.first&.prefix || ""
@@ -749,7 +749,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # @raise [ArgumentError]
   #
-  # source://net-imap//lib/net/imap.rb#2373
+  # source://net-imap//lib/net/imap.rb#2376
   def add_response_handler(handler = T.unsafe(nil), &block); end
 
   # Sends an {APPEND command [IMAP4rev1 §6.3.11]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.3.11]
@@ -784,7 +784,7 @@ class Net::IMAP < ::Net::Protocol
   # TODO: add MULTIAPPEND support
   # ++
   #
-  # source://net-imap//lib/net/imap.rb#1717
+  # source://net-imap//lib/net/imap.rb#1721
   def append(mailbox, message, flags = T.unsafe(nil), date_time = T.unsafe(nil)); end
 
   # Returns whether the server supports a given SASL +mechanism+ for use with
@@ -801,7 +801,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap.rb#971
+  # source://net-imap//lib/net/imap.rb#972
   def auth_capable?(mechanism); end
 
   # Returns the #authenticate mechanisms that the server claims to support.
@@ -825,11 +825,14 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #authenticate, #auth_capable?, #capabilities
   #
-  # source://net-imap//lib/net/imap.rb#954
+  # source://net-imap//lib/net/imap.rb#955
   def auth_mechanisms; end
 
   # :call-seq:
-  #   authenticate(mechanism, *, sasl_ir: true, **, &) -> ok_resp
+  #   authenticate(mechanism, *,
+  #                sasl_ir: true,
+  #                registry: Net::IMAP::SASL.authenticators,
+  #                **, &) -> ok_resp
   #
   # Sends an {AUTHENTICATE command [IMAP4rev1 §6.2.2]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.2.2]
   # to authenticate the client.  If successful, the connection enters the
@@ -935,7 +938,7 @@ class Net::IMAP < ::Net::Protocol
   # completes.  If the TaggedResponse to #authenticate includes updated
   # capabilities, they will be cached.
   #
-  # source://net-imap//lib/net/imap.rb#1250
+  # source://net-imap//lib/net/imap.rb#1254
   def authenticate(mechanism, *creds, sasl_ir: T.unsafe(nil), **props, &callback); end
 
   # Returns the server capabilities.  When available, cached capabilities are
@@ -950,7 +953,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #capable?, #auth_capable?, #auth_mechanisms, #capability, #enable
   #
-  # source://net-imap//lib/net/imap.rb#930
+  # source://net-imap//lib/net/imap.rb#931
   def capabilities; end
 
   # Returns whether capabilities have been cached.  When true, #capable? and
@@ -962,7 +965,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap.rb#981
+  # source://net-imap//lib/net/imap.rb#982
   def capabilities_cached?; end
 
   # Sends a {CAPABILITY command [IMAP4rev1 §6.1.1]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.1.1]
@@ -984,7 +987,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #capable?, #auth_capable?, #capability, #enable
   #
-  # source://net-imap//lib/net/imap.rb#1019
+  # source://net-imap//lib/net/imap.rb#1020
   def capability; end
 
   # Returns whether the server supports a given +capability+.  When available,
@@ -1000,7 +1003,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap.rb#916
+  # source://net-imap//lib/net/imap.rb#917
   def capability?(capability); end
 
   # Returns whether the server supports a given +capability+.  When available,
@@ -1016,7 +1019,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap.rb#916
+  # source://net-imap//lib/net/imap.rb#917
   def capable?(capability); end
 
   # Sends a {CHECK command [IMAP4rev1 §6.4.1]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.4.1]
@@ -1026,7 +1029,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #idle, #noop
   #
-  # source://net-imap//lib/net/imap.rb#1733
+  # source://net-imap//lib/net/imap.rb#1737
   def check; end
 
   # Clears capabilities that have been remembered by the Net::IMAP client.
@@ -1039,7 +1042,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #capable?, #capability, #capabilities_cached?
   #
-  # source://net-imap//lib/net/imap.rb#994
+  # source://net-imap//lib/net/imap.rb#995
   def clear_cached_capabilities; end
 
   # :call-seq:
@@ -1054,10 +1057,10 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #responses, #response_handlers
   #
-  # source://net-imap//lib/net/imap.rb#2330
+  # source://net-imap//lib/net/imap.rb#2333
   def clear_responses(type = T.unsafe(nil)); end
 
-  # source://net-imap//lib/net/imap.rb#869
+  # source://net-imap//lib/net/imap.rb#870
   def client_thread; end
 
   # Sends a {CLOSE command [IMAP4rev1 §6.4.2]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.4.2]
@@ -1067,7 +1070,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #unselect
   #
-  # source://net-imap//lib/net/imap.rb#1743
+  # source://net-imap//lib/net/imap.rb#1747
   def close; end
 
   # Sends a {COPY command [IMAP4rev1 §6.4.7]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.4.7]
@@ -1085,7 +1088,7 @@ class Net::IMAP < ::Net::Protocol
   # mailbox, the UID set of the source messages, and the assigned UID set of
   # the moved messages.
   #
-  # source://net-imap//lib/net/imap.rb#1979
+  # source://net-imap//lib/net/imap.rb#1982
   def copy(set, mailbox); end
 
   # Sends a {CREATE command [IMAP4rev1 §6.3.3]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.3.3]
@@ -1096,7 +1099,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #rename, #delete
   #
-  # source://net-imap//lib/net/imap.rb#1360
+  # source://net-imap//lib/net/imap.rb#1364
   def create(mailbox); end
 
   # Sends a {DELETE command [IMAP4rev1 §6.3.4]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.3.4]
@@ -1108,14 +1111,14 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #create, #rename
   #
-  # source://net-imap//lib/net/imap.rb#1372
+  # source://net-imap//lib/net/imap.rb#1376
   def delete(mailbox); end
 
   # Disconnects from the server.
   #
   # Related: #logout, #logout!
   #
-  # source://net-imap//lib/net/imap.rb#877
+  # source://net-imap//lib/net/imap.rb#878
   def disconnect; end
 
   # Returns true if disconnected from the server.
@@ -1124,7 +1127,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap.rb#902
+  # source://net-imap//lib/net/imap.rb#903
   def disconnected?; end
 
   # Sends an {ENABLE command [RFC5161 §3.2]}[https://www.rfc-editor.org/rfc/rfc5161#section-3.1]
@@ -1193,7 +1196,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # <em>Caution is advised.</em>
   #
-  # source://net-imap//lib/net/imap.rb#2183
+  # source://net-imap//lib/net/imap.rb#2186
   def enable(*capabilities); end
 
   # Sends a {EXAMINE command [IMAP4rev1 §6.3.2]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.3.2]
@@ -1206,7 +1209,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #select
   #
-  # source://net-imap//lib/net/imap.rb#1346
+  # source://net-imap//lib/net/imap.rb#1350
   def examine(mailbox); end
 
   # Sends an {EXPUNGE command [IMAP4rev1 §6.4.3]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.4.3]
@@ -1215,7 +1218,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #uid_expunge
   #
-  # source://net-imap//lib/net/imap.rb#1768
+  # source://net-imap//lib/net/imap.rb#1772
   def expunge; end
 
   # Sends a {FETCH command [IMAP4rev1 §6.4.5]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.4.5]
@@ -1233,8 +1236,7 @@ class Net::IMAP < ::Net::Protocol
   # +attr+ is a list of attributes to fetch; see the documentation
   # for FetchData for a list of valid attributes.
   #
-  # The return value is an array of FetchData or nil
-  # (instead of an empty array) if there is no matching message.
+  # The return value is an array of FetchData.
   #
   # Related: #uid_search, FetchData
   #
@@ -1256,7 +1258,7 @@ class Net::IMAP < ::Net::Protocol
   #   p data.attr["UID"]
   #   #=> 98
   #
-  # source://net-imap//lib/net/imap.rb#1911
+  # source://net-imap//lib/net/imap.rb#1914
   def fetch(set, attr, mod = T.unsafe(nil)); end
 
   # Sends a {GETACL command [RFC4314 §3.3]}[https://www.rfc-editor.org/rfc/rfc4314#section-3.3]
@@ -1270,7 +1272,7 @@ class Net::IMAP < ::Net::Protocol
   # The server's capabilities must include +ACL+
   # [RFC4314[https://tools.ietf.org/html/rfc4314]].
   #
-  # source://net-imap//lib/net/imap.rb#1640
+  # source://net-imap//lib/net/imap.rb#1644
   def getacl(mailbox); end
 
   # Sends a {GETQUOTA command [RFC2087 §4.2]}[https://www.rfc-editor.org/rfc/rfc2087#section-4.2]
@@ -1285,7 +1287,7 @@ class Net::IMAP < ::Net::Protocol
   # The server's capabilities must include +QUOTA+
   # [RFC2087[https://tools.ietf.org/html/rfc2087]].
   #
-  # source://net-imap//lib/net/imap.rb#1584
+  # source://net-imap//lib/net/imap.rb#1588
   def getquota(mailbox); end
 
   # Sends a {GETQUOTAROOT command [RFC2087 §4.3]}[https://www.rfc-editor.org/rfc/rfc2087#section-4.3]
@@ -1300,17 +1302,17 @@ class Net::IMAP < ::Net::Protocol
   # The server's capabilities must include +QUOTA+
   # [RFC2087[https://tools.ietf.org/html/rfc2087]].
   #
-  # source://net-imap//lib/net/imap.rb#1563
+  # source://net-imap//lib/net/imap.rb#1567
   def getquotaroot(mailbox); end
 
   # Returns the initial greeting the server, an UntaggedResponse.
   #
-  # source://net-imap//lib/net/imap.rb#709
+  # source://net-imap//lib/net/imap.rb#710
   def greeting; end
 
   # The hostname this client connected to
   #
-  # source://net-imap//lib/net/imap.rb#720
+  # source://net-imap//lib/net/imap.rb#721
   def host; end
 
   # Sends an {ID command [RFC2971 §3.1]}[https://www.rfc-editor.org/rfc/rfc2971#section-3.1]
@@ -1336,7 +1338,7 @@ class Net::IMAP < ::Net::Protocol
   # The server's capabilities must include +ID+
   # [RFC2971[https://tools.ietf.org/html/rfc2971]]
   #
-  # source://net-imap//lib/net/imap.rb#1048
+  # source://net-imap//lib/net/imap.rb#1049
   def id(client_id = T.unsafe(nil)); end
 
   # Sends an {IDLE command [RFC2177 §3]}[https://www.rfc-editor.org/rfc/rfc6851#section-3]
@@ -1365,19 +1367,19 @@ class Net::IMAP < ::Net::Protocol
   #
   # @raise [LocalJumpError]
   #
-  # source://net-imap//lib/net/imap.rb#2221
+  # source://net-imap//lib/net/imap.rb#2224
   def idle(timeout = T.unsafe(nil), &response_handler); end
 
   # Leaves IDLE.
   #
   # Related: #idle
   #
-  # source://net-imap//lib/net/imap.rb#2253
+  # source://net-imap//lib/net/imap.rb#2256
   def idle_done; end
 
   # Seconds to wait until an IDLE response is received.
   #
-  # source://net-imap//lib/net/imap.rb#717
+  # source://net-imap//lib/net/imap.rb#718
   def idle_response_timeout; end
 
   # Sends a {LIST command [IMAP4rev1 §6.3.8]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.3.8]
@@ -1411,7 +1413,7 @@ class Net::IMAP < ::Net::Protocol
   # TODO: support LIST-EXTENDED extension [RFC5258].  Needed for IMAP4rev2.
   # ++
   #
-  # source://net-imap//lib/net/imap.rb#1444
+  # source://net-imap//lib/net/imap.rb#1448
   def list(refname, mailbox); end
 
   # Sends a {LOGIN command [IMAP4rev1 §6.2.3]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.2.3]
@@ -1444,7 +1446,7 @@ class Net::IMAP < ::Net::Protocol
   # The TaggedResponse to #login may include updated capabilities in its
   # ResponseCode.
   #
-  # source://net-imap//lib/net/imap.rb#1303
+  # source://net-imap//lib/net/imap.rb#1307
   def login(user, password); end
 
   # Sends a {LOGOUT command [IMAP4rev1 §6.1.3]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.1.3]
@@ -1453,7 +1455,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #disconnect, #logout!
   #
-  # source://net-imap//lib/net/imap.rb#1076
+  # source://net-imap//lib/net/imap.rb#1077
   def logout; end
 
   # Calls #logout then, after receiving the TaggedResponse for the +LOGOUT+,
@@ -1470,7 +1472,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #logout, #disconnect
   #
-  # source://net-imap//lib/net/imap.rb#1093
+  # source://net-imap//lib/net/imap.rb#1094
   def logout!; end
 
   # Sends a {LSUB command [IMAP4rev1 §6.3.9]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.3.9]
@@ -1482,7 +1484,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #subscribe, #unsubscribe, #list, MailboxList
   #
-  # source://net-imap//lib/net/imap.rb#1655
+  # source://net-imap//lib/net/imap.rb#1659
   def lsub(refname, mailbox); end
 
   # Sends a {MOVE command [RFC6851 §3.1]}[https://www.rfc-editor.org/rfc/rfc6851#section-3.1]
@@ -1504,7 +1506,7 @@ class Net::IMAP < ::Net::Protocol
   # mailbox, the UID set of the source messages, and the assigned UID set of
   # the moved messages.
   #
-  # source://net-imap//lib/net/imap.rb#2015
+  # source://net-imap//lib/net/imap.rb#2018
   def move(set, mailbox); end
 
   # Sends a {NAMESPACE command [RFC2342 §5]}[https://www.rfc-editor.org/rfc/rfc2342#section-5]
@@ -1558,7 +1560,7 @@ class Net::IMAP < ::Net::Protocol
   # The server's capabilities must include +NAMESPACE+
   # [RFC2342[https://tools.ietf.org/html/rfc2342]].
   #
-  # source://net-imap//lib/net/imap.rb#1501
+  # source://net-imap//lib/net/imap.rb#1505
   def namespace; end
 
   # Sends a {NOOP command [IMAP4rev1 §6.1.2]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.1.2]
@@ -1574,26 +1576,26 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #idle, #check
   #
-  # source://net-imap//lib/net/imap.rb#1067
+  # source://net-imap//lib/net/imap.rb#1068
   def noop; end
 
   # Seconds to wait until a connection is opened.
   # If the IMAP object cannot open a connection within this time,
   # it raises a Net::OpenTimeout exception. The default value is 30 seconds.
   #
-  # source://net-imap//lib/net/imap.rb#714
+  # source://net-imap//lib/net/imap.rb#715
   def open_timeout; end
 
   # The port this client connected to
   #
-  # source://net-imap//lib/net/imap.rb#723
+  # source://net-imap//lib/net/imap.rb#724
   def port; end
 
   # Removes the response handler.
   #
   # Related: #add_response_handler, #response_handlers
   #
-  # source://net-imap//lib/net/imap.rb#2383
+  # source://net-imap//lib/net/imap.rb#2386
   def remove_response_handler(handler); end
 
   # Sends a {RENAME command [IMAP4rev1 §6.3.5]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.3.5]
@@ -1606,7 +1608,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #create, #delete
   #
-  # source://net-imap//lib/net/imap.rb#1385
+  # source://net-imap//lib/net/imap.rb#1389
   def rename(mailbox, newname); end
 
   # Returns all response handlers, including those that are added internally
@@ -1623,7 +1625,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #add_response_handler, #remove_response_handler
   #
-  # source://net-imap//lib/net/imap.rb#2356
+  # source://net-imap//lib/net/imap.rb#2359
   def response_handlers; end
 
   # :call-seq:
@@ -1673,7 +1675,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #clear_responses, #response_handlers, #greeting
   #
-  # source://net-imap//lib/net/imap.rb#2308
+  # source://net-imap//lib/net/imap.rb#2311
   def responses(type = T.unsafe(nil)); end
 
   # Sends a {SEARCH command [IMAP4rev1 §6.4.4]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.4.4]
@@ -1730,7 +1732,7 @@ class Net::IMAP < ::Net::Protocol
   #   p imap.search(["SUBJECT", "hello", "NOT", "NEW"])
   #   #=> [1, 6, 7, 8]
   #
-  # source://net-imap//lib/net/imap.rb#1861
+  # source://net-imap//lib/net/imap.rb#1865
   def search(keys, charset = T.unsafe(nil)); end
 
   # Sends a {SELECT command [IMAP4rev1 §6.3.1]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.3.1]
@@ -1756,7 +1758,7 @@ class Net::IMAP < ::Net::Protocol
   # UIDs:
   #   @responses["NO"].last.code.name == "UIDNOTSTICKY"
   #
-  # source://net-imap//lib/net/imap.rb#1330
+  # source://net-imap//lib/net/imap.rb#1334
   def select(mailbox); end
 
   # Sends a {SETACL command [RFC4314 §3.1]}[https://www.rfc-editor.org/rfc/rfc4314#section-3.1]
@@ -1771,7 +1773,7 @@ class Net::IMAP < ::Net::Protocol
   # The server's capabilities must include +ACL+
   # [RFC4314[https://tools.ietf.org/html/rfc4314]].
   #
-  # source://net-imap//lib/net/imap.rb#1622
+  # source://net-imap//lib/net/imap.rb#1626
   def setacl(mailbox, user, rights); end
 
   # Sends a {SETQUOTA command [RFC2087 §4.1]}[https://www.rfc-editor.org/rfc/rfc2087#section-4.1]
@@ -1786,7 +1788,7 @@ class Net::IMAP < ::Net::Protocol
   # The server's capabilities must include +QUOTA+
   # [RFC2087[https://tools.ietf.org/html/rfc2087]].
   #
-  # source://net-imap//lib/net/imap.rb#1602
+  # source://net-imap//lib/net/imap.rb#1606
   def setquota(mailbox, quota); end
 
   # Sends a {SORT command [RFC5256 §3]}[https://www.rfc-editor.org/rfc/rfc5256#section-3]
@@ -1812,7 +1814,7 @@ class Net::IMAP < ::Net::Protocol
   # The server's capabilities must include +SORT+
   # [RFC5256[https://tools.ietf.org/html/rfc5256]].
   #
-  # source://net-imap//lib/net/imap.rb#2059
+  # source://net-imap//lib/net/imap.rb#2062
   def sort(sort_keys, search_keys, charset); end
 
   # Returns the
@@ -1822,7 +1824,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Returns +nil+ for a plaintext connection.
   #
-  # source://net-imap//lib/net/imap.rb#731
+  # source://net-imap//lib/net/imap.rb#732
   def ssl_ctx; end
 
   # Returns the parameters that were sent to #ssl_ctx
@@ -1831,7 +1833,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Returns +false+ for a plaintext connection.
   #
-  # source://net-imap//lib/net/imap.rb#738
+  # source://net-imap//lib/net/imap.rb#739
   def ssl_ctx_params; end
 
   # Sends a {STARTTLS command [IMAP4rev1 §6.2.1]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.2.1]
@@ -1885,7 +1887,7 @@ class Net::IMAP < ::Net::Protocol
   # for +mailbox+ cannot be returned; for instance, because it
   # does not exist.
   #
-  # source://net-imap//lib/net/imap.rb#1679
+  # source://net-imap//lib/net/imap.rb#1683
   def status(mailbox, attr); end
 
   # Sends a {STORE command [IMAP4rev1 §6.4.6]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.4.6]
@@ -1907,7 +1909,7 @@ class Net::IMAP < ::Net::Protocol
   #        #<Net::IMAP::FetchData seqno=7, attr={"FLAGS"=>[:Seen, :Deleted]}>, \\
   #        #<Net::IMAP::FetchData seqno=8, attr={"FLAGS"=>[:Seen, :Deleted]}>]
   #
-  # source://net-imap//lib/net/imap.rb#1949
+  # source://net-imap//lib/net/imap.rb#1952
   def store(set, attr, flags); end
 
   # Sends a {SUBSCRIBE command [IMAP4rev1 §6.3.6]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.3.6]
@@ -1919,7 +1921,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #unsubscribe, #lsub, #list
   #
-  # source://net-imap//lib/net/imap.rb#1397
+  # source://net-imap//lib/net/imap.rb#1401
   def subscribe(mailbox); end
 
   # Sends a {THREAD command [RFC5256 §3]}[https://www.rfc-editor.org/rfc/rfc5256#section-3]
@@ -1944,7 +1946,7 @@ class Net::IMAP < ::Net::Protocol
   # The server's capabilities must include +THREAD+
   # [RFC5256[https://tools.ietf.org/html/rfc5256]].
   #
-  # source://net-imap//lib/net/imap.rb#2099
+  # source://net-imap//lib/net/imap.rb#2102
   def thread(algorithm, search_keys, charset); end
 
   # Returns true after the TLS negotiation has completed and the remote
@@ -1953,7 +1955,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap.rb#867
+  # source://net-imap//lib/net/imap.rb#868
   def tls_verified?; end
 
   # Sends a {UID COPY command [IMAP4rev1 §6.4.8]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.4.8]
@@ -1966,7 +1968,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # +UIDPLUS+ affects #uid_copy the same way it affects #copy.
   #
-  # source://net-imap//lib/net/imap.rb#1992
+  # source://net-imap//lib/net/imap.rb#1995
   def uid_copy(set, mailbox); end
 
   # Sends a {UID EXPUNGE command [RFC4315 §2.1]}[https://www.rfc-editor.org/rfc/rfc4315#section-2.1]
@@ -1995,7 +1997,7 @@ class Net::IMAP < ::Net::Protocol
   # The server's capabilities must include +UIDPLUS+
   # [RFC4315[https://www.rfc-editor.org/rfc/rfc4315.html]].
   #
-  # source://net-imap//lib/net/imap.rb#1800
+  # source://net-imap//lib/net/imap.rb#1804
   def uid_expunge(uid_set); end
 
   # Sends a {UID FETCH command [IMAP4rev1 §6.4.8]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.4.8]
@@ -2011,7 +2013,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #fetch, FetchData
   #
-  # source://net-imap//lib/net/imap.rb#1927
+  # source://net-imap//lib/net/imap.rb#1930
   def uid_fetch(set, attr, mod = T.unsafe(nil)); end
 
   # Sends a {UID MOVE command [RFC6851 §3.2]}[https://www.rfc-editor.org/rfc/rfc6851#section-3.2]
@@ -2029,7 +2031,7 @@ class Net::IMAP < ::Net::Protocol
   # [RFC6851[https://tools.ietf.org/html/rfc6851]].  +UIDPLUS+ also affects
   # #uid_move the same way it affects #move.
   #
-  # source://net-imap//lib/net/imap.rb#2033
+  # source://net-imap//lib/net/imap.rb#2036
   def uid_move(set, mailbox); end
 
   # Sends a {UID SEARCH command [IMAP4rev1 §6.4.8]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.4.8]
@@ -2038,7 +2040,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # See #search for documentation of search criteria.
   #
-  # source://net-imap//lib/net/imap.rb#1870
+  # source://net-imap//lib/net/imap.rb#1874
   def uid_search(keys, charset = T.unsafe(nil)); end
 
   # Sends a {UID SORT command [RFC5256 §3]}[https://www.rfc-editor.org/rfc/rfc5256#section-3]
@@ -2053,7 +2055,7 @@ class Net::IMAP < ::Net::Protocol
   # The server's capabilities must include +SORT+
   # [RFC5256[https://tools.ietf.org/html/rfc5256]].
   #
-  # source://net-imap//lib/net/imap.rb#2074
+  # source://net-imap//lib/net/imap.rb#2077
   def uid_sort(sort_keys, search_keys, charset); end
 
   # Sends a {UID STORE command [IMAP4rev1 §6.4.8]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.4.8]
@@ -2065,7 +2067,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #store
   #
-  # source://net-imap//lib/net/imap.rb#1961
+  # source://net-imap//lib/net/imap.rb#1964
   def uid_store(set, attr, flags); end
 
   # Sends a {UID THREAD command [RFC5256 §3]}[https://www.rfc-editor.org/rfc/rfc5256#section-3]
@@ -2079,7 +2081,7 @@ class Net::IMAP < ::Net::Protocol
   # The server's capabilities must include +THREAD+
   # [RFC5256[https://tools.ietf.org/html/rfc5256]].
   #
-  # source://net-imap//lib/net/imap.rb#2113
+  # source://net-imap//lib/net/imap.rb#2116
   def uid_thread(algorithm, search_keys, charset); end
 
   # Sends an {UNSELECT command [RFC3691 §2]}[https://www.rfc-editor.org/rfc/rfc3691#section-3]
@@ -2095,7 +2097,7 @@ class Net::IMAP < ::Net::Protocol
   # The server's capabilities must include +UNSELECT+
   # [RFC3691[https://tools.ietf.org/html/rfc3691]].
   #
-  # source://net-imap//lib/net/imap.rb#1759
+  # source://net-imap//lib/net/imap.rb#1763
   def unselect; end
 
   # Sends an {UNSUBSCRIBE command [IMAP4rev1 §6.3.7]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.3.7]
@@ -2108,7 +2110,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # Related: #subscribe, #lsub, #list
   #
-  # source://net-imap//lib/net/imap.rb#1410
+  # source://net-imap//lib/net/imap.rb#1414
   def unsubscribe(mailbox); end
 
   # Sends a XLIST command, and returns a subset of names from
@@ -2149,69 +2151,72 @@ class Net::IMAP < ::Net::Protocol
   # unless the SPECIAL-USE return option is supplied.
   # ++
   #
-  # source://net-imap//lib/net/imap.rb#1545
+  # source://net-imap//lib/net/imap.rb#1549
   def xlist(refname, mailbox); end
 
   private
 
-  # source://net-imap//lib/net/imap.rb#2721
+  # source://net-imap//lib/net/imap.rb#2724
   def build_ssl_ctx(ssl); end
 
   # NOTE: only call this for greeting, login, and authenticate
   #
-  # source://net-imap//lib/net/imap.rb#2563
+  # source://net-imap//lib/net/imap.rb#2566
   def capabilities_from_resp_code(resp); end
 
-  # source://net-imap//lib/net/imap.rb#2680
+  # source://net-imap//lib/net/imap.rb#2683
   def copy_internal(cmd, set, mailbox); end
 
-  # source://net-imap//lib/net/imap.rb#2648
+  # source://net-imap//lib/net/imap.rb#2651
   def fetch_internal(cmd, set, attr, mod = T.unsafe(nil)); end
 
-  # source://net-imap//lib/net/imap.rb#2612
+  # source://net-imap//lib/net/imap.rb#2615
   def generate_tag; end
 
-  # source://net-imap//lib/net/imap.rb#2526
+  # source://net-imap//lib/net/imap.rb#2529
   def get_response; end
 
   # @raise [Error]
   #
-  # source://net-imap//lib/net/imap.rb#2406
+  # source://net-imap//lib/net/imap.rb#2409
   def get_server_greeting; end
 
-  # source://net-imap//lib/net/imap.rb#2499
+  # source://net-imap//lib/net/imap.rb#2502
   def get_tagged_response(tag, cmd, timeout = T.unsafe(nil)); end
 
-  # source://net-imap//lib/net/imap.rb#2710
+  # source://net-imap//lib/net/imap.rb#2713
   def normalize_searching_criteria(keys); end
 
-  # source://net-imap//lib/net/imap.rb#2617
+  # source://net-imap//lib/net/imap.rb#2620
   def put_string(str); end
 
-  # source://net-imap//lib/net/imap.rb#2432
+  # source://net-imap//lib/net/imap.rb#2435
   def receive_responses; end
 
   # store name => [..., data]
   #
-  # source://net-imap//lib/net/imap.rb#2550
+  # source://net-imap//lib/net/imap.rb#2553
   def record_untagged_response(resp); end
 
   # store code.name => [..., code.data]
   #
-  # source://net-imap//lib/net/imap.rb#2556
+  # source://net-imap//lib/net/imap.rb#2559
   def record_untagged_response_code(resp); end
 
-  # source://net-imap//lib/net/imap.rb#2632
+  # source://net-imap//lib/net/imap.rb#2753
+  def sasl_adapter; end
+
+  # source://net-imap//lib/net/imap.rb#2635
   def search_internal(cmd, keys, charset); end
 
-  # source://net-imap//lib/net/imap.rb#2584
+  # source://net-imap//lib/net/imap.rb#2587
   def send_command(cmd, *args, &block); end
 
   # Calls send_command, yielding the text of each ContinuationRequest and
   # responding with each block result.  Returns TaggedResponse.  Raises
   # NoResponseError or BadResponseError.
   #
-  # source://net-imap//lib/net/imap.rb#2575
+  # source://net-imap//lib/net/imap.rb#2578
   def send_command_with_continuations(cmd, *args); end
 
   # source://net-imap//lib/net/imap/command_data.rb#33
@@ -2241,25 +2246,25 @@ class Net::IMAP < ::Net::Protocol
   # source://net-imap//lib/net/imap/command_data.rb#116
   def send_time_data(time); end
 
-  # source://net-imap//lib/net/imap.rb#2684
+  # source://net-imap//lib/net/imap.rb#2687
   def sort_internal(cmd, sort_keys, search_keys, charset); end
 
-  # source://net-imap//lib/net/imap.rb#2397
+  # source://net-imap//lib/net/imap.rb#2400
   def start_imap_connection; end
 
-  # source://net-imap//lib/net/imap.rb#2414
+  # source://net-imap//lib/net/imap.rb#2417
   def start_receiver_thread; end
 
-  # source://net-imap//lib/net/imap.rb#2736
+  # source://net-imap//lib/net/imap.rb#2739
   def start_tls_session; end
 
-  # source://net-imap//lib/net/imap.rb#2669
+  # source://net-imap//lib/net/imap.rb#2672
   def store_internal(cmd, set, attr, flags); end
 
-  # source://net-imap//lib/net/imap.rb#2423
+  # source://net-imap//lib/net/imap.rb#2426
   def tcp_socket(host, port); end
 
-  # source://net-imap//lib/net/imap.rb#2697
+  # source://net-imap//lib/net/imap.rb#2700
   def thread_internal(cmd, algorithm, search_keys, charset); end
 
   # source://net-imap//lib/net/imap/command_data.rb#12
@@ -2268,12 +2273,12 @@ class Net::IMAP < ::Net::Protocol
   class << self
     # Returns the debug mode.
     #
-    # source://net-imap//lib/net/imap.rb#683
+    # source://net-imap//lib/net/imap.rb#684
     def debug; end
 
     # Sets the debug mode.
     #
-    # source://net-imap//lib/net/imap.rb#688
+    # source://net-imap//lib/net/imap.rb#689
     def debug=(val); end
 
     # :call-seq: decode_date(string) -> Date
@@ -2318,27 +2323,27 @@ class Net::IMAP < ::Net::Protocol
 
     # The default port for IMAP connections, port 143
     #
-    # source://net-imap//lib/net/imap.rb#693
+    # source://net-imap//lib/net/imap.rb#694
     def default_imap_port; end
 
     # The default port for IMAPS connections, port 993
     #
-    # source://net-imap//lib/net/imap.rb#698
+    # source://net-imap//lib/net/imap.rb#699
     def default_imaps_port; end
 
     # The default port for IMAP connections, port 143
     #
-    # source://net-imap//lib/net/imap.rb#693
+    # source://net-imap//lib/net/imap.rb#694
     def default_port; end
 
     # The default port for IMAPS connections, port 993
     #
-    # source://net-imap//lib/net/imap.rb#698
+    # source://net-imap//lib/net/imap.rb#699
     def default_ssl_port; end
 
     # The default port for IMAPS connections, port 993
     #
-    # source://net-imap//lib/net/imap.rb#698
+    # source://net-imap//lib/net/imap.rb#699
     def default_tls_port; end
 
     # Formats +time+ as an IMAP4 date.
@@ -2423,7 +2428,7 @@ class Net::IMAP < ::Net::Protocol
     # ++
     # Delegates to Net::IMAP::StringPrep::SASLprep#saslprep.
     #
-    # source://net-imap//lib/net/imap.rb#2756
+    # source://net-imap//lib/net/imap.rb#2763
     def saslprep(string, **opts); end
   end
 end
@@ -4292,28 +4297,28 @@ module Net::IMAP::SASL
 
   # See Net::IMAP::StringPrep::SASLprep#saslprep.
   #
-  # source://net-imap//lib/net/imap/sasl.rb#167
+  # source://net-imap//lib/net/imap/sasl.rb#173
   def saslprep(string, **opts); end
 
   class << self
     # Delegates to ::authenticators.  See Authenticators#add_authenticator.
     #
-    # source://net-imap//lib/net/imap/sasl.rb#162
+    # source://net-imap//lib/net/imap/sasl.rb#168
     def add_authenticator(*_arg0, **_arg1, &_arg2); end
 
-    # Delegates to ::authenticators.  See Authenticators#authenticator.
+    # Delegates to <tt>registry.new</tt>  See Authenticators#new.
     #
-    # source://net-imap//lib/net/imap/sasl.rb#159
-    def authenticator(*_arg0, **_arg1, &_arg2); end
+    # source://net-imap//lib/net/imap/sasl.rb#163
+    def authenticator(*args, registry: T.unsafe(nil), **kwargs, &block); end
 
     # Returns the default global SASL::Authenticators instance.
     #
-    # source://net-imap//lib/net/imap/sasl.rb#156
+    # source://net-imap//lib/net/imap/sasl.rb#160
     def authenticators; end
 
     # See Net::IMAP::StringPrep::SASLprep#saslprep.
     #
-    # source://net-imap//lib/net/imap/sasl.rb#167
+    # source://net-imap//lib/net/imap/sasl.rb#173
     def saslprep(string, **opts); end
   end
 end
@@ -4333,14 +4338,15 @@ class Net::IMAP::SASL::AnonymousAuthenticator
   # this, see Net::IMAP#authenticate or your client's authentication
   # method.
   #
-  # #anonymous_message is an optional message which is sent to the server.
-  # It may be sent as a positional argument or as a keyword argument.
+  # ==== Parameters
+  #
+  # * _optional_ #anonymous_message — a message to send to the server.
   #
   # Any other keyword arguments are silently ignored.
   #
   # @return [AnonymousAuthenticator] a new instance of AnonymousAuthenticator
   #
-  # source://net-imap//lib/net/imap/sasl/anonymous_authenticator.rb#36
+  # source://net-imap//lib/net/imap/sasl/anonymous_authenticator.rb#37
   def initialize(anon_msg = T.unsafe(nil), anonymous_message: T.unsafe(nil), **_arg2); end
 
   # An optional token sent for the +ANONYMOUS+ mechanism., up to 255 UTF-8
@@ -4363,7 +4369,7 @@ class Net::IMAP::SASL::AnonymousAuthenticator
   #
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap/sasl/anonymous_authenticator.rb#63
+  # source://net-imap//lib/net/imap/sasl/anonymous_authenticator.rb#64
   def done?; end
 
   # :call-seq:
@@ -4373,12 +4379,12 @@ class Net::IMAP::SASL::AnonymousAuthenticator
   #
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap/sasl/anonymous_authenticator.rb#50
+  # source://net-imap//lib/net/imap/sasl/anonymous_authenticator.rb#51
   def initial_response?; end
 
   # Returns #anonymous_message.
   #
-  # source://net-imap//lib/net/imap/sasl/anonymous_authenticator.rb#53
+  # source://net-imap//lib/net/imap/sasl/anonymous_authenticator.rb#54
   def process(_server_challenge_string); end
 end
 
@@ -4394,6 +4400,100 @@ class Net::IMAP::SASL::AuthenticationCanceled < ::Net::IMAP::SASL::Error; end
 #
 # source://net-imap//lib/net/imap/sasl.rb#111
 class Net::IMAP::SASL::AuthenticationError < ::Net::IMAP::SASL::Error; end
+
+# This API is *experimental*, and may change.
+#
+# TODO: catch exceptions in #process and send #cancel_response.
+# TODO: raise an error if the command succeeds after being canceled.
+# TODO: use with more clients, to verify the API can accommodate them.
+#
+# Create an AuthenticationExchange from a client adapter and a mechanism
+# authenticator:
+#     def authenticate(mechanism, ...)
+#       authenticator = SASL.authenticator(mechanism, ...)
+#       SASL::AuthenticationExchange.new(
+#         sasl_adapter, mechanism, authenticator
+#       ).authenticate
+#     end
+#
+#     private
+#
+#     def sasl_adapter = MyClientAdapter.new(self, &method(:send_command))
+#
+# Or delegate creation of the authenticator to ::build:
+#     def authenticate(...)
+#       SASL::AuthenticationExchange.build(sasl_adapter, ...)
+#         .authenticate
+#     end
+#
+# As a convenience, ::authenticate combines ::build and #authenticate:
+#     def authenticate(...)
+#       SASL::AuthenticationExchange.authenticate(sasl_adapter, ...)
+#     end
+#
+# Likewise, ClientAdapter#authenticate delegates to #authenticate:
+#     def authenticate(...) = sasl_adapter.authenticate(...)
+#
+# source://net-imap//lib/net/imap/sasl/authentication_exchange.rb#40
+class Net::IMAP::SASL::AuthenticationExchange
+  # @return [AuthenticationExchange] a new instance of AuthenticationExchange
+  #
+  # source://net-imap//lib/net/imap/sasl/authentication_exchange.rb#52
+  def initialize(client, mechanism, authenticator, sasl_ir: T.unsafe(nil)); end
+
+  # Call #authenticate to execute an authentication exchange for #client
+  # using #authenticator.  Authentication failures will raise an
+  # exception.  Any exceptions other than those in RESPONSE_ERRORS will
+  # drop the connection.
+  #
+  # source://net-imap//lib/net/imap/sasl/authentication_exchange.rb#64
+  def authenticate; end
+
+  # Returns the value of attribute authenticator.
+  #
+  # source://net-imap//lib/net/imap/sasl/authentication_exchange.rb#50
+  def authenticator; end
+
+  # @return [Boolean]
+  #
+  # source://net-imap//lib/net/imap/sasl/authentication_exchange.rb#85
+  def done?; end
+
+  # Returns the value of attribute mechanism.
+  #
+  # source://net-imap//lib/net/imap/sasl/authentication_exchange.rb#50
+  def mechanism; end
+
+  # @return [Boolean]
+  #
+  # source://net-imap//lib/net/imap/sasl/authentication_exchange.rb#77
+  def send_initial_response?; end
+
+  private
+
+  # Returns the value of attribute client.
+  #
+  # source://net-imap//lib/net/imap/sasl/authentication_exchange.rb#91
+  def client; end
+
+  # source://net-imap//lib/net/imap/sasl/authentication_exchange.rb#93
+  def initial_response; end
+
+  # source://net-imap//lib/net/imap/sasl/authentication_exchange.rb#98
+  def process(challenge); end
+
+  class << self
+    # Convenience method for <tt>build(...).authenticate</tt>
+    #
+    # source://net-imap//lib/net/imap/sasl/authentication_exchange.rb#42
+    def authenticate(*_arg0, **_arg1, &_arg2); end
+
+    # Use +registry+ to override the global Authenticators registry.
+    #
+    # source://net-imap//lib/net/imap/sasl/authentication_exchange.rb#45
+    def build(client, mechanism, *args, sasl_ir: T.unsafe(nil), **kwargs, &block); end
+  end
+end
 
 # Indicates that authentication cannot proceed because one of the server's
 # messages has not passed integrity checks.
@@ -4488,8 +4588,13 @@ class Net::IMAP::SASL::Authenticators
   #   only.  Protocol client users should see refer to their client's
   #   documentation, e.g. Net::IMAP#authenticate.
   #
-  # source://net-imap//lib/net/imap/sasl/authenticators.rb#102
+  # source://net-imap//lib/net/imap/sasl/authenticators.rb#107
   def authenticator(mechanism, *_arg1, **_arg2, &_arg3); end
+
+  # @return [Boolean]
+  #
+  # source://net-imap//lib/net/imap/sasl/authenticators.rb#86
+  def mechanism?(name); end
 
   # Returns the names of all registered SASL mechanisms.
   #
@@ -4513,7 +4618,7 @@ class Net::IMAP::SASL::Authenticators
   #   only.  Protocol client users should see refer to their client's
   #   documentation, e.g. Net::IMAP#authenticate.
   #
-  # source://net-imap//lib/net/imap/sasl/authenticators.rb#102
+  # source://net-imap//lib/net/imap/sasl/authenticators.rb#107
   def new(mechanism, *_arg1, **_arg2, &_arg3); end
 
   # Removes the authenticator registered for +name+
@@ -4524,6 +4629,96 @@ end
 
 # source://net-imap//lib/net/imap/sasl/stringprep.rb#8
 Net::IMAP::SASL::BidiStringError = Net::IMAP::StringPrep::BidiStringError
+
+# This API is *experimental*, and may change.
+#
+# TODO: use with more clients, to verify the API can accommodate them.
+#
+# An abstract base class for implementing a SASL authentication exchange.
+# Different clients will each have their own adapter subclass, overridden
+# to match their needs.
+#
+# Although the default implementations _may_ be sufficient, subclasses
+# will probably need to override some methods.  Additionally, subclasses
+# may need to include a protocol adapter mixin, if the default
+# ProtocolAdapters::Generic isn't sufficient.
+#
+# source://net-imap//lib/net/imap/sasl/client_adapter.rb#19
+class Net::IMAP::SASL::ClientAdapter
+  include ::Net::IMAP::SASL::ProtocolAdapters::Generic
+
+  # +command_proc+ can used to avoid exposing private methods on #client.
+  # It should run a command with the arguments sent to it, yield each
+  # continuation payload, respond to the server with the result of each
+  # yield, and return the result.  Non-successful results *MUST* raise an
+  # exception.  Exceptions in the block *MUST* cause the command to fail.
+  #
+  # Subclasses that override #run_command may use #command_proc for
+  # other purposes.
+  #
+  # @return [ClientAdapter] a new instance of ClientAdapter
+  #
+  # source://net-imap//lib/net/imap/sasl/client_adapter.rb#32
+  def initialize(client, &command_proc); end
+
+  # Does the server advertise support for the mechanism?
+  #
+  # @return [Boolean]
+  #
+  # source://net-imap//lib/net/imap/sasl/client_adapter.rb#43
+  def auth_capable?(mechanism); end
+
+  # Delegates to AuthenticationExchange.authenticate.
+  #
+  # source://net-imap//lib/net/imap/sasl/client_adapter.rb#37
+  def authenticate(*_arg0, **_arg1, &_arg2); end
+
+  # Returns the value of attribute client.
+  #
+  # source://net-imap//lib/net/imap/sasl/client_adapter.rb#22
+  def client; end
+
+  # Returns the value of attribute command_proc.
+  #
+  # source://net-imap//lib/net/imap/sasl/client_adapter.rb#22
+  def command_proc; end
+
+  # Drop the connection gracefully.
+  #
+  # source://net-imap//lib/net/imap/sasl/client_adapter.rb#65
+  def drop_connection; end
+
+  # Drop the connection abruptly.
+  #
+  # source://net-imap//lib/net/imap/sasl/client_adapter.rb#68
+  def drop_connection!; end
+
+  # Returns an array of server responses errors raised by run_command.
+  # Exceptions in this array won't drop the connection.
+  #
+  # source://net-imap//lib/net/imap/sasl/client_adapter.rb#62
+  def response_errors; end
+
+  # Runs the authenticate command with +mechanism+ and +initial_response+.
+  # When +initial_response+ is nil, an initial response must NOT be sent.
+  #
+  # Yields each continuation payload, responds to the server with the
+  # result of each yield, and returns the result.  Non-successful results
+  # *MUST* raise an exception.  Exceptions in the block *MUST* cause the
+  # command to fail.
+  #
+  # Subclasses that override this may use #command_proc differently.
+  #
+  # source://net-imap//lib/net/imap/sasl/client_adapter.rb#54
+  def run_command(mechanism, initial_response = T.unsafe(nil), &block); end
+
+  # Do the protocol and server both support an initial response?
+  #
+  # @return [Boolean]
+  #
+  # source://net-imap//lib/net/imap/sasl/client_adapter.rb#40
+  def sasl_ir_capable?; end
+end
 
 # Authenticator for the "+CRAM-MD5+" SASL mechanism, specified in
 # RFC2195[https://tools.ietf.org/html/rfc2195].  See Net::IMAP#authenticate.
@@ -4544,24 +4739,24 @@ class Net::IMAP::SASL::CramMD5Authenticator
   # @return [CramMD5Authenticator] a new instance of CramMD5Authenticator
   #
   # source://net-imap//lib/net/imap/sasl/cram_md5_authenticator.rb#17
-  def initialize(user, password, warn_deprecation: T.unsafe(nil), **_ignored); end
+  def initialize(user = T.unsafe(nil), pass = T.unsafe(nil), authcid: T.unsafe(nil), username: T.unsafe(nil), password: T.unsafe(nil), secret: T.unsafe(nil), warn_deprecation: T.unsafe(nil), **_arg7); end
 
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap/sasl/cram_md5_authenticator.rb#36
+  # source://net-imap//lib/net/imap/sasl/cram_md5_authenticator.rb#40
   def done?; end
 
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap/sasl/cram_md5_authenticator.rb#27
+  # source://net-imap//lib/net/imap/sasl/cram_md5_authenticator.rb#31
   def initial_response?; end
 
-  # source://net-imap//lib/net/imap/sasl/cram_md5_authenticator.rb#29
+  # source://net-imap//lib/net/imap/sasl/cram_md5_authenticator.rb#33
   def process(challenge); end
 
   private
 
-  # source://net-imap//lib/net/imap/sasl/cram_md5_authenticator.rb#40
+  # source://net-imap//lib/net/imap/sasl/cram_md5_authenticator.rb#44
   def hmac_md5(text, key); end
 end
 
@@ -4579,6 +4774,7 @@ class Net::IMAP::SASL::DigestMD5Authenticator
   # :call-seq:
   #   new(username,  password,  authzid = nil, **options) -> authenticator
   #   new(username:, password:, authzid:  nil, **options) -> authenticator
+  #   new(authcid:,  password:, authzid:  nil, **options) -> authenticator
   #
   # Creates an Authenticator for the "+DIGEST-MD5+" SASL mechanism.
   #
@@ -4586,17 +4782,36 @@ class Net::IMAP::SASL::DigestMD5Authenticator
   #
   # ==== Parameters
   #
-  # * #username — Identity whose #password is used.
-  # * #password — A password or passphrase associated with this #username.
-  # * #authzid ― Alternate identity to act as or on behalf of.  Optional.
-  # * +warn_deprecation+ — Set to +false+ to silence the warning.
+  # * #authcid  ― Authentication identity that is associated with #password.
   #
-  # See the documentation for each attribute for more details.
+  #   #username ― An alias for +authcid+.
+  #
+  # * #password ― A password or passphrase associated with this #authcid.
+  #
+  # * _optional_ #authzid  ― Authorization identity to act as or on behalf of.
+  #
+  #   When +authzid+ is not set, the server should derive the authorization
+  #   identity from the authentication identity.
+  #
+  # * _optional_ +warn_deprecation+ — Set to +false+ to silence the warning.
+  #
+  # Any other keyword arguments are silently ignored.
   #
   # @return [DigestMD5Authenticator] a new instance of DigestMD5Authenticator
   #
-  # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#60
-  def initialize(user = T.unsafe(nil), pass = T.unsafe(nil), authz = T.unsafe(nil), username: T.unsafe(nil), password: T.unsafe(nil), authzid: T.unsafe(nil), warn_deprecation: T.unsafe(nil), **_arg7); end
+  # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#70
+  def initialize(user = T.unsafe(nil), pass = T.unsafe(nil), authz = T.unsafe(nil), username: T.unsafe(nil), password: T.unsafe(nil), authzid: T.unsafe(nil), authcid: T.unsafe(nil), secret: T.unsafe(nil), warn_deprecation: T.unsafe(nil), **_arg9); end
+
+  # Authentication identity: the identity that matches the #password.
+  #
+  # RFC-2831[https://tools.ietf.org/html/rfc2831] uses the term +username+.
+  # "Authentication identity" is the generic term used by
+  # RFC-4422[https://tools.ietf.org/html/rfc4422].
+  # RFC-4616[https://tools.ietf.org/html/rfc4616] and many later RFCs abbreviate
+  # this to +authcid+.
+  #
+  # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#24
+  def authcid; end
 
   # Authorization identity: an identity to act as or on behalf of.  The identity
   # form is application protocol specific.  If not provided or left blank, the
@@ -4609,29 +4824,29 @@ class Net::IMAP::SASL::DigestMD5Authenticator
   #
   #     imap.authenticate "DIGEST-MD5", "root", ->{passwd}, authzid: "user"
   #
-  # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#42
+  # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#43
   def authzid; end
 
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#144
+  # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#156
   def done?; end
 
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#76
+  # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#88
   def initial_response?; end
 
   # A password or passphrase that matches the #username.
   #
   # The +password+ will be used to create the response digest.
   #
-  # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#29
+  # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#30
   def password; end
 
   # Responds to server challenge in two stages.
   #
-  # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#79
+  # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#91
   def process(challenge); end
 
   # Authentication identity: the identity that matches the #password.
@@ -4640,19 +4855,19 @@ class Net::IMAP::SASL::DigestMD5Authenticator
   # "Authentication identity" is the generic term used by
   # RFC-4422[https://tools.ietf.org/html/rfc4422].
   # RFC-4616[https://tools.ietf.org/html/rfc4616] and many later RFCs abbreviate
-  # that to +authcid+.  So +authcid+ is available as an alias for #username.
+  # this to +authcid+.
   #
   # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#24
   def username; end
 
   private
 
-  # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#148
+  # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#160
   def nc(nonce); end
 
   # some responses need quoting
   #
-  # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#158
+  # source://net-imap//lib/net/imap/sasl/digest_md5_authenticator.rb#170
   def qdval(k, v); end
 end
 
@@ -4691,27 +4906,45 @@ class Net::IMAP::SASL::Error < ::StandardError; end
 class Net::IMAP::SASL::ExternalAuthenticator
   # :call-seq:
   #   new(authzid: nil, **) -> authenticator
+  #   new(username: nil, **) -> authenticator
+  #   new(username = nil, **) -> authenticator
   #
   # Creates an Authenticator for the "+EXTERNAL+" SASL mechanism, as
   # specified in RFC-4422[https://tools.ietf.org/html/rfc4422].  To use
   # this, see Net::IMAP#authenticate or your client's authentication
   # method.
   #
-  # #authzid is an optional identity to act as or on behalf of.
+  # ==== Parameters
+  #
+  # * _optional_ #authzid  ― Authorization identity to act as or on behalf of.
+  #
+  #   _optional_ #username ― An alias for #authzid.
+  #
+  #   Note that, unlike some other authenticators, +username+ sets the
+  #   _authorization_ identity and not the _authentication_ identity.  The
+  #   authentication identity is established for the client by the
+  #   external credentials.
   #
   # Any other keyword parameters are quietly ignored.
   #
   # @return [ExternalAuthenticator] a new instance of ExternalAuthenticator
   #
-  # source://net-imap//lib/net/imap/sasl/external_authenticator.rb#32
-  def initialize(authzid: T.unsafe(nil), **_arg1); end
+  # source://net-imap//lib/net/imap/sasl/external_authenticator.rb#52
+  def initialize(user = T.unsafe(nil), authzid: T.unsafe(nil), username: T.unsafe(nil), **_arg3); end
 
-  # Authorization identity: an identity to act as or on behalf of.
+  # Authorization identity: an identity to act as or on behalf of.  The
+  # identity form is application protocol specific.  If not provided or
+  # left blank, the server derives an authorization identity from the
+  # authentication identity.  The server is responsible for verifying the
+  # client's credentials and verifying that the identity it associates
+  # with the client's authentication identity is allowed to act as (or on
+  # behalf of) the authorization identity.
   #
-  # If not explicitly provided, the server defaults to using the identity
-  # that was authenticated by the external credentials.
+  # For example, an administrator or superuser might take on another role:
   #
-  # source://net-imap//lib/net/imap/sasl/external_authenticator.rb#19
+  #     imap.authenticate "PLAIN", "root", passwd, authzid: "user"
+  #
+  # source://net-imap//lib/net/imap/sasl/external_authenticator.rb#27
   def authzid; end
 
   # Returns true when the initial client response was sent.
@@ -4721,7 +4954,7 @@ class Net::IMAP::SASL::ExternalAuthenticator
   #
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap/sasl/external_authenticator.rb#57
+  # source://net-imap//lib/net/imap/sasl/external_authenticator.rb#78
   def done?; end
 
   # :call-seq:
@@ -4731,13 +4964,28 @@ class Net::IMAP::SASL::ExternalAuthenticator
   #
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap/sasl/external_authenticator.rb#44
+  # source://net-imap//lib/net/imap/sasl/external_authenticator.rb#65
   def initial_response?; end
 
   # Returns #authzid, or an empty string if there is no authzid.
   #
-  # source://net-imap//lib/net/imap/sasl/external_authenticator.rb#47
+  # source://net-imap//lib/net/imap/sasl/external_authenticator.rb#68
   def process(_); end
+
+  # Authorization identity: an identity to act as or on behalf of.  The
+  # identity form is application protocol specific.  If not provided or
+  # left blank, the server derives an authorization identity from the
+  # authentication identity.  The server is responsible for verifying the
+  # client's credentials and verifying that the identity it associates
+  # with the client's authentication identity is allowed to act as (or on
+  # behalf of) the authorization identity.
+  #
+  # For example, an administrator or superuser might take on another role:
+  #
+  #     imap.authenticate "PLAIN", "root", passwd, authzid: "user"
+  #
+  # source://net-imap//lib/net/imap/sasl/external_authenticator.rb#27
+  def username; end
 end
 
 # Originally defined for the GS2 mechanism family in
@@ -4839,19 +5087,19 @@ class Net::IMAP::SASL::LoginAuthenticator
   # @return [LoginAuthenticator] a new instance of LoginAuthenticator
   #
   # source://net-imap//lib/net/imap/sasl/login_authenticator.rb#26
-  def initialize(user, password, warn_deprecation: T.unsafe(nil), **_ignored); end
+  def initialize(user = T.unsafe(nil), pass = T.unsafe(nil), authcid: T.unsafe(nil), username: T.unsafe(nil), password: T.unsafe(nil), secret: T.unsafe(nil), warn_deprecation: T.unsafe(nil), **_arg7); end
 
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap/sasl/login_authenticator.rb#50
+  # source://net-imap//lib/net/imap/sasl/login_authenticator.rb#54
   def done?; end
 
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap/sasl/login_authenticator.rb#35
+  # source://net-imap//lib/net/imap/sasl/login_authenticator.rb#39
   def initial_response?; end
 
-  # source://net-imap//lib/net/imap/sasl/login_authenticator.rb#37
+  # source://net-imap//lib/net/imap/sasl/login_authenticator.rb#41
   def process(data); end
 end
 
@@ -4877,40 +5125,58 @@ class Net::IMAP::SASL::OAuthAuthenticator
   # Creates an RFC7628[https://tools.ietf.org/html/rfc7628] OAuth
   # authenticator.
   #
-  # === Options
+  # ==== Parameters
   #
-  # See child classes for required configuration parameter(s).  The
-  # following parameters are all optional, but protocols or servers may
-  # add requirements for #authzid, #host, #port, or any other parameter.
+  # See child classes for required parameter(s).  The following parameters
+  # are all optional, but it is worth noting that <b>application protocols
+  # are allowed to require</b> #authzid (or other parameters, such as
+  # #host or #port) <b>as are specific server implementations</b>.
   #
-  # * #authzid ― Identity to act as or on behalf of.
-  # * #host — Hostname to which the client connected.
-  # * #port — Service port to which the client connected.
-  # * #mthd — HTTP method
-  # * #path — HTTP path data
-  # * #post — HTTP post data
-  # * #qs   — HTTP query string
+  # * _optional_ #authzid  ― Authorization identity to act as or on behalf of.
+  #
+  #   _optional_ #username — An alias for #authzid.
+  #
+  #   Note that, unlike some other authenticators, +username+ sets the
+  #   _authorization_ identity and not the _authentication_ identity.  The
+  #   authentication identity is established for the client by the OAuth
+  #   token.
+  #
+  # * _optional_ #host — Hostname to which the client connected.
+  # * _optional_ #port — Service port to which the client connected.
+  # * _optional_ #mthd — HTTP method
+  # * _optional_ #path — HTTP path data
+  # * _optional_ #post — HTTP post data
+  # * _optional_ #qs   — HTTP query string
+  #
+  #   _optional_ #query — An alias for #qs
+  #
+  # Any other keyword parameters are quietly ignored.
   #
   # @return [OAuthAuthenticator] a new instance of OAuthAuthenticator
   #
-  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#64
-  def initialize(authzid: T.unsafe(nil), host: T.unsafe(nil), port: T.unsafe(nil), mthd: T.unsafe(nil), path: T.unsafe(nil), post: T.unsafe(nil), qs: T.unsafe(nil), **_arg7); end
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#84
+  def initialize(authzid: T.unsafe(nil), host: T.unsafe(nil), port: T.unsafe(nil), username: T.unsafe(nil), query: T.unsafe(nil), mthd: T.unsafe(nil), path: T.unsafe(nil), post: T.unsafe(nil), qs: T.unsafe(nil), **_arg9); end
 
   # Value of the HTTP Authorization header
   #
   # <b>Implemented by subclasses.</b>
   #
-  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#103
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#124
   def authorization; end
 
-  # Authorization identity: an identity to act as or on behalf of.
+  # Authorization identity: an identity to act as or on behalf of.  The
+  # identity form is application protocol specific.  If not provided or
+  # left blank, the server derives an authorization identity from the
+  # authentication identity.  The server is responsible for verifying the
+  # client's credentials and verifying that the identity it associates
+  # with the client's authentication identity is allowed to act as (or on
+  # behalf of) the authorization identity.
   #
-  # If no explicit authorization identity is provided, it is usually
-  # derived from the authentication identity.  For the OAuth-based
-  # mechanisms, the authentication identity is the identity established by
-  # the OAuth credential.
+  # For example, an administrator or superuser might take on another role:
   #
-  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#23
+  #     imap.authenticate "PLAIN", "root", passwd, authzid: "user"
+  #
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#29
   def authzid; end
 
   # Returns true when the initial client response was sent.
@@ -4920,55 +5186,75 @@ class Net::IMAP::SASL::OAuthAuthenticator
   #
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#98
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#119
   def done?; end
 
-  # Hostname to which the client connected.
+  # Hostname to which the client connected.  (optional)
   #
-  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#26
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#33
   def host; end
 
   # The {RFC7628 §3.1}[https://www.rfc-editor.org/rfc/rfc7628#section-3.1]
   # formatted response.
   #
-  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#78
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#99
   def initial_client_response; end
 
   # Stores the most recent server "challenge".  When authentication fails,
   # this may hold information about the failure reason, as JSON.
   #
-  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#45
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#53
   def last_server_response; end
 
   # HTTP method.  (optional)
   #
-  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#32
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#39
   def mthd; end
 
   # HTTP path data.  (optional)
   #
-  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#35
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#42
   def path; end
 
-  # Service port to which the client connected.
+  # Service port to which the client connected.  (optional)
   #
-  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#29
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#36
   def port; end
 
   # HTTP post data.  (optional)
   #
-  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#38
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#45
   def post; end
 
   # Returns initial_client_response the first time, then "<tt>^A</tt>".
   #
-  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#87
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#108
   def process(data); end
 
   # The query string.  (optional)
   #
-  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#41
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#48
   def qs; end
+
+  # The query string.  (optional)
+  #
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#48
+  def query; end
+
+  # Authorization identity: an identity to act as or on behalf of.  The
+  # identity form is application protocol specific.  If not provided or
+  # left blank, the server derives an authorization identity from the
+  # authentication identity.  The server is responsible for verifying the
+  # client's credentials and verifying that the identity it associates
+  # with the client's authentication identity is allowed to act as (or on
+  # behalf of) the authorization identity.
+  #
+  # For example, an administrator or superuser might take on another role:
+  #
+  #     imap.authenticate "PLAIN", "root", passwd, authzid: "user"
+  #
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#29
+  def username; end
 end
 
 # Authenticator for the "+OAUTHBEARER+" SASL mechanism, specified in
@@ -4982,37 +5268,50 @@ end
 # the resource server.  TLS _MUST_ be used for +OAUTHBEARER+ to protect
 # the bearer token.
 #
-# source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#117
+# source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#138
 class Net::IMAP::SASL::OAuthBearerAuthenticator < ::Net::IMAP::SASL::OAuthAuthenticator
   # :call-seq:
-  #   new(oauth2_token,  **options) -> authenticator
-  #   new(oauth2_token:, **options) -> authenticator
+  #   new(oauth2_token,          **options) -> authenticator
+  #   new(authzid, oauth2_token, **options) -> authenticator
+  #   new(oauth2_token:,         **options) -> authenticator
   #
   # Creates an Authenticator for the "+OAUTHBEARER+" SASL mechanism.
   #
   # Called by Net::IMAP#authenticate and similar methods on other clients.
   #
-  # === Options
+  # ==== Parameters
   #
-  # Only +oauth2_token+ is required by the mechanism, however protocols
-  # and servers may add requirements for #authzid, #host, #port, or any
-  # other parameter.
+  # * #oauth2_token — An OAuth2 bearer token
   #
-  # * #oauth2_token — An OAuth2 bearer token or access token. *Required.*
-  #   May be provided as either regular or keyword argument.
-  # * #authzid ― Identity to act as or on behalf of.
-  # * #host — Hostname to which the client connected.
-  # * #port — Service port to which the client connected.
-  # * See OAuthAuthenticator documentation for less common parameters.
+  # All other keyword parameters are passed to
+  # {super}[rdoc-ref:OAuthAuthenticator::new] (see OAuthAuthenticator).
+  # The most common ones are:
+  #
+  # * _optional_ #authzid  ― Authorization identity to act as or on behalf of.
+  #
+  #   _optional_ #username — An alias for #authzid.
+  #
+  #   Note that, unlike some other authenticators, +username+ sets the
+  #   _authorization_ identity and not the _authentication_ identity.  The
+  #   authentication identity is established for the client by
+  #   #oauth2_token.
+  #
+  # * _optional_ #host — Hostname to which the client connected.
+  # * _optional_ #port — Service port to which the client connected.
+  #
+  # Although only oauth2_token is required by this mechanism, it is worth
+  # noting that <b><em>application protocols are allowed to
+  # require</em></b> #authzid (<em>or other parameters, such as</em> #host
+  # _or_ #port) <b><em>as are specific server implementations</em></b>.
   #
   # @return [OAuthBearerAuthenticator] a new instance of OAuthBearerAuthenticator
   #
-  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#143
-  def initialize(oauth2_token_arg = T.unsafe(nil), oauth2_token: T.unsafe(nil), **args, &blk); end
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#177
+  def initialize(arg1 = T.unsafe(nil), arg2 = T.unsafe(nil), oauth2_token: T.unsafe(nil), secret: T.unsafe(nil), **args, &blk); end
 
   # Value of the HTTP Authorization header
   #
-  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#158
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#193
   def authorization; end
 
   # :call-seq:
@@ -5022,13 +5321,18 @@ class Net::IMAP::SASL::OAuthBearerAuthenticator < ::Net::IMAP::SASL::OAuthAuthen
   #
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#155
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#190
   def initial_response?; end
 
-  # An OAuth2 bearer token, generally the access token.
+  # An OAuth 2.0 bearer token.  See {RFC-6750}[https://www.rfc-editor.org/rfc/rfc6750]
   #
-  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#120
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#141
   def oauth2_token; end
+
+  # An OAuth 2.0 bearer token.  See {RFC-6750}[https://www.rfc-editor.org/rfc/rfc6750]
+  #
+  # source://net-imap//lib/net/imap/sasl/oauthbearer_authenticator.rb#141
+  def secret; end
 end
 
 # Authenticator for the "+PLAIN+" SASL mechanism, specified in
@@ -5046,24 +5350,43 @@ class Net::IMAP::SASL::PlainAuthenticator
   # :call-seq:
   #   new(username,  password,  authzid: nil, **) -> authenticator
   #   new(username:, password:, authzid: nil, **) -> authenticator
+  #   new(authcid:,  password:, authzid: nil, **) -> authenticator
   #
   # Creates an Authenticator for the "+PLAIN+" SASL mechanism.
   #
   # Called by Net::IMAP#authenticate and similar methods on other clients.
   #
-  # === Parameters
+  # ==== Parameters
   #
-  # * #username ― Identity whose +password+ is used.
-  # * #password ― Password or passphrase associated with this username+.
-  # * #authzid ― Alternate identity to act as or on behalf of.  Optional.
+  # * #authcid ― Authentication identity that is associated with #password.
   #
-  # See attribute documentation for more details.
+  #   #username ― An alias for #authcid.
+  #
+  # * #password ― A password or passphrase associated with the #authcid.
+  #
+  # * _optional_ #authzid  ― Authorization identity to act as or on behalf of.
+  #
+  #   When +authzid+ is not set, the server should derive the authorization
+  #   identity from the authentication identity.
+  #
+  # Any other keyword parameters are quietly ignored.
   #
   # @raise [ArgumentError]
   # @return [PlainAuthenticator] a new instance of PlainAuthenticator
   #
-  # source://net-imap//lib/net/imap/sasl/plain_authenticator.rb#57
-  def initialize(user = T.unsafe(nil), pass = T.unsafe(nil), username: T.unsafe(nil), password: T.unsafe(nil), authzid: T.unsafe(nil), **_arg5); end
+  # source://net-imap//lib/net/imap/sasl/plain_authenticator.rb#67
+  def initialize(user = T.unsafe(nil), pass = T.unsafe(nil), authcid: T.unsafe(nil), secret: T.unsafe(nil), username: T.unsafe(nil), password: T.unsafe(nil), authzid: T.unsafe(nil), **_arg7); end
+
+  # Authentication identity: the identity that matches the #password.
+  #
+  # RFC-2831[https://tools.ietf.org/html/rfc2831] uses the term +username+.
+  # "Authentication identity" is the generic term used by
+  # RFC-4422[https://tools.ietf.org/html/rfc4422].
+  # RFC-4616[https://tools.ietf.org/html/rfc4616] and many later RFCs abbreviate
+  # this to +authcid+.
+  #
+  # source://net-imap//lib/net/imap/sasl/plain_authenticator.rb#24
+  def authcid; end
 
   # Authorization identity: an identity to act as or on behalf of.  The identity
   # form is application protocol specific.  If not provided or left blank, the
@@ -5076,7 +5399,7 @@ class Net::IMAP::SASL::PlainAuthenticator
   #
   #     imap.authenticate "PLAIN", "root", passwd, authzid: "user"
   #
-  # source://net-imap//lib/net/imap/sasl/plain_authenticator.rb#40
+  # source://net-imap//lib/net/imap/sasl/plain_authenticator.rb#42
   def authzid; end
 
   # Returns true when the initial client response was sent.
@@ -5086,7 +5409,7 @@ class Net::IMAP::SASL::PlainAuthenticator
   #
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap/sasl/plain_authenticator.rb#91
+  # source://net-imap//lib/net/imap/sasl/plain_authenticator.rb#99
   def done?; end
 
   # :call-seq:
@@ -5096,18 +5419,23 @@ class Net::IMAP::SASL::PlainAuthenticator
   #
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap/sasl/plain_authenticator.rb#78
+  # source://net-imap//lib/net/imap/sasl/plain_authenticator.rb#86
   def initial_response?; end
 
   # A password or passphrase that matches the #username.
   #
-  # source://net-imap//lib/net/imap/sasl/plain_authenticator.rb#27
+  # source://net-imap//lib/net/imap/sasl/plain_authenticator.rb#28
   def password; end
 
   # Responds with the client's credentials.
   #
-  # source://net-imap//lib/net/imap/sasl/plain_authenticator.rb#81
+  # source://net-imap//lib/net/imap/sasl/plain_authenticator.rb#89
   def process(data); end
+
+  # A password or passphrase that matches the #username.
+  #
+  # source://net-imap//lib/net/imap/sasl/plain_authenticator.rb#28
+  def secret; end
 
   # Authentication identity: the identity that matches the #password.
   #
@@ -5126,6 +5454,75 @@ Net::IMAP::SASL::PlainAuthenticator::NULL = T.let(T.unsafe(nil), String)
 
 # source://net-imap//lib/net/imap/sasl/stringprep.rb#9
 Net::IMAP::SASL::ProhibitedCodepoint = Net::IMAP::StringPrep::ProhibitedCodepoint
+
+# source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#7
+module Net::IMAP::SASL::ProtocolAdapters; end
+
+# This API is experimental, and may change.
+#
+# source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#9
+module Net::IMAP::SASL::ProtocolAdapters::Generic
+  # source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#17
+  def cancel_response; end
+
+  # source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#10
+  def command_name; end
+
+  # source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#16
+  def decode(string); end
+
+  # source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#15
+  def encode(string); end
+
+  # source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#14
+  def encode_ir(string); end
+
+  # source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#12
+  def host; end
+
+  # source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#13
+  def port; end
+
+  # source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#11
+  def service; end
+end
+
+# See RFC-3501 (IMAP4rev1), RFC-4959 (SASL-IR capability),
+# and RFC-9051 (IMAP4rev2).
+#
+# source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#22
+module Net::IMAP::SASL::ProtocolAdapters::IMAP
+  include ::Net::IMAP::SASL::ProtocolAdapters::Generic
+
+  # source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#24
+  def service; end
+end
+
+# See RFC-5034 (SASL capability).
+#
+# source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#35
+module Net::IMAP::SASL::ProtocolAdapters::POP
+  include ::Net::IMAP::SASL::ProtocolAdapters::Generic
+
+  # source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#37
+  def command_name; end
+
+  # source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#38
+  def service; end
+end
+
+# See RFC-4954 (AUTH capability).
+#
+# source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#28
+module Net::IMAP::SASL::ProtocolAdapters::SMTP
+  include ::Net::IMAP::SASL::ProtocolAdapters::Generic
+
+  # source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#30
+  def command_name; end
+
+  # source://net-imap//lib/net/imap/sasl/protocol_adapters.rb#31
+  def service; end
+end
 
 # Alias for Net::IMAP::StringPrep::SASLprep.
 #
@@ -5229,6 +5626,7 @@ class Net::IMAP::SASL::ScramAuthenticator
   # :call-seq:
   #   new(username,  password,  **options) -> auth_ctx
   #   new(username:, password:, **options) -> auth_ctx
+  #   new(authcid:,  password:, **options) -> auth_ctx
   #
   # Creates an authenticator for one of the "+SCRAM-*+" SASL mechanisms.
   # Each subclass defines #digest to match a specific mechanism.
@@ -5237,21 +5635,29 @@ class Net::IMAP::SASL::ScramAuthenticator
   #
   # === Parameters
   #
-  # * #username ― Identity whose #password is used.  Aliased as #authcid.
-  # * #password ― Password or passphrase associated with this #username.
-  # * #authzid ― Alternate identity to act as or on behalf of.  Optional.
-  # * #min_iterations - Overrides the default value (4096).  Optional.
+  # * #authcid  ― Identity whose #password is used.
   #
-  # See the documentation on the corresponding attributes for more.
+  #   #username - An alias for #authcid.
+  # * #password ― Password or passphrase associated with this #username.
+  # * _optional_ #authzid ― Alternate identity to act as or on behalf of.
+  # * _optional_ #min_iterations - Overrides the default value (4096).
+  #
+  # Any other keyword parameters are quietly ignored.
   #
   # @return [ScramAuthenticator] a new instance of ScramAuthenticator
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#77
-  def initialize(username_arg = T.unsafe(nil), password_arg = T.unsafe(nil), username: T.unsafe(nil), password: T.unsafe(nil), authcid: T.unsafe(nil), authzid: T.unsafe(nil), min_iterations: T.unsafe(nil), cnonce: T.unsafe(nil), **options); end
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#80
+  def initialize(username_arg = T.unsafe(nil), password_arg = T.unsafe(nil), authcid: T.unsafe(nil), username: T.unsafe(nil), authzid: T.unsafe(nil), password: T.unsafe(nil), secret: T.unsafe(nil), min_iterations: T.unsafe(nil), cnonce: T.unsafe(nil), **options); end
 
   # Authentication identity: the identity that matches the #password.
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#99
+  # RFC-2831[https://tools.ietf.org/html/rfc2831] uses the term +username+.
+  # "Authentication identity" is the generic term used by
+  # RFC-4422[https://tools.ietf.org/html/rfc4422].
+  # RFC-4616[https://tools.ietf.org/html/rfc4616] and many later RFCs abbreviate
+  # this to +authcid+.
+  #
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#107
   def authcid; end
 
   # Authorization identity: an identity to act as or on behalf of.  The
@@ -5267,7 +5673,7 @@ class Net::IMAP::SASL::ScramAuthenticator
   # authentication identity is allowed to act as (or on behalf of) the
   # authorization identity.
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#117
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#126
   def authzid; end
 
   # See {RFC5802 §7}[https://www.rfc-editor.org/rfc/rfc5802#section-7]
@@ -5281,7 +5687,7 @@ class Net::IMAP::SASL::ScramAuthenticator
 
   # The client nonce, generated by SecureRandom
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#124
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#133
   def cnonce; end
 
   # Returns a new OpenSSL::Digest object, set to the appropriate hash
@@ -5290,7 +5696,7 @@ class Net::IMAP::SASL::ScramAuthenticator
   # <em>The class's +DIGEST_NAME+ constant must be set to the name of an
   # algorithm supported by OpenSSL::Digest.</em>
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#146
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#155
   def digest; end
 
   # Is the authentication exchange complete?
@@ -5299,57 +5705,68 @@ class Net::IMAP::SASL::ScramAuthenticator
   #
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#176
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#185
   def done?; end
 
   # See {RFC5802 §7}[https://www.rfc-editor.org/rfc/rfc5802#section-7]
   # +client-first-message+.
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#150
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#159
   def initial_client_response; end
 
   # The iteration count for the selected hash function and user
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#133
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#142
   def iterations; end
 
   # The minimal allowed iteration count.  Lower #iterations will raise an
   # Error.
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#121
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#130
   def min_iterations; end
 
   # A password or passphrase that matches the #username.
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#103
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#111
   def password; end
 
   # responds to the server's challenges
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#155
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#164
   def process(challenge); end
 
   # The salt used by the server for this user
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#130
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#139
   def salt; end
+
+  # A password or passphrase that matches the #username.
+  #
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#111
+  def secret; end
 
   # An error reported by the server during the \SASL exchange.
   #
   # Does not include errors reported by the protocol, e.g.
   # Net::IMAP::NoResponseError.
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#139
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#148
   def server_error; end
 
   # The server nonce, which must start with #cnonce
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#127
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#136
   def snonce; end
 
   # Authentication identity: the identity that matches the #password.
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#99
+  # RFC-2831[https://tools.ietf.org/html/rfc2831] uses the term +username+.
+  # "Authentication identity" is the generic term used by
+  # RFC-4422[https://tools.ietf.org/html/rfc4422].
+  # RFC-4616[https://tools.ietf.org/html/rfc4616] and many later RFCs abbreviate
+  # this to +authcid+.
+  #
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#107
   def username; end
 
   private
@@ -5357,22 +5774,22 @@ class Net::IMAP::SASL::ScramAuthenticator
   # See {RFC5802 §7}[https://www.rfc-editor.org/rfc/rfc5802#section-7]
   # +client-final-message-without-proof+.
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#231
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#240
   def client_final_message_without_proof; end
 
   # See {RFC5802 §7}[https://www.rfc-editor.org/rfc/rfc5802#section-7]
   # +client-first-message-bare+.
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#216
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#225
   def client_first_message_bare; end
 
   # See {RFC5802 §7}[https://www.rfc-editor.org/rfc/rfc5802#section-7]
   # +client-final-message+.
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#224
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#233
   def final_message_with_proof; end
 
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#183
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#192
   def format_message(hash); end
 
   # RFC5802 specifies "that the order of attributes in client or server
@@ -5380,18 +5797,18 @@ class Net::IMAP::SASL::ScramAuthenticator
   # this parses it simply as a hash, without respect to order.  Note that
   # repeated keys (violating the spec) will use the last value.
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#248
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#257
   def parse_challenge(challenge); end
 
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#202
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#211
   def recv_server_final_message(server_final_message); end
 
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#185
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#194
   def recv_server_first_message(server_first_message); end
 
   # Need to store this for auth_message
   #
-  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#181
+  # source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#190
   def server_first_message; end
 end
 
@@ -5402,10 +5819,10 @@ end
 #
 # See ScramAuthenticator.
 #
-# source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#262
+# source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#271
 class Net::IMAP::SASL::ScramSHA1Authenticator < ::Net::IMAP::SASL::ScramAuthenticator; end
 
-# source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#263
+# source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#272
 Net::IMAP::SASL::ScramSHA1Authenticator::DIGEST_NAME = T.let(T.unsafe(nil), String)
 
 # Authenticator for the "+SCRAM-SHA-256+" SASL mechanism, defined in
@@ -5415,10 +5832,10 @@ Net::IMAP::SASL::ScramSHA1Authenticator::DIGEST_NAME = T.let(T.unsafe(nil), Stri
 #
 # See ScramAuthenticator.
 #
-# source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#272
+# source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#281
 class Net::IMAP::SASL::ScramSHA256Authenticator < ::Net::IMAP::SASL::ScramAuthenticator; end
 
-# source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#273
+# source://net-imap//lib/net/imap/sasl/scram_authenticator.rb#282
 Net::IMAP::SASL::ScramSHA256Authenticator::DIGEST_NAME = T.let(T.unsafe(nil), String)
 
 # source://net-imap//lib/net/imap/sasl/stringprep.rb#7
@@ -5433,20 +5850,22 @@ Net::IMAP::SASL::StringPrepError = Net::IMAP::StringPrep::StringPrepError
 # Google[https://developers.google.com/gmail/imap/xoauth2-protocol] and
 # Microsoft[https://learn.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth].
 #
-# This mechanism requires an OAuth2 +access_token+ which has been authorized
-# with the appropriate OAuth2 scopes to access IMAP.  These scopes are not
-# standardized---consult each email service provider's documentation.
+# This mechanism requires an OAuth2 access token which has been authorized
+# with the appropriate OAuth2 scopes to access the user's services.  Most of
+# these scopes are not standardized---consult each service provider's
+# documentation for their scopes.
 #
 # Although this mechanism was never standardized and has been obsoleted by
 # "+OAUTHBEARER+", it is still very widely supported.
 #
 # See Net::IMAP::SASL:: OAuthBearerAuthenticator.
 #
-# source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#17
+# source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#18
 class Net::IMAP::SASL::XOAuth2Authenticator
   # :call-seq:
   #   new(username,  oauth2_token,  **) -> authenticator
   #   new(username:, oauth2_token:, **) -> authenticator
+  #   new(authzid:,  oauth2_token:, **) -> authenticator
   #
   # Creates an Authenticator for the "+XOAUTH2+" SASL mechanism, as specified by
   # Google[https://developers.google.com/gmail/imap/xoauth2-protocol],
@@ -5456,15 +5875,44 @@ class Net::IMAP::SASL::XOAuth2Authenticator
   # === Properties
   #
   # * #username --- the username for the account being accessed.
+  #
+  #   #authzid  --- an alias for #username.
+  #
+  #   Note that, unlike some other authenticators, +username+ sets the
+  #   _authorization_ identity and not the _authentication_ identity.  The
+  #   authenticated identity is established for the client with the OAuth token.
+  #
   # * #oauth2_token --- An OAuth2.0 access token which is authorized to access
   #   the service for #username.
   #
-  # See the documentation for each attribute for more details.
+  # Any other keyword parameters are quietly ignored.
   #
   # @return [XOAuth2Authenticator] a new instance of XOAuth2Authenticator
   #
-  # source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#50
-  def initialize(user = T.unsafe(nil), token = T.unsafe(nil), username: T.unsafe(nil), oauth2_token: T.unsafe(nil), **_arg4); end
+  # source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#71
+  def initialize(user = T.unsafe(nil), token = T.unsafe(nil), username: T.unsafe(nil), oauth2_token: T.unsafe(nil), authzid: T.unsafe(nil), secret: T.unsafe(nil), **_arg6); end
+
+  # It is unclear from {Google's original XOAUTH2
+  # documentation}[https://developers.google.com/gmail/imap/xoauth2-protocol],
+  # whether "User" refers to the authentication identity (+authcid+) or the
+  # authorization identity (+authzid+).  The authentication identity is
+  # established for the client by the OAuth token, so it seems that +username+
+  # must be the authorization identity.
+  #
+  # {Microsoft's documentation for shared
+  # mailboxes}[https://learn.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#sasl-xoauth2-authentication-for-shared-mailboxes-in-office-365]
+  # _clearly_ indicates that the Office 365 server interprets it as the
+  # authorization identity.
+  #
+  # Although they _should_ validate that the token has been authorized to access
+  # the service for +username+, _some_ servers appear to ignore this field,
+  # relying only the identity and scope authorized by the token.
+  # Note that, unlike most other authenticators, #username is an alias for the
+  # authorization identity and not the authentication identity.  The
+  # authenticated identity is established for the client by the #oauth2_token.
+  #
+  # source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#35
+  def authzid; end
 
   # Returns true when the initial client response was sent.
   #
@@ -5473,49 +5921,90 @@ class Net::IMAP::SASL::XOAuth2Authenticator
   #
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#80
+  # source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#98
   def done?; end
 
   # :call-seq:
   #   initial_response? -> true
   #
-  # +PLAIN+ can send an initial client response.
+  # +XOAUTH2+ can send an initial client response.
   #
   # @return [Boolean]
   #
-  # source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#66
+  # source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#84
   def initial_response?; end
 
   # An OAuth2 access token which has been authorized with the appropriate OAuth2
   # scopes to use the service for #username.
   #
-  # source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#32
+  # source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#44
   def oauth2_token; end
 
   # Returns the XOAUTH2 formatted response, which combines the +username+
   # with the +oauth2_token+.
   #
-  # source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#70
+  # source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#88
   def process(_data); end
+
+  # An OAuth2 access token which has been authorized with the appropriate OAuth2
+  # scopes to use the service for #username.
+  #
+  # source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#44
+  def secret; end
 
   # It is unclear from {Google's original XOAUTH2
   # documentation}[https://developers.google.com/gmail/imap/xoauth2-protocol],
   # whether "User" refers to the authentication identity (+authcid+) or the
-  # authorization identity (+authzid+).  It appears to behave as +authzid+.
+  # authorization identity (+authzid+).  The authentication identity is
+  # established for the client by the OAuth token, so it seems that +username+
+  # must be the authorization identity.
   #
   # {Microsoft's documentation for shared
   # mailboxes}[https://learn.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth#sasl-xoauth2-authentication-for-shared-mailboxes-in-office-365]
-  # clearly indicate that the Office 365 server interprets it as the
+  # _clearly_ indicates that the Office 365 server interprets it as the
   # authorization identity.
   #
-  # source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#28
+  # Although they _should_ validate that the token has been authorized to access
+  # the service for +username+, _some_ servers appear to ignore this field,
+  # relying only the identity and scope authorized by the token.
+  #
+  # source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#35
   def username; end
 
   private
 
-  # source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#84
+  # source://net-imap//lib/net/imap/sasl/xoauth2_authenticator.rb#102
   def build_oauth2_string(username, oauth2_token); end
 end
+
+# Experimental
+#
+# source://net-imap//lib/net/imap/sasl_adapter.rb#7
+class Net::IMAP::SASLAdapter < ::Net::IMAP::SASL::ClientAdapter
+  include ::Net::IMAP::SASL::ProtocolAdapters::IMAP
+
+  # @return [Boolean]
+  #
+  # source://net-imap//lib/net/imap/sasl_adapter.rb#15
+  def auth_capable?(mechanism); end
+
+  # source://net-imap//lib/net/imap/sasl_adapter.rb#16
+  def drop_connection; end
+
+  # source://net-imap//lib/net/imap/sasl_adapter.rb#17
+  def drop_connection!; end
+
+  # source://net-imap//lib/net/imap/sasl_adapter.rb#13
+  def response_errors; end
+
+  # @return [Boolean]
+  #
+  # source://net-imap//lib/net/imap/sasl_adapter.rb#14
+  def sasl_ir_capable?; end
+end
+
+# source://net-imap//lib/net/imap/sasl_adapter.rb#10
+Net::IMAP::SASLAdapter::RESPONSE_ERRORS = T.let(T.unsafe(nil), Array)
 
 # Mailbox attribute indicating that this mailbox is used to hold copies of
 # messages that have been sent. Some server implementations might put

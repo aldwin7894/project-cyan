@@ -766,7 +766,7 @@ module RedisClient::RESP3
   # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#142
   def parse_array(io); end
 
-  # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#192
+  # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#194
   def parse_blob(io); end
 
   # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#131
@@ -784,7 +784,7 @@ module RedisClient::RESP3
   # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#150
   def parse_map(io); end
 
-  # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#187
+  # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#189
   def parse_null(io); end
 
   # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#158
@@ -799,7 +799,7 @@ module RedisClient::RESP3
   # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#120
   def parse_string(io); end
 
-  # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#202
+  # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#204
   def parse_verbatim_string(io); end
 
   class << self
@@ -839,7 +839,7 @@ module RedisClient::RESP3
     # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#142
     def parse_array(io); end
 
-    # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#192
+    # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#194
     def parse_blob(io); end
 
     # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#131
@@ -857,7 +857,7 @@ module RedisClient::RESP3
     # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#150
     def parse_map(io); end
 
-    # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#187
+    # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#189
     def parse_null(io); end
 
     # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#158
@@ -872,7 +872,7 @@ module RedisClient::RESP3
     # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#120
     def parse_string(io); end
 
-    # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#202
+    # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#204
     def parse_verbatim_string(io); end
   end
 end

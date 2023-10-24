@@ -5,6 +5,7 @@
 # Please instead update this file by running `bin/tapioca gem recaptcha`.
 
 class ActionController::Base < ::ActionController::Metal
+  include ::ActiveSupport::Deprecation::DeprecatedConstantAccessor
   include ::ActionDispatch::Routing::PolymorphicRoutes
   include ::ActionController::Head
   include ::AbstractController::Caching::ConfigMethods
@@ -12,6 +13,7 @@ class ActionController::Base < ::ActionController::Metal
   include ::Recaptcha::Adapters::ControllerMethods
   include ::Devise::Controllers::SignInOut
   include ::Devise::Controllers::StoreLocation
+  extend ::AbstractController::Helpers::Resolution
 end
 
 # source://recaptcha//lib/recaptcha/configuration.rb#3

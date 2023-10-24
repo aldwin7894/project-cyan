@@ -27,6 +27,15 @@ module Mongoid
   def app_name?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
+  def around_callbacks_for_embeds(*args, **_arg1, &block); end
+
+  # source://forwardable/1.3.3/forwardable.rb#231
+  def around_callbacks_for_embeds=(*args, **_arg1, &block); end
+
+  # source://forwardable/1.3.3/forwardable.rb#231
+  def around_callbacks_for_embeds?(*args, **_arg1, &block); end
+
+  # source://forwardable/1.3.3/forwardable.rb#231
   def async_query_executor(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -98,7 +107,7 @@ module Mongoid
   # source://forwardable/1.3.3/forwardable.rb#231
   def broken_updates?(*args, **_arg1, &block); end
 
-  # source://mongoid/8.1.2/lib/mongoid.rb#105
+  # source://mongoid/8.1.3/lib/mongoid.rb#105
   def client(name); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -116,7 +125,7 @@ module Mongoid
   # source://forwardable/1.3.3/forwardable.rb#231
   def config(*args, **_arg1, &block); end
 
-  # source://mongoid/8.1.2/lib/mongoid.rb#73
+  # source://mongoid/8.1.3/lib/mongoid.rb#73
   def configure(&block); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -125,7 +134,7 @@ module Mongoid
   # source://forwardable/1.3.3/forwardable.rb#231
   def connect_to(*args, **_arg1, &block); end
 
-  # source://mongoid/8.1.2/lib/mongoid.rb#85
+  # source://mongoid/8.1.3/lib/mongoid.rb#85
   def default_client; end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -134,7 +143,7 @@ module Mongoid
   # source://forwardable/1.3.3/forwardable.rb#231
   def destructive_fields(*args, **_arg1, &block); end
 
-  # source://mongoid/8.1.2/lib/mongoid.rb#95
+  # source://mongoid/8.1.3/lib/mongoid.rb#95
   def disconnect_clients; end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -455,57 +464,57 @@ module Mongoid::Document
   mixes_in_class_methods ::Mongoid::Document::ClassMethods
   mixes_in_class_methods ::Mongoid::Traversable::DiscriminatorAssignment
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#103
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#103
   def initialize(attrs = T.unsafe(nil), &block); end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#30
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#30
   def __selected_fields; end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#30
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#30
   def __selected_fields=(_arg0); end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#135
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#135
   def as_document; end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#157
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#157
   def as_json(options = T.unsafe(nil)); end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#177
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#177
   def becomes(klass); end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#50
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#50
   def freeze; end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#60
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#60
   def frozen?; end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#74
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#74
   def hash; end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#86
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#86
   def identity; end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#113
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#113
   def model_name; end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#31
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#31
   def new_record; end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#123
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#123
   def to_key; end
 
   private
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#274
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#274
   def as_attributes; end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#224
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#224
   def construct_document(attrs = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#252
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#252
   def logger; end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#262
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#262
   def model_key; end
 
   module GeneratedClassMethods
@@ -557,6 +566,9 @@ module Mongoid::Document
     def nested_attributes; end
     def nested_attributes=(value); end
     def nested_attributes?; end
+    def param_delimiter; end
+    def param_delimiter=(value); end
+    def param_delimiter?; end
     def polymorphic; end
     def polymorphic=(value); end
     def polymorphic?; end
@@ -621,6 +633,7 @@ module Mongoid::Document
     def nested_attributes; end
     def nested_attributes=(value); end
     def nested_attributes?; end
+    def param_delimiter=(value); end
     def polymorphic; end
     def polymorphic=(value); end
     def polymorphic?; end
@@ -648,28 +661,28 @@ end
 module Mongoid::Document::ClassMethods
   include ::OrmAdapter::ToAdapter
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#408
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#408
   def _mongoid_clear_types; end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#397
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#397
   def _types; end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#386
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#386
   def construct_document(attrs = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#416
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#416
   def i18n_scope; end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#320
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#320
   def instantiate(attrs = T.unsafe(nil), selected_fields = T.unsafe(nil), &block); end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#341
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#341
   def instantiate_document(attrs = T.unsafe(nil), selected_fields = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#426
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#426
   def logger; end
 
-  # source://mongoid/8.1.2/lib/mongoid/document.rb#299
+  # source://mongoid/8.1.3/lib/mongoid/document.rb#299
   def with_callbacks(execute_callbacks); end
 end
 
