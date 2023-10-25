@@ -39,7 +39,7 @@
     "rollup-plugin-gzip": "^3.1.0",
     "sass": "^1.69.4",
     "swiper": "^10.3.1",
-    "tailwindcss": "^3.3.3",
+    "tailwindcss": "^3.3.4",
     "tailwindcss-animatecss": "^3.0.4",
     "terser": "^5.22.0",
     "tippy.js": "^6.3.7",
