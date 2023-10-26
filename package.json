@@ -38,7 +38,7 @@
     "postcss-preset-env": "^9.2.0",
     "rollup-plugin-gzip": "^3.1.0",
     "sass": "^1.69.4",
-    "swiper": "^10.3.1",
+    "swiper": "^11.0.2",
     "tailwindcss": "^3.3.3",
     "tailwindcss-animatecss": "^3.0.4",
     "terser": "^5.22.0",
