@@ -87,7 +87,7 @@ gem "occson", "~> 4.2"
 
 gem "jwt", "~> 2.7"
 
-gem "recaptcha", "~> 5.12"
+gem "recaptcha", "~> 5.16"
 
 # gem "ferrum", "~> 0.13"
 

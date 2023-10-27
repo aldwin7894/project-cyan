@@ -276,7 +276,7 @@ GEM
       yarp (>= 0.11.0)
     rdoc (6.5.0)
       psych (>= 4.0.0)
-    recaptcha (5.15.0)
+    recaptcha (5.16.0)
     redis (5.0.8)
       redis-client (>= 0.17.0)
     redis-client (0.17.1)
@@ -429,7 +429,7 @@ DEPENDENCIES
   rack-cors (~> 2.0)
   rack-mini-profiler (~> 3.1)
   rails (~> 7.1.0)
-  recaptcha (~> 5.12)
+  recaptcha (~> 5.16)
   redis (~> 5.0)
   responders (~> 3.1)
   rubocop
