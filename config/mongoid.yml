@@ -145,7 +145,7 @@ development:
 
     # Set the Mongoid and Ruby driver log levels when Mongoid is not using
     # Ruby on Rails logger instance. (default: :info)
-    # log_level: :info
+    log_level: :info
 
     # Preload all models in development, needed when models use
     # inheritance. (default: false)
@@ -194,3 +194,4 @@ production:
     app_name: project-cyan
     raise_not_found_error: false
     background_indexing: true
+    log_level: :info

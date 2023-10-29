@@ -7,7 +7,7 @@
       <div class="grow flex flex-col min-w-[150px]">
         <div>
           <ul>
-            <% @genre_list.each do |genre| %>
+            <% @genre_list&.each do |genre| %>
               <li class="flex flex-row gap-2 mt-2">
                 <div class="min-w-[20px] min-h-[20px] my-auto" style="background: <%= genre[:backgroundColor] %>"></div>
                 <h3><%= genre[:label] %></h3>

@@ -2,7 +2,7 @@
 <% color = (color.presence || "#00FFFF") %>
 <% text_color = Kodachroma.paint(color).dark? ? "text-white" : "text-black" %>
 
-<div class="flex flex-col">
+<div class="flex flex-col select-none">
   <div class="hidden visually-hidden">
     <img src="<%= activity["media"]["coverImage"]["extraLarge"] %>" alt="cover-image">
   </div>
