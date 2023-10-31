@@ -41,7 +41,7 @@
     "swiper": "^11.0.3",
     "tailwindcss": "^3.3.5",
     "tailwindcss-animatecss": "^3.0.4",
-    "terser": "^5.22.0",
+    "terser": "^5.23.0",
     "tippy.js": "^6.3.7",
     "vite": "^4.5.0",
     "vite-plugin-full-reload": "^1.0.5",
