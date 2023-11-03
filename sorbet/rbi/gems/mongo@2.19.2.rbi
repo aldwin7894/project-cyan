@@ -7413,13 +7413,14 @@ class Mongo::Collection::View
   # @option options
   # @option options
   # @option options
+  # @option options
   # @param collection [Collection] The +Collection+ to query.
   # @param filter [Hash] The query filter.
   # @param options [Hash] The additional query options.
   # @return [View] a new instance of View
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection/view.rb#155
+  # source://mongo//lib/mongo/collection/view.rb#156
   def initialize(collection, filter = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # Compare two +View+ objects.
@@ -7487,7 +7488,7 @@ class Mongo::Collection::View
   # @return [String] A string representation of a +View+ instance.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection/view.rb#181
+  # source://mongo//lib/mongo/collection/view.rb#182
   def inspect; end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -7516,7 +7517,7 @@ class Mongo::Collection::View
   # @return [Mongo::WriteConcern] The write concern.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection/view.rb#194
+  # source://mongo//lib/mongo/collection/view.rb#195
   def write_concern; end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -7529,22 +7530,22 @@ class Mongo::Collection::View
 
   # @api semipublic
   #
-  # source://mongo//lib/mongo/collection/view.rb#200
+  # source://mongo//lib/mongo/collection/view.rb#201
   def initialize_copy(other); end
 
   # @api semipublic
   #
-  # source://mongo//lib/mongo/collection/view.rb#206
+  # source://mongo//lib/mongo/collection/view.rb#207
   def new(options); end
 
   # @api semipublic
   #
-  # source://mongo//lib/mongo/collection/view.rb#210
+  # source://mongo//lib/mongo/collection/view.rb#211
   def view; end
 
   # @api semipublic
   #
-  # source://mongo//lib/mongo/collection/view.rb#212
+  # source://mongo//lib/mongo/collection/view.rb#213
   def with_session(opts = T.unsafe(nil), &block); end
 end
 
@@ -8272,6 +8273,14 @@ module Mongo::Collection::View::Iterable
   # source://mongo//lib/mongo/collection/view/iterable.rb#152
   def initial_query_op(session); end
 
+  # Add tailable cusror options to the command specifiction if needed.
+  #
+  # @param spec [Hash] The command specification.
+  # @since 2.0.0
+  #
+  # source://mongo//lib/mongo/collection/view/iterable.rb#209
+  def maybe_set_tailable_options(spec); end
+
   # @since 2.0.0
   #
   # source://mongo//lib/mongo/collection/view/iterable.rb#115
@@ -8279,13 +8288,13 @@ module Mongo::Collection::View::Iterable
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection/view/iterable.rb#196
+  # source://mongo//lib/mongo/collection/view/iterable.rb#198
   def send_initial_query(server, session = T.unsafe(nil)); end
 
   # @return [Boolean]
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection/view/iterable.rb#200
+  # source://mongo//lib/mongo/collection/view/iterable.rb#202
   def use_query_cache?; end
 end
 

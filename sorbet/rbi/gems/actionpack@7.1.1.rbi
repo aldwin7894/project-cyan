@@ -4286,17 +4286,17 @@ ActionController::Live::SSE::PERMITTED_OPTIONS = T.let(T.unsafe(nil), Array)
 class ActionController::LiveTestResponse < ::ActionController::Live::Response
   # Was there a server-side error?
   #
-  # source://rack/3.0.8/lib/rack/response.rb#186
+  # source://rack/2.2.8/lib/rack/response.rb#141
   def error?; end
 
   # Was the URL not found?
   #
-  # source://rack/3.0.8/lib/rack/response.rb#196
+  # source://rack/2.2.8/lib/rack/response.rb#151
   def missing?; end
 
   # Was the response successful?
   #
-  # source://rack/3.0.8/lib/rack/response.rb#183
+  # source://rack/2.2.8/lib/rack/response.rb#138
   def success?; end
 end
 
@@ -8966,34 +8966,34 @@ end
 # source://actionpack//lib/action_dispatch/constants.rb#6
 module ActionDispatch::Constants; end
 
-# source://actionpack//lib/action_dispatch/constants.rb#21
+# source://actionpack//lib/action_dispatch/constants.rb#10
 ActionDispatch::Constants::CONTENT_ENCODING = T.let(T.unsafe(nil), String)
 
-# source://actionpack//lib/action_dispatch/constants.rb#22
+# source://actionpack//lib/action_dispatch/constants.rb#11
 ActionDispatch::Constants::CONTENT_SECURITY_POLICY = T.let(T.unsafe(nil), String)
 
-# source://actionpack//lib/action_dispatch/constants.rb#23
+# source://actionpack//lib/action_dispatch/constants.rb#12
 ActionDispatch::Constants::CONTENT_SECURITY_POLICY_REPORT_ONLY = T.let(T.unsafe(nil), String)
 
-# source://actionpack//lib/action_dispatch/constants.rb#25
+# source://actionpack//lib/action_dispatch/constants.rb#14
 ActionDispatch::Constants::FEATURE_POLICY = T.let(T.unsafe(nil), String)
 
-# source://actionpack//lib/action_dispatch/constants.rb#24
+# source://actionpack//lib/action_dispatch/constants.rb#13
 ActionDispatch::Constants::LOCATION = T.let(T.unsafe(nil), String)
 
-# source://actionpack//lib/action_dispatch/constants.rb#28
+# source://actionpack//lib/action_dispatch/constants.rb#17
 ActionDispatch::Constants::SERVER_TIMING = T.let(T.unsafe(nil), String)
 
-# source://actionpack//lib/action_dispatch/constants.rb#29
+# source://actionpack//lib/action_dispatch/constants.rb#18
 ActionDispatch::Constants::STRICT_TRANSPORT_SECURITY = T.let(T.unsafe(nil), String)
 
-# source://actionpack//lib/action_dispatch/constants.rb#20
+# source://actionpack//lib/action_dispatch/constants.rb#9
 ActionDispatch::Constants::VARY = T.let(T.unsafe(nil), String)
 
-# source://actionpack//lib/action_dispatch/constants.rb#27
+# source://actionpack//lib/action_dispatch/constants.rb#16
 ActionDispatch::Constants::X_CASCADE = T.let(T.unsafe(nil), String)
 
-# source://actionpack//lib/action_dispatch/constants.rb#26
+# source://actionpack//lib/action_dispatch/constants.rb#15
 ActionDispatch::Constants::X_REQUEST_ID = T.let(T.unsafe(nil), String)
 
 # = Action Dispatch Content Security Policy
@@ -14630,7 +14630,7 @@ class ActionDispatch::Request
   # source://actionpack//lib/action_dispatch/http/request.rb#339
   def raw_post; end
 
-  # source://rack/3.0.8/lib/rack/request.rb#197
+  # source://rack/2.2.8/lib/rack/request.rb#157
   def raw_request_method; end
 
   # source://actionpack//lib/action_dispatch/http/request.rb#50
@@ -15381,11 +15381,11 @@ class ActionDispatch::Response
 
   # Aliasing these off because AD::Http::Cache::Response defines them.
   #
-  # source://rack/3.0.8/lib/rack/response.rb#289
+  # source://rack/2.2.8/lib/rack/response.rb#229
   def _cache_control; end
 
-  # source://rack/3.0.8/lib/rack/response.rb#293
-  def _cache_control=(value); end
+  # source://rack/2.2.8/lib/rack/response.rb#233
+  def _cache_control=(v); end
 
   # source://actionpack//lib/action_dispatch/http/response.rb#380
   def abort; end
@@ -15551,7 +15551,7 @@ class ActionDispatch::Response
 
   # The location header we'll be responding with.
   #
-  # source://rack/3.0.8/lib/rack/response.rb#261
+  # source://rack/2.2.8/lib/rack/response.rb#204
   def redirect_url; end
 
   # The request that the response is responding to.
@@ -15800,10 +15800,10 @@ end
 # To be deprecated:
 #
 # source://actionpack//lib/action_dispatch/http/response.rb#48
-ActionDispatch::Response::Header = Rack::Headers
+ActionDispatch::Response::Header = Rack::Utils::HeaderHash
 
-# source://actionpack//lib/action_dispatch/http/response.rb#40
-ActionDispatch::Response::Headers = Rack::Headers
+# source://actionpack//lib/action_dispatch/http/response.rb#44
+ActionDispatch::Response::Headers = Rack::Utils::HeaderHash
 
 # source://actionpack//lib/action_dispatch/http/response.rb#84
 ActionDispatch::Response::NO_CONTENT_CODES = T.let(T.unsafe(nil), Array)
@@ -20655,10 +20655,10 @@ Mime::Type::MIME_REGEXP = T.let(T.unsafe(nil), Regexp)
 # source://actionpack//lib/action_dispatch.rb#34
 module Rack
   class << self
-    # source://rack/3.0.8/lib/rack/version.rb#31
+    # source://rack/2.2.8/lib/rack/version.rb#26
     def release; end
 
-    # source://rack/3.0.8/lib/rack/version.rb#23
+    # source://rack/2.2.8/lib/rack/version.rb#19
     def version; end
   end
 end

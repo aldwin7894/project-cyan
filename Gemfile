@@ -73,6 +73,8 @@ gem "lograge", "~> 0.14.0"
 
 gem "rack-brotli", "~> 1.2"
 
+gem "rack", "~> 2"
+
 gem "health_check", "~> 3.1"
 
 gem "httplog", "~> 1.6"

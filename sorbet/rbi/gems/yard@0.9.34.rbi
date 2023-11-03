@@ -490,19 +490,19 @@ RUBY19 = T.let(T.unsafe(nil), TrueClass)
 #
 # source://yard//lib/yard/server/rack_adapter.rb#93
 class Rack::Request
-  # source://rack/3.0.8/lib/rack/request.rb#62
+  # source://rack/2.2.8/lib/rack/request.rb#26
   def initialize(env); end
 
-  # source://rack/3.0.8/lib/rack/request.rb#76
+  # source://rack/2.2.8/lib/rack/request.rb#40
   def delete_param(k); end
 
-  # source://rack/3.0.8/lib/rack/request.rb#67
+  # source://rack/2.2.8/lib/rack/request.rb#31
   def params; end
 
-  # source://rack/3.0.8/lib/rack/request.rb#67
+  # source://rack/2.2.8/lib/rack/request.rb#31
   def query; end
 
-  # source://rack/3.0.8/lib/rack/request.rb#71
+  # source://rack/2.2.8/lib/rack/request.rb#35
   def update_param(k, v); end
 
   # Returns the value of attribute version_supplied.
@@ -523,23 +523,11 @@ class Rack::Request
   def xhr?; end
 
   class << self
-    # source://rack/3.0.8/lib/rack/request.rb#31
-    def forwarded_priority; end
-
-    # source://rack/3.0.8/lib/rack/request.rb#31
-    def forwarded_priority=(_arg0); end
-
-    # source://rack/3.0.8/lib/rack/request.rb#18
+    # source://rack/2.2.8/lib/rack/request.rb#16
     def ip_filter; end
 
-    # source://rack/3.0.8/lib/rack/request.rb#18
+    # source://rack/2.2.8/lib/rack/request.rb#16
     def ip_filter=(_arg0); end
-
-    # source://rack/3.0.8/lib/rack/request.rb#40
-    def x_forwarded_proto_priority; end
-
-    # source://rack/3.0.8/lib/rack/request.rb#40
-    def x_forwarded_proto_priority=(_arg0); end
   end
 end
 
@@ -14479,8 +14467,8 @@ class YARD::Server::RackMiddleware
   def call(env); end
 end
 
-# source://yard//lib/yard/server/rack_adapter.rb#8
-YARD::Server::RackServer = Rackup::Server
+# source://yard//lib/yard/server/rack_adapter.rb#12
+YARD::Server::RackServer = Rack::Server
 
 # A router class implements the logic used to recognize a request for a specific
 # URL and run specific {Commands::Base commands}.

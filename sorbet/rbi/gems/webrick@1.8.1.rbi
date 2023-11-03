@@ -1203,6 +1203,9 @@ class WEBrick::HTTPResponse
   # source://webrick//lib/webrick/httpresponse.rb#162
   def []=(field, value); end
 
+  # source://webrick//lib/webrick/httpresponse.rb#255
+  def _rack_setup_header; end
+
   # Body may be:
   # * a String;
   # * an IO-like object that responds to +#read+ and +#readpartial+;
@@ -1406,11 +1409,6 @@ class WEBrick::HTTPResponse
   #
   # source://webrick//lib/webrick/httpresponse.rb#395
   def set_redirect(status, url); end
-
-  # Sets up the headers for sending
-  #
-  # source://webrick//lib/webrick/httpresponse.rb#255
-  def setup_header; end
 
   # Response status code (200)
   #
