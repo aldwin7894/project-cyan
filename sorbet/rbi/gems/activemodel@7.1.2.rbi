@@ -4372,7 +4372,7 @@ module ActiveModel::Type::Helpers::Numeric
 
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/type/helpers/numeric.rb#48
+  # source://activemodel//lib/active_model/type/helpers/numeric.rb#49
   def non_numeric_string?(value); end
 
   # @return [Boolean]
@@ -4381,7 +4381,7 @@ module ActiveModel::Type::Helpers::Numeric
   def number_to_non_number?(old_value, new_value_before_type_cast); end
 end
 
-# source://activemodel//lib/active_model/type/helpers/numeric.rb#55
+# source://activemodel//lib/active_model/type/helpers/numeric.rb#56
 ActiveModel::Type::Helpers::Numeric::NUMERIC_REGEX = T.let(T.unsafe(nil), Regexp)
 
 # source://activemodel//lib/active_model/type/helpers/time_value.rb#9

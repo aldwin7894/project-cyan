@@ -113,6 +113,7 @@ class MusicNpBannerController < ApplicationController
     end
 
     release_mbid = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("release_mbid")
+    release_mbid ||= @recent&.[]("track_metadata")&.[]("mbid_mapping")&.[]("caa_release_mbid")
     release_mbid ||= @recent&.[]("track_metadata")&.[]("mbid_mapping")&.[]("release_mbid")
     recording_mbid = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("recording_mbid")
     recording_mbid ||= @recent&.[]("track_metadata")&.[]("mbid_mapping")&.[]("recording_mbid")

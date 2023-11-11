@@ -21,13 +21,13 @@ module Turbo
     # source://turbo-rails//lib/turbo-rails.rb#6
     def draw_routes=(val); end
 
-    # source://railties/7.1.1/lib/rails/engine.rb#405
+    # source://railties/7.1.2/lib/rails/engine.rb#405
     def railtie_helpers_paths; end
 
-    # source://railties/7.1.1/lib/rails/engine.rb#394
+    # source://railties/7.1.2/lib/rails/engine.rb#394
     def railtie_namespace; end
 
-    # source://railties/7.1.1/lib/rails/engine.rb#409
+    # source://railties/7.1.2/lib/rails/engine.rb#409
     def railtie_routes_url_helpers(include_path_helpers = T.unsafe(nil)); end
 
     # source://turbo-rails//lib/turbo-rails.rb#11
@@ -43,10 +43,10 @@ module Turbo
     # source://turbo-rails//lib/turbo-rails.rb#9
     def signed_stream_verifier_key=(_arg0); end
 
-    # source://railties/7.1.1/lib/rails/engine.rb#397
+    # source://railties/7.1.2/lib/rails/engine.rb#397
     def table_name_prefix; end
 
-    # source://railties/7.1.1/lib/rails/engine.rb#401
+    # source://railties/7.1.2/lib/rails/engine.rb#401
     def use_relative_model_naming?; end
   end
 end
@@ -201,7 +201,7 @@ end
 # source://turbo-rails//lib/turbo/engine.rb#4
 class Turbo::Engine < ::Rails::Engine
   class << self
-    # source://activesupport/7.1.1/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#70
     def __callbacks; end
   end
 end
@@ -260,11 +260,11 @@ class Turbo::Native::NavigationController < ::ActionController::Base
 
   private
 
-  # source://actionview/7.1.1/lib/action_view/layouts.rb#330
+  # source://actionview/7.1.2/lib/action_view/layouts.rb#330
   def _layout(lookup_context, formats); end
 
   class << self
-    # source://actionpack/7.1.1/lib/action_controller/metal.rb#262
+    # source://actionpack/7.1.2/lib/action_controller/metal.rb#262
     def middleware_stack; end
   end
 end
@@ -275,7 +275,7 @@ class Turbo::Streams::ActionBroadcastJob < ::ActiveJob::Base
   def perform(stream, action:, target:, **rendering); end
 
   class << self
-    # source://activesupport/7.1.1/lib/active_support/rescuable.rb#15
+    # source://activesupport/7.1.2/lib/active_support/rescuable.rb#15
     def rescue_handlers; end
   end
 end
@@ -296,7 +296,7 @@ class Turbo::Streams::BroadcastJob < ::ActiveJob::Base
   def perform(stream, **rendering); end
 
   class << self
-    # source://activesupport/7.1.1/lib/active_support/rescuable.rb#15
+    # source://activesupport/7.1.2/lib/active_support/rescuable.rb#15
     def rescue_handlers; end
   end
 end
@@ -393,7 +393,7 @@ class Turbo::StreamsChannel < ::ActionCable::Channel::Base
   def subscribed; end
 
   class << self
-    # source://activesupport/7.1.1/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#70
     def __callbacks; end
   end
 end
