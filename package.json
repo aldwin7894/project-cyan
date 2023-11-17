@@ -44,7 +44,7 @@
     "terser": "^5.24.0",
     "tippy.js": "^6.3.7",
     "vite": "^4.5.0",
-    "vite-plugin-full-reload": "^1.0.5",
+    "vite-plugin-full-reload": "^1.1.0",
     "vite-plugin-ruby": "^3.2.2"
   },
   "devDependencies": {
