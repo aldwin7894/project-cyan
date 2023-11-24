@@ -14,25 +14,25 @@ class DomainName
   #
   # @return [DomainName] a new instance of DomainName
   #
-  # source://domain_name//lib/domain_name.rb#78
+  # source://domain_name//lib/domain_name.rb#77
   def initialize(hostname); end
 
-  # source://domain_name//lib/domain_name.rb#195
+  # source://domain_name//lib/domain_name.rb#194
   def <(other); end
 
-  # source://domain_name//lib/domain_name.rb#217
+  # source://domain_name//lib/domain_name.rb#216
   def <=(other); end
 
-  # source://domain_name//lib/domain_name.rb#179
+  # source://domain_name//lib/domain_name.rb#178
   def <=>(other); end
 
-  # source://domain_name//lib/domain_name.rb#174
+  # source://domain_name//lib/domain_name.rb#173
   def ==(other); end
 
-  # source://domain_name//lib/domain_name.rb#206
+  # source://domain_name//lib/domain_name.rb#205
   def >(other); end
 
-  # source://domain_name//lib/domain_name.rb#228
+  # source://domain_name//lib/domain_name.rb#227
   def >=(other); end
 
   # Returns true if this domain name has a canonical registered
@@ -40,14 +40,14 @@ class DomainName
   #
   # @return [Boolean]
   #
-  # source://domain_name//lib/domain_name.rb#70
+  # source://domain_name//lib/domain_name.rb#69
   def canonical?; end
 
   # Returns true if this domain name has a canonical TLD.
   #
   # @return [Boolean]
   #
-  # source://domain_name//lib/domain_name.rb#64
+  # source://domain_name//lib/domain_name.rb#63
   def canonical_tld?; end
 
   # Checks if the server represented by this domain is qualified to
@@ -58,7 +58,7 @@ class DomainName
   #
   # @return [Boolean]
   #
-  # source://domain_name//lib/domain_name.rb#150
+  # source://domain_name//lib/domain_name.rb#149
   def cookie_domain?(domain, host_only = T.unsafe(nil)); end
 
   # The least "universally original" domain part of this domain name.
@@ -67,10 +67,10 @@ class DomainName
   # IP address, an effective TLD or higher itself, or of a
   # non-canonical domain.
   #
-  # source://domain_name//lib/domain_name.rb#32
+  # source://domain_name//lib/domain_name.rb#31
   def domain; end
 
-  # source://domain_name//lib/domain_name.rb#256
+  # source://domain_name//lib/domain_name.rb#255
   def domain_idn; end
 
   # The full host name normalized, ASCII-ized and downcased using the
@@ -78,21 +78,21 @@ class DomainName
   # an IP address, the string representation of the IP address
   # suitable for opening a connection to.
   #
-  # source://domain_name//lib/domain_name.rb#21
+  # source://domain_name//lib/domain_name.rb#20
   def hostname; end
 
-  # source://domain_name//lib/domain_name.rb#245
+  # source://domain_name//lib/domain_name.rb#244
   def hostname_idn; end
 
-  # source://domain_name//lib/domain_name.rb#245
+  # source://domain_name//lib/domain_name.rb#244
   def idn; end
 
-  # source://domain_name//lib/domain_name.rb#274
+  # source://domain_name//lib/domain_name.rb#273
   def inspect; end
 
   # Returns an IPAddr object if this is an IP address.
   #
-  # source://domain_name//lib/domain_name.rb#50
+  # source://domain_name//lib/domain_name.rb#49
   def ipaddr; end
 
   # Returns true if this is an IP address, such as "192.168.0.1" and
@@ -100,12 +100,12 @@ class DomainName
   #
   # @return [Boolean]
   #
-  # source://domain_name//lib/domain_name.rb#54
+  # source://domain_name//lib/domain_name.rb#53
   def ipaddr?; end
 
   # Returns the superdomain of this domain name.
   #
-  # source://domain_name//lib/domain_name.rb#168
+  # source://domain_name//lib/domain_name.rb#167
   def superdomain; end
 
   # The TLD part of this domain name.  For example, if the hostname is
@@ -114,38 +114,38 @@ class DomainName
   # does not have one, like when it is an IP address or of a
   # non-canonical domain.
   #
-  # source://domain_name//lib/domain_name.rb#43
+  # source://domain_name//lib/domain_name.rb#42
   def tld; end
 
-  # source://domain_name//lib/domain_name.rb#265
+  # source://domain_name//lib/domain_name.rb#264
   def tld_idn; end
 
-  # source://domain_name//lib/domain_name.rb#239
+  # source://domain_name//lib/domain_name.rb#238
   def to_s; end
 
-  # source://domain_name//lib/domain_name.rb#239
+  # source://domain_name//lib/domain_name.rb#238
   def to_str; end
 
   # Returns a host name representation suitable for use in the host
   # name part of a URI.  A host name, an IPv4 address, or a IPv6
   # address enclosed in square brackets.
   #
-  # source://domain_name//lib/domain_name.rb#61
+  # source://domain_name//lib/domain_name.rb#60
   def uri_host; end
 
   class << self
-    # source://domain_name//lib/domain_name/etld_data.rb#8784
+    # source://domain_name//lib/domain_name/etld_data.rb#9575
     def etld_data; end
 
     # Normalizes a _domain_ using the Punycode algorithm as necessary.
     # The result will be a downcased, ASCII-only string.
     #
-    # source://domain_name//lib/domain_name.rb#288
+    # source://domain_name//lib/domain_name.rb#287
     def normalize(domain); end
   end
 end
 
-# source://domain_name//lib/domain_name.rb#74
+# source://domain_name//lib/domain_name.rb#73
 DomainName::DOT = T.let(T.unsafe(nil), String)
 
 # source://domain_name//lib/domain_name/etld_data.rb#4
@@ -255,6 +255,6 @@ class Object < ::BasicObject
 
   private
 
-  # source://domain_name//lib/domain_name.rb#295
+  # source://domain_name//lib/domain_name.rb#294
   def DomainName(hostname); end
 end

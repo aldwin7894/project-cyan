@@ -10,7 +10,7 @@ module Mongo
 
   # Clears the driver's OCSP response cache.
   #
-  # source://mongo//lib/mongo.rb#104
+  # source://mongo//lib/mongo.rb#105
   def clear_ocsp_cache; end
 
   # This is a user-settable list of hooks that will be invoked when any new
@@ -21,7 +21,7 @@ module Mongo
   # @return [Array<Proc>] The list of procs to be invoked when a TLS socket
   #   is connected (may be an empty Array).
   #
-  # source://mongo//lib/mongo.rb#115
+  # source://mongo//lib/mongo.rb#116
   def tls_context_hooks; end
 
   # Set the TLS context hooks.
@@ -29,7 +29,7 @@ module Mongo
   # @param hooks [Array<Proc>] An Array of Procs, each of which should take
   #   an OpenSSL::SSL::SSLContext object as an argument.
   #
-  # source://mongo//lib/mongo.rb#123
+  # source://mongo//lib/mongo.rb#124
   def tls_context_hooks=(hooks); end
 
   class << self
@@ -53,7 +53,7 @@ module Mongo
 
     # Clears the driver's OCSP response cache.
     #
-    # source://mongo//lib/mongo.rb#104
+    # source://mongo//lib/mongo.rb#105
     def clear_ocsp_cache; end
 
     # source://forwardable/1.3.3/forwardable.rb#231
@@ -67,7 +67,7 @@ module Mongo
     # @return [Array<Proc>] The list of procs to be invoked when a TLS socket
     #   is connected (may be an empty Array).
     #
-    # source://mongo//lib/mongo.rb#115
+    # source://mongo//lib/mongo.rb#116
     def tls_context_hooks; end
 
     # Set the TLS context hooks.
@@ -75,7 +75,7 @@ module Mongo
     # @param hooks [Array<Proc>] An Array of Procs, each of which should take
     #   an OpenSSL::SSL::SSLContext object as an argument.
     #
-    # source://mongo//lib/mongo.rb#123
+    # source://mongo//lib/mongo.rb#124
     def tls_context_hooks=(hooks); end
 
     # source://forwardable/1.3.3/forwardable.rb#231
@@ -6656,7 +6656,7 @@ class Mongo::Collection
   # @return [BulkWrite::Result] The result of the operation.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#847
+  # source://mongo//lib/mongo/collection.rb#869
   def bulk_write(requests, options = T.unsafe(nil)); end
 
   # Is the collection capped?
@@ -6769,7 +6769,7 @@ class Mongo::Collection
   # @return [Result] The response from the database.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#891
+  # source://mongo//lib/mongo/collection.rb#913
   def delete_many(filter = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # Remove a document from the collection.
@@ -6785,7 +6785,7 @@ class Mongo::Collection
   # @return [Result] The response from the database.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#869
+  # source://mongo//lib/mongo/collection.rb#891
   def delete_one(filter = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # Get a list of distinct values for a specific field.
@@ -6888,7 +6888,7 @@ class Mongo::Collection
   # @return [BSON::Document, nil] The document, if found.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#1029
+  # source://mongo//lib/mongo/collection.rb#1051
   def find_one_and_delete(filter, options = T.unsafe(nil)); end
 
   # Finds a single document and replaces it, returning the original doc unless
@@ -6915,7 +6915,7 @@ class Mongo::Collection
   # @return [BSON::Document] The document.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#1107
+  # source://mongo//lib/mongo/collection.rb#1129
   def find_one_and_replace(filter, replacement, options = T.unsafe(nil)); end
 
   # Finds a single document via findAndModify and updates it, returning the original doc unless
@@ -6943,7 +6943,7 @@ class Mongo::Collection
   # @return [BSON::Document] The document.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#1069
+  # source://mongo//lib/mongo/collection.rb#1091
   def find_one_and_update(filter, update, options = T.unsafe(nil)); end
 
   # Get a view of all indexes for this collection. Can be iterated or has
@@ -6953,7 +6953,7 @@ class Mongo::Collection
   #   collection.indexes
   # @option options
   # @param options [Hash] Options for getting a list of all indexes.
-  # @return [View::Index] The index view.
+  # @return [Index::View] The index view.
   # @since 2.0.0
   #
   # source://mongo//lib/mongo/collection.rb#731
@@ -6973,7 +6973,7 @@ class Mongo::Collection
   # @return [Result] The database response wrapper.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#819
+  # source://mongo//lib/mongo/collection.rb#841
   def insert_many(documents, options = T.unsafe(nil)); end
 
   # Insert a single document into the collection.
@@ -6989,7 +6989,7 @@ class Mongo::Collection
   # @return [Result] The database response wrapper.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#766
+  # source://mongo//lib/mongo/collection.rb#788
   def insert_one(document, opts = T.unsafe(nil)); end
 
   # Get a pretty printed string inspection for the collection.
@@ -6999,7 +6999,7 @@ class Mongo::Collection
   # @return [String] The collection inspection.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#743
+  # source://mongo//lib/mongo/collection.rb#765
   def inspect; end
 
   # @return [String] The name of the collection.
@@ -7015,7 +7015,7 @@ class Mongo::Collection
   # @return [String] The collection namespace.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#1119
+  # source://mongo//lib/mongo/collection.rb#1141
   def namespace; end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -7042,7 +7042,7 @@ class Mongo::Collection
   # @return [Array<Cursor>] An array of cursors.
   # @since 2.1
   #
-  # source://mongo//lib/mongo/collection.rb#914
+  # source://mongo//lib/mongo/collection.rb#936
   def parallel_scan(cursor_count, options = T.unsafe(nil)); end
 
   # Get the effective read concern for this collection instance.
@@ -7089,8 +7089,25 @@ class Mongo::Collection
   # @return [Result] The response from the database.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#941
+  # source://mongo//lib/mongo/collection.rb#963
   def replace_one(filter, replacement, options = T.unsafe(nil)); end
+
+  # Get a view of all search indexes for this collection. Can be iterated or
+  # operated on directly. If id or name are given, the iterator will return
+  # only the indicated index. For all other operations, id and name are
+  # ignored.
+  #
+  # @note Only one of id or name may be given; it is an error to specify both,
+  #   although both may be omitted safely.
+  # @option options
+  # @option options
+  # @option options
+  # @param options [Hash] The options to use to configure the view.
+  # @return [SearchIndex::View] The search index view.
+  # @since 2.0.0
+  #
+  # source://mongo//lib/mongo/collection.rb#753
+  def search_indexes(options = T.unsafe(nil)); end
 
   # Get the server selector for this collection.
   #
@@ -7108,7 +7125,7 @@ class Mongo::Collection
   # @return [Boolean] Whether the system is a system collection.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#1128
+  # source://mongo//lib/mongo/collection.rb#1150
   def system_collection?; end
 
   # Update documents in the collection.
@@ -7128,7 +7145,7 @@ class Mongo::Collection
   # @return [Result] The response from the database.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#970
+  # source://mongo//lib/mongo/collection.rb#992
   def update_many(filter, update, options = T.unsafe(nil)); end
 
   # Update a single document in the collection.
@@ -7148,7 +7165,7 @@ class Mongo::Collection
   # @return [Result] The response from the database.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#999
+  # source://mongo//lib/mongo/collection.rb#1021
   def update_one(filter, update, options = T.unsafe(nil)); end
 
   # As of version 3.6 of the MongoDB server, a ``$changeStream`` pipeline
@@ -19015,7 +19032,7 @@ module Mongo::Operation; end
 # @api private
 # @since 2.5.0
 #
-# source://mongo//lib/mongo/operation.rb#101
+# source://mongo//lib/mongo/operation.rb#104
 Mongo::Operation::ARRAY_FILTERS = T.let(T.unsafe(nil), String)
 
 # A MongoDB aggregate operation.
@@ -19160,7 +19177,7 @@ end
 # @deprecated
 # @since 2.5.0
 #
-# source://mongo//lib/mongo/operation.rb#112
+# source://mongo//lib/mongo/operation.rb#115
 Mongo::Operation::CLUSTER_TIME = T.let(T.unsafe(nil), String)
 
 # The collation field constant.
@@ -19168,7 +19185,7 @@ Mongo::Operation::CLUSTER_TIME = T.let(T.unsafe(nil), String)
 # @api private
 # @since 2.4.0
 #
-# source://mongo//lib/mongo/operation.rb#96
+# source://mongo//lib/mongo/operation.rb#99
 Mongo::Operation::COLLATION = T.let(T.unsafe(nil), String)
 
 # Custom behavior for operations that support causal consistency.
@@ -19499,6 +19516,39 @@ class Mongo::Operation::CreateIndex::OpMsg < ::Mongo::Operation::OpMsgBase
   def selector(connection); end
 end
 
+# A MongoDB createSearchIndexes command operation.
+#
+# @api private
+#
+# source://mongo//lib/mongo/operation/create_search_indexes/op_msg.rb#5
+class Mongo::Operation::CreateSearchIndexes
+  include ::Mongo::Operation::Specifiable
+  include ::Mongo::Operation::PolymorphicLookup
+  include ::Mongo::Operation::OpMsgExecutable
+end
+
+# A MongoDB createSearchIndexes operation sent as an op message.
+#
+# @api private
+#
+# source://mongo//lib/mongo/operation/create_search_indexes/op_msg.rb#9
+class Mongo::Operation::CreateSearchIndexes::OpMsg < ::Mongo::Operation::OpMsgBase
+  include ::Mongo::Operation::ExecutableTransactionLabel
+
+  private
+
+  # Returns the command to send to the database, describing the
+  # desired createSearchIndexes operation.
+  #
+  # @api private
+  # @param _server [Mongo::Server] the server that will receive the
+  #   command
+  # @return [Hash] the selector
+  #
+  # source://mongo//lib/mongo/operation/create_search_indexes/op_msg.rb#21
+  def selector(_server); end
+end
+
 # A MongoDB create user command operation.
 #
 # @api private
@@ -19726,6 +19776,39 @@ class Mongo::Operation::DropIndex::OpMsg < ::Mongo::Operation::OpMsgBase
   #
   # source://mongo//lib/mongo/operation/drop_index/op_msg.rb#32
   def selector(connection); end
+end
+
+# A MongoDB dropSearchIndex command operation.
+#
+# @api private
+#
+# source://mongo//lib/mongo/operation/drop_search_index/op_msg.rb#5
+class Mongo::Operation::DropSearchIndex
+  include ::Mongo::Operation::Specifiable
+  include ::Mongo::Operation::PolymorphicLookup
+  include ::Mongo::Operation::OpMsgExecutable
+end
+
+# A MongoDB createSearchIndexes operation sent as an op message.
+#
+# @api private
+#
+# source://mongo//lib/mongo/operation/drop_search_index/op_msg.rb#9
+class Mongo::Operation::DropSearchIndex::OpMsg < ::Mongo::Operation::OpMsgBase
+  include ::Mongo::Operation::ExecutableTransactionLabel
+
+  private
+
+  # Returns the command to send to the database, describing the
+  # desired dropSearchIndex operation.
+  #
+  # @api private
+  # @param _server [Mongo::Server] the server that will receive the
+  #   command
+  # @return [Hash] the selector
+  #
+  # source://mongo//lib/mongo/operation/drop_search_index/op_msg.rb#21
+  def selector(_server); end
 end
 
 # Shared executable behavior of operations.
@@ -20625,7 +20708,7 @@ end
 # @api private
 # @since 2.1.0
 #
-# source://mongo//lib/mongo/operation.rb#81
+# source://mongo//lib/mongo/operation.rb#84
 Mongo::Operation::LIMIT = T.let(T.unsafe(nil), String)
 
 # Shared behavior of operations that require its documents to each have an id.
@@ -20760,7 +20843,7 @@ end
 # @api private
 # @since 2.1.0
 #
-# source://mongo//lib/mongo/operation.rb#86
+# source://mongo//lib/mongo/operation.rb#89
 Mongo::Operation::MULTI = T.let(T.unsafe(nil), String)
 
 # A MongoDB mapreduce operation.
@@ -20923,7 +21006,7 @@ Mongo::Operation::MapReduce::Result::TIME = T.let(T.unsafe(nil), String)
 # @api private
 # @since 2.5.0
 #
-# source://mongo//lib/mongo/operation.rb#106
+# source://mongo//lib/mongo/operation.rb#109
 Mongo::Operation::OPERATION_TIME = T.let(T.unsafe(nil), String)
 
 # The default generator of ids for documents.
@@ -21146,7 +21229,7 @@ end
 # @api private
 # @since 2.1.0
 #
-# source://mongo//lib/mongo/operation.rb#71
+# source://mongo//lib/mongo/operation.rb#74
 Mongo::Operation::Q = T.let(T.unsafe(nil), String)
 
 # Read preference handling for pre-OP_MSG operation implementations.
@@ -21961,7 +22044,7 @@ module Mongo::Operation::Specifiable
   #   specs.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#298
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#305
   def initialize(spec); end
 
   # Check equality of two specifiable operations.
@@ -21984,13 +22067,13 @@ module Mongo::Operation::Specifiable
   # @return [Boolean] Whether or not the operation has an acknowledged write concern.
   # @since 2.5.2
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#552
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#559
   def acknowledged_write?; end
 
   # @api private
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#556
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#563
   def apply_collation(selector, connection, collation); end
 
   # The array filters.
@@ -22001,7 +22084,7 @@ module Mongo::Operation::Specifiable
   # @return [Hash | nil] The array filters.
   # @since 2.5.2
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#539
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#546
   def array_filters(connection); end
 
   # Whether or not to bypass document level validation.
@@ -22012,7 +22095,7 @@ module Mongo::Operation::Specifiable
   # @return [true, false] Whether to bypass document level validation.
   # @since 2.2.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#361
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#368
   def bypass_document_validation; end
 
   # The name of the collection to which the operation should be sent.
@@ -22034,7 +22117,7 @@ module Mongo::Operation::Specifiable
   # @return [Hash] The collation document.
   # @since 2.4.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#373
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#380
   def collation; end
 
   # The command.
@@ -22043,7 +22126,7 @@ module Mongo::Operation::Specifiable
   # @return [Hash] The command.
   # @since 2.5.2
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#527
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#534
   def command(connection); end
 
   # Get the cursor count from the spec.
@@ -22135,6 +22218,15 @@ module Mongo::Operation::Specifiable
   # source://mongo//lib/mongo/operation/shared/specifiable.rb#259
   def index; end
 
+  # Get the index id from the spec.
+  #
+  # @api private
+  # @return [String] The index id.
+  # @since 2.0.0
+  #
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#266
+  def index_id; end
+
   # Get the index name from the spec.
   #
   # @api private
@@ -22143,7 +22235,7 @@ module Mongo::Operation::Specifiable
   # @return [String] The index name.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#271
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#278
   def index_name; end
 
   # Get the indexes from the specification.
@@ -22154,7 +22246,7 @@ module Mongo::Operation::Specifiable
   # @return [Hash] The index specifications.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#283
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#290
   def indexes; end
 
   # Get the max time ms value from the spec.
@@ -22165,7 +22257,7 @@ module Mongo::Operation::Specifiable
   # @return [Hash] The max time ms value.
   # @since 2.2.5
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#349
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#356
   def max_time_ms; end
 
   # The namespace, consisting of the db name and collection name.
@@ -22176,7 +22268,7 @@ module Mongo::Operation::Specifiable
   # @return [String] The namespace.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#494
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#501
   def namespace; end
 
   # Get the operation id for the operation. Used for linking operations in
@@ -22188,7 +22280,7 @@ module Mongo::Operation::Specifiable
   # @return [Integer] The operation id.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#311
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#318
   def operation_id; end
 
   # Get the options for executing the operation on a particular connection.
@@ -22199,7 +22291,7 @@ module Mongo::Operation::Specifiable
   # @return [Hash] The options.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#323
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#330
   def options(connection); end
 
   # Whether the operation is ordered.
@@ -22210,7 +22302,7 @@ module Mongo::Operation::Specifiable
   # @return [true, false] Whether the operation is ordered.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#482
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#489
   def ordered?; end
 
   # The read preference for this operation.
@@ -22221,7 +22313,7 @@ module Mongo::Operation::Specifiable
   # @return [Mongo::ServerSelector] The read preference.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#468
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#475
   def read; end
 
   # Get the read concern document from the spec.
@@ -22233,7 +22325,7 @@ module Mongo::Operation::Specifiable
   # @return [Hash] The read concern document.
   # @since 2.2.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#337
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#344
   def read_concern; end
 
   # The selector from the specification for execution on a particular
@@ -22245,7 +22337,7 @@ module Mongo::Operation::Specifiable
   # @return [Hash] The selector spec.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#386
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#393
   def selector(connection); end
 
   # The session to use for the operation.
@@ -22256,7 +22348,7 @@ module Mongo::Operation::Specifiable
   # @return [Session] The session.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#506
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#513
   def session; end
 
   # @api private
@@ -22274,7 +22366,7 @@ module Mongo::Operation::Specifiable
   # @return [Integer] The number of documents to return.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#398
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#405
   def to_return; end
 
   # The transaction number for the operation.
@@ -22285,7 +22377,7 @@ module Mongo::Operation::Specifiable
   # @return [Integer] The transaction number.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#518
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#525
   def txn_num; end
 
   # The update document from the spec.
@@ -22295,7 +22387,7 @@ module Mongo::Operation::Specifiable
   # @return [Hash] The update document.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#420
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#427
   def update; end
 
   # The update documents from the spec.
@@ -22305,7 +22397,7 @@ module Mongo::Operation::Specifiable
   # @return [Array<BSON::Document>] The update documents.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#409
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#416
   def updates; end
 
   # The user for user related operations.
@@ -22316,7 +22408,7 @@ module Mongo::Operation::Specifiable
   # @return [Auth::User] The user.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#432
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#439
   def user; end
 
   # The user name from the specification.
@@ -22327,7 +22419,7 @@ module Mongo::Operation::Specifiable
   # @return [String] The user name.
   # @since 2.0.
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#444
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#451
   def user_name; end
 
   # The write concern to use for this operation.
@@ -22338,7 +22430,7 @@ module Mongo::Operation::Specifiable
   # @return [Mongo::WriteConcern] The write concern.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/operation/shared/specifiable.rb#456
+  # source://mongo//lib/mongo/operation/shared/specifiable.rb#463
   def write_concern; end
 end
 
@@ -22539,7 +22631,7 @@ Mongo::Operation::Specifiable::WRITE_CONCERN = T.let(T.unsafe(nil), Symbol)
 # @api private
 # @since 2.1.0
 #
-# source://mongo//lib/mongo/operation.rb#76
+# source://mongo//lib/mongo/operation.rb#79
 Mongo::Operation::U = T.let(T.unsafe(nil), String)
 
 # The upsert field constant.
@@ -22547,7 +22639,7 @@ Mongo::Operation::U = T.let(T.unsafe(nil), String)
 # @api private
 # @since 2.1.0
 #
-# source://mongo//lib/mongo/operation.rb#91
+# source://mongo//lib/mongo/operation.rb#94
 Mongo::Operation::UPSERT = T.let(T.unsafe(nil), String)
 
 # A MongoDB update operation.
@@ -22756,6 +22848,39 @@ Mongo::Operation::Update::Result::MODIFIED = T.let(T.unsafe(nil), String)
 #
 # source://mongo//lib/mongo/operation/update/result.rb#38
 Mongo::Operation::Update::Result::UPSERTED = T.let(T.unsafe(nil), String)
+
+# A MongoDB updateSearchIndex command operation.
+#
+# @api private
+#
+# source://mongo//lib/mongo/operation/update_search_index/op_msg.rb#5
+class Mongo::Operation::UpdateSearchIndex
+  include ::Mongo::Operation::Specifiable
+  include ::Mongo::Operation::PolymorphicLookup
+  include ::Mongo::Operation::OpMsgExecutable
+end
+
+# A MongoDB updateSearchIndex operation sent as an op message.
+#
+# @api private
+#
+# source://mongo//lib/mongo/operation/update_search_index/op_msg.rb#9
+class Mongo::Operation::UpdateSearchIndex::OpMsg < ::Mongo::Operation::OpMsgBase
+  include ::Mongo::Operation::ExecutableTransactionLabel
+
+  private
+
+  # Returns the command to send to the database, describing the
+  # desired updateSearchIndex operation.
+  #
+  # @api private
+  # @param _server [Mongo::Server] the server that will receive the
+  #   command
+  # @return [Hash] the selector
+  #
+  # source://mongo//lib/mongo/operation/update_search_index/op_msg.rb#21
+  def selector(_server); end
+end
 
 # A MongoDB updateuser operation.
 #
@@ -26014,6 +26139,183 @@ class Mongo::Retryable::WriteWorker < ::Mongo::Retryable::BaseWorker
   #
   # source://mongo//lib/mongo/retryable/write_worker.rb#255
   def retry_write(original_error, txn_num, context:, &block); end
+end
+
+# source://mongo//lib/mongo/search_index/view.rb#4
+module Mongo::SearchIndex; end
+
+# A class representing a view of search indexes.
+#
+# source://mongo//lib/mongo/search_index/view.rb#6
+class Mongo::SearchIndex::View
+  include ::Enumerable
+  include ::Mongo::Retryable
+  include ::Mongo::Collection::Helpers
+
+  # Create the new search index view.
+  #
+  # @option options
+  # @option options
+  # @option options
+  # @param collection [Collection] The collection.
+  # @param options [Hash] The options that configure the behavior of the view.
+  # @raise [ArgumentError]
+  # @return [View] a new instance of View
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#33
+  def initialize(collection, options = T.unsafe(nil)); end
+
+  # @return [Hash] the options hash to use for the aggregate command
+  #   when querying the available indexes.
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#22
+  def aggregate_options; end
+
+  # @return [Mongo::Collection] the collection this view belongs to
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#12
+  def collection; end
+
+  # Create multiple search indexes with a single command.
+  #
+  # @param indexes [Array<Hash>] The description of the indexes to
+  #   create. Each element of the list must be a hash with a definition
+  #   key, and an optional name key.
+  # @return [Array<String>] the names of the new search indexes.
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#62
+  def create_many(indexes); end
+
+  # Create a single search index with the given definition. If the name is
+  # provided, the new index will be given that name.
+  #
+  # @param definition [Hash] The definition of the search index.
+  # @param name [nil | String] The name to give the new search index.
+  # @return [String] the name of the new search index.
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#51
+  def create_one(definition, name: T.unsafe(nil)); end
+
+  # Drop the search index with the given id, or name. One or the other must
+  # be specified, but not both.
+  #
+  # @param id [String] the id of the index to drop
+  # @param name [String] the name of the index to drop
+  # @return [Mongo::Operation::Result | false] the result of the
+  #   operation, or false if the given index does not exist.
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#76
+  def drop_one(id: T.unsafe(nil), name: T.unsafe(nil)); end
+
+  # Iterate over the search indexes.
+  #
+  # @param block [Proc] if given, each search index will be yieleded to
+  #   the block.
+  # @return [self | Enumerator] if a block is given, self is returned.
+  #   Otherwise, an enumerator will be returned.
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#95
+  def each(&block); end
+
+  # Queries whether the search index enumerable is empty.
+  #
+  # @return [true | false] whether the enumerable is empty or not.
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#136
+  def empty?; end
+
+  # @return [nil | String] the index id to query
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#15
+  def requested_index_id; end
+
+  # @return [nil | String] the index name to query
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#18
+  def requested_index_name; end
+
+  # Update the search index with the given id or name. One or the other
+  # must be provided, but not both.
+  #
+  # @param definition [Hash] the definition to replace the given search
+  #   index with.
+  # @param id [nil | String] the id of the search index to update
+  # @param name [nil | String] the name of the search index to update
+  # @return [Mongo::Operation::Result] the result of the operation
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#123
+  def update_one(definition, id: T.unsafe(nil), name: T.unsafe(nil)); end
+
+  private
+
+  # A helper method for constructing a new operation context for executing
+  # an operation.
+  #
+  # @return [Mongo::Operation::Context] the operation context
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#166
+  def execution_context; end
+
+  # A helper method for retrieving the primary server from the cluster.
+  #
+  # @return [Mongo::Server] the server to use
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#158
+  def next_primary(ping = T.unsafe(nil), session = T.unsafe(nil)); end
+
+  # A helper method for building the specification document with certain
+  # values pre-populated.
+  #
+  # @param extras [Hash] the values to put into the specification
+  # @return [Hash] the specification document
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#148
+  def spec_with(extras); end
+
+  # Validates the given id and name, ensuring that exactly one of them
+  # is non-nil.
+  #
+  # @param id [nil | String] the id to validate
+  # @param name [nil | String] the name to validate
+  # @raise [ArgumentError] if neither or both arguments are nil
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#177
+  def validate_id_or_name!(id, name); end
+
+  # Validates the given search index document, ensuring that it has no
+  # extra keys, and that the name and definition are valid.
+  #
+  # @param doc [Hash] the document to validate
+  # @raise [ArgumentError] if the document is invalid.
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#189
+  def validate_search_index!(doc); end
+
+  # Validates the definition of a search index.
+  #
+  # @param definition [Hash] the definition of a search index
+  # @raise [ArgumentError] if the definition is not valid
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#225
+  def validate_search_index_definition!(definition); end
+
+  # Validates the keys of a search index document, ensuring that
+  # they are all valid.
+  #
+  # @param keys [Array<String | Hash>] the keys of a search index document
+  # @raise [ArgumentError] if the list contains any invalid keys
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#202
+  def validate_search_index_keys!(keys); end
+
+  # Validates the name of a search index, ensuring that it is either a
+  # String or nil.
+  #
+  # @param name [nil | String] the name of a search index
+  # @raise [ArgumentError] if the name is not valid
+  #
+  # source://mongo//lib/mongo/search_index/view.rb#214
+  def validate_search_index_name!(name); end
 end
 
 # This is a semaphore implementation essentially encapsulating the

@@ -1968,7 +1968,7 @@ class BSON::Document < ::Hash
   # source://bson//lib/bson/document.rb#332
   def to_bson_normalized_value; end
 
-  # source://mongoid/8.1.3/lib/mongoid/extensions.rb#25
+  # source://mongoid/8.1.4/lib/mongoid/extensions.rb#25
   def transform_keys; end
 
   # Merge this document with another document, returning the same document in
@@ -3213,7 +3213,7 @@ class BSON::ObjectId
   # @return [Hash] The object id as a JSON hash.
   # @since 2.0.0
   #
-  # source://mongoid/8.1.3/lib/mongoid/extensions.rb#13
+  # source://mongoid/8.1.4/lib/mongoid/extensions.rb#13
   def as_json(*args); end
 
   # source://bson//lib/bson/object_id.rb#76

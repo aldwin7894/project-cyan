@@ -67,7 +67,7 @@ gem "devise", "~> 4.9"
 
 gem "graphql", "~> 2.0.27"
 
-gem "graphql-client", "~> 0.18.0"
+gem "graphlient", "~> 0.7.0"
 
 gem "lograge", "~> 0.14.0"
 

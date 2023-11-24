@@ -2159,7 +2159,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param association [Association] The association metadata
   # @return [Many] The proxy.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#273
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#288
   def initialize(base, target, association); end
 
   # Appends a document or array of documents to the association. Will set
@@ -2319,10 +2319,18 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #
   # @example Are there persisted documents?
   #   person.posts.exists?
-  # @return [true | false] True is persisted documents exist, false if not.
+  # @param id_or_conditions [:none | nil | false | Hash | Object] When :none (the default), returns true if any persisted
+  #   documents exist in the association. When nil or false, this
+  #   will always return false. When a Hash is given, this queries
+  #   the documents in the association for those that match the given
+  #   conditions, and returns true if any match which have been
+  #   persisted. Any other argument is interpreted as an id, and
+  #   queries for the existence of persisted documents in the
+  #   association with a matching _id.
+  # @return [true | false] True if persisted documents exist, false if not.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#231
-  def exists?; end
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#241
+  def exists?(id_or_conditions = T.unsafe(nil)); end
 
   # Finds a document in this association through several different
   # methods.
@@ -2345,7 +2353,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param block [Proc] Optional block to pass.
   # @return [Document | Array<Document> | nil] A document or matching documents.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#259
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#274
   def find(*args, &block); end
 
   # Get all the documents in the association that are loaded into memory.
@@ -2354,7 +2362,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   relation.in_memory
   # @return [Array<Document>] The documents in memory.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#291
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#306
   def in_memory; end
 
   # Builds a new document in the association and appends it to the target.
@@ -2381,7 +2389,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   provided.
   # @return [Document | Array<Document>] The popped document(s).
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#308
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#323
   def pop(count = T.unsafe(nil)); end
 
   # Appends a document or array of documents to the association. Will set
@@ -2407,7 +2415,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   provided.
   # @return [Document | Array<Document>] The shifted document(s).
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#333
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#348
   def shift(count = T.unsafe(nil)); end
 
   # Substitutes the supplied target documents for the existing documents
@@ -2418,7 +2426,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param docs [Array<Document> | Array<Hash>] The replacement docs.
   # @return [Many] The proxied association.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#354
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#369
   def substitute(docs); end
 
   # Return the association with all previous scoping removed. This is the
@@ -2428,7 +2436,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   person.addresses.unscoped
   # @return [Criteria] The unscoped association.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#367
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#382
   def unscoped; end
 
   private
@@ -2439,7 +2447,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   relation._unscoped
   # @return [Array<Document>] The unscoped documents.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#512
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#527
   def _unscoped; end
 
   # Set the internal unscoped documents.
@@ -2449,7 +2457,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param docs [Array<Document>] The documents.
   # @return [Array<Document ] The unscoped docs.] Array<Document ] The unscoped docs.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#524
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#539
   def _unscoped=(docs); end
 
   # Appends the document to the target array, updating the index on the
@@ -2459,14 +2467,14 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   relation.append(document)
   # @param document [Document] The document to append to the target.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#387
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#402
   def append(document); end
 
   # Returns a list of attributes hashes for each document.
   #
   # @return [Array<Hash>] The list of attributes hashes
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#531
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#546
   def as_attributes; end
 
   # Instantiate the binding associated with this association.
@@ -2475,7 +2483,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   relation.binding([ address ])
   # @return [Binding] The many binding.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#405
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#420
   def binding; end
 
   # Returns the +Criteria+ object for the target class with its
@@ -2483,7 +2491,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #
   # @return [Criteria] A new criteria.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#413
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#428
   def criteria; end
 
   # Integrate the document into the association. will set its metadata and
@@ -2493,7 +2501,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   relation.integrate(document)
   # @param document [Document] The document to integrate.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#424
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#439
   def integrate(document); end
 
   # If the target array does not respond to the supplied method then try to
@@ -2506,12 +2514,12 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param block [Proc] Optional block to pass.
   # @return [Criteria | Object] A Criteria or return value from the target.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#439
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#454
   def method_missing(name, *args, **_arg2, &block); end
 
   # @return [Boolean]
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#376
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#391
   def object_already_related?(document); end
 
   # Are we able to persist this association?
@@ -2520,7 +2528,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   relation.persistable?
   # @return [true | false] If the association is persistable.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#452
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#467
   def persistable?; end
 
   # Reindex all the target elements. This is useful when performing
@@ -2530,7 +2538,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @example Reindex the association.
   #   person.addresses.reindex
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#462
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#477
   def reindex; end
 
   # Remove all documents from the association, either with a delete or a
@@ -2542,7 +2550,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param method [true | false] :delete or :destroy.
   # @return [Integer] The number of documents removed.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#498
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#513
   def remove_all(conditions = T.unsafe(nil), method = T.unsafe(nil)); end
 
   # Apply the association ordering and default scoping (defined on
@@ -2553,14 +2561,14 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param docs [Array<Document>] The documents to scope.
   # @return [Array<Document>] The scoped docs.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#477
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#492
   def scope(docs); end
 
   # Update the _base's attributes hash with the _target's attributes
   #
   # @api private
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#538
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#553
   def update_attributes_hash; end
 
   class << self
@@ -2571,7 +2579,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
     #   Association::Embedded::EmbedsMany.embedded?
     # @return [true] true.
     #
-    # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#555
+    # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#570
     def embedded?; end
 
     # Returns the suffix of the foreign key field, either "_id" or "_ids".
@@ -2580,7 +2588,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
     #   Association::Embedded::EmbedsMany.foreign_key_suffix
     # @return [nil] nil.
     #
-    # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#565
+    # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#580
     def foreign_key_suffix; end
   end
 end
@@ -5798,7 +5806,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param association [Association] The association metadata.
   # @return [Proxy] a new instance of Proxy
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#225
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#234
   def initialize(base, target, association); end
 
   # Appends a document or array of documents to the association. Will set
@@ -5836,7 +5844,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   person.posts.clear
   # @return [Many] The association emptied.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#255
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#264
   def clear; end
 
   # Appends an array of documents to the association. Performs a batch
@@ -5929,10 +5937,17 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #
   # @example Are there persisted documents?
   #   person.posts.exists?
+  # @param id_or_conditions [:none | nil | false | Hash | Object] When :none (the default), returns true if any persisted
+  #   documents exist in the association. When nil or false, this
+  #   will always return false. When a Hash is given, this queries
+  #   the documents in the association for those that match the given
+  #   conditions, and returns true if any match. Any other argument is
+  #   interpreted as an id, and queries for the existence of documents
+  #   in the association with a matching _id.
   # @return [true | false] True is persisted documents exist, false if not.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#176
-  def exists?; end
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#185
+  def exists?(id_or_conditions = T.unsafe(nil)); end
 
   # Find the matching document on the association, either based on id or
   # conditions.
@@ -5959,7 +5974,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param block [Proc] Optional block to pass.
   # @return [Document | Array<Document> | nil] A document or matching documents.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#210
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#219
   def find(*args, &block); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -5991,7 +6006,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @example Nullify the association.
   #   person.posts.nullify
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#238
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#247
   def nullify; end
 
   # Removes all associations between the base document and the target
@@ -6001,7 +6016,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @example Nullify the association.
   #   person.posts.nullify
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#238
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#247
   def nullify_all; end
 
   # Clear the association. Will delete the documents from the db if they are
@@ -6011,7 +6026,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   person.posts.clear
   # @return [Many] The association emptied.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#255
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#264
   def purge; end
 
   # Appends a document or array of documents to the association. Will set
@@ -6041,7 +6056,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param replacement [Array<Document>] The replacement target.
   # @return [Many] The association.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#288
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#297
   def substitute(replacement); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -6054,7 +6069,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   person.posts.unscoped
   # @return [Criteria] The unscoped criteria.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#310
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#319
   def unscoped; end
 
   private
@@ -6067,7 +6082,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @return [true | false] Whether the document is already related to the base and the
   #   association is persisted.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#355
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#364
   def already_related?(document); end
 
   # Appends the document to the target array, updating the index on the
@@ -6077,7 +6092,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   relation.append(document)
   # @param document [Document] The document to append to the target.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#323
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#332
   def append(document); end
 
   # Instantiate the binding associated with this association.
@@ -6086,7 +6101,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   relation.binding([ address ])
   # @return [Binding] The binding.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#368
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#377
   def binding; end
 
   # Perform the necessary cascade operations for documents that just got
@@ -6097,7 +6112,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param document [Document] The document to cascade on.
   # @return [true | false] If the association is destructive.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#402
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#411
   def cascade!(document); end
 
   # Get the collection of the association in question.
@@ -6106,7 +6121,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   relation.collection
   # @return [Collection] The collection of the association.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#378
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#387
   def collection; end
 
   # Returns the criteria object for the target class with its documents set
@@ -6116,7 +6131,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   relation.criteria
   # @return [Criteria] A new criteria.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#389
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#398
   def criteria; end
 
   # If the target array does not respond to the supplied method then try to
@@ -6129,7 +6144,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param block [Proc] Optional block to pass.
   # @return [Criteria | Object] A Criteria or return value from the target.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#425
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#434
   def method_missing(name, *args, **_arg2, &block); end
 
   # Persist all the delayed batch inserts.
@@ -6140,7 +6155,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param docs [Array<Document>] The delayed inserts.
   # @param inserts [Array<Hash>] The raw insert document.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#444
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#453
   def persist_delayed(docs, inserts); end
 
   # Are we able to persist this association?
@@ -6149,7 +6164,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   relation.persistable?
   # @return [true | false] If the association is persistable.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#461
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#470
   def persistable?; end
 
   # Deletes all related documents from the database given the supplied
@@ -6163,7 +6178,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param method [Symbol] The deletion method to call.
   # @return [Integer] The number of documents deleted.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#478
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#487
   def remove_all(conditions = T.unsafe(nil), method = T.unsafe(nil)); end
 
   # Remove all the documents in the proxy that do not have the provided
@@ -6173,7 +6188,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   proxy.remove_not_in([ id ])
   # @param ids [Array<Object>] The ids.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#496
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#505
   def remove_not_in(ids); end
 
   # Save a persisted document immediately or delay a new document for
@@ -6185,7 +6200,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param doc [Document] The document.
   # @param inserts [Array<Document>] The inserts.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#524
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#533
   def save_or_delay(doc, docs, inserts); end
 
   # Execute before/after add callbacks around the block unless the objects
@@ -6197,11 +6212,11 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param already_related [true | false] Whether the document is already related
   #   to the target.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#340
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#349
   def with_add_callbacks(document, already_related); end
 
   class << self
-    # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#536
+    # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#545
     def eager_loader(association, docs); end
 
     # Returns true if the association is an embedded one. In this case
@@ -6211,7 +6226,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
     #   Referenced::Many.embedded?
     # @return [false] Always false.
     #
-    # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#547
+    # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#556
     def embedded?; end
   end
 end
@@ -22419,9 +22434,6 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   def _build_callbacks; end
 
   # source://activesupport/7.1.2/lib/active_support/callbacks.rb#963
-  def _commit_callbacks; end
-
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#963
   def _create_callbacks; end
 
   # source://mongoid//lib/mongoid/scopable.rb#12
@@ -22451,14 +22463,8 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://activesupport/7.1.2/lib/active_support/callbacks.rb#963
   def _persist_parent_callbacks; end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#963
-  def _rollback_callbacks; end
-
   # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
   def _run_build_callbacks(&block); end
-
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
-  def _run_commit_callbacks(&block); end
 
   # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
   def _run_create_callbacks(&block); end
@@ -22474,9 +22480,6 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
 
   # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
   def _run_persist_parent_callbacks(&block); end
-
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
-  def _run_rollback_callbacks(&block); end
 
   # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
   def _run_save_callbacks(&block); end
@@ -22538,10 +22541,10 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/fields.rb#123
   def aliased_fields?; end
 
-  # source://mongoid//lib/mongoid/interceptable.rb#48
+  # source://mongoid//lib/mongoid/interceptable.rb#46
   def before_callback_halted; end
 
-  # source://mongoid//lib/mongoid/interceptable.rb#48
+  # source://mongoid//lib/mongoid/interceptable.rb#46
   def before_callback_halted=(_arg0); end
 
   # source://mongoid//lib/mongoid/cacheable.rb#10
@@ -22767,12 +22770,6 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     def _build_callbacks=(value); end
 
     # source://activesupport/7.1.2/lib/active_support/callbacks.rb#955
-    def _commit_callbacks; end
-
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#959
-    def _commit_callbacks=(value); end
-
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#955
     def _create_callbacks; end
 
     # source://activesupport/7.1.2/lib/active_support/callbacks.rb#959
@@ -22810,12 +22807,6 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
 
     # source://activesupport/7.1.2/lib/active_support/callbacks.rb#959
     def _persist_parent_callbacks=(value); end
-
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#955
-    def _rollback_callbacks; end
-
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#959
-    def _rollback_callbacks=(value); end
 
     # source://activesupport/7.1.2/lib/active_support/callbacks.rb#955
     def _save_callbacks; end
@@ -22869,9 +22860,6 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     def after_build(*args, **options, &block); end
 
     # source://activemodel/7.1.2/lib/active_model/callbacks.rb#144
-    def after_commit(*args, **options, &block); end
-
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#144
     def after_create(*args, **options, &block); end
 
     # source://activemodel/7.1.2/lib/active_model/callbacks.rb#144
@@ -22885,9 +22873,6 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
 
     # source://activemodel/7.1.2/lib/active_model/callbacks.rb#144
     def after_persist_parent(*args, **options, &block); end
-
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#144
-    def after_rollback(*args, **options, &block); end
 
     # source://activemodel/7.1.2/lib/active_model/callbacks.rb#144
     def after_save(*args, **options, &block); end
@@ -23450,7 +23435,7 @@ module Mongoid::Interceptable
   # @param callback_list [Array<ActiveSupport::Callbacks::CallbackSequence, ActiveSupport::Callbacks::Filters::Environment>] List of
   #   pairs of callback sequence and environment.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#235
+  # source://mongoid//lib/mongoid/interceptable.rb#233
   def _mongoid_run_child_after_callbacks(callback_list: T.unsafe(nil)); end
 
   # Execute the before callbacks of given kind for embedded documents.
@@ -23462,7 +23447,7 @@ module Mongoid::Interceptable
   #   pairs of callback sequence and environment. This list will be later used
   #   to execute after callbacks in reverse order.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#211
+  # source://mongoid//lib/mongoid/interceptable.rb#209
   def _mongoid_run_child_before_callbacks(kind, children: T.unsafe(nil), callback_list: T.unsafe(nil)); end
 
   # Run the callbacks for embedded documents.
@@ -23473,7 +23458,7 @@ module Mongoid::Interceptable
   #   nil, callbacks will be executed on all cascadable children of
   #   the document.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#144
+  # source://mongoid//lib/mongoid/interceptable.rb#142
   def _mongoid_run_child_callbacks(kind, children: T.unsafe(nil), &block); end
 
   # Execute the callbacks of given kind for embedded documents including
@@ -23490,7 +23475,7 @@ module Mongoid::Interceptable
   #
   #   @api private
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#166
+  # source://mongoid//lib/mongoid/interceptable.rb#164
   def _mongoid_run_child_callbacks_with_around(kind, children: T.unsafe(nil), &block); end
 
   # Execute the callbacks of given kind for embedded documents without
@@ -23502,7 +23487,7 @@ module Mongoid::Interceptable
   #   nil, callbacks will be executed on all cascadable children of
   #   the document.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#189
+  # source://mongoid//lib/mongoid/interceptable.rb#187
   def _mongoid_run_child_callbacks_without_around(kind, children: T.unsafe(nil), &block); end
 
   # Is the provided type of callback executable by this document?
@@ -23512,7 +23497,7 @@ module Mongoid::Interceptable
   # @param kind [Symbol] The type of callback.
   # @return [true | false] If the callback can be executed.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#59
+  # source://mongoid//lib/mongoid/interceptable.rb#57
   def callback_executable?(kind); end
 
   # Is the document currently in a state that could potentially require
@@ -23523,7 +23508,7 @@ module Mongoid::Interceptable
   # @param kind [Symbol] The callback kind.
   # @return [true | false] If the document is in a callback state.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#72
+  # source://mongoid//lib/mongoid/interceptable.rb#70
   def in_callback_state?(kind); end
 
   # Returns the stored callbacks to be executed later.
@@ -23531,7 +23516,7 @@ module Mongoid::Interceptable
   # @api private
   # @return [Array<Symbol>] Method symbols of the stored pending callbacks.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#247
+  # source://mongoid//lib/mongoid/interceptable.rb#245
   def pending_callbacks; end
 
   # Stores callbacks to be executed later. A good use case for
@@ -23543,7 +23528,7 @@ module Mongoid::Interceptable
   # @param value [Array<Symbol>] Method symbols of the pending callbacks to store.
   # @return [Array<Symbol>] Method symbols of the stored pending callbacks.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#261
+  # source://mongoid//lib/mongoid/interceptable.rb#259
   def pending_callbacks=(value); end
 
   # Run only the after callbacks for the specific event.
@@ -23555,7 +23540,7 @@ module Mongoid::Interceptable
   # @param *kinds [Symbol...] The events that are occurring.
   # @return [Object] The result of the chain executing.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#87
+  # source://mongoid//lib/mongoid/interceptable.rb#85
   def run_after_callbacks(*kinds); end
 
   # Run only the before callbacks for the specific event.
@@ -23567,7 +23552,7 @@ module Mongoid::Interceptable
   # @param *kinds [Symbol...] The events that are occurring.
   # @return [Object] The result of the chain executing.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#104
+  # source://mongoid//lib/mongoid/interceptable.rb#102
   def run_before_callbacks(*kinds); end
 
   # Run the callbacks for the document. This overrides active support's
@@ -23581,7 +23566,7 @@ module Mongoid::Interceptable
   # @param kind [Symbol] The type of callback to execute.
   # @param with_children [true | false] Flag specifies whether callbacks of embedded document should be run.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#121
+  # source://mongoid//lib/mongoid/interceptable.rb#119
   def run_callbacks(kind, with_children: T.unsafe(nil), &block); end
 
   # Run the pending callbacks. If the callback is :apply_defaults, we will apply
@@ -23590,7 +23575,7 @@ module Mongoid::Interceptable
   #
   # @api private
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#270
+  # source://mongoid//lib/mongoid/interceptable.rb#268
   def run_pending_callbacks; end
 
   private
@@ -23603,7 +23588,7 @@ module Mongoid::Interceptable
   #   document.before_callback_halted?
   # @return [true | false] If a before callback was halted.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#292
+  # source://mongoid//lib/mongoid/interceptable.rb#290
   def before_callback_halted?; end
 
   # Determine if the child should fire the callback.
@@ -23614,7 +23599,7 @@ module Mongoid::Interceptable
   # @param child [Document] The child document.
   # @return [true | false] If the child should fire the callback.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#332
+  # source://mongoid//lib/mongoid/interceptable.rb#330
   def cascadable_child?(kind, child, association); end
 
   # Get all the child embedded documents that are flagged as cascadable.
@@ -23624,7 +23609,7 @@ module Mongoid::Interceptable
   # @param kind [Symbol] The type of callback.
   # @return [Array<Document>] The children.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#304
+  # source://mongoid//lib/mongoid/interceptable.rb#302
   def cascadable_children(kind, children = T.unsafe(nil)); end
 
   # Get the name of the callback that the child should fire. This changes
@@ -23638,7 +23623,7 @@ module Mongoid::Interceptable
   # @param child [Document] The child document
   # @return [Symbol] The name of the callback.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#350
+  # source://mongoid//lib/mongoid/interceptable.rb#348
   def child_callback_type(kind, child); end
 
   # Compile the callback chain.
@@ -23650,7 +23635,7 @@ module Mongoid::Interceptable
   # @param type [Symbol | nil] The type of callback chain to compile.
   # @return [ActiveSupport::Callbacks::CallbackSequence] The compiled callback sequence.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#414
+  # source://mongoid//lib/mongoid/interceptable.rb#412
   def compile_callbacks(chain, type = T.unsafe(nil)); end
 
   # We need to hook into this for autosave, since we don't want it firing if
@@ -23663,7 +23648,7 @@ module Mongoid::Interceptable
   # @param name [Symbol] The name of the callback that was halted
   #   (requires Rails 6.1+)
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#371
+  # source://mongoid//lib/mongoid/interceptable.rb#369
   def halted_callback_hook(filter, name = T.unsafe(nil)); end
 
   # Run only the callbacks for the target location (before, after, around)
@@ -23675,7 +23660,7 @@ module Mongoid::Interceptable
   # @param kind [Symbol] The type of callback, :save, :create, :update.
   # @return [Object] The result of the chain execution.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#385
+  # source://mongoid//lib/mongoid/interceptable.rb#383
   def run_targeted_callbacks(place, kind); end
 
   module GeneratedClassMethods

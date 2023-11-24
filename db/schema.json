@@ -16799,6 +16799,18 @@
               "description": "A retired moderator",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "CHARACTER_DATA",
+              "description": "A character data moderator",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "STAFF_DATA",
+              "description": "A staff data moderator",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null

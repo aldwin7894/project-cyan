@@ -15,13 +15,8 @@ class ApplicationController < ActionController::Base
       raise "Operation not possible." if request.headers["HTTP_USER_AGENT"] == "Amazon CloudFront"
     end
     def query(definition, variables = {})
-      response = AniList::AnilistClient.query(definition, variables:)
-
-      if response.errors.any?
-        raise QueryError.new(response.errors[:data].join(", "))
-      else
-        response.data
-      end
+      response = AniList::Client.execute(definition, variables)
+      response.data
     end
     def set_no_cache_headers
       response.set_header("Pragma", "no-cache")
