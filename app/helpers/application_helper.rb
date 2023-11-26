@@ -31,7 +31,7 @@ module ApplicationHelper
       data.presence ? data : nil
     end
 
-    return url if img.blank?
+    return image if img.blank?
 
     base64 = Base64.strict_encode64(img[:image]).gsub(/\s+/, "")
     image = "data:image/#{img[:ext]};base64,#{Rack::Utils.escape(base64)}"
