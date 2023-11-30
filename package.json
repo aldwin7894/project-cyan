@@ -43,7 +43,7 @@
     "tailwindcss-animatecss": "^3.0.4",
     "terser": "^5.24.0",
     "tippy.js": "^6.3.7",
-    "vite": "^5.0.2",
+    "vite": "^5.0.4",
     "vite-plugin-full-reload": "^1.1.0",
     "vite-plugin-ruby": "^5.0.0"
   },
