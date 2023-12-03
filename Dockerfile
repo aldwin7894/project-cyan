@@ -16,9 +16,11 @@ RUN apt-get update -yq \
   && wget --quiet "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
   && mkdir -p "/node-v${NODE_VERSION}-linux-x64" \
   && tar xzf "node-v$NODE_VERSION-linux-x64.tar.gz" --directory / \
-  && npm i -g npm@$NPM_VERSION yarn@$YARN_VERSION \
+  && npm i -g "npm@$NPM_VERSION" "yarn@$YARN_VERSION" \
   && npm cache clean --force \
-  && rm -f "./node-v$NODE_VERSION-linux-x64.tar.gz"
+  && rm -f "./node-v$NODE_VERSION-linux-x64.tar.gz" \
+  && apt-get clean \
+  && apt-get autoremove
 
 WORKDIR /usr/src/app
 COPY app/ ./app/
