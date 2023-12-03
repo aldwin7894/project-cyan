@@ -72,7 +72,7 @@ module Spotify
           return if res.code >= 300
 
           artists = JSON.parse(res.body)
-          artists&.[]("artists")&.pluck("images")&.map { |x| x[1]["url"] }
+          artists&.[]("artists")&.pluck("images")&.map { |x| x&.second&.[]("url") }
         end
       end
 
@@ -91,7 +91,7 @@ module Spotify
       }
 
       query = {
-        q: "artist:#{name}",
+        q: name.downcase,
         type: "artist",
         limit: 1
       }
@@ -111,7 +111,7 @@ module Spotify
           return if res.code >= 300
 
           artist = JSON.parse(res.body)
-          artist&.[]("artists")&.[]("items")&.[](0)&.[]("uri")&.split(":")&.last
+          artist&.[]("artists")&.[]("items")&.first&.[]("id")
         end
       end
 

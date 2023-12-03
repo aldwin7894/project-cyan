@@ -24,7 +24,7 @@
           </div>
 
           <div class="select-none swiper-wrapper">
-            <% @lastfm_top_artists.each_slice(4).each do |artists| %>
+            <% @lastfm_top_artists.rotate(4).each_slice(4).each do |artists| %>
               <div class="flex items-center justify-center m-auto swiper-slide w-fit h-fit">
                 <div class="grid grid-cols-2 grid-rows-2 gap-3 px-4 w-fit">
                   <% artists.each_with_index do |artist, index| %>

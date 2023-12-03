@@ -216,7 +216,7 @@ class HomeController < ApplicationController
     images = spotify.get_artists_images(ids: artist_ids.join(","))
 
     @lastfm_top_artists = @lastfm_top_artists.each_with_index.map do |artist, i|
-      artist["image"] = images[i]
+      artist["image"] = images[i] || artist["image"].first["#text"]
       artist
     end
 

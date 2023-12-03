@@ -1890,9 +1890,9 @@ iconify-icon@^1.0.8:
   dependencies:
     "@iconify/types" "^2.0.0"
 
-"idiomorph@git+https://github.com/basecamp/idiomorph.git#rollout-build":
+"idiomorph@https://github.com/basecamp/idiomorph#rollout-build":
   version "0.0.8"
-  resolved "git+https://github.com/basecamp/idiomorph.git#e906820368e4c9c52489a3336b8c3826b1bf6de5"
+  resolved "https://github.com/basecamp/idiomorph#e906820368e4c9c52489a3336b8c3826b1bf6de5"
 
 ignore@^5.2.0:
   version "5.2.4"
