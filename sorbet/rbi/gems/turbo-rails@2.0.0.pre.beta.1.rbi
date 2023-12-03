@@ -8,6 +8,12 @@
 module Turbo
   extend ::ActiveSupport::Autoload
 
+  # source://activesupport/7.1.2/lib/active_support/core_ext/module/attribute_accessors_per_thread.rb#74
+  def current_request_id; end
+
+  # source://activesupport/7.1.2/lib/active_support/core_ext/module/attribute_accessors_per_thread.rb#116
+  def current_request_id=(obj); end
+
   # source://turbo-rails//lib/turbo-rails.rb#6
   def draw_routes; end
 
@@ -15,6 +21,12 @@ module Turbo
   def draw_routes=(val); end
 
   class << self
+    # source://activesupport/7.1.2/lib/active_support/core_ext/module/attribute_accessors_per_thread.rb#49
+    def current_request_id; end
+
+    # source://activesupport/7.1.2/lib/active_support/core_ext/module/attribute_accessors_per_thread.rb#108
+    def current_request_id=(obj); end
+
     # source://turbo-rails//lib/turbo-rails.rb#6
     def draw_routes; end
 
@@ -30,17 +42,17 @@ module Turbo
     # source://railties/7.1.2/lib/rails/engine.rb#409
     def railtie_routes_url_helpers(include_path_helpers = T.unsafe(nil)); end
 
-    # source://turbo-rails//lib/turbo-rails.rb#11
+    # source://turbo-rails//lib/turbo-rails.rb#13
     def signed_stream_verifier; end
 
-    # source://turbo-rails//lib/turbo-rails.rb#15
+    # source://turbo-rails//lib/turbo-rails.rb#17
     def signed_stream_verifier_key; end
 
     # Sets the attribute signed_stream_verifier_key
     #
     # @param value the value to set the attribute signed_stream_verifier_key to.
     #
-    # source://turbo-rails//lib/turbo-rails.rb#9
+    # source://turbo-rails//lib/turbo-rails.rb#11
     def signed_stream_verifier_key=(_arg0); end
 
     # source://railties/7.1.2/lib/rails/engine.rb#397
@@ -48,6 +60,9 @@ module Turbo
 
     # source://railties/7.1.2/lib/rails/engine.rb#401
     def use_relative_model_naming?; end
+
+    # source://turbo-rails//lib/turbo-rails.rb#21
+    def with_request_id(request_id); end
   end
 end
 
@@ -192,10 +207,26 @@ module Turbo::Broadcastable::TestHelper
   def capture_turbo_stream_broadcasts(stream_name_or_object, &block); end
 end
 
+class Turbo::Debouncer
+  def initialize(delay: T.unsafe(nil)); end
+
+  def debounce(&block); end
+  def delay; end
+  def scheduled_task; end
+  def wait; end
+
+  private
+
+  def wait_timeout; end
+end
+
+Turbo::Debouncer::DEFAULT_DELAY = T.let(T.unsafe(nil), Float)
+
 module Turbo::DriveHelper
   def turbo_exempts_page_from_cache; end
   def turbo_exempts_page_from_preview; end
   def turbo_page_requires_reload; end
+  def turbo_refreshes_with(method: T.unsafe(nil), scroll: T.unsafe(nil)); end
 end
 
 # source://turbo-rails//lib/turbo/engine.rb#4
@@ -269,10 +300,18 @@ class Turbo::Native::NavigationController < ::ActionController::Base
   end
 end
 
+module Turbo::RequestIdTracking
+  extend ::ActiveSupport::Concern
+
+  private
+
+  def turbo_tracking_request_id(&block); end
+end
+
 module Turbo::Streams; end
 
 class Turbo::Streams::ActionBroadcastJob < ::ActiveJob::Base
-  def perform(stream, action:, target:, **rendering); end
+  def perform(stream, action:, target:, attributes: T.unsafe(nil), **rendering); end
 
   class << self
     # source://activesupport/7.1.2/lib/active_support/rescuable.rb#15
@@ -286,6 +325,7 @@ module Turbo::Streams::ActionHelper
   include ::ActionView::Helpers::TagHelper
 
   def turbo_stream_action_tag(action, target: T.unsafe(nil), targets: T.unsafe(nil), template: T.unsafe(nil), **attributes); end
+  def turbo_stream_refresh_tag(request_id: T.unsafe(nil), **attributes); end
 
   private
 
@@ -301,14 +341,23 @@ class Turbo::Streams::BroadcastJob < ::ActiveJob::Base
   end
 end
 
+class Turbo::Streams::BroadcastStreamJob < ::ActiveJob::Base
+  def perform(stream, content:); end
+
+  class << self
+    # source://activesupport/7.1.2/lib/active_support/rescuable.rb#15
+    def rescue_handlers; end
+  end
+end
+
 module Turbo::Streams::Broadcasts
   include ::ActionView::Helpers::CaptureHelper
   include ::ActionView::Helpers::OutputSafetyHelper
   include ::ActionView::Helpers::TagHelper
   include ::Turbo::Streams::ActionHelper
 
-  def broadcast_action_later_to(*streamables, action:, target: T.unsafe(nil), targets: T.unsafe(nil), **rendering); end
-  def broadcast_action_to(*streamables, action:, target: T.unsafe(nil), targets: T.unsafe(nil), **rendering); end
+  def broadcast_action_later_to(*streamables, action:, target: T.unsafe(nil), targets: T.unsafe(nil), attributes: T.unsafe(nil), **rendering); end
+  def broadcast_action_to(*streamables, action:, target: T.unsafe(nil), targets: T.unsafe(nil), attributes: T.unsafe(nil), **rendering); end
   def broadcast_after_later_to(*streamables, **opts); end
   def broadcast_after_to(*streamables, **opts); end
   def broadcast_append_later_to(*streamables, **opts); end
@@ -317,6 +366,8 @@ module Turbo::Streams::Broadcasts
   def broadcast_before_to(*streamables, **opts); end
   def broadcast_prepend_later_to(*streamables, **opts); end
   def broadcast_prepend_to(*streamables, **opts); end
+  def broadcast_refresh_later_to(*streamables, request_id: T.unsafe(nil), **opts); end
+  def broadcast_refresh_to(*streamables, **opts); end
   def broadcast_remove_to(*streamables, **opts); end
   def broadcast_render_later_to(*streamables, **rendering); end
   def broadcast_render_to(*streamables, **rendering); end
@@ -325,6 +376,7 @@ module Turbo::Streams::Broadcasts
   def broadcast_stream_to(*streamables, content:); end
   def broadcast_update_later_to(*streamables, **opts); end
   def broadcast_update_to(*streamables, **opts); end
+  def refresh_debouncer_for(*streamables, request_id: T.unsafe(nil)); end
 
   private
 
@@ -539,4 +591,25 @@ module Turbo::TestAssertions::IntegrationTestAssertions
   #
   # source://turbo-rails//lib/turbo/test_assertions/integration_test_assertions.rb#41
   def assert_turbo_stream(status: T.unsafe(nil), **attributes, &block); end
+end
+
+class Turbo::ThreadDebouncer
+  def initialize(key, thread, delay:); end
+
+  def debounce; end
+  def wait(*_arg0, **_arg1, &_arg2); end
+
+  private
+
+  def debouncer; end
+  def key; end
+  def thread; end
+
+  class << self
+    def for(key, delay: T.unsafe(nil)); end
+
+    private
+
+    def new(*_arg0); end
+  end
 end

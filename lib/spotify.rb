@@ -91,7 +91,7 @@ module Spotify
       }
 
       query = {
-        q: name,
+        q: "artist:#{name}",
         type: "artist",
         limit: 1
       }
