@@ -211,7 +211,7 @@ GEM
     opus-ruby (1.0.1)
       ffi
     orm_adapter (0.5.0)
-    parallel (1.23.0)
+    parallel (1.24.0)
     parser (3.2.2.4)
       ast (~> 2.4.1)
       racc
@@ -279,8 +279,8 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    rbi (0.1.5)
-      prism (>= 0.18.0, < 0.19)
+    rbi (0.1.6)
+      prism (>= 0.18.0, < 0.20)
       sorbet-runtime (>= 0.5.9204)
     rdoc (6.6.0)
       psych (>= 4.0.0)
@@ -358,7 +358,7 @@ GEM
     stringio (3.1.0)
     syntax_tree (6.2.0)
       prettier_print (>= 1.2.0)
-    tapioca (0.11.13)
+    tapioca (0.11.14)
       bundler (>= 2.2.25)
       netrc (>= 0.11.0)
       parallel (>= 1.21.0)
