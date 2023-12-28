@@ -14,10 +14,10 @@ module Turbo
   # source://activesupport/7.1.2/lib/active_support/core_ext/module/attribute_accessors_per_thread.rb#116
   def current_request_id=(obj); end
 
-  # source://turbo-rails//lib/turbo-rails.rb#6
+  # source://turbo-rails//lib/turbo-rails.rb#7
   def draw_routes; end
 
-  # source://turbo-rails//lib/turbo-rails.rb#6
+  # source://turbo-rails//lib/turbo-rails.rb#7
   def draw_routes=(val); end
 
   class << self
@@ -27,10 +27,10 @@ module Turbo
     # source://activesupport/7.1.2/lib/active_support/core_ext/module/attribute_accessors_per_thread.rb#108
     def current_request_id=(obj); end
 
-    # source://turbo-rails//lib/turbo-rails.rb#6
+    # source://turbo-rails//lib/turbo-rails.rb#7
     def draw_routes; end
 
-    # source://turbo-rails//lib/turbo-rails.rb#6
+    # source://turbo-rails//lib/turbo-rails.rb#7
     def draw_routes=(val); end
 
     # source://railties/7.1.2/lib/rails/engine.rb#405
@@ -42,17 +42,17 @@ module Turbo
     # source://railties/7.1.2/lib/rails/engine.rb#409
     def railtie_routes_url_helpers(include_path_helpers = T.unsafe(nil)); end
 
-    # source://turbo-rails//lib/turbo-rails.rb#13
+    # source://turbo-rails//lib/turbo-rails.rb#14
     def signed_stream_verifier; end
 
-    # source://turbo-rails//lib/turbo-rails.rb#17
+    # source://turbo-rails//lib/turbo-rails.rb#18
     def signed_stream_verifier_key; end
 
     # Sets the attribute signed_stream_verifier_key
     #
     # @param value the value to set the attribute signed_stream_verifier_key to.
     #
-    # source://turbo-rails//lib/turbo-rails.rb#11
+    # source://turbo-rails//lib/turbo-rails.rb#12
     def signed_stream_verifier_key=(_arg0); end
 
     # source://railties/7.1.2/lib/rails/engine.rb#397
@@ -61,7 +61,7 @@ module Turbo
     # source://railties/7.1.2/lib/rails/engine.rb#401
     def use_relative_model_naming?; end
 
-    # source://turbo-rails//lib/turbo-rails.rb#21
+    # source://turbo-rails//lib/turbo-rails.rb#22
     def with_request_id(request_id); end
   end
 end

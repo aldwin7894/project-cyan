@@ -27543,10 +27543,10 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   # source://mongo//lib/mongo/server/connection.rb#305
   def disconnect!(options = T.unsafe(nil)); end
 
-  # source://rack-mini-profiler/3.1.1/lib/patches/db/mongo.rb#5
+  # source://rack-mini-profiler/3.3.0/lib/patches/db/mongo.rb#5
   def dispatch(*args, &blk); end
 
-  # source://rack-mini-profiler/3.1.1/lib/patches/db/mongo.rb#5
+  # source://rack-mini-profiler/3.3.0/lib/patches/db/mongo.rb#5
   def dispatch_with_timing(*args, &blk); end
 
   # source://mongo//lib/mongo/server/connection_base.rb#150

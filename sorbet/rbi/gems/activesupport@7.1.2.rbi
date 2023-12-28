@@ -9918,10 +9918,10 @@ class ActiveSupport::Notifications::Fanout
   # source://activesupport//lib/active_support/notifications/fanout.rb#314
   def listening?(name); end
 
-  # source://mutex_m/0.2.0/lib/mutex_m.rb#91
+  # source://mutex_m/0.2.0/mutex_m.rb#91
   def lock; end
 
-  # source://mutex_m/0.2.0/lib/mutex_m.rb#81
+  # source://mutex_m/0.2.0/mutex_m.rb#81
   def locked?; end
 
   # source://activesupport//lib/active_support/notifications/fanout.rb#293
@@ -9936,13 +9936,13 @@ class ActiveSupport::Notifications::Fanout
   # source://activesupport//lib/active_support/notifications/fanout.rb#68
   def subscribe(pattern = T.unsafe(nil), callable = T.unsafe(nil), monotonic: T.unsafe(nil), &block); end
 
-  # source://mutex_m/0.2.0/lib/mutex_m.rb#76
+  # source://mutex_m/0.2.0/mutex_m.rb#76
   def synchronize(&block); end
 
-  # source://mutex_m/0.2.0/lib/mutex_m.rb#86
+  # source://mutex_m/0.2.0/mutex_m.rb#86
   def try_lock; end
 
-  # source://mutex_m/0.2.0/lib/mutex_m.rb#96
+  # source://mutex_m/0.2.0/mutex_m.rb#96
   def unlock; end
 
   # source://activesupport//lib/active_support/notifications/fanout.rb#85
@@ -12421,10 +12421,10 @@ class ActiveSupport::TestCase < ::Minitest::Test
   # source://minitest/5.20.0/lib/minitest/assertions.rb#820
   def assert_not_same(exp, act, msg = T.unsafe(nil)); end
 
-  # source://turbo-rails/1.5.0/lib/turbo/test_assertions.rb#7
+  # source://turbo-rails/2.0.0.pre.beta.2/lib/turbo/test_assertions.rb#7
   def dom_class(*_arg0, **_arg1, &_arg2); end
 
-  # source://turbo-rails/1.5.0/lib/turbo/test_assertions.rb#7
+  # source://turbo-rails/2.0.0.pre.beta.2/lib/turbo/test_assertions.rb#7
   def dom_id(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/testing/file_fixtures.rb#20
@@ -17801,7 +17801,7 @@ class IO::Buffer
   def get_string(*_arg0); end
   def get_value(_arg0, _arg1); end
   def get_values(_arg0, _arg1); end
-  def hexdump; end
+  def hexdump(*_arg0); end
   def inspect; end
   def internal?; end
   def locked; end
@@ -17811,6 +17811,7 @@ class IO::Buffer
   def null?; end
   def or!(_arg0); end
   def pread(*_arg0); end
+  def private?; end
   def pwrite(*_arg0); end
   def read(*_arg0); end
   def readonly?; end
@@ -17838,6 +17839,7 @@ class IO::Buffer
     def for(_arg0); end
     def map(*_arg0); end
     def size_of(_arg0); end
+    def string(_arg0); end
   end
 end
 
@@ -19929,18 +19931,6 @@ class Range
   # source://activesupport//lib/active_support/core_ext/range/compare_range.rb#41
   def include?(value); end
 
-  # @raise [TypeError]
-  # @return [Boolean]
-  #
-  # source://activesupport//lib/active_support/core_ext/range/overlap.rb#8
-  def overlap?(other); end
-
-  # @raise [TypeError]
-  # @return [Boolean]
-  #
-  # source://activesupport//lib/active_support/core_ext/range/overlap.rb#8
-  def overlaps?(other); end
-
   # source://activesupport//lib/active_support/core_ext/range/each.rb#12
   def step(n = T.unsafe(nil), &block); end
 
@@ -19949,13 +19939,6 @@ class Range
   #
   # source://activesupport//lib/active_support/core_ext/enumerable.rb#236
   def sum(initial_value = T.unsafe(nil)); end
-
-  private
-
-  # @return [Boolean]
-  #
-  # source://activesupport//lib/active_support/core_ext/range/overlap.rb#31
-  def _empty_range?(b, e, excl); end
 end
 
 # source://activesupport//lib/active_support/core_ext/object/json.rb#141
@@ -19982,10 +19965,10 @@ end
 # source://activesupport//lib/active_support/core_ext/securerandom.rb#5
 module SecureRandom
   class << self
-    # source://activesupport//lib/active_support/core_ext/securerandom.rb#49
+    # source://activesupport//lib/active_support/core_ext/securerandom.rb#45
     def base36(n = T.unsafe(nil)); end
 
-    # source://activesupport//lib/active_support/core_ext/securerandom.rb#24
+    # source://activesupport//lib/active_support/core_ext/securerandom.rb#20
     def base58(n = T.unsafe(nil)); end
   end
 end

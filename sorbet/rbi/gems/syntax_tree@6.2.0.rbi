@@ -5172,6 +5172,9 @@ class SyntaxTree::Formatter::SemanticVersion < ::Gem::Version
   def initialize(version); end
 end
 
+# source://syntax_tree//lib/syntax_tree/plugin/trailing_comma.rb#5
+SyntaxTree::Formatter::TRAILING_COMMA = T.let(T.unsafe(nil), TrueClass)
+
 # GVar represents a global variable literal.
 #
 #     $variable
@@ -14995,9 +14998,6 @@ SyntaxTree::YARV::CallData::CALL_ARGS_SIMPLE = T.let(T.unsafe(nil), Integer)
 
 # source://syntax_tree//lib/syntax_tree/yarv/calldata.rb#27
 SyntaxTree::YARV::CallData::CALL_ARGS_SPLAT = T.let(T.unsafe(nil), Integer)
-
-# source://syntax_tree//lib/syntax_tree/yarv/calldata.rb#27
-SyntaxTree::YARV::CallData::CALL_BLOCKISEQ = T.let(T.unsafe(nil), Integer)
 
 # source://syntax_tree//lib/syntax_tree/yarv/calldata.rb#27
 SyntaxTree::YARV::CallData::CALL_FCALL = T.let(T.unsafe(nil), Integer)

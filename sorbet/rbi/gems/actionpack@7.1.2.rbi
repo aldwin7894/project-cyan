@@ -6281,10 +6281,10 @@ class ActionController::ParamsWrapper::Options < ::Struct
   # source://actionpack//lib/action_controller/metal/params_wrapper.rb#110
   def include; end
 
-  # source://mutex_m/0.2.0/lib/mutex_m.rb#91
+  # source://mutex_m/0.2.0/mutex_m.rb#91
   def lock; end
 
-  # source://mutex_m/0.2.0/lib/mutex_m.rb#81
+  # source://mutex_m/0.2.0/mutex_m.rb#81
   def locked?; end
 
   # Returns the value of attribute model
@@ -6301,13 +6301,13 @@ class ActionController::ParamsWrapper::Options < ::Struct
   # source://actionpack//lib/action_controller/metal/params_wrapper.rb#143
   def name; end
 
-  # source://mutex_m/0.2.0/lib/mutex_m.rb#76
+  # source://mutex_m/0.2.0/mutex_m.rb#76
   def synchronize(&block); end
 
-  # source://mutex_m/0.2.0/lib/mutex_m.rb#86
+  # source://mutex_m/0.2.0/mutex_m.rb#86
   def try_lock; end
 
-  # source://mutex_m/0.2.0/lib/mutex_m.rb#96
+  # source://mutex_m/0.2.0/mutex_m.rb#96
   def unlock; end
 
   private
@@ -6692,7 +6692,7 @@ module ActionController::Renderers
   # source://actionpack//lib/action_controller/metal/renderers.rb#155
   def _render_with_renderer_json(json, options); end
 
-  # source://turbo-rails/1.5.0/lib/turbo/engine.rb#61
+  # source://turbo-rails/2.0.0.pre.beta.2/lib/turbo/engine.rb#67
   def _render_with_renderer_turbo_stream(turbo_streams_html, options); end
 
   # source://actionpack//lib/action_controller/metal/renderers.rb#175
