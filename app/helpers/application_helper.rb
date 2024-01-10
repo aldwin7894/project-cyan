@@ -20,7 +20,7 @@ module ApplicationHelper
         timeout: 30,
         open_timeout: 10
       )
-      return nil unless res.success?
+      break unless res.success?
 
       ext = res.headers&.content_type&.split("/")
       if ext[0] == "image" || IMAGE_FILETYPES.include?(filetype)
@@ -28,7 +28,9 @@ module ApplicationHelper
         data[:ext] = ext[1]
       end
 
-      data.presence ? data : nil
+      break if data.blank?
+
+      data
     end
 
     return image if img.blank?
@@ -53,7 +55,7 @@ module ApplicationHelper
         timeout: 30,
         open_timeout: 10
       )
-      return nil unless res.success?
+      break unless res.success?
       ext = res.headers&.content_type
 
       { data: res.body, ext: }

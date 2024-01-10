@@ -30,7 +30,7 @@ module Spotify
         body = "grant_type=client_credentials"
 
         res = self.class.post("/", headers:, body:)
-        return if res.code >= 300
+        break if res.code >= 300
         res["access_token"]
       end
 
@@ -69,7 +69,7 @@ module Spotify
         end
         artist_images = Rails.cache.fetch(cache_key, expires_in: 1.week, skip_nil: true) do
           res = self.class.get("/artists", headers:, query:)
-          return if res.code >= 300
+          break if res.code >= 300
 
           artists = JSON.parse(res.body)
           artists&.[]("artists")&.pluck("images")&.map { |x| x&.second&.[]("url") }
@@ -108,7 +108,7 @@ module Spotify
         end
         artist_id = Rails.cache.fetch(cache_key, expires_in: 1.month, skip_nil: true) do
           res = self.class.get("/search", headers:, query:)
-          return if res.code >= 300
+          break if res.code >= 300
 
           artist = JSON.parse(res.body)
           artist&.[]("artists")&.[]("items")&.first&.[]("id")
@@ -138,7 +138,7 @@ module Spotify
         end
         album_art = Rails.cache.fetch(cache_key, expires_in: 1.month, skip_nil: true) do
           res = self.class.get("/albums/#{album_id}", headers:)
-          return if res.code >= 300
+          break if res.code >= 300
 
           album = JSON.parse(res.body)
           album&.[]("images")&.first&.[]("url")

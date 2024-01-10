@@ -63,13 +63,27 @@ class Graphlient::Adapters::HTTP::Adapter
   def configure_http_options(client_options); end
 end
 
-# source://graphlient//lib/graphlient/adapters/http/faraday_adapter.rb#6
+# source://graphlient//lib/graphlient/adapters/http/faraday_adapter.rb#7
 class Graphlient::Adapters::HTTP::FaradayAdapter < ::Graphlient::Adapters::HTTP::Adapter
-  # source://graphlient//lib/graphlient/adapters/http/faraday_adapter.rb#27
+  # source://graphlient//lib/graphlient/adapters/http/faraday_adapter.rb#29
   def connection; end
 
-  # source://graphlient//lib/graphlient/adapters/http/faraday_adapter.rb#7
+  # source://graphlient//lib/graphlient/adapters/http/faraday_adapter.rb#8
   def execute(document:, operation_name:, variables:, context:); end
+
+  private
+
+  # Faraday 2.x's JSON response middleware will only parse a JSON
+  # response body into a Hash (or Array) object if the response headers
+  # match a specific content type regex. See Faraday's response JSON
+  # middleware definition for specifics on what the datatype of the
+  # response body will be. This method will handle the situation where
+  # the response header is not set appropriately, but contains JSON
+  # anyways. If the body cannot be parsed as JSON, an exception will be
+  # raised.
+  #
+  # source://graphlient//lib/graphlient/adapters/http/faraday_adapter.rb#55
+  def parse_body(body); end
 end
 
 # source://graphlient//lib/graphlient/adapters/http/http_adapter.rb#6
@@ -92,16 +106,16 @@ class Graphlient::Client
   # @yield [_self]
   # @yieldparam _self [Graphlient::Client] the object that the method was called on
   #
-  # source://graphlient//lib/graphlient/client.rb#5
+  # source://graphlient//lib/graphlient/client.rb#7
   def initialize(url, options = T.unsafe(nil), &_block); end
 
-  # source://graphlient//lib/graphlient/client.rb#20
+  # source://graphlient//lib/graphlient/client.rb#23
   def execute(query, variables = T.unsafe(nil)); end
 
-  # source://graphlient//lib/graphlient/client.rb#47
+  # source://graphlient//lib/graphlient/client.rb#50
   def http(&block); end
 
-  # source://graphlient//lib/graphlient/client.rb#43
+  # source://graphlient//lib/graphlient/client.rb#46
   def http_adapter_class; end
 
   # Returns the value of attribute options.
@@ -116,13 +130,13 @@ class Graphlient::Client
   # source://graphlient//lib/graphlient/client.rb#3
   def options=(_arg0); end
 
-  # source://graphlient//lib/graphlient/client.rb#11
+  # source://graphlient//lib/graphlient/client.rb#14
   def parse(query_str = T.unsafe(nil), &block); end
 
-  # source://graphlient//lib/graphlient/client.rb#35
+  # source://graphlient//lib/graphlient/client.rb#38
   def query(query_or_variables = T.unsafe(nil), variables = T.unsafe(nil), &block); end
 
-  # source://graphlient//lib/graphlient/client.rb#53
+  # source://graphlient//lib/graphlient/client.rb#56
   def schema; end
 
   # Returns the value of attribute uri.
@@ -139,17 +153,25 @@ class Graphlient::Client
 
   private
 
-  # source://graphlient//lib/graphlient/client.rb#63
+  # source://graphlient//lib/graphlient/client.rb#70
   def client; end
 
   # @return [Boolean]
   #
-  # source://graphlient//lib/graphlient/client.rb#69
+  # source://graphlient//lib/graphlient/client.rb#76
   def errors_in_result?(response); end
 
-  # source://graphlient//lib/graphlient/client.rb#59
+  # @raise [InvalidConfigurationError]
+  #
+  # source://graphlient//lib/graphlient/client.rb#62
+  def raise_error_if_invalid_configuration!; end
+
+  # source://graphlient//lib/graphlient/client.rb#66
   def schema_path; end
 end
+
+# source://graphlient//lib/graphlient/client.rb#5
+class Graphlient::Client::InvalidConfigurationError < ::StandardError; end
 
 # source://graphlient//lib/graphlient/errors/error.rb#2
 module Graphlient::Errors; end

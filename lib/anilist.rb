@@ -11,7 +11,7 @@ module AniList
       read_timeout: 20,
       write_timeout: 30
     },
-    schema: "db/schema.json"
+    schema_path: "db/schema.json"
   )
 
   UserIdQuery = Client.parse <<~'GRAPHQL'
