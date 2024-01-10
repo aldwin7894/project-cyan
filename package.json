@@ -1,5 +1,6 @@
 {
   "name": "project-cyan",
+  "type": "module",
   "version": "0.1.0",
   "private": false,
   "repository": "git@github.com:aldwin7894/project-cyan.git",

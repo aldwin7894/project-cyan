@@ -1,20 +1,29 @@
 /* eslint-disable global-require */
-const cssnano = require("cssnano")({
-  preset: "advanced",
-});
+import importPlugin from "postcss-import";
+import tailwindPlugin from "tailwindcss";
+import flexBugsFixesPlugin from "postcss-flexbugs-fixes";
+import presetEnvPlugin from "postcss-preset-env";
+import autoprefixerPlugin from "autoprefixer";
+import cssnanoPlugin from "cssnano";
 
-module.exports = {
+export default {
   plugins: [
-    require("postcss-import"),
-    require("tailwindcss"),
-    require("postcss-flexbugs-fixes"),
-    require("postcss-preset-env")({
+    importPlugin,
+    tailwindPlugin,
+    flexBugsFixesPlugin,
+    presetEnvPlugin({
       autoprefixer: {
         flexbox: "no-2009",
       },
       stage: 3,
     }),
-    require("autoprefixer"),
-    ...(process.env.NODE_ENV === "production" ? [cssnano] : []),
+    autoprefixerPlugin,
+    ...(process.env.NODE_ENV === "production"
+      ? [
+          cssnanoPlugin({
+            preset: "advanced",
+          }),
+        ]
+      : []),
   ],
 };

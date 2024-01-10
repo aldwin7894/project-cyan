@@ -1,8 +1,12 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require("tailwindcss/defaultTheme");
-const plugin = require("tailwindcss/plugin");
+import defaultTheme from "tailwindcss/defaultTheme";
+import plugin from "tailwindcss/plugin";
+import typographyPlugin from "@tailwindcss/typography";
+import formsPlugin from "@tailwindcss/forms";
+import aspectRatioPlugin from "@tailwindcss/aspect-ratio";
+import animatecssPlugin from "tailwindcss-animatecss";
 
-module.exports = {
+export default {
   content: ["./public/**/*.html", "./app/**/*.{html,js,erb,rb}"],
   darkMode: "media", // or 'class'
   theme: {
@@ -64,10 +68,10 @@ module.exports = {
     },
   },
   plugins: [
-    require("@tailwindcss/typography"),
-    require("@tailwindcss/forms"),
-    require("@tailwindcss/aspect-ratio"),
-    require("tailwindcss-animatecss"),
+    typographyPlugin,
+    formsPlugin,
+    aspectRatioPlugin,
+    animatecssPlugin,
     plugin(({ matchUtilities, theme }) => {
       matchUtilities(
         {
