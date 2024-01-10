@@ -132,7 +132,7 @@ GEM
       concurrent-ruby (>= 1.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    graphlient (0.7.0)
+    graphlient (0.8.0)
       faraday (~> 2.0)
       graphql-client
     graphql (2.0.27)
@@ -418,7 +418,7 @@ DEPENDENCIES
   devise (~> 4.9)
   discordrb (~> 3.5.0)
   erb-formatter
-  graphlient (~> 0.7.0)
+  graphlient (~> 0.8.0)
   graphql (~> 2.0.27)
   health_check (~> 3.1)
   httparty (~> 0.21.0)
