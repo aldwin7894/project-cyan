@@ -139,8 +139,7 @@ class Devise::UnlocksController < DeviseController
   sig { params(resource: T.untyped).returns(String) }
   def after_sending_unlock_instructions_path_for(resource); end
 
+  # The path used after unlocking the resource
   sig { params(resource: T.untyped).returns(String) }
-  def after_unlock_path_for(
-    resource # The path used after unlocking the resource
-); end
+  def after_unlock_path_for(resource); end
 end

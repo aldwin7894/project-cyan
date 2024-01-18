@@ -145,14 +145,14 @@ class Array
   sig { params(value: T.untyped, block: T.nilable(T.proc.params(element: Elem).returns(T.untyped))).returns(T::Array[T::Array[Elem]]) }
   def split(value = nil, &block); end
 
-  sig { params(object: T.untyped).returns(T::Array[T.untyped]) }
-  def self.wrap(object); end
-
   sig { params(block: T.nilable(T.proc.params(element: Elem).returns(T.untyped))).returns(T.any(T::Array[Elem], T::Enumerator[Elem])) }
   def extract!(&block); end
 
   sig { returns(ActiveSupport::ArrayInquirer) }
   def inquiry; end
+
+  sig { params(object: T.untyped).returns(T::Array[T.untyped]) }
+  def self.wrap(object); end
 end
 
 class Date
