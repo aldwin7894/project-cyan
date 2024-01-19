@@ -331,7 +331,7 @@ GEM
       language_server-protocol (~> 3.17.0)
       prism (>= 0.19.0, < 0.20)
       sorbet-runtime (>= 0.5.10782)
-    ruby-lsp-rails (0.2.8)
+    ruby-lsp-rails (0.2.9)
       actionpack (>= 6.0)
       activerecord (>= 6.0)
       railties (>= 6.0)
