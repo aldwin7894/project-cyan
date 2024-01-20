@@ -12196,7 +12196,7 @@ class Mongoid::Contextual::Mongo
   # @param coordinates [Array<Float>] The coordinates.
   # @return [GeoNear] The GeoNear command.
   #
-  # source://activesupport/7.1.2/lib/active_support/deprecation/method_wrappers.rb#55
+  # source://activesupport/7.1.3/lib/active_support/deprecation/method_wrappers.rb#55
   def geo_near(*args, **_arg1, &block); end
 
   # Get the last document in the database for the criteria's selector.
@@ -17395,7 +17395,7 @@ class Mongoid::Deprecation < ::ActiveSupport::Deprecation
   def behavior; end
 
   class << self
-    # source://activesupport/7.1.2/lib/active_support/deprecation/instance_delegator.rb#34
+    # source://activesupport/7.1.3/lib/active_support/deprecation/instance_delegator.rb#34
     def behavior(*_arg0, **_arg1, &_arg2); end
   end
 end
@@ -22424,16 +22424,16 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/fields.rb#137
   def ___id_default__; end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#70
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#70
   def __callbacks; end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#70
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#70
   def __callbacks?; end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#963
   def _build_callbacks; end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#963
   def _create_callbacks; end
 
   # source://mongoid//lib/mongoid/scopable.rb#12
@@ -22445,10 +22445,10 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/scopable.rb#12
   def _declared_scopes?; end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#963
   def _destroy_callbacks; end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#963
   def _find_callbacks; end
 
   # source://mongoid//lib/mongoid/atomic.rb#27
@@ -22457,70 +22457,70 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/atomic.rb#27
   def _index=(_arg0); end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#963
   def _initialize_callbacks; end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#963
   def _persist_parent_callbacks; end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#951
   def _run_build_callbacks(&block); end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#951
   def _run_create_callbacks(&block); end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#951
   def _run_destroy_callbacks(&block); end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#951
   def _run_find_callbacks(&block); end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#951
   def _run_initialize_callbacks(&block); end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#951
   def _run_persist_parent_callbacks(&block); end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#951
   def _run_save_callbacks(&block); end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#951
   def _run_touch_callbacks(&block); end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#951
   def _run_update_callbacks(&block); end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#951
   def _run_upsert_callbacks(&block); end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#951
   def _run_validate_callbacks(&block); end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#951
   def _run_validation_callbacks(&block); end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#963
   def _save_callbacks; end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#963
   def _touch_callbacks; end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#963
   def _update_callbacks; end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#963
   def _upsert_callbacks; end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#963
   def _validate_callbacks; end
 
-  # source://activesupport/7.1.2/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3/lib/active_support/callbacks.rb#963
   def _validation_callbacks; end
 
-  # source://activemodel/7.1.2/lib/active_model/validations.rb#71
+  # source://activemodel/7.1.3/lib/active_model/validations.rb#71
   def _validators; end
 
-  # source://activemodel/7.1.2/lib/active_model/validations.rb#71
+  # source://activemodel/7.1.3/lib/active_model/validations.rb#71
   def _validators?; end
 
   # source://mongoid//lib/mongoid/association/macros.rb#36
@@ -22631,10 +22631,10 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/changeable.rb#451
   def id_will_change!; end
 
-  # source://activemodel/7.1.2/lib/active_model/serializers/json.rb#15
+  # source://activemodel/7.1.3/lib/active_model/serializers/json.rb#15
   def include_root_in_json; end
 
-  # source://activemodel/7.1.2/lib/active_model/serializers/json.rb#15
+  # source://activemodel/7.1.3/lib/active_model/serializers/json.rb#15
   def include_root_in_json?; end
 
   # source://mongoid//lib/mongoid/indexable.rb#14
@@ -22652,7 +22652,7 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/fields.rb#124
   def localized_fields?; end
 
-  # source://activemodel/7.1.2/lib/active_model/naming.rb#255
+  # source://activemodel/7.1.3/lib/active_model/naming.rb#255
   def model_name(&block); end
 
   # source://mongoid//lib/mongoid/attributes/nested.rb#11
@@ -22664,7 +22664,7 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/attributes/nested.rb#11
   def nested_attributes?; end
 
-  # source://activemodel/7.1.2/lib/active_model/conversion.rb#32
+  # source://activemodel/7.1.3/lib/active_model/conversion.rb#32
   def param_delimiter=(_arg0); end
 
   # source://mongoid//lib/mongoid/association.rb#49
@@ -22745,34 +22745,34 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/association/macros.rb#40
   def stored_as_associations?; end
 
-  # source://activemodel/7.1.2/lib/active_model/validations.rb#67
+  # source://activemodel/7.1.3/lib/active_model/validations.rb#67
   def validation_context; end
 
   private
 
-  # source://activemodel/7.1.2/lib/active_model/validations.rb#67
+  # source://activemodel/7.1.3/lib/active_model/validations.rb#67
   def validation_context=(_arg0); end
 
   class << self
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#70
     def __callbacks; end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#70
     def __callbacks=(value); end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#70
     def __callbacks?; end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#955
     def _build_callbacks; end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#959
     def _build_callbacks=(value); end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#955
     def _create_callbacks; end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#959
     def _create_callbacks=(value); end
 
     # source://mongoid//lib/mongoid/scopable.rb#12
@@ -22784,106 +22784,106 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/scopable.rb#12
     def _declared_scopes?; end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#955
     def _destroy_callbacks; end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#959
     def _destroy_callbacks=(value); end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#955
     def _find_callbacks; end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#959
     def _find_callbacks=(value); end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#955
     def _initialize_callbacks; end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#959
     def _initialize_callbacks=(value); end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#955
     def _persist_parent_callbacks; end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#959
     def _persist_parent_callbacks=(value); end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#955
     def _save_callbacks; end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#959
     def _save_callbacks=(value); end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#955
     def _touch_callbacks; end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#959
     def _touch_callbacks=(value); end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#955
     def _update_callbacks; end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#959
     def _update_callbacks=(value); end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#955
     def _upsert_callbacks; end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#959
     def _upsert_callbacks=(value); end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#955
     def _validate_callbacks; end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#959
     def _validate_callbacks=(value); end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#955
     def _validation_callbacks; end
 
-    # source://activesupport/7.1.2/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3/lib/active_support/callbacks.rb#959
     def _validation_callbacks=(value); end
 
-    # source://activemodel/7.1.2/lib/active_model/validations.rb#71
+    # source://activemodel/7.1.3/lib/active_model/validations.rb#71
     def _validators; end
 
-    # source://activemodel/7.1.2/lib/active_model/validations.rb#71
+    # source://activemodel/7.1.3/lib/active_model/validations.rb#71
     def _validators=(value); end
 
-    # source://activemodel/7.1.2/lib/active_model/validations.rb#71
+    # source://activemodel/7.1.3/lib/active_model/validations.rb#71
     def _validators?; end
 
     # source://mongoid//lib/mongoid/traversable.rb#98
     def add_discriminator_mapping(value, klass = T.unsafe(nil)); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#144
     def after_build(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#144
     def after_create(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#144
     def after_destroy(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#144
     def after_find(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#144
     def after_initialize(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#144
     def after_persist_parent(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#144
     def after_save(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#144
     def after_touch(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#144
     def after_update(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#144
     def after_upsert(*args, **options, &block); end
 
     # source://mongoid//lib/mongoid/association/macros.rb#36
@@ -22904,40 +22904,40 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/fields.rb#123
     def aliased_fields?; end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#137
     def around_create(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#137
     def around_destroy(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#137
     def around_persist_parent(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#137
     def around_save(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#137
     def around_update(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#137
     def around_upsert(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#130
     def before_create(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#130
     def before_destroy(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#130
     def before_persist_parent(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#130
     def before_save(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#130
     def before_update(*args, **options, &block); end
 
-    # source://activemodel/7.1.2/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.1.3/lib/active_model/callbacks.rb#130
     def before_upsert(*args, **options, &block); end
 
     # source://mongoid//lib/mongoid/cacheable.rb#10
@@ -23030,10 +23030,10 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/serializable.rb#21
     def include_root_in_json(*_arg0, **_arg1, &_arg2); end
 
-    # source://activemodel/7.1.2/lib/active_model/serializers/json.rb#15
+    # source://activemodel/7.1.3/lib/active_model/serializers/json.rb#15
     def include_root_in_json=(value); end
 
-    # source://activemodel/7.1.2/lib/active_model/serializers/json.rb#15
+    # source://activemodel/7.1.3/lib/active_model/serializers/json.rb#15
     def include_root_in_json?; end
 
     # source://mongoid//lib/mongoid/indexable.rb#14
@@ -23060,13 +23060,13 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/attributes/nested.rb#11
     def nested_attributes?; end
 
-    # source://activemodel/7.1.2/lib/active_model/conversion.rb#32
+    # source://activemodel/7.1.3/lib/active_model/conversion.rb#32
     def param_delimiter; end
 
-    # source://activemodel/7.1.2/lib/active_model/conversion.rb#32
+    # source://activemodel/7.1.3/lib/active_model/conversion.rb#32
     def param_delimiter=(value); end
 
-    # source://activemodel/7.1.2/lib/active_model/conversion.rb#32
+    # source://activemodel/7.1.3/lib/active_model/conversion.rb#32
     def param_delimiter?; end
 
     # source://mongoid//lib/mongoid/association.rb#49
@@ -28116,70 +28116,70 @@ end
 # source://mongoid//lib/rails/mongoid.rb#3
 module Rails
   class << self
-    # source://railties/7.1.2/lib/rails.rb#42
+    # source://railties/7.1.3/lib/rails.rb#42
     def app_class; end
 
-    # source://railties/7.1.2/lib/rails.rb#42
+    # source://railties/7.1.3/lib/rails.rb#42
     def app_class=(_arg0); end
 
-    # source://railties/7.1.2/lib/rails.rb#43
+    # source://railties/7.1.3/lib/rails.rb#43
     def application; end
 
-    # source://railties/7.1.2/lib/rails.rb#41
+    # source://railties/7.1.3/lib/rails.rb#41
     def application=(_arg0); end
 
-    # source://railties/7.1.2/lib/rails.rb#123
+    # source://railties/7.1.3/lib/rails.rb#123
     def autoloaders; end
 
-    # source://railties/7.1.2/lib/rails.rb#54
+    # source://railties/7.1.3/lib/rails.rb#54
     def backtrace_cleaner; end
 
-    # source://railties/7.1.2/lib/rails.rb#42
+    # source://railties/7.1.3/lib/rails.rb#42
     def cache; end
 
-    # source://railties/7.1.2/lib/rails.rb#42
+    # source://railties/7.1.3/lib/rails.rb#42
     def cache=(_arg0); end
 
-    # source://railties/7.1.2/lib/rails.rb#50
+    # source://railties/7.1.3/lib/rails.rb#50
     def configuration; end
 
-    # source://railties/7.1.2/lib/rails/deprecator.rb#4
+    # source://railties/7.1.3/lib/rails/deprecator.rb#4
     def deprecator; end
 
-    # source://railties/7.1.2/lib/rails.rb#72
+    # source://railties/7.1.3/lib/rails.rb#72
     def env; end
 
-    # source://railties/7.1.2/lib/rails.rb#79
+    # source://railties/7.1.3/lib/rails.rb#79
     def env=(environment); end
 
-    # source://railties/7.1.2/lib/rails.rb#90
+    # source://railties/7.1.3/lib/rails.rb#90
     def error; end
 
-    # source://railties/7.1.2/lib/rails/gem_version.rb#5
+    # source://railties/7.1.3/lib/rails/gem_version.rb#5
     def gem_version; end
 
-    # source://railties/7.1.2/lib/rails.rb#103
+    # source://railties/7.1.3/lib/rails.rb#103
     def groups(*groups); end
 
-    # source://railties/7.1.2/lib/rails.rb#47
+    # source://railties/7.1.3/lib/rails.rb#47
     def initialize!(*_arg0, **_arg1, &_arg2); end
 
-    # source://railties/7.1.2/lib/rails.rb#47
+    # source://railties/7.1.3/lib/rails.rb#47
     def initialized?(*_arg0, **_arg1, &_arg2); end
 
-    # source://railties/7.1.2/lib/rails.rb#42
+    # source://railties/7.1.3/lib/rails.rb#42
     def logger; end
 
-    # source://railties/7.1.2/lib/rails.rb#42
+    # source://railties/7.1.3/lib/rails.rb#42
     def logger=(_arg0); end
 
-    # source://railties/7.1.2/lib/rails.rb#119
+    # source://railties/7.1.3/lib/rails.rb#119
     def public_path; end
 
-    # source://railties/7.1.2/lib/rails.rb#63
+    # source://railties/7.1.3/lib/rails.rb#63
     def root; end
 
-    # source://railties/7.1.2/lib/rails/version.rb#7
+    # source://railties/7.1.3/lib/rails/version.rb#7
     def version; end
   end
 end

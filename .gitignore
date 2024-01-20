@@ -59,3 +59,5 @@ vendor
 .vscode/*
 !.vscode/multi-terminals.json
 !.vscode/*.shared.json
+
+stats.html

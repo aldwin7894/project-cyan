@@ -4,15 +4,26 @@ import "iconify-icon";
 import "@hotwired/turbo-rails";
 import Alpine from "alpinejs";
 import { Chart, PieController, ArcElement, Tooltip } from "chart.js";
-import tippy, { followCursor } from "tippy.js";
-import Swiper from "swiper/bundle";
-import "../channels";
+import Tippy, { followCursor } from "tippy.js";
+import Swiper from "swiper";
+import {
+  Autoplay,
+  Navigation,
+  EffectFade,
+  EffectCoverflow,
+} from "swiper/modules";
 
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
 import "tippy.js/animations/perspective-subtle.css";
 import "tippy.js/animations/shift-away-subtle.css";
-import "swiper/css/bundle";
+
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/css/navigation";
+import "swiper/css/effect-fade";
+import "swiper/css/effect-coverflow";
+
 import "~/stylesheets/application.css.scss";
 
 const initElems = (parent = null) => {
@@ -20,7 +31,7 @@ const initElems = (parent = null) => {
   const tippyPopoverList = [].slice.call(
     (parent || document).querySelectorAll("[data-tippy=popover]"),
   );
-  tippy(tippyPopoverList, {
+  Tippy(tippyPopoverList, {
     theme: "light",
     trigger: "click",
     animation: "shift-away-subtle",
@@ -38,7 +49,7 @@ const initElems = (parent = null) => {
   const tippyTooltipList = [].slice.call(
     (parent || document).querySelectorAll("[data-tippy=tooltip]"),
   );
-  tippy(tippyTooltipList, {
+  Tippy(tippyTooltipList, {
     theme: "light",
     placement: "top",
     followCursor: "horizontal",
@@ -155,10 +166,16 @@ document.addEventListener("turbo:before-stream-render", () => {
   Turbo.navigator.delegate.adapter.progressBar.hide();
 });
 
-Chart.register([PieController, ArcElement, Tooltip]);
+Chart.register(PieController, ArcElement, Tooltip);
 
-window.Alpine = Alpine;
-window.Chart = Chart;
-window.tippy = tippy;
-window.Swiper = Swiper;
+Object.assign(window, {
+  Alpine,
+  Chart,
+  Tippy,
+  Swiper,
+  Autoplay,
+  Navigation,
+  EffectFade,
+  EffectCoverflow,
+});
 Alpine.start();

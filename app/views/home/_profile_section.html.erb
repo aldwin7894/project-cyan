@@ -1,6 +1,6 @@
 <section x-data="{swiper: null}">
   <div class="relative flex w-screen min-h-screen">
-    <div id="profile-carousel" class="absolute top-0 left-0 w-full h-full swiper" x-init="swiper = new Swiper('#profile-carousel', { effect: 'fade', loop: true, speed: 1000, threshold: 40, autoplay: { delay: 5000, disableOnInteraction: false }, fadeEffect: { crossFade: true }, }); swiper.translateTo(window.screen.width * -1, 0, false, false);">
+    <div id="profile-carousel" class="absolute top-0 left-0 w-full h-full swiper" x-init="swiper = new Swiper('#profile-carousel', { modules: [Navigation, Autoplay, EffectFade], effect: 'fade', loop: true, speed: 1000, threshold: 40, autoplay: { delay: 5000, disableOnInteraction: false }, fadeEffect: { crossFade: true }, }); swiper.translateTo(window.screen.width * -1, 0, false, false);">
       <div class="swiper-wrapper">
         <% bgs.each do |num| %>
           <div class="swiper-slide background-cyan-<%= num %>">
@@ -14,7 +14,13 @@
         <div></div>
         <div class="flex flex-col col-span-6 tablet:items-center portrait:text-center laptop:items-start">
           <div class="pb-3">
-            <video autoplay loop muted inline playsinline defaultMuted oncontextmenu="return false;" preload="auto" class="rounded-full outline outline-white outline-5 w-52 portrait:mx-auto" poster="<%= vite_asset_url "images/cyan-avatar-2.webp" %>">
+            <video
+              autoplay
+              loop
+              muted
+              inline
+              playsinline
+              defaultMuted oncontextmenu="return false;" preload="auto" class="rounded-full outline outline-white outline-5 w-52 portrait:mx-auto" poster="<%= vite_asset_url "images/cyan-avatar-2.webp" %>">
               <source src="<%= vite_asset_url "images/cyan-avatar-2.webm" %>" type="video/webm">
               Your browser does not support the
               <video></video>tag
@@ -55,13 +61,13 @@
               <iconify-icon icon="simple-icons:twitch" width="50"></iconify-icon>
             </a>
             <a href="https://steamcommunity.com/id/aldwin7894/" rel="noopener noreferrer" target="_blank" class="text-white hover:text-[#075a8e] h-fit" aria-label="Steam" data-tippy="tooltip" data-tippy-content="Steam">
-              <iconify-icon icon="simple-icons:steam" width="50" class=" hover:bg-white hover:outline-[#075a8e] outline-2 outline outline-offset-[-1px] rounded-full "></iconify-icon>
+              <iconify-icon icon="simple-icons:steam" width="50" class="hover:bg-white hover:outline-[#075a8e] outline-2 outline outline-offset-[-1px] rounded-full"></iconify-icon>
             </a>
             <a href="https://osu.ppy.sh/users/10038123" rel="noopener noreferrer" target="_blank" class="text-white h-fit" aria-label="Osu!" data-tippy="tooltip" data-tippy-content="Osu!">
               <iconify-icon icon="simple-icons:osu" width="50" class="hover:bg-[#f170aa] rounded-full"></iconify-icon>
             </a>
             <a href="https://github.com/aldwin7894" rel="noopener noreferrer" target="_blank" class="hover:text-[#171a1e] text-white h-fit" aria-label="GitHub" data-tippy="tooltip" data-tippy-content="GitHub">
-              <iconify-icon icon="simple-icons:github" width="50" class=" hover:bg-white hover:outline-[#171a1e] outline-2 outline outline-offset-[-1px] rounded-full "></iconify-icon>
+              <iconify-icon icon="simple-icons:github" width="50" class="hover:bg-white hover:outline-[#171a1e] outline-2 outline outline-offset-[-1px] rounded-full"></iconify-icon>
             </a>
           </div>
           <div class="flex flex-row flex-wrap justify-around col-span-12 gap-4 pt-10 pointer-events-auto phone:px-2 tablet:justify-center laptop:justify-start">

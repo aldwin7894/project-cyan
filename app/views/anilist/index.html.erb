@@ -2,7 +2,7 @@
 
 <section x-data="{swiper:null}">
   <div class=" relative flex w-screen min-h-[calc(100vh-56px)] xs:min-h-[calc(100vh-116px)] max-h-[calc(100vh-56px)] xs:max-h-[calc(100vh-116px)] font-sans ">
-    <div id="anilist-carousel" class="absolute top-0 left-0 w-full h-full swiper" x-init="swiper = new Swiper('#anilist-carousel', { effect: 'fade', loop: true, speed: 1000, threshold: 40, autoplay: { delay: 5000, disableOnInteraction: false }, fadeEffect: { crossFade: true }, }); swiper.translateTo(window.screen.width * -1, 0, false, false);">
+    <div id="anilist-carousel" class="absolute top-0 left-0 w-full h-full swiper" x-init="swiper = new Swiper('#anilist-carousel', { modules: [Navigation, Autoplay, EffectFade], effect: 'fade', loop: true, speed: 1000, threshold: 40, autoplay: { delay: 5000, disableOnInteraction: false }, fadeEffect: { crossFade: true }, }); swiper.translateTo(window.screen.width * -1, 0, false, false);">
       <div class="swiper-wrapper">
         <% bgs.each do |num| %>
           <div class="swiper-slide background-ailane-<%= num %>">

@@ -1,32 +1,40 @@
-import { defineConfig, splitVendorChunkPlugin } from "vite";
+import { defineConfig } from "vite";
 import RubyPlugin from "vite-plugin-ruby";
 import FullReload from "vite-plugin-full-reload";
 import { brotliCompressSync } from "zlib";
 import gzipPlugin from "rollup-plugin-gzip";
+import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
   plugins: [
     RubyPlugin(),
-    ...(process.env.NODE_ENV === "production"
-      ? [FullReload(["config/routes.rb", "app/views/**/*"], { delay: 200 })]
+    ...(process.env.NODE_ENV !== "production"
+      ? [
+          FullReload(["config/routes.rb", "app/views/**/*"], { delay: 200 }),
+          visualizer({
+            brotliSize: true,
+            gzipSize: true,
+            template: "treemap",
+          }),
+        ]
       : []),
     gzipPlugin(),
     gzipPlugin({
       customCompression: content => brotliCompressSync(Buffer.from(content)),
       fileName: ".br",
     }),
-    splitVendorChunkPlugin(),
   ],
   build: {
     emptyOutDir: true,
     assetsInlineLimit: 24000,
     cssCodeSplit: true,
-    target: ["chrome87", "firefox78"],
+    target: ["chrome87", "firefox78", "safari13", "edge88"],
     minify: "terser",
     sourcemap: false,
     rollupOptions: {
       output: {
         compact: true,
+        generatedCode: "es2015",
       },
     },
     terserOptions: {
@@ -34,6 +42,7 @@ export default defineConfig({
         defaults: true,
         drop_console: true,
         ecma: 2021,
+        unsafe: true,
       },
       format: {
         comments: false,
