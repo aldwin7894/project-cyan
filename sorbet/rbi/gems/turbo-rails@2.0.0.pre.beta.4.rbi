@@ -224,8 +224,13 @@ Turbo::Debouncer::DEFAULT_DELAY = T.let(T.unsafe(nil), Float)
 
 module Turbo::DriveHelper
   def turbo_exempts_page_from_cache; end
+  def turbo_exempts_page_from_cache_tag; end
   def turbo_exempts_page_from_preview; end
+  def turbo_exempts_page_from_preview_tag; end
   def turbo_page_requires_reload; end
+  def turbo_page_requires_reload_tag; end
+  def turbo_refresh_method_tag(method = T.unsafe(nil)); end
+  def turbo_refresh_scroll_tag(scroll = T.unsafe(nil)); end
   def turbo_refreshes_with(method: T.unsafe(nil), scroll: T.unsafe(nil)); end
 end
 

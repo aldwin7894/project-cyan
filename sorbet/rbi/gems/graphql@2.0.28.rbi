@@ -15986,52 +15986,53 @@ end
 module GraphQL::Tracing::DataDogTrace
   include ::GraphQL::Tracing::PlatformTrace
 
+  # @param tracer [#trace] Deprecated
   # @param analytics_enabled [Boolean] Deprecated
   # @param analytics_sample_rate [Float] Deprecated
   #
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#8
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#9
   def initialize(tracer: T.unsafe(nil), analytics_enabled: T.unsafe(nil), analytics_sample_rate: T.unsafe(nil), service: T.unsafe(nil), **rest); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#35
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#33
   def analyze_multiplex(**data); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#35
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#33
   def analyze_query(**data); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#120
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#111
   def authorized(query:, type:, object:); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#141
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#130
   def authorized_lazy(object:, type:, query:); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#126
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#117
   def authorized_span(span_key, object, type, query); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#108
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#99
   def execute_field(query:, field:, ast_node:, arguments:, object:); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#114
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#105
   def execute_field_lazy(query:, field:, ast_node:, arguments:, object:); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#79
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#72
   def execute_field_span(span_key, query, field, ast_node, arguments, object); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#35
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#33
   def execute_multiplex(**data); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#35
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#33
   def execute_query(**data); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#35
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#33
   def execute_query_lazy(**data); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#35
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#33
   def lex(**data); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#35
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#33
   def parse(**data); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#187
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#174
   def platform_authorized_key(type); end
 
   # Implement this method in a subclass to apply custom tags to datadog spans
@@ -16042,22 +16043,22 @@ module GraphQL::Tracing::DataDogTrace
   # @param data [Hash] The runtime data for this event (@see GraphQL::Tracing for keys for each event)
   # @param span [Datadog::Tracing::SpanOperation] The datadog span for this event
   #
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#183
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#170
   def platform_field_key(field); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#191
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#178
   def platform_resolve_type_key(type); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#147
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#136
   def resolve_type(object:, type:, query:); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#153
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#142
   def resolve_type_lazy(object:, type:, query:); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#159
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#148
   def resolve_type_span(span_key, object, type, query); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#35
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#33
   def validate(**data); end
 end
 
@@ -16072,24 +16073,19 @@ end
 class GraphQL::Tracing::DataDogTracing < ::GraphQL::Tracing::PlatformTracing
   # @return [Boolean]
   #
-  # source://graphql//lib/graphql/tracing/data_dog_tracing.rb#71
-  def analytics_available?; end
-
-  # @return [Boolean]
-  #
-  # source://graphql//lib/graphql/tracing/data_dog_tracing.rb#77
+  # source://graphql//lib/graphql/tracing/data_dog_tracing.rb#63
   def analytics_enabled?; end
 
-  # source://graphql//lib/graphql/tracing/data_dog_tracing.rb#82
+  # source://graphql//lib/graphql/tracing/data_dog_tracing.rb#68
   def analytics_sample_rate; end
 
-  # source://graphql//lib/graphql/tracing/data_dog_tracing.rb#91
+  # source://graphql//lib/graphql/tracing/data_dog_tracing.rb#77
   def platform_authorized_key(type); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_tracing.rb#87
+  # source://graphql//lib/graphql/tracing/data_dog_tracing.rb#73
   def platform_field_key(type, field); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_tracing.rb#95
+  # source://graphql//lib/graphql/tracing/data_dog_tracing.rb#81
   def platform_resolve_type_key(type); end
 
   # source://graphql//lib/graphql/tracing/data_dog_tracing.rb#17
@@ -16101,13 +16097,10 @@ class GraphQL::Tracing::DataDogTracing < ::GraphQL::Tracing::PlatformTracing
   # @param data [Hash] The runtime data for this event (@see GraphQL::Tracing for keys for each event)
   # @param span [Datadog::Tracing::SpanOperation] The datadog span for this event
   #
-  # source://graphql//lib/graphql/tracing/data_dog_tracing.rb#62
+  # source://graphql//lib/graphql/tracing/data_dog_tracing.rb#53
   def prepare_span(key, data, span); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_tracing.rb#54
-  def service_name; end
-
-  # source://graphql//lib/graphql/tracing/data_dog_tracing.rb#65
+  # source://graphql//lib/graphql/tracing/data_dog_tracing.rb#56
   def tracer; end
 end
 
