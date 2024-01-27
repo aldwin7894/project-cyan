@@ -5,7 +5,7 @@
   "private": false,
   "repository": "git@github.com:aldwin7894/project-cyan.git",
   "license": "MIT",
-  "author": "aldwin7894 <cyan@aldwin7894.win>",
+  "author": "aldwin7894 <cyan@aldwin7894.dev>",
   "scripts": {
     "anilist:schema:dump": "rails anilist:dump_anilist_graphql",
     "docker:build": ". ./.env && docker compose build web",
