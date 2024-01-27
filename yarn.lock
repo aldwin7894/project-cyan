@@ -417,18 +417,18 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.56.0.tgz#ef20350fec605a7f7035a01764731b2de0f3782b"
   integrity sha512-gMsVel9D7f2HLkBma9VbtzZRehRogVRfbr++f06nL2vnCGCNlzOD+/MUov/F4p8myyAHspEhVobgjpX64q5m6A==
 
-"@hotwired/turbo-rails@^8.0.0-beta.3":
-  version "8.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-8.0.0-beta.3.tgz#f74a2873e78caf586d579469e87e6be4a20f869d"
-  integrity sha512-m3VRXwbOczw4hDM1USzICG3VGMiefa4YH0sr3JSah74YxQ3NIlDcoyN5baySYv+JIOVInLIP/j+VjOj7KUApMQ==
+"@hotwired/turbo-rails@^8.0.0-beta.4":
+  version "8.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-8.0.0-beta.4.tgz#1d643dcb2c9963aef17f2b043e3ac8344c2b8810"
+  integrity sha512-/szhdPUURNjs8FUK/HfdDeD9LJyq2JQ6o3RHe/9KrXZrztzAMlV9eI0r0uCeildDbKtDKH1zZv3WM+mDRhI9DA==
   dependencies:
-    "@hotwired/turbo" "^8.0.0-beta.3"
+    "@hotwired/turbo" "^8.0.0-beta.4"
     "@rails/actioncable" "^7.0"
 
-"@hotwired/turbo@^8.0.0-beta.3":
-  version "8.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-8.0.0-beta.3.tgz#df27e6901643bc4dda0e1474b398b8062dd4f520"
-  integrity sha512-/jH2cEU6TQF13coMJl9GUSbrRO+CT8bF713sXqWpzOMdyh9PiOHNkgrT4lQIHxKE54g9mjKPoSIlXx0S2XwS2Q==
+"@hotwired/turbo@^8.0.0-beta.4":
+  version "8.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-8.0.0-beta.4.tgz#7f5b5df871a9faaa75d135439b26c6d224779a82"
+  integrity sha512-TumUvbUCofb/Ep3BH0p0SIRiWxvKIY1BFQlVnwxAs896dnwkmWYAhNQtVihg32PrhoeYdyYQarsurROnp1r+CA==
 
 "@humanwhocodes/config-array@^0.11.13":
   version "0.11.13"
@@ -724,10 +724,10 @@ ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-alpinejs@^3.13.4:
-  version "3.13.4"
-  resolved "https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.13.4.tgz#97bf8bf63f1f8d2f019a2020d728cda8df5dfb6b"
-  integrity sha512-+miZp8LXMfZKqi6L0m5TA2fk5Tr2dvxFJ3I0dL78Dz90gTXpdHu4Qhv7PJsRmTGRUWjbYh2e+3DYrB4it2DEHQ==
+alpinejs@^3.13.5:
+  version "3.13.5"
+  resolved "https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.13.5.tgz#c06f067e847a295085b4c6f76c42a6a35499d953"
+  integrity sha512-1d2XeNGN+Zn7j4mUAKXtAgdc4/rLeadyTMWeJGXF5DzwawPBxwTiBhFFm6w/Ei8eJxUZeyNWWSD9zknfdz1kEw==
   dependencies:
     "@vue/reactivity" "~3.1.1"
 
