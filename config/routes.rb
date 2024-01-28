@@ -8,7 +8,6 @@ Rails.application.routes.draw do
       root to: redirect("dashboard")
       resources :dashboard
       resources :users
-      resources :social_links, path: "social-links"
       resources :game_ids, path: "game-ids"
     end
 
