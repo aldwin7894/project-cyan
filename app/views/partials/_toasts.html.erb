@@ -1,4 +1,5 @@
-<div x-data class="absolute top-0 right-0 p-4 overflow-x-hidden min-w-1/4">
+<div
+  x-data class="absolute top-0 right-0 p-4 overflow-x-hidden min-w-1/4">
   <template x-for="(toast, index) in $store.toasts.list" :key="toast.id">
     <div
       x-show="toast.visible"
@@ -10,24 +11,19 @@
       x-transition:leave-start="transform translate-x-0 opacity-100"
       x-transition:leave-end="transform translate-x-full opacity-0"
       class="flex items-center p-3 mb-3 text-white bg-gray-900 rounded shadow-lg bg-gradient-to-r"
-      :class="{
-        'from-blue-500 to-blue-600': toast.type === 'info',
-        'from-green-500 to-green-600': toast.type === 'success',
-        'from-yellow-400 to-yellow-500': toast.type === 'warning',
-        'from-red-500 to-pink-500': toast.type === 'error',
-      }"
+      :class="{ 'from-blue-500 to-blue-600': toast.type === 'info', 'from-green-500 to-green-600': toast.type === 'success', 'from-yellow-400 to-yellow-500': toast.type === 'warning', 'from-red-500 to-pink-500': toast.type === 'error', }"
     >
-      <ion-icon name="information-circle-outline" x-show="toast.type == 'info'" class="w-6 h-6 mr-2">
-      </ion-icon>
+      <iconify-icon icon="ion:information-circle-outline" width="25" x-show="toast.type == 'info'" class="mr-2">
+      </iconify-icon>
 
-      <ion-icon name="checkmark-circle-outline" x-show="toast.type == 'success'" class="w-6 h-6 mr-2">
-      </ion-icon>
+      <iconify-icon icon="ion:checkmark-circle-outline" width="25" x-show="toast.type == 'success'" class="mr-2">
+      </iconify-icon>
 
-      <ion-icon name="warning-outline" x-show="toast.type == 'warning'" class="w-6 h-6 mr-2">
-      </ion-icon>
+      <iconify-icon icon="ion:warning-outline" width="25" x-show="toast.type == 'warning'" class="mr-2">
+      </iconify-icon>
 
-      <ion-icon name="close-circle-outline" x-show="toast.type == 'error'" class="w-6 h-6 mr-2">
-      </ion-icon>
+      <iconify-icon icon="ion:close-circle-outline" width="25" x-show="toast.type == 'error'" class="mr-2">
+      </iconify-icon>
 
       <div x-text="toast.message"></div>
     </div>

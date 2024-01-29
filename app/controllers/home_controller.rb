@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   include FormatDateHelper
   include Turbo::Frames::FrameRequest
   layout "application"
-  rescue_from QueryError, with: :render_empty
+  rescue_from Graphlient::Errors::Error, with: :render_empty
   rescue_from StandardError, with: :render_empty
   before_action :check_if_from_cloudfront
   before_action :check_if_turbo_frame, only: %i(lastfm_stats lastfm_top_artists anilist_user_statistics anilist_user_activities watched_anime_section watched_movie_section)
