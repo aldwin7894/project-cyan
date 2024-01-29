@@ -2,6 +2,7 @@
 # typed: true
 
 class AnilistController < ApplicationController
+  include FormatDateHelper
   before_action :check_if_from_cloudfront
 
   def index
@@ -33,8 +34,8 @@ class AnilistController < ApplicationController
 
     cooldown = Rails.cache.fetch("ANILIST/FOLLOW_CHECKER_CD")
     if Time.zone.now.to_i <= cooldown.to_i && !Rails.env.development?
-      cd_mins = ((cooldown - Time.zone.now) / 60.0).round
-      return @error = "On cooldown, please try again after #{cd_mins} #{'minute'.pluralize(cd_mins)}."
+      cd_mins = cooldown - Time.zone.now
+      return @error = "On cooldown, please try again after #{format_date(cd_mins, true, false)}."
     end
 
     @following_page = 1

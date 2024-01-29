@@ -6,7 +6,7 @@ module FormatDateHelper
     day = day > 0 ? [day, "d"] : nil
     hr = hr > 0 ? [hr, "h"] : nil
     min = !include_seconds ? [min, "m"] : min > 0 ? [min, "m"] : nil
-    sec = include_seconds ? [sec, "s"] : nil
+    sec = include_seconds ? [sec.round, "s"] : nil
 
     date = [day, hr, min, sec].compact
     if !array_values
