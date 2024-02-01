@@ -9,7 +9,6 @@ class HomeController < ApplicationController
   include FormatDateHelper
   include Turbo::Frames::FrameRequest
   layout "application"
-  rescue_from Graphlient::Errors::Error, with: :render_empty
   rescue_from StandardError, with: :render_empty
   before_action :check_if_from_cloudfront
   before_action :check_if_turbo_frame, only: %i(lastfm_stats lastfm_top_artists anilist_user_statistics anilist_user_activities watched_anime_section watched_movie_section)
@@ -292,12 +291,22 @@ class HomeController < ApplicationController
 
       loop do
         cache_key = "ANILIST/#{ENV.fetch('ANILIST_USERNAME')}/#{last_month.to_i}_#{page}/USER_ACTIVITIES"
+        data = {}
+
         if !Rails.cache.exist? cache_key
-          Rails.logger.tagged("CACHE", "anilist_user_activities", cache_key) do
-            Rails.logger.info("MISS")
+          logger.tagged("CACHE", "anilist_user_activities", cache_key) do
+            logger.info("MISS")
           end
-          data = query(AniList::UserAnimeActivitiesQuery, date: last_month, user_id:, page:, per_page: 50)
-          has_next_page = data.page.page_info.has_next_page?
+
+          begin
+            data = query(AniList::UserAnimeActivitiesQuery, date: last_month, user_id:, page:, per_page: 50)
+          rescue Graphlient::Errors::Error => error
+            logger.tagged("ERROR", "anilist_user_activities", cache_key) do
+              logger.error(error)
+            end
+          end
+
+          has_next_page = data&.page&.page_info&.has_next_page? || false
           expires_in = has_next_page == false ? 4.hours : 1.week
           res = Rails.cache.fetch(cache_key, expires_in:, skip_nil: true) do
             if data&.page&.activities&.to_a.blank?
@@ -307,8 +316,8 @@ class HomeController < ApplicationController
             { data: data.page.activities.to_a.map(&:to_h), has_next_page: }
           end
         else
-          Rails.logger.tagged("CACHE", "anilist_user_activities", cache_key) do
-            Rails.logger.info("HIT")
+          logger.tagged("CACHE", "anilist_user_activities", cache_key) do
+            logger.info("HIT")
           end
           res = Rails.cache.fetch(cache_key)
           has_next_page = res[:has_next_page]
