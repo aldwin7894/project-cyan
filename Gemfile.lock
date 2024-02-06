@@ -206,7 +206,7 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.7.0)
-    nokogiri (1.16.0-x86_64-linux)
+    nokogiri (1.16.2-x86_64-linux)
       racc (~> 1.4)
     occson (4.2.0)
     opus-ruby (1.0.1)
@@ -344,13 +344,13 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sorbet (0.5.11223)
-      sorbet-static (= 0.5.11223)
-    sorbet-runtime (0.5.11223)
-    sorbet-static (0.5.11223-x86_64-linux)
-    sorbet-static-and-runtime (0.5.11223)
-      sorbet (= 0.5.11223)
-      sorbet-runtime (= 0.5.11223)
+    sorbet (0.5.11230)
+      sorbet-static (= 0.5.11230)
+    sorbet-runtime (0.5.11230)
+    sorbet-static (0.5.11230-x86_64-linux)
+    sorbet-static-and-runtime (0.5.11230)
+      sorbet (= 0.5.11230)
+      sorbet-runtime (= 0.5.11230)
     spoom (1.2.4)
       erubi (>= 1.10.0)
       sorbet-static-and-runtime (>= 0.5.10187)
@@ -370,7 +370,7 @@ GEM
       yard-sorbet
     thor (1.3.0)
     timeout (0.4.1)
-    turbo-rails (2.0.0.pre.beta.4)
+    turbo-rails (2.0.0.pre.rc.2)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
@@ -452,7 +452,7 @@ DEPENDENCIES
   sorbet
   sorbet-runtime
   tapioca
-  turbo-rails (~> 2.0.0.pre.beta.4)
+  turbo-rails (~> 2.0.0.pre.rc.2)
   tzinfo-data
   vite_rails (~> 3.0)
   webdrivers
