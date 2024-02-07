@@ -417,18 +417,18 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.56.0.tgz#ef20350fec605a7f7035a01764731b2de0f3782b"
   integrity sha512-gMsVel9D7f2HLkBma9VbtzZRehRogVRfbr++f06nL2vnCGCNlzOD+/MUov/F4p8myyAHspEhVobgjpX64q5m6A==
 
-"@hotwired/turbo-rails@^8.0.0-rc.2":
-  version "8.0.0-rc.2"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-8.0.0-rc.2.tgz#8b1b06b9c9dc02461bda21d64608f98e929c12b7"
-  integrity sha512-4UCjKo2c9NqGkjOMENg9EUHQowLZxD9mOQ6LYQOuCKDy5HafTVUdhTFWWObgrKMqgGFNyGNAXsQ0rJpkRujqRA==
+"@hotwired/turbo-rails@^8.0.0-rc.3":
+  version "8.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-8.0.0-rc.3.tgz#c1e9fb34b54bd9153a03b48e2cad3f2c2754e727"
+  integrity sha512-Q4hbsV5BlN/7nyJCGnDe30RF0xRnyM/6aeY1fJf6+KXUNNs650RfMI54+7U0nmLaT35X9h6jpSR+EfTTKaIU8Q==
   dependencies:
-    "@hotwired/turbo" "^8.0.0-rc.2"
+    "@hotwired/turbo" "^8.0.0-rc.3"
     "@rails/actioncable" "^7.0"
 
-"@hotwired/turbo@^8.0.0-rc.2":
-  version "8.0.0-rc.2"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-8.0.0-rc.2.tgz#8877c10fd84b84d45fc3dae19c7857e799f0d2ca"
-  integrity sha512-mDmBt7Ay9xBg9bAPjatF4I51/oLhhkLKalJkYvjstZ4acrpbFXl5ZNFtZ5LrUhwqxI4bFpbKv7aVE2+SQpwl/w==
+"@hotwired/turbo@^8.0.0-rc.3":
+  version "8.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-8.0.0-rc.3.tgz#42f8b05d27899f6a157a095253b88099f3db63b8"
+  integrity sha512-2DIgkmyf/ovSDl3An54MQpBYsAW8LMbyU9UockqzGfymoYEIrg7fImi/yXosrKzhNRcQaH1IAqBlZjmftM7mvQ==
 
 "@humanwhocodes/config-array@^0.11.13":
   version "0.11.13"
