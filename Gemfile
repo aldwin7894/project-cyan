@@ -17,7 +17,7 @@ gem "puma", "~> 6.4"
 # Turbo gives you the speed of a single-page web application without having to write any JavaScript.
 gem "turbo-rails", "~> 2.0.0"
 # Use Redis adapter to run Action Cable in production
-gem "redis", "~> 5.0"
+gem "redis", "~> 5.1"
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
