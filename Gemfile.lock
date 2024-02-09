@@ -370,7 +370,7 @@ GEM
       yard-sorbet
     thor (1.3.0)
     timeout (0.4.1)
-    turbo-rails (2.0.0)
+    turbo-rails (2.0.1)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
@@ -452,7 +452,7 @@ DEPENDENCIES
   sorbet
   sorbet-runtime
   tapioca
-  turbo-rails (~> 2.0.0)
+  turbo-rails (~> 2.0.1)
   tzinfo-data
   vite_rails (~> 3.0)
   webdrivers
