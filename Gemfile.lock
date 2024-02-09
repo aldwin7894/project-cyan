@@ -286,7 +286,7 @@ GEM
     rdoc (6.6.2)
       psych (>= 4.0.0)
     recaptcha (5.16.0)
-    redis (5.0.8)
+    redis (5.1.0)
       redis-client (>= 0.17.0)
     redis-client (0.19.1)
       connection_pool
@@ -370,7 +370,7 @@ GEM
       yard-sorbet
     thor (1.3.0)
     timeout (0.4.1)
-    turbo-rails (2.0.0)
+    turbo-rails (2.0.1)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
@@ -440,7 +440,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 3.3)
   rails (~> 7.1.0)
   recaptcha (~> 5.16)
-  redis (~> 5.0)
+  redis (~> 5.1)
   responders (~> 3.1)
   rubocop
   rubocop-packaging
@@ -452,7 +452,7 @@ DEPENDENCIES
   sorbet
   sorbet-runtime
   tapioca
-  turbo-rails (~> 2.0.0)
+  turbo-rails (~> 2.0.1)
   tzinfo-data
   vite_rails (~> 3.0)
   webdrivers
