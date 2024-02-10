@@ -417,18 +417,18 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.56.0.tgz#ef20350fec605a7f7035a01764731b2de0f3782b"
   integrity sha512-gMsVel9D7f2HLkBma9VbtzZRehRogVRfbr++f06nL2vnCGCNlzOD+/MUov/F4p8myyAHspEhVobgjpX64q5m6A==
 
-"@hotwired/turbo-rails@^8.0.1":
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-8.0.1.tgz#361544d73bb70ab157578cd2ad7b32159fe017ec"
-  integrity sha512-E4um0sxC3d4Tts7HCDMjwFILs3FBsuv0hI7MU9srseFgOZLoRVJHI8aAa46ws9sdXOuOjbjeH38d5affhd7shg==
+"@hotwired/turbo-rails@^8.0.2":
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-8.0.2.tgz#c43d54d9346bcf14c897166556bfed92ed4c1d17"
+  integrity sha512-j+6THPc+CsaUdUXZTg6wQ+YcStO9kn6CuGzElqFxUmV/vyd1Jfm0RLZMIbaY8w9Qse7u6JBcrm4AcRxhIhYmaQ==
   dependencies:
-    "@hotwired/turbo" "^8.0.1"
+    "@hotwired/turbo" "^8.0.2"
     "@rails/actioncable" "^7.0"
 
-"@hotwired/turbo@^8.0.1":
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-8.0.1.tgz#0f4be48f43e96237181b31879258498b9f0d15d6"
-  integrity sha512-6DdRoFV8p1qM2YxieZ0McSzFfdKHH85FQn3C8UpLDgyD1UDb3ERhUsXg65M6nPuZeHtBZLY4hUumMdaAP0N1+w==
+"@hotwired/turbo@^8.0.2":
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-8.0.2.tgz#c31cdadfe66b98983066a94073b26fc7e15835f0"
+  integrity sha512-3K6QZkwWfosAV8zuM5bY+kKF02jp1lMQGsWfSE6wXdZBRBP3ah+Vj26YNqYtkEomBwRWA0QKhZgyJP7xOQkVEg==
 
 "@humanwhocodes/config-array@^0.11.13":
   version "0.11.13"
@@ -634,10 +634,10 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
-"@types/node@^20.11.7":
-  version "20.11.7"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.7.tgz#cb49aedd758c978c30806d0c38b520ed2a3df6e0"
-  integrity sha512-GPmeN1C3XAyV5uybAf4cMLWT9fDWcmQhZVtMFu7OR32WjrqGG+Wnk2V1d0bmtUyE/Zy1QJ9BxyiTih9z8Oks8A==
+"@types/node@^20.11.17":
+  version "20.11.17"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.17.tgz#cdd642d0e62ef3a861f88ddbc2b61e32578a9292"
+  integrity sha512-QmgQZGWu1Yw9TDyAP9ZzpFJKynYNeOvwMJmaxABfieQoVoiVOS6MN1WSpqpRcbeA5+RW82kraAVxCCJg+780Qw==
   dependencies:
     undici-types "~5.26.4"
 
@@ -3655,10 +3655,10 @@ vite-plugin-ruby@^5.0.0:
     debug "^4.3.4"
     fast-glob "^3.3.2"
 
-vite@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-5.1.0.tgz#4510394f48b942ecc6843025f4b926ba99a2fb8c"
-  integrity sha512-STmSFzhY4ljuhz14bg9LkMTk3d98IO6DIArnTY6MeBwiD1Za2StcQtz7fzOUnRCqrHSD5+OS2reg4HOz1eoLnw==
+vite@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-5.1.1.tgz#294e39b199d669981efc7e0261b14f78ec80819e"
+  integrity sha512-wclpAgY3F1tR7t9LL5CcHC41YPkQIpKUGeIuT8MdNwNZr6OqOTLs7JX5vIHAtzqLWXts0T+GDrh9pN2arneKqg==
   dependencies:
     esbuild "^0.19.3"
     postcss "^8.4.35"
