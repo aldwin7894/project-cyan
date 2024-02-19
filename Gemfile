@@ -87,7 +87,7 @@ gem "addressable", "~> 2.8"
 
 gem "occson", "~> 4.2"
 
-gem "jwt", "~> 2.7"
+gem "jwt", "~> 2.8"
 
 gem "recaptcha", "~> 5.16"
 
