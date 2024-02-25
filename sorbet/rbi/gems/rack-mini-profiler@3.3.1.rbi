@@ -105,10 +105,10 @@ end
 # source://rack-mini-profiler//lib/mini_profiler/version.rb#3
 module Rack
   class << self
-    # source://rack/2.2.8/lib/rack/version.rb#26
+    # source://rack/2.2.8.1/lib/rack/version.rb#26
     def release; end
 
-    # source://rack/2.2.8/lib/rack/version.rb#19
+    # source://rack/2.2.8.1/lib/rack/version.rb#19
     def version; end
   end
 end
@@ -135,10 +135,10 @@ class Rack::MiniProfiler
   # source://rack-mini-profiler//lib/mini_profiler.rb#149
   def advanced_debugging_enabled?; end
 
-  # source://rack-mini-profiler//lib/mini_profiler.rb#524
+  # source://rack-mini-profiler//lib/mini_profiler.rb#525
   def analyze_memory; end
 
-  # source://rack-mini-profiler//lib/mini_profiler.rb#613
+  # source://rack-mini-profiler//lib/mini_profiler.rb#618
   def cache_control_value; end
 
   # source://rack-mini-profiler//lib/mini_profiler.rb#157
@@ -146,7 +146,7 @@ class Rack::MiniProfiler
 
   # cancels automatic injection of profile script for the current page
   #
-  # source://rack-mini-profiler//lib/mini_profiler.rb#609
+  # source://rack-mini-profiler//lib/mini_profiler.rb#614
   def cancel_auto_inject(env); end
 
   # source://rack-mini-profiler//lib/mini_profiler.rb#145
@@ -158,19 +158,22 @@ class Rack::MiniProfiler
   # source://rack-mini-profiler//lib/mini_profiler.rb#141
   def current=(c); end
 
-  # source://rack-mini-profiler//lib/mini_profiler.rb#496
+  # source://rack-mini-profiler//lib/mini_profiler.rb#497
   def dump_env(env); end
 
-  # source://rack-mini-profiler//lib/mini_profiler.rb#478
+  # source://rack-mini-profiler//lib/mini_profiler.rb#479
   def dump_exceptions(exceptions); end
 
-  # source://rack-mini-profiler//lib/mini_profiler.rb#595
+  # source://rack-mini-profiler//lib/mini_profiler.rb#609
+  def flamegraph_path(env); end
+
+  # source://rack-mini-profiler//lib/mini_profiler.rb#596
   def ids(env); end
 
-  # source://rack-mini-profiler//lib/mini_profiler.rb#604
+  # source://rack-mini-profiler//lib/mini_profiler.rb#605
   def ids_comma_separated(env); end
 
-  # source://rack-mini-profiler//lib/mini_profiler.rb#457
+  # source://rack-mini-profiler//lib/mini_profiler.rb#458
   def inject(fragment, script); end
 
   # source://rack-mini-profiler//lib/mini_profiler.rb#423
@@ -181,13 +184,13 @@ class Rack::MiniProfiler
   # source://rack-mini-profiler//lib/mini_profiler.rb#414
   def matches_action?(action, env); end
 
-  # source://rack-mini-profiler//lib/mini_profiler.rb#590
+  # source://rack-mini-profiler//lib/mini_profiler.rb#591
   def text_result(body, status: T.unsafe(nil), headers: T.unsafe(nil)); end
 
   # source://rack-mini-profiler//lib/mini_profiler.rb#153
   def tool_disabled_message(client_settings); end
 
-  # source://rack-mini-profiler//lib/mini_profiler.rb#518
+  # source://rack-mini-profiler//lib/mini_profiler.rb#519
   def trim_strings(strings, max_size); end
 
   # source://rack-mini-profiler//lib/mini_profiler.rb#133
@@ -195,15 +198,15 @@ class Rack::MiniProfiler
 
   private
 
-  # source://rack-mini-profiler//lib/mini_profiler.rb#619
+  # source://rack-mini-profiler//lib/mini_profiler.rb#624
   def rails_route_from_path(path, method); end
 
-  # source://rack-mini-profiler//lib/mini_profiler.rb#636
+  # source://rack-mini-profiler//lib/mini_profiler.rb#641
   def take_snapshot(env, start); end
 
   # @return [Boolean]
   #
-  # source://rack-mini-profiler//lib/mini_profiler.rb#630
+  # source://rack-mini-profiler//lib/mini_profiler.rb#635
   def take_snapshot?(path); end
 
   class << self
@@ -380,16 +383,16 @@ module Rack::MiniProfiler::Actions
   # source://rack-mini-profiler//lib/mini_profiler/actions.rb#54
   def serve_file(env, file_name:); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/actions.rb#99
+  # source://rack-mini-profiler//lib/mini_profiler/actions.rb#104
   def serve_flamegraph(env); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/actions.rb#117
+  # source://rack-mini-profiler//lib/mini_profiler/actions.rb#122
   def serve_profile_gc(env, client_settings); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/actions.rb#123
+  # source://rack-mini-profiler//lib/mini_profiler/actions.rb#128
   def serve_profile_memory(env, client_settings); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/actions.rb#62
+  # source://rack-mini-profiler//lib/mini_profiler/actions.rb#67
   def serve_results(env); end
 
   # source://rack-mini-profiler//lib/mini_profiler/actions.rb#5
@@ -481,7 +484,7 @@ class Rack::MiniProfiler::Config
   # source://rack-mini-profiler//lib/mini_profiler/config.rb#96
   def assets_url; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/config.rb#114
+  # source://rack-mini-profiler//lib/mini_profiler/config.rb#116
   def assets_url=(lmbda); end
 
   # Returns the value of attribute authorization_mode.
@@ -489,11 +492,7 @@ class Rack::MiniProfiler::Config
   # source://rack-mini-profiler//lib/mini_profiler/config.rb#9
   def authorization_mode; end
 
-  # Sets the attribute authorization_mode
-  #
-  # @param value the value to set the attribute authorization_mode to.
-  #
-  # source://rack-mini-profiler//lib/mini_profiler/config.rb#100
+  # source://rack-mini-profiler//lib/mini_profiler/config.rb#101
   def authorization_mode=(mode); end
 
   # Returns the value of attribute auto_inject.
@@ -686,7 +685,7 @@ class Rack::MiniProfiler::Config
   # source://rack-mini-profiler//lib/mini_profiler/config.rb#9
   def flamegraph_sample_rate=(_arg0); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/config.rb#125
+  # source://rack-mini-profiler//lib/mini_profiler/config.rb#127
   def horizontal_position; end
 
   # ui accessors
@@ -753,7 +752,7 @@ class Rack::MiniProfiler::Config
   # source://rack-mini-profiler//lib/mini_profiler/config.rb#9
   def max_traces_to_show=(_arg0); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/config.rb#129
+  # source://rack-mini-profiler//lib/mini_profiler/config.rb#131
   def merge!(config); end
 
   # ui accessors
@@ -1028,7 +1027,7 @@ class Rack::MiniProfiler::Config
   # source://rack-mini-profiler//lib/mini_profiler/config.rb#9
   def user_provider=(_arg0); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/config.rb#121
+  # source://rack-mini-profiler//lib/mini_profiler/config.rb#123
   def vertical_position; end
 
   class << self
@@ -1154,31 +1153,31 @@ class Rack::MiniProfiler::FileStore < ::Rack::MiniProfiler::AbstractStore
   # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#51
   def initialize(args = T.unsafe(nil)); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#147
+  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#145
   def allowed_tokens; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#163
+  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#161
   def cleanup_cache; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#141
+  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#139
   def flush_tokens; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#135
+  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#133
   def get_unviewed_ids(user); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#104
+  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#102
   def load(id); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#98
+  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#96
   def save(page_struct); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#129
+  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#127
   def set_all_unviewed(user, ids); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#110
+  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#108
   def set_unviewed(user, id); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#119
+  # source://rack-mini-profiler//lib/mini_profiler/storage/file_store.rb#117
   def set_viewed(user, id); end
 end
 
@@ -1555,63 +1554,63 @@ Rack::MiniProfiler::SOURCE_CODE_URI = T.let(T.unsafe(nil), String)
 class Rack::MiniProfiler::SnapshotsTransporter
   # @return [SnapshotsTransporter] a new instance of SnapshotsTransporter
   #
-  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#28
+  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#30
   def initialize(config); end
 
   # Returns the value of attribute buffer.
   #
-  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#25
+  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#27
   def buffer; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#49
+  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#51
   def flush_buffer; end
 
   # Returns the value of attribute gzip_requests.
   #
-  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#26
+  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#28
   def gzip_requests; end
 
   # Sets the attribute gzip_requests
   #
   # @param value the value to set the attribute gzip_requests to.
   #
-  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#26
+  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#28
   def gzip_requests=(_arg0); end
 
   # Returns the value of attribute max_buffer_size.
   #
-  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#26
+  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#28
   def max_buffer_size; end
 
   # Sets the attribute max_buffer_size
   #
   # @param value the value to set the attribute max_buffer_size to.
   #
-  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#26
+  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#28
   def max_buffer_size=(_arg0); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#89
+  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#91
   def requests_interval; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#41
+  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#43
   def ship(snapshot); end
 
   private
 
-  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#95
+  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#97
   def backoff_delay; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#100
+  # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#102
   def start_thread; end
 
   class << self
-    # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#15
+    # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#17
     def failed_http_requests_count; end
 
-    # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#12
+    # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#13
     def successful_http_requests_count; end
 
-    # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#19
+    # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#21
     def transport(snapshot); end
 
     # source://rack-mini-profiler//lib/mini_profiler/snapshots_transporter.rb#9
@@ -1639,13 +1638,13 @@ class Rack::MiniProfiler::TimerStruct::Base
   # source://rack-mini-profiler//lib/mini_profiler/timer_struct/base.rb#23
   def []=(name, val); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/base.rb#34
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/base.rb#33
   def as_json(options = T.unsafe(nil)); end
 
   # source://rack-mini-profiler//lib/mini_profiler/timer_struct/base.rb#15
   def attributes; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/base.rb#28
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/base.rb#27
   def to_json(*a); end
 end
 
@@ -1714,7 +1713,7 @@ class Rack::MiniProfiler::TimerStruct::Page < ::Rack::MiniProfiler::TimerStruct:
   # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#60
   def initialize(env); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#124
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#131
   def as_json(options = T.unsafe(nil)); end
 
   # Returns the value of attribute attributes.
@@ -1722,25 +1721,28 @@ class Rack::MiniProfiler::TimerStruct::Page < ::Rack::MiniProfiler::TimerStruct:
   # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#58
   def attributes; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#116
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#123
   def attributes_to_serialize; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#104
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#111
   def duration_ms; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#108
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#115
   def duration_ms_in_sql; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#128
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#135
   def extra_json; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#100
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#99
   def name; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#112
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#103
+  def page_name(env); end
+
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#119
   def root; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#120
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#127
   def to_json(*a); end
 
   class << self
@@ -1890,10 +1892,10 @@ Rack::MiniProfiler::VERSION = T.let(T.unsafe(nil), String)
 
 # source://rack-mini-profiler//lib/mini_profiler/views.rb#4
 module Rack::MiniProfiler::Views
-  # source://rack-mini-profiler//lib/mini_profiler/views.rb#98
+  # source://rack-mini-profiler//lib/mini_profiler/views.rb#103
   def blank_page_html; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/views.rb#107
+  # source://rack-mini-profiler//lib/mini_profiler/views.rb#112
   def flamegraph(graph, path, env); end
 
   # source://rack-mini-profiler//lib/mini_profiler/views.rb#13
@@ -1907,15 +1909,15 @@ module Rack::MiniProfiler::Views
   # * you do not want script to be automatically appended for the current page. You can also call cancel_auto_inject
   #
   # source://rack-mini-profiler//lib/mini_profiler/views.rb#31
-  def get_profile_script(env); end
+  def get_profile_script(env, response_headers = T.unsafe(nil)); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/views.rb#138
+  # source://rack-mini-profiler//lib/mini_profiler/views.rb#143
   def help(client_settings, env); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/views.rb#102
+  # source://rack-mini-profiler//lib/mini_profiler/views.rb#107
   def make_link(postfix, env); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/views.rb#188
+  # source://rack-mini-profiler//lib/mini_profiler/views.rb#193
   def public_base_path(env); end
 
   # source://rack-mini-profiler//lib/mini_profiler/views.rb#5
@@ -1924,14 +1926,14 @@ module Rack::MiniProfiler::Views
   # source://rack-mini-profiler//lib/mini_profiler/views.rb#9
   def share_template; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/views.rb#183
+  # source://rack-mini-profiler//lib/mini_profiler/views.rb#188
   def url_for_snapshot(id, group_name); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/views.rb#178
+  # source://rack-mini-profiler//lib/mini_profiler/views.rb#183
   def url_for_snapshots_group(group_name); end
 end
 
-# source://rack-mini-profiler//lib/mini_profiler/views.rb#88
+# source://rack-mini-profiler//lib/mini_profiler/views.rb#93
 Rack::MiniProfiler::Views::BLANK_PAGE = T.let(T.unsafe(nil), String)
 
 # source://rack-mini-profiler//lib/mini_profiler_rails/railtie.rb#6

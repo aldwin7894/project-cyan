@@ -10,14 +10,29 @@
 # source://listen//lib/listen/logger.rb#3
 module Listen
   class << self
-    # source://listen//lib/listen/logger.rb#12
+    # source://listen//lib/listen/logger.rb#19
+    def adapter_warn(message); end
+
+    # Returns the value of attribute adapter_warn_behavior.
+    #
+    # source://listen//lib/listen/logger.rb#13
+    def adapter_warn_behavior; end
+
+    # Sets the attribute adapter_warn_behavior
+    #
+    # @param value the value to set the attribute adapter_warn_behavior to.
+    #
+    # source://listen//lib/listen/logger.rb#13
+    def adapter_warn_behavior=(_arg0); end
+
+    # source://listen//lib/listen/logger.rb#15
     def logger; end
 
     # Sets the attribute logger
     #
     # @param value the value to set the attribute logger to.
     #
-    # source://listen//lib/listen/logger.rb#10
+    # source://listen//lib/listen/logger.rb#12
     def logger=(_arg0); end
 
     # This is used by the `listen` binary to handle Ctrl-C
@@ -39,7 +54,10 @@ module Listen
 
     private
 
-    # source://listen//lib/listen/logger.rb#18
+    # source://listen//lib/listen/logger.rb#50
+    def adapter_warn_behavior_callback(message); end
+
+    # source://listen//lib/listen/logger.rb#32
     def default_logger; end
   end
 end
@@ -1051,11 +1069,17 @@ class Listen::Record::SymlinkDetector
   # source://listen//lib/listen/record/symlink_detector.rb#28
   def verify_unwatched!(entry); end
 
+  # Leaving this stub here since some warning work-arounds were referring to it.
+  # Deprecated. Will be removed in Listen v4.0.
+  #
+  # source://listen//lib/listen/record/symlink_detector.rb#35
+  def warn(message); end
+
   private
 
   # @raise [::Listen::Error::SymlinkLoop]
   #
-  # source://listen//lib/listen/record/symlink_detector.rb#35
+  # source://listen//lib/listen/record/symlink_detector.rb#41
   def _fail(symlinked, real_path); end
 end
 

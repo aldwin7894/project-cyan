@@ -38,317 +38,41 @@ module JWT
 
     # @return [Boolean]
     #
-    # source://jwt//lib/jwt/version.rb#37
+    # source://jwt//lib/jwt/version.rb#38
     def openssl_3_hmac_empty_key_regression?; end
 
-    # source://jwt//lib/jwt/version.rb#41
+    # source://jwt//lib/jwt/version.rb#42
     def openssl_version; end
 
     # @return [Boolean]
     #
-    # source://jwt//lib/jwt/version.rb#29
+    # source://jwt//lib/jwt/version.rb#30
     def rbnacl?; end
 
     # @return [Boolean]
     #
-    # source://jwt//lib/jwt/version.rb#33
+    # source://jwt//lib/jwt/version.rb#34
     def rbnacl_6_or_greater?; end
   end
 end
 
-# source://jwt//lib/jwt/algos/hmac.rb#4
-module JWT::Algos
-  extend ::JWT::Algos
-
-  # source://jwt//lib/jwt/algos.rb#44
-  def create(algorithm); end
-
-  # source://jwt//lib/jwt/algos.rb#40
-  def find(algorithm); end
-
-  # @return [Boolean]
-  #
-  # source://jwt//lib/jwt/algos.rb#48
-  def implementation?(algorithm); end
-
-  private
-
-  # source://jwt//lib/jwt/algos.rb#55
-  def indexed; end
-end
-
-# source://jwt//lib/jwt/algos.rb#23
-JWT::Algos::ALGOS = T.let(T.unsafe(nil), Array)
-
-# source://jwt//lib/jwt/algos/algo_wrapper.rb#5
-class JWT::Algos::AlgoWrapper
-  # @return [AlgoWrapper] a new instance of AlgoWrapper
-  #
-  # source://jwt//lib/jwt/algos/algo_wrapper.rb#8
-  def initialize(alg, cls); end
-
-  # Returns the value of attribute alg.
-  #
-  # source://jwt//lib/jwt/algos/algo_wrapper.rb#6
-  def alg; end
-
-  # Returns the value of attribute cls.
-  #
-  # source://jwt//lib/jwt/algos/algo_wrapper.rb#6
-  def cls; end
-
-  # source://jwt//lib/jwt/algos/algo_wrapper.rb#17
-  def sign(data:, signing_key:); end
-
-  # @return [Boolean]
-  #
-  # source://jwt//lib/jwt/algos/algo_wrapper.rb#13
-  def valid_alg?(alg_to_check); end
-
-  # source://jwt//lib/jwt/algos/algo_wrapper.rb#21
-  def verify(data:, signature:, verification_key:); end
-end
-
-# source://jwt//lib/jwt/algos/ecdsa.rb#5
-module JWT::Algos::Ecdsa
-  private
-
-  # source://jwt//lib/jwt/algos/ecdsa.rb#70
-  def asn1_to_raw(signature, public_key); end
-
-  # source://jwt//lib/jwt/algos/ecdsa.rb#57
-  def curve_by_name(name); end
-
-  # source://jwt//lib/jwt/algos/ecdsa.rb#63
-  def raw_to_asn1(signature, private_key); end
-
-  # source://jwt//lib/jwt/algos/ecdsa.rb#33
-  def sign(algorithm, msg, key); end
-
-  # source://jwt//lib/jwt/algos/ecdsa.rb#44
-  def verify(algorithm, public_key, signing_input, signature); end
-
-  class << self
-    # source://jwt//lib/jwt/algos/ecdsa.rb#70
-    def asn1_to_raw(signature, public_key); end
-
-    # source://jwt//lib/jwt/algos/ecdsa.rb#57
-    def curve_by_name(name); end
-
-    # source://jwt//lib/jwt/algos/ecdsa.rb#63
-    def raw_to_asn1(signature, private_key); end
-
-    # source://jwt//lib/jwt/algos/ecdsa.rb#33
-    def sign(algorithm, msg, key); end
-
-    # source://jwt//lib/jwt/algos/ecdsa.rb#44
-    def verify(algorithm, public_key, signing_input, signature); end
-  end
-end
-
-# source://jwt//lib/jwt/algos/ecdsa.rb#8
-JWT::Algos::Ecdsa::NAMED_CURVES = T.let(T.unsafe(nil), Hash)
-
-# source://jwt//lib/jwt/algos/ecdsa.rb#31
-JWT::Algos::Ecdsa::SUPPORTED = T.let(T.unsafe(nil), Array)
-
-# source://jwt//lib/jwt/algos/eddsa.rb#5
-module JWT::Algos::Eddsa
-  private
-
-  # source://jwt//lib/jwt/algos/eddsa.rb#10
-  def sign(algorithm, msg, key); end
-
-  # source://jwt//lib/jwt/algos/eddsa.rb#21
-  def verify(algorithm, public_key, signing_input, signature); end
-
-  class << self
-    # source://jwt//lib/jwt/algos/eddsa.rb#10
-    def sign(algorithm, msg, key); end
-
-    # source://jwt//lib/jwt/algos/eddsa.rb#21
-    def verify(algorithm, public_key, signing_input, signature); end
-  end
-end
-
-# source://jwt//lib/jwt/algos/eddsa.rb#8
-JWT::Algos::Eddsa::SUPPORTED = T.let(T.unsafe(nil), Array)
-
-# source://jwt//lib/jwt/algos/hmac.rb#5
-module JWT::Algos::Hmac
-  private
-
-  # source://jwt//lib/jwt/algos/hmac.rb#16
-  def sign(algorithm, msg, key); end
-
-  # source://jwt//lib/jwt/algos/hmac.rb#30
-  def verify(algorithm, key, signing_input, signature); end
-
-  class << self
-    # source://jwt//lib/jwt/algos/hmac.rb#16
-    def sign(algorithm, msg, key); end
-
-    # source://jwt//lib/jwt/algos/hmac.rb#30
-    def verify(algorithm, key, signing_input, signature); end
-  end
-end
-
-# source://jwt//lib/jwt/algos/hmac.rb#8
-JWT::Algos::Hmac::MAPPING = T.let(T.unsafe(nil), Hash)
-
-# source://jwt//lib/jwt/algos/hmac.rb#14
-JWT::Algos::Hmac::SUPPORTED = T.let(T.unsafe(nil), Array)
-
-# Copy of https://github.com/rails/rails/blob/v7.0.3.1/activesupport/lib/active_support/security_utils.rb
-#
-# source://jwt//lib/jwt/algos/hmac.rb#36
-module JWT::Algos::Hmac::SecurityUtils
-  private
-
-  # @raise [ArgumentError]
-  #
-  # source://jwt//lib/jwt/algos/hmac.rb#43
-  def fixed_length_secure_compare(a, b); end
-
-  # Secure string comparison for strings of variable length.
-  #
-  # While a timing attack would not be able to discern the content of
-  # a secret compared via secure_compare, it is possible to determine
-  # the secret length. This should be considered when using secure_compare
-  # to compare weak, short secrets to user input.
-  #
-  # source://jwt//lib/jwt/algos/hmac.rb#65
-  def secure_compare(a, b); end
-
-  class << self
-    # @raise [ArgumentError]
-    #
-    # source://jwt//lib/jwt/algos/hmac.rb#43
-    def fixed_length_secure_compare(a, b); end
-
-    # Secure string comparison for strings of variable length.
-    #
-    # While a timing attack would not be able to discern the content of
-    # a secret compared via secure_compare, it is possible to determine
-    # the secret length. This should be considered when using secure_compare
-    # to compare weak, short secrets to user input.
-    #
-    # source://jwt//lib/jwt/algos/hmac.rb#65
-    def secure_compare(a, b); end
-  end
-end
-
-# source://jwt//lib/jwt/algos/none.rb#5
-module JWT::Algos::None
-  private
-
-  # source://jwt//lib/jwt/algos/none.rb#10
-  def sign(*_arg0); end
-
-  # source://jwt//lib/jwt/algos/none.rb#14
-  def verify(*_arg0); end
-
-  class << self
-    # source://jwt//lib/jwt/algos/none.rb#10
-    def sign(*_arg0); end
-
-    # source://jwt//lib/jwt/algos/none.rb#14
-    def verify(*_arg0); end
-  end
-end
-
-# source://jwt//lib/jwt/algos/none.rb#8
-JWT::Algos::None::SUPPORTED = T.let(T.unsafe(nil), Array)
-
-# source://jwt//lib/jwt/algos/ps.rb#5
-module JWT::Algos::Ps
-  private
-
-  # source://jwt//lib/jwt/algos/ps.rb#30
-  def require_openssl!; end
-
-  # source://jwt//lib/jwt/algos/ps.rb#12
-  def sign(algorithm, msg, key); end
-
-  # source://jwt//lib/jwt/algos/ps.rb#22
-  def verify(algorithm, public_key, signing_input, signature); end
-
-  class << self
-    # source://jwt//lib/jwt/algos/ps.rb#30
-    def require_openssl!; end
-
-    # @raise [EncodeError]
-    #
-    # source://jwt//lib/jwt/algos/ps.rb#12
-    def sign(algorithm, msg, key); end
-
-    # source://jwt//lib/jwt/algos/ps.rb#22
-    def verify(algorithm, public_key, signing_input, signature); end
-  end
-end
-
-# source://jwt//lib/jwt/algos/ps.rb#10
-JWT::Algos::Ps::SUPPORTED = T.let(T.unsafe(nil), Array)
-
-# source://jwt//lib/jwt/algos/rsa.rb#5
-module JWT::Algos::Rsa
-  private
-
-  # source://jwt//lib/jwt/algos/rsa.rb#10
-  def sign(algorithm, msg, key); end
-
-  # source://jwt//lib/jwt/algos/rsa.rb#16
-  def verify(algorithm, public_key, signing_input, signature); end
-
-  class << self
-    # @raise [EncodeError]
-    #
-    # source://jwt//lib/jwt/algos/rsa.rb#10
-    def sign(algorithm, msg, key); end
-
-    # source://jwt//lib/jwt/algos/rsa.rb#16
-    def verify(algorithm, public_key, signing_input, signature); end
-  end
-end
-
-# source://jwt//lib/jwt/algos/rsa.rb#8
-JWT::Algos::Rsa::SUPPORTED = T.let(T.unsafe(nil), Array)
-
-# source://jwt//lib/jwt/algos/unsupported.rb#5
-module JWT::Algos::Unsupported
-  private
-
-  # source://jwt//lib/jwt/algos/unsupported.rb#10
-  def sign(*_arg0); end
-
-  # source://jwt//lib/jwt/algos/unsupported.rb#14
-  def verify(*_arg0); end
-
-  class << self
-    # @raise [NotImplementedError]
-    #
-    # source://jwt//lib/jwt/algos/unsupported.rb#10
-    def sign(*_arg0); end
-
-    # @raise [JWT::VerificationError]
-    #
-    # source://jwt//lib/jwt/algos/unsupported.rb#14
-    def verify(*_arg0); end
-  end
-end
-
-# source://jwt//lib/jwt/algos/unsupported.rb#8
-JWT::Algos::Unsupported::SUPPORTED = T.let(T.unsafe(nil), Array)
-
-# Base64 helpers
+# Base64 encoding and decoding
 #
 # source://jwt//lib/jwt/base64.rb#7
 class JWT::Base64
   class << self
-    # source://jwt//lib/jwt/base64.rb#13
+    # source://jwt//lib/jwt/base64.rb#25
+    def loose_urlsafe_decode64(str); end
+
+    # Decode a string with URL-safe Base64 complying with RFC 4648.
+    # Deprecated support for RFC 2045 remains for now. ("All line breaks or other characters not found in Table 1 must be ignored by decoding software")
+    #
+    # source://jwt//lib/jwt/base64.rb#16
     def url_decode(str); end
 
-    # source://jwt//lib/jwt/base64.rb#9
+    # Encode a string with URL-safe Base64 complying with RFC 4648 (not padded).
+    #
+    # source://jwt//lib/jwt/base64.rb#10
     def url_encode(str); end
   end
 end
@@ -594,7 +318,7 @@ class JWT::Decode
 
   private
 
-  # source://jwt//lib/jwt/decode.rb#146
+  # source://jwt//lib/jwt/decode.rb#140
   def alg_in_header; end
 
   # source://jwt//lib/jwt/decode.rb#90
@@ -603,51 +327,51 @@ class JWT::Decode
   # source://jwt//lib/jwt/decode.rb#72
   def allowed_and_valid_algorithms; end
 
-  # source://jwt//lib/jwt/decode.rb#142
+  # source://jwt//lib/jwt/decode.rb#136
   def decode_signature; end
 
   # @raise [JWT::DecodeError]
   #
-  # source://jwt//lib/jwt/decode.rb#113
+  # source://jwt//lib/jwt/decode.rb#107
   def find_key(&keyfinder); end
 
   # source://jwt//lib/jwt/decode.rb#82
   def given_algorithms; end
 
-  # source://jwt//lib/jwt/decode.rb#150
+  # source://jwt//lib/jwt/decode.rb#144
   def header; end
 
   # @return [Boolean]
   #
-  # source://jwt//lib/jwt/decode.rb#138
+  # source://jwt//lib/jwt/decode.rb#132
   def none_algorithm?; end
 
-  # source://jwt//lib/jwt/decode.rb#162
+  # source://jwt//lib/jwt/decode.rb#156
   def parse_and_decode(segment); end
 
-  # source://jwt//lib/jwt/decode.rb#154
+  # source://jwt//lib/jwt/decode.rb#148
   def payload; end
 
   # source://jwt//lib/jwt/decode.rb#94
   def resolve_allowed_algorithms; end
 
-  # source://jwt//lib/jwt/decode.rb#134
+  # source://jwt//lib/jwt/decode.rb#128
   def segment_length; end
 
   # source://jwt//lib/jwt/decode.rb#58
   def set_key; end
 
-  # source://jwt//lib/jwt/decode.rb#158
+  # source://jwt//lib/jwt/decode.rb#152
   def signing_input; end
 
   # Move algorithms matching the JWT alg header to the beginning of the list
   #
-  # source://jwt//lib/jwt/decode.rb#107
+  # source://jwt//lib/jwt/decode.rb#101
   def sort_by_alg_header(algs); end
 
   # @raise [JWT::DecodeError]
   #
-  # source://jwt//lib/jwt/decode.rb#126
+  # source://jwt//lib/jwt/decode.rb#120
   def validate_segment_count!; end
 
   # @raise [JWT::IncorrectAlgorithm]
@@ -655,7 +379,7 @@ class JWT::Decode
   # source://jwt//lib/jwt/decode.rb#52
   def verify_algo; end
 
-  # source://jwt//lib/jwt/decode.rb#121
+  # source://jwt//lib/jwt/decode.rb#115
   def verify_claims; end
 
   # @raise [JWT::DecodeError]
@@ -691,40 +415,37 @@ class JWT::Encode
 
   private
 
-  # source://jwt//lib/jwt/encode.rb#75
+  # source://jwt//lib/jwt/encode.rb#69
   def combine(*parts); end
 
-  # source://jwt//lib/jwt/encode.rb#71
+  # source://jwt//lib/jwt/encode.rb#65
   def encode_data(data); end
 
-  # source://jwt//lib/jwt/encode.rb#49
+  # source://jwt//lib/jwt/encode.rb#43
   def encode_header; end
 
-  # source://jwt//lib/jwt/encode.rb#53
+  # source://jwt//lib/jwt/encode.rb#47
   def encode_payload; end
 
-  # source://jwt//lib/jwt/encode.rb#67
+  # source://jwt//lib/jwt/encode.rb#61
   def encode_signature; end
 
-  # source://jwt//lib/jwt/encode.rb#33
+  # source://jwt//lib/jwt/encode.rb#27
   def encoded_header; end
 
-  # source://jwt//lib/jwt/encode.rb#45
+  # source://jwt//lib/jwt/encode.rb#39
   def encoded_header_and_payload; end
 
-  # source://jwt//lib/jwt/encode.rb#37
+  # source://jwt//lib/jwt/encode.rb#31
   def encoded_payload; end
 
-  # source://jwt//lib/jwt/encode.rb#41
+  # source://jwt//lib/jwt/encode.rb#35
   def encoded_signature; end
 
-  # source://jwt//lib/jwt/encode.rb#27
-  def resolve_algorithm(algorithm); end
-
-  # source://jwt//lib/jwt/encode.rb#57
+  # source://jwt//lib/jwt/encode.rb#51
   def signature; end
 
-  # source://jwt//lib/jwt/encode.rb#61
+  # source://jwt//lib/jwt/encode.rb#55
   def validate_claims!; end
 end
 
@@ -774,6 +495,286 @@ class JWT::JSON
   end
 end
 
+# source://jwt//lib/jwt/jwa/hmac.rb#4
+module JWT::JWA
+  class << self
+    # source://jwt//lib/jwt/jwa.rb#37
+    def create(algorithm); end
+
+    # source://jwt//lib/jwt/jwa.rb#33
+    def find(algorithm); end
+
+    # @return [Boolean]
+    #
+    # source://jwt//lib/jwt/jwa.rb#43
+    def implementation?(algorithm); end
+
+    private
+
+    # source://jwt//lib/jwt/jwa.rb#50
+    def indexed; end
+  end
+end
+
+# source://jwt//lib/jwt/jwa.rb#22
+JWT::JWA::ALGOS = T.let(T.unsafe(nil), Array)
+
+# source://jwt//lib/jwt/jwa/ecdsa.rb#5
+module JWT::JWA::Ecdsa
+  private
+
+  # source://jwt//lib/jwt/jwa/ecdsa.rb#70
+  def asn1_to_raw(signature, public_key); end
+
+  # source://jwt//lib/jwt/jwa/ecdsa.rb#57
+  def curve_by_name(name); end
+
+  # source://jwt//lib/jwt/jwa/ecdsa.rb#63
+  def raw_to_asn1(signature, private_key); end
+
+  # source://jwt//lib/jwt/jwa/ecdsa.rb#33
+  def sign(algorithm, msg, key); end
+
+  # source://jwt//lib/jwt/jwa/ecdsa.rb#44
+  def verify(algorithm, public_key, signing_input, signature); end
+
+  class << self
+    # source://jwt//lib/jwt/jwa/ecdsa.rb#70
+    def asn1_to_raw(signature, public_key); end
+
+    # source://jwt//lib/jwt/jwa/ecdsa.rb#57
+    def curve_by_name(name); end
+
+    # source://jwt//lib/jwt/jwa/ecdsa.rb#63
+    def raw_to_asn1(signature, private_key); end
+
+    # source://jwt//lib/jwt/jwa/ecdsa.rb#33
+    def sign(algorithm, msg, key); end
+
+    # source://jwt//lib/jwt/jwa/ecdsa.rb#44
+    def verify(algorithm, public_key, signing_input, signature); end
+  end
+end
+
+# source://jwt//lib/jwt/jwa/ecdsa.rb#8
+JWT::JWA::Ecdsa::NAMED_CURVES = T.let(T.unsafe(nil), Hash)
+
+# source://jwt//lib/jwt/jwa/ecdsa.rb#31
+JWT::JWA::Ecdsa::SUPPORTED = T.let(T.unsafe(nil), Array)
+
+# source://jwt//lib/jwt/jwa/eddsa.rb#5
+module JWT::JWA::Eddsa
+  class << self
+    # source://jwt//lib/jwt/jwa/eddsa.rb#10
+    def sign(algorithm, msg, key); end
+
+    # source://jwt//lib/jwt/jwa/eddsa.rb#20
+    def verify(algorithm, public_key, signing_input, signature); end
+
+    private
+
+    # @raise [IncorrectAlgorithm]
+    #
+    # source://jwt//lib/jwt/jwa/eddsa.rb#34
+    def validate_algorithm!(algorithm); end
+  end
+end
+
+# source://jwt//lib/jwt/jwa/eddsa.rb#6
+JWT::JWA::Eddsa::SUPPORTED = T.let(T.unsafe(nil), Array)
+
+# source://jwt//lib/jwt/jwa/eddsa.rb#7
+JWT::JWA::Eddsa::SUPPORTED_DOWNCASED = T.let(T.unsafe(nil), Array)
+
+# source://jwt//lib/jwt/jwa/hmac.rb#5
+module JWT::JWA::Hmac
+  private
+
+  # source://jwt//lib/jwt/jwa/hmac.rb#16
+  def sign(algorithm, msg, key); end
+
+  # source://jwt//lib/jwt/jwa/hmac.rb#30
+  def verify(algorithm, key, signing_input, signature); end
+
+  class << self
+    # source://jwt//lib/jwt/jwa/hmac.rb#16
+    def sign(algorithm, msg, key); end
+
+    # source://jwt//lib/jwt/jwa/hmac.rb#30
+    def verify(algorithm, key, signing_input, signature); end
+  end
+end
+
+# source://jwt//lib/jwt/jwa/hmac.rb#8
+JWT::JWA::Hmac::MAPPING = T.let(T.unsafe(nil), Hash)
+
+# source://jwt//lib/jwt/jwa/hmac.rb#14
+JWT::JWA::Hmac::SUPPORTED = T.let(T.unsafe(nil), Array)
+
+# Copy of https://github.com/rails/rails/blob/v7.0.3.1/activesupport/lib/active_support/security_utils.rb
+#
+# source://jwt//lib/jwt/jwa/hmac.rb#36
+module JWT::JWA::Hmac::SecurityUtils
+  private
+
+  # :nocov:
+  #
+  # @raise [ArgumentError]
+  #
+  # source://jwt//lib/jwt/jwa/hmac.rb#43
+  def fixed_length_secure_compare(a, b); end
+
+  # Secure string comparison for strings of variable length.
+  #
+  # While a timing attack would not be able to discern the content of
+  # a secret compared via secure_compare, it is possible to determine
+  # the secret length. This should be considered when using secure_compare
+  # to compare weak, short secrets to user input.
+  #
+  # source://jwt//lib/jwt/jwa/hmac.rb#67
+  def secure_compare(a, b); end
+
+  class << self
+    # :nocov:
+    #
+    # @raise [ArgumentError]
+    #
+    # source://jwt//lib/jwt/jwa/hmac.rb#43
+    def fixed_length_secure_compare(a, b); end
+
+    # Secure string comparison for strings of variable length.
+    #
+    # While a timing attack would not be able to discern the content of
+    # a secret compared via secure_compare, it is possible to determine
+    # the secret length. This should be considered when using secure_compare
+    # to compare weak, short secrets to user input.
+    #
+    # source://jwt//lib/jwt/jwa/hmac.rb#67
+    def secure_compare(a, b); end
+  end
+end
+
+# source://jwt//lib/jwt/jwa/none.rb#5
+module JWT::JWA::None
+  private
+
+  # source://jwt//lib/jwt/jwa/none.rb#10
+  def sign(*_arg0); end
+
+  # source://jwt//lib/jwt/jwa/none.rb#14
+  def verify(*_arg0); end
+
+  class << self
+    # source://jwt//lib/jwt/jwa/none.rb#10
+    def sign(*_arg0); end
+
+    # source://jwt//lib/jwt/jwa/none.rb#14
+    def verify(*_arg0); end
+  end
+end
+
+# source://jwt//lib/jwt/jwa/none.rb#8
+JWT::JWA::None::SUPPORTED = T.let(T.unsafe(nil), Array)
+
+# source://jwt//lib/jwt/jwa/ps.rb#5
+module JWT::JWA::Ps
+  private
+
+  # source://jwt//lib/jwt/jwa/ps.rb#12
+  def sign(algorithm, msg, key); end
+
+  # source://jwt//lib/jwt/jwa/ps.rb#22
+  def verify(algorithm, public_key, signing_input, signature); end
+
+  class << self
+    # source://jwt//lib/jwt/jwa/ps.rb#12
+    def sign(algorithm, msg, key); end
+
+    # source://jwt//lib/jwt/jwa/ps.rb#22
+    def verify(algorithm, public_key, signing_input, signature); end
+  end
+end
+
+# source://jwt//lib/jwt/jwa/ps.rb#10
+JWT::JWA::Ps::SUPPORTED = T.let(T.unsafe(nil), Array)
+
+# source://jwt//lib/jwt/jwa/rsa.rb#5
+module JWT::JWA::Rsa
+  private
+
+  # source://jwt//lib/jwt/jwa/rsa.rb#10
+  def sign(algorithm, msg, key); end
+
+  # source://jwt//lib/jwt/jwa/rsa.rb#18
+  def verify(algorithm, public_key, signing_input, signature); end
+
+  class << self
+    # source://jwt//lib/jwt/jwa/rsa.rb#10
+    def sign(algorithm, msg, key); end
+
+    # source://jwt//lib/jwt/jwa/rsa.rb#18
+    def verify(algorithm, public_key, signing_input, signature); end
+  end
+end
+
+# source://jwt//lib/jwt/jwa/rsa.rb#8
+JWT::JWA::Rsa::SUPPORTED = T.let(T.unsafe(nil), Array)
+
+# source://jwt//lib/jwt/jwa/unsupported.rb#5
+module JWT::JWA::Unsupported
+  private
+
+  # source://jwt//lib/jwt/jwa/unsupported.rb#10
+  def sign(*_arg0); end
+
+  # source://jwt//lib/jwt/jwa/unsupported.rb#14
+  def verify(*_arg0); end
+
+  class << self
+    # @raise [NotImplementedError]
+    #
+    # source://jwt//lib/jwt/jwa/unsupported.rb#10
+    def sign(*_arg0); end
+
+    # @raise [JWT::VerificationError]
+    #
+    # source://jwt//lib/jwt/jwa/unsupported.rb#14
+    def verify(*_arg0); end
+  end
+end
+
+# source://jwt//lib/jwt/jwa/unsupported.rb#8
+JWT::JWA::Unsupported::SUPPORTED = T.let(T.unsafe(nil), Array)
+
+# source://jwt//lib/jwt/jwa/wrapper.rb#5
+class JWT::JWA::Wrapper
+  # @return [Wrapper] a new instance of Wrapper
+  #
+  # source://jwt//lib/jwt/jwa/wrapper.rb#8
+  def initialize(alg, cls); end
+
+  # Returns the value of attribute alg.
+  #
+  # source://jwt//lib/jwt/jwa/wrapper.rb#6
+  def alg; end
+
+  # Returns the value of attribute cls.
+  #
+  # source://jwt//lib/jwt/jwa/wrapper.rb#6
+  def cls; end
+
+  # source://jwt//lib/jwt/jwa/wrapper.rb#17
+  def sign(data:, signing_key:); end
+
+  # @return [Boolean]
+  #
+  # source://jwt//lib/jwt/jwa/wrapper.rb#13
+  def valid_alg?(alg_to_check); end
+
+  # source://jwt//lib/jwt/jwa/wrapper.rb#21
+  def verify(data:, signature:, verification_key:); end
+end
+
 # source://jwt//lib/jwt/jwk/kid_as_key_digest.rb#4
 module JWT::JWK
   class << self
@@ -803,77 +804,74 @@ end
 class JWT::JWK::EC < ::JWT::JWK::KeyBase
   # @return [EC] a new instance of EC
   #
-  # source://jwt//lib/jwt/jwk/ec.rb#15
+  # source://jwt//lib/jwt/jwk/ec.rb#16
   def initialize(key, params = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://jwt//lib/jwt/jwk/ec.rb#66
+  # source://jwt//lib/jwt/jwk/ec.rb#67
   def []=(key, value); end
 
-  # source://jwt//lib/jwt/jwk/ec.rb#53
+  # source://jwt//lib/jwt/jwk/ec.rb#54
   def export(options = T.unsafe(nil)); end
 
-  # source://jwt//lib/jwt/jwk/ec.rb#59
+  # source://jwt//lib/jwt/jwk/ec.rb#60
   def key_digest; end
 
-  # source://jwt//lib/jwt/jwk/ec.rb#29
+  # source://jwt//lib/jwt/jwk/ec.rb#30
   def keypair; end
 
-  # source://jwt//lib/jwt/jwk/ec.rb#49
+  # source://jwt//lib/jwt/jwk/ec.rb#50
   def members; end
 
   # @return [Boolean]
   #
-  # source://jwt//lib/jwt/jwk/ec.rb#33
+  # source://jwt//lib/jwt/jwk/ec.rb#34
   def private?; end
 
-  # source://jwt//lib/jwt/jwk/ec.rb#45
+  # source://jwt//lib/jwt/jwk/ec.rb#46
   def public_key; end
 
-  # source://jwt//lib/jwt/jwk/ec.rb#37
+  # source://jwt//lib/jwt/jwk/ec.rb#38
   def signing_key; end
 
-  # source://jwt//lib/jwt/jwk/ec.rb#41
+  # source://jwt//lib/jwt/jwk/ec.rb#42
   def verify_key; end
 
   private
 
   # @raise [ArgumentError]
   #
-  # source://jwt//lib/jwt/jwk/ec.rb#94
+  # source://jwt//lib/jwt/jwk/ec.rb#95
   def check_jwk_params!(key_params, params); end
 
-  # source://jwt//lib/jwt/jwk/ec.rb#144
+  # source://jwt//lib/jwt/jwk/ec.rb#145
   def create_ec_key(jwk_crv, jwk_x, jwk_y, jwk_d); end
 
   # source://jwt//lib/jwt/jwk/ec.rb#208
-  def decode_octets(jwk_data); end
+  def decode_octets(base64_encoded_coordinate); end
 
-  # source://jwt//lib/jwt/jwk/ec.rb#212
-  def decode_open_ssl_bn(jwk_data); end
-
-  # source://jwt//lib/jwt/jwk/ec.rb#76
+  # source://jwt//lib/jwt/jwk/ec.rb#77
   def ec_key; end
 
-  # source://jwt//lib/jwt/jwk/ec.rb#121
+  # source://jwt//lib/jwt/jwk/ec.rb#122
   def encode_octets(octets); end
 
-  # source://jwt//lib/jwt/jwk/ec.rb#127
+  # source://jwt//lib/jwt/jwk/ec.rb#128
   def encode_open_ssl_bn(key_part); end
 
-  # source://jwt//lib/jwt/jwk/ec.rb#80
+  # source://jwt//lib/jwt/jwk/ec.rb#81
   def extract_key_params(key); end
 
-  # source://jwt//lib/jwt/jwk/ec.rb#100
+  # source://jwt//lib/jwt/jwk/ec.rb#101
   def keypair_components(ec_keypair); end
 
-  # source://jwt//lib/jwt/jwk/ec.rb#131
+  # source://jwt//lib/jwt/jwk/ec.rb#132
   def parse_ec_key(key); end
 
   class << self
-    # source://jwt//lib/jwt/jwk/ec.rb#217
+    # source://jwt//lib/jwt/jwk/ec.rb#232
     def import(jwk_data); end
 
-    # source://jwt//lib/jwt/jwk/ec.rb#221
+    # source://jwt//lib/jwt/jwk/ec.rb#236
     def to_openssl_curve(crv); end
   end
 end
@@ -895,6 +893,9 @@ JWT::JWK::EC::KTY = T.let(T.unsafe(nil), String)
 
 # source://jwt//lib/jwt/jwk/ec.rb#9
 JWT::JWK::EC::KTYS = T.let(T.unsafe(nil), Array)
+
+# source://jwt//lib/jwt/jwk/ec.rb#14
+JWT::JWK::EC::ZERO_BYTE = T.let(T.unsafe(nil), String)
 
 # source://jwt//lib/jwt/jwk/hmac.rb#5
 class JWT::JWK::HMAC < ::JWT::JWK::KeyBase
@@ -1000,7 +1001,7 @@ class JWT::JWK::KeyBase
 
   # Returns the value of attribute parameters.
   #
-  # source://jwt//lib/jwt/jwk/key_base.rb#52
+  # source://jwt//lib/jwt/jwk/key_base.rb#54
   def parameters; end
 
   class << self
@@ -1336,6 +1337,11 @@ class JWT::Verify
 
   private
 
+  # @return [Boolean]
+  #
+  # source://jwt//lib/jwt/verify.rb#113
+  def contains_key?(payload, key); end
+
   # source://jwt//lib/jwt/verify.rb#105
   def exp_leeway; end
 
@@ -1383,22 +1389,22 @@ JWT::Verify::DEFAULTS = T.let(T.unsafe(nil), Hash)
 # key from the first certificate.
 # See https://tools.ietf.org/html/rfc7515#section-4.1.6
 #
-# source://jwt//lib/jwt/x5c_key_finder.rb#11
+# source://jwt//lib/jwt/x5c_key_finder.rb#8
 class JWT::X5cKeyFinder
   # @raise [ArgumentError]
   # @return [X5cKeyFinder] a new instance of X5cKeyFinder
   #
-  # source://jwt//lib/jwt/x5c_key_finder.rb#12
+  # source://jwt//lib/jwt/x5c_key_finder.rb#9
   def initialize(root_certificates, crls = T.unsafe(nil)); end
 
-  # source://jwt//lib/jwt/x5c_key_finder.rb#18
+  # source://jwt//lib/jwt/x5c_key_finder.rb#15
   def from(x5c_header_or_certificates); end
 
   private
 
-  # source://jwt//lib/jwt/x5c_key_finder.rb#36
+  # source://jwt//lib/jwt/x5c_key_finder.rb#33
   def build_store(root_certificates, crls); end
 
-  # source://jwt//lib/jwt/x5c_key_finder.rb#45
+  # source://jwt//lib/jwt/x5c_key_finder.rb#42
   def parse_certificates(x5c_header_or_certificates); end
 end

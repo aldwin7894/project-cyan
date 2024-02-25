@@ -6992,20 +6992,20 @@ module ActiveSupport::HtmlSafeTranslation
 
   private
 
-  # source://activesupport//lib/active_support/html_safe_translation.rb#22
+  # source://activesupport//lib/active_support/html_safe_translation.rb#32
   def html_escape_translation_options(options); end
 
-  # source://activesupport//lib/active_support/html_safe_translation.rb#35
+  # source://activesupport//lib/active_support/html_safe_translation.rb#45
   def html_safe_translation(translation); end
 
   # @return [Boolean]
   #
-  # source://activesupport//lib/active_support/html_safe_translation.rb#18
+  # source://activesupport//lib/active_support/html_safe_translation.rb#28
   def html_safe_translation_key?(key); end
 
   # @return [Boolean]
   #
-  # source://activesupport//lib/active_support/html_safe_translation.rb#30
+  # source://activesupport//lib/active_support/html_safe_translation.rb#40
   def i18n_option?(name); end
 end
 
@@ -12467,49 +12467,49 @@ class ActiveSupport::TestCase < ::Minitest::Test
   # source://activesupport//lib/active_support/callbacks.rb#963
   def _teardown_callbacks; end
 
-  # source://minitest/5.21.2/lib/minitest/assertions.rb#736
+  # source://minitest/5.22.2/lib/minitest/assertions.rb#736
   def assert_no_match(matcher, obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.21.2/lib/minitest/assertions.rb#665
+  # source://minitest/5.22.2/lib/minitest/assertions.rb#665
   def assert_not_empty(obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.21.2/lib/minitest/assertions.rb#676
+  # source://minitest/5.22.2/lib/minitest/assertions.rb#676
   def assert_not_equal(exp, act, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.21.2/lib/minitest/assertions.rb#688
+  # source://minitest/5.22.2/lib/minitest/assertions.rb#688
   def assert_not_in_delta(exp, act, delta = T.unsafe(nil), msg = T.unsafe(nil)); end
 
-  # source://minitest/5.21.2/lib/minitest/assertions.rb#700
+  # source://minitest/5.22.2/lib/minitest/assertions.rb#700
   def assert_not_in_epsilon(a, b, epsilon = T.unsafe(nil), msg = T.unsafe(nil)); end
 
-  # source://minitest/5.21.2/lib/minitest/assertions.rb#707
+  # source://minitest/5.22.2/lib/minitest/assertions.rb#707
   def assert_not_includes(collection, obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.21.2/lib/minitest/assertions.rb#718
+  # source://minitest/5.22.2/lib/minitest/assertions.rb#718
   def assert_not_instance_of(cls, obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.21.2/lib/minitest/assertions.rb#728
+  # source://minitest/5.22.2/lib/minitest/assertions.rb#728
   def assert_not_kind_of(cls, obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.21.2/lib/minitest/assertions.rb#746
+  # source://minitest/5.22.2/lib/minitest/assertions.rb#746
   def assert_not_nil(obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.21.2/lib/minitest/assertions.rb#781
+  # source://minitest/5.22.2/lib/minitest/assertions.rb#781
   def assert_not_operator(o1, op, o2 = T.unsafe(nil), msg = T.unsafe(nil)); end
 
-  # source://minitest/5.21.2/lib/minitest/assertions.rb#804
+  # source://minitest/5.22.2/lib/minitest/assertions.rb#804
   def assert_not_predicate(o1, op, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.21.2/lib/minitest/assertions.rb#813
+  # source://minitest/5.22.2/lib/minitest/assertions.rb#813
   def assert_not_respond_to(obj, meth, msg = T.unsafe(nil), include_all: T.unsafe(nil)); end
 
-  # source://minitest/5.21.2/lib/minitest/assertions.rb#822
+  # source://minitest/5.22.2/lib/minitest/assertions.rb#822
   def assert_not_same(exp, act, msg = T.unsafe(nil)); end
 
-  # source://turbo-rails/2.0.0.pre.beta.2/lib/turbo/test_assertions.rb#7
+  # source://turbo-rails/2.0.4/lib/turbo/test_assertions.rb#7
   def dom_class(*_arg0, **_arg1, &_arg2); end
 
-  # source://turbo-rails/2.0.0.pre.beta.2/lib/turbo/test_assertions.rb#7
+  # source://turbo-rails/2.0.4/lib/turbo/test_assertions.rb#7
   def dom_id(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/testing/file_fixtures.rb#20
@@ -12521,7 +12521,7 @@ class ActiveSupport::TestCase < ::Minitest::Test
   # source://activesupport//lib/active_support/test_case.rb#298
   def inspect; end
 
-  # source://minitest/5.21.2/lib/minitest.rb#311
+  # source://minitest/5.22.2/lib/minitest.rb#332
   def method_name; end
 
   class << self
@@ -14754,7 +14754,7 @@ ActiveSupport::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActiveSupport::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://activesupport//lib/active_support/gem_version.rb#13
-ActiveSupport::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
+ActiveSupport::VERSION::PRE = T.let(T.unsafe(nil), String)
 
 # source://activesupport//lib/active_support/gem_version.rb#15
 ActiveSupport::VERSION::STRING = T.let(T.unsafe(nil), String)
