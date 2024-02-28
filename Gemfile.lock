@@ -118,7 +118,7 @@ GEM
     drb (2.2.0)
       ruby2_keywords
     dry-cli (1.0.0)
-    erb-formatter (0.7.1)
+    erb-formatter (0.7.2)
       syntax_tree (~> 6.0)
     erubi (1.12.0)
     event_emitter (0.2.6)
