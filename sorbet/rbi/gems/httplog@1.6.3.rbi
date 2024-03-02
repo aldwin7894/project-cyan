@@ -84,13 +84,13 @@ module HttpLog
     # source://httplog//lib/httplog/http_log.rb#207
     def dump_json(data); end
 
-    # source://httplog//lib/httplog/http_log.rb#326
+    # source://httplog//lib/httplog/http_log.rb#328
     def hash_classes; end
 
     # source://httplog//lib/httplog/http_log.rb#227
     def json_payload(data = T.unsafe(nil)); end
 
-    # source://httplog//lib/httplog/http_log.rb#352
+    # source://httplog//lib/httplog/http_log.rb#354
     def log_data_lines(data); end
 
     # source://httplog//lib/httplog/http_log.rb#211
@@ -108,7 +108,7 @@ module HttpLog
     # source://httplog//lib/httplog/http_log.rb#283
     def parse_request(options); end
 
-    # source://httplog//lib/httplog/http_log.rb#362
+    # source://httplog//lib/httplog/http_log.rb#364
     def prefix; end
 
     # source://httplog//lib/httplog/http_log.rb#222
@@ -119,10 +119,10 @@ module HttpLog
 
     # @return [Boolean]
     #
-    # source://httplog//lib/httplog/http_log.rb#344
+    # source://httplog//lib/httplog/http_log.rb#346
     def text_based?(content_type); end
 
-    # source://httplog//lib/httplog/http_log.rb#334
+    # source://httplog//lib/httplog/http_log.rb#336
     def utf_encoded(data, content_type = T.unsafe(nil)); end
   end
 end

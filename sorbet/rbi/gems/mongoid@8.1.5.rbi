@@ -7252,7 +7252,7 @@ module Mongoid::Atomic
   #   person.atomic_pulls
   # @return [Array<Hash>] The $pullAll operations.
   #
-  # source://mongoid//lib/mongoid/atomic.rb#196
+  # source://mongoid//lib/mongoid/atomic.rb#198
   def atomic_pulls; end
 
   # Get all the push attributes that need to occur.
@@ -7261,7 +7261,7 @@ module Mongoid::Atomic
   #   person.atomic_pushes
   # @return [Hash] The $push and $each operations.
   #
-  # source://mongoid//lib/mongoid/atomic.rb#215
+  # source://mongoid//lib/mongoid/atomic.rb#217
   def atomic_pushes; end
 
   # Get all the attributes that need to be set.
@@ -7270,7 +7270,7 @@ module Mongoid::Atomic
   #   person.atomic_sets
   # @return [Hash] The $set operations.
   #
-  # source://mongoid//lib/mongoid/atomic.rb#225
+  # source://mongoid//lib/mongoid/atomic.rb#227
   def atomic_sets; end
 
   # Get all the attributes that need to be unset.
@@ -7279,7 +7279,7 @@ module Mongoid::Atomic
   #   person.atomic_unsets
   # @return [Array<Hash>] The $unset operations.
   #
-  # source://mongoid//lib/mongoid/atomic.rb#235
+  # source://mongoid//lib/mongoid/atomic.rb#237
   def atomic_unsets; end
 
   # Get all the atomic updates that need to happen for the current
@@ -7311,7 +7311,7 @@ module Mongoid::Atomic
   #   document.delayed_atomic_pulls
   # @return [Hash] name/document pairs.
   #
-  # source://mongoid//lib/mongoid/atomic.rb#263
+  # source://mongoid//lib/mongoid/atomic.rb#265
   def delayed_atomic_pulls; end
 
   # Get all the atomic sets that have had their saves delayed.
@@ -7320,7 +7320,7 @@ module Mongoid::Atomic
   #   person.delayed_atomic_sets
   # @return [Hash] The delayed $sets.
   #
-  # source://mongoid//lib/mongoid/atomic.rb#253
+  # source://mongoid//lib/mongoid/atomic.rb#255
   def delayed_atomic_sets; end
 
   # Get the delayed atomic unsets.
@@ -7329,7 +7329,7 @@ module Mongoid::Atomic
   #   document.delayed_atomic_unsets
   # @return [Hash] The atomic unsets
   #
-  # source://mongoid//lib/mongoid/atomic.rb#273
+  # source://mongoid//lib/mongoid/atomic.rb#275
   def delayed_atomic_unsets; end
 
   # Flag the document as destroyed and return the atomic path.
@@ -7338,7 +7338,7 @@ module Mongoid::Atomic
   #   document.flag_as_destroyed
   # @return [String] The atomic path.
   #
-  # source://mongoid//lib/mongoid/atomic.rb#283
+  # source://mongoid//lib/mongoid/atomic.rb#285
   def flag_as_destroyed; end
 
   # Get the flagged destroys.
@@ -7347,7 +7347,7 @@ module Mongoid::Atomic
   #   document.flagged_destroys
   # @return [Array<Proc>] The flagged destroys.
   #
-  # source://mongoid//lib/mongoid/atomic.rb#295
+  # source://mongoid//lib/mongoid/atomic.rb#297
   def flagged_destroys; end
 
   # Process all the pending flagged destroys from nested attributes.
@@ -7356,7 +7356,7 @@ module Mongoid::Atomic
   #   document.process_flagged_destroys
   # @return [Array] The cleared array.
   #
-  # source://mongoid//lib/mongoid/atomic.rb#305
+  # source://mongoid//lib/mongoid/atomic.rb#307
   def process_flagged_destroys; end
 
   private
@@ -7368,12 +7368,12 @@ module Mongoid::Atomic
   # @param mods [Modifiers] The atomic modifications.
   # @param doc [Document] The document to update for.
   #
-  # source://mongoid//lib/mongoid/atomic.rb#328
+  # source://mongoid//lib/mongoid/atomic.rb#330
   def generate_atomic_updates(mods, doc); end
 
   # Clears all pending atomic updates.
   #
-  # source://mongoid//lib/mongoid/atomic.rb#315
+  # source://mongoid//lib/mongoid/atomic.rb#317
   def reset_atomic_updates!; end
 
   # Returns the $set atomic updates affecting the specified field.
@@ -7381,7 +7381,7 @@ module Mongoid::Atomic
   # @api private
   # @param field [String] The field name.
   #
-  # source://mongoid//lib/mongoid/atomic.rb#373
+  # source://mongoid//lib/mongoid/atomic.rb#375
   def set_field_atomic_updates(field); end
 
   # Get the atomic updates for a touch operation. Should only include the
@@ -7393,7 +7393,7 @@ module Mongoid::Atomic
   # @param field [Symbol] The optional field.
   # @return [Hash] The atomic updates.
   #
-  # source://mongoid//lib/mongoid/atomic.rb#350
+  # source://mongoid//lib/mongoid/atomic.rb#352
   def touch_atomic_updates(field = T.unsafe(nil)); end
 end
 
@@ -27519,7 +27519,7 @@ module Mongoid::Validatable
   # @param options [Hash] The options to check.
   # @return [true | false] If we are validating.
   #
-  # source://mongoid//lib/mongoid/validatable.rb#50
+  # source://mongoid//lib/mongoid/validatable.rb#58
   def performing_validations?(options = T.unsafe(nil)); end
 
   # Overrides the default ActiveModel behavior since we need to handle
@@ -27531,7 +27531,7 @@ module Mongoid::Validatable
   # @param attr [Symbol] The name of the field or association.
   # @return [Object] The value of the field or the association.
   #
-  # source://mongoid//lib/mongoid/validatable.rb#64
+  # source://mongoid//lib/mongoid/validatable.rb#72
   def read_attribute_for_validation(attr); end
 
   # Determine if the document is valid.
@@ -27543,7 +27543,7 @@ module Mongoid::Validatable
   # @param context [Symbol] The optional validation context.
   # @return [true | false] True if valid, false if not.
   #
-  # source://mongoid//lib/mongoid/validatable.rb#89
+  # source://mongoid//lib/mongoid/validatable.rb#97
   def valid?(context = T.unsafe(nil)); end
 
   # Used to prevent infinite loops in associated validations.
@@ -27552,8 +27552,13 @@ module Mongoid::Validatable
   #   document.validated?
   # @return [true | false] Has the document already been validated?
   #
-  # source://mongoid//lib/mongoid/validatable.rb#99
+  # source://mongoid//lib/mongoid/validatable.rb#107
   def validated?; end
+
+  # Perform a validation within the associated block.
+  #
+  # source://mongoid//lib/mongoid/validatable.rb#41
+  def validating; end
 
   # Are we currently performing a validation that has a query?
   #
@@ -27561,7 +27566,7 @@ module Mongoid::Validatable
   #   document.validating_with_query?
   # @return [true | false] If we are validating with a query.
   #
-  # source://mongoid//lib/mongoid/validatable.rb#109
+  # source://mongoid//lib/mongoid/validatable.rb#117
   def validating_with_query?; end
 end
 
@@ -27579,22 +27584,70 @@ end
 #   end
 #
 # source://mongoid//lib/mongoid/validatable/associated.rb#18
-class Mongoid::Validatable::AssociatedValidator < ::ActiveModel::EachValidator
-  # Validates that the associations provided are either all nil or all
-  # valid. If neither is true then the appropriate errors will be added to
-  # the parent document.
+class Mongoid::Validatable::AssociatedValidator < ::ActiveModel::Validator
+  # Required by `validates_with` so that the validator
+  # gets added to the correct attributes.
   #
-  # @example Validate the association.
-  #   validator.validate_each(document, :name, name)
+  # source://mongoid//lib/mongoid/validatable/associated.rb#21
+  def attributes; end
+
+  # Checks that the named associations of the given record
+  # (`attributes`) are valid. This does NOT load the associations
+  # from the database, and will only validate records that are dirty
+  # or unpersisted.
+  #
+  # If anything is not valid, appropriate errors will be added to
+  # the `document` parameter.
+  #
+  # @param document [Mongoid::Document] the document with the
+  #   associations to validate.
+  #
+  # source://mongoid//lib/mongoid/validatable/associated.rb#35
+  def validate(document); end
+
+  private
+
+  # Examine the given target object and return an array of
+  # documents (possibly empty) that the target represents.
+  #
+  # @param target [Array | Mongoid::Document | Mongoid::Association::Proxy | HasMany::Enumerable] the target object to examine.
+  # @return [Array<Mongoid::Document>] the list of documents
+  #
+  # source://mongoid//lib/mongoid/validatable/associated.rb#93
+  def get_target_documents(target); end
+
+  # Returns the list of all currently in-memory values held by
+  # the target. The target will not be loaded.
+  #
+  # @param target [HasMany::Enumerable] the target that will
+  #   be examined for in-memory documents.
+  # @return [Array<Mongoid::Document>] the in-memory documents
+  #   held by the target.
+  #
+  # source://mongoid//lib/mongoid/validatable/associated.rb#109
+  def get_target_documents_for_has_many(target); end
+
+  # Returns the target as an array. If the target represents a single
+  # value, it is wrapped in an array.
+  #
+  # @param target [Array | Mongoid::Document | Mongoid::Association::Proxy] the target to return.
+  # @return [Array<Mongoid::Document>] the target, as an array.
+  #
+  # source://mongoid//lib/mongoid/validatable/associated.rb#120
+  def get_target_documents_for_other(target); end
+
+  # Validates that the given association provided is either nil,
+  # persisted and unchanged, or invalid. Otherwise, the appropriate errors
+  # will be added to the parent document.
+  #
   # @param document [Document] The document to validate.
   # @param attribute [Symbol] The association to validate.
-  # @param value [Object] The value of the association.
   #
-  # source://mongoid//lib/mongoid/validatable/associated.rb#30
-  def validate_each(document, attribute, value); end
+  # source://mongoid//lib/mongoid/validatable/associated.rb#49
+  def validate_association(document, attribute); end
 end
 
-# source://mongoid//lib/mongoid/validatable.rb#113
+# source://mongoid//lib/mongoid/validatable.rb#121
 module Mongoid::Validatable::ClassMethods
   # Adds an associated validator for the association if the validate option
   # was not provided or set to true.
@@ -27603,7 +27656,7 @@ module Mongoid::Validatable::ClassMethods
   #   Person.validates_relation(association)
   # @param association [Association] The association metadata.
   #
-  # source://mongoid//lib/mongoid/validatable.rb#122
+  # source://mongoid//lib/mongoid/validatable.rb#130
   def validates_relation(association); end
 
   # Add validation with the supplied validators for the provided fields
@@ -27617,7 +27670,7 @@ module Mongoid::Validatable::ClassMethods
   # @param *args [ActiveModel::Validator..., Hash] The validator classes
   #   and options hash.
   #
-  # source://mongoid//lib/mongoid/validatable.rb#140
+  # source://mongoid//lib/mongoid/validatable.rb#148
   def validates_with(*args, &block); end
 
   # Are we currently performing a validation that has a query?
@@ -27626,7 +27679,7 @@ module Mongoid::Validatable::ClassMethods
   #   Model.validating_with_query?
   # @return [true | false] If we are validating with a query.
   #
-  # source://mongoid//lib/mongoid/validatable.rb#158
+  # source://mongoid//lib/mongoid/validatable.rb#166
   def validating_with_query?; end
 end
 

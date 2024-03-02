@@ -15,17 +15,17 @@ module JWT
 
   private
 
-  # source://jwt//lib/jwt.rb#28
+  # source://jwt//lib/jwt.rb#29
   def decode(jwt, key = T.unsafe(nil), verify = T.unsafe(nil), options = T.unsafe(nil), &keyfinder); end
 
-  # source://jwt//lib/jwt.rb#21
+  # source://jwt//lib/jwt.rb#22
   def encode(payload, key, algorithm = T.unsafe(nil), header_fields = T.unsafe(nil)); end
 
   class << self
-    # source://jwt//lib/jwt.rb#28
+    # source://jwt//lib/jwt.rb#29
     def decode(jwt, key = T.unsafe(nil), verify = T.unsafe(nil), options = T.unsafe(nil), &keyfinder); end
 
-    # source://jwt//lib/jwt.rb#21
+    # source://jwt//lib/jwt.rb#22
     def encode(payload, key, algorithm = T.unsafe(nil), header_fields = T.unsafe(nil)); end
 
     # source://jwt//lib/jwt/version.rb#5
@@ -61,7 +61,7 @@ end
 # source://jwt//lib/jwt/base64.rb#7
 class JWT::Base64
   class << self
-    # source://jwt//lib/jwt/base64.rb#25
+    # source://jwt//lib/jwt/base64.rb#27
     def loose_urlsafe_decode64(str); end
 
     # Decode a string with URL-safe Base64 complying with RFC 4648.
@@ -76,6 +76,9 @@ class JWT::Base64
     def url_encode(str); end
   end
 end
+
+# source://jwt//lib/jwt/error.rb#20
+class JWT::Base64DecodeError < ::JWT::DecodeError; end
 
 # source://jwt//lib/jwt/claims_validator.rb#6
 class JWT::ClaimsValidator
@@ -116,7 +119,7 @@ end
 class JWT::Configuration::Container
   # @return [Container] a new instance of Container
   #
-  # source://jwt//lib/jwt/configuration/container.rb#11
+  # source://jwt//lib/jwt/configuration/container.rb#12
   def initialize; end
 
   # Returns the value of attribute decode.
@@ -131,6 +134,16 @@ class JWT::Configuration::Container
   # source://jwt//lib/jwt/configuration/container.rb#9
   def decode=(_arg0); end
 
+  # Returns the value of attribute deprecation_warnings.
+  #
+  # source://jwt//lib/jwt/configuration/container.rb#10
+  def deprecation_warnings; end
+
+  # @raise [ArgumentError]
+  #
+  # source://jwt//lib/jwt/configuration/container.rb#25
+  def deprecation_warnings=(value); end
+
   # Returns the value of attribute jwk.
   #
   # source://jwt//lib/jwt/configuration/container.rb#9
@@ -143,9 +156,24 @@ class JWT::Configuration::Container
   # source://jwt//lib/jwt/configuration/container.rb#9
   def jwk=(_arg0); end
 
-  # source://jwt//lib/jwt/configuration/container.rb#15
+  # source://jwt//lib/jwt/configuration/container.rb#16
   def reset!; end
+
+  # Returns the value of attribute strict_base64_decoding.
+  #
+  # source://jwt//lib/jwt/configuration/container.rb#9
+  def strict_base64_decoding; end
+
+  # Sets the attribute strict_base64_decoding
+  #
+  # @param value the value to set the attribute strict_base64_decoding to.
+  #
+  # source://jwt//lib/jwt/configuration/container.rb#9
+  def strict_base64_decoding=(_arg0); end
 end
+
+# source://jwt//lib/jwt/configuration/container.rb#24
+JWT::Configuration::Container::DEPRECATION_WARNINGS_VALUES = T.let(T.unsafe(nil), Array)
 
 # source://jwt//lib/jwt/configuration/decode_configuration.rb#5
 class JWT::Configuration::DecodeConfiguration
@@ -400,6 +428,21 @@ JWT::Decode::ALGORITHM_KEYS = T.let(T.unsafe(nil), Array)
 
 # source://jwt//lib/jwt/error.rb#5
 class JWT::DecodeError < ::StandardError; end
+
+# Deprecations module to handle deprecation warnings in the gem
+#
+# source://jwt//lib/jwt/deprecations.rb#5
+module JWT::Deprecations
+  class << self
+    # source://jwt//lib/jwt/deprecations.rb#7
+    def warning(message); end
+
+    private
+
+    # source://jwt//lib/jwt/deprecations.rb#20
+    def record_warned(message); end
+  end
+end
 
 # Encoding logic for JWT
 #
@@ -1247,7 +1290,7 @@ class JWT::JWK::Thumbprint
   def to_s; end
 end
 
-# source://jwt//lib/jwt/error.rb#21
+# source://jwt//lib/jwt/error.rb#22
 class JWT::JWKError < ::JWT::DecodeError; end
 
 # source://jwt//lib/jwt/error.rb#19

@@ -9809,7 +9809,7 @@ module GraphQL::Schema::Interface
   extend ::GraphQL::Schema::Member::HasInterfaces
   extend ::GraphQL::Schema::Interface::DefinitionMethods
 
-  # source://graphql//lib/graphql/schema/interface.rb#98
+  # source://graphql//lib/graphql/schema/interface.rb#102
   def unwrap; end
 end
 
@@ -9841,10 +9841,10 @@ module GraphQL::Schema::Interface::DefinitionMethods
   # source://graphql//lib/graphql/schema/interface.rb#40
   def included(child_class); end
 
-  # source://graphql//lib/graphql/schema/interface.rb#91
+  # source://graphql//lib/graphql/schema/interface.rb#95
   def kind; end
 
-  # source://graphql//lib/graphql/schema/interface.rb#81
+  # source://graphql//lib/graphql/schema/interface.rb#85
   def orphan_types(*types); end
 
   # source://graphql//lib/graphql/schema/interface.rb#31

@@ -1713,7 +1713,7 @@ end
 class Rails::Command::Base < ::Thor
   include ::Rails::Command::Actions
 
-  # source://thor/1.3.0/lib/thor/base.rb#155
+  # source://thor/1.3.1/lib/thor/base.rb#155
   def current_subcommand; end
 
   # source://railties//lib/rails/command/base.rb#172
@@ -4126,16 +4126,16 @@ class Rails::Generators::NamedBase < ::Rails::Generators::Base
 
   # Returns the value of attribute file_name.
   #
-  # source://thor/1.3.0/lib/thor/base.rb#155
+  # source://thor/1.3.1/lib/thor/base.rb#155
   def file_name; end
 
   # source://railties//lib/rails/generators/named_base.rb#29
   def js_template(source, destination); end
 
-  # source://thor/1.3.0/lib/thor/base.rb#163
+  # source://thor/1.3.1/lib/thor/base.rb#163
   def name; end
 
-  # source://thor/1.3.0/lib/thor/base.rb#163
+  # source://thor/1.3.1/lib/thor/base.rb#163
   def name=(_arg0); end
 
   # source://railties//lib/rails/generators/named_base.rb#23
