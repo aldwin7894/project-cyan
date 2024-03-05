@@ -45,13 +45,13 @@
     "tailwindcss-animatecss": "^3.0.5",
     "terser": "^5.28.1",
     "tippy.js": "^6.3.7",
-    "vite": "^5.1.4",
+    "vite": "^5.1.5",
     "vite-plugin-full-reload": "^1.1.0",
     "vite-plugin-ruby": "^5.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.24",
-    "@typescript-eslint/parser": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-alias": "^1.1.2",
