@@ -23,10 +23,8 @@ class ApplicationController
     include ::ViteRails::TagHelpers
     include ::ActionController::Base::HelperMethods
     include ::ApplicationHelper
-    include ::ActiveStorageHelper
     include ::DiscordHelper
     include ::FormatDateHelper
-    include ::LastfmHelper
     include ::DeviseHelper
   end
 

@@ -58,6 +58,7 @@ vendor
 # VSCode
 .vscode/*
 !.vscode/multi-terminals.json
+!.vscode/extensions.json
 !.vscode/*.shared.json
 
 stats.html

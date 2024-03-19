@@ -7,25 +7,25 @@
 # source://graphql-client//lib/graphql/client/type_stack.rb#2
 module GraphQL
   class << self
-    # source://graphql/2.0.28/lib/graphql.rb#35
+    # source://graphql/2.0.29/lib/graphql.rb#35
     def default_parser; end
 
-    # source://graphql/2.0.28/lib/graphql.rb#39
+    # source://graphql/2.0.29/lib/graphql.rb#39
     def default_parser=(_arg0); end
 
-    # source://graphql/2.0.28/lib/graphql.rb#45
+    # source://graphql/2.0.29/lib/graphql.rb#45
     def parse(graphql_string, trace: T.unsafe(nil)); end
 
-    # source://graphql/2.0.28/lib/graphql.rb#52
+    # source://graphql/2.0.29/lib/graphql.rb#52
     def parse_file(filename); end
 
-    # source://graphql/2.0.28/lib/graphql.rb#62
+    # source://graphql/2.0.29/lib/graphql.rb#62
     def parse_with_racc(string, filename: T.unsafe(nil), trace: T.unsafe(nil)); end
 
-    # source://graphql/2.0.28/lib/graphql.rb#58
+    # source://graphql/2.0.29/lib/graphql.rb#58
     def scan(graphql_string); end
 
-    # source://graphql/2.0.28/lib/graphql.rb#66
+    # source://graphql/2.0.29/lib/graphql.rb#66
     def scan_with_ruby(graphql_string); end
   end
 end
@@ -44,7 +44,7 @@ class GraphQL::Client
   # @return [Client] a new instance of Client
   #
   # source://graphql-client//lib/graphql/client.rb#94
-  def initialize(schema:, execute: T.unsafe(nil), enforce_collocated_callers: T.unsafe(nil)); end
+  def initialize(schema:, execute: T.unsafe(nil), enforce_collocated_callers: T.unsafe(nil), raise_on_unknown_enum_value: T.unsafe(nil)); end
 
   # Deprecated: Allow dynamically generated queries to be passed to
   # Client#query.
@@ -145,13 +145,13 @@ class GraphQL::Client
 
   private
 
-  # source://graphql-client//lib/graphql/client.rb#451
+  # source://graphql-client//lib/graphql/client.rb#450
   def deep_freeze_json_object(obj); end
 
-  # source://graphql-client//lib/graphql/client.rb#464
+  # source://graphql-client//lib/graphql/client.rb#463
   def deep_stringify_keys(obj); end
 
-  # source://graphql-client//lib/graphql/client.rb#443
+  # source://graphql-client//lib/graphql/client.rb#442
   def find_definition_dependencies(node); end
 
   # source://graphql-client//lib/graphql/client.rb#399
@@ -644,19 +644,19 @@ class GraphQL::Client::FragmentDefinition < ::GraphQL::Client::Definition
   def new(obj, *args); end
 end
 
-# source://graphql-client//lib/graphql/client.rb#429
+# source://graphql-client//lib/graphql/client.rb#428
 class GraphQL::Client::GatherNamesVisitor < ::GraphQL::Language::Visitor
   # @return [GatherNamesVisitor] a new instance of GatherNamesVisitor
   #
-  # source://graphql-client//lib/graphql/client.rb#430
+  # source://graphql-client//lib/graphql/client.rb#429
   def initialize(node); end
 
   # Returns the value of attribute names.
   #
-  # source://graphql-client//lib/graphql/client.rb#435
+  # source://graphql-client//lib/graphql/client.rb#434
   def names; end
 
-  # source://graphql-client//lib/graphql/client.rb#437
+  # source://graphql-client//lib/graphql/client.rb#436
   def on_fragment_spread(node, parent); end
 end
 
@@ -934,7 +934,7 @@ class GraphQL::Client::Response
   #
   # @return [Response] a new instance of Response
   #
-  # source://graphql-client//lib/graphql/client/response.rb#34
+  # source://graphql-client//lib/graphql/client/response.rb#35
   def initialize(hash, data: T.unsafe(nil), errors: T.unsafe(nil), extensions: T.unsafe(nil)); end
 
   # Public: Wrapped ObjectType of data returned from the server.
@@ -943,7 +943,7 @@ class GraphQL::Client::Response
   #
   # Returns instance of ObjectType subclass.
   #
-  # source://graphql-client//lib/graphql/client/response.rb#21
+  # source://graphql-client//lib/graphql/client/response.rb#22
   def data; end
 
   # Public: Get partial failures from response.
@@ -952,12 +952,12 @@ class GraphQL::Client::Response
   #
   # Returns Errors collection object with zero or more errors.
   #
-  # source://graphql-client//lib/graphql/client/response.rb#28
+  # source://graphql-client//lib/graphql/client/response.rb#29
   def errors; end
 
   # Public: Hash of server specific extension metadata.
   #
-  # source://graphql-client//lib/graphql/client/response.rb#31
+  # source://graphql-client//lib/graphql/client/response.rb#32
   def extensions; end
 
   # Public: Original JSON response hash returned from server.
@@ -973,16 +973,23 @@ class GraphQL::Client::Response
   #
   # source://graphql-client//lib/graphql/client/response.rb#13
   def to_h; end
+
+  # Public: Original JSON response hash returned from server.
+  #
+  # Returns Hash.
+  #
+  # source://graphql-client//lib/graphql/client/response.rb#13
+  def to_hash; end
 end
 
 # source://graphql-client//lib/graphql/client/schema/base_type.rb#5
 module GraphQL::Client::Schema
   class << self
-    # source://graphql-client//lib/graphql/client/schema.rb#85
+    # source://graphql-client//lib/graphql/client/schema.rb#86
     def class_for(schema, type, cache); end
 
     # source://graphql-client//lib/graphql/client/schema.rb#69
-    def generate(schema); end
+    def generate(schema, raise_on_unknown_enum_value: T.unsafe(nil)); end
   end
 end
 
@@ -1063,10 +1070,10 @@ class GraphQL::Client::Schema::EnumType < ::Module
   #
   # @return [EnumType] a new instance of EnumType
   #
-  # source://graphql-client//lib/graphql/client/schema/enum_type.rb#43
+  # source://graphql-client//lib/graphql/client/schema/enum_type.rb#53
   def initialize(type); end
 
-  # source://graphql-client//lib/graphql/client/schema/enum_type.rb#67
+  # source://graphql-client//lib/graphql/client/schema/enum_type.rb#77
   def [](value); end
 
   # Internal: Cast JSON value to the enumeration's corresponding constant string instance
@@ -1077,10 +1084,10 @@ class GraphQL::Client::Schema::EnumType < ::Module
   #
   # Returns String or nil.
   #
-  # source://graphql-client//lib/graphql/client/schema/enum_type.rb#78
+  # source://graphql-client//lib/graphql/client/schema/enum_type.rb#88
   def cast(value, _errors = T.unsafe(nil)); end
 
-  # source://graphql-client//lib/graphql/client/schema/enum_type.rb#63
+  # source://graphql-client//lib/graphql/client/schema/enum_type.rb#73
   def define_class(definition, ast_nodes); end
 end
 
@@ -1091,15 +1098,28 @@ class GraphQL::Client::Schema::EnumType::EnumValue < ::String
   # source://graphql-client//lib/graphql/client/schema/enum_type.rb#13
   def initialize(obj, enum_value, enum); end
 
-  # source://graphql-client//lib/graphql/client/schema/enum_type.rb#27
+  # source://graphql-client//lib/graphql/client/schema/enum_type.rb#31
   def method_missing(method_name, *args); end
+
+  # @return [Boolean]
+  #
+  # source://graphql-client//lib/graphql/client/schema/enum_type.rb#19
+  def unknown_enum_value?; end
 
   private
 
   # @return [Boolean]
   #
-  # source://graphql-client//lib/graphql/client/schema/enum_type.rb#19
+  # source://graphql-client//lib/graphql/client/schema/enum_type.rb#23
   def respond_to_missing?(method_name, include_private = T.unsafe(nil)); end
+end
+
+# source://graphql-client//lib/graphql/client/schema/enum_type.rb#44
+class GraphQL::Client::Schema::EnumType::UnexpectedEnumValue < ::String
+  # @return [Boolean]
+  #
+  # source://graphql-client//lib/graphql/client/schema/enum_type.rb#45
+  def unknown_enum_value?; end
 end
 
 # source://graphql-client//lib/graphql/client/schema/include_directive.rb#8
@@ -1232,10 +1252,10 @@ class GraphQL::Client::Schema::ObjectClass
   # source://graphql-client//lib/graphql/client/schema/object_type.rb#177
   def initialize(data = T.unsafe(nil), errors = T.unsafe(nil), definer = T.unsafe(nil)); end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#196
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#197
   def _definer; end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#200
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#201
   def _spreads; end
 
   # Public: Return errors associated with data.
@@ -1246,16 +1266,16 @@ class GraphQL::Client::Schema::ObjectClass
   #
   # Returns Errors collection.
   #
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#223
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#224
   def errors; end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#270
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#271
   def inspect; end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#231
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#232
   def method_missing(name, *args); end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#204
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#205
   def source_definition; end
 
   # Public: Returns the raw response data
@@ -1265,22 +1285,29 @@ class GraphQL::Client::Schema::ObjectClass
   # source://graphql-client//lib/graphql/client/schema/object_type.rb#192
   def to_h; end
 
+  # Public: Returns the raw response data
+  #
+  # Returns Hash
+  #
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#192
+  def to_hash; end
+
   private
 
   # @return [Boolean]
   #
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#306
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#307
   def has_attribute?(attr); end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#300
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#301
   def read_attribute(attr, type); end
 
   # @return [Boolean]
   #
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#208
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#209
   def respond_to_missing?(name, priv); end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#292
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#293
   def verify_collocated_path; end
 end
 

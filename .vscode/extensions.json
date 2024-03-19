@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "swellaby.workspace-config-plus",
+    "adrianwilczynski.alpine-js-intellisense",
+    "kaiwood.endwise",
+    "cb4.multi-terminal-launcher",
+    "sarahridge.vscode-ruby-syntax",
+    "bradlc.vscode-tailwindcss",
+    "sonarsource.sonarlint-vscode",
+    "shopify.ruby-lsp",
+    "sorbet.sorbet-vscode-extension",
+    "dbaeumer.vscode-eslint"
+  ]
+}
