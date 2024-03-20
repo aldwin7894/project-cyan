@@ -11,7 +11,7 @@
     "docker:build": ". ./.env && docker compose build web",
     "docker:push": "docker compose push web",
     "prettier": "prettier --write .",
-    "rails:dev": ". ./.env.dev && bundle exec rails s -b 0.0.0.0",
+    "rails:dev": "bundle exec rails s -b 0.0.0.0",
     "vite:dev": "./bin/vite dev --debug"
   },
   "browserslist": [
@@ -30,10 +30,10 @@
     "alpinejs": "^3.13.7",
     "autoprefixer": "^10.4.18",
     "chart.js": "^4.4.2",
-    "cssnano": "^6.1.0",
-    "cssnano-preset-advanced": "^6.1.0",
+    "cssnano": "^6.1.1",
+    "cssnano-preset-advanced": "^6.1.1",
     "iconify-icon": "^2.0.0",
-    "postcss": "^8.4.36",
+    "postcss": "^8.4.37",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^16.0.1",
     "postcss-preset-env": "^9.5.2",
@@ -45,7 +45,7 @@
     "tailwindcss-animatecss": "^3.0.5",
     "terser": "^5.29.2",
     "tippy.js": "^6.3.7",
-    "vite": "^5.1.6",
+    "vite": "^5.2.2",
     "vite-plugin-full-reload": "^1.1.0",
     "vite-plugin-ruby": "^5.0.0"
   },

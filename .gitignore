@@ -34,7 +34,7 @@
 # Ignore environment variables
 .env
 .env*
-!.env.dev.example
+!*.example
 
 /public/packs
 /public/packs-test
