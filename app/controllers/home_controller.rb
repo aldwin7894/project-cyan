@@ -9,7 +9,6 @@ class HomeController < ApplicationController
   include FormatDateHelper
   include Turbo::Frames::FrameRequest
   layout "application"
-  rescue_from StandardError, with: :render_empty
   before_action :check_if_from_cloudfront
   before_action :check_if_turbo_frame, only: %i(lastfm_stats lastfm_top_artists anilist_user_statistics anilist_user_activities watched_anime_section watched_movie_section)
 
@@ -26,6 +25,7 @@ class HomeController < ApplicationController
     now = Time.zone.now
     end_of_day = now.end_of_day
     colors = ["#ed2626", "#ab2425", "#712625"]
+    @user_statistics = {}
 
     cache_key = "ANILIST/#{ENV.fetch('ANILIST_USERNAME')}/USER_STATS"
     if Rails.cache.exist? cache_key
@@ -37,22 +37,32 @@ class HomeController < ApplicationController
       logger.tagged("CACHE", "anilist_user_statistics", cache_key) do
         logger.info("MISS")
       end
-      @user_statistics = Rails.cache.fetch(cache_key, expires_in: (end_of_day.to_i - now.to_i).seconds, skip_nil: true) do
-        user_statistics = query(AniList::UserStatisticsQuery, user_id:)
-        break if user_statistics&.user&.statistics&.anime&.to_h.blank?
 
-        user_statistics.user.statistics.anime.to_h
+      begin
+        data = query(AniList::UserStatisticsQuery, user_id:)
+      rescue Graphlient::Errors::Error => error
+        data = nil
+        logger.tagged("ERROR", "anilist_user_statistics", cache_key) do
+          logger.error(error)
+        end
       end
+
+      @user_statistics = Rails.cache.fetch(cache_key, expires_in: (end_of_day.to_i - now.to_i).seconds, skip_nil: true) do
+        break if data&.user&.statistics&.anime&.to_h.blank?
+
+        data.user.statistics.anime.to_h
+      end
+      @user_statistics ||= {}
     end
 
     case turbo_frame_request_id
     when "favorite_anime_genres"
       # genre stats
-      genre_statistics = @user_statistics["genres"].first(6).map do |genre|
+      genre_statistics = @user_statistics["genres"]&.first(6)&.map do |genre|
         { name: genre["genre"], count: genre["count"].to_i }
       end
       genre_total_count = genre_statistics&.pluck(:count)&.sum.to_i
-      @genre_list = genre_statistics.map.with_index do |genre, index|
+      @genre_list = genre_statistics&.map&.with_index do |genre, index|
         percentage = ((genre[:count].to_d / genre_total_count) * 100).ceil
 
         {
@@ -62,23 +72,23 @@ class HomeController < ApplicationController
         }
       end
       @genre_chart_data = JSON.generate({
-        labels: @genre_list.pluck(:label),
+        labels: @genre_list&.pluck(:label) || [],
         datasets: [
           {
             label: "Count",
-            data: @genre_list.pluck(:value),
-            backgroundColor: @genre_list.pluck(:backgroundColor),
+            data: @genre_list&.pluck(:value) || [],
+            backgroundColor: @genre_list&.pluck(:backgroundColor) || [],
             hoverOffset: 4
           }
         ]
       })
     when "favorite_anime_studios"
       # studio stats
-      studio_statistics = @user_statistics["studios"].first(6).map do |studio|
+      studio_statistics = @user_statistics["studios"]&.uniq&.first(6)&.map do |studio|
         { name: studio["studio"]["name"], count: studio["count"].to_i }
       end
       studio_total_count = studio_statistics&.pluck(:count)&.sum.to_i
-      @studio_list = studio_statistics.map.with_index do |studio, index|
+      @studio_list = studio_statistics&.map&.with_index do |studio, index|
         percentage = ((studio[:count].to_d / studio_total_count) * 100).ceil
 
         {
@@ -88,12 +98,12 @@ class HomeController < ApplicationController
         }
       end
       @studio_chart_data = JSON.generate({
-        labels: @studio_list.pluck(:label),
+        labels: @studio_list&.pluck(:label) || [],
         datasets: [
           {
             label: "Count",
-            data: @studio_list.pluck(:value),
-            backgroundColor: @studio_list.pluck(:backgroundColor),
+            data: @studio_list&.pluck(:value) || [],
+            backgroundColor: @studio_list&.pluck(:backgroundColor) || [],
             hoverOffset: 4
           }
         ]
@@ -122,6 +132,8 @@ class HomeController < ApplicationController
     end
 
     render template: "home/#{turbo_frame_request_id}", layout: false if turbo_frame_request?
+  rescue StandardError => error
+    render_empty(error)
   end
 
   def anilist_user_activities
@@ -137,12 +149,12 @@ class HomeController < ApplicationController
     when "last_watched_movie"
       last_watched_movie = @user_activity.find { |x| x["media"]["format"] == "MOVIE" }
       @last_watched_movie = user_activity_fetch_fanart(activity: last_watched_movie)
-    when /watched_anime_\d_\d+/
-      @index = turbo_frame_request_id.scan(/\d/).first.to_i
+    when /watched_anime_\d+_\d+/
+      @index = turbo_frame_request_id.scan(/\d+/).first.to_i
       @watched_anime = @user_activity.select { |x| ANIME_FORMATS.include? x["media"]["format"] }&.each_slice(6)&.to_a&.[](@index)
       turbo_frame = "watched_anime"
-    when /watched_movie_\d_\d+/
-      @index = turbo_frame_request_id.scan(/\d/).first.to_i
+    when /watched_movie_\d+_\d+/
+      @index = turbo_frame_request_id.scan(/\d+/).first.to_i
       @watched_movie = @user_activity.select { |x| ANIME_FORMATS.exclude? x["media"]["format"] }&.each_slice(6)&.to_a&.[](@index)
       turbo_frame = "watched_movie"
     when "total_watched_anime_last_week"
@@ -164,18 +176,24 @@ class HomeController < ApplicationController
     end
 
     render template: "home/#{turbo_frame}", layout: false if turbo_frame_request?
+  rescue StandardError => error
+    render_empty(error)
   end
 
   def watched_anime_section
     @user_activity = fetch_anilist_user_activities
     @watched_anime = @user_activity.select { |x| ANIME_FORMATS.include? x["media"]["format"] }
     render template: "home/#{turbo_frame_request_id}", layout: false if turbo_frame_request?
+  rescue StandardError => error
+    render_empty(error)
   end
 
   def watched_movie_section
     @user_activity = fetch_anilist_user_activities
     @watched_movie = @user_activity.select { |x| ANIME_FORMATS.exclude? x["media"]["format"] }
     render template: "home/#{turbo_frame_request_id}", layout: false if turbo_frame_request?
+  rescue StandardError => error
+    render_empty(error)
   end
 
   def lastfm_stats
@@ -254,6 +272,8 @@ class HomeController < ApplicationController
     end
 
     def user_activity_fetch_fanart(activity:)
+      return {} if activity.blank?
+
       user_activity = activity.deep_dup
       name = user_activity["media"]["format"] == "TV" && user_activity["media"]["countryOfOrigin"] != "CN" ?
         user_activity["media"]["title"]["userPreferred"] :
@@ -291,7 +311,6 @@ class HomeController < ApplicationController
 
       loop do
         cache_key = "ANILIST/#{ENV.fetch('ANILIST_USERNAME')}/#{last_month.to_i}_#{page}/USER_ACTIVITIES"
-        data = {}
 
         if !Rails.cache.exist? cache_key
           logger.tagged("CACHE", "anilist_user_activities", cache_key) do
@@ -301,20 +320,20 @@ class HomeController < ApplicationController
           begin
             data = query(AniList::UserAnimeActivitiesQuery, date: last_month, user_id:, page:, per_page: 50)
           rescue Graphlient::Errors::Error => error
+            data = nil
             logger.tagged("ERROR", "anilist_user_activities", cache_key) do
               logger.error(error)
             end
           end
 
           has_next_page = data&.page&.page_info&.has_next_page? || false
-          expires_in = has_next_page == false ? 4.hours : 1.week
+          expires_in = has_next_page == false ? 4.hours : 1.month
           res = Rails.cache.fetch(cache_key, expires_in:, skip_nil: true) do
-            if data&.page&.activities&.to_a.blank?
-              { data: [], has_next_page: false }
-            end
+            break if data&.page&.activities&.to_a.blank?
 
             { data: data.page.activities.to_a.map(&:to_h), has_next_page: }
           end
+          res ||= { data: [], has_next_page: false }
         else
           logger.tagged("CACHE", "anilist_user_activities", cache_key) do
             logger.info("HIT")
