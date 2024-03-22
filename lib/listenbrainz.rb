@@ -81,7 +81,8 @@ module ListenBrainz
           count: 1000,
           offset:
         }
-        result = Rails.cache.fetch("LISTENBRAINZ/#{user}/LOVED_TRACKS/#{offset}", expires_in: 1.month, skip_nil: true) do
+        expires_in = offset + 1000 > total ? 1.month : 6.months
+        result = Rails.cache.fetch("LISTENBRAINZ/#{user}/LOVED_TRACKS/#{offset}", expires_in:, skip_nil: true) do
           sleep 0.1
           res = self.class.get("/feedback/user/#{user}/get-feedback", headers:, query:)
           unless res.success?
