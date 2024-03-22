@@ -48,7 +48,7 @@ class HomeController < ApplicationController
       end
 
       @user_statistics = Rails.cache.fetch(cache_key, expires_in: (end_of_day.to_i - now.to_i).seconds, skip_nil: true) do
-        break if data&.user&.statistics&.anime&.to_h.blank?
+        break if data.blank?
 
         data.user.statistics.anime.to_h
       end
@@ -329,7 +329,7 @@ class HomeController < ApplicationController
           has_next_page = data&.page&.page_info&.has_next_page? || false
           expires_in = has_next_page == false ? 4.hours : 1.month
           res = Rails.cache.fetch(cache_key, expires_in:, skip_nil: true) do
-            break if data&.page&.activities&.to_a.blank?
+            break if data.blank?
 
             { data: data.page.activities.to_a.map(&:to_h), has_next_page: }
           end
