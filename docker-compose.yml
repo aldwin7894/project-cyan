@@ -80,7 +80,7 @@ services:
         - RAILS_ASSET_HOST
     container_name: project-cyan-sidekiq
     image: aldwin7894/project-cyan:prod
-    entrypoint: ./entrypoint-sidekiq.sh
+    entrypoint: /usr/src/app/entrypoint-sidekiq.sh
     command: "bin/sidekiq"
     restart: always
     depends_on:
