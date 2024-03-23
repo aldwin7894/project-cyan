@@ -83,7 +83,7 @@ COPY --from=build-env /gems /gems
 COPY --from=build-env "/node-v${NODE_VERSION}-linux-x64" "/node-v${NODE_VERSION}-linux-x64"
 
 COPY entrypoint-sidekiq.sh .
-RUN chmod+x ./entrypoint-sidekiq.sh
+RUN chmod +x ./entrypoint-sidekiq.sh
 
 # Enable jemalloc
 ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2

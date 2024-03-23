@@ -3,4 +3,4 @@ anilist_activities_sync_job:
   class: "AnilistActivitiesSyncJob"
   queue: default
   args:
-    date: <%= Time.zone.now.beginning_of_month.to_i %>
+    - <%= Time.zone.now.beginning_of_month.to_i %>
