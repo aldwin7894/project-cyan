@@ -28,9 +28,6 @@ module Kernel
   # source://byebug//lib/byebug/attacher.rb#35
   def byebug; end
 
-  # source://byebug//lib/byebug/attacher.rb#35
-  def debugger; end
-
   # source://byebug//lib/byebug/attacher.rb#41
   def remote_byebug(host = T.unsafe(nil), port = T.unsafe(nil)); end
 end

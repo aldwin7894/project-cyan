@@ -7,10 +7,10 @@
 # source://rack-brotli//lib/rack/brotli/version.rb#1
 module Rack
   class << self
-    # source://rack/2.2.8.1/lib/rack/version.rb#26
+    # source://rack/2.2.9/lib/rack/version.rb#26
     def release; end
 
-    # source://rack/2.2.8.1/lib/rack/version.rb#19
+    # source://rack/2.2.9/lib/rack/version.rb#19
     def version; end
   end
 end

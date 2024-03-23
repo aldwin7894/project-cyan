@@ -4286,17 +4286,17 @@ ActionController::Live::SSE::PERMITTED_OPTIONS = T.let(T.unsafe(nil), Array)
 class ActionController::LiveTestResponse < ::ActionController::Live::Response
   # Was there a server-side error?
   #
-  # source://rack/2.2.8.1/lib/rack/response.rb#141
+  # source://rack/2.2.9/lib/rack/response.rb#141
   def error?; end
 
   # Was the URL not found?
   #
-  # source://rack/2.2.8.1/lib/rack/response.rb#151
+  # source://rack/2.2.9/lib/rack/response.rb#151
   def missing?; end
 
   # Was the response successful?
   #
-  # source://rack/2.2.8.1/lib/rack/response.rb#138
+  # source://rack/2.2.9/lib/rack/response.rb#138
   def success?; end
 end
 
@@ -6692,7 +6692,7 @@ module ActionController::Renderers
   # source://actionpack//lib/action_controller/metal/renderers.rb#155
   def _render_with_renderer_json(json, options); end
 
-  # source://turbo-rails/2.0.4/lib/turbo/engine.rb#67
+  # source://turbo-rails/2.0.5/lib/turbo/engine.rb#67
   def _render_with_renderer_turbo_stream(turbo_streams_html, options); end
 
   # source://actionpack//lib/action_controller/metal/renderers.rb#175
@@ -14636,7 +14636,7 @@ class ActionDispatch::Request
   # source://actionpack//lib/action_dispatch/http/request.rb#339
   def raw_post; end
 
-  # source://rack/2.2.8.1/lib/rack/request.rb#157
+  # source://rack/2.2.9/lib/rack/request.rb#157
   def raw_request_method; end
 
   # source://actionpack//lib/action_dispatch/http/request.rb#50
@@ -15387,10 +15387,10 @@ class ActionDispatch::Response
 
   # Aliasing these off because AD::Http::Cache::Response defines them.
   #
-  # source://rack/2.2.8.1/lib/rack/response.rb#229
+  # source://rack/2.2.9/lib/rack/response.rb#229
   def _cache_control; end
 
-  # source://rack/2.2.8.1/lib/rack/response.rb#233
+  # source://rack/2.2.9/lib/rack/response.rb#233
   def _cache_control=(v); end
 
   # source://actionpack//lib/action_dispatch/http/response.rb#382
@@ -15557,7 +15557,7 @@ class ActionDispatch::Response
 
   # The location header we'll be responding with.
   #
-  # source://rack/2.2.8.1/lib/rack/response.rb#204
+  # source://rack/2.2.9/lib/rack/response.rb#204
   def redirect_url; end
 
   # The request that the response is responding to.
@@ -20655,10 +20655,10 @@ Mime::Type::MIME_REGEXP = T.let(T.unsafe(nil), Regexp)
 # source://actionpack//lib/action_dispatch.rb#34
 module Rack
   class << self
-    # source://rack/2.2.8.1/lib/rack/version.rb#26
+    # source://rack/2.2.9/lib/rack/version.rb#26
     def release; end
 
-    # source://rack/2.2.8.1/lib/rack/version.rb#19
+    # source://rack/2.2.9/lib/rack/version.rb#19
     def version; end
   end
 end

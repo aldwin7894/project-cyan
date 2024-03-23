@@ -38,6 +38,10 @@ Performance:
 Rails:
   Enabled: true
 
+# Allow upsert
+Rails/SkipsModelValidations:
+  Enabled: false
+
 # Correct usage of Date methods in Rails. Use Time.zone.today over Date.today
 Rails/Date:
   Enabled: true
