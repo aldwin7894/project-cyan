@@ -53,8 +53,39 @@ services:
     depends_on:
       - db
       - redis
+      - sidekiq
     ports:
       - 3000:3000
+    environment:
+      - DATABASE_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@db:27017/${MONGO_DB}
+      - REDIS_URL=redis://redis:6379
+      - TZ=Asia/Manila
+      - RAILS_MASTER_KEY
+      - RAILS_ENV
+      - NODE_ENV
+      - RAILS_ASSET_HOST
+      - OCCSON_ACCESS_TOKEN
+      - OCCSON_PASSPHRASE
+  sidekiq:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      secrets:
+        - TZ
+        - RAILS_ENV
+        - NODE_ENV
+        - OCCSON_ACCESS_TOKEN
+        - OCCSON_PASSPHRASE
+        - RAILS_MASTER_KEY
+        - RAILS_ASSET_HOST
+    container_name: project-cyan-sidekiq
+    image: aldwin7894/project-cyan:prod
+    entrypoint: ./entrypoint-sidekiq.sh
+    command: "bin/sidekiq"
+    restart: always
+    depends_on:
+      - db
+      - redis
     environment:
       - DATABASE_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@db:27017/${MONGO_DB}
       - REDIS_URL=redis://redis:6379

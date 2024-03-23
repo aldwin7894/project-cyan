@@ -194,6 +194,7 @@ class ActiveJob::Base
   include ::ActiveJob::Logging
   include ::ActiveJob::Timezones
   include ::ActiveJob::Translation
+  include ::Sidekiq::Job::Options
   include ::ActiveJob::TestHelper::TestQueueAdapter
   extend ::ActiveJob::Core::ClassMethods
   extend ::ActiveJob::QueueAdapter::ClassMethods
@@ -206,6 +207,7 @@ class ActiveJob::Base
   extend ::ActiveSupport::DescendantsTracker
   extend ::ActiveJob::Callbacks::ClassMethods
   extend ::ActiveJob::Exceptions::ClassMethods
+  extend ::Sidekiq::Job::Options::ClassMethods
   extend ::ActiveJob::TestHelper::TestQueueAdapter::ClassMethods
 
   # source://activesupport/7.1.3.2/lib/active_support/callbacks.rb#70
@@ -261,6 +263,24 @@ class ActiveJob::Base
 
   # source://activesupport/7.1.3.2/lib/active_support/rescuable.rb#15
   def rescue_handlers?; end
+
+  # source://sidekiq/7.2.2/lib/sidekiq/job.rb#137
+  def sidekiq_options_hash; end
+
+  # source://sidekiq/7.2.2/lib/sidekiq/job.rb#149
+  def sidekiq_options_hash=(_arg0); end
+
+  # source://sidekiq/7.2.2/lib/sidekiq/job.rb#137
+  def sidekiq_retries_exhausted_block; end
+
+  # source://sidekiq/7.2.2/lib/sidekiq/job.rb#149
+  def sidekiq_retries_exhausted_block=(_arg0); end
+
+  # source://sidekiq/7.2.2/lib/sidekiq/job.rb#137
+  def sidekiq_retry_in_block; end
+
+  # source://sidekiq/7.2.2/lib/sidekiq/job.rb#149
+  def sidekiq_retry_in_block=(_arg0); end
 
   class << self
     # source://activesupport/7.1.3.2/lib/active_support/callbacks.rb#70
@@ -376,6 +396,35 @@ class ActiveJob::Base
 
     # source://activejob//lib/active_job/exceptions.rb#11
     def retry_jitter=(value); end
+
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#104
+    def sidekiq_options_hash; end
+
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#112
+    def sidekiq_options_hash=(val); end
+
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#104
+    def sidekiq_retries_exhausted_block; end
+
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#112
+    def sidekiq_retries_exhausted_block=(val); end
+
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#104
+    def sidekiq_retry_in_block; end
+
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#112
+    def sidekiq_retry_in_block=(val); end
+
+    private
+
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#99
+    def __synchronized_sidekiq_options_hash; end
+
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#99
+    def __synchronized_sidekiq_retries_exhausted_block; end
+
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#99
+    def __synchronized_sidekiq_retry_in_block; end
   end
 end
 
@@ -1564,6 +1613,91 @@ class ActiveJob::QueueAdapters::InlineAdapter
   #
   # source://activejob//lib/active_job/queue_adapters/inline_adapter.rb#18
   def enqueue_at(*_arg0); end
+end
+
+# = Sidekiq adapter for Active Job
+#
+# Simple, efficient background processing for Ruby. Sidekiq uses threads to
+# handle many jobs at the same time in the same process. It does not
+# require \Rails but will integrate tightly with it to make background
+# processing dead simple.
+#
+# Read more about Sidekiq {here}[http://sidekiq.org].
+#
+# To use Sidekiq set the queue_adapter config to +:sidekiq+.
+#
+#   Rails.application.config.active_job.queue_adapter = :sidekiq
+#
+# source://activejob//lib/active_job/queue_adapters/sidekiq_adapter.rb#20
+class ActiveJob::QueueAdapters::SidekiqAdapter
+  # source://activejob//lib/active_job/queue_adapters/sidekiq_adapter.rb#21
+  def enqueue(job); end
+
+  # source://activejob//lib/active_job/queue_adapters/sidekiq_adapter.rb#35
+  def enqueue_all(jobs); end
+
+  # source://activejob//lib/active_job/queue_adapters/sidekiq_adapter.rb#28
+  def enqueue_at(job, timestamp); end
+end
+
+# source://activejob//lib/active_job/queue_adapters/sidekiq_adapter.rb#66
+class ActiveJob::QueueAdapters::SidekiqAdapter::JobWrapper
+  include ::Sidekiq::Job
+  include ::Sidekiq::Job::Options
+  extend ::Sidekiq::Job::Options::ClassMethods
+  extend ::Sidekiq::Job::ClassMethods
+
+  # source://activejob//lib/active_job/queue_adapters/sidekiq_adapter.rb#69
+  def perform(job_data); end
+
+  # source://sidekiq/7.2.2/lib/sidekiq/job.rb#137
+  def sidekiq_options_hash; end
+
+  # source://sidekiq/7.2.2/lib/sidekiq/job.rb#149
+  def sidekiq_options_hash=(_arg0); end
+
+  # source://sidekiq/7.2.2/lib/sidekiq/job.rb#137
+  def sidekiq_retries_exhausted_block; end
+
+  # source://sidekiq/7.2.2/lib/sidekiq/job.rb#149
+  def sidekiq_retries_exhausted_block=(_arg0); end
+
+  # source://sidekiq/7.2.2/lib/sidekiq/job.rb#137
+  def sidekiq_retry_in_block; end
+
+  # source://sidekiq/7.2.2/lib/sidekiq/job.rb#149
+  def sidekiq_retry_in_block=(_arg0); end
+
+  class << self
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#104
+    def sidekiq_options_hash; end
+
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#112
+    def sidekiq_options_hash=(val); end
+
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#104
+    def sidekiq_retries_exhausted_block; end
+
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#112
+    def sidekiq_retries_exhausted_block=(val); end
+
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#104
+    def sidekiq_retry_in_block; end
+
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#112
+    def sidekiq_retry_in_block=(val); end
+
+    private
+
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#99
+    def __synchronized_sidekiq_options_hash; end
+
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#99
+    def __synchronized_sidekiq_retries_exhausted_block; end
+
+    # source://sidekiq/7.2.2/lib/sidekiq/job.rb#99
+    def __synchronized_sidekiq_retry_in_block; end
+  end
 end
 
 # = Test adapter for Active Job

@@ -2323,10 +2323,10 @@ class Rack::Multipart::Parser
   # source://rack//lib/rack/multipart/parser.rb#180
   def initialize(boundary, tempfile, bufsize, query_parser); end
 
-  # source://rack//lib/rack/multipart/parser.rb#198
+  # source://rack//lib/rack/multipart/parser.rb#199
   def on_read(content); end
 
-  # source://rack//lib/rack/multipart/parser.rb#204
+  # source://rack//lib/rack/multipart/parser.rb#205
   def result; end
 
   # Returns the value of attribute state.
@@ -2336,34 +2336,34 @@ class Rack::Multipart::Parser
 
   private
 
-  # source://rack//lib/rack/multipart/parser.rb#296
+  # source://rack//lib/rack/multipart/parser.rb#302
   def consume_boundary; end
 
-  # source://rack//lib/rack/multipart/parser.rb#294
+  # source://rack//lib/rack/multipart/parser.rb#300
   def full_boundary; end
 
-  # source://rack//lib/rack/multipart/parser.rb#306
+  # source://rack//lib/rack/multipart/parser.rb#312
   def get_filename(head); end
 
-  # source://rack//lib/rack/multipart/parser.rb#242
+  # source://rack//lib/rack/multipart/parser.rb#248
   def handle_consume_token; end
 
-  # source://rack//lib/rack/multipart/parser.rb#371
+  # source://rack//lib/rack/multipart/parser.rb#377
   def handle_empty_content!(content); end
 
-  # source://rack//lib/rack/multipart/parser.rb#233
+  # source://rack//lib/rack/multipart/parser.rb#234
   def handle_fast_forward; end
 
-  # source://rack//lib/rack/multipart/parser.rb#275
+  # source://rack//lib/rack/multipart/parser.rb#281
   def handle_mime_body; end
 
-  # source://rack//lib/rack/multipart/parser.rb#252
+  # source://rack//lib/rack/multipart/parser.rb#258
   def handle_mime_head; end
 
-  # source://rack//lib/rack/multipart/parser.rb#216
+  # source://rack//lib/rack/multipart/parser.rb#217
   def run_parser; end
 
-  # source://rack//lib/rack/multipart/parser.rb#343
+  # source://rack//lib/rack/multipart/parser.rb#349
   def tag_multipart_encoding(filename, content_type, name, body); end
 
   class << self
@@ -2395,7 +2395,7 @@ class Rack::Multipart::Parser::BoundedIO
   def rewind; end
 end
 
-# source://rack//lib/rack/multipart/parser.rb#341
+# source://rack//lib/rack/multipart/parser.rb#347
 Rack::Multipart::Parser::CHARSET = T.let(T.unsafe(nil), String)
 
 # source://rack//lib/rack/multipart/parser.rb#87

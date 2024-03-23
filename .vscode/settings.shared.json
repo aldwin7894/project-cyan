@@ -66,5 +66,5 @@
   "rubyLsp.pullDiagnosticsOn": "both",
   "rubyLsp.rubyVersionManager": "rvm",
   "sorbet.enabled": true,
-  "sorbet.highlightUntyped": "everywhere"
+  "sorbet.highlightUntyped": "nowhere",
 }

@@ -31,6 +31,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "dotenv", "~> 3.1.0"
+  gem "debug"
 end
 
 group :development do
@@ -111,3 +112,7 @@ gem "persistent_httparty", "~> 0.1.2"
 gem "sorbet-runtime"
 
 gem "brotli", "~> 0.5.0"
+
+gem "sidekiq", "~> 7.2"
+
+gem "sidekiq-cron", "~> 1.12"

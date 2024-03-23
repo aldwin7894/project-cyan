@@ -92,6 +92,7 @@ module AniList
         }
         activities(userId: $user_id, createdAt_greater: $date, sort: ID, type: ANIME_LIST) {
           ... on ListActivity {
+            id
             media {
               format
               bannerImage

@@ -351,22 +351,22 @@ class RedisClient::Config
 
   # @return [Config] a new instance of Config
   #
-  # source://redis-client//lib/redis_client/config.rb#175
+  # source://redis-client//lib/redis_client/config.rb#179
   def initialize(url: T.unsafe(nil), host: T.unsafe(nil), port: T.unsafe(nil), path: T.unsafe(nil), username: T.unsafe(nil), password: T.unsafe(nil), **kwargs); end
 
   # Returns the value of attribute host.
   #
-  # source://redis-client//lib/redis_client/config.rb#173
+  # source://redis-client//lib/redis_client/config.rb#177
   def host; end
 
   # Returns the value of attribute path.
   #
-  # source://redis-client//lib/redis_client/config.rb#173
+  # source://redis-client//lib/redis_client/config.rb#177
   def path; end
 
   # Returns the value of attribute port.
   #
-  # source://redis-client//lib/redis_client/config.rb#173
+  # source://redis-client//lib/redis_client/config.rb#177
   def port; end
 end
 
@@ -425,10 +425,10 @@ module RedisClient::Config::Common
   # source://redis-client//lib/redis_client/config.rb#15
   def middlewares_stack; end
 
-  # source://redis-client//lib/redis_client/config.rb#103
+  # source://redis-client//lib/redis_client/config.rb#107
   def new_client(**kwargs); end
 
-  # source://redis-client//lib/redis_client/config.rb#98
+  # source://redis-client//lib/redis_client/config.rb#102
   def new_pool(**kwargs); end
 
   # Returns the value of attribute password.
@@ -448,15 +448,20 @@ module RedisClient::Config::Common
 
   # @return [Boolean]
   #
-  # source://redis-client//lib/redis_client/config.rb#107
+  # source://redis-client//lib/redis_client/config.rb#94
+  def resolved?; end
+
+  # @return [Boolean]
+  #
+  # source://redis-client//lib/redis_client/config.rb#111
   def retry_connecting?(attempt, _error); end
 
   # @return [Boolean]
   #
-  # source://redis-client//lib/redis_client/config.rb#94
+  # source://redis-client//lib/redis_client/config.rb#98
   def sentinel?; end
 
-  # source://redis-client//lib/redis_client/config.rb#125
+  # source://redis-client//lib/redis_client/config.rb#129
   def server_url; end
 
   # Returns the value of attribute ssl.
@@ -467,7 +472,7 @@ module RedisClient::Config::Common
   # Returns the value of attribute ssl.
   def ssl?; end
 
-  # source://redis-client//lib/redis_client/config.rb#119
+  # source://redis-client//lib/redis_client/config.rb#123
   def ssl_context; end
 
   # Returns the value of attribute ssl_params.
@@ -485,7 +490,7 @@ module RedisClient::Config::Common
 
   private
 
-  # source://redis-client//lib/redis_client/config.rb#142
+  # source://redis-client//lib/redis_client/config.rb#146
   def build_connection_prelude; end
 end
 
@@ -526,6 +531,110 @@ module RedisClient::ConnectionMixin
 
   # source://redis-client//lib/redis_client/connection_mixin.rb#19
   def revalidate; end
+end
+
+# source://redis-client//lib/redis_client/decorator.rb#4
+module RedisClient::Decorator
+  class << self
+    # source://redis-client//lib/redis_client/decorator.rb#6
+    def create(commands_mixin); end
+  end
+end
+
+# source://redis-client//lib/redis_client/decorator.rb#37
+class RedisClient::Decorator::Client
+  include ::RedisClient::Decorator::CommandsMixin
+
+  # @return [Client] a new instance of Client
+  #
+  # source://redis-client//lib/redis_client/decorator.rb#40
+  def initialize(_client); end
+
+  # source://redis-client//lib/redis_client/decorator.rb#60
+  def close(*args, **_arg1, &block); end
+
+  # source://redis-client//lib/redis_client/decorator.rb#69
+  def config; end
+
+  # source://redis-client//lib/redis_client/decorator.rb#69
+  def connect_timeout; end
+
+  # source://redis-client//lib/redis_client/decorator.rb#77
+  def connect_timeout=(value); end
+
+  # source://redis-client//lib/redis_client/decorator.rb#60
+  def hscan(*args, **_arg1, &block); end
+
+  # source://redis-client//lib/redis_client/decorator.rb#69
+  def id; end
+
+  # source://redis-client//lib/redis_client/decorator.rb#54
+  def multi(**kwargs); end
+
+  # source://redis-client//lib/redis_client/decorator.rb#50
+  def pipelined; end
+
+  # source://redis-client//lib/redis_client/decorator.rb#69
+  def pubsub; end
+
+  # source://redis-client//lib/redis_client/decorator.rb#69
+  def read_timeout; end
+
+  # source://redis-client//lib/redis_client/decorator.rb#77
+  def read_timeout=(value); end
+
+  # source://redis-client//lib/redis_client/decorator.rb#60
+  def scan(*args, **_arg1, &block); end
+
+  # source://redis-client//lib/redis_client/decorator.rb#69
+  def size; end
+
+  # source://redis-client//lib/redis_client/decorator.rb#60
+  def sscan(*args, **_arg1, &block); end
+
+  # source://redis-client//lib/redis_client/decorator.rb#77
+  def timeout=(value); end
+
+  # source://redis-client//lib/redis_client/decorator.rb#45
+  def with(*args, **_arg1); end
+
+  # source://redis-client//lib/redis_client/decorator.rb#69
+  def write_timeout; end
+
+  # source://redis-client//lib/redis_client/decorator.rb#77
+  def write_timeout=(value); end
+
+  # source://redis-client//lib/redis_client/decorator.rb#60
+  def zscan(*args, **_arg1, &block); end
+end
+
+# source://redis-client//lib/redis_client/decorator.rb#18
+module RedisClient::Decorator::CommandsMixin
+  # source://redis-client//lib/redis_client/decorator.rb#19
+  def initialize(client); end
+
+  # source://redis-client//lib/redis_client/decorator.rb#25
+  def blocking_call(*args, **_arg1, &block); end
+
+  # source://redis-client//lib/redis_client/decorator.rb#25
+  def blocking_call_v(*args, **_arg1, &block); end
+
+  # source://redis-client//lib/redis_client/decorator.rb#25
+  def call(*args, **_arg1, &block); end
+
+  # source://redis-client//lib/redis_client/decorator.rb#25
+  def call_once(*args, **_arg1, &block); end
+
+  # source://redis-client//lib/redis_client/decorator.rb#25
+  def call_once_v(*args, **_arg1, &block); end
+
+  # source://redis-client//lib/redis_client/decorator.rb#25
+  def call_v(*args, **_arg1, &block); end
+end
+
+# source://redis-client//lib/redis_client/decorator.rb#33
+class RedisClient::Decorator::Pipeline
+  include ::RedisClient::Decorator::CommandsMixin
 end
 
 # source://redis-client//lib/redis_client.rb#94
@@ -1134,6 +1243,11 @@ class RedisClient::SentinelConfig
 
   # @return [Boolean]
   #
+  # source://redis-client//lib/redis_client/sentinel_config.rb#115
+  def resolved?; end
+
+  # @return [Boolean]
+  #
   # source://redis-client//lib/redis_client/sentinel_config.rb#92
   def retry_connecting?(attempt, error); end
 
@@ -1147,25 +1261,25 @@ class RedisClient::SentinelConfig
 
   private
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#128
+  # source://redis-client//lib/redis_client/sentinel_config.rb#134
   def config; end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#175
+  # source://redis-client//lib/redis_client/sentinel_config.rb#181
   def each_sentinel; end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#201
+  # source://redis-client//lib/redis_client/sentinel_config.rb#207
   def refresh_sentinels(sentinel_client); end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#138
+  # source://redis-client//lib/redis_client/sentinel_config.rb#144
   def resolve_master; end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#157
+  # source://redis-client//lib/redis_client/sentinel_config.rb#163
   def resolve_replica; end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#153
+  # source://redis-client//lib/redis_client/sentinel_config.rb#159
   def sentinel_client(sentinel_config); end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#117
+  # source://redis-client//lib/redis_client/sentinel_config.rb#123
   def sentinels_to_configs(sentinels); end
 end
 
