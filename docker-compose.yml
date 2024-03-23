@@ -82,6 +82,8 @@ services:
     image: aldwin7894/project-cyan:prod
     entrypoint: /usr/src/app/entrypoint-sidekiq.sh
     command: "bin/sidekiq"
+    healthcheck:
+      test: ["NONE"]
     restart: always
     depends_on:
       - db

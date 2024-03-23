@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# typed: true
 
 ## This class extends devise to validate the JWT provided by cloudflare and ensure the email addresses match
 
@@ -37,6 +38,7 @@ class CfAccessAuthenticatable < Devise::Strategies::Authenticatable
     unless resource
       Rails.logger.info("User #{email} not found")
       redirect!(cf_teams_url)
+      return
     end
 
     remember_me(resource)
