@@ -9,8 +9,11 @@
       },
       {
         "name": "VITE",
-        "main": true,
         "script": "yarn vite:dev"
+      },
+      {
+        "name": "SIDEKIQ",
+        "script": "bin/sidekiq"
       }
     ]
   }

@@ -139,39 +139,66 @@ class HomeController < ApplicationController
   def anilist_user_activities
     now = Time.zone.now.beginning_of_day
     last_week = (now - 1.week).beginning_of_week.to_i
-    @user_activity = fetch_anilist_user_activities
     turbo_frame = turbo_frame_request_id
 
     case turbo_frame_request_id
     when "last_watched"
-      last_watched = @user_activity.select { |x| ANIME_FORMATS.include? x["media"]["format"] }&.first
+      last_watched = AnilistActivity
+                       .order(id: :desc)
+                       .where.in("media.format": ANIME_FORMATS)
+                       .and.not.in(status: IGNORED_USER_STATUS)
+                       .limit(1)
+                       &.first
       @last_watched = user_activity_fetch_fanart(activity: last_watched)
     when "last_watched_movie"
-      last_watched_movie = @user_activity.find { |x| x["media"]["format"] == "MOVIE" }
+      last_watched_movie = AnilistActivity
+                             .order(id: :desc)
+                             .where("media.format": "MOVIE")
+                             .and.not.in(status: IGNORED_USER_STATUS)
+                             .limit(1)
+                             &.first
       @last_watched_movie = user_activity_fetch_fanart(activity: last_watched_movie)
     when /watched_anime_\d+_\d+/
       @index = turbo_frame_request_id.scan(/\d+/).first.to_i
-      @watched_anime = @user_activity.select { |x| ANIME_FORMATS.include? x["media"]["format"] }&.each_slice(6)&.to_a&.[](@index)
+      @watched_anime = AnilistActivity
+                         .order(id: :desc)
+                         .where.in("media.format": ANIME_FORMATS)
+                         .and.not.in(status: IGNORED_USER_STATUS)
+                         &.each_slice(6)
+                         &.to_a
+                         &.[](@index)
       turbo_frame = "watched_anime"
     when /watched_movie_\d+_\d+/
       @index = turbo_frame_request_id.scan(/\d+/).first.to_i
-      @watched_movie = @user_activity.select { |x| ANIME_FORMATS.exclude? x["media"]["format"] }&.each_slice(6)&.to_a&.[](@index)
+      @watched_movie = AnilistActivity
+                         .order(id: :desc)
+                         .where.not.in("media.format": ANIME_FORMATS)
+                         .and.not.in(status: IGNORED_USER_STATUS)
+                         &.each_slice(6)
+                         &.to_a
+                         &.[](@index)
       turbo_frame = "watched_movie"
     when "total_watched_anime_last_week"
-      @total_watched_anime_time_last_week_mins = @user_activity
-                                                   .select { |x| x["createdAt"] >= last_week }
+      watched_last_week = AnilistActivity
+                            .order(id: :desc)
+                            .where(createdAt: { "$gte": last_week })
+                            .and.not.in(status: IGNORED_USER_STATUS)
+      @total_watched_anime_time_last_week_mins = watched_last_week
                                                    .map { |x| x&.[]("media")&.[]("duration").to_i }
                                                    .sum
       @total_watched_anime_time_last_week = format_date(@total_watched_anime_time_last_week_mins * 60)
-      @total_watched_anime_ep_last_week = @user_activity.select { |x| x["createdAt"] >= last_week }.size
+      @total_watched_anime_ep_last_week = watched_last_week.size
     when "total_watched_anime_movie_last_week"
-      @watched_movie = @user_activity.select { |x| ANIME_FORMATS.exclude? x["media"]["format"] }
-      @total_watched_anime_movie_time_last_week_mins = @watched_movie
-                                                         .select { |x| x["createdAt"] >= last_week }
+      watched_last_week = AnilistActivity
+                            .order(id: :desc)
+                            .where.not.in("media.format": ANIME_FORMATS)
+                            .and(createdAt: { "$gte": last_week })
+                            .and.not.in(status: IGNORED_USER_STATUS)
+      @total_watched_anime_movie_time_last_week_mins = watched_last_week
                                                          .map { |x| x&.[]("media")&.[]("duration").to_i }
                                                          .sum
       @total_watched_anime_movie_time_last_week = format_date(@total_watched_anime_movie_time_last_week_mins * 60)
-      @total_watched_anime_movie_last_week = @watched_movie.select { |x| x["createdAt"] >= last_week }.size
+      @total_watched_anime_movie_last_week = watched_last_week.size
     else return render nothing: true
     end
 
@@ -181,16 +208,22 @@ class HomeController < ApplicationController
   end
 
   def watched_anime_section
-    @user_activity = fetch_anilist_user_activities
-    @watched_anime = @user_activity.select { |x| ANIME_FORMATS.include? x["media"]["format"] }
+    @watched_anime = AnilistActivity
+                       .order(id: :desc)
+                       .where.in("media.format": ANIME_FORMATS)
+                       .and.not.in(status: IGNORED_USER_STATUS)
     render template: "home/#{turbo_frame_request_id}", layout: false if turbo_frame_request?
   rescue StandardError => error
     render_empty(error)
   end
 
   def watched_movie_section
-    @user_activity = fetch_anilist_user_activities
-    @watched_movie = @user_activity.select { |x| ANIME_FORMATS.exclude? x["media"]["format"] }
+    @watched_movie = AnilistActivity
+                       .order(id: :desc)
+                       .where
+                       .not.in("media.format": ANIME_FORMATS)
+                       .and
+                       .not.in(status: IGNORED_USER_STATUS)
     render template: "home/#{turbo_frame_request_id}", layout: false if turbo_frame_request?
   rescue StandardError => error
     render_empty(error)
@@ -300,55 +333,5 @@ class HomeController < ApplicationController
 
     def check_if_turbo_frame
       head(:unprocessable_entity) unless turbo_frame_request?
-    end
-
-    def fetch_anilist_user_activities
-      user_id = ENV.fetch("ANILIST_USER_ID")
-      user_activity = []
-      now = Time.zone.now.beginning_of_day
-      last_month = (now - 1.month).beginning_of_month.to_i
-      page = 1
-
-      loop do
-        cache_key = "ANILIST/#{ENV.fetch('ANILIST_USERNAME')}/#{last_month.to_i}_#{page}/USER_ACTIVITIES"
-
-        if !Rails.cache.exist? cache_key
-          logger.tagged("CACHE", "anilist_user_activities", cache_key) do
-            logger.info("MISS")
-          end
-
-          begin
-            data = query(AniList::UserAnimeActivitiesQuery, date: last_month, user_id:, page:, per_page: 50)
-          rescue Graphlient::Errors::Error => error
-            data = nil
-            logger.tagged("ERROR", "anilist_user_activities", cache_key) do
-              logger.error(error)
-            end
-          end
-
-          has_next_page = data&.page&.page_info&.has_next_page? || false
-          expires_in = has_next_page == false ? 4.hours : 1.month
-          res = Rails.cache.fetch(cache_key, expires_in:, skip_nil: true) do
-            break if data.blank?
-
-            { data: data.page.activities.to_a.map(&:to_h), has_next_page: }
-          end
-          res ||= { data: [], has_next_page: false }
-        else
-          logger.tagged("CACHE", "anilist_user_activities", cache_key) do
-            logger.info("HIT")
-          end
-          res = Rails.cache.fetch(cache_key)
-          has_next_page = res[:has_next_page]
-        end
-
-        user_activity.push(*res[:data])
-        break if has_next_page == false
-
-        page += 1
-      end
-
-      user_activity = user_activity.reverse.select { |x| IGNORED_USER_STATUS.exclude? x["status"] }
-      user_activity
     end
 end

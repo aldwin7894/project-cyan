@@ -103,7 +103,6 @@ class MusicNpBannerController < ApplicationController
     listenbrainz = ListenBrainz::Client.new
     spotify = Spotify::Client.new
     now_playing = listenbrainz.get_now_playing(user: ENV.fetch("LISTENBRAINZ_USERNAME"))
-    loved_tracks = listenbrainz.get_loved_tracks(user: ENV.fetch("LISTENBRAINZ_USERNAME"))
 
     if now_playing["listens"].blank?
       recent = listenbrainz.get_recent_tracks(user: ENV.fetch("LISTENBRAINZ_USERNAME"), limit: 1)
@@ -124,7 +123,7 @@ class MusicNpBannerController < ApplicationController
     elsif spotify_album_id
       @album_art = spotify.get_album_art(album_id: spotify_album_id&.split("/").pop)
     end
-    @loved = loved_tracks.any? { |x| x["recording_mbid"] === recording_mbid.to_s }
+    @loved = ListenbrainzLovedTrack.exists?(recording_mbid: recording_mbid.to_s)
 
     timestamp = @recent["listened_at"].to_i
     @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"

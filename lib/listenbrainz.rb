@@ -65,39 +65,28 @@ module ListenBrainz
       end
     end
 
-    def get_loved_tracks(user:)
+    def get_loved_tracks(user:, offset: 0)
       headers = {
         **JSON_HEADER
       }
 
-      offset = 0
-      total = T.let(1, T.untyped)
       data = []
-      loop do
-        break if offset > total
+      query = {
+        score: 1,
+        count: 1000,
+        offset:
+      }
 
-        query = {
-          score: 1,
-          count: 1000,
-          offset:
-        }
-        expires_in = offset + 1000 > total ? 1.month : 6.months
-        result = Rails.cache.fetch("LISTENBRAINZ/#{user}/LOVED_TRACKS/#{offset}", expires_in:, skip_nil: true) do
-          sleep 0.1
-          res = self.class.get("/feedback/user/#{user}/get-feedback", headers:, query:)
-          unless res.success?
-            raise ApiError.new(res["error"], res["code"])
-          end
-
-          res.to_h
-        end
-
-        data.push(*result["feedback"])
-        total = result["total_count"]
-        offset += 1000
+      res = self.class.get("/feedback/user/#{user}/get-feedback", headers:, query:)
+      unless res.success?
+        raise ApiError.new(res["error"], res["code"])
       end
 
-      data
+      result = res.to_h
+      data.push(*result["feedback"])
+      total = result["total_count"].to_i
+
+      { data:, total: }
     end
   end
 

@@ -13,6 +13,7 @@ class AnilistActivitiesSyncJob
     page = 1
 
     loop do
+      sleep 60
       response = AniList::Client.execute(AniList::UserAnimeActivitiesQuery, date:, user_id:, page:, per_page: 50)
       has_next_page = response.data&.page&.page_info&.has_next_page? || false
 
@@ -20,11 +21,10 @@ class AnilistActivitiesSyncJob
 
       break if has_next_page == false
 
-      sleep 20
       page += 1
     end
 
-    user_activity = user_activity.reverse.select { |x| IGNORED_USER_STATUS.exclude? x["status"] }
+    user_activity = user_activity.select { |x| IGNORED_USER_STATUS.exclude? x["status"] }
     user_activity.each do |activity|
       activity = AnilistActivity.new(activity)
       activity.upsert(replace: false)
