@@ -53,6 +53,7 @@ module AniList
   UserStatisticsQuery = Client.parse <<~'GRAPHQL'
     query($user_id: Int!) {
       User(id: $user_id) {
+        id
         statistics {
           anime {
             count

@@ -3,7 +3,7 @@
 <turbo-frame id="last_watched" class="w-full h-full">
   <div class="w-full h-full transition-all duration-1000 bg-center bg-cover" style="background: no-repeat center<%= cover.present? ? "/cover url(#{cover})" : "/75% url(#{vite_asset_path("images/bvl-logo.webp")}); background-color: darkred" %>">
     <div class="<%= cover.present? ? "backdrop-brightness-50" : "backdrop-brightness-[0.2]" %> flex flex-col w-full h-full px-4 py-4 text-white">
-      <h2 class="text-lg font-bold text-shadow shadow-black">LAST WATCHED</h2>
+      <h2 class="text-lg font-bold text-shadow shadow-black">LAST WATCHED ANIME</h2>
 
       <% if @last_watched.present? %>
         <a class="hover:underline" href="<%= @last_watched&.[]("media")&.[]("siteUrl") %>" rel="noopener noreferrer">

@@ -22,43 +22,16 @@ class HomeController < ApplicationController
 
   def anilist_user_statistics
     user_id = ENV.fetch("ANILIST_USER_ID")
-    now = Time.zone.now
-    end_of_day = now.end_of_day
-    colors = ["#ed2626", "#ab2425", "#712625"]
-    @user_statistics = {}
-
-    cache_key = "ANILIST/#{ENV.fetch('ANILIST_USERNAME')}/USER_STATS"
-    if Rails.cache.exist? cache_key
-      logger.tagged("CACHE", "anilist_user_statistics", cache_key) do
-        logger.info("HIT")
-      end
-      @user_statistics = Rails.cache.fetch(cache_key)
-    else
-      logger.tagged("CACHE", "anilist_user_statistics", cache_key) do
-        logger.info("MISS")
-      end
-
-      begin
-        data = query(AniList::UserStatisticsQuery, user_id:)
-      rescue Graphlient::Errors::Error => error
-        data = nil
-        logger.tagged("ERROR", "anilist_user_statistics", cache_key) do
-          logger.error(error)
-        end
-      end
-
-      @user_statistics = Rails.cache.fetch(cache_key, expires_in: (end_of_day.to_i - now.to_i).seconds, skip_nil: true) do
-        break if data.blank?
-
-        data.user.statistics.anime.to_h
-      end
-      @user_statistics ||= {}
-    end
+    colors = ["#cc333f", "#00a0b0", "#eb6841", "#6a4a3c", "#edc951", "#b3cc57"]
+    @user_statistics = AnilistUserStatistic
+                         .find(user_id)
+                         &.[]("statistics")
+                         &.[]("anime") || {}
 
     case turbo_frame_request_id
     when "favorite_anime_genres"
       # genre stats
-      genre_statistics = @user_statistics["genres"]&.first(6)&.map do |genre|
+      genre_statistics = @user_statistics["genres"]&.sort_by { |genre| genre["count"] }&.reverse!&.first(6)&.map do |genre|
         { name: genre["genre"], count: genre["count"].to_i }
       end
       genre_total_count = genre_statistics&.pluck(:count)&.sum.to_i
@@ -68,14 +41,14 @@ class HomeController < ApplicationController
         {
           label: "#{genre[:name]} (#{percentage}%)",
           value: genre[:count],
-          backgroundColor: colors[index % 3]
+          backgroundColor: colors[index]
         }
       end
       @genre_chart_data = JSON.generate({
         labels: @genre_list&.pluck(:label) || [],
         datasets: [
           {
-            label: "Count",
+            label: "Anime Count",
             data: @genre_list&.pluck(:value) || [],
             backgroundColor: @genre_list&.pluck(:backgroundColor) || [],
             hoverOffset: 4
@@ -84,7 +57,7 @@ class HomeController < ApplicationController
       })
     when "favorite_anime_studios"
       # studio stats
-      studio_statistics = @user_statistics["studios"]&.uniq&.first(6)&.map do |studio|
+      studio_statistics = @user_statistics["studios"]&.sort_by { |genre| genre["count"] }&.reverse!&.first(6)&.map do |studio|
         { name: studio["studio"]["name"], count: studio["count"].to_i }
       end
       studio_total_count = studio_statistics&.pluck(:count)&.sum.to_i
@@ -94,14 +67,14 @@ class HomeController < ApplicationController
         {
           label: "#{studio[:name]} (#{percentage}%)",
           value: studio[:count],
-          backgroundColor: colors[index % 3]
+          backgroundColor: colors[index]
         }
       end
       @studio_chart_data = JSON.generate({
         labels: @studio_list&.pluck(:label) || [],
         datasets: [
           {
-            label: "Count",
+            label: "Anime Count",
             data: @studio_list&.pluck(:value) || [],
             backgroundColor: @studio_list&.pluck(:backgroundColor) || [],
             hoverOffset: 4

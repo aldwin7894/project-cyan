@@ -5,7 +5,6 @@ require "listenbrainz"
 
 class ListenbrainzLovedTracksSyncJob
   include Sidekiq::Job
-  sidekiq_options
 
   def perform(*args)
     offset = T.let(0, T.untyped)
