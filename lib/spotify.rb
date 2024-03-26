@@ -106,7 +106,7 @@ module Spotify
         Rails.logger.tagged("CACHE", "Spotify.get_artist_id_by_name", cache_key) do
           Rails.logger.info("MISS")
         end
-        artist_id = Rails.cache.fetch(cache_key, expires_in: 1.month, skip_nil: true) do
+        artist_id = Rails.cache.fetch(cache_key, expires_in: 6.months, skip_nil: true) do
           res = self.class.get("/search", headers:, query:)
           break if res.code >= 300
 
@@ -136,7 +136,7 @@ module Spotify
         Rails.logger.tagged("CACHE", "Spotify.get_album_art", cache_key) do
           Rails.logger.info("MISS")
         end
-        album_art = Rails.cache.fetch(cache_key, expires_in: 1.month, skip_nil: true) do
+        album_art = Rails.cache.fetch(cache_key, expires_in: 6.months, skip_nil: true) do
           res = self.class.get("/albums/#{album_id}", headers:)
           break if res.code >= 300
 

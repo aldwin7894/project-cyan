@@ -551,6 +551,14 @@ module Sidekiq::Cron::Support
   end
 end
 
+# source://sidekiq-cron//lib/sidekiq/cron/web_extension.rb#3
+module Sidekiq::Cron::WebExtension
+  class << self
+    # source://sidekiq-cron//lib/sidekiq/cron/web_extension.rb#4
+    def registered(app); end
+  end
+end
+
 # source://sidekiq-cron//lib/sidekiq/options.rb#4
 module Sidekiq::Options
   class << self

@@ -12,12 +12,10 @@ module ActionView::Helpers::FormTagHelper::ClassMethods; end
 module ActionView::Helpers::TextHelper::ClassMethods; end
 module ActionView::Helpers::TranslationHelper::ClassMethods; end
 module ActiveModel::API::ClassMethods; end
-module ActiveModel::Dirty::ClassMethods; end
 module ActiveModel::Model::ClassMethods; end
 module ActiveModel::Serializers::JSON::ClassMethods; end
 module ActiveRecord::ConnectionAdapters::DatabaseStatements; end
 module ActiveRecord::ConnectionAdapters::SchemaStatements; end
-module Google::Protobuf::EnumDescriptor; end
 module Mongoid::Association::Accessors::ClassMethods; end
 module Mongoid::Association::Builders::ClassMethods; end
 module Mongoid::Association::ClassMethods; end

@@ -24,12 +24,6 @@ module GeneratedUrlHelpersModule
   def admin_root_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
-  def admin_social_link_url(*args); end
-
-  sig { params(args: T.untyped).returns(String) }
-  def admin_social_links_url(*args); end
-
-  sig { params(args: T.untyped).returns(String) }
   def admin_user_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
@@ -60,9 +54,6 @@ module GeneratedUrlHelpersModule
   def edit_admin_game_id_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
-  def edit_admin_social_link_url(*args); end
-
-  sig { params(args: T.untyped).returns(String) }
   def edit_admin_user_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
@@ -88,9 +79,6 @@ module GeneratedUrlHelpersModule
 
   sig { params(args: T.untyped).returns(String) }
   def new_admin_game_id_url(*args); end
-
-  sig { params(args: T.untyped).returns(String) }
-  def new_admin_social_link_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def new_admin_user_url(*args); end
@@ -121,6 +109,9 @@ module GeneratedUrlHelpersModule
 
   sig { params(args: T.untyped).returns(String) }
   def root_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def sidekiq_web_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def turbo_recede_historical_location_url(*args); end

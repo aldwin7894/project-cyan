@@ -655,10 +655,10 @@
   dependencies:
     mini-svg-data-uri "^1.2.3"
 
-"@tailwindcss/typography@^0.5.10":
-  version "0.5.10"
-  resolved "https://registry.yarnpkg.com/@tailwindcss/typography/-/typography-0.5.10.tgz#2abde4c6d5c797ab49cf47610830a301de4c1e0a"
-  integrity sha512-Pe8BuPJQJd3FfRnm6H0ulKIGoMEQS+Vq01R6M5aCrFB/ccR/shT+0kXLjouGC1gFLm9hopTFN+DMP0pfwRWzPw==
+"@tailwindcss/typography@^0.5.11":
+  version "0.5.11"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/typography/-/typography-0.5.11.tgz#408ed44d6eec7703a8543a0e78f65b05619ca162"
+  integrity sha512-ahOULqBQGCdSqL3vMNjH1R5cU2gxTh059fJIKF2enHXE8c/s3yKGDSKZ1+4poCr7BZRREJS8n5cCFmwsW4Ok3A==
   dependencies:
     lodash.castarray "^4.4.0"
     lodash.isplainobject "^4.0.6"
@@ -687,37 +687,37 @@
   dependencies:
     undici-types "~5.26.4"
 
-"@typescript-eslint/parser@^7.3.1":
-  version "7.3.1"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-7.3.1.tgz#c4ba7dc2744318a5e4506596cbc3a0086255c526"
-  integrity sha512-Rq49+pq7viTRCH48XAbTA+wdLRrB/3sRq4Lpk0oGDm0VmnjBrAOVXH/Laalmwsv2VpekiEfVFwJYVk6/e8uvQw==
+"@typescript-eslint/parser@^7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-7.4.0.tgz#540f4321de1e52b886c0fa68628af1459954c1f1"
+  integrity sha512-ZvKHxHLusweEUVwrGRXXUVzFgnWhigo4JurEj0dGF1tbcGh6buL+ejDdjxOQxv6ytcY1uhun1p2sm8iWStlgLQ==
   dependencies:
-    "@typescript-eslint/scope-manager" "7.3.1"
-    "@typescript-eslint/types" "7.3.1"
-    "@typescript-eslint/typescript-estree" "7.3.1"
-    "@typescript-eslint/visitor-keys" "7.3.1"
+    "@typescript-eslint/scope-manager" "7.4.0"
+    "@typescript-eslint/types" "7.4.0"
+    "@typescript-eslint/typescript-estree" "7.4.0"
+    "@typescript-eslint/visitor-keys" "7.4.0"
     debug "^4.3.4"
 
-"@typescript-eslint/scope-manager@7.3.1":
-  version "7.3.1"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/scope-manager/-/scope-manager-7.3.1.tgz#73fd0cb4211a7be23e49e5b6efec8820caa6ec36"
-  integrity sha512-fVS6fPxldsKY2nFvyT7IP78UO1/I2huG+AYu5AMjCT9wtl6JFiDnsv4uad4jQ0GTFzcUV5HShVeN96/17bTBag==
+"@typescript-eslint/scope-manager@7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/scope-manager/-/scope-manager-7.4.0.tgz#acfc69261f10ece7bf7ece1734f1713392c3655f"
+  integrity sha512-68VqENG5HK27ypafqLVs8qO+RkNc7TezCduYrx8YJpXq2QGZ30vmNZGJJJC48+MVn4G2dCV8m5ZTVnzRexTVtw==
   dependencies:
-    "@typescript-eslint/types" "7.3.1"
-    "@typescript-eslint/visitor-keys" "7.3.1"
+    "@typescript-eslint/types" "7.4.0"
+    "@typescript-eslint/visitor-keys" "7.4.0"
 
-"@typescript-eslint/types@7.3.1":
-  version "7.3.1"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-7.3.1.tgz#ae104de8efa4227a462c0874d856602c5994413c"
-  integrity sha512-2tUf3uWggBDl4S4183nivWQ2HqceOZh1U4hhu4p1tPiIJoRRXrab7Y+Y0p+dozYwZVvLPRI6r5wKe9kToF9FIw==
+"@typescript-eslint/types@7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-7.4.0.tgz#ee9dafa75c99eaee49de6dcc9348b45d354419b6"
+  integrity sha512-mjQopsbffzJskos5B4HmbsadSJQWaRK0UxqQ7GuNA9Ga4bEKeiO6b2DnB6cM6bpc8lemaPseh0H9B/wyg+J7rw==
 
-"@typescript-eslint/typescript-estree@7.3.1":
-  version "7.3.1"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-7.3.1.tgz#598848195fad34c7aa73f548bd00a4d4e5f5e2bb"
-  integrity sha512-tLpuqM46LVkduWP7JO7yVoWshpJuJzxDOPYIVWUUZbW+4dBpgGeUdl/fQkhuV0A8eGnphYw3pp8d2EnvPOfxmQ==
+"@typescript-eslint/typescript-estree@7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-7.4.0.tgz#12dbcb4624d952f72c10a9f4431284fca24624f4"
+  integrity sha512-A99j5AYoME/UBQ1ucEbbMEmGkN7SE0BvZFreSnTd1luq7yulcHdyGamZKizU7canpGDWGJ+Q6ZA9SyQobipePg==
   dependencies:
-    "@typescript-eslint/types" "7.3.1"
-    "@typescript-eslint/visitor-keys" "7.3.1"
+    "@typescript-eslint/types" "7.4.0"
+    "@typescript-eslint/visitor-keys" "7.4.0"
     debug "^4.3.4"
     globby "^11.1.0"
     is-glob "^4.0.3"
@@ -725,12 +725,12 @@
     semver "^7.5.4"
     ts-api-utils "^1.0.1"
 
-"@typescript-eslint/visitor-keys@7.3.1":
-  version "7.3.1"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/visitor-keys/-/visitor-keys-7.3.1.tgz#6ddef14a3ce2a79690f01176f5305c34d7b93d8c"
-  integrity sha512-9RMXwQF8knsZvfv9tdi+4D/j7dMG28X/wMJ8Jj6eOHyHWwDW4ngQJcqEczSsqIKKjFiLFr40Mnr7a5ulDD3vmw==
+"@typescript-eslint/visitor-keys@7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/visitor-keys/-/visitor-keys-7.4.0.tgz#0c8ff2c1f8a6fe8d7d1a57ebbd4a638e86a60a94"
+  integrity sha512-0zkC7YM0iX5Y41homUUeW1CHtZR01K3ybjM1l6QczoMuay0XKtrb93kv95AxUGwdjGr64nNqnOCwmEl616N8CA==
   dependencies:
-    "@typescript-eslint/types" "7.3.1"
+    "@typescript-eslint/types" "7.4.0"
     eslint-visitor-keys "^3.4.1"
 
 "@ungap/structured-clone@^1.2.0":
@@ -1120,10 +1120,10 @@ css-blank-pseudo@^6.0.1:
   dependencies:
     postcss-selector-parser "^6.0.13"
 
-css-declaration-sorter@^7.1.1:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/css-declaration-sorter/-/css-declaration-sorter-7.1.1.tgz#9796bcc257b4647c39993bda8d431ce32b666f80"
-  integrity sha512-dZ3bVTEEc1vxr3Bek9vGwfB5Z6ESPULhcRvO472mfjVnj8jRcTnKO8/JTczlvxM10Myb+wBM++1MtdO76eWcaQ==
+css-declaration-sorter@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/css-declaration-sorter/-/css-declaration-sorter-7.2.0.tgz#6dec1c9523bc4a643e088aab8f09e67a54961024"
+  integrity sha512-h70rUM+3PNFuaBDTLe8wF/cdWu+dOZmb7pJt8Z2sedYbAcQVQV/tEchueg3GWxwqS0cxtbxmaHEdkNACqcvsow==
 
 css-has-pseudo@^6.0.2:
   version "6.0.2"
@@ -1181,26 +1181,26 @@ cssesc@^3.0.0:
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
 
-cssnano-preset-advanced@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/cssnano-preset-advanced/-/cssnano-preset-advanced-6.1.1.tgz#713f89ee339625c776bb79b7b65d529107105e88"
-  integrity sha512-RqF44CbyYpfmji1EItEsmMMTmuFjm+NcYX5Uph269tgi7FAgfSyP6MHUcc/NSV6tC+1rTFQLItbSA4dxQxTrTQ==
+cssnano-preset-advanced@^6.1.2:
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/cssnano-preset-advanced/-/cssnano-preset-advanced-6.1.2.tgz#82b090872b8f98c471f681d541c735acf8b94d3f"
+  integrity sha512-Nhao7eD8ph2DoHolEzQs5CfRpiEP0xa1HBdnFZ82kvqdmbwVBUr2r1QuQ4t1pi+D1ZpqpcO4T+wy/7RxzJ/WPQ==
   dependencies:
-    autoprefixer "^10.4.18"
+    autoprefixer "^10.4.19"
     browserslist "^4.23.0"
-    cssnano-preset-default "^6.1.1"
+    cssnano-preset-default "^6.1.2"
     postcss-discard-unused "^6.0.5"
     postcss-merge-idents "^6.0.3"
     postcss-reduce-idents "^6.0.3"
     postcss-zindex "^6.0.2"
 
-cssnano-preset-default@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/cssnano-preset-default/-/cssnano-preset-default-6.1.1.tgz#d46c4022535cbc8f26da9296f45ce3471a233dab"
-  integrity sha512-XW/dYN2p8Jdkp1lovFd0UVRh6RB0iMyXJbAE9Qm+taR3p2LGu492AW34lVaukUrXoK9IxK5aK3CUmFpUorU4oA==
+cssnano-preset-default@^6.1.2:
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/cssnano-preset-default/-/cssnano-preset-default-6.1.2.tgz#adf4b89b975aa775f2750c89dbaf199bbd9da35e"
+  integrity sha512-1C0C+eNaeN8OcHQa193aRgYexyJtU8XwbdieEjClw+J9d94E41LwT6ivKH0WT+fYwYWB0Zp3I3IZ7tI/BbUbrg==
   dependencies:
     browserslist "^4.23.0"
-    css-declaration-sorter "^7.1.1"
+    css-declaration-sorter "^7.2.0"
     cssnano-utils "^4.0.2"
     postcss-calc "^9.0.1"
     postcss-colormin "^6.1.0"
@@ -1235,12 +1235,12 @@ cssnano-utils@^4.0.2:
   resolved "https://registry.yarnpkg.com/cssnano-utils/-/cssnano-utils-4.0.2.tgz#56f61c126cd0f11f2eef1596239d730d9fceff3c"
   integrity sha512-ZR1jHg+wZ8o4c3zqf1SIUSTIvm/9mU343FMR6Obe/unskbvpGhZOo1J6d/r8D1pzkRQYuwbcH3hToOuoA2G7oQ==
 
-cssnano@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-6.1.1.tgz#4a5f2602256efc9198a47ab549ce21028485cfcb"
-  integrity sha512-paTFZuiVohpaXJuau8l7buFt9+FTmfjwEO70EKitzYOQw3frib/It4sb6cQ+gJyDEyY+myDSni6IbBvKZ0N8Lw==
+cssnano@^6.1.2:
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-6.1.2.tgz#4bd19e505bd37ee7cf0dc902d3d869f6d79c66b8"
+  integrity sha512-rYk5UeX7VAM/u0lNqewCdasdtPK81CgX8wJFLEIXHbV2oldWRgJAsZrdhRXkV1NJzA2g850KiFm9mMU2HxNxMA==
   dependencies:
-    cssnano-preset-default "^6.1.1"
+    cssnano-preset-default "^6.1.2"
     lilconfig "^3.1.1"
 
 csso@^5.0.5:

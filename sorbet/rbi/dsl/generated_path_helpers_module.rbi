@@ -24,12 +24,6 @@ module GeneratedPathHelpersModule
   def admin_root_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
-  def admin_social_link_path(*args); end
-
-  sig { params(args: T.untyped).returns(String) }
-  def admin_social_links_path(*args); end
-
-  sig { params(args: T.untyped).returns(String) }
   def admin_user_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
@@ -60,9 +54,6 @@ module GeneratedPathHelpersModule
   def edit_admin_game_id_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
-  def edit_admin_social_link_path(*args); end
-
-  sig { params(args: T.untyped).returns(String) }
   def edit_admin_user_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
@@ -88,9 +79,6 @@ module GeneratedPathHelpersModule
 
   sig { params(args: T.untyped).returns(String) }
   def new_admin_game_id_path(*args); end
-
-  sig { params(args: T.untyped).returns(String) }
-  def new_admin_social_link_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def new_admin_user_path(*args); end
@@ -121,6 +109,9 @@ module GeneratedPathHelpersModule
 
   sig { params(args: T.untyped).returns(String) }
   def root_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def sidekiq_web_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def turbo_recede_historical_location_path(*args); end

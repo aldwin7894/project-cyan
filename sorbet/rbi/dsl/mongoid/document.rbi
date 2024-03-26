@@ -108,6 +108,9 @@ module Mongoid::Document
     def nested_attributes; end
     def nested_attributes=(value); end
     def nested_attributes?; end
+    def param_delimiter; end
+    def param_delimiter=(value); end
+    def param_delimiter?; end
     def polymorphic; end
     def polymorphic=(value); end
     def polymorphic?; end
@@ -172,6 +175,7 @@ module Mongoid::Document
     def nested_attributes; end
     def nested_attributes=(value); end
     def nested_attributes?; end
+    def param_delimiter=(value); end
     def polymorphic; end
     def polymorphic=(value); end
     def polymorphic?; end

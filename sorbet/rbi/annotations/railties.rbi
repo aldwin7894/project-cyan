@@ -21,7 +21,7 @@ module Rails
     sig { returns(ActiveSupport::ErrorReporter) }
     def error; end
 
-    sig { returns(T.untyped) }
+    sig { returns(T.all(ActiveSupport::Logger, ActiveSupport::TaggedLogging)) }
     def logger; end
 
     sig { returns(Pathname) }

@@ -11,7 +11,6 @@ gem:
     - ruby-lsp
     - ruby-lsp-rails
 dsl:
-  verify: true
 annotations:
   typed_overrides:
     graphql: "ignore"
