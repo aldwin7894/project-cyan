@@ -6,7 +6,7 @@ class SocialLink
 
   field :name, type: String
   field :url, type: String
-  field :class, type: String
+  field :class_name, type: String
   field :icon_name, type: String
   field :icon_filename, type: String
   field :icon_url, type: String

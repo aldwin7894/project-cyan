@@ -4718,7 +4718,7 @@ class Mongo::Cluster
   # @return [true, false] If the objects are equal.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#738
+  # source://mongo//lib/mongo/cluster.rb#740
   def ==(other); end
 
   # Add a server to the cluster with the provided address. Useful in
@@ -4733,7 +4733,7 @@ class Mongo::Cluster
   # @return [Server] The newly added server, if not present already.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#836
+  # source://mongo//lib/mongo/cluster.rb#838
   def add(host, add_options = T.unsafe(nil)); end
 
   # The addresses in the cluster.
@@ -4743,14 +4743,14 @@ class Mongo::Cluster
   # @return [Array<Mongo::Address>] The addresses.
   # @since 2.0.6
   #
-  # source://mongo//lib/mongo/cluster.rb#451
+  # source://mongo//lib/mongo/cluster.rb#453
   def addresses; end
 
   # @return [Mongo::Server::AppMetadata] The application metadata, used for
   #   connection handshakes.
   # @since 2.4.0
   #
-  # source://mongo//lib/mongo/cluster.rb#317
+  # source://mongo//lib/mongo/cluster.rb#319
   def app_metadata; end
 
   # Closes the cluster.
@@ -4770,7 +4770,7 @@ class Mongo::Cluster
   # @return [nil] Always nil.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#506
+  # source://mongo//lib/mongo/cluster.rb#508
   def close; end
 
   # Whether the cluster object is connected to its cluster.
@@ -4779,7 +4779,7 @@ class Mongo::Cluster
   # @return [true|false] Whether the cluster is connected.
   # @since 2.7.0
   #
-  # source://mongo//lib/mongo/cluster.rb#424
+  # source://mongo//lib/mongo/cluster.rb#426
   def connected?; end
 
   # Whether the cluster object is in the process of connecting to its cluster.
@@ -4788,13 +4788,13 @@ class Mongo::Cluster
   # @return [true|false] Whether the cluster is connecting.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#412
+  # source://mongo//lib/mongo/cluster.rb#414
   def connecting?; end
 
   # @api private
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#944
+  # source://mongo//lib/mongo/cluster.rb#946
   def disconnect_server_if_connected(server); end
 
   # Determine if the cluster would select a readable server for the
@@ -4807,7 +4807,7 @@ class Mongo::Cluster
   # @return [true, false] If a readable server is present.
   # @since 2.4.0
   #
-  # source://mongo//lib/mongo/cluster.rb#755
+  # source://mongo//lib/mongo/cluster.rb#757
   def has_readable_server?(server_selector = T.unsafe(nil)); end
 
   # Determine if the cluster would select a writable server.
@@ -4817,7 +4817,7 @@ class Mongo::Cluster
   # @return [true, false] If a writable server is present.
   # @since 2.4.0
   #
-  # source://mongo//lib/mongo/cluster.rb#767
+  # source://mongo//lib/mongo/cluster.rb#769
   def has_writable_server?; end
 
   # Get the refresh interval for the server. This will be defined via an
@@ -4827,7 +4827,7 @@ class Mongo::Cluster
   # @return [Float] The heartbeat interval, in seconds.
   # @since 2.10.0
   #
-  # source://mongo//lib/mongo/cluster.rb#403
+  # source://mongo//lib/mongo/cluster.rb#405
   def heartbeat_interval; end
 
   # Get the nicer formatted string for use in inspection.
@@ -4837,7 +4837,7 @@ class Mongo::Cluster
   # @return [String] The cluster inspection.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#473
+  # source://mongo//lib/mongo/cluster.rb#475
   def inspect; end
 
   # Returns whether the cluster is configured to be in the load-balanced
@@ -4846,7 +4846,7 @@ class Mongo::Cluster
   # @return [true | false] Whether the topology is load-balanced.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#345
+  # source://mongo//lib/mongo/cluster.rb#347
   def load_balanced?; end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -4864,19 +4864,19 @@ class Mongo::Cluster
   # @return [Integer] The maximum number of retries.
   # @since 2.1.1
   #
-  # source://mongo//lib/mongo/cluster.rb#374
+  # source://mongo//lib/mongo/cluster.rb#376
   def max_read_retries; end
 
   # @api private
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#320
+  # source://mongo//lib/mongo/cluster.rb#322
   def monitor_app_metadata; end
 
   # @return [Monitoring] monitoring The monitoring.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#308
+  # source://mongo//lib/mongo/cluster.rb#310
   def monitoring; end
 
   # Get the next primary server we can send an operation to.
@@ -4890,13 +4890,13 @@ class Mongo::Cluster
   # @return [Mongo::Server] A primary server.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#784
+  # source://mongo//lib/mongo/cluster.rb#786
   def next_primary(ping = T.unsafe(nil), session = T.unsafe(nil)); end
 
   # @return [Hash] The options hash.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#305
+  # source://mongo//lib/mongo/cluster.rb#307
   def options; end
 
   # Get the connection pool for the server.
@@ -4908,13 +4908,13 @@ class Mongo::Cluster
   # @return [Server::ConnectionPool] The connection pool.
   # @since 2.2.0
   #
-  # source://mongo//lib/mongo/cluster.rb#799
+  # source://mongo//lib/mongo/cluster.rb#801
   def pool(server); end
 
   # @api private
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#323
+  # source://mongo//lib/mongo/cluster.rb#325
   def push_monitor_app_metadata; end
 
   # Get the interval, in seconds, in which read retries when using legacy
@@ -4929,7 +4929,7 @@ class Mongo::Cluster
   # @return [Float] The interval.
   # @since 2.1.1
   #
-  # source://mongo//lib/mongo/cluster.rb#392
+  # source://mongo//lib/mongo/cluster.rb#394
   def read_retry_interval; end
 
   # Reconnect all servers.
@@ -4941,10 +4941,10 @@ class Mongo::Cluster
   # @return [true] Always true.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/cluster.rb#550
+  # source://mongo//lib/mongo/cluster.rb#552
   def reconnect!; end
 
-  # source://mongo//lib/mongo/cluster.rb#350
+  # source://mongo//lib/mongo/cluster.rb#352
   def register_cursor(*args); end
 
   # Remove the server from the cluster for the provided address, if it
@@ -4963,7 +4963,7 @@ class Mongo::Cluster
   #   (and should be disconnected by the caller).
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#885
+  # source://mongo//lib/mongo/cluster.rb#887
   def remove(host, disconnect: T.unsafe(nil)); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -4989,7 +4989,7 @@ class Mongo::Cluster
   # @param options [Hash] Options.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#636
+  # source://mongo//lib/mongo/cluster.rb#638
   def run_sdam_flow(previous_desc, updated_desc, options = T.unsafe(nil)); end
 
   # Force a scan of all known servers in the cluster.
@@ -5013,10 +5013,10 @@ class Mongo::Cluster
   # @return [true] Always true.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#595
+  # source://mongo//lib/mongo/cluster.rb#597
   def scan!(sync = T.unsafe(nil)); end
 
-  # source://mongo//lib/mongo/cluster.rb#350
+  # source://mongo//lib/mongo/cluster.rb#352
   def schedule_kill_cursor(*args); end
 
   # @api private
@@ -5025,13 +5025,13 @@ class Mongo::Cluster
   #   current addresses that the cluster is using as a result of SDAM.
   # @since 2.7.0
   #
-  # source://mongo//lib/mongo/cluster.rb#331
+  # source://mongo//lib/mongo/cluster.rb#333
   def seeds; end
 
   # @api private
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#488
+  # source://mongo//lib/mongo/cluster.rb#490
   def server_selection_semaphore; end
 
   # Get a list of server candidates from the cluster that can have operations
@@ -5042,19 +5042,19 @@ class Mongo::Cluster
   # @return [Array<Server>] The candidate servers.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#439
+  # source://mongo//lib/mongo/cluster.rb#441
   def servers; end
 
   # @api private
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#937
+  # source://mongo//lib/mongo/cluster.rb#939
   def servers_list; end
 
   # @private
   # @since 2.5.1
   #
-  # source://mongo//lib/mongo/cluster.rb#336
+  # source://mongo//lib/mongo/cluster.rb#338
   def session_pool; end
 
   # Sets the list of servers to the addresses in the provided list of address
@@ -5072,7 +5072,7 @@ class Mongo::Cluster
   #   to sync the cluster servers to.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#707
+  # source://mongo//lib/mongo/cluster.rb#709
   def set_server_list(server_address_strs); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -5084,14 +5084,14 @@ class Mongo::Cluster
   # @api private
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#358
+  # source://mongo//lib/mongo/cluster.rb#360
   def srv_monitor; end
 
   # @api experimental
   # @note This method is experimental and subject to change.
   # @since 2.7.0
   #
-  # source://mongo//lib/mongo/cluster.rb#481
+  # source://mongo//lib/mongo/cluster.rb#483
   def summary; end
 
   # The logical session timeout value in minutes.
@@ -5101,13 +5101,13 @@ class Mongo::Cluster
   # @return [Integer, nil] The logical session timeout.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/cluster.rb#311
+  # source://mongo//lib/mongo/cluster.rb#313
   def topology; end
 
   # source://forwardable/1.3.3/forwardable.rb#231
   def unknown?(*args, **_arg1, &block); end
 
-  # source://mongo//lib/mongo/cluster.rb#350
+  # source://mongo//lib/mongo/cluster.rb#352
   def unregister_cursor(*args); end
 
   # Update the max cluster time seen in a response.
@@ -5118,13 +5118,13 @@ class Mongo::Cluster
   # @return [Object] The cluster time.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/cluster.rb#813
+  # source://mongo//lib/mongo/cluster.rb#815
   def update_cluster_time(result); end
 
   # @api private
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#910
+  # source://mongo//lib/mongo/cluster.rb#912
   def update_topology(new_topology); end
 
   # Raises Error::SessionsNotAvailable if the deployment that the driver
@@ -5149,31 +5149,39 @@ class Mongo::Cluster
   #   server selection timeout.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#976
+  # source://mongo//lib/mongo/cluster.rb#978
   def validate_session_support!; end
 
   private
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#1051
+  # source://mongo//lib/mongo/cluster.rb#1053
   def fabricate_lb_sdam_events_and_set_server_type; end
+
+  # Compares the server hosts with address suffixes of known services
+  # that provide limited MongoDB API compatibility, and warns about them.
+  #
+  # @since 2.0.0
+  #
+  # source://mongo//lib/mongo/cluster.rb#1100
+  def possibly_warn_about_compatibility!; end
 
   # @raise [Error::SessionsNotSupported]
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#1035
+  # source://mongo//lib/mongo/cluster.rb#1037
   def raise_sessions_not_supported; end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#1078
+  # source://mongo//lib/mongo/cluster.rb#1080
   def recreate_topology(new_topology_template, previous_topology); end
 
   # @api private
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/cluster.rb#1007
+  # source://mongo//lib/mongo/cluster.rb#1009
   def start_stop_srv_monitor; end
 
   class << self
@@ -5190,7 +5198,7 @@ class Mongo::Cluster
     # @return [Cluster] The cluster.
     # @since 2.0.0
     #
-    # source://mongo//lib/mongo/cluster.rb#295
+    # source://mongo//lib/mongo/cluster.rb#297
     def create(client, monitoring: T.unsafe(nil)); end
   end
 end
@@ -5202,6 +5210,16 @@ end
 #
 # source://mongo//lib/mongo/cluster.rb#61
 Mongo::Cluster::CLUSTER_TIME = T.let(T.unsafe(nil), String)
+
+# @since 2.0.0
+#
+# source://mongo//lib/mongo/cluster.rb#1088
+Mongo::Cluster::COSMOSDB_HOST_PATTERNS = T.let(T.unsafe(nil), Array)
+
+# @since 2.0.0
+#
+# source://mongo//lib/mongo/cluster.rb#1089
+Mongo::Cluster::COSMOSDB_LOG_MESSAGE = T.let(T.unsafe(nil), String)
 
 # A manager that sends kill cursors operations at regular intervals to close
 # cursors that have been garbage collected without being exhausted.
@@ -5311,6 +5329,16 @@ end
 #
 # source://mongo//lib/mongo/cluster/reapers/cursor_reaper.rb#35
 Mongo::Cluster::CursorReaper::FREQUENCY = T.let(T.unsafe(nil), Integer)
+
+# @since 2.0.0
+#
+# source://mongo//lib/mongo/cluster.rb#1093
+Mongo::Cluster::DOCUMENTDB_HOST_PATTERNS = T.let(T.unsafe(nil), Array)
+
+# @since 2.0.0
+#
+# source://mongo//lib/mongo/cluster.rb#1094
+Mongo::Cluster::DOCUMENTDB_LOG_MESSAGE = T.let(T.unsafe(nil), String)
 
 # How often an idle primary writes a no-op to the oplog.
 #
@@ -5866,6 +5894,18 @@ class Mongo::Cluster::Topology::Base
   # source://mongo//lib/mongo/cluster/topology/base.rb#136
   def server_descriptions; end
 
+  # Compares each server address against the list of patterns.
+  #
+  # @api private
+  # @param patterns [Array<String>] the URL suffixes to compare
+  #   each server against.
+  # @return [true | false] whether any of the addresses match any of
+  #   the patterns or not.
+  # @since 2.7.0
+  #
+  # source://mongo//lib/mongo/cluster/topology/base.rb#223
+  def server_hosts_match_any?(patterns); end
+
   private
 
   # @api private
@@ -5880,7 +5920,7 @@ class Mongo::Cluster::Topology::Base
   # @return [Hash] New options
   # @since 2.7.0
   #
-  # source://mongo//lib/mongo/cluster/topology/base.rb#219
+  # source://mongo//lib/mongo/cluster/topology/base.rb#235
   def validate_options(options, cluster); end
 end
 
@@ -6639,7 +6679,7 @@ class Mongo::Collection
   # @return [View::Aggregation] The aggregation object.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#538
+  # source://mongo//lib/mongo/collection.rb#540
   def aggregate(pipeline, options = T.unsafe(nil)); end
 
   # Execute a batch of bulk write operations.
@@ -6656,7 +6696,7 @@ class Mongo::Collection
   # @return [BulkWrite::Result] The result of the operation.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#869
+  # source://mongo//lib/mongo/collection.rb#871
   def bulk_write(requests, options = T.unsafe(nil)); end
 
   # Is the collection capped?
@@ -6697,7 +6737,7 @@ class Mongo::Collection
   # @return [Integer] The document count.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#642
+  # source://mongo//lib/mongo/collection.rb#644
   def count(filter = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # Gets the number of documents matching the query. Unlike the deprecated
@@ -6721,7 +6761,7 @@ class Mongo::Collection
   # @return [Integer] The document count.
   # @since 2.6.0
   #
-  # source://mongo//lib/mongo/collection.rb#672
+  # source://mongo//lib/mongo/collection.rb#674
   def count_documents(filter = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # Force the collection to be created in the database.
@@ -6747,7 +6787,7 @@ class Mongo::Collection
   # @return [Result] The result of the command.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#375
+  # source://mongo//lib/mongo/collection.rb#377
   def create(opts = T.unsafe(nil)); end
 
   # @return [Mongo::Database] The database the collection resides in.
@@ -6769,7 +6809,7 @@ class Mongo::Collection
   # @return [Result] The response from the database.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#913
+  # source://mongo//lib/mongo/collection.rb#915
   def delete_many(filter = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # Remove a document from the collection.
@@ -6785,7 +6825,7 @@ class Mongo::Collection
   # @return [Result] The response from the database.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#891
+  # source://mongo//lib/mongo/collection.rb#893
   def delete_one(filter = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # Get a list of distinct values for a specific field.
@@ -6802,7 +6842,7 @@ class Mongo::Collection
   # @return [Array<Object>] The list of distinct values.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#714
+  # source://mongo//lib/mongo/collection.rb#716
   def distinct(field_name, filter = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # Drop the collection. Will also drop all indexes associated with the
@@ -6818,7 +6858,7 @@ class Mongo::Collection
   # @return [Result] The result of the command.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#437
+  # source://mongo//lib/mongo/collection.rb#439
   def drop(opts = T.unsafe(nil)); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -6837,7 +6877,7 @@ class Mongo::Collection
   # @return [Integer] The document count.
   # @since 2.6.0
   #
-  # source://mongo//lib/mongo/collection.rb#693
+  # source://mongo//lib/mongo/collection.rb#695
   def estimated_document_count(options = T.unsafe(nil)); end
 
   # Find documents in the collection.
@@ -6867,7 +6907,7 @@ class Mongo::Collection
   # @return [CollectionView] The collection view.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#503
+  # source://mongo//lib/mongo/collection.rb#505
   def find(filter = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # Finds a single document in the database via findAndModify and deletes
@@ -6888,7 +6928,7 @@ class Mongo::Collection
   # @return [BSON::Document, nil] The document, if found.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#1051
+  # source://mongo//lib/mongo/collection.rb#1053
   def find_one_and_delete(filter, options = T.unsafe(nil)); end
 
   # Finds a single document and replaces it, returning the original doc unless
@@ -6915,7 +6955,7 @@ class Mongo::Collection
   # @return [BSON::Document] The document.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#1129
+  # source://mongo//lib/mongo/collection.rb#1131
   def find_one_and_replace(filter, replacement, options = T.unsafe(nil)); end
 
   # Finds a single document via findAndModify and updates it, returning the original doc unless
@@ -6943,7 +6983,7 @@ class Mongo::Collection
   # @return [BSON::Document] The document.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#1091
+  # source://mongo//lib/mongo/collection.rb#1093
   def find_one_and_update(filter, update, options = T.unsafe(nil)); end
 
   # Get a view of all indexes for this collection. Can be iterated or has
@@ -6956,7 +6996,7 @@ class Mongo::Collection
   # @return [Index::View] The index view.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#731
+  # source://mongo//lib/mongo/collection.rb#733
   def indexes(options = T.unsafe(nil)); end
 
   # Insert the provided documents into the collection.
@@ -6973,7 +7013,7 @@ class Mongo::Collection
   # @return [Result] The database response wrapper.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#841
+  # source://mongo//lib/mongo/collection.rb#843
   def insert_many(documents, options = T.unsafe(nil)); end
 
   # Insert a single document into the collection.
@@ -6989,7 +7029,7 @@ class Mongo::Collection
   # @return [Result] The database response wrapper.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#788
+  # source://mongo//lib/mongo/collection.rb#790
   def insert_one(document, opts = T.unsafe(nil)); end
 
   # Get a pretty printed string inspection for the collection.
@@ -6999,7 +7039,7 @@ class Mongo::Collection
   # @return [String] The collection inspection.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#765
+  # source://mongo//lib/mongo/collection.rb#767
   def inspect; end
 
   # @return [String] The name of the collection.
@@ -7015,7 +7055,7 @@ class Mongo::Collection
   # @return [String] The collection namespace.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#1141
+  # source://mongo//lib/mongo/collection.rb#1143
   def namespace; end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -7042,7 +7082,7 @@ class Mongo::Collection
   # @return [Array<Cursor>] An array of cursors.
   # @since 2.1
   #
-  # source://mongo//lib/mongo/collection.rb#936
+  # source://mongo//lib/mongo/collection.rb#938
   def parallel_scan(cursor_count, options = T.unsafe(nil)); end
 
   # Get the effective read concern for this collection instance.
@@ -7089,7 +7129,7 @@ class Mongo::Collection
   # @return [Result] The response from the database.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#963
+  # source://mongo//lib/mongo/collection.rb#965
   def replace_one(filter, replacement, options = T.unsafe(nil)); end
 
   # Get a view of all search indexes for this collection. Can be iterated or
@@ -7106,7 +7146,7 @@ class Mongo::Collection
   # @return [SearchIndex::View] The search index view.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#753
+  # source://mongo//lib/mongo/collection.rb#755
   def search_indexes(options = T.unsafe(nil)); end
 
   # Get the server selector for this collection.
@@ -7125,7 +7165,7 @@ class Mongo::Collection
   # @return [Boolean] Whether the system is a system collection.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#1150
+  # source://mongo//lib/mongo/collection.rb#1152
   def system_collection?; end
 
   # Update documents in the collection.
@@ -7145,7 +7185,7 @@ class Mongo::Collection
   # @return [Result] The response from the database.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#992
+  # source://mongo//lib/mongo/collection.rb#994
   def update_many(filter, update, options = T.unsafe(nil)); end
 
   # Update a single document in the collection.
@@ -7165,7 +7205,7 @@ class Mongo::Collection
   # @return [Result] The response from the database.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#1021
+  # source://mongo//lib/mongo/collection.rb#1023
   def update_one(filter, update, options = T.unsafe(nil)); end
 
   # As of version 3.6 of the MongoDB server, a ``$changeStream`` pipeline
@@ -7193,7 +7233,7 @@ class Mongo::Collection
   # @return [ChangeStream] The change stream object.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/collection.rb#609
+  # source://mongo//lib/mongo/collection.rb#611
   def watch(pipeline = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # @example Get a collection with a changed read concern.
@@ -8295,7 +8335,7 @@ module Mongo::Collection::View::Iterable
   # @param spec [Hash] The command specification.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection/view/iterable.rb#209
+  # source://mongo//lib/mongo/collection/view/iterable.rb#210
   def maybe_set_tailable_options(spec); end
 
   # @since 2.0.0
@@ -8305,13 +8345,13 @@ module Mongo::Collection::View::Iterable
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection/view/iterable.rb#198
+  # source://mongo//lib/mongo/collection/view/iterable.rb#199
   def send_initial_query(server, session = T.unsafe(nil)); end
 
   # @return [Boolean]
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection/view/iterable.rb#202
+  # source://mongo//lib/mongo/collection/view/iterable.rb#203
   def use_query_cache?; end
 end
 
@@ -14675,6 +14715,24 @@ class Mongo::Error::SocketTimeoutError < ::Mongo::Error; end
 # source://mongo//lib/mongo/error.rb#110
 Mongo::Error::TRANSIENT_TRANSACTION_ERROR_LABEL = T.let(T.unsafe(nil), String)
 
+# Transactions are not supported by the cluster. There might be the
+# following reasons:
+#  - topology is standalone
+#  - topology is replica set and server version is < 4.0
+#  - topology is sharded and server version is < 4.2
+#
+# @param reason [String] The reason why transactions are no supported.
+# @since 2.7.0
+#
+# source://mongo//lib/mongo/error/transactions_not_supported.rb#28
+class Mongo::Error::TransactionsNotSupported < ::Mongo::Error
+  # @return [TransactionsNotSupported] a new instance of TransactionsNotSupported
+  # @since 2.7.0
+  #
+  # source://mongo//lib/mongo/error/transactions_not_supported.rb#29
+  def initialize(reason); end
+end
+
 # Constant for an unknown error.
 #
 # @since 2.0.0
@@ -15235,6 +15293,13 @@ class Mongo::Grid::FSBucket
   # source://mongo//lib/mongo/grid/fs_bucket.rb#359
   def download_to_stream_by_name(filename, io, opts = T.unsafe(nil)); end
 
+  # Drop the collections that implement this bucket.
+  #
+  # @since 2.0.0
+  #
+  # source://mongo//lib/mongo/grid/fs_bucket.rb#488
+  def drop; end
+
   # @return [Collection] files_collection The files collection.
   # @since 2.0.0
   #
@@ -15422,34 +15487,34 @@ class Mongo::Grid::FSBucket
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/grid/fs_bucket.rb#501
+  # source://mongo//lib/mongo/grid/fs_bucket.rb#507
   def chunks_name; end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/grid/fs_bucket.rb#519
+  # source://mongo//lib/mongo/grid/fs_bucket.rb#525
   def create_index_if_missing!(collection, index_spec, options = T.unsafe(nil)); end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/grid/fs_bucket.rb#509
+  # source://mongo//lib/mongo/grid/fs_bucket.rb#515
   def ensure_indexes!; end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/grid/fs_bucket.rb#505
+  # source://mongo//lib/mongo/grid/fs_bucket.rb#511
   def files_name; end
 
   # @option opts
   # @param opts [Hash] The options.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/grid/fs_bucket.rb#493
+  # source://mongo//lib/mongo/grid/fs_bucket.rb#499
   def read_stream(id, **opts); end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/grid/fs_bucket.rb#497
+  # source://mongo//lib/mongo/grid/fs_bucket.rb#503
   def write_stream(filename, **opts); end
 end
 
@@ -19816,20 +19881,20 @@ end
 # @api private
 # @since 2.5.2
 #
-# source://mongo//lib/mongo/operation/shared/executable.rb#25
+# source://mongo//lib/mongo/operation/shared/executable.rb#27
 module Mongo::Operation::Executable
   include ::Mongo::Operation::ResponseHandling
 
   # @api private
   # @since 2.5.2
   #
-  # source://mongo//lib/mongo/operation/shared/executable.rb#29
+  # source://mongo//lib/mongo/operation/shared/executable.rb#31
   def do_execute(connection, context, options = T.unsafe(nil)); end
 
   # @api private
   # @since 2.5.2
   #
-  # source://mongo//lib/mongo/operation/shared/executable.rb#73
+  # source://mongo//lib/mongo/operation/shared/executable.rb#77
   def execute(connection, context:, options: T.unsafe(nil)); end
 
   private
@@ -19840,41 +19905,53 @@ module Mongo::Operation::Executable
   # @param context [Mongo::Operation::Context] The operation context.
   # @since 2.5.2
   #
-  # source://mongo//lib/mongo/operation/shared/executable.rb#106
+  # source://mongo//lib/mongo/operation/shared/executable.rb#110
   def build_message(connection, context); end
+
+  # @api private
+  # @since 2.5.2
+  #
+  # source://mongo//lib/mongo/operation/shared/executable.rb#157
+  def check_for_network_error; end
 
   # Returns a Protocol::Message or nil as reply.
   #
   # @api private
   # @since 2.5.2
   #
-  # source://mongo//lib/mongo/operation/shared/executable.rb#96
+  # source://mongo//lib/mongo/operation/shared/executable.rb#100
   def dispatch_message(connection, context, options = T.unsafe(nil)); end
 
   # @api private
   # @since 2.5.2
   #
-  # source://mongo//lib/mongo/operation/shared/executable.rb#91
+  # source://mongo//lib/mongo/operation/shared/executable.rb#95
   def get_result(connection, context, options = T.unsafe(nil)); end
 
   # @api private
   # @since 2.5.2
   #
-  # source://mongo//lib/mongo/operation/shared/executable.rb#114
+  # source://mongo//lib/mongo/operation/shared/executable.rb#118
   def process_result(result, connection); end
 
   # @api private
   # @since 2.5.2
   #
-  # source://mongo//lib/mongo/operation/shared/executable.rb#126
+  # source://mongo//lib/mongo/operation/shared/executable.rb#130
   def process_result_for_sdam(result, connection); end
 
   # @api private
   # @since 2.5.2
   #
-  # source://mongo//lib/mongo/operation/shared/executable.rb#87
+  # source://mongo//lib/mongo/operation/shared/executable.rb#91
   def result_class; end
 end
+
+# @api private
+# @since 2.5.2
+#
+# source://mongo//lib/mongo/operation/shared/executable.rb#152
+Mongo::Operation::Executable::NETWORK_ERRORS = T.let(T.unsafe(nil), Array)
 
 # Shared executable behavior of operations for operations
 # whose result should not be validated.
@@ -21358,7 +21435,7 @@ module Mongo::Operation::ResponseHandling
   #
   # @api private
   #
-  # source://mongo//lib/mongo/operation/shared/response_handling.rb#107
+  # source://mongo//lib/mongo/operation/shared/response_handling.rb#105
   def add_server_diagnostics(connection); end
 
   # A method that will add the RetryableWriteError label to an error if
@@ -21386,7 +21463,7 @@ module Mongo::Operation::ResponseHandling
   #   the operation is performed.
   # @param context [Mongo::Operation::Context] The operation context.
   #
-  # source://mongo//lib/mongo/operation/shared/response_handling.rb#146
+  # source://mongo//lib/mongo/operation/shared/response_handling.rb#144
   def maybe_add_retryable_write_error_label!(error, connection, context); end
 
   # Unpins the session and/or the connection if  the yielded to block
@@ -21399,7 +21476,7 @@ module Mongo::Operation::ResponseHandling
   # @param session [Session | nil] Session to consider.
   # @param connection [Connection | nil] Connection to unpin.
   #
-  # source://mongo//lib/mongo/operation/shared/response_handling.rb#93
+  # source://mongo//lib/mongo/operation/shared/response_handling.rb#91
   def unpin_maybe(session, connection); end
 
   # @api private
@@ -25675,7 +25752,7 @@ module Mongo::Retryable
   # @since 2.1.0
   #
   # source://mongo//lib/mongo/retryable.rb#49
-  def select_server(cluster, server_selector, session); end
+  def select_server(cluster, server_selector, session, failed_server = T.unsafe(nil)); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
   def write_with_retry(*args, **_arg1, &block); end
@@ -25893,7 +25970,7 @@ class Mongo::Retryable::ReadWorker < ::Mongo::Retryable::BaseWorker
   # @return [Result] The result of the operation.
   # @since 2.19.0
   #
-  # source://mongo//lib/mongo/retryable/read_worker.rb#212
+  # source://mongo//lib/mongo/retryable/read_worker.rb#213
   def legacy_read_with_retry(session, server_selector, &block); end
 
   # Attempts to do a "modern" read with retry. Only a single retry will
@@ -25923,7 +26000,7 @@ class Mongo::Retryable::ReadWorker < ::Mongo::Retryable::BaseWorker
   # @return [Result] The result of the operation.
   # @since 2.19.0
   #
-  # source://mongo//lib/mongo/retryable/read_worker.rb#241
+  # source://mongo//lib/mongo/retryable/read_worker.rb#242
   def read_without_retry(session, server_selector, &block); end
 
   # The retry logic of the "modern" read_with_retry implementation.
@@ -25935,12 +26012,14 @@ class Mongo::Retryable::ReadWorker < ::Mongo::Retryable::BaseWorker
   #   being run on.
   # @param server_selector [Mongo::ServerSelector::Selectable] Server
   #   selector for the operation.
+  # @param failed_server [Mongo::Server] The server on which the original
+  #   operation failed.
   # @param block [Proc] The block to execute.
   # @return [Result] The result of the operation.
   # @since 2.19.0
   #
-  # source://mongo//lib/mongo/retryable/read_worker.rb#263
-  def retry_read(original_error, session, server_selector, &block); end
+  # source://mongo//lib/mongo/retryable/read_worker.rb#266
+  def retry_read(original_error, session, server_selector, failed_server: T.unsafe(nil), &block); end
 end
 
 # Implements the logic around retrying write operations.
@@ -25982,7 +26061,7 @@ class Mongo::Retryable::WriteWorker < ::Mongo::Retryable::BaseWorker
   # @return [true | false] Whether write retries are allowed or not.
   # @since 2.19.0
   #
-  # source://mongo//lib/mongo/retryable/write_worker.rb#129
+  # source://mongo//lib/mongo/retryable/write_worker.rb#130
   def retry_write_allowed?(session, write_concern); end
 
   # Implements write retrying functionality by yielding to the passed
@@ -26027,7 +26106,7 @@ class Mongo::Retryable::WriteWorker < ::Mongo::Retryable::BaseWorker
   # @api private
   # @since 2.19.0
   #
-  # source://mongo//lib/mongo/retryable/write_worker.rb#305
+  # source://mongo//lib/mongo/retryable/write_worker.rb#308
   def ensure_labeled_retryable!(e, connection_succeeded, session); end
 
   # Make sure the exception object supports retryable writes. If it does,
@@ -26037,7 +26116,7 @@ class Mongo::Retryable::WriteWorker < ::Mongo::Retryable::BaseWorker
   # @api private
   # @since 2.19.0
   #
-  # source://mongo//lib/mongo/retryable/write_worker.rb#322
+  # source://mongo//lib/mongo/retryable/write_worker.rb#325
   def ensure_retryable!(e); end
 
   # Makes sure the state of the arguments is consistent and valid.
@@ -26049,7 +26128,7 @@ class Mongo::Retryable::WriteWorker < ::Mongo::Retryable::BaseWorker
   #   is being run on (if any).
   # @since 2.19.0
   #
-  # source://mongo//lib/mongo/retryable/write_worker.rb#147
+  # source://mongo//lib/mongo/retryable/write_worker.rb#148
   def ensure_valid_state!(ending_transaction, session); end
 
   # Raise either e, or original_error, depending on whether e is
@@ -26058,7 +26137,7 @@ class Mongo::Retryable::WriteWorker < ::Mongo::Retryable::BaseWorker
   # @api private
   # @since 2.19.0
   #
-  # source://mongo//lib/mongo/retryable/write_worker.rb#344
+  # source://mongo//lib/mongo/retryable/write_worker.rb#347
   def fail_on_operation_failure!(e, original_error); end
 
   # Raise the original error (after annotating).
@@ -26066,7 +26145,7 @@ class Mongo::Retryable::WriteWorker < ::Mongo::Retryable::BaseWorker
   # @api private
   # @since 2.19.0
   #
-  # source://mongo//lib/mongo/retryable/write_worker.rb#356
+  # source://mongo//lib/mongo/retryable/write_worker.rb#359
   def fail_on_other_error!(e, original_error); end
 
   # Raise either e, or original_error, depending on whether e is
@@ -26075,7 +26154,7 @@ class Mongo::Retryable::WriteWorker < ::Mongo::Retryable::BaseWorker
   # @api private
   # @since 2.19.0
   #
-  # source://mongo//lib/mongo/retryable/write_worker.rb#332
+  # source://mongo//lib/mongo/retryable/write_worker.rb#335
   def fail_on_retryable!(e, original_error); end
 
   # Implements legacy write retrying functionality by yielding to the passed
@@ -26095,7 +26174,7 @@ class Mongo::Retryable::WriteWorker < ::Mongo::Retryable::BaseWorker
   # @yieldparam txn_num [nil] nil as transaction number.
   # @yieldparam context [Operation::Context] The operation context.
   #
-  # source://mongo//lib/mongo/retryable/write_worker.rb#170
+  # source://mongo//lib/mongo/retryable/write_worker.rb#171
   def legacy_write_with_retry(server = T.unsafe(nil), context:); end
 
   # Implements modern write retrying functionality by yielding to the passed
@@ -26114,7 +26193,7 @@ class Mongo::Retryable::WriteWorker < ::Mongo::Retryable::BaseWorker
   # @yieldparam txn_num [Integer] Transaction number (NOT the ACID kind).
   # @yieldparam context [Operation::Context] The operation context.
   #
-  # source://mongo//lib/mongo/retryable/write_worker.rb#218
+  # source://mongo//lib/mongo/retryable/write_worker.rb#219
   def modern_write_with_retry(session, server, context, &block); end
 
   # Retry writes on MMAPv1 should raise an actionable error; append actionable
@@ -26123,7 +26202,7 @@ class Mongo::Retryable::WriteWorker < ::Mongo::Retryable::BaseWorker
   # @api private
   # @since 2.19.0
   #
-  # source://mongo//lib/mongo/retryable/write_worker.rb#295
+  # source://mongo//lib/mongo/retryable/write_worker.rb#298
   def raise_unsupported_error(e); end
 
   # Called after a failed write, this will retry the write no more than
@@ -26134,11 +26213,13 @@ class Mongo::Retryable::WriteWorker < ::Mongo::Retryable::BaseWorker
   #   retry.
   # @param txn_num [Number] The transaction number.
   # @param context [Operation::Context] The context for the operation.
+  # @param failed_server [Mongo::Server] The server on which the original
+  #   operation failed.
   # @return [Result] The result of the operation.
   # @since 2.19.0
   #
-  # source://mongo//lib/mongo/retryable/write_worker.rb#255
-  def retry_write(original_error, txn_num, context:, &block); end
+  # source://mongo//lib/mongo/retryable/write_worker.rb#258
+  def retry_write(original_error, txn_num, context:, failed_server: T.unsafe(nil), &block); end
 end
 
 # source://mongo//lib/mongo/search_index/view.rb#4
@@ -26908,7 +26989,7 @@ class Mongo::Server::AppMetadata
 
   # @api private
   #
-  # source://mongo//lib/mongo/server/app_metadata.rb#211
+  # source://mongo//lib/mongo/server/app_metadata.rb#212
   def architecture; end
 
   # Verifies that the given purpose is either nil, or is one of the
@@ -26919,7 +27000,7 @@ class Mongo::Server::AppMetadata
   # @raise [ArgumentError] if the purpose is invalid
   # @return [String | nil] the {{purpose}} argument
   #
-  # source://mongo//lib/mongo/server/app_metadata.rb#227
+  # source://mongo//lib/mongo/server/app_metadata.rb#228
   def check_purpose!(purpose); end
 
   # Get the metadata as BSON::Document to be sent to
@@ -26937,18 +27018,19 @@ class Mongo::Server::AppMetadata
   # source://mongo//lib/mongo/server/app_metadata.rb#168
   def driver_doc; end
 
-  # Returns the environment doc describing the current FaaS environment.
+  # Returns the environment doc describing the current execution
+  # environment.
   #
   # @api private
-  # @return [Hash | nil] the environment doc (or nil if not in a FaaS
-  #   environment).
+  # @return [Hash | nil] the environment doc (or nil if no relevant
+  #   environment info was detected)
   #
-  # source://mongo//lib/mongo/server/app_metadata.rb#194
+  # source://mongo//lib/mongo/server/app_metadata.rb#195
   def env_doc; end
 
   # @api private
   #
-  # source://mongo//lib/mongo/server/app_metadata.rb#207
+  # source://mongo//lib/mongo/server/app_metadata.rb#208
   def name; end
 
   # @api private
@@ -26958,12 +27040,12 @@ class Mongo::Server::AppMetadata
 
   # @api private
   #
-  # source://mongo//lib/mongo/server/app_metadata.rb#215
+  # source://mongo//lib/mongo/server/app_metadata.rb#216
   def platform_string; end
 
   # @api private
   #
-  # source://mongo//lib/mongo/server/app_metadata.rb#199
+  # source://mongo//lib/mongo/server/app_metadata.rb#200
   def type; end
 
   # Check whether it is possible to build a valid app metadata document
@@ -26991,12 +27073,15 @@ Mongo::Server::AppMetadata::AUTH_OPTION_KEYS = T.let(T.unsafe(nil), Array)
 Mongo::Server::AppMetadata::DRIVER_NAME = T.let(T.unsafe(nil), String)
 
 # Implements the logic from the handshake spec, for deducing and
-# reporting the current FaaS environment in which the program is
+# reporting the current environment in which the program is
 # executing.
+#
+# This includes FaaS environment checks, as well as checks for the
+# presence of a container (Docker) and/or orchestrator (Kubernetes).
 #
 # @api private
 #
-# source://mongo//lib/mongo/server/app_metadata/environment.rb#25
+# source://mongo//lib/mongo/server/app_metadata/environment.rb#28
 class Mongo::Server::AppMetadata::Environment
   # Create a new AppMetadata::Environment object, initializing it from
   # the current ENV variables. If no FaaS environment is detected, or
@@ -27006,7 +27091,7 @@ class Mongo::Server::AppMetadata::Environment
   # @api private
   # @return [Environment] a new instance of Environment
   #
-  # source://mongo//lib/mongo/server/app_metadata/environment.rb#104
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#111
   def initialize; end
 
   # Queries whether the current environment is a valid AWS Lambda
@@ -27016,7 +27101,7 @@ class Mongo::Server::AppMetadata::Environment
   # @return [true | false] whether the environment is a AWS Lambda
   #   environment or not.
   #
-  # source://mongo//lib/mongo/server/app_metadata/environment.rb#131
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#157
   def aws?; end
 
   # Queries whether the current environment is a valid Azure
@@ -27026,8 +27111,17 @@ class Mongo::Server::AppMetadata::Environment
   # @return [true | false] whether the environment is a Azure
   #   environment or not.
   #
-  # source://mongo//lib/mongo/server/app_metadata/environment.rb#140
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#166
   def azure?; end
+
+  # Queries the detected container information.
+  #
+  # @api private
+  # @return [Hash | nil] the detected container information, or
+  #   nil if no container was detected.
+  #
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#131
+  def container; end
 
   # @api private
   # @note These error messagess are not to be propogated to the
@@ -27035,7 +27129,7 @@ class Mongo::Server::AppMetadata::Environment
   # @return [String | nil] the error message explaining why a valid
   #   FaaS environment was not detected, or nil if no error occurred.
   #
-  # source://mongo//lib/mongo/server/app_metadata/environment.rb#98
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#105
   def error; end
 
   # Queries whether the current environment is a valid FaaS environment.
@@ -27044,14 +27138,14 @@ class Mongo::Server::AppMetadata::Environment
   # @return [true | false] whether the environment is a FaaS
   #   environment or not.
   #
-  # source://mongo//lib/mongo/server/app_metadata/environment.rb#122
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#148
   def faas?; end
 
   # @api private
   # @return [Hash | nil] the fields describing the detected FaaS
   #   environment.
   #
-  # source://mongo//lib/mongo/server/app_metadata/environment.rb#91
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#98
   def fields; end
 
   # Queries whether the current environment is a valid GCP
@@ -27061,25 +27155,32 @@ class Mongo::Server::AppMetadata::Environment
   # @return [true | false] whether the environment is a GCP
   #   environment or not.
   #
-  # source://mongo//lib/mongo/server/app_metadata/environment.rb#149
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#175
   def gcp?; end
 
   # @api private
   # @return [String | nil] the name of the FaaS environment that was
   #   detected, or nil if no valid FaaS environment was detected.
   #
-  # source://mongo//lib/mongo/server/app_metadata/environment.rb#87
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#94
   def name; end
 
-  # Compiles the detected environment information into a Hash. It will
-  # always include a {{name}} key, but may include other keys as well,
-  # depending on the detected FaaS environment. (See the handshake
-  # spec for details.)
+  # Queries whether any environment information was able to be
+  # detected.
+  #
+  # @api private
+  # @return [true | false] if any environment information was
+  #   detected.
+  #
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#140
+  def present?; end
+
+  # Compiles the detected environment information into a Hash.
   #
   # @api private
   # @return [Hash] the detected environment information.
   #
-  # source://mongo//lib/mongo/server/app_metadata/environment.rb#168
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#191
   def to_h; end
 
   # Queries whether the current environment is a valid Vercel
@@ -27089,10 +27190,20 @@ class Mongo::Server::AppMetadata::Environment
   # @return [true | false] whether the environment is a Vercel
   #   environment or not.
   #
-  # source://mongo//lib/mongo/server/app_metadata/environment.rb#158
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#184
   def vercel?; end
 
   private
+
+  # Looks for the presence of a container. Currently can detect
+  # Docker (by the existence of a .dockerenv file in the root
+  # directory) and Kubernetes (by the existence of the KUBERNETES_SERVICE_HOST
+  # environment variable).
+  #
+  # @api private
+  #
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#222
+  def detect_container; end
 
   # Searches the DESCRIMINATORS list to see which (if any) apply to
   # the current environment.
@@ -27102,7 +27213,7 @@ class Mongo::Server::AppMetadata::Environment
   #   discriminating variables for more than one FaaS provider.
   # @return [String | nil] the name of the detected FaaS provider.
   #
-  # source://mongo//lib/mongo/server/app_metadata/environment.rb#181
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#204
   def detect_environment; end
 
   # Determines whether the named environment variable exists, and (if
@@ -27114,15 +27225,31 @@ class Mongo::Server::AppMetadata::Environment
   # @return [true | false] if the variable describes the current
   #   environment or not.
   #
-  # source://mongo//lib/mongo/server/app_metadata/environment.rb#203
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#258
   def discriminator_matches?(var); end
+
+  # Checks for the existence of a .dockerenv in the root directory.
+  #
+  # @api private
+  # @return [Boolean]
+  #
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#234
+  def docker_present?; end
+
+  # Implementing this as a method so that it can be mocked in tests, to
+  # test the presence or absence of Docker.
+  #
+  # @api private
+  #
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#240
+  def dockerenv_path; end
 
   # Sets the error message to the given value and sets the name to nil.
   #
   # @api private
   # @param msg [String] The error message to store.
   #
-  # source://mongo//lib/mongo/server/app_metadata/environment.rb#252
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#307
   def error=(msg); end
 
   # Extracts the named variable from the environment and validates it
@@ -27141,8 +27268,17 @@ class Mongo::Server::AppMetadata::Environment
   # @return [Integer | String] the validated and coerced value of the
   #   given environment variable.
   #
-  # source://mongo//lib/mongo/server/app_metadata/environment.rb#239
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#294
   def extract_field(var, definition); end
+
+  # Checks for the presence of a non-empty KUBERNETES_SERVICE_HOST
+  # environment variable.
+  #
+  # @api private
+  # @return [Boolean]
+  #
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#246
+  def kubernetes_present?; end
 
   # Extracts environment information from the current environment
   # variables, based on the detected FaaS environment. Populates the
@@ -27150,15 +27286,15 @@ class Mongo::Server::AppMetadata::Environment
   #
   # @api private
   #
-  # source://mongo//lib/mongo/server/app_metadata/environment.rb#215
-  def populate_fields; end
+  # source://mongo//lib/mongo/server/app_metadata/environment.rb#270
+  def populate_faas_fields; end
 end
 
 # Describes how to coerce values of the specified type.
 #
 # @api private
 #
-# source://mongo//lib/mongo/server/app_metadata/environment.rb#58
+# source://mongo//lib/mongo/server/app_metadata/environment.rb#65
 Mongo::Server::AppMetadata::Environment::COERCIONS = T.let(T.unsafe(nil), Hash)
 
 # The mapping that determines which FaaS environment is active, based
@@ -27166,8 +27302,16 @@ Mongo::Server::AppMetadata::Environment::COERCIONS = T.let(T.unsafe(nil), Hash)
 #
 # @api private
 #
-# source://mongo//lib/mongo/server/app_metadata/environment.rb#48
+# source://mongo//lib/mongo/server/app_metadata/environment.rb#55
 Mongo::Server::AppMetadata::Environment::DISCRIMINATORS = T.let(T.unsafe(nil), Hash)
+
+# The name and location of the .dockerenv file that will signal the
+# presence of Docker.
+#
+# @api private
+#
+# source://mongo//lib/mongo/server/app_metadata/environment.rb#47
+Mongo::Server::AppMetadata::Environment::DOCKERENV_PATH = T.let(T.unsafe(nil), String)
 
 # Describes which fields are required for each FaaS environment,
 # along with their expected types, and how they should be named in
@@ -27175,7 +27319,7 @@ Mongo::Server::AppMetadata::Environment::DISCRIMINATORS = T.let(T.unsafe(nil), H
 #
 # @api private
 #
-# source://mongo//lib/mongo/server/app_metadata/environment.rb#66
+# source://mongo//lib/mongo/server/app_metadata/environment.rb#73
 Mongo::Server::AppMetadata::Environment::FIELDS = T.let(T.unsafe(nil), Hash)
 
 # This value is not explicitly specified in the spec, only implied to be
@@ -27183,7 +27327,7 @@ Mongo::Server::AppMetadata::Environment::FIELDS = T.let(T.unsafe(nil), Hash)
 #
 # @api private
 #
-# source://mongo//lib/mongo/server/app_metadata/environment.rb#44
+# source://mongo//lib/mongo/server/app_metadata/environment.rb#51
 Mongo::Server::AppMetadata::Environment::MAXIMUM_VALUE_LENGTH = T.let(T.unsafe(nil), Integer)
 
 # Error class for reporting that a required environment variable is
@@ -27191,7 +27335,7 @@ Mongo::Server::AppMetadata::Environment::MAXIMUM_VALUE_LENGTH = T.let(T.unsafe(n
 #
 # @api private
 #
-# source://mongo//lib/mongo/server/app_metadata/environment.rb#33
+# source://mongo//lib/mongo/server/app_metadata/environment.rb#36
 class Mongo::Server::AppMetadata::Environment::MissingVariable < ::Mongo::Error; end
 
 # Error class for reporting that too many discriminators were found
@@ -27200,7 +27344,7 @@ class Mongo::Server::AppMetadata::Environment::MissingVariable < ::Mongo::Error;
 #
 # @api private
 #
-# source://mongo//lib/mongo/server/app_metadata/environment.rb#29
+# source://mongo//lib/mongo/server/app_metadata/environment.rb#32
 class Mongo::Server::AppMetadata::Environment::TooManyEnvironments < ::Mongo::Error; end
 
 # Error class for reporting that the wrong type was given for a
@@ -27208,14 +27352,14 @@ class Mongo::Server::AppMetadata::Environment::TooManyEnvironments < ::Mongo::Er
 #
 # @api private
 #
-# source://mongo//lib/mongo/server/app_metadata/environment.rb#37
+# source://mongo//lib/mongo/server/app_metadata/environment.rb#40
 class Mongo::Server::AppMetadata::Environment::TypeMismatch < ::Mongo::Error; end
 
 # Error class for reporting that the value for a field is too long.
 #
 # @api private
 #
-# source://mongo//lib/mongo/server/app_metadata/environment.rb#40
+# source://mongo//lib/mongo/server/app_metadata/environment.rb#43
 class Mongo::Server::AppMetadata::Environment::ValueTooLong < ::Mongo::Error; end
 
 # The max application name byte size.
@@ -29324,10 +29468,10 @@ class Mongo::Server::Description::Features
   # @return [Features] a new instance of Features
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/server/description/features.rb#117
+  # source://mongo//lib/mongo/server/description/features.rb#118
   def initialize(server_wire_versions, address = T.unsafe(nil)); end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def array_filters_enabled?; end
 
   # Check that there is an overlap between the driver supported wire
@@ -29339,68 +29483,71 @@ class Mongo::Server::Description::Features
   #   not covered by the driver.
   # @since 2.5.1
   #
-  # source://mongo//lib/mongo/server/description/features.rb#142
+  # source://mongo//lib/mongo/server/description/features.rb#143
   def check_driver_support!; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def collation_enabled?; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def commit_quorum_enabled?; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def find_and_modify_option_validation_enabled?; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def find_command_enabled?; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def get_more_comment_enabled?; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def list_collections_enabled?; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def list_indexes_enabled?; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def max_staleness_enabled?; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def merge_out_on_secondary_enabled?; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def op_msg_enabled?; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def retryable_write_error_label_enabled?; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def scram_sha_1_enabled?; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def scram_sha_256_enabled?; end
 
   # @return [Range] server_wire_versions The server's supported wire
   #   versions.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/server/description/features.rb#106
+  # source://mongo//lib/mongo/server/description/features.rb#107
   def server_wire_versions; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def sessions_enabled?; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
+  def sharded_transactions_enabled?; end
+
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def transactions_enabled?; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def update_delete_option_validation_enabled?; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def users_info_enabled?; end
 
-  # source://mongo//lib/mongo/server/description/features.rb#99
+  # source://mongo//lib/mongo/server/description/features.rb#100
   def write_command_enabled?; end
 end
 
@@ -29408,14 +29555,14 @@ end
 #
 # @since 2.5.0
 #
-# source://mongo//lib/mongo/server/description/features.rb#79
+# source://mongo//lib/mongo/server/description/features.rb#80
 Mongo::Server::Description::Features::DRIVER_TOO_OLD = T.let(T.unsafe(nil), String)
 
 # The wire protocol versions that this version of the driver supports.
 #
 # @since 2.0.0
 #
-# source://mongo//lib/mongo/server/description/features.rb#85
+# source://mongo//lib/mongo/server/description/features.rb#86
 Mongo::Server::Description::Features::DRIVER_WIRE_VERSIONS = T.let(T.unsafe(nil), Range)
 
 # List of features and the wire protocol version they appear in.
@@ -29442,7 +29589,7 @@ Mongo::Server::Description::Features::MAPPINGS = T.let(T.unsafe(nil), Hash)
 #
 # @since 2.5.0
 #
-# source://mongo//lib/mongo/server/description/features.rb#73
+# source://mongo//lib/mongo/server/description/features.rb#74
 Mongo::Server::Description::Features::SERVER_TOO_OLD = T.let(T.unsafe(nil), String)
 
 # Constant for reading hidden info from config.
@@ -30343,7 +30490,7 @@ class Mongo::ServerSelector::Base
   # @param cluster [Cluster] The cluster.
   # @return [Array<Server>] The candidate servers.
   #
-  # source://mongo//lib/mongo/server_selector/base.rb#379
+  # source://mongo//lib/mongo/server_selector/base.rb#387
   def candidates(cluster); end
 
   # @return [Hash | nil] hedge The document specifying whether to enable
@@ -30417,6 +30564,10 @@ class Mongo::ServerSelector::Base
   #   for mongos pinning. Added in version 2.10.0.
   # @param write_aggregation [true | false] Whether we need a server that
   #   supports writing aggregations (e.g. with $merge/$out) on secondaries.
+  # @param deprioritized [Array<Server>] A list of servers that should
+  #   be selected from only if no other servers are available. This is
+  #   used to avoid selecting the same server twice in a row when
+  #   retrying a command.
   # @raise [Error::NoServerAvailable] No server was found matching the
   #   specified preference / pinning requirement in the server selection
   #   timeout.
@@ -30425,8 +30576,8 @@ class Mongo::ServerSelector::Base
   # @return [Mongo::Server] A server matching the server preference.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/server_selector/base.rb#177
-  def select_server(cluster, ping = T.unsafe(nil), session = T.unsafe(nil), write_aggregation: T.unsafe(nil)); end
+  # source://mongo//lib/mongo/server_selector/base.rb#181
+  def select_server(cluster, ping = T.unsafe(nil), session = T.unsafe(nil), write_aggregation: T.unsafe(nil), deprioritized: T.unsafe(nil)); end
 
   # Get the timeout for server selection.
   #
@@ -30446,7 +30597,7 @@ class Mongo::ServerSelector::Base
   # @param cluster [Cluster] The cluster.
   # @return [Array<Server>] The suitable servers.
   #
-  # source://mongo//lib/mongo/server_selector/base.rb#403
+  # source://mongo//lib/mongo/server_selector/base.rb#411
   def suitable_servers(cluster); end
 
   # @return [Array] tag_sets The tag sets used to select servers.
@@ -30462,14 +30613,18 @@ class Mongo::ServerSelector::Base
   #   an eligible server.
   # @param write_aggregation [true | false] Whether we need a server that
   #   supports writing aggregations (e.g. with $merge/$out) on secondaries.
+  # @param deprioritized [Array<Server>] A list of servers that should
+  #   be selected from only if no other servers are available. This is
+  #   used to avoid selecting the same server twice in a row when
+  #   retrying a command.
   # @return [Server | nil] A suitable server, if one exists.
   #
-  # source://mongo//lib/mongo/server_selector/base.rb#328
-  def try_select_server(cluster, write_aggregation: T.unsafe(nil)); end
+  # source://mongo//lib/mongo/server_selector/base.rb#336
+  def try_select_server(cluster, write_aggregation: T.unsafe(nil), deprioritized: T.unsafe(nil)); end
 
   private
 
-  # source://mongo//lib/mongo/server_selector/base.rb#530
+  # source://mongo//lib/mongo/server_selector/base.rb#556
   def filter_stale_servers(candidates, primary = T.unsafe(nil)); end
 
   # Convert this server preference definition into a format appropriate
@@ -30478,7 +30633,7 @@ class Mongo::ServerSelector::Base
   # @return [Hash] The server preference formatted as a command field value.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/server_selector/base.rb#427
+  # source://mongo//lib/mongo/server_selector/base.rb#453
   def full_doc; end
 
   # Select the servers matching the defined tag sets.
@@ -30488,7 +30643,7 @@ class Mongo::ServerSelector::Base
   # @return [Array] The servers matching the defined tag sets.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/server_selector/base.rb#521
+  # source://mongo//lib/mongo/server_selector/base.rb#547
   def match_tag_sets(candidates); end
 
   # Select the near servers from a list of provided candidates, taking the
@@ -30501,7 +30656,7 @@ class Mongo::ServerSelector::Base
   # @return [Array] The near servers.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/server_selector/base.rb#481
+  # source://mongo//lib/mongo/server_selector/base.rb#507
   def near_servers(candidates = T.unsafe(nil), local_threshold = T.unsafe(nil)); end
 
   # Select the primary from a list of provided candidates.
@@ -30511,7 +30666,7 @@ class Mongo::ServerSelector::Base
   # @return [Array] The primary.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/server_selector/base.rb#445
+  # source://mongo//lib/mongo/server_selector/base.rb#471
   def primary(candidates); end
 
   # Select the secondaries from a list of provided candidates.
@@ -30521,13 +30676,13 @@ class Mongo::ServerSelector::Base
   # @return [Array] The secondary servers.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/server_selector/base.rb#459
+  # source://mongo//lib/mongo/server_selector/base.rb#485
   def secondaries(candidates); end
 
   # Parameters and return values are the same as for select_server.
   #
-  # source://mongo//lib/mongo/server_selector/base.rb#186
-  def select_server_impl(cluster, ping, session, write_aggregation); end
+  # source://mongo//lib/mongo/server_selector/base.rb#190
+  def select_server_impl(cluster, ping, session, write_aggregation, deprioritized); end
 
   # Creates a diagnostic message when server selection fails.
   #
@@ -30543,19 +30698,31 @@ class Mongo::ServerSelector::Base
   #   performed.
   # @return [String] The diagnostic message.
   #
-  # source://mongo//lib/mongo/server_selector/base.rb#653
+  # source://mongo//lib/mongo/server_selector/base.rb#679
   def server_selection_diagnostic_message(cluster); end
 
-  # source://mongo//lib/mongo/server_selector/base.rb#555
+  # Returns a server from the list of servers that is suitable for
+  # executing the operation.
+  #
+  # @param servers [Array<Server>] The candidate servers.
+  # @param deprioritized [Array<Server>] A list of servers that should
+  #   be selected from only if no other servers are available.
+  # @return [Server | nil] The suitable server or nil if no suitable
+  #   server is available.
+  #
+  # source://mongo//lib/mongo/server_selector/base.rb#438
+  def suitable_server(servers, deprioritized); end
+
+  # source://mongo//lib/mongo/server_selector/base.rb#581
   def validate!; end
 
-  # source://mongo//lib/mongo/server_selector/base.rb#577
+  # source://mongo//lib/mongo/server_selector/base.rb#603
   def validate_max_staleness_support!(server); end
 
-  # source://mongo//lib/mongo/server_selector/base.rb#593
+  # source://mongo//lib/mongo/server_selector/base.rb#619
   def validate_max_staleness_value!(cluster); end
 
-  # source://mongo//lib/mongo/server_selector/base.rb#583
+  # source://mongo//lib/mongo/server_selector/base.rb#609
   def validate_max_staleness_value_early!; end
 
   # Waits for server state changes in the specified cluster.
@@ -30575,7 +30742,7 @@ class Mongo::ServerSelector::Base
   # @param cluster [Cluster] The cluster to wait for.
   # @param time_remaining [Numeric] Maximum time to wait, in seconds.
   #
-  # source://mongo//lib/mongo/server_selector/base.rb#624
+  # source://mongo//lib/mongo/server_selector/base.rb#650
   def wait_for_server_selection(cluster, time_remaining); end
 end
 
@@ -31132,7 +31299,7 @@ class Mongo::Session
   # @raise [Error::InvalidTransactionOperation] If there is no active transaction.
   # @since 2.6.0
   #
-  # source://mongo//lib/mongo/session.rb#672
+  # source://mongo//lib/mongo/session.rb#691
   def abort_transaction; end
 
   # @api private
@@ -31140,7 +31307,7 @@ class Mongo::Session
   #   transaction.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#755
+  # source://mongo//lib/mongo/session.rb#774
   def aborting_transaction?; end
 
   # Add the autocommit field to a command document if applicable.
@@ -31151,7 +31318,7 @@ class Mongo::Session
   # @return [Hash, BSON::Document] The command document.
   # @since 2.6.0
   #
-  # source://mongo//lib/mongo/session.rb#835
+  # source://mongo//lib/mongo/session.rb#854
   def add_autocommit!(command); end
 
   # Add the startTransaction field to a command document if applicable.
@@ -31162,7 +31329,7 @@ class Mongo::Session
   # @return [Hash, BSON::Document] The command document.
   # @since 2.6.0
   #
-  # source://mongo//lib/mongo/session.rb#850
+  # source://mongo//lib/mongo/session.rb#869
   def add_start_transaction!(command); end
 
   # Add the transaction number to a command document if applicable.
@@ -31173,7 +31340,7 @@ class Mongo::Session
   # @return [Hash, BSON::Document] The command document.
   # @since 2.6.0
   #
-  # source://mongo//lib/mongo/session.rb#867
+  # source://mongo//lib/mongo/session.rb#886
   def add_txn_num!(command); end
 
   # Add the transactions options if applicable.
@@ -31184,7 +31351,7 @@ class Mongo::Session
   # @return [Hash, BSON::Document] The command document.
   # @since 2.6.0
   #
-  # source://mongo//lib/mongo/session.rb#882
+  # source://mongo//lib/mongo/session.rb#901
   def add_txn_opts!(command, read); end
 
   # Advance the cached operation time for this session.
@@ -31195,7 +31362,7 @@ class Mongo::Session
   # @return [BSON::Timestamp] The max operation time, considering the current and new times.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#1051
+  # source://mongo//lib/mongo/session.rb#1070
   def advance_operation_time(new_operation_time); end
 
   # @return [Client] The client through which this session was created.
@@ -31218,7 +31385,7 @@ class Mongo::Session
   # @raise [Error::InvalidTransactionOperation] If there is no active transaction.
   # @since 2.6.0
   #
-  # source://mongo//lib/mongo/session.rb#599
+  # source://mongo//lib/mongo/session.rb#618
   def commit_transaction(options = T.unsafe(nil)); end
 
   # @api private
@@ -31226,8 +31393,26 @@ class Mongo::Session
   #   transaction.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#747
+  # source://mongo//lib/mongo/session.rb#766
   def committing_transaction?; end
+
+  # Sets the dirty state to the given value for the underlying server
+  # session. If there is no server session, this does nothing.
+  #
+  # @param mark [true | false] whether to mark the server session as
+  #   dirty, or not.
+  # @since 2.5.0
+  #
+  # source://mongo//lib/mongo/session.rb#131
+  def dirty!(mark = T.unsafe(nil)); end
+
+  # @api private
+  # @return [true | false | nil] whether the underlying server session is
+  #   dirty. If no server session exists for this session, returns nil.
+  # @since 2.5.0
+  #
+  # source://mongo//lib/mongo/session.rb#139
+  def dirty?; end
 
   # End this session.
   #
@@ -31246,7 +31431,7 @@ class Mongo::Session
   # @return [nil] Always nil.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#353
+  # source://mongo//lib/mongo/session.rb#370
   def end_session; end
 
   # Whether this session has ended.
@@ -31256,7 +31441,7 @@ class Mongo::Session
   # @return [true, false] Whether the session has ended.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#219
+  # source://mongo//lib/mongo/session.rb#236
   def ended?; end
 
   # Is this session an explicit one (i.e. user-created).
@@ -31266,7 +31451,7 @@ class Mongo::Session
   # @return [true, false] Whether this session is explicit.
   # @since 2.5.2
   #
-  # source://mongo//lib/mongo/session.rb#154
+  # source://mongo//lib/mongo/session.rb#171
   def explicit?; end
 
   # Is this session an implicit one (not user-created).
@@ -31276,7 +31461,7 @@ class Mongo::Session
   # @return [true, false] Whether this session is implicit.
   # @since 2.5.1
   #
-  # source://mongo//lib/mongo/session.rb#142
+  # source://mongo//lib/mongo/session.rb#159
   def implicit?; end
 
   # Whether or not the session is currently in a transaction.
@@ -31286,7 +31471,7 @@ class Mongo::Session
   # @return [true | false] Whether or not the session in a transaction.
   # @since 2.6.0
   #
-  # source://mongo//lib/mongo/session.rb#739
+  # source://mongo//lib/mongo/session.rb#758
   def in_transaction?; end
 
   # Get a formatted string for use in inspection.
@@ -31296,7 +31481,7 @@ class Mongo::Session
   # @return [String] The session inspection.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#331
+  # source://mongo//lib/mongo/session.rb#348
   def inspect; end
 
   # If not already set, populate a session objects's server_session by
@@ -31306,14 +31491,14 @@ class Mongo::Session
   # @return [Session] Self.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#1065
+  # source://mongo//lib/mongo/session.rb#1084
   def materialize_if_needed; end
 
   # @api private
   # @return [Boolean]
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#1078
+  # source://mongo//lib/mongo/session.rb#1097
   def materialized?; end
 
   # Increment and return the next transaction number.
@@ -31324,7 +31509,7 @@ class Mongo::Session
   # @return [Integer] The next transaction number.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#1095
+  # source://mongo//lib/mongo/session.rb#1114
   def next_txn_num; end
 
   # @return [BSON::Timestamp] The latest seen operation time for this session.
@@ -31347,7 +31532,7 @@ class Mongo::Session
   # @param connection_global_id [Integer] The global id of connection to pin
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#782
+  # source://mongo//lib/mongo/session.rb#801
   def pin_to_connection(connection_global_id); end
 
   # Pins this session to the specified server, which should be a mongos.
@@ -31356,7 +31541,7 @@ class Mongo::Session
   # @param server [Server] The server to pin this session to.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#764
+  # source://mongo//lib/mongo/session.rb#783
   def pin_to_server(server); end
 
   # @api private
@@ -31364,7 +31549,7 @@ class Mongo::Session
   #   if any.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#260
+  # source://mongo//lib/mongo/session.rb#277
   def pinned_connection_global_id; end
 
   # @api private
@@ -31372,7 +31557,7 @@ class Mongo::Session
   #   session is pinned to, if any.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#254
+  # source://mongo//lib/mongo/session.rb#271
   def pinned_server; end
 
   # Process a response from the server that used this session.
@@ -31384,7 +31569,7 @@ class Mongo::Session
   # @return [Operation::Result] The result.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#1023
+  # source://mongo//lib/mongo/session.rb#1042
   def process(result); end
 
   # @api private
@@ -31392,7 +31577,7 @@ class Mongo::Session
   #   transaction being executed on this session, if any.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#266
+  # source://mongo//lib/mongo/session.rb#283
   def recovery_token; end
 
   # @api private
@@ -31400,7 +31585,7 @@ class Mongo::Session
   #   transaction being executed on this session, if any.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#266
+  # source://mongo//lib/mongo/session.rb#283
   def recovery_token=(_arg0); end
 
   # Whether reads executed with this session can be retried according to
@@ -31422,7 +31607,7 @@ class Mongo::Session
   # @return [Boolean]
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#174
+  # source://mongo//lib/mongo/session.rb#191
   def retry_reads?; end
 
   # Will writes executed with this session be retried.
@@ -31434,7 +31619,7 @@ class Mongo::Session
   # @return [true, false] If writes will be retried.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#189
+  # source://mongo//lib/mongo/session.rb#206
   def retry_writes?; end
 
   # Get the server session id of this session, if the session has not been
@@ -31444,7 +31629,7 @@ class Mongo::Session
   # @return [BSON::Document] The server session id.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#231
+  # source://mongo//lib/mongo/session.rb#248
   def session_id; end
 
   # @return [true | false] Whether the session is configured for snapshot
@@ -31457,13 +31642,13 @@ class Mongo::Session
   # @api private
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#1120
+  # source://mongo//lib/mongo/session.rb#1139
   def snapshot_timestamp; end
 
   # @api private
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#1120
+  # source://mongo//lib/mongo/session.rb#1139
   def snapshot_timestamp=(_arg0); end
 
   # Places subsequent operations in this session into a new transaction.
@@ -31482,14 +31667,14 @@ class Mongo::Session
   #   progress or if the write concern is unacknowledged.
   # @since 2.6.0
   #
-  # source://mongo//lib/mongo/session.rb#540
+  # source://mongo//lib/mongo/session.rb#557
   def start_transaction(options = T.unsafe(nil)); end
 
   # @api private
   # @return [Boolean]
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#727
+  # source://mongo//lib/mongo/session.rb#746
   def starting_transaction?; end
 
   # Remove the read concern and/or write concern from the command if not applicable.
@@ -31500,7 +31685,7 @@ class Mongo::Session
   # @return [Hash, BSON::Document] The command document.
   # @since 2.6.0
   #
-  # source://mongo//lib/mongo/session.rb#948
+  # source://mongo//lib/mongo/session.rb#967
   def suppress_read_write_concern!(command); end
 
   # Get the current transaction number.
@@ -31510,7 +31695,7 @@ class Mongo::Session
   # @return [Integer] The current transaction number.
   # @since 2.6.0
   #
-  # source://mongo//lib/mongo/session.rb#1111
+  # source://mongo//lib/mongo/session.rb#1130
   def txn_num; end
 
   # on this session.
@@ -31518,7 +31703,7 @@ class Mongo::Session
   # @return [Hash] The options for the transaction currently being executed
   # @since 2.6.0
   #
-  # source://mongo//lib/mongo/session.rb#130
+  # source://mongo//lib/mongo/session.rb#147
   def txn_options; end
 
   # Get the read preference the session will use in the currently
@@ -31531,7 +31716,7 @@ class Mongo::Session
   # @return [Hash] The read preference of the transaction.
   # @since 2.6.0
   #
-  # source://mongo//lib/mongo/session.rb#204
+  # source://mongo//lib/mongo/session.rb#221
   def txn_read_preference; end
 
   # Unpins this session from the pinned server or connection,
@@ -31541,7 +31726,7 @@ class Mongo::Session
   # @param connection [Connection | nil] Connection to unpin from.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#795
+  # source://mongo//lib/mongo/session.rb#814
   def unpin(connection = T.unsafe(nil)); end
 
   # Unpins this session from the pinned server or connection, if the session was pinned
@@ -31556,7 +31741,7 @@ class Mongo::Session
   # @param connection [Connection | nil] Connection to unpin from.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#812
+  # source://mongo//lib/mongo/session.rb#831
   def unpin_maybe(error, connection = T.unsafe(nil)); end
 
   # Update the state of the session due to a (non-commit and non-abort) operation being run.
@@ -31564,7 +31749,7 @@ class Mongo::Session
   # @api private
   # @since 2.6.0
   #
-  # source://mongo//lib/mongo/session.rb#984
+  # source://mongo//lib/mongo/session.rb#1003
   def update_state!; end
 
   # Validate the session for use by the specified client.
@@ -31578,7 +31763,7 @@ class Mongo::Session
   # @return [Session] self, if the session is valid.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#1006
+  # source://mongo//lib/mongo/session.rb#1025
   def validate!(client); end
 
   # Ensure that the read preference of a command primary.
@@ -31590,7 +31775,7 @@ class Mongo::Session
   #   not primary.
   # @since 2.6.0
   #
-  # source://mongo//lib/mongo/session.rb#967
+  # source://mongo//lib/mongo/session.rb#986
   def validate_read_preference!(command); end
 
   # Executes the provided block in a transaction, retrying as necessary.
@@ -31643,7 +31828,7 @@ class Mongo::Session
   #   progress or if the write concern is unacknowledged.
   # @since 2.7.0
   #
-  # source://mongo//lib/mongo/session.rb#424
+  # source://mongo//lib/mongo/session.rb#441
   def with_transaction(options = T.unsafe(nil)); end
 
   private
@@ -31651,7 +31836,7 @@ class Mongo::Session
   # @return [Boolean]
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#1165
+  # source://mongo//lib/mongo/session.rb#1184
   def causal_consistency?; end
 
   # Returns causal consistency document if the last operation time is
@@ -31659,29 +31844,35 @@ class Mongo::Session
   #
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#1157
+  # source://mongo//lib/mongo/session.rb#1176
   def causal_consistency_doc; end
 
   # @raise [Mongo::Error::InvalidSession]
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#1179
+  # source://mongo//lib/mongo/session.rb#1198
   def check_if_ended!; end
 
   # @raise [Mongo::Error::InvalidTransactionOperation]
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#1143
+  # source://mongo//lib/mongo/session.rb#1162
   def check_if_no_transaction!; end
 
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#1183
+  # source://mongo//lib/mongo/session.rb#1202
   def check_matching_cluster!(client); end
+
+  # @raise [Mongo::Error::TransactionsNotSupported]
+  # @since 2.5.0
+  #
+  # source://mongo//lib/mongo/session.rb#1208
+  def check_transactions_supported!; end
 
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#1173
+  # source://mongo//lib/mongo/session.rb#1192
   def set_operation_time(result); end
 
   # Get the read concern the session will use when starting a transaction.
@@ -31693,18 +31884,18 @@ class Mongo::Session
   # @return [Hash] The read concern used for starting transactions.
   # @since 2.9.0
   #
-  # source://mongo//lib/mongo/session.rb#1134
+  # source://mongo//lib/mongo/session.rb#1153
   def txn_read_concern; end
 
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#1150
+  # source://mongo//lib/mongo/session.rb#1169
   def txn_write_concern; end
 
   # @return [Boolean]
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session.rb#1139
+  # source://mongo//lib/mongo/session.rb#1158
   def within_states?(*states); end
 end
 
@@ -31713,7 +31904,7 @@ end
 #
 # @since 2.5.0
 #
-# source://mongo//lib/mongo/session.rb#272
+# source://mongo//lib/mongo/session.rb#289
 Mongo::Session::MISMATCHED_CLUSTER_ERROR_MSG = T.let(T.unsafe(nil), String)
 
 # The state of a session in which the last operation was not related to
@@ -31721,7 +31912,7 @@ Mongo::Session::MISMATCHED_CLUSTER_ERROR_MSG = T.let(T.unsafe(nil), String)
 #
 # @since 2.6.0
 #
-# source://mongo//lib/mongo/session.rb#292
+# source://mongo//lib/mongo/session.rb#309
 Mongo::Session::NO_TRANSACTION_STATE = T.let(T.unsafe(nil), Symbol)
 
 # Error message describing that sessions are not supported by the server version.
@@ -31729,14 +31920,14 @@ Mongo::Session::NO_TRANSACTION_STATE = T.let(T.unsafe(nil), Symbol)
 # @deprecated
 # @since 2.5.0
 #
-# source://mongo//lib/mongo/session.rb#285
+# source://mongo//lib/mongo/session.rb#302
 Mongo::Session::SESSIONS_NOT_SUPPORTED = T.let(T.unsafe(nil), String)
 
 # Error message describing that the session cannot be used because it has already been ended.
 #
 # @since 2.5.0
 #
-# source://mongo//lib/mongo/session.rb#279
+# source://mongo//lib/mongo/session.rb#296
 Mongo::Session::SESSION_ENDED_ERROR_MSG = T.let(T.unsafe(nil), String)
 
 # The state of a session in which a user has initiated a transaction but
@@ -31744,7 +31935,7 @@ Mongo::Session::SESSION_ENDED_ERROR_MSG = T.let(T.unsafe(nil), String)
 #
 # @since 2.6.0
 #
-# source://mongo//lib/mongo/session.rb#298
+# source://mongo//lib/mongo/session.rb#315
 Mongo::Session::STARTING_TRANSACTION_STATE = T.let(T.unsafe(nil), Symbol)
 
 # An object representing the server-side session.
@@ -31752,8 +31943,10 @@ Mongo::Session::STARTING_TRANSACTION_STATE = T.let(T.unsafe(nil), Symbol)
 # @api private
 # @since 2.5.0
 #
-# source://mongo//lib/mongo/session/server_session.rb#27
+# source://mongo//lib/mongo/session/server_session/dirtyable.rb#19
 class Mongo::Session::ServerSession
+  include ::Mongo::Session::ServerSession::Dirtyable
+
   # Initialize a ServerSession.
   #
   # @api private
@@ -31762,7 +31955,7 @@ class Mongo::Session::ServerSession
   # @return [ServerSession] a new instance of ServerSession
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session/server_session.rb#69
+  # source://mongo//lib/mongo/session/server_session.rb#72
   def initialize; end
 
   # Get a formatted string for use in inspection.
@@ -31773,7 +31966,7 @@ class Mongo::Session::ServerSession
   # @return [String] The session inspection.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session/server_session.rb#117
+  # source://mongo//lib/mongo/session/server_session.rb#120
   def inspect; end
 
   # The last time the server session was used.
@@ -31781,7 +31974,7 @@ class Mongo::Session::ServerSession
   # @api private
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session/server_session.rb#42
+  # source://mongo//lib/mongo/session/server_session.rb#45
   def last_use; end
 
   # Increment the current transaction number and return the new value.
@@ -31790,7 +31983,7 @@ class Mongo::Session::ServerSession
   # @return [Integer] The updated transaction number.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session/server_session.rb#105
+  # source://mongo//lib/mongo/session/server_session.rb#108
   def next_txn_num; end
 
   # The session id of this server session.
@@ -31801,7 +31994,7 @@ class Mongo::Session::ServerSession
   # @return [BSON::Document] The session id.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session/server_session.rb#95
+  # source://mongo//lib/mongo/session/server_session.rb#98
   def session_id; end
 
   # Update the last_use attribute of the server session to now.
@@ -31812,7 +32005,7 @@ class Mongo::Session::ServerSession
   # @return [Time] The last time the session was used.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session/server_session.rb#83
+  # source://mongo//lib/mongo/session/server_session.rb#86
   def set_last_use!; end
 
   # The current transaction number.
@@ -31834,7 +32027,7 @@ class Mongo::Session::ServerSession
   # @api private
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session/server_session.rb#61
+  # source://mongo//lib/mongo/session/server_session.rb#64
   def txn_num; end
 end
 
@@ -31843,15 +32036,50 @@ end
 # @api private
 # @since 2.5.0
 #
-# source://mongo//lib/mongo/session/server_session.rb#32
+# source://mongo//lib/mongo/session/server_session.rb#35
 Mongo::Session::ServerSession::DASH_REGEX = T.let(T.unsafe(nil), Regexp)
+
+# Functionality for manipulating and querying a session's
+# "dirty" state, per the last paragraph at
+# https://github.com/mongodb/specifications/blob/master/source/sessions/driver-sessions.rst#server-session-pool
+#
+#   If a driver has a server session pool and a network error is
+#   encountered when executing any command with a ClientSession, the
+#   driver MUST mark the associated ServerSession as dirty. Dirty server
+#   sessions are discarded when returned to the server session pool. It is
+#   valid for a dirty session to be used for subsequent commands (e.g. an
+#   implicit retry attempt, a later command in a bulk write, or a later
+#   operation on an explicit session), however, it MUST remain dirty for
+#   the remainder of its lifetime regardless if later commands succeed.
+#
+# @api private
+#
+# source://mongo//lib/mongo/session/server_session/dirtyable.rb#34
+module Mongo::Session::ServerSession::Dirtyable
+  # Mark the server session as dirty (the default) or clean.
+  #
+  # @api private
+  # @param mark [true | false] whether the mark the server session
+  #   dirty or not.
+  #
+  # source://mongo//lib/mongo/session/server_session/dirtyable.rb#46
+  def dirty!(mark = T.unsafe(nil)); end
+
+  # Query whether the server session has been marked dirty or not.
+  #
+  # @api private
+  # @return [true | false] the server session's dirty state
+  #
+  # source://mongo//lib/mongo/session/server_session/dirtyable.rb#38
+  def dirty?; end
+end
 
 # Pack directive for the UUID.
 #
 # @api private
 # @since 2.5.0
 #
-# source://mongo//lib/mongo/session/server_session.rb#37
+# source://mongo//lib/mongo/session/server_session.rb#40
 Mongo::Session::ServerSession::UUID_PACK = T.let(T.unsafe(nil), String)
 
 # A pool of server sessions.
@@ -31871,7 +32099,7 @@ class Mongo::Session::SessionPool
   # @return [SessionPool] a new instance of SessionPool
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session/session_pool.rb#52
+  # source://mongo//lib/mongo/session/session_pool.rb#37
   def initialize(cluster); end
 
   # Checkin a server session to the pool.
@@ -31882,7 +32110,7 @@ class Mongo::Session::SessionPool
   # @param session [Session::ServerSession] The session to checkin.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session/session_pool.rb#101
+  # source://mongo//lib/mongo/session/session_pool.rb#86
   def checkin(session); end
 
   # Check out a server session from the pool.
@@ -31893,7 +32121,7 @@ class Mongo::Session::SessionPool
   # @return [ServerSession] The server session.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session/session_pool.rb#78
+  # source://mongo//lib/mongo/session/session_pool.rb#63
   def checkout; end
 
   # End all sessions in the pool by sending the endSessions command to the server.
@@ -31903,7 +32131,7 @@ class Mongo::Session::SessionPool
   #   pool.end_sessions
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session/session_pool.rb#120
+  # source://mongo//lib/mongo/session/session_pool.rb#103
   def end_sessions; end
 
   # Get a formatted string for use in inspection.
@@ -31914,7 +32142,7 @@ class Mongo::Session::SessionPool
   # @return [String] The session pool inspection.
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session/session_pool.rb#66
+  # source://mongo//lib/mongo/session/session_pool.rb#51
   def inspect; end
 
   private
@@ -31923,42 +32151,40 @@ class Mongo::Session::SessionPool
   # @return [Boolean]
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session/session_pool.rb#139
+  # source://mongo//lib/mongo/session/session_pool.rb#133
   def about_to_expire?(session); end
 
   # @api private
   # @since 2.5.0
   #
-  # source://mongo//lib/mongo/session/session_pool.rb#159
+  # source://mongo//lib/mongo/session/session_pool.rb#153
   def prune!; end
 
-  class << self
-    # Create a SessionPool.
-    #
-    # @api private
-    # @example
-    #   SessionPool.create(cluster)
-    # @param cluster [Mongo::Cluster] The cluster that will be associated with this
-    #   session pool.
-    # @since 2.5.0
-    #
-    # source://mongo//lib/mongo/session/session_pool.rb#38
-    def create(cluster); end
-  end
+  # Query whether the given session is okay to return to the
+  # pool's queue.
+  #
+  # @api private
+  # @param session [Session::ServerSession] the session to query
+  # @return [true | false] whether to return the session to the
+  #   queue.
+  # @since 2.5.0
+  #
+  # source://mongo//lib/mongo/session/session_pool.rb#129
+  def return_to_queue?(session); end
 end
 
 # The state of a session in which the last operation executed was a transaction abort.
 #
 # @since 2.6.0
 #
-# source://mongo//lib/mongo/session.rb#315
+# source://mongo//lib/mongo/session.rb#332
 Mongo::Session::TRANSACTION_ABORTED_STATE = T.let(T.unsafe(nil), Symbol)
 
 # The state of a session in which the last operation executed was a transaction commit.
 #
 # @since 2.6.0
 #
-# source://mongo//lib/mongo/session.rb#310
+# source://mongo//lib/mongo/session.rb#327
 Mongo::Session::TRANSACTION_COMMITTED_STATE = T.let(T.unsafe(nil), Symbol)
 
 # The state of a session in which a transaction has been started and at
@@ -31967,13 +32193,13 @@ Mongo::Session::TRANSACTION_COMMITTED_STATE = T.let(T.unsafe(nil), Symbol)
 #
 # @since 2.6.0
 #
-# source://mongo//lib/mongo/session.rb#305
+# source://mongo//lib/mongo/session.rb#322
 Mongo::Session::TRANSACTION_IN_PROGRESS_STATE = T.let(T.unsafe(nil), Symbol)
 
 # @api private
 # @since 2.5.0
 #
-# source://mongo//lib/mongo/session.rb#318
+# source://mongo//lib/mongo/session.rb#335
 Mongo::Session::UNLABELED_WRITE_CONCERN_CODES = T.let(T.unsafe(nil), Array)
 
 # Provides additional data around sockets for the driver's use.
@@ -33244,17 +33470,17 @@ class Mongo::URI
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/uri.rb#485
+  # source://mongo//lib/mongo/uri.rb#481
   def decode(value); end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/uri.rb#489
+  # source://mongo//lib/mongo/uri.rb#485
   def encode(value); end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/uri.rb#422
+  # source://mongo//lib/mongo/uri.rb#418
   def options_mapper; end
 
   # @since 2.0.0
@@ -33264,34 +33490,34 @@ class Mongo::URI
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/uri.rb#472
+  # source://mongo//lib/mongo/uri.rb#468
   def parse_database!(string); end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/uri.rb#459
+  # source://mongo//lib/mongo/uri.rb#455
   def parse_password!(string); end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/uri.rb#428
+  # source://mongo//lib/mongo/uri.rb#424
   def parse_uri_options!(string); end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/uri.rb#448
+  # source://mongo//lib/mongo/uri.rb#444
   def parse_user!(string); end
 
   # @raise [Error::InvalidURI]
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/uri.rb#477
+  # source://mongo//lib/mongo/uri.rb#473
   def raise_invalid_error!(details); end
 
   # @raise [Error::InvalidURI]
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/uri.rb#481
+  # source://mongo//lib/mongo/uri.rb#477
   def raise_invalid_error_no_fmt!(details); end
 
   # Reconstruct the URI from its parts. Invalid options are dropped and options
@@ -33310,7 +33536,7 @@ class Mongo::URI
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/uri.rb#493
+  # source://mongo//lib/mongo/uri.rb#489
   def validate_uri_options!; end
 
   class << self

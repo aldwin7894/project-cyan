@@ -22,7 +22,7 @@ class HomeController < ApplicationController
 
   def anilist_user_statistics
     user_id = ENV.fetch("ANILIST_USER_ID")
-    colors = ["#cc333f", "#00a0b0", "#eb6841", "#6a4a3c", "#edc951", "#b3cc57"]
+    colors = ["#cc333f", "#00a0b0", "#eb6841", "#f6a4b8", "#edc951", "#b3cc57"]
     @user_statistics = AnilistUserStatistic
                          .find(user_id)
                          &.[]("statistics")
