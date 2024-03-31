@@ -90,8 +90,15 @@ module ListenBrainz
     end
   end
 
-  def self.get_cover_art_url(release_mbid:, size:)
-    return nil unless release_mbid.present? && size.present?
+  def self.get_cover_art_url(track:, size:)
+    track_metadata = track&.[]("track_metadata")
+    return nil unless track_metadata.present? && size.present?
+
+    release_mbid = track_metadata&.[]("mbid_mapping")&.[]("release_mbid")
+    release_mbid ||= track_metadata&.[]("mbid_mapping")&.[]("caa_release_mbid")
+    release_mbid ||= track_metadata&.[]("additional_info")&.[]("release_mbid")
+    release_mbid ||= track_metadata&.[]("additional_info")&.[]("caa_release_mbid")
+    return nil if release_mbid.blank?
 
     url = "#{CAA_BASE_URL}release/#{release_mbid}/front-#{size}"
     # res = self.class.head(url, follow_redirects: false)

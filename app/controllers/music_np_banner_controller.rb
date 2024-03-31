@@ -111,17 +111,14 @@ class MusicNpBannerController < ApplicationController
       @recent = now_playing["listens"].first
     end
 
-    release_mbid = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("release_mbid")
-    release_mbid ||= @recent&.[]("track_metadata")&.[]("mbid_mapping")&.[]("caa_release_mbid")
-    release_mbid ||= @recent&.[]("track_metadata")&.[]("mbid_mapping")&.[]("release_mbid")
     recording_mbid = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("recording_mbid")
     recording_mbid ||= @recent&.[]("track_metadata")&.[]("mbid_mapping")&.[]("recording_mbid")
     spotify_album_id = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("spotify_album_id")
 
-    if release_mbid.present?
-      @album_art = ListenBrainz.get_cover_art_url(release_mbid:, size: 250)
-    elsif spotify_album_id
+    if spotify_album_id
       @album_art = spotify.get_album_art(album_id: spotify_album_id&.split("/").pop)
+    else
+      @album_art = ListenBrainz.get_cover_art_url(track: @recent, size: 250)
     end
     @loved = ListenbrainzLovedTrack.exists?(recording_mbid: recording_mbid.to_s)
 
