@@ -11,5 +11,8 @@ class AnilistActivity
   field :progress, type: String
   field :siteUrl, type: String
 
+  field :date, type: Integer
+  field :page, type: Integer
+
   index({ _id: 1 }, { unique: true })
 end

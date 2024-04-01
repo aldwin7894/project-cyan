@@ -5,29 +5,25 @@ require "anilist"
 
 class AnilistActivitiesSyncJob
   include Sidekiq::Job
-  IGNORED_USER_STATUS = ["plans to watch", "paused watching", "dropped"]
 
-  def perform(date)
+  def perform(date = 1704038400, page = 1)
     user_id = ENV.fetch("ANILIST_USER_ID")
-    user_activity = []
-    page = 1
 
-    loop do
-      sleep 60
-      response = AniList::Client.execute(AniList::UserAnimeActivitiesQuery, date:, user_id:, page:, per_page: 50)
-      has_next_page = response.data&.page&.page_info&.has_next_page? || false
+    response = AniList::Client.execute(AniList::UserAnimeActivitiesQuery, date:, user_id:, page:, per_page: 50)
+    has_next_page = response.data&.page&.page_info&.has_next_page? || false
+    activities = response.data.page.activities.to_a.map do |data|
+      activity = data.to_h.dup
+      activity["date"] = date
+      activity["page"] = page
 
-      user_activity.push(*response.data.page.activities.to_a.map(&:to_h))
-
-      break if has_next_page == false
-
-      page += 1
+      activity
     end
 
-    user_activity = user_activity.select { |x| IGNORED_USER_STATUS.exclude? x["status"] }
-    user_activity.each do |activity|
-      activity = AnilistActivity.new(activity)
-      activity.upsert(replace: false)
+    AnilistActivity.where(date:, page:).destroy
+    AnilistActivity.create(activities)
+
+    if has_next_page == true
+      self.class.perform_in(Rails.env.development? ? 20.seconds : 60.seconds, date, page + 1)
     end
   end
 end
