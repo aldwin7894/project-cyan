@@ -8,7 +8,7 @@
 
     <div class="w-full h-full transition-all duration-1000 bg-center bg-cover" style="background-image: url('<%= @lastfm_top_artists.shuffle.first&.[]("image") %>')">
       <div class=" flex flex-col w-full h-full pt-4 text-white backdrop-blur-sm backdrop-brightness-[40%] bg-gradient-to-br from-cyan-700/30 to-pink-500/30 overflow-hidden " x-data="{swiper: null}">
-        <a href="https://www.last.fm/user/aldwin7894/library/artists?date_preset=ALL" rel="noopener noreferrer" target="_blank" class="hover:underline self-start px-4 text-lg font-bold text-left">
+        <a href="https://www.last.fm/user/CyanNyan/library/artists?date_preset=ALL" rel="noopener noreferrer" target="_blank" class="hover:underline self-start px-4 text-lg font-bold text-left">
           <h3>LAST.FM (TOP ARTISTS OF ALL TIME)</h3>
         </a>
         <div id="lastfm_top_artists_swiper" class="relative h-full overflow-hidden" x-init="swiper = new Swiper('#lastfm_top_artists_swiper', { modules: [Navigation,  EffectCoverflow], effect: 'coverflow', slidesPerView: 'auto', speed: 800, loop: true, centeredSlides: true, coverflowEffect: { rotate: 50, stretch: 0, depth: 300, modifier: 1, slideShadows: false, }, navigation: { disabledClass: 'disabled', hiddenClass: 'invisible', prevEl: '#lastfm_top_prev', nextEl: '#lastfm_top_next' } });">
