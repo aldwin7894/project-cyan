@@ -27,24 +27,31 @@ module Shoko
     persistent_connection_adapter
     base_uri BASE_URL
 
-    def get_series_fanart_by_name(name:, year:, mal_id:, alternatives: [])
-      headers = {
-        **JSON_HEADER
+    def initialize
+      @options = {
+        headers: {
+          **JSON_HEADER
+        },
+        timeout: 10,
+        format: :plain
       }
-      url = "Series/Search"
+    end
+
+    def find_series(name:, year:, mal_id:, alternatives: [])
+      url = "/Series/Search"
       series = T.let(nil, T.nilable(T::Array[T.untyped]))
       name = name.downcase
 
-      cache_key = "SHOKO/#{name.downcase.gsub(/\s/, "_")}/FANART_URL"
+      cache_key = "SHOKO/SERIES/#{name.downcase.gsub(/\s/, "_")}"
       if Rails.cache.exist? cache_key
-        Rails.logger.tagged("CACHE", "Shoko.get_series_fanart_by_name", cache_key) do
+        Rails.logger.tagged("CACHE", "Shoko.find_series", cache_key) do
           Rails.logger.info("HIT")
         end
         return Rails.cache.fetch(cache_key)
       end
 
-      Rails.logger.tagged("SHOKO", "FIND SERIES", name) do
-        Rails.logger.info("START")
+      Rails.logger.tagged("CACHE", "Shoko.find_series", cache_key) do
+        Rails.logger.info("MISS")
       end
 
       possible_queries = [
@@ -77,58 +84,79 @@ module Shoko
       end
       possible_queries.uniq!
 
+      Rails.logger.tagged("SHOKO", "FIND SERIES", name) do
+        Rails.logger.info("START")
+      end
+
       index = 0
       loop do
         break if index > possible_queries.length - 1
+
         query = {
           query: possible_queries[index]&.[](:name),
           fuzzy: true,
           limit: 1
         }
-        res = HTTParty.get(BASE_URL + url, headers:, query:, timeout: 10, format: :plain)
+        res = self.class.get(url, query:, **@options)
         unless res.success?
           raise ApiError.new("Shoko API error")
         end
 
         res = JSON.parse res, symbolize_names: true
-
         if res.is_a?(Array) && res.first&.[](:IDs)&.[](:MAL)&.include?(possible_queries[index]&.[](:mal_id))
-          if res.first&.[](:Images)&.[](:Fanarts).present?
-            Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index]&.[](:name)) do
-              Rails.logger.info("FOUND")
-            end
-            series = res
-            break
-          end
-          Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index]&.[](:name)) do
-            Rails.logger.info("NO FANARTS")
-          end
-        else
-          Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index]&.[](:name)) do
-            Rails.logger.info("NOT FOUND")
-          end
+          series = res.first
+          break
         end
 
+        Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index]&.[](:name)) do
+          Rails.logger.info("NOT FOUND")
+        end
         index += 1
       end
 
-      fanart_url = nil
-      if series.is_a? Array
-        fanart = series.first[:Images][:Fanarts].first
-        source = fanart[:Source]
-        id = fanart[:ID]
+      Rails.cache.write(cache_key, series, expires_in: 1.month)
+      series
+    rescue ApiError
+      nil
+    end
 
+    def get_fanart_by_series(series:)
+      return nil if series.blank? || series&.[](:IDs)&.[](:ID).blank?
+
+      cache_key = "SHOKO/FANART/#{series[:IDs][:ID]}"
+      fanart_url = nil
+
+      if Rails.cache.exist? cache_key
         Rails.logger.tagged("CACHE", "Shoko.get_series_fanart_by_name", cache_key) do
-          Rails.logger.info("MISS")
+          Rails.logger.info("HIT")
         end
-        fanart_url = Rails.cache.fetch(cache_key, expires_in: 1.month, skip_nil: true) do
-          get_fanart_url(id:, source:)
+        return Rails.cache.fetch(cache_key)
+      end
+
+      Rails.logger.tagged("CACHE", "Shoko.get_series_fanart_by_name", cache_key) do
+        Rails.logger.info("MISS")
+      end
+
+      if series&.[](:Images)&.[](:Fanarts).blank?
+        Rails.logger.tagged("SHOKO", "GET FANART", series[:IDs][:ID]) do
+          Rails.logger.info("NO FANARTS")
         end
+        return fanart_url
+      end
+
+      Rails.logger.tagged("SHOKO", "GET FANART", series[:match]) do
+        Rails.logger.info("FOUND")
+      end
+
+      fanart = series[:Images][:Fanarts].first
+      source = fanart[:Source]
+      id = fanart[:ID]
+
+      fanart_url = Rails.cache.fetch(cache_key, expires_in: 1.month, skip_nil: true) do
+        get_fanart_url(id:, source:)
       end
 
       fanart_url
-    rescue ApiError
-      nil
     end
 
     private

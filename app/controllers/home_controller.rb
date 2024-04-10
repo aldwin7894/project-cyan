@@ -4,6 +4,7 @@
 require "spotify"
 require "lastfm"
 require "shoko"
+require "fanart"
 
 class HomeController < ApplicationController
   include FormatDateHelper
@@ -298,9 +299,20 @@ class HomeController < ApplicationController
       end
 
       shoko = Shoko::Client.new
-      fanart = shoko.get_series_fanart_by_name(name:, year:, mal_id:, alternatives:)
-      user_activity["media"]["bannerImage"] = fanart if fanart.present?
+      series = shoko.find_series(name:, year:, mal_id:, alternatives:)
+      fanart_url = nil
 
+      tvdb_id = series&.[](:IDs)&.[](:TvDB)&.first
+      tmdb_id = series&.[](:IDs)&.[](:TMDB)&.first
+
+      if tvdb_id.present? || tmdb_id.present?
+        fanart = Fanart::Client.new
+        fanart_url ||= fanart.get_fanart_by_tvdb_id(tvdb_id:) if tvdb_id.present?
+        fanart_url ||= fanart.get_fanart_by_tmdb_id(tmdb_id:) if tmdb_id.present?
+      end
+
+      fanart_url ||= shoko.get_fanart_by_series(series:)
+      user_activity["media"]["bannerImage"] = fanart_url if fanart_url.present?
       user_activity
     end
 
