@@ -28,12 +28,12 @@ services:
       - redis:/data
   redisinsight:
     container_name: project-cyan-redisinsight
-    image: redislabs/redisinsight:latest
+    image: redis/redisinsight:latest
     restart: always
     ports:
-      - 8001:8001
+      - 5540:5540
     volumes:
-      - redisinsight:/db
+      - redisinsight:/data
 
   web:
     build:
