@@ -1360,7 +1360,7 @@ module Devise::Controllers::Helpers
   #       end
   #   end
   #
-  # source://devise//lib/devise/controllers/helpers.rb#215
+  # source://devise//lib/devise/controllers/helpers.rb#217
   def after_sign_in_path_for(resource_or_scope); end
 
   # Method used by sessions controller to sign out a user. You can overwrite
@@ -1370,12 +1370,12 @@ module Devise::Controllers::Helpers
   #
   # By default it is the root_path.
   #
-  # source://devise//lib/devise/controllers/helpers.rb#225
+  # source://devise//lib/devise/controllers/helpers.rb#227
   def after_sign_out_path_for(resource_or_scope); end
 
   # Tell warden that params authentication is allowed for that specific page.
   #
-  # source://devise//lib/devise/controllers/helpers.rb#163
+  # source://devise//lib/devise/controllers/helpers.rb#165
   def allow_params_authentication!; end
 
   # Return true if it's a devise_controller. false to all controllers unless
@@ -1386,20 +1386,20 @@ module Devise::Controllers::Helpers
   #
   # @return [Boolean]
   #
-  # source://devise//lib/devise/controllers/helpers.rb#151
+  # source://devise//lib/devise/controllers/helpers.rb#153
   def devise_controller?; end
 
   # Set up a param sanitizer to filter parameters using strong_parameters. See
   # lib/devise/parameter_sanitizer.rb for more info. Override this
   # method in your application controller to use your own parameter sanitizer.
   #
-  # source://devise//lib/devise/controllers/helpers.rb#158
+  # source://devise//lib/devise/controllers/helpers.rb#160
   def devise_parameter_sanitizer; end
 
   # Overwrite Rails' handle unverified request to sign out all scopes,
   # clear run strategies and remove cached variables.
   #
-  # source://devise//lib/devise/controllers/helpers.rb#254
+  # source://devise//lib/devise/controllers/helpers.rb#256
   def handle_unverified_request; end
 
   # Check if flash messages should be emitted. Default is to do it on
@@ -1407,44 +1407,44 @@ module Devise::Controllers::Helpers
   #
   # @return [Boolean]
   #
-  # source://devise//lib/devise/controllers/helpers.rb#270
+  # source://devise//lib/devise/controllers/helpers.rb#272
   def is_flashing_format?; end
 
   # @return [Boolean]
   #
-  # source://devise//lib/devise/controllers/helpers.rb#264
+  # source://devise//lib/devise/controllers/helpers.rb#266
   def is_navigational_format?; end
 
-  # source://devise//lib/devise/controllers/helpers.rb#260
+  # source://devise//lib/devise/controllers/helpers.rb#262
   def request_format; end
 
   # Sign in a user and tries to redirect first to the stored location and
   # then to the url specified by after_sign_in_path_for. It accepts the same
   # parameters as the sign_in method.
   #
-  # source://devise//lib/devise/controllers/helpers.rb#235
+  # source://devise//lib/devise/controllers/helpers.rb#237
   def sign_in_and_redirect(resource_or_scope, *args); end
 
   # Sign out a user and tries to redirect to the url specified by
   # after_sign_out_path_for.
   #
-  # source://devise//lib/devise/controllers/helpers.rb#245
+  # source://devise//lib/devise/controllers/helpers.rb#247
   def sign_out_and_redirect(resource_or_scope); end
 
   # The scope root url to be used when they're signed in. By default, it first
   # tries to find a resource_root_path, otherwise it uses the root_path.
   #
-  # source://devise//lib/devise/controllers/helpers.rb#169
+  # source://devise//lib/devise/controllers/helpers.rb#171
   def signed_in_root_path(resource_or_scope); end
 
   # The main accessor for the warden proxy instance
   #
-  # source://devise//lib/devise/controllers/helpers.rb#142
+  # source://devise//lib/devise/controllers/helpers.rb#144
   def warden; end
 
   private
 
-  # source://devise//lib/devise/controllers/helpers.rb#276
+  # source://devise//lib/devise/controllers/helpers.rb#278
   def expire_data_after_sign_out!; end
 
   class << self
@@ -1472,7 +1472,7 @@ module Devise::Controllers::Helpers
     #     before_action :authenticate_user!  # Tell devise to use :user map
     #     before_action :authenticate_admin! # Tell devise to use :admin map
     #
-    # source://devise//lib/devise/controllers/helpers.rb#112
+    # source://devise//lib/devise/controllers/helpers.rb#113
     def define_helpers(mapping); end
   end
 end
@@ -1503,7 +1503,7 @@ module Devise::Controllers::Helpers::ClassMethods
   # source://devise//lib/devise/controllers/helpers.rb#39
   def devise_group(group_name, opts = T.unsafe(nil)); end
 
-  # source://devise//lib/devise/controllers/helpers.rb#82
+  # source://devise//lib/devise/controllers/helpers.rb#83
   def log_process_action(payload); end
 end
 
@@ -1875,7 +1875,23 @@ class Devise::FailureApp < ::ActionController::Metal
   include ::ActionController::Redirecting
   include ::ActionDispatch::Routing::RouteSet::MountedHelpers
   include ::Devise::Controllers::StoreLocation
+  include ::ActiveSupport::Callbacks
+  include ::AbstractController::Callbacks
   extend ::AbstractController::UrlFor::ClassMethods
+  extend ::ActiveSupport::Callbacks::ClassMethods
+  extend ::AbstractController::Callbacks::ClassMethods
+
+  # source://activesupport/7.1.3.2/lib/active_support/callbacks.rb#70
+  def __callbacks; end
+
+  # source://activesupport/7.1.3.2/lib/active_support/callbacks.rb#70
+  def __callbacks?; end
+
+  # source://activesupport/7.1.3.2/lib/active_support/callbacks.rb#963
+  def _process_action_callbacks; end
+
+  # source://activesupport/7.1.3.2/lib/active_support/callbacks.rb#951
+  def _run_process_action_callbacks(&block); end
 
   # source://actionpack/7.1.3.2/lib/action_dispatch/routing/url_for.rb#97
   def default_url_options; end
@@ -1889,7 +1905,7 @@ class Devise::FailureApp < ::ActionController::Metal
   # source://devise//lib/devise/failure_app.rb#19
   def flash(*_arg0, **_arg1, &_arg2); end
 
-  # source://devise//lib/devise/failure_app.rb#47
+  # source://devise//lib/devise/failure_app.rb#52
   def http_auth; end
 
   # source://activesupport/7.1.3.2/lib/active_support/configurable.rb#115
@@ -1898,24 +1914,30 @@ class Devise::FailureApp < ::ActionController::Metal
   # source://activesupport/7.1.3.2/lib/active_support/configurable.rb#116
   def logger=(value); end
 
+  # source://actionpack/7.1.3.2/lib/abstract_controller/callbacks.rb#36
+  def raise_on_missing_callback_actions; end
+
+  # source://actionpack/7.1.3.2/lib/abstract_controller/callbacks.rb#36
+  def raise_on_missing_callback_actions=(val); end
+
   # source://actionpack/7.1.3.2/lib/action_controller/metal/redirecting.rb#15
   def raise_on_open_redirects; end
 
   # source://actionpack/7.1.3.2/lib/action_controller/metal/redirecting.rb#15
   def raise_on_open_redirects=(val); end
 
-  # source://devise//lib/devise/failure_app.rb#54
+  # source://devise//lib/devise/failure_app.rb#59
   def recall; end
 
-  # source://devise//lib/devise/failure_app.rb#81
+  # source://devise//lib/devise/failure_app.rb#86
   def redirect; end
 
-  # source://devise//lib/devise/failure_app.rb#37
+  # source://devise//lib/devise/failure_app.rb#42
   def respond; end
 
   protected
 
-  # source://devise//lib/devise/failure_app.rb#238
+  # source://devise//lib/devise/failure_app.rb#247
   def attempted_path; end
 
   # Choose whether we should respond in an HTTP authentication fashion,
@@ -1929,10 +1951,10 @@ class Devise::FailureApp < ::ActionController::Metal
   #
   # @return [Boolean]
   #
-  # source://devise//lib/devise/failure_app.rb#185
+  # source://devise//lib/devise/failure_app.rb#194
   def http_auth?; end
 
-  # source://devise//lib/devise/failure_app.rb#199
+  # source://devise//lib/devise/failure_app.rb#208
   def http_auth_body; end
 
   # It doesn't make sense to send authenticate headers in AJAX requests
@@ -1940,13 +1962,16 @@ class Devise::FailureApp < ::ActionController::Metal
   #
   # @return [Boolean]
   #
-  # source://devise//lib/devise/failure_app.rb#195
+  # source://devise//lib/devise/failure_app.rb#204
   def http_auth_header?; end
 
-  # source://devise//lib/devise/failure_app.rb#100
+  # source://devise//lib/devise/failure_app.rb#124
+  def i18n_locale; end
+
+  # source://devise//lib/devise/failure_app.rb#105
   def i18n_message(default = T.unsafe(nil)); end
 
-  # source://devise//lib/devise/failure_app.rb#96
+  # source://devise//lib/devise/failure_app.rb#101
   def i18n_options(options); end
 
   # Check if flash messages should be emitted. Default is to do it on
@@ -1954,46 +1979,46 @@ class Devise::FailureApp < ::ActionController::Metal
   #
   # @return [Boolean]
   #
-  # source://devise//lib/devise/failure_app.rb#256
+  # source://devise//lib/devise/failure_app.rb#265
   def is_flashing_format?; end
 
   # @return [Boolean]
   #
-  # source://devise//lib/devise/failure_app.rb#250
+  # source://devise//lib/devise/failure_app.rb#259
   def is_navigational_format?; end
 
-  # source://devise//lib/devise/failure_app.rb#211
+  # source://devise//lib/devise/failure_app.rb#220
   def recall_app(app); end
 
-  # source://devise//lib/devise/failure_app.rb#119
+  # source://devise//lib/devise/failure_app.rb#128
   def redirect_url; end
 
-  # source://devise//lib/devise/failure_app.rb#264
+  # source://devise//lib/devise/failure_app.rb#273
   def relative_url_root; end
 
   # @return [Boolean]
   #
-  # source://devise//lib/devise/failure_app.rb#272
+  # source://devise//lib/devise/failure_app.rb#281
   def relative_url_root?; end
 
-  # source://devise//lib/devise/failure_app.rb#260
+  # source://devise//lib/devise/failure_app.rb#269
   def request_format; end
 
-  # source://devise//lib/devise/failure_app.rb#135
+  # source://devise//lib/devise/failure_app.rb#144
   def route(scope); end
 
-  # source://devise//lib/devise/failure_app.rb#230
+  # source://devise//lib/devise/failure_app.rb#239
   def scope; end
 
-  # source://devise//lib/devise/failure_app.rb#234
+  # source://devise//lib/devise/failure_app.rb#243
   def scope_class; end
 
-  # source://devise//lib/devise/failure_app.rb#139
+  # source://devise//lib/devise/failure_app.rb#148
   def scope_url; end
 
   # @return [Boolean]
   #
-  # source://devise//lib/devise/failure_app.rb#173
+  # source://devise//lib/devise/failure_app.rb#182
   def skip_format?; end
 
   # Stores requested URI to redirect the user after signing in. We can't use
@@ -2001,42 +2026,57 @@ class Devise::FailureApp < ::ActionController::Metal
   # authenticated yet, but we still need to store the URI based on scope, so
   # different scopes would never use the same URI to redirect.
   #
-  # source://devise//lib/devise/failure_app.rb#246
+  # source://devise//lib/devise/failure_app.rb#255
   def store_location!; end
 
-  # source://devise//lib/devise/failure_app.rb#218
+  # source://devise//lib/devise/failure_app.rb#227
   def warden; end
 
-  # source://devise//lib/devise/failure_app.rb#226
+  # source://devise//lib/devise/failure_app.rb#235
   def warden_message; end
 
-  # source://devise//lib/devise/failure_app.rb#222
+  # source://devise//lib/devise/failure_app.rb#231
   def warden_options; end
 
   private
 
   # @return [Boolean]
   #
-  # source://devise//lib/devise/failure_app.rb#284
+  # source://devise//lib/devise/failure_app.rb#293
   def rails_51_and_up?; end
 
   # @return [Boolean]
   #
-  # source://devise//lib/devise/failure_app.rb#280
+  # source://devise//lib/devise/failure_app.rb#289
   def root_path_defined?(context); end
 
   class << self
+    # source://activesupport/7.1.3.2/lib/active_support/callbacks.rb#70
+    def __callbacks; end
+
+    # source://activesupport/7.1.3.2/lib/active_support/callbacks.rb#70
+    def __callbacks=(value); end
+
+    # source://activesupport/7.1.3.2/lib/active_support/callbacks.rb#70
+    def __callbacks?; end
+
+    # source://activesupport/7.1.3.2/lib/active_support/callbacks.rb#955
+    def _process_action_callbacks; end
+
+    # source://activesupport/7.1.3.2/lib/active_support/callbacks.rb#959
+    def _process_action_callbacks=(value); end
+
     # source://actionpack/7.1.3.2/lib/action_dispatch/routing/route_set.rb#584
     def _routes; end
 
-    # source://devise//lib/devise/failure_app.rb#21
+    # source://devise//lib/devise/failure_app.rb#26
     def call(env); end
 
     # Try retrieving the URL options from the parent controller (usually
     # ApplicationController). Instance methods are not supported at the moment,
     # so only the class-level attribute is used.
     #
-    # source://devise//lib/devise/failure_app.rb#29
+    # source://devise//lib/devise/failure_app.rb#34
     def default_url_options(*args); end
 
     # source://actionpack/7.1.3.2/lib/action_dispatch/routing/url_for.rb#97
@@ -2053,6 +2093,12 @@ class Devise::FailureApp < ::ActionController::Metal
 
     # source://actionpack/7.1.3.2/lib/action_controller/metal.rb#262
     def middleware_stack; end
+
+    # source://actionpack/7.1.3.2/lib/abstract_controller/callbacks.rb#36
+    def raise_on_missing_callback_actions; end
+
+    # source://actionpack/7.1.3.2/lib/abstract_controller/callbacks.rb#36
+    def raise_on_missing_callback_actions=(val); end
 
     # source://actionpack/7.1.3.2/lib/action_controller/metal/redirecting.rb#15
     def raise_on_open_redirects; end
@@ -2360,11 +2406,11 @@ class Devise::Mapping
   end
 end
 
-# source://devise//lib/devise/controllers/helpers.rb#283
+# source://devise//lib/devise/controllers/helpers.rb#285
 class Devise::MissingWarden < ::StandardError
   # @return [MissingWarden] a new instance of MissingWarden
   #
-  # source://devise//lib/devise/controllers/helpers.rb#284
+  # source://devise//lib/devise/controllers/helpers.rb#286
   def initialize; end
 end
 

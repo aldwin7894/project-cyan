@@ -67,7 +67,7 @@ module Fanart
         return fanart_url
       end
 
-      fanart = res[:moviebackground]&.sort_by { |x| -x[:likes] }&.first
+      fanart = res[:moviebackground]&.sort_by { |x| [-x[:likes].to_i, -x[:id].to_i] }&.first
       if fanart.blank?
         Rails.logger.tagged("FANART", "GET MOVIE FANART: TMDB", tmdb_id) do
           Rails.logger.info("NO FANARTS")
@@ -115,7 +115,7 @@ module Fanart
         return fanart_url
       end
 
-      fanart = res[:showbackground]&.sort_by { |x| -x[:likes] }&.first
+      fanart = res[:showbackground]&.sort_by { |x| [-x[:likes].to_i, -x[:id].to_i] }&.first
       if fanart.blank?
         Rails.logger.tagged("FANART", "GET SERIES FANART: TVDB", tvdb_id) do
           Rails.logger.info("NO FANARTS")

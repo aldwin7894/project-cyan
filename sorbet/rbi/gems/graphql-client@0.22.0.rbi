@@ -1245,17 +1245,17 @@ class GraphQL::Client::Schema::NonNullType
   def to_non_null_type; end
 end
 
-# source://graphql-client//lib/graphql/client/schema/object_type.rb#176
+# source://graphql-client//lib/graphql/client/schema/object_type.rb#175
 class GraphQL::Client::Schema::ObjectClass
   # @return [ObjectClass] a new instance of ObjectClass
   #
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#177
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#176
   def initialize(data = T.unsafe(nil), errors = T.unsafe(nil), definer = T.unsafe(nil)); end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#197
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#196
   def _definer; end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#201
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#200
   def _spreads; end
 
   # Public: Return errors associated with data.
@@ -1266,60 +1266,60 @@ class GraphQL::Client::Schema::ObjectClass
   #
   # Returns Errors collection.
   #
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#224
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#223
   def errors; end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#271
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#270
   def inspect; end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#232
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#231
   def method_missing(name, *args); end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#205
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#204
   def source_definition; end
 
   # Public: Returns the raw response data
   #
   # Returns Hash
   #
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#192
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#191
   def to_h; end
 
   # Public: Returns the raw response data
   #
   # Returns Hash
   #
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#192
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#191
   def to_hash; end
 
   private
 
   # @return [Boolean]
   #
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#307
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#306
   def has_attribute?(attr); end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#301
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#300
   def read_attribute(attr, type); end
 
   # @return [Boolean]
   #
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#209
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#208
   def respond_to_missing?(name, priv); end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#293
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#292
   def verify_collocated_path; end
 end
 
-# source://graphql-client//lib/graphql/client/schema/object_type.rb#11
+# source://graphql-client//lib/graphql/client/schema/object_type.rb#10
 module GraphQL::Client::Schema::ObjectType
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#116
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#115
   def cast(value, errors); end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#69
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#68
   def define_class(definition, ast_nodes); end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#101
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#100
   def define_field(name, type); end
 
   private
@@ -1327,54 +1327,54 @@ module GraphQL::Client::Schema::ObjectType
   # Given an AST selection on this object, gather it into `fields` if it applies.
   # If it's a fragment, continue recursively checking the selections on the fragment.
   #
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#131
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#130
   def gather_selections(fields, definition, selected_ast_node); end
 
   class << self
-    # source://graphql-client//lib/graphql/client/schema/object_type.rb#12
+    # source://graphql-client//lib/graphql/client/schema/object_type.rb#11
     def new(type, fields = T.unsafe(nil)); end
   end
 end
 
-# source://graphql-client//lib/graphql/client/schema/object_type.rb#25
+# source://graphql-client//lib/graphql/client/schema/object_type.rb#24
 class GraphQL::Client::Schema::ObjectType::WithDefinition
   include ::GraphQL::Client::Schema::BaseType
   include ::GraphQL::Client::Schema::ObjectType
 
   # @return [WithDefinition] a new instance of WithDefinition
   #
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#49
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#48
   def initialize(klass, defined_fields, definition, spreads); end
 
   # Returns the value of attribute defined_fields.
   #
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#31
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#30
   def defined_fields; end
 
   # Returns the value of attribute definition.
   #
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#31
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#30
   def definition; end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#37
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#36
   def fields; end
 
   # Returns the value of attribute klass.
   #
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#31
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#30
   def klass; end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#64
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#63
   def new(data = T.unsafe(nil), errors = T.unsafe(nil)); end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#41
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#40
   def spreads; end
 
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#33
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#32
   def type; end
 end
 
-# source://graphql-client//lib/graphql/client/schema/object_type.rb#29
+# source://graphql-client//lib/graphql/client/schema/object_type.rb#28
 GraphQL::Client::Schema::ObjectType::WithDefinition::EMPTY_SET = T.let(T.unsafe(nil), Set)
 
 # source://graphql-client//lib/graphql/client/schema/possible_types.rb#10
