@@ -1,8 +1,8 @@
 FROM ruby:3.3.0-slim-bookworm AS build-env
 
-ENV NODE_VERSION 20.11.0
-ENV NPM_VERSION 10.2.5
-ENV YARN_VERSION 1.22.21
+ENV NODE_VERSION 20.12.2
+ENV NPM_VERSION 10.5
+ENV YARN_VERSION 1.22
 ENV BUNDLE_PATH=/gems
 ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
@@ -10,7 +10,6 @@ RUN apt-get update -yq \
   && apt-get install -yq --no-install-recommends \
   wget \
   build-essential \
-  libpq-dev \
   tar \
   git \
   && wget --quiet "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
@@ -57,7 +56,7 @@ RUN --mount=type=secret,id=TZ \
 #==============================================
 FROM ruby:3.3.0-slim-bookworm
 
-ENV NODE_VERSION 20.11.0
+ENV NODE_VERSION 20.12.2
 ENV BUNDLE_PATH=/gems
 ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
@@ -72,7 +71,10 @@ RUN apt-get update -yq \
   wget \
   libjemalloc2 \
   tzdata \
+  patchelf \
+  && patchelf --add-needed libjemalloc.so.2 /usr/local/bin/ruby \
   && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
+  && apt-get purge patchelf -y \
   && apt-get clean \
   && apt-get autoremove
 
@@ -85,8 +87,8 @@ COPY --from=build-env "/node-v${NODE_VERSION}-linux-x64" "/node-v${NODE_VERSION}
 COPY entrypoint-sidekiq.sh .
 RUN chmod +x ./entrypoint-sidekiq.sh
 
-# Enable jemalloc
-ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+# Configure jemalloc
+ENV MALLOC_CONF='narenas:2,background_thread:true,thp:never,dirty_decay_ms:1000,muzzy_decay_ms:0'
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh .

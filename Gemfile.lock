@@ -299,7 +299,7 @@ GEM
     recaptcha (5.16.0)
     redis (5.1.0)
       redis-client (>= 0.17.0)
-    redis-client (0.21.1)
+    redis-client (0.22.0)
       connection_pool
     regexp_parser (2.9.0)
     reline (0.5.1)
@@ -482,4 +482,4 @@ RUBY VERSION
    ruby 3.3.0p0
 
 BUNDLED WITH
-   2.5.7
+   2.5.9

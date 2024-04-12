@@ -1,9 +1,7 @@
-version: "3.9"
-
 services:
   db:
     container_name: project-cyan-mongo
-    image: mongo:4.4.6
+    image: mongo:4.4
     restart: always
     environment:
       - TZ
@@ -36,7 +34,7 @@ services:
       - redisinsight:/data
 
   web:
-    build:
+    build: &build
       context: .
       dockerfile: Dockerfile
       secrets:
@@ -56,10 +54,10 @@ services:
       - sidekiq
     ports:
       - 3000:3000
-    environment:
+    environment: &env
       - DATABASE_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@db:27017/${MONGO_DB}
       - REDIS_URL=redis://redis:6379
-      - TZ=Asia/Manila
+      - TZ
       - RAILS_MASTER_KEY
       - RAILS_ENV
       - NODE_ENV
@@ -67,17 +65,7 @@ services:
       - OCCSON_ACCESS_TOKEN
       - OCCSON_PASSPHRASE
   sidekiq:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      secrets:
-        - TZ
-        - RAILS_ENV
-        - NODE_ENV
-        - OCCSON_ACCESS_TOKEN
-        - OCCSON_PASSPHRASE
-        - RAILS_MASTER_KEY
-        - RAILS_ASSET_HOST
+    build: *build
     container_name: project-cyan-sidekiq
     image: aldwin7894/project-cyan:prod
     entrypoint: /usr/src/app/entrypoint-sidekiq.sh
@@ -88,16 +76,7 @@ services:
     depends_on:
       - db
       - redis
-    environment:
-      - DATABASE_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@db:27017/${MONGO_DB}
-      - REDIS_URL=redis://redis:6379
-      - TZ=Asia/Manila
-      - RAILS_MASTER_KEY
-      - RAILS_ENV
-      - NODE_ENV
-      - RAILS_ASSET_HOST
-      - OCCSON_ACCESS_TOKEN
-      - OCCSON_PASSPHRASE
+    environment: *env
 
 volumes:
   dbdata:
