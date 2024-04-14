@@ -112,7 +112,8 @@ class HomeController < ApplicationController
 
   def anilist_user_activities
     now = Time.zone.now.beginning_of_day
-    last_week = (now - 1.week).beginning_of_week.to_i
+    last_week_start = (now - 1.week).beginning_of_week.to_i
+    last_week_end = (now - 1.week).end_of_week.to_i
     turbo_frame = turbo_frame_request_id
 
     case turbo_frame_request_id
@@ -155,7 +156,7 @@ class HomeController < ApplicationController
     when "total_watched_anime_last_week"
       watched_last_week = AnilistActivity
                             .order(id: :desc)
-                            .where(createdAt: { "$gte": last_week })
+                            .where(createdAt: { "$gte": last_week_start, "$lte": last_week_end })
                             .and.not.in(status: IGNORED_USER_STATUS)
       @total_watched_anime_time_last_week_mins = watched_last_week
                                                    .map { |x| x&.[]("media")&.[]("duration").to_i }
@@ -166,7 +167,7 @@ class HomeController < ApplicationController
       watched_last_week = AnilistActivity
                             .order(id: :desc)
                             .where.not.in("media.format": ANIME_FORMATS)
-                            .and(createdAt: { "$gte": last_week })
+                            .and(createdAt: { "$gte": last_week_start, "$lte": last_week_end })
                             .and.not.in(status: IGNORED_USER_STATUS)
       @total_watched_anime_movie_time_last_week_mins = watched_last_week
                                                          .map { |x| x&.[]("media")&.[]("duration").to_i }
