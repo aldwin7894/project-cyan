@@ -2,11 +2,14 @@
   <div class="relative dark:bg-fg--dark/80 dark:text-text--dark backdrop-blur-sm bg-fg--light/80 text-text--light flex items-center justify-center p-8 rounded-lg shadow-lg top-[calc(45%-56px)] xs:top-[calc(45%-116px)] pointer-events-auto">
     <%= form_with(url: fetch_followers_anilist_index_path, method: :get, data: { turbo_frame: "anilist" }, html: { class: "max-w-lg flex flex-col flex-1 gap-3" }) do |f| %>
       <%= f.hidden_field :format, value: "turbo_stream" %>
-      <%= f.label :username, "AniList Username:", class: "block font-bold", autocomplete: "off" %>
+      <div class="flex flex-row gap-2">
+        <%= f.label :username, "AniList Username:", class: "block font-bold", autocomplete: "off" %>
+        <iconify-icon icon="material-symbols:info" width="25" class="cursor-help" data-tippy="tooltip" data-tippy-content="<strong>Case-sensitive</strong><br /><em>Please note that we can't currently handle huge following/followers list, as AniList is currently imposing a tight limit on its API requests, this might change in the future.</em>"/>
+      </div>
       <%= f.text_field :username, class: "w-full block py-3 px-4 rounded-full border focus:shadow-none focus:border-cyan-500 focus:outline-none dark:bg-fg--dark bg-fg--light", autocomplete: "off" %>
 
       <div class="flex flex-row items-center justify-between gap-4 px-4">
-        <span class="text-xs italic" x-text="submitDisabled ? 'Please wait for a while, note that it might take some time if you\'re follow list is huge.' : ''"></span>
+        <span class="text-xs italic" x-text="submitDisabled ? 'Please wait for a while, it might take some time (as we are trying to circumvent the API rate-limits.)' : ''"></span>
         <button type="submit" class="flex items-center px-4 py-3 font-medium text-white rounded cursor-pointer bg-cyan-700 hover:bg-cyan-600 dark:disabled:bg-bg--dark dark:disabled:text-text--dark disabled:bg-bg--light disabled:text-text--light disabled:shadow-none" @click="submitDisabled = true" x-text="submitDisabled ? 'Checking...' : 'Check'">
         </button>
       </div>

@@ -55,6 +55,7 @@ const initElems = (parent = null) => {
     followCursor: "horizontal",
     animation: "perspective-subtle",
     plugins: [followCursor],
+    allowHTML: true
   });
 };
 

@@ -21,14 +21,14 @@ class AnilistController < ApplicationController
       query(AniList::UserIdQuery, username: params[:username]).user.id
     end
 
-    captcha_valid = verify_recaptcha action: "captcha", minimum_score: 0.7
+    captcha_valid = verify_recaptcha action: "captcha", minimum_score: 0.5
     unless captcha_valid || Rails.env.development?
       @error = "You're probably a bot, aren't you?"
       return render layout: false
     end
 
-    @following_count = nil
-    @followers_count = nil
+    @following_count = 0
+    @followers_count = 0
     @following = []
     @followers = []
 
@@ -38,11 +38,29 @@ class AnilistController < ApplicationController
       return @error = "On cooldown, please try again after #{format_date(cd_mins, true, false)}."
     end
 
+    # CHECK FIRST IF FOLLOW LIST CAN BE HANDLED
     @following_page = 1
+    @followers_page = 1
+
+    data = query(AniList::UserFollowingQuery, user_id: id, page: @following_page)
+    @following_count = data.page.page_info.total
+    @following.push(*data.page.following.map(&:name))
+
+    sleep 0.7 unless Rails.env.development?
+
+    data = query(AniList::UserFollowersQuery, user_id: id, page: @followers_page)
+    @followers_count = data.page.page_info.total
+    @followers.push(*data.page.followers.map(&:name))
+
+    limit = ENV.fetch("ANILIST_FOLLOW_LIST_LIMIT", 600).to_i
+    if @following_count > limit || @followers_count > limit
+      return @error = "Your follow list is too large to be handled.<br />AniList is currently imposing a tight limit on its API requests, this might change in the future."
+    end
+
+    @followers_page += 1
     loop do
-      sleep 0.2 unless Rails.env.development?
+      sleep 0.7 unless Rails.env.development?
       data = query(AniList::UserFollowingQuery, user_id: id, page: @following_page)
-      @following_count ||= data.page.page_info.total
       @following.push(*data.page.following.map(&:name))
 
       if data.page.page_info.has_next_page? == false
@@ -52,11 +70,10 @@ class AnilistController < ApplicationController
       end
     end
 
-    @followers_page = 1
+    @following_page += 1
     loop do
-      sleep 0.2 unless Rails.env.development?
+      sleep 0.7 unless Rails.env.development?
       data = query(AniList::UserFollowersQuery, user_id: id, page: @followers_page)
-      @followers_count ||= data.page.page_info.total
       @followers.push(*data.page.followers.map(&:name))
 
       if data.page.page_info.has_next_page? == false
