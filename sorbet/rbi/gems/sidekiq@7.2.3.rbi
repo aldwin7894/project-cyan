@@ -1728,154 +1728,154 @@ end
 # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#15
 module Sidekiq::RedisClientAdapter::CompatMethods
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def bitfield(*args); end
+  def bitfield(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def bitfield_ro(*args); end
+  def bitfield_ro(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def del(*args); end
+  def del(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#20
   def evalsha(sha, keys, argv); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def exists(*args); end
+  def exists(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def expire(*args); end
+  def expire(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def flushdb(*args); end
+  def flushdb(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def get(*args); end
+  def get(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def hdel(*args); end
+  def hdel(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def hget(*args); end
+  def hget(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def hgetall(*args); end
+  def hgetall(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def hincrby(*args); end
+  def hincrby(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def hlen(*args); end
+  def hlen(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def hmget(*args); end
+  def hmget(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def hset(*args); end
+  def hset(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def hsetnx(*args); end
+  def hsetnx(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def incr(*args); end
+  def incr(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def incrby(*args); end
+  def incrby(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#16
   def info; end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def lindex(*args); end
+  def lindex(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def llen(*args); end
+  def llen(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def lmove(*args); end
+  def lmove(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def lpop(*args); end
+  def lpop(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def lpush(*args); end
+  def lpush(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def lrange(*args); end
+  def lrange(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def lrem(*args); end
+  def lrem(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def mget(*args); end
+  def mget(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def mset(*args); end
+  def mset(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def ping(*args); end
+  def ping(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def pttl(*args); end
+  def pttl(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def publish(*args); end
+  def publish(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def rpop(*args); end
+  def rpop(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def rpush(*args); end
+  def rpush(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def sadd(*args); end
+  def sadd(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def scard(*args); end
+  def scard(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def script(*args); end
+  def script(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def set(*args); end
+  def set(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def sismember(*args); end
+  def sismember(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def smembers(*args); end
+  def smembers(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def srem(*args); end
+  def srem(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def ttl(*args); end
+  def ttl(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def type(*args); end
+  def type(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def unlink(*args); end
+  def unlink(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def zadd(*args); end
+  def zadd(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def zcard(*args); end
+  def zcard(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def zincrby(*args); end
+  def zincrby(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def zrange(*args); end
+  def zrange(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def zrem(*args); end
+  def zrem(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def zremrangebyrank(*args); end
+  def zremrangebyrank(*args, **kwargs); end
 
   # source://sidekiq//lib/sidekiq/redis_client_adapter.rb#35
-  def zremrangebyscore(*args); end
+  def zremrangebyscore(*args, **kwargs); end
 
   private
 
@@ -2570,7 +2570,7 @@ class Sidekiq::WebAction
 
   # @return [WebAction] a new instance of WebAction
   #
-  # source://sidekiq//lib/sidekiq/web/action.rb#74
+  # source://sidekiq//lib/sidekiq/web/action.rb#79
   def initialize(env, block); end
 
   # source://sidekiq//lib/sidekiq/web.rb#170
@@ -2600,31 +2600,34 @@ class Sidekiq::WebAction
   # source://sidekiq//lib/sidekiq/web/action.rb#7
   def env=(_arg0); end
 
-  # source://sidekiq//lib/sidekiq/web/action.rb#42
+  # source://sidekiq//lib/sidekiq/web/action.rb#47
   def erb(content, options = T.unsafe(nil)); end
 
   # source://sidekiq//lib/sidekiq/web/action.rb#17
   def halt(res); end
 
-  # source://sidekiq//lib/sidekiq/web/action.rb#70
+  # source://sidekiq//lib/sidekiq/web/action.rb#75
   def json(payload); end
 
-  # source://sidekiq//lib/sidekiq/web/action.rb#25
+  # source://sidekiq//lib/sidekiq/web/action.rb#30
   def params; end
 
   # source://sidekiq//lib/sidekiq/web/action.rb#21
   def redirect(location); end
 
-  # source://sidekiq//lib/sidekiq/web/action.rb#64
+  # source://sidekiq//lib/sidekiq/web/action.rb#25
+  def reload_page; end
+
+  # source://sidekiq//lib/sidekiq/web/action.rb#69
   def render(engine, content, options = T.unsafe(nil)); end
 
   # source://sidekiq//lib/sidekiq/web/action.rb#13
   def request; end
 
-  # source://sidekiq//lib/sidekiq/web/action.rb#34
+  # source://sidekiq//lib/sidekiq/web/action.rb#39
   def route_params; end
 
-  # source://sidekiq//lib/sidekiq/web/action.rb#38
+  # source://sidekiq//lib/sidekiq/web/action.rb#43
   def session; end
 
   # source://sidekiq//lib/sidekiq/web/action.rb#9
@@ -2644,7 +2647,7 @@ class Sidekiq::WebAction
 
   private
 
-  # source://sidekiq//lib/sidekiq/web/action.rb#83
+  # source://sidekiq//lib/sidekiq/web/action.rb#88
   def _erb(file, locals); end
 end
 
@@ -2660,35 +2663,35 @@ class Sidekiq::WebApplication
   # source://sidekiq//lib/sidekiq/web/application.rb#30
   def initialize(klass); end
 
-  # source://sidekiq//lib/sidekiq/web/application.rb#397
+  # source://sidekiq//lib/sidekiq/web/application.rb#409
   def call(env); end
 
   # source://sidekiq//lib/sidekiq/web/application.rb#34
   def settings; end
 
   class << self
-    # source://sidekiq//lib/sidekiq/web/application.rb#438
+    # source://sidekiq//lib/sidekiq/web/application.rb#450
     def after(path = T.unsafe(nil), &block); end
 
-    # source://sidekiq//lib/sidekiq/web/application.rb#459
+    # source://sidekiq//lib/sidekiq/web/application.rb#471
     def afters; end
 
-    # source://sidekiq//lib/sidekiq/web/application.rb#434
+    # source://sidekiq//lib/sidekiq/web/application.rb#446
     def before(path = T.unsafe(nil), &block); end
 
-    # source://sidekiq//lib/sidekiq/web/application.rb#455
+    # source://sidekiq//lib/sidekiq/web/application.rb#467
     def befores; end
 
-    # source://sidekiq//lib/sidekiq/web/application.rb#426
+    # source://sidekiq//lib/sidekiq/web/application.rb#438
     def helpers(mod = T.unsafe(nil), &block); end
 
-    # source://sidekiq//lib/sidekiq/web/application.rb#446
+    # source://sidekiq//lib/sidekiq/web/application.rb#458
     def run_afters(app, action); end
 
-    # source://sidekiq//lib/sidekiq/web/application.rb#442
+    # source://sidekiq//lib/sidekiq/web/application.rb#454
     def run_befores(app, action); end
 
-    # source://sidekiq//lib/sidekiq/web/application.rb#450
+    # source://sidekiq//lib/sidekiq/web/application.rb#462
     def run_hooks(hooks, app, action); end
 
     # source://sidekiq//lib/sidekiq/web/application.rb#46
@@ -2732,25 +2735,25 @@ module Sidekiq::WebHelpers
   # source://sidekiq//lib/sidekiq/web/helpers.rb#48
   def available_locales; end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#182
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#186
   def busy_weights(capsule_weights); end
 
   # source://sidekiq//lib/sidekiq/web/helpers.rb#36
   def clear_caches; end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#262
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#266
   def csrf_tag; end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#208
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#212
   def current_path; end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#212
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#216
   def current_status; end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#356
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#361
   def delete_or_add_queue(job, params); end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#249
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#253
   def display_args(args, truncate_after_chars = T.unsafe(nil)); end
 
   # source://sidekiq//lib/sidekiq/web/helpers.rb#94
@@ -2759,7 +2762,7 @@ module Sidekiq::WebHelpers
   # source://sidekiq//lib/sidekiq/web/helpers.rb#75
   def display_tags(job, within = T.unsafe(nil)); end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#328
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#332
   def environment_title_prefix; end
 
   # source://sidekiq//lib/sidekiq/web/helpers.rb#67
@@ -2771,16 +2774,16 @@ module Sidekiq::WebHelpers
   # source://sidekiq//lib/sidekiq/web/helpers.rb#52
   def find_locale_files(lang); end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#291
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#295
   def format_memory(rss_kb); end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#144
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#148
   def get_locale; end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#308
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#312
   def h(text); end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#221
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#225
   def job_params(job, score); end
 
   # Given an Accept-Language header like "fr-FR,fr;q=0.8,en-US;q=0.6,en;q=0.4,ru;q=0.2"
@@ -2794,50 +2797,50 @@ module Sidekiq::WebHelpers
   # source://sidekiq//lib/sidekiq/web/helpers.rb#42
   def locale_files; end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#303
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#307
   def number_with_delimiter(number, options = T.unsafe(nil)); end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#225
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#229
   def parse_params(params); end
 
   # @return [Boolean]
   #
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#342
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#346
   def pollable?; end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#165
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#169
   def processes; end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#334
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#338
   def product_version; end
 
   # Merge options with current params, filter safe params, and stringify to query string
   #
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#233
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#237
   def qparams(options); end
 
   # Any paginated list that performs an action needs to redirect
   # back to the proper page after performing that action.
   #
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#318
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#322
   def redirect_with_query(url); end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#200
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#204
   def redis_info; end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#194
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#198
   def redis_url; end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#216
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#220
   def relative_time(time); end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#283
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#287
   def retry_extra_items(retry_job); end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#346
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#351
   def retry_or_delete_or_kill(job, params); end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#204
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#208
   def root_path; end
 
   # @return [Boolean]
@@ -2848,49 +2851,49 @@ module Sidekiq::WebHelpers
   # source://sidekiq//lib/sidekiq/web/helpers.rb#56
   def search(jobset, substr); end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#338
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#342
   def server_utc_time; end
 
   # source://sidekiq//lib/sidekiq/web/helpers.rb#28
   def singularize(str, count); end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#157
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#161
   def sort_direction_label; end
 
   # Sorts processes by hostname following the natural sort order
   #
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#170
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#174
   def sorted_processes; end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#190
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#194
   def stats; end
 
   # source://sidekiq//lib/sidekiq/web/helpers.rb#11
   def strings(lang); end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#148
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#152
   def t(msg, options = T.unsafe(nil)); end
 
   # source://sidekiq//lib/sidekiq/web/helpers.rb#98
   def text_direction; end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#266
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#270
   def to_display(arg); end
 
   # source://sidekiq//lib/sidekiq/web/helpers.rb#24
   def to_json(x); end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#239
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#243
   def to_query_string(params); end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#245
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#249
   def truncate(text, truncate_after_chars = T.unsafe(nil)); end
 
   # sidekiq/sidekiq#3243
   #
   # @return [Boolean]
   #
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#140
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#144
   def unfiltered?; end
 
   # See https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4
@@ -2898,14 +2901,14 @@ module Sidekiq::WebHelpers
   # source://sidekiq//lib/sidekiq/web/helpers.rb#107
   def user_preferred_languages; end
 
-  # source://sidekiq//lib/sidekiq/web/helpers.rb#161
+  # source://sidekiq//lib/sidekiq/web/helpers.rb#165
   def workset; end
 end
 
-# source://sidekiq//lib/sidekiq/web/helpers.rb#276
+# source://sidekiq//lib/sidekiq/web/helpers.rb#280
 Sidekiq::WebHelpers::RETRY_JOB_KEYS = T.let(T.unsafe(nil), Set)
 
-# source://sidekiq//lib/sidekiq/web/helpers.rb#230
+# source://sidekiq//lib/sidekiq/web/helpers.rb#234
 Sidekiq::WebHelpers::SAFE_QPARAMS = T.let(T.unsafe(nil), Array)
 
 # source://sidekiq//lib/sidekiq/web/router.rb#69
@@ -3032,53 +3035,53 @@ Sidekiq::WebRouter::ROUTE_PARAMS = T.let(T.unsafe(nil), String)
 
 # Sidekiq::Work represents a job which is currently executing.
 #
-# source://sidekiq//lib/sidekiq/api.rb#1142
+# source://sidekiq//lib/sidekiq/api.rb#1156
 class Sidekiq::Work
   # @return [Work] a new instance of Work
   #
-  # source://sidekiq//lib/sidekiq/api.rb#1146
+  # source://sidekiq//lib/sidekiq/api.rb#1160
   def initialize(pid, tid, hsh); end
 
   # deprecated
   #
-  # source://sidekiq//lib/sidekiq/api.rb#1170
+  # source://sidekiq//lib/sidekiq/api.rb#1184
   def [](key); end
 
-  # source://sidekiq//lib/sidekiq/api.rb#1161
+  # source://sidekiq//lib/sidekiq/api.rb#1175
   def job; end
 
-  # source://sidekiq//lib/sidekiq/api.rb#1184
+  # source://sidekiq//lib/sidekiq/api.rb#1198
   def method_missing(*all); end
 
-  # source://sidekiq//lib/sidekiq/api.rb#1165
+  # source://sidekiq//lib/sidekiq/api.rb#1179
   def payload; end
 
   # Returns the value of attribute process_id.
   #
-  # source://sidekiq//lib/sidekiq/api.rb#1143
+  # source://sidekiq//lib/sidekiq/api.rb#1157
   def process_id; end
 
-  # source://sidekiq//lib/sidekiq/api.rb#1153
+  # source://sidekiq//lib/sidekiq/api.rb#1167
   def queue; end
 
   # @api private
   #
-  # source://sidekiq//lib/sidekiq/api.rb#1180
+  # source://sidekiq//lib/sidekiq/api.rb#1194
   def raw(name); end
 
-  # source://sidekiq//lib/sidekiq/api.rb#1157
+  # source://sidekiq//lib/sidekiq/api.rb#1171
   def run_at; end
 
   # Returns the value of attribute thread_id.
   #
-  # source://sidekiq//lib/sidekiq/api.rb#1144
+  # source://sidekiq//lib/sidekiq/api.rb#1158
   def thread_id; end
 
   private
 
   # @return [Boolean]
   #
-  # source://sidekiq//lib/sidekiq/api.rb#1188
+  # source://sidekiq//lib/sidekiq/api.rb#1202
   def respond_to_missing?(name); end
 end
 
@@ -3108,6 +3111,15 @@ class Sidekiq::WorkSet
   # source://sidekiq//lib/sidekiq/api.rb#1096
   def each(&block); end
 
+  # Find the work which represents a job with the given JID.
+  # *This is a slow O(n) operation*.  Do not use for app logic.
+  #
+  # @param jid [String] the job identifier
+  # @return [Sidekiq::Work] the work or nil
+  #
+  # source://sidekiq//lib/sidekiq/api.rb#1146
+  def find_work_by_jid(jid); end
+
   # Note that #size is only as accurate as Sidekiq's heartbeat,
   # which happens every 5 seconds.  It is NOT real-time.
   #
@@ -3135,5 +3147,5 @@ Sidekiq::Worker = Sidekiq::Job
 # Is "worker" a process, a type of job, a thread? Undefined!
 # WorkSet better describes the data.
 #
-# source://sidekiq//lib/sidekiq/api.rb#1196
+# source://sidekiq//lib/sidekiq/api.rb#1210
 Sidekiq::Workers = Sidekiq::WorkSet
