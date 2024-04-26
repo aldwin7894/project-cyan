@@ -1,4 +1,4 @@
-FROM ruby:3.3.0-slim-bookworm AS build-env
+FROM ruby:3.3.1-slim-bookworm AS build-env
 
 ENV NODE_VERSION 20.12.2
 ENV NPM_VERSION 10.5
@@ -54,7 +54,7 @@ RUN --mount=type=secret,id=TZ \
     && bash ./build.sh
 
 #==============================================
-FROM ruby:3.3.0-slim-bookworm
+FROM ruby:3.3.1-slim-bookworm
 
 ENV NODE_VERSION 20.12.2
 ENV BUNDLE_PATH=/gems
