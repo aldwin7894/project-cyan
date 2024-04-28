@@ -68,13 +68,13 @@ module LastFM
 
       cache_key = "LASTFM/#{user}/TOP_ARTISTS"
       if Rails.cache.exist? cache_key
-        Rails.logger.tagged("CACHE", "LastFM.get_top_artists", cache_key) do
-          Rails.logger.info("HIT")
+        Rails.logger.tagged("CACHE".yellow, "LastFM.get_top_artists".yellow, cache_key.yellow) do
+          Rails.logger.info("HIT".green)
         end
         top_artists = Rails.cache.fetch(cache_key)
       else
-        Rails.logger.tagged("CACHE", "LastFM.get_top_artists", cache_key) do
-          Rails.logger.info("MISS")
+        Rails.logger.tagged("CACHE".yellow, "LastFM.get_top_artists".yellow, cache_key.yellow) do
+          Rails.logger.info("MISS".red)
         end
         top_artists = Rails.cache.fetch(cache_key, expires_in: 1.week, skip_nil: true) do
           res = self.class.get("/", headers:, query:)

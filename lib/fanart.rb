@@ -2,6 +2,7 @@
 # typed: true
 
 require "sorbet-runtime"
+require "colorize"
 
 module Fanart
   FANARTTV_API_KEY = ENV.fetch("FANART_API_KEY")
@@ -44,14 +45,14 @@ module Fanart
       fanart_url = nil
 
       if Rails.cache.exist? cache_key
-        Rails.logger.tagged("CACHE", "FanartTV.get_fanart_by_tmdb_id", cache_key) do
-          Rails.logger.info("HIT")
+        Rails.logger.tagged("CACHE".yellow, "FanartTV.get_fanart_by_tmdb_id".yellow, cache_key.yellow) do
+          Rails.logger.info("HIT".green)
         end
         return Rails.cache.fetch(cache_key)
       end
 
-      Rails.logger.tagged("CACHE", "FanartTV.get_fanart_by_tmdb_id", cache_key) do
-        Rails.logger.info("MISS")
+      Rails.logger.tagged("CACHE".yellow, "FanartTV.get_fanart_by_tmdb_id".yellow, cache_key.yellow) do
+        Rails.logger.info("MISS".red)
       end
 
       res = self.class.get(url, **@options)
@@ -61,28 +62,29 @@ module Fanart
 
       res = JSON.parse res, symbolize_names: true
       if !res&.[](:moviebackground).is_a?(Array)
-        Rails.logger.tagged("FANART", "GET MOVIE FANART: TMDB", tmdb_id) do
-          Rails.logger.info("NOT FOUND")
+        Rails.logger.tagged("FANART".yellow, "GET MOVIE FANART: TMDB".yellow, tmdb_id.yellow) do
+          Rails.logger.info("NOT FOUND".red)
         end
         return fanart_url
       end
 
       fanart = res[:moviebackground]&.sort_by { |x| [-x[:likes].to_i, -x[:id].to_i] }&.first
       if fanart.blank?
-        Rails.logger.tagged("FANART", "GET MOVIE FANART: TMDB", tmdb_id) do
-          Rails.logger.info("NO FANARTS")
+        Rails.logger.tagged("FANART".yellow, "GET MOVIE FANART: TMDB".yellow, tmdb_id.yellow) do
+          Rails.logger.info("NO FANARTS".red)
         end
         return fanart_url
       end
 
-      Rails.logger.tagged("FANART", "GET MOVIE FANART: TMDB", tmdb_id) do
-        Rails.logger.info("FOUND")
+      Rails.logger.tagged("FANART".yellow, "GET MOVIE FANART: TMDB".yellow, tmdb_id.yellow) do
+        Rails.logger.info("FOUND".green)
       end
       fanart_url = fanart[:url]
 
       Rails.cache.write(cache_key, fanart_url, expires_in: 1.month)
       fanart_url
     rescue ApiError
+      Rails.cache.write(cache_key, fanart_url, expires_in: 12.hours)
       nil
     end
 
@@ -92,14 +94,14 @@ module Fanart
       fanart_url = nil
 
       if Rails.cache.exist? cache_key
-        Rails.logger.tagged("CACHE", "FanartTV.get_fanart_by_tvdb_id", cache_key) do
-          Rails.logger.info("HIT")
+        Rails.logger.tagged("CACHE".yellow, "FanartTV.get_fanart_by_tvdb_id".yellow, cache_key.yellow) do
+          Rails.logger.info("HIT".green)
         end
         return Rails.cache.fetch(cache_key)
       end
 
-      Rails.logger.tagged("CACHE", "FanartTV.get_fanart_by_tvdb_id", cache_key) do
-        Rails.logger.info("MISS")
+      Rails.logger.tagged("CACHE".yellow, "FanartTV.get_fanart_by_tvdb_id".yellow, cache_key.yellow) do
+        Rails.logger.info("MISS".red)
       end
 
       res = self.class.get(url, **@options)
@@ -109,28 +111,29 @@ module Fanart
 
       res = JSON.parse res, symbolize_names: true
       if !res&.[](:showbackground).is_a?(Array)
-        Rails.logger.tagged("FANART", "GET SERIES FANART: TVDB", tvdb_id) do
-          Rails.logger.info("NOT FOUND")
+        Rails.logger.tagged("FANART".yellow, "GET SERIES FANART: TVDB".yellow, tvdb_id.yellow) do
+          Rails.logger.info("NOT FOUND".red)
         end
         return fanart_url
       end
 
       fanart = res[:showbackground]&.sort_by { |x| [-x[:likes].to_i, -x[:id].to_i] }&.first
       if fanart.blank?
-        Rails.logger.tagged("FANART", "GET SERIES FANART: TVDB", tvdb_id) do
-          Rails.logger.info("NO FANARTS")
+        Rails.logger.tagged("FANART".yellow, "GET SERIES FANART: TVDB".yellow, tvdb_id.yellow) do
+          Rails.logger.info("NO FANARTS".red)
         end
         return fanart_url
       end
 
-      Rails.logger.tagged("FANART", "GET SERIES FANART: TVDB", tvdb_id) do
-        Rails.logger.info("FOUND")
+      Rails.logger.tagged("FANART".yellow, "GET SERIES FANART: TVDB".yellow, tvdb_id.yellow) do
+        Rails.logger.info("FOUND".green)
       end
       fanart_url = fanart[:url]
 
       Rails.cache.write(cache_key, fanart_url, expires_in: 1.month)
       fanart_url
     rescue ApiError
+      Rails.cache.write(cache_key, fanart_url, expires_in: 12.hours)
       nil
     end
   end

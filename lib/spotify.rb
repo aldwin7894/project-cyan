@@ -59,13 +59,13 @@ module Spotify
 
       cache_key = "SPOTIFY/#{ids.remove(",")}/ARTIST_IMAGES"
       if Rails.cache.exist? cache_key
-        Rails.logger.tagged("CACHE", "Spotify.get_artists_images", cache_key) do
-          Rails.logger.info("HIT")
+        Rails.logger.tagged("CACHE".yellow, "Spotify.get_artists_images".yellow, cache_key.yellow) do
+          Rails.logger.info("HIT".green)
         end
         artist_images = Rails.cache.fetch(cache_key)
       else
-        Rails.logger.tagged("CACHE", "Spotify.get_artists_images", cache_key) do
-          Rails.logger.info("MISS")
+        Rails.logger.tagged("CACHE".yellow, "Spotify.get_artists_images".yellow, cache_key.yellow) do
+          Rails.logger.info("MISS".red)
         end
         artist_images = Rails.cache.fetch(cache_key, expires_in: 1.week, skip_nil: true) do
           res = self.class.get("/artists", headers:, query:)
@@ -98,13 +98,13 @@ module Spotify
 
       cache_key = "SPOTIFY/#{name.downcase.gsub(/\s/, "_")}/ARTIST_ID"
       if Rails.cache.exist? cache_key
-        Rails.logger.tagged("CACHE", "Spotify.get_artist_id_by_name", cache_key) do
-          Rails.logger.info("HIT")
+        Rails.logger.tagged("CACHE".yellow, "Spotify.get_artist_id_by_name".yellow, cache_key.yellow) do
+          Rails.logger.info("HIT".green)
         end
         artist_id = Rails.cache.fetch(cache_key)
       else
-        Rails.logger.tagged("CACHE", "Spotify.get_artist_id_by_name", cache_key) do
-          Rails.logger.info("MISS")
+        Rails.logger.tagged("CACHE".yellow, "Spotify.get_artist_id_by_name".yellow, cache_key.yellow) do
+          Rails.logger.info("MISS".red)
         end
         artist_id = Rails.cache.fetch(cache_key, expires_in: 6.months, skip_nil: true) do
           res = self.class.get("/search", headers:, query:)
@@ -128,13 +128,13 @@ module Spotify
 
       cache_key = "SPOTIFY/#{album_id}/ALBUM_ART"
       if Rails.cache.exist? cache_key
-        Rails.logger.tagged("CACHE", "Spotify.get_album_art", cache_key) do
-          Rails.logger.info("HIT")
+        Rails.logger.tagged("CACHE".yellow, "Spotify.get_album_art".yellow, cache_key.yellow) do
+          Rails.logger.info("HIT".green)
         end
         album_art = Rails.cache.fetch(cache_key)
       else
-        Rails.logger.tagged("CACHE", "Spotify.get_album_art", cache_key) do
-          Rails.logger.info("MISS")
+        Rails.logger.tagged("CACHE".yellow, "Spotify.get_album_art".yellow, cache_key.yellow) do
+          Rails.logger.info("MISS".red)
         end
         album_art = Rails.cache.fetch(cache_key, expires_in: 6.months, skip_nil: true) do
           res = self.class.get("/albums/#{album_id}", headers:)

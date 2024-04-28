@@ -44,14 +44,14 @@ module Shoko
 
       cache_key = "SHOKO/SERIES/#{name.downcase.gsub(/\s/, "_")}"
       if Rails.cache.exist? cache_key
-        Rails.logger.tagged("CACHE", "Shoko.find_series", cache_key) do
-          Rails.logger.info("HIT")
+        Rails.logger.tagged("CACHE".yellow, "Shoko.find_series".yellow, cache_key.yellow) do
+          Rails.logger.info("HIT".green)
         end
         return Rails.cache.fetch(cache_key)
       end
 
-      Rails.logger.tagged("CACHE", "Shoko.find_series", cache_key) do
-        Rails.logger.info("MISS")
+      Rails.logger.tagged("CACHE".yellow, "Shoko.find_series".yellow, cache_key.yellow) do
+        Rails.logger.info("MISS".red)
       end
 
       possible_queries = [
@@ -84,8 +84,8 @@ module Shoko
       end
       possible_queries.uniq!
 
-      Rails.logger.tagged("SHOKO", "FIND SERIES", name) do
-        Rails.logger.info("START")
+      Rails.logger.tagged("SHOKO".yellow, "FIND SERIES".yellow, name.yellow) do
+        Rails.logger.info("START".green)
       end
 
       index = 0
@@ -108,8 +108,8 @@ module Shoko
           break
         end
 
-        Rails.logger.tagged("SHOKO", "FIND SERIES", possible_queries[index]&.[](:name)) do
-          Rails.logger.info("NOT FOUND")
+        Rails.logger.tagged("SHOKO".yellow, "FIND SERIES".yellow, possible_queries[index]&.[](:name)&.yellow) do
+          Rails.logger.info("NOT FOUND".red)
         end
         index += 1
       end
@@ -127,25 +127,25 @@ module Shoko
       fanart_url = nil
 
       if Rails.cache.exist? cache_key
-        Rails.logger.tagged("CACHE", "Shoko.get_series_fanart_by_name", cache_key) do
-          Rails.logger.info("HIT")
+        Rails.logger.tagged("CACHE".yellow, "Shoko.get_series_fanart_by_name".yellow, cache_key.yellow) do
+          Rails.logger.info("HIT".green)
         end
         return Rails.cache.fetch(cache_key)
       end
 
-      Rails.logger.tagged("CACHE", "Shoko.get_series_fanart_by_name", cache_key) do
-        Rails.logger.info("MISS")
+      Rails.logger.tagged("CACHE".yellow, "Shoko.get_series_fanart_by_name".yellow, cache_key.yellow) do
+        Rails.logger.info("MISS".red)
       end
 
       if series&.[](:Images)&.[](:Fanarts).blank?
-        Rails.logger.tagged("SHOKO", "GET FANART", series[:IDs][:ID]) do
-          Rails.logger.info("NO FANARTS")
+        Rails.logger.tagged("SHOKO".yellow, "GET FANART".yellow, series&.[](:IDs)&.[](:ID)&.yellow) do
+          Rails.logger.info("NO FANARTS".red)
         end
         return fanart_url
       end
 
-      Rails.logger.tagged("SHOKO", "GET FANART", series[:match]) do
-        Rails.logger.info("FOUND")
+      Rails.logger.tagged("SHOKO".yellow, "GET FANART".yellow, series&.[](:match)&.yellow) do
+        Rails.logger.info("FOUND".green)
       end
 
       fanart = series[:Images][:Fanarts].first
