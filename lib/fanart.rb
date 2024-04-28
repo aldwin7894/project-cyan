@@ -62,7 +62,7 @@ module Fanart
 
       res = JSON.parse res, symbolize_names: true
       if !res&.[](:moviebackground).is_a?(Array)
-        Rails.logger.tagged("FANART".yellow, "GET MOVIE FANART: TMDB".yellow, tmdb_id.yellow) do
+        Rails.logger.tagged("FANART".yellow, "GET MOVIE FANART: TMDB".yellow, tmdb_id.to_s.yellow) do
           Rails.logger.info("NOT FOUND".red)
         end
         return fanart_url
@@ -70,13 +70,13 @@ module Fanart
 
       fanart = res[:moviebackground]&.sort_by { |x| [-x[:likes].to_i, -x[:id].to_i] }&.first
       if fanart.blank?
-        Rails.logger.tagged("FANART".yellow, "GET MOVIE FANART: TMDB".yellow, tmdb_id.yellow) do
+        Rails.logger.tagged("FANART".yellow, "GET MOVIE FANART: TMDB".yellow, tmdb_id.to_s.yellow) do
           Rails.logger.info("NO FANARTS".red)
         end
         return fanart_url
       end
 
-      Rails.logger.tagged("FANART".yellow, "GET MOVIE FANART: TMDB".yellow, tmdb_id.yellow) do
+      Rails.logger.tagged("FANART".yellow, "GET MOVIE FANART: TMDB".yellow, tmdb_id.to_s.yellow) do
         Rails.logger.info("FOUND".green)
       end
       fanart_url = fanart[:url]
@@ -111,7 +111,7 @@ module Fanart
 
       res = JSON.parse res, symbolize_names: true
       if !res&.[](:showbackground).is_a?(Array)
-        Rails.logger.tagged("FANART".yellow, "GET SERIES FANART: TVDB".yellow, tvdb_id.yellow) do
+        Rails.logger.tagged("FANART".yellow, "GET SERIES FANART: TVDB".yellow, tvdb_id.to_s.yellow) do
           Rails.logger.info("NOT FOUND".red)
         end
         return fanart_url
@@ -119,13 +119,13 @@ module Fanart
 
       fanart = res[:showbackground]&.sort_by { |x| [-x[:likes].to_i, -x[:id].to_i] }&.first
       if fanart.blank?
-        Rails.logger.tagged("FANART".yellow, "GET SERIES FANART: TVDB".yellow, tvdb_id.yellow) do
+        Rails.logger.tagged("FANART".yellow, "GET SERIES FANART: TVDB".yellow, tvdb_id.to_s.yellow) do
           Rails.logger.info("NO FANARTS".red)
         end
         return fanart_url
       end
 
-      Rails.logger.tagged("FANART".yellow, "GET SERIES FANART: TVDB".yellow, tvdb_id.yellow) do
+      Rails.logger.tagged("FANART".yellow, "GET SERIES FANART: TVDB".yellow, tvdb_id.to_s.yellow) do
         Rails.logger.info("FOUND".green)
       end
       fanart_url = fanart[:url]
