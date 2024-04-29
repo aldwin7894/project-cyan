@@ -3,6 +3,8 @@
 
 class AnilistUserStatisticsSyncJob
   include Sidekiq::Job
+  sidekiq_options retry: 5
+  sidekiq_retry_in { 30.minutes }
 
   def perform
     user_id = ENV.fetch("ANILIST_USER_ID")

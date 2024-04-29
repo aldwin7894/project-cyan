@@ -5,6 +5,8 @@ require "listenbrainz"
 
 class ListenbrainzLovedTracksSyncJob
   include Sidekiq::Job
+  sidekiq_options retry: 5
+  sidekiq_retry_in { 30.minutes }
 
   def perform(*args)
     offset = T.let(0, T.untyped)

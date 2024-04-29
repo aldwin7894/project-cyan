@@ -195,4 +195,4 @@ production:
     app_name: project-cyan
     raise_not_found_error: false
     background_indexing: true
-    log_level: :debug
+    log_level: :info

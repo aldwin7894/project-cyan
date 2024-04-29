@@ -5,13 +5,11 @@ require "anilist"
 
 class AnilistActivitiesSyncJob
   include Sidekiq::Job
+  sidekiq_options retry: 5
+  sidekiq_retry_in { 30.minutes }
 
   def perform(date = 1704038400, page = 1)
     user_id = ENV.fetch("ANILIST_USER_ID")
-    last_page = AnilistActivity.max(:page).to_i
-    if last_page > 2
-      page = last_page - 1
-    end
 
     response = AniList::Client.execute(AniList::UserAnimeActivitiesQuery, date:, user_id:, page:, per_page: 50)
     has_next_page = response.data&.page&.page_info&.has_next_page? || false
