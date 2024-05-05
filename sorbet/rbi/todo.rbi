@@ -30,6 +30,9 @@ module Mongoid::Matchable::ClassMethods; end
 module Mongoid::Persistable::ClassMethods; end
 module Mongoid::Persistable::Incrementable::ClassMethods; end
 module Mongoid::Persistable::Logical::ClassMethods; end
+module Mongoid::Persistable::Maxable::ClassMethods; end
+module Mongoid::Persistable::Minable::ClassMethods; end
+module Mongoid::Persistable::Multipliable::ClassMethods; end
 module Mongoid::Persistable::Poppable::ClassMethods; end
 module Mongoid::Persistable::Pullable::ClassMethods; end
 module Mongoid::Persistable::Pushable::ClassMethods; end

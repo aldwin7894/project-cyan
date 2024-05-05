@@ -15,8 +15,5 @@ module Mongoid::Clients::StorageOptions
     def storage_options?; end
   end
 
-  module GeneratedInstanceMethods
-    def storage_options; end
-    def storage_options?; end
-  end
+  module GeneratedInstanceMethods; end
 end

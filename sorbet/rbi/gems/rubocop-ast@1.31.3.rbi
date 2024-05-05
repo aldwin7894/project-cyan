@@ -653,6 +653,9 @@ module RuboCop::AST::CollectionNode
   def __evolve_time__(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
+  def __mongoize_time__(*args, **_arg1, &block); end
+
+  # source://forwardable/1.3.3/forwardable.rb#231
   def __sort_option__(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.3/forwardable.rb#231

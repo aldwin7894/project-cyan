@@ -2025,9 +2025,6 @@ class BSON::Document < ::Hash
   # source://bson//lib/bson/document.rb#333
   def to_bson_normalized_value; end
 
-  # source://mongoid/8.1.5/lib/mongoid/extensions.rb#25
-  def transform_keys; end
-
   # Merge this document with another document, returning the same document in
   # the process.
   #
@@ -3483,11 +3480,8 @@ class BSON::ObjectId
   # @return [String] The object id as a string.
   # @since 2.0.0
   #
-  # source://mongoid/8.1.5/lib/mongoid/extensions.rb#13
-  def as_json(*args); end
-
   # source://bson//lib/bson/object_id.rb#73
-  def bson_ruby_as_json(*_); end
+  def as_json(*_); end
 
   def bson_type; end
 

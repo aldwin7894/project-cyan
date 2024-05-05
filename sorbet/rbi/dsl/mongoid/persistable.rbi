@@ -10,6 +10,9 @@ module Mongoid::Persistable
   mixes_in_class_methods ::Mongoid::Persistable::Destroyable::ClassMethods
   mixes_in_class_methods ::Mongoid::Persistable::Incrementable::ClassMethods
   mixes_in_class_methods ::Mongoid::Persistable::Logical::ClassMethods
+  mixes_in_class_methods ::Mongoid::Persistable::Maxable::ClassMethods
+  mixes_in_class_methods ::Mongoid::Persistable::Minable::ClassMethods
+  mixes_in_class_methods ::Mongoid::Persistable::Multipliable::ClassMethods
   mixes_in_class_methods ::Mongoid::Persistable::Poppable::ClassMethods
   mixes_in_class_methods ::Mongoid::Persistable::Pullable::ClassMethods
   mixes_in_class_methods ::Mongoid::Persistable::Pushable::ClassMethods

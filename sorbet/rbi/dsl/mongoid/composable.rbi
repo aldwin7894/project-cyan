@@ -29,6 +29,9 @@ module Mongoid::Composable
   mixes_in_class_methods ::Mongoid::Persistable::Destroyable::ClassMethods
   mixes_in_class_methods ::Mongoid::Persistable::Incrementable::ClassMethods
   mixes_in_class_methods ::Mongoid::Persistable::Logical::ClassMethods
+  mixes_in_class_methods ::Mongoid::Persistable::Maxable::ClassMethods
+  mixes_in_class_methods ::Mongoid::Persistable::Minable::ClassMethods
+  mixes_in_class_methods ::Mongoid::Persistable::Multipliable::ClassMethods
   mixes_in_class_methods ::Mongoid::Persistable::Poppable::ClassMethods
   mixes_in_class_methods ::Mongoid::Persistable::Pullable::ClassMethods
   mixes_in_class_methods ::Mongoid::Persistable::Pushable::ClassMethods
@@ -46,6 +49,7 @@ module Mongoid::Composable
   mixes_in_class_methods ::Mongoid::Association::Reflections::ClassMethods
   mixes_in_class_methods ::Mongoid::Association::ClassMethods
   mixes_in_class_methods ::Mongoid::Scopable::ClassMethods
+  mixes_in_class_methods ::Mongoid::SearchIndexable::ClassMethods
   mixes_in_class_methods ::Mongoid::Selectable::ClassMethods
   mixes_in_class_methods ::Mongoid::Serializable::ClassMethods
   mixes_in_class_methods ::Mongoid::Shardable::ClassMethods
@@ -56,6 +60,7 @@ module Mongoid::Composable
   mixes_in_class_methods ::Mongoid::Interceptable::ClassMethods
   mixes_in_class_methods ::Mongoid::Copyable::ClassMethods
   mixes_in_class_methods ::Mongoid::Equality::ClassMethods
+  mixes_in_class_methods ::Mongoid::Encryptable::ClassMethods
   mixes_in_class_methods GeneratedClassMethods
 
   module GeneratedClassMethods
@@ -95,6 +100,9 @@ module Mongoid::Composable
     def embedded_relations; end
     def embedded_relations=(value); end
     def embedded_relations?; end
+    def encrypt_metadata; end
+    def encrypt_metadata=(value); end
+    def encrypt_metadata?; end
     def fields; end
     def fields=(value); end
     def fields?; end
@@ -163,6 +171,9 @@ module Mongoid::Composable
     def embedded_relations; end
     def embedded_relations=(value); end
     def embedded_relations?; end
+    def encrypt_metadata; end
+    def encrypt_metadata=(value); end
+    def encrypt_metadata?; end
     def fields; end
     def fields=(value); end
     def fields?; end
@@ -190,8 +201,6 @@ module Mongoid::Composable
     def relations; end
     def relations=(value); end
     def relations?; end
-    def storage_options; end
-    def storage_options?; end
     def stored_as_associations; end
     def stored_as_associations=(value); end
     def stored_as_associations?; end
