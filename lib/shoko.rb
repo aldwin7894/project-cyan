@@ -138,7 +138,7 @@ module Shoko
       end
 
       if series&.[](:Images)&.[](:Fanarts).blank?
-        Rails.logger.tagged("SHOKO".yellow, "GET FANART".yellow, series&.[](:IDs)&.[](:ID)&.yellow) do
+        Rails.logger.tagged("SHOKO".yellow, "GET FANART".yellow, series&.[](:IDs)&.[](:ID)&.to_s&.yellow) do
           Rails.logger.info("NO FANARTS".red)
         end
         return fanart_url
