@@ -87,7 +87,6 @@ gem "rack-cors", "~> 2.0", require: "rack/cors"
 
 gem "addressable", "~> 2.8"
 
-gem "occson", "~> 4.2"
 
 gem "jwt", "~> 2.8"
 

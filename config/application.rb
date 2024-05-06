@@ -9,7 +9,6 @@ require "action_mailer/railtie" rescue LoadError
 require "active_job/railtie" rescue LoadError
 require "action_cable/engine" rescue LoadError
 require "rails/test_unit/railtie" rescue LoadError
-require "occson"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -20,24 +19,16 @@ module Aldwin7894
     # Use the responders controller from the responders gem
     config.app_generators.scaffold_controller :responders_controller
 
-    # get env variables from occson
+    # get env variables from credentials
     config.before_configuration do
-      source = Rails.env.production? ? "occson://0.1.0/.env.prod" : "occson://0.1.0/.env.dev"
-      access_token = ENV.fetch("OCCSON_ACCESS_TOKEN")
-      passphrase = ENV.fetch("OCCSON_PASSPHRASE")
-
-      document = Occson::Document.new(source, access_token, passphrase).download
-
-      document&.split("\n")&.each do |line|
-        key, value = line.split("=", 2)
-
-        ENV.store(key, value)
+      Rails.application.credentials.config.each do |key, value|
+        ENV.store(key.to_s, value.to_s)
       end
     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     config.time_zone = "Singapore"
-    config.x.feature.lograge = ENV.fetch("LOGRAGE", "false") == "true"
+    config.x.feature.lograge = Rails.application.credentials.config.dig(:LOGRAGE) == "true"
     config.middleware.use Rack::Deflater
     config.middleware.use Rack::Brotli
     config.action_controller.forgery_protection_origin_check = false

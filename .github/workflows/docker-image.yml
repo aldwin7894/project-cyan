@@ -46,8 +46,6 @@ jobs:
             TZ=${{ secrets.TZ }}
             RAILS_ENV=${{ secrets.RAILS_ENV }}
             NODE_ENV=${{ secrets.NODE_ENV }}
-            OCCSON_ACCESS_TOKEN=${{ secrets.OCCSON_ACCESS_TOKEN }}
-            OCCSON_PASSPHRASE=${{ secrets.OCCSON_PASSPHRASE }}
             RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}
             RAILS_ASSET_HOST=${{ secrets.RAILS_ASSET_HOST }}
 

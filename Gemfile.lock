@@ -221,7 +221,6 @@ GEM
     nio4r (2.7.1)
     nokogiri (1.16.4-x86_64-linux)
       racc (~> 1.4)
-    occson (4.2.0)
     opus-ruby (1.0.1)
       ffi
     orm_adapter (0.5.0)
@@ -453,7 +452,6 @@ DEPENDENCIES
   lograge (~> 0.14.0)
   logstash-event (~> 1.2)
   mongoid (~> 9.0)
-  occson (~> 4.2)
   persistent_httparty (~> 0.1.2)
   puma (~> 6.4)
   rack (~> 2)

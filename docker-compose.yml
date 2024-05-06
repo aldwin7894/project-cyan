@@ -41,8 +41,6 @@ services:
         - TZ
         - RAILS_ENV
         - NODE_ENV
-        - OCCSON_ACCESS_TOKEN
-        - OCCSON_PASSPHRASE
         - RAILS_MASTER_KEY
         - RAILS_ASSET_HOST
     container_name: project-cyan-app
@@ -62,8 +60,16 @@ services:
       - RAILS_ENV
       - NODE_ENV
       - RAILS_ASSET_HOST
-      - OCCSON_ACCESS_TOKEN
-      - OCCSON_PASSPHRASE
+      - RACK_TIMEOUT_SERVICE_TIMEOUT=60
+      - RACK_TIMEOUT_WAIT_TIMEOUT=60
+      - RAILS_SERVE_STATIC_FILES=true
+      - RUBY_GC_HEAP_GROWTH_FACTOR=1.1
+      - RUBY_GC_MALLOC_LIMIT=4000100
+      - RUBY_GC_MALLOC_LIMIT_GROWTH_FACTOR=1.1
+      - RUBY_GC_MALLOC_LIMIT_MAX=16000100
+      - RUBY_GC_OLDMALLOC_LIMIT=16000100
+      - RUBY_GC_OLDMALLOC_LIMIT_MAX=16000100
+      - VITE_RUBY_SKIP_ASSETS_PRECOMPILE_EXTENSION=true
   sidekiq:
     build: *build
     container_name: project-cyan-sidekiq
@@ -90,10 +96,6 @@ secrets:
     environment: RAILS_ENV
   NODE_ENV:
     environment: NODE_ENV
-  OCCSON_ACCESS_TOKEN:
-    environment: OCCSON_ACCESS_TOKEN
-  OCCSON_PASSPHRASE:
-    environment: OCCSON_PASSPHRASE
   RAILS_MASTER_KEY:
     environment: RAILS_MASTER_KEY
   RAILS_ASSET_HOST:

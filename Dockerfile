@@ -45,8 +45,6 @@ COPY config.ru .
 RUN --mount=type=secret,id=TZ \
     --mount=type=secret,id=RAILS_ENV \
     --mount=type=secret,id=NODE_ENV \
-    --mount=type=secret,id=OCCSON_ACCESS_TOKEN \
-    --mount=type=secret,id=OCCSON_PASSPHRASE \
     --mount=type=secret,id=RAILS_MASTER_KEY \
     --mount=type=secret,id=RAILS_ASSET_HOST \
     chmod -R 755 ./bin/* \
