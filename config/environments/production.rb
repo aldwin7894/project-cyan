@@ -32,7 +32,7 @@ Rails.application.configure do
   }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.asset_host = Rails.application.credentials.config.dig(:RAILS_ASSET_HOST)
+  config.asset_host = ENV.fetch("RAILS_ASSET_HOST")
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
@@ -58,9 +58,7 @@ Rails.application.configure do
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
-  config.cache_store = :redis_cache_store, {
-    url: Rails.application.credentials.config.dig(:REDIS_URL) || "redis://localhost:6379/1"
-  }
+  config.cache_store = :redis_cache_store, { url: ENV.fetch("REDIS_URL", "redis://localhost:6379") }
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
