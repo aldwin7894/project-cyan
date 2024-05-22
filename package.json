@@ -29,7 +29,7 @@
     "@tailwindcss/typography": "^0.5.13",
     "alpinejs": "^3.14.0",
     "autoprefixer": "^10.4.19",
-    "chart.js": "^4.4.2",
+    "chart.js": "^4.4.3",
     "cssnano": "^7.0.1",
     "cssnano-preset-advanced": "^7.0.1",
     "iconify-icon": "^2.1.0",
