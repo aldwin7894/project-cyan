@@ -27,7 +27,10 @@ module ListenBrainz
 
   class Client
     include HTTParty
-    persistent_connection_adapter
+    persistent_connection_adapter name: "listenbrainz",
+      pool_size: 2,
+      idle_timeout: 10,
+      keep_alive: 30
     base_uri BASE_URL
     default_timeout 30
     open_timeout 10

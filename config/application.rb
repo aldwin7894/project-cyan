@@ -29,12 +29,12 @@ module Aldwin7894
     config.load_defaults 7.0
     config.time_zone = "Singapore"
     config.x.feature.lograge = Rails.application.credentials.config.dig(:LOGRAGE) == "true"
+    config.middleware.use Mongo::QueryCache::Middleware
     config.middleware.use Rack::Deflater
     config.middleware.use Rack::Brotli
     config.action_controller.forgery_protection_origin_check = false
     config.session_store :cookie_store, key: "_app_session"
     config.action_view.form_with_generates_remote_forms = false
-    config.mongoid.logger = Logger.new(STDERR, :warn)
 
     config.generators do |g|
       g.orm :mongoid

@@ -24,7 +24,10 @@ module Shoko
 
   class Client
     include HTTParty
-    persistent_connection_adapter
+    persistent_connection_adapter name: "shoko",
+      pool_size: 2,
+      idle_timeout: 10,
+      keep_alive: 30
     base_uri BASE_URL
 
     def initialize
