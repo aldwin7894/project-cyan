@@ -733,7 +733,7 @@ class Net::IMAP < ::Net::Protocol
   #
   # ==== Examples
   #
-  # Connect to cleartext port 143 at mail.example.com and recieve the server greeting:
+  # Connect to cleartext port 143 at mail.example.com and receive the server greeting:
   #   imap = Net::IMAP.new('mail.example.com', ssl: false) # => #<Net::IMAP:0x00007f79b0872bd0>
   #   imap.port          => 143
   #   imap.tls_verified? => false
@@ -2702,7 +2702,7 @@ module Net::IMAP::BodyStructure; end
 # === Bug Analysis
 #
 # \IMAP body structures are parenthesized lists and assign their fields
-# positionally, so missing fields change the intepretation of all
+# positionally, so missing fields change the interpretation of all
 # following fields.  Additionally, different body types have a different
 # number of required fields, followed by optional "extension" fields.
 #
@@ -2717,7 +2717,7 @@ module Net::IMAP::BodyStructure; end
 # Normally, +envelope+ and +md5+ are incompatible, but Net::IMAP leniently
 # allowed buggy servers to send +NIL+ for +envelope+.  As a result, when a
 # server sent a <tt>message/rfc822</tt> part with +NIL+ for +md5+ and a
-# non-<tt>NIL</tt> +dsp+, Net::IMAP mis-interpreted the
+# non-<tt>NIL</tt> +dsp+, Net::IMAP misinterpreted the
 # <tt>Content-Disposition</tt> as if it were a strange body type.  In all
 # reported cases, the <tt>Content-Disposition</tt> was "attachment", so
 # BodyTypeAttachment was created as the workaround.
@@ -2725,7 +2725,7 @@ module Net::IMAP::BodyStructure; end
 # === Current behavior
 #
 # When interpreted strictly, +envelope+ and +md5+ are incompatible.  So the
-# current parsing algorithm peeks ahead after it has recieved the seventh
+# current parsing algorithm peeks ahead after it has received the seventh
 # body field.  If the next token is not the start of an +envelope+, we assume
 # the server has incorrectly sent us a <tt>body-type-basic</tt> and return
 # BodyTypeBasic.  As a result, what was previously BodyTypeMessage#body =>
@@ -2947,7 +2947,7 @@ module Net::IMAP::DeprecatedClientOptions
   # deprecated by a future release.
   #
   # If a second positional argument is given and it is a hash (or is
-  # convertable via +#to_hash+), it is converted to keyword arguments.
+  # convertible via +#to_hash+), it is converted to keyword arguments.
   #
   #     # Obsolete:
   #     Net::IMAP.new("imap.example.com", options_hash)
@@ -3633,7 +3633,7 @@ Net::IMAP::HAS_NO_CHILDREN = T.let(T.unsafe(nil), Symbol)
 
 # Net::IMAP::IgnoredResponse represents intentionally ignored responses.
 #
-# This includes untagged response "NOOP" sent by eg. Zimbra to avoid
+# This includes untagged response "NOOP" sent by e.g. Zimbra to avoid
 # some clients to close the connection.
 #
 # It matches no IMAP standard.
@@ -6039,7 +6039,7 @@ Net::IMAP::ResponseText::EMPTY = T.let(T.unsafe(nil), Net::IMAP::ResponseText)
 #     See ExternalAuthenticator.
 #
 #     Authenticates using already established credentials, such as a TLS
-#     certificate or IPsec.
+#     certificate or IPSec.
 #
 # +OAUTHBEARER+::
 #     See OAuthBearerAuthenticator.
@@ -6698,7 +6698,7 @@ class Net::IMAP::SASL::Error < ::StandardError; end
 # Net::IMAP#authenticate.
 #
 # The EXTERNAL mechanism requests that the server use client credentials
-# established external to SASL, for example by TLS certificate or IPsec.
+# established external to SASL, for example by TLS certificate or IPSec.
 #
 # source://net-imap//lib/net/imap/sasl/external_authenticator.rb#13
 class Net::IMAP::SASL::ExternalAuthenticator
@@ -8629,8 +8629,8 @@ class Net::IMAP::SequenceSet
   # Yields each number or range in #string to the block and returns +self+.
   # Returns an enumerator when called without a block.
   #
-  # The entries are yielded in the same order they appear in #tring, with no
-  # sorting, deduplication, or coalescing.  When #string is in its
+  # The entries are yielded in the same order they appear in #string, with
+  # no sorting, deduplication, or coalescing.  When #string is in its
   # normalized form, this will yield the same values as #each_element.
   #
   # Related: #entries, #each_element

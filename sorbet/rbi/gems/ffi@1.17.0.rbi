@@ -20,7 +20,7 @@ module FFI
     # @param add [Symbol] new type definition's name to add
     # @return [Type]
     #
-    # source://ffi//lib/ffi/types.rb#57
+    # source://ffi//lib/ffi/types.rb#62
     def add_typedef(old, add); end
 
     # @see FFI::LastError.error
@@ -67,9 +67,9 @@ module FFI
     # Get +type+ size, in bytes.
     #
     # @param type +type+ is an instance of class accepted by {FFI.find_type}
-    # @return [Numeric]
+    # @return [Integer]
     #
-    # source://ffi//lib/ffi/types.rb#200
+    # source://ffi//lib/ffi/types.rb#101
     def type_size(type); end
 
     # Add a definition type to type definitions.
@@ -80,12 +80,12 @@ module FFI
     # @param add [Symbol] new type definition's name to add
     # @return [Type]
     #
-    # source://ffi//lib/ffi/types.rb#51
+    # source://ffi//lib/ffi/types.rb#56
     def typedef(old, add); end
 
     private
 
-    # source://ffi//lib/ffi/types.rb#62
+    # source://ffi//lib/ffi/types.rb#66
     def __typedef(old, add); end
 
     # Truffleruby and JRuby don't support Ractor so far.
@@ -211,6 +211,7 @@ class FFI::AbstractMemory
   def read_array_of_long_long(_arg0); end
   def read_array_of_pointer(_arg0); end
   def read_array_of_short(_arg0); end
+  def read_array_of_string(*_arg0); end
   def read_array_of_uchar(_arg0); end
   def read_array_of_uint(_arg0); end
   def read_array_of_uint16(_arg0); end
@@ -330,12 +331,11 @@ class FFI::AutoPointer < ::FFI::Pointer
   # @overload initialize
   # @overload initialize
   # @overload initialize
-  # @overload initialize
   # @raise [TypeError]
   # @return [AutoPointer] a new instance of AutoPointer
   #
-  # source://ffi//lib/ffi/autopointer.rb#78
-  def initialize(ptr, proc = T.unsafe(nil), &block); end
+  # source://ffi//lib/ffi/autopointer.rb#70
+  def initialize(ptr, proc = T.unsafe(nil)); end
 
   # Set +autorelease+ property. See {Pointer Autorelease section at Pointer}.
   #
@@ -343,21 +343,21 @@ class FFI::AutoPointer < ::FFI::Pointer
   # @raise [FrozenError]
   # @return [Boolean] +autorelease+
   #
-  # source://ffi//lib/ffi/autopointer.rb#109
+  # source://ffi//lib/ffi/autopointer.rb#101
   def autorelease=(autorelease); end
 
   # Get +autorelease+ property. See {Pointer Autorelease section at Pointer}.
   #
   # @return [Boolean] +autorelease+
   #
-  # source://ffi//lib/ffi/autopointer.rb#116
+  # source://ffi//lib/ffi/autopointer.rb#108
   def autorelease?; end
 
   # Free the pointer.
   #
   # @return [nil]
   #
-  # source://ffi//lib/ffi/autopointer.rb#102
+  # source://ffi//lib/ffi/autopointer.rb#94
   def free; end
 
   class << self
@@ -368,7 +368,7 @@ class FFI::AutoPointer < ::FFI::Pointer
     # @overload self.from_native
     # @return [AutoPointer]
     #
-    # source://ffi//lib/ffi/autopointer.rb#183
+    # source://ffi//lib/ffi/autopointer.rb#175
     def from_native(val, ctx); end
 
     # Return native type of AutoPointer.
@@ -378,7 +378,7 @@ class FFI::AutoPointer < ::FFI::Pointer
     # @raise [RuntimeError] if class does not implement a +#release+ method
     # @return [Type::POINTER]
     #
-    # source://ffi//lib/ffi/autopointer.rb#169
+    # source://ffi//lib/ffi/autopointer.rb#161
     def native_type; end
   end
 end
@@ -389,7 +389,7 @@ end
 #
 #   All subclasses of Releaser should define a +#release(ptr)+ method.
 #
-# source://ffi//lib/ffi/autopointer.rb#124
+# source://ffi//lib/ffi/autopointer.rb#116
 class FFI::AutoPointer::Releaser
   # A new instance of Releaser.
   #
@@ -397,33 +397,33 @@ class FFI::AutoPointer::Releaser
   # @param proc [#call]
   # @return [nil]
   #
-  # source://ffi//lib/ffi/autopointer.rb#131
+  # source://ffi//lib/ffi/autopointer.rb#123
   def initialize(ptr, proc); end
 
   # Returns the value of attribute autorelease.
   #
-  # source://ffi//lib/ffi/autopointer.rb#125
+  # source://ffi//lib/ffi/autopointer.rb#117
   def autorelease; end
 
   # Sets the attribute autorelease
   #
   # @param value the value to set the attribute autorelease to.
   #
-  # source://ffi//lib/ffi/autopointer.rb#125
+  # source://ffi//lib/ffi/autopointer.rb#117
   def autorelease=(_arg0); end
 
   # Release pointer if +autorelease+ is set.
   #
   # @param args
   #
-  # source://ffi//lib/ffi/autopointer.rb#150
+  # source://ffi//lib/ffi/autopointer.rb#142
   def call(*args); end
 
   # Free pointer.
   #
   # @return [nil]
   #
-  # source://ffi//lib/ffi/autopointer.rb#139
+  # source://ffi//lib/ffi/autopointer.rb#131
   def free; end
 
   # Release +ptr+ by using Proc or Method defined at +ptr+
@@ -432,7 +432,7 @@ class FFI::AutoPointer::Releaser
   # @param ptr [Pointer]
   # @return [nil]
   #
-  # source://ffi//lib/ffi/autopointer.rb#159
+  # source://ffi//lib/ffi/autopointer.rb#151
   def release(ptr); end
 end
 
@@ -448,13 +448,13 @@ end
 #   blue = (1<<2)
 #   }
 #
-# source://ffi//lib/ffi/enum.rb#184
+# source://ffi//lib/ffi/enum.rb#183
 class FFI::Bitmask < ::FFI::Enum
   # @overload initialize
   # @overload initialize
   # @return [Bitmask] a new instance of Bitmask
   #
-  # source://ffi//lib/ffi/enum.rb#193
+  # source://ffi//lib/ffi/enum.rb#192
   def initialize(*args); end
 
   # Get a symbol list or a value from the bitmask
@@ -465,14 +465,14 @@ class FFI::Bitmask < ::FFI::Enum
   # @overload []
   # @raise [ArgumentError]
   #
-  # source://ffi//lib/ffi/enum.rb#237
+  # source://ffi//lib/ffi/enum.rb#236
   def [](*query); end
 
   # @param val [Integer]
   # @param ctx unused
   # @return [Array<Symbol, Integer>] list of symbol names corresponding to val, plus an optional remainder if some bits don't match any constant
   #
-  # source://ffi//lib/ffi/enum.rb#289
+  # source://ffi//lib/ffi/enum.rb#288
   def from_native(val, ctx); end
 
   # Get the native value of a bitmask
@@ -480,7 +480,7 @@ class FFI::Bitmask < ::FFI::Enum
   # @overload to_native
   # @overload to_native
   #
-  # source://ffi//lib/ffi/enum.rb#261
+  # source://ffi//lib/ffi/enum.rb#260
   def to_native(query, ctx); end
 end
 
@@ -553,10 +553,10 @@ class FFI::DynamicLibrary
 
     private
 
-    # source://ffi//lib/ffi/dynamic_library.rb#40
+    # source://ffi//lib/ffi/dynamic_library.rb#69
     def load_library(name, flags); end
 
-    # source://ffi//lib/ffi/dynamic_library.rb#70
+    # source://ffi//lib/ffi/dynamic_library.rb#99
     def try_load(libname, flags, errors); end
   end
 end
@@ -577,7 +577,7 @@ FFI::DynamicLibrary::RTLD_NOW = T.let(T.unsafe(nil), Integer)
 # source://ffi//lib/ffi/dynamic_library.rb#33
 FFI::DynamicLibrary::SEARCH_PATH = T.let(T.unsafe(nil), Array)
 
-# source://ffi//lib/ffi/dynamic_library.rb#38
+# source://ffi//lib/ffi/dynamic_library.rb#67
 FFI::DynamicLibrary::SEARCH_PATH_MESSAGE = T.let(T.unsafe(nil), String)
 
 class FFI::DynamicLibrary::Symbol < ::FFI::Pointer
@@ -601,7 +601,7 @@ end
 # * a _symbol_ is a word from the enumeration (ie. _apple_, by example);
 # * a _value_ is the value of a symbol in the enumeration (by example, apple has value _0_ and banana _1_).
 #
-# source://ffi//lib/ffi/enum.rb#84
+# source://ffi//lib/ffi/enum.rb#83
 class FFI::Enum
   include ::FFI::DataConverter
 
@@ -609,7 +609,7 @@ class FFI::Enum
   # @overload initialize
   # @return [Enum] a new instance of Enum
   #
-  # source://ffi//lib/ffi/enum.rb#97
+  # source://ffi//lib/ffi/enum.rb#96
   def initialize(*args); end
 
   # Get a symbol or a value from the enum.
@@ -617,7 +617,7 @@ class FFI::Enum
   # @overload []
   # @overload []
   #
-  # source://ffi//lib/ffi/enum.rb#134
+  # source://ffi//lib/ffi/enum.rb#133
   def [](query); end
 
   # Get a symbol or a value from the enum.
@@ -625,56 +625,56 @@ class FFI::Enum
   # @overload []
   # @overload []
   #
-  # source://ffi//lib/ffi/enum.rb#134
+  # source://ffi//lib/ffi/enum.rb#133
   def find(query); end
 
   # @param val
   # @return symbol name if it exists for +val+.
   #
-  # source://ffi//lib/ffi/enum.rb#168
+  # source://ffi//lib/ffi/enum.rb#167
   def from_native(val, ctx); end
 
   # Returns the value of attribute native_type.
   #
-  # source://ffi//lib/ffi/enum.rb#88
+  # source://ffi//lib/ffi/enum.rb#87
   def native_type; end
 
   # Get the symbol map.
   #
   # @return [Hash]
   #
-  # source://ffi//lib/ffi/enum.rb#146
+  # source://ffi//lib/ffi/enum.rb#145
   def symbol_map; end
 
   # @return [Array] enum symbol names
   #
-  # source://ffi//lib/ffi/enum.rb#121
+  # source://ffi//lib/ffi/enum.rb#120
   def symbols; end
 
   # Returns the value of attribute tag.
   #
-  # source://ffi//lib/ffi/enum.rb#87
+  # source://ffi//lib/ffi/enum.rb#86
   def tag; end
 
   # Get the symbol map.
   #
   # @return [Hash]
   #
-  # source://ffi//lib/ffi/enum.rb#146
+  # source://ffi//lib/ffi/enum.rb#145
   def to_h; end
 
   # Get the symbol map.
   #
   # @return [Hash]
   #
-  # source://ffi//lib/ffi/enum.rb#146
+  # source://ffi//lib/ffi/enum.rb#145
   def to_hash; end
 
   # @param val [Symbol, Integer, #to_int]
   # @param ctx unused
   # @return [Integer] value of a enum symbol
   #
-  # source://ffi//lib/ffi/enum.rb#156
+  # source://ffi//lib/ffi/enum.rb#155
   def to_native(val, ctx); end
 end
 
@@ -682,22 +682,22 @@ end
 #
 # source://ffi//lib/ffi/enum.rb#36
 class FFI::Enums
-  # @return [nil]
+  # @return [Enums] a new instance of Enums
   #
-  # source://ffi//lib/ffi/enum.rb#39
+  # source://ffi//lib/ffi/enum.rb#38
   def initialize; end
 
   # Add an {Enum} to the collection.
   #
   # @param enum [Enum]
   #
-  # source://ffi//lib/ffi/enum.rb#47
+  # source://ffi//lib/ffi/enum.rb#46
   def <<(enum); end
 
   # @param symbol a symbol to find in merge symbol maps of all enums.
   # @return a symbol
   #
-  # source://ffi//lib/ffi/enum.rb#66
+  # source://ffi//lib/ffi/enum.rb#65
   def __map_symbol(symbol); end
 
   # Find a {Enum} in collection.
@@ -705,7 +705,7 @@ class FFI::Enums
   # @param query enum tag or part of an enum name
   # @return [Enum]
   #
-  # source://ffi//lib/ffi/enum.rb#56
+  # source://ffi//lib/ffi/enum.rb#55
   def find(query); end
 end
 
@@ -786,9 +786,9 @@ module FFI::IO
     #
     # @param io [#read] io to read from
     # @param buf [AbstractMemory] destination for data read from +io+
-    # @param len [nil, Numeric] maximul number of bytes to read from +io+. If +nil+,
+    # @param len [nil, Integer] maximul number of bytes to read from +io+. If +nil+,
     #   read until end of file.
-    # @return [Numeric] length really read, in bytes
+    # @return [Integer] length really read, in bytes
     #
     # source://ffi//lib/ffi/io.rb#53
     def native_read(io, buf, len); end
@@ -880,7 +880,7 @@ module FFI::Library
   # @overload bitmask
   # @return [FFI::Bitmask]
   #
-  # source://ffi//lib/ffi/library.rb#500
+  # source://ffi//lib/ffi/library.rb#520
   def bitmask(*args); end
 
   # @overload callback
@@ -901,7 +901,7 @@ module FFI::Library
   # @overload enum
   # @return [FFI::Enum]
   #
-  # source://ffi//lib/ffi/library.rb#457
+  # source://ffi//lib/ffi/library.rb#477
   def enum(*args); end
 
   # Find an enum by name.
@@ -909,7 +909,7 @@ module FFI::Library
   # @param name
   # @return [FFI::Enum]
   #
-  # source://ffi//lib/ffi/library.rb#507
+  # source://ffi//lib/ffi/library.rb#527
   def enum_type(name); end
 
   # Find an enum by a symbol it contains.
@@ -917,7 +917,7 @@ module FFI::Library
   # @param symbol
   # @return [FFI::Enum]
   #
-  # source://ffi//lib/ffi/library.rb#514
+  # source://ffi//lib/ffi/library.rb#534
   def enum_value(symbol); end
 
   # Set the calling convention for {#attach_function} and {#callback}
@@ -944,7 +944,7 @@ module FFI::Library
   # @example
   #   ffi_lib_flags(:lazy, :local) # => 5
   # @param flags [Symbol, …] (see {FlagsMap})
-  # @return [Fixnum] the new value
+  # @return [Integer] the new value
   #
   # source://ffi//lib/ffi/library.rb#139
   def ffi_lib_flags(*flags); end
@@ -963,7 +963,7 @@ module FFI::Library
   # @param t [DataConverter, Type, Struct, Symbol] type to find
   # @return [Type]
   #
-  # source://ffi//lib/ffi/library.rb#521
+  # source://ffi//lib/ffi/library.rb#401
   def find_type(t); end
 
   # Freeze all definitions of the module
@@ -1016,7 +1016,7 @@ module FFI::Library
   #  @param [Class] klass can be one of FFI::Enum or FFI::Bitmask
   #  @param args (see #enum or #bitmask)
   #
-  # source://ffi//lib/ffi/library.rb#402
+  # source://ffi//lib/ffi/library.rb#422
   def generic_enum(klass, *args); end
 
   class << self
@@ -1364,7 +1364,7 @@ class FFI::Pointer < ::FFI::AbstractMemory
   #   ptr.read_array_of_type(TYPE_UINT8, :read_uint8, 4) # -> [1, 2, 3, 4]
   # @param type [Type] type of data to read from pointer's contents
   # @param reader [Symbol] method to send to +self+ to read +type+
-  # @param length [Numeric]
+  # @param length [Integer]
   # @return [Array]
   #
   # source://ffi//lib/ffi/pointer.rb#114
@@ -1373,7 +1373,7 @@ class FFI::Pointer < ::FFI::AbstractMemory
   # Read pointer's contents as a string, or the first +len+ bytes of the
   # equivalent string if +len+ is not +nil+.
   #
-  # @param len [nil, Numeric] length of string to return
+  # @param len [nil, Integer] length of string to return
   # @return [String]
   #
   # source://ffi//lib/ffi/pointer.rb#57
@@ -1384,7 +1384,7 @@ class FFI::Pointer < ::FFI::AbstractMemory
   # Same as:
   #  ptr.read_string(len)  # with len not nil
   #
-  # @param len [Numeric] length of string to return
+  # @param len [Integer] length of string to return
   # @return [String]
   #
   # source://ffi//lib/ffi/pointer.rb#72
@@ -1439,7 +1439,7 @@ class FFI::Pointer < ::FFI::AbstractMemory
   # +len+ is not +nil+.
   #
   # @param str [String] string to write
-  # @param len [Numeric] length of string to return
+  # @param len [Integer] length of string to return
   # @return [self]
   #
   # source://ffi//lib/ffi/pointer.rb#101
@@ -1451,7 +1451,7 @@ class FFI::Pointer < ::FFI::AbstractMemory
   #  ptr.write_string(str, len)   # with len not nil
   #
   # @param str [String] string to write
-  # @param len [Numeric] length of string to return
+  # @param len [Integer] length of string to return
   # @return [self]
   #
   # source://ffi//lib/ffi/pointer.rb#92
@@ -1464,7 +1464,7 @@ class FFI::Pointer < ::FFI::AbstractMemory
   class << self
     # Return the size of a pointer on the current platform, in bytes
     #
-    # @return [Numeric]
+    # @return [Integer]
     #
     # source://ffi//lib/ffi/pointer.rb#49
     def size; end
@@ -1486,7 +1486,7 @@ FFI::Pointer::SIZE = T.let(T.unsafe(nil), Integer)
 #
 # It's {typedef}'d as +:strptr+.
 #
-# source://ffi//lib/ffi/types.rb#182
+# source://ffi//lib/ffi/types.rb#191
 class FFI::StrPtrConverter
   extend ::FFI::DataConverter
 
@@ -1497,7 +1497,7 @@ class FFI::StrPtrConverter
     # @param ctx not used
     # @return [Array(String, Pointer)]
     #
-    # source://ffi//lib/ffi/types.rb#190
+    # source://ffi//lib/ffi/types.rb#199
     def from_native(val, ctx); end
   end
 end
@@ -1509,12 +1509,12 @@ class FFI::Struct
   def [](_arg0); end
   def []=(_arg0, _arg1); end
 
-  # @return [Fixnum] Struct alignment
+  # @return [Integer] Struct alignment
   #
   # source://ffi//lib/ffi/struct.rb#50
   def align; end
 
-  # @return [Fixnum] Struct alignment
+  # @return [Integer] Struct alignment
   #
   # source://ffi//lib/ffi/struct.rb#50
   def alignment; end
@@ -1535,14 +1535,14 @@ class FFI::Struct
 
   # Get the offset of a field.
   #
-  # @return [Numeric]
+  # @return [Integer]
   #
   # source://ffi//lib/ffi/struct.rb#56
   def offset_of(name); end
 
   # Get an array of tuples (field name, offset of the field).
   #
-  # @return [Array<Array(Symbol, Numeric)>] Array<Array(Symbol, Numeric)>
+  # @return [Array<Array(Symbol, Integer)>] Array<Array(Symbol, Integer)>
   #
   # source://ffi//lib/ffi/struct.rb#72
   def offsets; end
@@ -1552,7 +1552,7 @@ class FFI::Struct
 
   # Get struct size
   #
-  # @return [Numeric]
+  # @return [Integer]
   #
   # source://ffi//lib/ffi/struct.rb#45
   def size; end
@@ -1578,7 +1578,7 @@ class FFI::Struct
   def pointer=(_arg0); end
 
   class << self
-    # @return [Fixnum] Struct alignment
+    # @return [Integer] Struct alignment
     #
     # source://ffi//lib/ffi/struct.rb#104
     def alignment; end
@@ -1615,14 +1615,14 @@ class FFI::Struct
 
     # Get the offset of a field.
     #
-    # @return [Numeric]
+    # @return [Integer]
     #
     # source://ffi//lib/ffi/struct.rb#119
     def offset_of(name); end
 
     # Get an array of tuples (field name, offset of the field).
     #
-    # @return [Array<Array(Symbol, Numeric)>] Array<Array(Symbol, Numeric)>
+    # @return [Array<Array(Symbol, Integer)>] Array<Array(Symbol, Integer)>
     #
     # source://ffi//lib/ffi/struct.rb#114
     def offsets; end
@@ -1635,14 +1635,14 @@ class FFI::Struct
 
     # Get struct size
     #
-    # @return [Numeric]
+    # @return [Integer]
     #
     # source://ffi//lib/ffi/struct.rb#91
     def size; end
 
     # set struct size
     #
-    # @param size [Numeric]
+    # @param size [Integer]
     # @raise [ArgumentError]
     # @return [size]
     #
@@ -1787,14 +1787,14 @@ class FFI::StructLayout < ::FFI::Type
 
   # Get the offset of a field.
   #
-  # @return [Numeric]
+  # @return [Integer]
   #
   # source://ffi//lib/ffi/struct_layout.rb#46
   def offset_of(field_name); end
 
   # Get an array of tuples (field name, offset of the field).
   #
-  # @return [Array<Array(Symbol, Numeric)>] Array<Array(Symbol, Numeric)>
+  # @return [Array<Array(Symbol, Integer)>] Array<Array(Symbol, Integer)>
   #
   # source://ffi//lib/ffi/struct_layout.rb#40
   def offsets; end
@@ -1894,7 +1894,7 @@ class FFI::StructLayoutBuilder
   # @note Setting +offset+ to +nil+ or +-1+ is equivalent to +0+.
   # @param name [String, Symbol] name of the field
   # @param type [Array, DataConverter, Struct, StructLayout::Field, Symbol, Type] type of the field
-  # @param offset [Numeric, nil]
+  # @param offset [Integer, nil]
   # @return [self]
   #
   # source://ffi//lib/ffi/struct_layout_builder.rb#123
@@ -1902,10 +1902,10 @@ class FFI::StructLayoutBuilder
 
   # Add an array as a field to the builder.
   #
-  # @param count [Numeric] array length
+  # @param count [Integer] array length
   # @param name [String, Symbol] name of the field
   # @param type [Array, DataConverter, Struct, StructLayout::Field, Symbol, Type] type of the field
-  # @param offset [Numeric, nil]
+  # @param offset [Integer, nil]
   # @return [self]
   #
   # source://ffi//lib/ffi/struct_layout_builder.rb#161
@@ -1915,7 +1915,7 @@ class FFI::StructLayoutBuilder
   #
   # @param name [String, Symbol] name of the field
   # @param type [Array, DataConverter, Struct, StructLayout::Field, Symbol, Type] type of the field
-  # @param offset [Numeric, nil]
+  # @param offset [Integer, nil]
   # @return [self]
   # @see #add
   #
@@ -1926,7 +1926,7 @@ class FFI::StructLayoutBuilder
   #
   # @param name [String, Symbol] name of the field
   # @param type [Array, DataConverter, Struct, StructLayout::Field, Symbol, Type] type of the field
-  # @param offset [Numeric, nil]
+  # @param offset [Integer, nil]
   # @return [self]
   #
   # source://ffi//lib/ffi/struct_layout_builder.rb#151
@@ -1939,7 +1939,7 @@ class FFI::StructLayoutBuilder
 
   # Set alignment attribute with +align+ only if it is greater than attribute value.
   #
-  # @param align [Numeric]
+  # @param align [Integer]
   #
   # source://ffi//lib/ffi/struct_layout_builder.rb#56
   def alignment=(align); end
@@ -1966,7 +1966,7 @@ class FFI::StructLayoutBuilder
 
   # Set size attribute with +size+ only if +size+ is greater than attribute value.
   #
-  # @param size [Numeric]
+  # @param size [Integer]
   #
   # source://ffi//lib/ffi/struct_layout_builder.rb#50
   def size=(size); end
@@ -1989,16 +1989,16 @@ class FFI::StructLayoutBuilder
 
   private
 
-  # @param offset [Numeric]
-  # @param align [Numeric]
-  # @return [Numeric]
+  # @param offset [Integer]
+  # @param align [Integer]
+  # @return [Integer]
   #
   # source://ffi//lib/ffi/struct_layout_builder.rb#181
   def align(offset, align); end
 
   # @param name [String, Symbol] name of the field
   # @param type [Array, DataConverter, Struct, StructLayout::Field, Symbol, Type] type of the field
-  # @param offset [Numeric, nil]
+  # @param offset [Integer, nil]
   # @return [StructLayout::Field]
   #
   # source://ffi//lib/ffi/struct_layout_builder.rb#187
