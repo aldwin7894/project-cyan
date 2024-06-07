@@ -1164,20 +1164,20 @@ cssesc@^3.0.0:
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
 
-cssnano-preset-advanced@^7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/cssnano-preset-advanced/-/cssnano-preset-advanced-7.0.1.tgz#a4be012fc1c054b39dc370182671cddd639f1ada"
-  integrity sha512-y1NE/+WiKPnR/kVrUPeYrX3oWb9iHQZ3+KhNH++UTOgbLS7yJtC6nOkisnP90A5mQXLhpK8OjjxYEe9kAmRAnA==
+cssnano-preset-advanced@^7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/cssnano-preset-advanced/-/cssnano-preset-advanced-7.0.2.tgz#6bcac54cc138e942b6f902a937b8d8ec835a8e8c"
+  integrity sha512-RWl8eouQxOiWNfid5lYnKE/qtE9fHr2cLZOqfxHHNGrLMhvRBMh/PTmFjhQOoLmAUlQaZVtwjWiYnr99rYBBbw==
   dependencies:
     autoprefixer "^10.4.19"
     browserslist "^4.23.0"
-    cssnano-preset-default "^7.0.1"
-    postcss-discard-unused "^7.0.0"
+    cssnano-preset-default "^7.0.2"
+    postcss-discard-unused "^7.0.1"
     postcss-merge-idents "^7.0.0"
     postcss-reduce-idents "^7.0.0"
     postcss-zindex "^7.0.0"
 
-cssnano-preset-default@^7.0.1, cssnano-preset-default@^7.0.2:
+cssnano-preset-default@^7.0.2:
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/cssnano-preset-default/-/cssnano-preset-default-7.0.2.tgz#65fab7e93d2d28b7b1fd96fbcb0be55dc50f6f87"
   integrity sha512-z95kGKZx8VWHfERj7LFzuiTxylbvEp07ZEYaFu+t6bFyNOXLd/+3oPyNaY7ISwcrfHFCkt8OfRo4IZxVRJZ7dg==
@@ -2689,12 +2689,12 @@ postcss-discard-overridden@^7.0.0:
   resolved "https://registry.yarnpkg.com/postcss-discard-overridden/-/postcss-discard-overridden-7.0.0.tgz#b123ea51e3d4e1d0a254cf71eaff1201926d319c"
   integrity sha512-GmNAzx88u3k2+sBTZrJSDauR0ccpE24omTQCVmaTTZFz1du6AasspjaUPMJ2ud4RslZpoFKyf+6MSPETLojc6w==
 
-postcss-discard-unused@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/postcss-discard-unused/-/postcss-discard-unused-7.0.0.tgz#eeab8a67961480e7a54ea0d6cad474536bb81aa3"
-  integrity sha512-NgjhdrBA0Gc0atkp2a5usobonNh5kb/RmnVJoYz8X6m3wD+Mwc+rJz6flo7veaUhb5ZLsjx8Kc04LBzXNLYGwQ==
+postcss-discard-unused@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/postcss-discard-unused/-/postcss-discard-unused-7.0.1.tgz#4456bfb7ceba9073239bab0c674412216430d844"
+  integrity sha512-3myaiuHge0HaY+OMA42/xlXnVixhPQPmfxrpiLO3FBipgW/4A3UnWnAtlfo49tuxsCx4ZrS6+h/sa/68WNGWPg==
   dependencies:
-    postcss-selector-parser "^6.0.16"
+    postcss-selector-parser "^6.1.0"
 
 postcss-double-position-gradients@^5.0.6:
   version "5.0.6"
