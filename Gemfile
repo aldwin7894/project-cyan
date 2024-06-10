@@ -79,7 +79,7 @@ gem "rack", "~> 2"
 
 gem "health_check", "~> 3.1"
 
-gem "httplog", "~> 1.6"
+gem "httplog", "~> 1.7"
 
 gem "logstash-event", "~> 1.2"
 
