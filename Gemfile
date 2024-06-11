@@ -79,7 +79,7 @@ gem "rack", "~> 2"
 
 gem "health_check", "~> 3.1"
 
-gem "httplog", "~> 1.6"
+gem "httplog", "~> 1.7"
 
 gem "logstash-event", "~> 1.2"
 
@@ -90,7 +90,7 @@ gem "addressable", "~> 2.8"
 
 gem "jwt", "~> 2.8"
 
-gem "recaptcha", "~> 5.16"
+gem "recaptcha", "~> 5.17"
 
 # gem "ferrum", "~> 0.13"
 
