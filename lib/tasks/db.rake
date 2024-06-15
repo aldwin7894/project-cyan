@@ -7,6 +7,7 @@ namespace :db do
     GameId.create(name: "Genshin Impact (Asia Server)", ign: "Cyan★Nyan♪", game_id: "801533690", icon_filename: "genshin.webp")
     GameId.create(name: "Honkai: Star Rail (Asia Server)", ign: "CyanNyan", game_id: "800470038", icon_filename: "hsr.webp")
     GameId.create(name: "Tower of Fantasy (Atlantis Server)", ign: "CyanNyan", game_id: "1102113331", icon_filename: "tof.webp")
+    GameId.create(name: "Blue Archive (Asia Region)", ign: "CyanNyan", game_id: "4481406", icon_filename: "bluearchive.webp")
     GameId.create(name: "BanG Dream! Girls Band Party! (EN Server)", ign: "Cyan★Nyan♪", game_id: "828925", icon_filename: "bandori_en.webp")
     GameId.create(name: "BanG Dream! Girls Band Party! (JP Server)", ign: "Cyan★Nyan♪", game_id: "105489256", icon_filename: "bandori_jp.webp")
     GameId.create(name: "Love Live! All Stars (EN Server)", ign: "Cyan★Nyan♪", game_id: "851181555", icon_filename: "lovelive_en.webp")
