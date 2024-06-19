@@ -73,9 +73,9 @@ gem "graphlient", "~> 0.8.0"
 
 gem "lograge", "~> 0.14.0"
 
-gem "rack-brotli", "~> 1.2"
+gem "rack-brotli", "~> 2.0"
 
-gem "rack", "~> 2"
+gem "rack", "~> 3"
 
 gem "health_check", "~> 3.1"
 
