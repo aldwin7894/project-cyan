@@ -10,7 +10,6 @@ module ActiveModel::Model
 
   mixes_in_class_methods ::ActiveModel::Validations::ClassMethods
   mixes_in_class_methods ::ActiveModel::Conversion::ClassMethods
-  mixes_in_class_methods ::ActiveModel::API::ClassMethods
   mixes_in_class_methods GeneratedClassMethods
 
   module GeneratedClassMethods

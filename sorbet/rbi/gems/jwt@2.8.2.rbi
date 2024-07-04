@@ -436,11 +436,20 @@ class JWT::DecodeError < ::StandardError; end
 module JWT::Deprecations
   class << self
     # source://jwt//lib/jwt/deprecations.rb#7
-    def warning(message); end
+    def context; end
+
+    # source://jwt//lib/jwt/deprecations.rb#31
+    def emit_warnings; end
+
+    # source://jwt//lib/jwt/deprecations.rb#27
+    def store(message); end
+
+    # source://jwt//lib/jwt/deprecations.rb#13
+    def warning(message, only_if_valid: T.unsafe(nil)); end
 
     private
 
-    # source://jwt//lib/jwt/deprecations.rb#20
+    # source://jwt//lib/jwt/deprecations.rb#39
     def record_warned(message); end
   end
 end

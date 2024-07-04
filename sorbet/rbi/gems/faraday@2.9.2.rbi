@@ -653,10 +653,10 @@ class Faraday::Connection
   # @api private
   # @return [Faraday::Connection]
   #
-  # source://faraday//lib/faraday/connection.rb#490
+  # source://faraday//lib/faraday/connection.rb#491
   def dup; end
 
-  # source://faraday//lib/faraday/connection.rb#533
+  # source://faraday//lib/faraday/connection.rb#534
   def find_default_proxy; end
 
   # source://faraday//lib/faraday/connection.rb#199
@@ -766,10 +766,10 @@ class Faraday::Connection
   # source://faraday//lib/faraday/connection.rb#333
   def proxy=(new_value); end
 
-  # source://faraday//lib/faraday/connection.rb#541
+  # source://faraday//lib/faraday/connection.rb#542
   def proxy_for_request(url); end
 
-  # source://faraday//lib/faraday/connection.rb#513
+  # source://faraday//lib/faraday/connection.rb#514
   def proxy_from_env(url); end
 
   # source://faraday//lib/faraday/connection.rb#279
@@ -785,8 +785,8 @@ class Faraday::Connection
   #
   # @param method [Symbol] HTTP method.
   # @param url [String, URI, nil] String or URI to access.
-  # @param body [String, nil] The request body that will eventually be converted to
-  #   a string.
+  # @param body [String, Hash, Array, nil] The request body that will eventually be converted to
+  #   a string; middlewares can be used to support more complex types.
   # @param headers [Hash, nil] unencoded HTTP header key/value pairs.
   # @return [Faraday::Response]
   #
@@ -809,7 +809,7 @@ class Faraday::Connection
 
   # @return [Boolean]
   #
-  # source://faraday//lib/faraday/connection.rb#551
+  # source://faraday//lib/faraday/connection.rb#552
   def support_parallel?(adapter); end
 
   # source://faraday//lib/faraday/connection.rb#199
@@ -851,7 +851,7 @@ class Faraday::Connection
   # @yieldparam username [String] any username from URI
   # @yieldparam password [String] any password from URI
   #
-  # source://faraday//lib/faraday/connection.rb#507
+  # source://faraday//lib/faraday/connection.rb#508
   def with_uri_credentials(uri); end
 end
 
@@ -2774,17 +2774,20 @@ class Faraday::Utils::Headers < ::Hash
   # source://faraday//lib/faraday/utils/headers.rb#71
   def delete(key); end
 
+  # source://faraday//lib/faraday/utils/headers.rb#80
+  def dig(key, *rest); end
+
   # source://faraday//lib/faraday/utils/headers.rb#65
-  def fetch(key, *args, &block); end
+  def fetch(key, *_arg1, **_arg2, &_arg3); end
 
   # @return [Boolean]
   #
-  # source://faraday//lib/faraday/utils/headers.rb#80
+  # source://faraday//lib/faraday/utils/headers.rb#86
   def has_key?(key); end
 
   # @return [Boolean]
   #
-  # source://faraday//lib/faraday/utils/headers.rb#80
+  # source://faraday//lib/faraday/utils/headers.rb#86
   def include?(key); end
 
   # source://faraday//lib/faraday/utils/headers.rb#26
@@ -2792,44 +2795,44 @@ class Faraday::Utils::Headers < ::Hash
 
   # @return [Boolean]
   #
-  # source://faraday//lib/faraday/utils/headers.rb#80
+  # source://faraday//lib/faraday/utils/headers.rb#86
   def key?(key); end
 
   # @return [Boolean]
   #
-  # source://faraday//lib/faraday/utils/headers.rb#80
+  # source://faraday//lib/faraday/utils/headers.rb#86
   def member?(key); end
 
-  # source://faraday//lib/faraday/utils/headers.rb#95
+  # source://faraday//lib/faraday/utils/headers.rb#101
   def merge(other); end
 
-  # source://faraday//lib/faraday/utils/headers.rb#88
+  # source://faraday//lib/faraday/utils/headers.rb#94
   def merge!(other); end
 
-  # source://faraday//lib/faraday/utils/headers.rb#111
+  # source://faraday//lib/faraday/utils/headers.rb#117
   def parse(header_string); end
 
-  # source://faraday//lib/faraday/utils/headers.rb#100
+  # source://faraday//lib/faraday/utils/headers.rb#106
   def replace(other); end
 
-  # source://faraday//lib/faraday/utils/headers.rb#107
+  # source://faraday//lib/faraday/utils/headers.rb#113
   def to_hash; end
 
-  # source://faraday//lib/faraday/utils/headers.rb#88
+  # source://faraday//lib/faraday/utils/headers.rb#94
   def update(other); end
 
   protected
 
   # Returns the value of attribute names.
   #
-  # source://faraday//lib/faraday/utils/headers.rb#129
+  # source://faraday//lib/faraday/utils/headers.rb#135
   def names; end
 
   private
 
   # Join multiple values with a comma.
   #
-  # source://faraday//lib/faraday/utils/headers.rb#134
+  # source://faraday//lib/faraday/utils/headers.rb#140
   def add_parsed(key, value); end
 
   # on dup/clone, we need to duplicate @names hash

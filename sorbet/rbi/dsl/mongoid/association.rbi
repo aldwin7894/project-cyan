@@ -9,11 +9,8 @@ module Mongoid::Association
   include GeneratedInstanceMethods
 
   mixes_in_class_methods ::Mongoid::Association::Embedded::Cyclic::ClassMethods
-  mixes_in_class_methods ::Mongoid::Association::Referenced::AutoSave::ClassMethods
   mixes_in_class_methods ::Mongoid::Association::Referenced::CounterCache::ClassMethods
-  mixes_in_class_methods ::Mongoid::Association::Accessors::ClassMethods
   mixes_in_class_methods ::Mongoid::Association::Depending::ClassMethods
-  mixes_in_class_methods ::Mongoid::Association::Builders::ClassMethods
   mixes_in_class_methods ::Mongoid::Association::Macros::ClassMethods
   mixes_in_class_methods ::Mongoid::Association::Reflections::ClassMethods
   mixes_in_class_methods GeneratedClassMethods

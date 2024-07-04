@@ -8,15 +8,12 @@
 # source://rack-brotli//lib/rack/brotli/version.rb#1
 module Rack
   class << self
-    # source://rack/2.2.9/lib/rack/version.rb#26
+    # source://rack/3.1.6/lib/rack/version.rb#18
     def release; end
-
-    # source://rack/2.2.9/lib/rack/version.rb#19
-    def version; end
   end
 end
 
-# source://rack-brotli//lib/rack/brotli/deflater.rb#4
+# source://rack-brotli//lib/rack/brotli/deflater.rb#8
 module Rack::Brotli
   class << self
     # source://rack-brotli//lib/rack/brotli.rb#10
@@ -27,18 +24,10 @@ module Rack::Brotli
   end
 end
 
-# This middleware enables compression of http responses.
+# This middleware enables compression of http responses with the `br` encoding,
+# when support is detected and allowed.
 #
-# Currently supported compression algorithms:
-#
-#   * br
-#
-# The middleware automatically detects when compression is supported
-# and allowed. For example no transformation is made when a cache
-# directive of 'no-transform' is present, or when the response status
-# code is one that doesn't allow an entity body.
-#
-# source://rack-brotli//lib/rack/brotli/deflater.rb#15
+# source://rack-brotli//lib/rack/brotli/deflater.rb#11
 class Rack::Brotli::Deflater
   # Creates Rack::Brotli middleware.
   #
@@ -47,39 +36,57 @@ class Rack::Brotli::Deflater
   #           'if' - a lambda enabling / disabling deflation based on returned boolean value
   #                  e.g use Rack::Brotli, :if => lambda { |env, status, headers, body| body.map(&:bytesize).reduce(0, :+) > 512 }
   #           'include' - a list of content types that should be compressed
-  #           'deflater' - Brotli compression options
+  #           'deflater' - Brotli compression options Hash (see https://brotli.org/encode.html#a4d4 and https://github.com/miyucy/brotli/blob/ea0e058031177e5cc42e361f7d2702a951048a31/ext/brotli/brotli.c#L119-L180)
+  #              - 'mode'
+  #              - 'quality'
+  #              - 'lgwin'
+  #              - 'lgblock'
   #
   # @return [Deflater] a new instance of Deflater
   #
   # source://rack-brotli//lib/rack/brotli/deflater.rb#25
   def initialize(app, options = T.unsafe(nil)); end
 
-  # source://rack-brotli//lib/rack/brotli/deflater.rb#33
+  # source://rack-brotli//lib/rack/brotli/deflater.rb#34
   def call(env); end
 
   private
 
+  # Whether the body should be compressed.
+  #
   # @return [Boolean]
   #
-  # source://rack-brotli//lib/rack/brotli/deflater.rb#93
+  # source://rack-brotli//lib/rack/brotli/deflater.rb#115
   def should_deflate?(env, status, headers, body); end
 end
 
-# source://rack-brotli//lib/rack/brotli/deflater.rb#66
+# Body class used for encoded responses.
+#
+# source://rack-brotli//lib/rack/brotli/deflater.rb#68
 class Rack::Brotli::Deflater::BrotliStream
-  include ::Rack::Utils
-
   # @return [BrotliStream] a new instance of BrotliStream
   #
-  # source://rack-brotli//lib/rack/brotli/deflater.rb#69
-  def initialize(body, options); end
+  # source://rack-brotli//lib/rack/brotli/deflater.rb#72
+  def initialize(body, sync, br_options); end
 
-  # source://rack-brotli//lib/rack/brotli/deflater.rb#86
+  # Close the original body if possible.
+  #
+  # source://rack-brotli//lib/rack/brotli/deflater.rb#107
   def close; end
 
-  # source://rack-brotli//lib/rack/brotli/deflater.rb#74
+  # Yield compressed strings to the given block.
+  #
+  # source://rack-brotli//lib/rack/brotli/deflater.rb#79
   def each(&block); end
+
+  # Call the block passed to #each with the compressed data.
+  #
+  # source://rack-brotli//lib/rack/brotli/deflater.rb#102
+  def write(data); end
 end
+
+# source://rack-brotli//lib/rack/brotli/deflater.rb#70
+Rack::Brotli::Deflater::BrotliStream::BUFFER_LENGTH = T.let(T.unsafe(nil), Integer)
 
 # source://rack-brotli//lib/rack/brotli/version.rb#3
 class Rack::Brotli::Version

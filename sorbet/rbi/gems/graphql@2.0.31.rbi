@@ -1568,17 +1568,17 @@ class GraphQL::Execution::Interpreter::Runtime
   # @param trace [Boolean] If `false`, don't wrap this with field tracing
   # @return [GraphQL::Execution::Lazy, Object] If loading `object` will be deferred, it's a wrapper over it.
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#962
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#971
   def after_lazy(lazy_obj, field:, owner_object:, arguments:, ast_node:, result:, result_name:, eager: T.unsafe(nil), trace: T.unsafe(nil), &block); end
 
   # @api private
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#1012
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#1021
   def arguments(graphql_object, arg_owner, ast_node); end
 
   # @api private
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#891
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#900
   def call_method_on_directives(method_name, object, directives, &block); end
 
   # @api private
@@ -1597,28 +1597,28 @@ class GraphQL::Execution::Interpreter::Runtime
   # @api private
   # @return [Lazy, Array, Hash, Object] Lazy, Array, and Hash are all traversed to resolve lazy values later
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#736
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#745
   def continue_field(value, owner_type, field, current_type, ast_node, next_selections, is_non_null, owner_object, arguments, result_name, selection_result); end
 
   # @api private
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#632
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#641
   def continue_value(value, parent_type, field, is_non_null, ast_node, result_name, selection_result); end
 
   # @api private
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#620
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#629
   def current_path; end
 
   # @api private
   # @return [Boolean]
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#573
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#582
   def dead_result?(selection_result); end
 
   # @api private
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#1021
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#1030
   def delete_all_interpreter_context; end
 
   # Check {Schema::Directive.include?} for each directive that's present
@@ -1626,29 +1626,29 @@ class GraphQL::Execution::Interpreter::Runtime
   # @api private
   # @return [Boolean]
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#924
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#933
   def directives_include?(node, graphql_object, parent_type); end
 
   # @api private
   # @return [void]
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#400
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#409
   def evaluate_selection(result_name, field_ast_nodes_or_ast_node, owner_object, owner_type, is_eager_field, selections_result, parent_object); end
 
   # @api private
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#462
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#471
   def evaluate_selection_with_args(arguments, field_defn, ast_node, field_ast_nodes, owner_type, object, is_eager_field, result_name, selection_result, parent_object, return_type, return_type_non_null); end
 
   # @api private
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#518
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#527
   def evaluate_selection_with_resolved_keyword_args(kwarg_arguments, resolved_arguments, field_defn, ast_node, field_ast_nodes, owner_type, object, is_eager_field, result_name, selection_result, parent_object, return_type, return_type_non_null); end
 
   # @api private
   # @return [void]
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#370
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#379
   def evaluate_selections(owner_object, owner_type, is_eager_selection, gathered_selections, selections_result, target_result, parent_object); end
 
   # @api private
@@ -1663,7 +1663,7 @@ class GraphQL::Execution::Interpreter::Runtime
 
   # @api private
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#935
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#944
   def get_current_runtime_state; end
 
   # @api private
@@ -1674,12 +1674,12 @@ class GraphQL::Execution::Interpreter::Runtime
   # @api private
   # @return [Boolean]
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#1048
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#1057
   def lazy?(object); end
 
   # @api private
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#945
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#954
   def minimal_after_lazy(value, &block); end
 
   # @api private
@@ -1690,17 +1690,17 @@ class GraphQL::Execution::Interpreter::Runtime
 
   # @api private
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#876
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#885
   def resolve_list_item(inner_value, inner_type, inner_type_non_null, ast_node, field, owner_object, arguments, this_idx, response_list, next_selections, owner_type); end
 
   # @api private
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#1032
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#1041
   def resolve_type(type, value); end
 
   # @api private
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#896
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#905
   def run_directive(method_name, object, directives, idx, &block); end
 
   # This _begins_ the execution. Some deferred work
@@ -1723,12 +1723,12 @@ class GraphQL::Execution::Interpreter::Runtime
   #
   # @api private
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#607
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#616
   def set_graphql_dead(selection_result); end
 
   # @api private
   #
-  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#577
+  # source://graphql//lib/graphql/execution/interpreter/runtime.rb#586
   def set_result(selection_result, result_name, value, is_child_result, is_non_null); end
 
   # @api private
@@ -1954,12 +1954,12 @@ end
 
 # @api private
 #
-# source://graphql//lib/graphql/execution/interpreter/runtime.rb#631
+# source://graphql//lib/graphql/execution/interpreter/runtime.rb#640
 GraphQL::Execution::Interpreter::Runtime::HALT = T.let(T.unsafe(nil), Object)
 
 # @api private
 #
-# source://graphql//lib/graphql/execution/interpreter/runtime.rb#367
+# source://graphql//lib/graphql/execution/interpreter/runtime.rb#376
 GraphQL::Execution::Interpreter::Runtime::NO_ARGS = T.let(T.unsafe(nil), Hash)
 
 # This wraps a value which is available, but not yet calculated, like a promise or future.

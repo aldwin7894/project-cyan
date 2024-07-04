@@ -8,25 +8,25 @@
 # source://graphql-client//lib/graphql/client/type_stack.rb#2
 module GraphQL
   class << self
-    # source://graphql/2.0.30/lib/graphql.rb#35
+    # source://graphql/2.0.31/lib/graphql.rb#35
     def default_parser; end
 
-    # source://graphql/2.0.30/lib/graphql.rb#39
+    # source://graphql/2.0.31/lib/graphql.rb#39
     def default_parser=(_arg0); end
 
-    # source://graphql/2.0.30/lib/graphql.rb#45
+    # source://graphql/2.0.31/lib/graphql.rb#45
     def parse(graphql_string, trace: T.unsafe(nil)); end
 
-    # source://graphql/2.0.30/lib/graphql.rb#52
+    # source://graphql/2.0.31/lib/graphql.rb#52
     def parse_file(filename); end
 
-    # source://graphql/2.0.30/lib/graphql.rb#62
+    # source://graphql/2.0.31/lib/graphql.rb#62
     def parse_with_racc(string, filename: T.unsafe(nil), trace: T.unsafe(nil)); end
 
-    # source://graphql/2.0.30/lib/graphql.rb#58
+    # source://graphql/2.0.31/lib/graphql.rb#58
     def scan(graphql_string); end
 
-    # source://graphql/2.0.30/lib/graphql.rb#66
+    # source://graphql/2.0.31/lib/graphql.rb#66
     def scan_with_ruby(graphql_string); end
   end
 end
@@ -84,12 +84,12 @@ class GraphQL::Client
   #
   # Returns an OperationDefinition.
   #
-  # source://graphql-client//lib/graphql/client.rb#294
+  # source://graphql-client//lib/graphql/client.rb#299
   def create_operation(fragment, filename = T.unsafe(nil), lineno = T.unsafe(nil)); end
 
   # Returns the value of attribute document.
   #
-  # source://graphql-client//lib/graphql/client.rb#331
+  # source://graphql-client//lib/graphql/client.rb#336
   def document; end
 
   # Returns the value of attribute document_tracking_enabled.
@@ -116,22 +116,22 @@ class GraphQL::Client
 
   # Public: A wrapper to use the more-efficient `.get_type` when it's available from GraphQL-Ruby (1.10+)
   #
-  # source://graphql-client//lib/graphql/client.rb#270
+  # source://graphql-client//lib/graphql/client.rb#275
   def get_type(type_name); end
 
-  # source://graphql-client//lib/graphql/client.rb#126
+  # source://graphql-client//lib/graphql/client.rb#131
   def parse(str, filename = T.unsafe(nil), lineno = T.unsafe(nil)); end
 
   # A cache of the schema's merged possible types
   #
   # @param type_condition [Class, String] a type definition or type name
   #
-  # source://graphql-client//lib/graphql/client.rb#109
+  # source://graphql-client//lib/graphql/client.rb#114
   def possible_types(type_condition = T.unsafe(nil)); end
 
   # @raise [NotImplementedError]
   #
-  # source://graphql-client//lib/graphql/client.rb#333
+  # source://graphql-client//lib/graphql/client.rb#338
   def query(definition, variables: T.unsafe(nil), context: T.unsafe(nil)); end
 
   # Returns the value of attribute schema.
@@ -146,16 +146,16 @@ class GraphQL::Client
 
   private
 
-  # source://graphql-client//lib/graphql/client.rb#450
+  # source://graphql-client//lib/graphql/client.rb#455
   def deep_freeze_json_object(obj); end
 
-  # source://graphql-client//lib/graphql/client.rb#463
+  # source://graphql-client//lib/graphql/client.rb#468
   def deep_stringify_keys(obj); end
 
-  # source://graphql-client//lib/graphql/client.rb#442
+  # source://graphql-client//lib/graphql/client.rb#447
   def find_definition_dependencies(node); end
 
-  # source://graphql-client//lib/graphql/client.rb#399
+  # source://graphql-client//lib/graphql/client.rb#404
   def sliced_definitions(document_dependencies, doc, source_location:); end
 
   class << self
@@ -645,19 +645,19 @@ class GraphQL::Client::FragmentDefinition < ::GraphQL::Client::Definition
   def new(obj, *args); end
 end
 
-# source://graphql-client//lib/graphql/client.rb#428
+# source://graphql-client//lib/graphql/client.rb#433
 class GraphQL::Client::GatherNamesVisitor < ::GraphQL::Language::Visitor
   # @return [GatherNamesVisitor] a new instance of GatherNamesVisitor
   #
-  # source://graphql-client//lib/graphql/client.rb#429
+  # source://graphql-client//lib/graphql/client.rb#434
   def initialize(node); end
 
   # Returns the value of attribute names.
   #
-  # source://graphql-client//lib/graphql/client.rb#434
+  # source://graphql-client//lib/graphql/client.rb#439
   def names; end
 
-  # source://graphql-client//lib/graphql/client.rb#436
+  # source://graphql-client//lib/graphql/client.rb#441
   def on_fragment_spread(node, parent); end
 end
 
@@ -817,16 +817,16 @@ class GraphQL::Client::InvariantError < ::GraphQL::Client::Error; end
 # Internal: FragmentSpread and FragmentDefinition extension to allow its
 # name to point to a lazily defined Proc instead of a static string.
 #
-# source://graphql-client//lib/graphql/client.rb#389
+# source://graphql-client//lib/graphql/client.rb#394
 module GraphQL::Client::LazyName
   # Sets the attribute _definition
   #
   # @param value the value to set the attribute _definition to.
   #
-  # source://graphql-client//lib/graphql/client.rb#394
+  # source://graphql-client//lib/graphql/client.rb#399
   def _definition=(_arg0); end
 
-  # source://graphql-client//lib/graphql/client.rb#390
+  # source://graphql-client//lib/graphql/client.rb#395
   def name; end
 end
 
@@ -903,25 +903,25 @@ class GraphQL::Client::QueryTypename::InsertTypenameVisitor < ::GraphQL::Languag
   def on_operation_definition(node, parent); end
 end
 
-# source://graphql-client//lib/graphql/client.rb#237
+# source://graphql-client//lib/graphql/client.rb#242
 class GraphQL::Client::RenameNodeVisitor < ::GraphQL::Language::Visitor
   # @return [RenameNodeVisitor] a new instance of RenameNodeVisitor
   #
-  # source://graphql-client//lib/graphql/client.rb#238
+  # source://graphql-client//lib/graphql/client.rb#243
   def initialize(document, definitions:); end
 
-  # source://graphql-client//lib/graphql/client.rb#243
+  # source://graphql-client//lib/graphql/client.rb#248
   def on_fragment_definition(node, _parent); end
 
-  # source://graphql-client//lib/graphql/client.rb#253
+  # source://graphql-client//lib/graphql/client.rb#258
   def on_fragment_spread(node, _parent); end
 
-  # source://graphql-client//lib/graphql/client.rb#248
+  # source://graphql-client//lib/graphql/client.rb#253
   def on_operation_definition(node, _parent); end
 
   private
 
-  # source://graphql-client//lib/graphql/client.rb#260
+  # source://graphql-client//lib/graphql/client.rb#265
   def rename_node(node); end
 end
 
