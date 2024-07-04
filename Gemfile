@@ -5,6 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.3.3"
 
+# Needed until Ruby 3.3.4 is released https://github.com/ruby/ruby/pull/1100
+gem 'net-pop', github: 'ruby/net-pop'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem "rails", "~> 7.1.0"
 # use vite to build javascripts and assets

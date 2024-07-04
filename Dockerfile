@@ -1,8 +1,8 @@
 FROM ruby:3.3.3-slim-bookworm AS build-env
 
-ENV NODE_VERSION 20.14.0
-ENV NPM_VERSION 10.8
-ENV YARN_VERSION 1.22
+ENV NODE_VERSION=20.14.0
+ENV NPM_VERSION=10.8
+ENV YARN_VERSION=1.22
 ENV BUNDLE_PATH=/gems
 ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
@@ -54,7 +54,7 @@ RUN --mount=type=secret,id=TZ \
 #==============================================
 FROM ruby:3.3.3-slim-bookworm
 
-ENV NODE_VERSION 20.14.0
+ENV NODE_VERSION=20.14.0
 ENV BUNDLE_PATH=/gems
 ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
