@@ -2,6 +2,7 @@
 
 import "iconify-icon";
 import "@hotwired/turbo-rails";
+import PromisePolyfill from "promise-polyfill";
 import Alpine from "alpinejs";
 import { Chart, PieController, ArcElement, Tooltip } from "chart.js";
 import Tippy, { followCursor } from "tippy.js";
@@ -12,6 +13,8 @@ import {
   EffectFade,
   EffectCoverflow,
 } from "swiper/modules";
+import smartcrop from "smartcrop";
+smartcrop.Promise = PromisePolyfill;
 
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
@@ -55,7 +58,7 @@ const initElems = (parent = null) => {
     followCursor: "horizontal",
     animation: "perspective-subtle",
     plugins: [followCursor],
-    allowHTML: true
+    allowHTML: true,
   });
 };
 
@@ -117,6 +120,14 @@ document.addEventListener("turbo:before-frame-render", event => {
     ? event.target.getAttribute("data-turbo-frame")
     : event.target.id;
 
+  if (id.includes("last_watched")) {
+    event.preventDefault();
+    fadeOut(id).then(async () => {
+      event.detail.resume();
+    });
+    return;
+  }
+
   event.preventDefault();
   fadeOut(id)
     .then(async () => {
@@ -169,6 +180,53 @@ document.addEventListener("turbo:before-stream-render", () => {
 
 Chart.register(PieController, ArcElement, Tooltip);
 
+const CropImage = (imgSrc, canvasId, divElement, width, height) => {
+  return new Promise((resolve, reject) => {
+    /**
+     * @type {HTMLCanvasElement}
+     */
+    const canvas = document.getElementById(canvasId);
+    const ctx = canvas.getContext("2d");
+    const image = new Image();
+    image.onerror = reject;
+    image.onload = function () {
+      canvas.width = image.width;
+      canvas.height = image.height;
+      ctx.drawImage(image, 0, 0, image.width, image.height);
+      smartcrop
+        .crop(canvas, {
+          width,
+          height,
+          ruleOfThirds: false,
+        })
+        .then(crop => {
+          canvas.width = width;
+          canvas.height = height;
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(
+            image,
+            crop.topCrop.x,
+            crop.topCrop.y,
+            crop.topCrop.width,
+            crop.topCrop.height,
+            0,
+            0,
+            width,
+            height,
+          );
+          const url = canvas.toDataURL("image/png");
+          const div = document.getElementById(divElement);
+          div.style.background = `no-repeat center/cover url(${url})`;
+          canvas.parentNode.removeChild(canvas);
+          resolve();
+        })
+        .catch(err => reject(err));
+    };
+
+    image.src = imgSrc;
+  });
+};
+
 Object.assign(window, {
   Alpine,
   Chart,
@@ -178,5 +236,6 @@ Object.assign(window, {
   Navigation,
   EffectFade,
   EffectCoverflow,
+  CropImage,
 });
 Alpine.start();
