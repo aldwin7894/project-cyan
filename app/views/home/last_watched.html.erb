@@ -1,7 +1,8 @@
 <% cover = @last_watched&.[]("media")&.[]("bannerImage") %>
 <% cover = cover&.exclude?("anilist") ? cached_image_url_to_base64(cover) : cover %>
 <turbo-frame id="last_watched" class="w-full h-full">
-  <div class="w-full h-full transition-all duration-1000 bg-center bg-cover" style="background: no-repeat center<%= cover.present? ? "/cover url(#{cover})" : "/75% url(#{vite_asset_path("images/bvl-logo.webp")}); background-color: darkred" %>">
+  <canvas id="canvas-bg" hidden></canvas>
+  <div id="cover-bg" class="w-full h-full transition-all duration-1000 bg-center bg-cover" style="background: no-repeat center<%= cover.present? ? "/cover url(#{cover})" : "/75% url(#{vite_asset_path("images/bvl-logo.webp")}); background-color: darkred" %>">
     <div class="<%= cover.present? ? "backdrop-brightness-50" : "backdrop-brightness-[0.2]" %> flex flex-col w-full h-full px-4 py-4 text-white">
       <h2 class="text-lg font-bold text-shadow shadow-black">LAST WATCHED ANIME</h2>
 
@@ -16,4 +17,15 @@
       <% end %>
     </div>
   </div>
+
+  <% if @last_watched&.[]("media")&.[]("bannerImage").present? %>
+    <script async>
+      const frame = document.getElementById("last_watched")
+      frame.addEventListener("turbo:before-frame-render", async (event) => {
+        event.preventDefault();
+        await CropImage("<%= cover %>", "canvas-bg", "cover-bg");
+        event.detail.resume();
+      });
+    </script>
+  <% end %>
 </turbo-frame>

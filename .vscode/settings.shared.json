@@ -64,7 +64,10 @@
     "signatureHelp": true
   },
   "rubyLsp.pullDiagnosticsOn": "both",
-  "rubyLsp.rubyVersionManager": "rvm",
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "rvm"
+  },
   "sorbet.enabled": true,
   "sorbet.highlightUntyped": "nowhere",
+  "eslint.useFlatConfig": false
 }
