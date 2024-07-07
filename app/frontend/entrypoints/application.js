@@ -120,6 +120,14 @@ document.addEventListener("turbo:before-frame-render", event => {
     ? event.target.getAttribute("data-turbo-frame")
     : event.target.id;
 
+  if (id.includes("last_watched")) {
+    event.preventDefault();
+    fadeOut(id).then(async () => {
+      event.detail.resume();
+    });
+    return;
+  }
+
   event.preventDefault();
   fadeOut(id)
     .then(async () => {
@@ -172,7 +180,7 @@ document.addEventListener("turbo:before-stream-render", () => {
 
 Chart.register(PieController, ArcElement, Tooltip);
 
-const CropImage = (imgSrc, canvasId, divElement) => {
+const CropImage = (imgSrc, canvasId, divElement, width, height) => {
   return new Promise((resolve, reject) => {
     /**
      * @type {HTMLCanvasElement}
@@ -187,12 +195,13 @@ const CropImage = (imgSrc, canvasId, divElement) => {
       ctx.drawImage(image, 0, 0, image.width, image.height);
       smartcrop
         .crop(canvas, {
-          width: 1280,
-          height: 1080,
+          width,
+          height,
+          ruleOfThirds: false,
         })
         .then(crop => {
-          canvas.width = 1280;
-          canvas.height = 1080;
+          canvas.width = width;
+          canvas.height = height;
           ctx.clearRect(0, 0, canvas.width, canvas.height);
           ctx.drawImage(
             image,
@@ -202,15 +211,16 @@ const CropImage = (imgSrc, canvasId, divElement) => {
             crop.topCrop.height,
             0,
             0,
-            1280,
-            1080,
+            width,
+            height,
           );
           const url = canvas.toDataURL("image/png");
           const div = document.getElementById(divElement);
           div.style.background = `no-repeat center/cover url(${url})`;
+          canvas.parentNode.removeChild(canvas);
           resolve();
         })
-        .catch(reject);
+        .catch(err => reject(err));
     };
 
     image.src = imgSrc;

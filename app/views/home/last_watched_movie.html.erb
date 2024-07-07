@@ -1,7 +1,8 @@
 <% cover = @last_watched_movie&.[]("media")&.[]("bannerImage") %>
 <% cover = cover&.exclude?("anilist") ? cached_image_url_to_base64(cover) : cover %>
 <turbo-frame id="last_watched_movie" class="w-full h-full">
-  <div class="w-full h-full transition-all duration-1000 bg-center bg-cover" style="background: no-repeat center<%= cover.present? ? "/cover url(#{cover})" : "/75% url(#{vite_asset_path("images/plasmagica-logo.webp")}); background-color: darkmagenta" %>">
+  <canvas id="canvas-bg-movie" hidden></canvas>
+  <div id="cover-bg-movie" class="w-full h-full transition-all duration-500 bg-center bg-cover" style="opacity: 0; background: no-repeat center<%= cover.present? ? "/cover url(#{cover})" : "/75% url(#{vite_asset_path("images/plasmagica-logo.webp")}); background-color: darkmagenta" %>">
     <div class="<%= cover.present? ? "backdrop-brightness-50" : "backdrop-brightness-[0.2]" %> flex flex-col w-full h-full px-4 py-4 text-white">
       <h2 class="text-lg font-bold text-shadow shadow-black">LAST WATCHED ANIME MOVIE</h2>
 
@@ -16,4 +17,15 @@
       <% end %>
     </div>
   </div>
+
+  <script>
+    (async () => {
+      <% if @last_watched_movie&.[]("media")&.[]("bannerImage").present? %>
+        await CropImage("<%= cover %>", "canvas-bg-movie", "cover-bg-movie", 1280, 1080);
+      <% end %>
+
+      const bg = document.getElementById("cover-bg-movie");
+      bg.style.opacity = 100;
+    })();
+  </script>
 </turbo-frame>
