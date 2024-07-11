@@ -301,7 +301,7 @@ GEM
     rbi (0.1.13)
       prism (>= 0.18.0, < 1.0.0)
       sorbet-runtime (>= 0.5.9204)
-    rbs (3.5.1)
+    rbs (3.5.2)
       logger
     rdoc (6.7.0)
       psych (>= 4.0.0)
@@ -353,7 +353,7 @@ GEM
       prism (>= 0.29.0, < 0.31)
       rbs (>= 3, < 4)
       sorbet-runtime (>= 0.5.10782)
-    ruby-lsp-rails (0.3.8)
+    ruby-lsp-rails (0.3.9)
       ruby-lsp (>= 0.17.2, < 0.18.0)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
