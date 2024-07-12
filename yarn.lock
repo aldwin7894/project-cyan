@@ -58,26 +58,36 @@
     "@csstools/selector-specificity" "^3.1.1"
     postcss-selector-parser "^6.0.13"
 
-"@csstools/postcss-color-function@^3.0.18":
-  version "3.0.18"
-  resolved "https://registry.yarnpkg.com/@csstools/postcss-color-function/-/postcss-color-function-3.0.18.tgz#d9124f23f742166149d6cbeeb4875eaf8ee4d71c"
-  integrity sha512-Ry8b3HCyadiBLObsGShdoJNoZkQTHz5q5HVY/hkwwBkq8q702amvcGJs06tpzFTwHL+jPc7vULUpYtK4MIJHwA==
+"@csstools/postcss-color-function@^3.0.19":
+  version "3.0.19"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-color-function/-/postcss-color-function-3.0.19.tgz#8db83be25bb590a29549b0305bdaa74e76366c62"
+  integrity sha512-d1OHEXyYGe21G3q88LezWWx31ImEDdmINNDy0LyLNN9ChgN2bPxoubUPiHf9KmwypBMaHmNcMuA/WZOKdZk/Lg==
   dependencies:
     "@csstools/css-color-parser" "^2.0.4"
     "@csstools/css-parser-algorithms" "^2.7.1"
     "@csstools/css-tokenizer" "^2.4.1"
-    "@csstools/postcss-progressive-custom-properties" "^3.2.0"
+    "@csstools/postcss-progressive-custom-properties" "^3.3.0"
     "@csstools/utilities" "^1.0.0"
 
-"@csstools/postcss-color-mix-function@^2.0.18":
-  version "2.0.18"
-  resolved "https://registry.yarnpkg.com/@csstools/postcss-color-mix-function/-/postcss-color-mix-function-2.0.18.tgz#23fb23cfd1a7420ee122e9ce1fcba94357984b8d"
-  integrity sha512-CtklpScpGZ3ZwUQMOCYlsWw8vMu+rjvKUJsa1zpFSvesoUK89JBC6+LzEhTlb1jMcyrY2ErySEQDOt+MMRse0A==
+"@csstools/postcss-color-mix-function@^2.0.19":
+  version "2.0.19"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-color-mix-function/-/postcss-color-mix-function-2.0.19.tgz#dd5c8cccd95613d11d8a8f96a57c148daa0e6306"
+  integrity sha512-mLvQlMX+keRYr16AuvuV8WYKUwF+D0DiCqlBdvhQ0KYEtcQl9/is9Ssg7RcIys8x0jIn2h1zstS4izckdZj9wg==
   dependencies:
     "@csstools/css-color-parser" "^2.0.4"
     "@csstools/css-parser-algorithms" "^2.7.1"
     "@csstools/css-tokenizer" "^2.4.1"
-    "@csstools/postcss-progressive-custom-properties" "^3.2.0"
+    "@csstools/postcss-progressive-custom-properties" "^3.3.0"
+    "@csstools/utilities" "^1.0.0"
+
+"@csstools/postcss-content-alt-text@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-content-alt-text/-/postcss-content-alt-text-1.0.0.tgz#f69f74cd7ff679a912a444a274f67b9e0ce67127"
+  integrity sha512-SkHdj7EMM/57GVvSxSELpUg7zb5eAndBeuvGwFzYtU06/QXJ/h9fuK7wO5suteJzGhm3GDF/EWPCdWV2h1IGHQ==
+  dependencies:
+    "@csstools/css-parser-algorithms" "^2.7.1"
+    "@csstools/css-tokenizer" "^2.4.1"
+    "@csstools/postcss-progressive-custom-properties" "^3.3.0"
     "@csstools/utilities" "^1.0.0"
 
 "@csstools/postcss-exponential-functions@^1.0.9":
@@ -106,34 +116,34 @@
     "@csstools/css-parser-algorithms" "^2.7.1"
     "@csstools/css-tokenizer" "^2.4.1"
 
-"@csstools/postcss-gradients-interpolation-method@^4.0.19":
-  version "4.0.19"
-  resolved "https://registry.yarnpkg.com/@csstools/postcss-gradients-interpolation-method/-/postcss-gradients-interpolation-method-4.0.19.tgz#2b4c83930aa8a929cacb82ba4acbce4a2be325d5"
-  integrity sha512-aGKMXy2EhkyidYvfuILqoO6tk8bEIVS9obc6OAc1JwRLeQBkbPtL56eKd1DnyEfgJ+6v/4zA1Ko0AqPwAjA50w==
+"@csstools/postcss-gradients-interpolation-method@^4.0.20":
+  version "4.0.20"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-gradients-interpolation-method/-/postcss-gradients-interpolation-method-4.0.20.tgz#e2a165719798cd8b503865297d8095c857eba77f"
+  integrity sha512-ZFl2JBHano6R20KB5ZrB8KdPM2pVK0u+/3cGQ2T8VubJq982I2LSOvQ4/VtxkAXjkPkk1rXt4AD1ni7UjTZ1Og==
   dependencies:
     "@csstools/css-color-parser" "^2.0.4"
     "@csstools/css-parser-algorithms" "^2.7.1"
     "@csstools/css-tokenizer" "^2.4.1"
-    "@csstools/postcss-progressive-custom-properties" "^3.2.0"
+    "@csstools/postcss-progressive-custom-properties" "^3.3.0"
     "@csstools/utilities" "^1.0.0"
 
-"@csstools/postcss-hwb-function@^3.0.17":
-  version "3.0.17"
-  resolved "https://registry.yarnpkg.com/@csstools/postcss-hwb-function/-/postcss-hwb-function-3.0.17.tgz#d0b33d6d57a49edd8767a2b7eb31e97b4df89f90"
-  integrity sha512-Oe8WBtP29K5EBCqOKOfKAUaDFWYw+16WCDuwaYJMS0o8oZdPwmxLaBDsqXlNK03zXe9McYBli8fBHyRiVEVJGQ==
+"@csstools/postcss-hwb-function@^3.0.18":
+  version "3.0.18"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-hwb-function/-/postcss-hwb-function-3.0.18.tgz#267dc59c97033b1108e377c98c45c35b713ea66b"
+  integrity sha512-3ifnLltR5C7zrJ+g18caxkvSRnu9jBBXCYgnBznRjxm6gQJGnnCO9H6toHfywNdNr/qkiVf2dymERPQLDnjLRQ==
   dependencies:
     "@csstools/css-color-parser" "^2.0.4"
     "@csstools/css-parser-algorithms" "^2.7.1"
     "@csstools/css-tokenizer" "^2.4.1"
-    "@csstools/postcss-progressive-custom-properties" "^3.2.0"
+    "@csstools/postcss-progressive-custom-properties" "^3.3.0"
     "@csstools/utilities" "^1.0.0"
 
-"@csstools/postcss-ic-unit@^3.0.6":
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/@csstools/postcss-ic-unit/-/postcss-ic-unit-3.0.6.tgz#441f18a9064884e1e6ab77169413e0e6184f5c1d"
-  integrity sha512-fHaU9C/sZPauXMrzPitZ/xbACbvxbkPpHoUgB9Kw5evtsBWdVkVrajOyiT9qX7/c+G1yjApoQjP1fQatldsy9w==
+"@csstools/postcss-ic-unit@^3.0.7":
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-ic-unit/-/postcss-ic-unit-3.0.7.tgz#2a4428c0d19bd456b4bfd60dcbe9e7c4974dfcef"
+  integrity sha512-YoaNHH2wNZD+c+rHV02l4xQuDpfR8MaL7hD45iJyr+USwvr0LOheeytJ6rq8FN6hXBmEeoJBeXXgGmM8fkhH4g==
   dependencies:
-    "@csstools/postcss-progressive-custom-properties" "^3.2.0"
+    "@csstools/postcss-progressive-custom-properties" "^3.3.0"
     "@csstools/utilities" "^1.0.0"
     postcss-value-parser "^4.2.0"
 
@@ -150,14 +160,14 @@
     "@csstools/selector-specificity" "^3.1.1"
     postcss-selector-parser "^6.0.13"
 
-"@csstools/postcss-light-dark-function@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@csstools/postcss-light-dark-function/-/postcss-light-dark-function-1.0.7.tgz#82841bf07e658e7a1a6c2b8e24ceee8bf2fd4e04"
-  integrity sha512-49LSrZR/d2Iql7Sq4C+k5SDvn0RvqXzCt//kWihVimxCUvZHGxrHeV777Hfr0lTfPlgfPdkCVdlaLM5XZTqIng==
+"@csstools/postcss-light-dark-function@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-light-dark-function/-/postcss-light-dark-function-1.0.8.tgz#4d4cdad50a9b54b6b3a79cf32bf1cd956e82b0d7"
+  integrity sha512-x0UtpCyVnERsplUeoaY6nEtp1HxTf4lJjoK/ULEm40DraqFfUdUSt76yoOyX5rGY6eeOUOkurHyYlFHVKv/pew==
   dependencies:
     "@csstools/css-parser-algorithms" "^2.7.1"
     "@csstools/css-tokenizer" "^2.4.1"
-    "@csstools/postcss-progressive-custom-properties" "^3.2.0"
+    "@csstools/postcss-progressive-custom-properties" "^3.3.0"
     "@csstools/utilities" "^1.0.0"
 
 "@csstools/postcss-logical-float-and-clear@^2.0.1":
@@ -224,33 +234,33 @@
   dependencies:
     postcss-value-parser "^4.2.0"
 
-"@csstools/postcss-oklab-function@^3.0.18":
-  version "3.0.18"
-  resolved "https://registry.yarnpkg.com/@csstools/postcss-oklab-function/-/postcss-oklab-function-3.0.18.tgz#79c473b6b26707e69d1cad3e8118fc060227d645"
-  integrity sha512-qxcctjXBgGKYl/CUSh13zaKdB57meIDvgTwF1o4EKzzuJ4RM+t79GuWWAnVKesbAwQXn6k/JQb8LfOeH8g1t2w==
+"@csstools/postcss-oklab-function@^3.0.19":
+  version "3.0.19"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-oklab-function/-/postcss-oklab-function-3.0.19.tgz#3bd0719914780fb53558af11958d0f4e6d2f952e"
+  integrity sha512-e3JxXmxjU3jpU7TzZrsNqSX4OHByRC3XjItV3Ieo/JEQmLg5rdOL4lkv/1vp27gXemzfNt44F42k/pn0FpE21Q==
   dependencies:
     "@csstools/css-color-parser" "^2.0.4"
     "@csstools/css-parser-algorithms" "^2.7.1"
     "@csstools/css-tokenizer" "^2.4.1"
-    "@csstools/postcss-progressive-custom-properties" "^3.2.0"
+    "@csstools/postcss-progressive-custom-properties" "^3.3.0"
     "@csstools/utilities" "^1.0.0"
 
-"@csstools/postcss-progressive-custom-properties@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@csstools/postcss-progressive-custom-properties/-/postcss-progressive-custom-properties-3.2.0.tgz#811da8616938e8148a7c4fb40c26e30bf94d4ceb"
-  integrity sha512-BZlirVxCRgKlE7yVme+Xvif72eTn1MYXj8oZ4Knb+jwaH4u3AN1DjbhM7j86RP5vvuAOexJ4JwfifYYKWMN/QQ==
+"@csstools/postcss-progressive-custom-properties@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-progressive-custom-properties/-/postcss-progressive-custom-properties-3.3.0.tgz#20177d3fc61d8f170c4ee1686f3d2ab6eec27bbb"
+  integrity sha512-W2oV01phnILaRGYPmGFlL2MT/OgYjQDrL9sFlbdikMFi6oQkFki9B86XqEWR7HCsTZFVq7dbzr/o71B75TKkGg==
   dependencies:
     postcss-value-parser "^4.2.0"
 
-"@csstools/postcss-relative-color-syntax@^2.0.18":
-  version "2.0.18"
-  resolved "https://registry.yarnpkg.com/@csstools/postcss-relative-color-syntax/-/postcss-relative-color-syntax-2.0.18.tgz#77a46111a0e274be4d54524a4999e6a3d37d0bbc"
-  integrity sha512-C39i9fId7kz7VOJps2/ZJjsbppNMy5zF6ly+7xkJBPS89XlhBzKYTBObhRXDZDKfzXPZ4fwKOfqv5z+Cr+IIKg==
+"@csstools/postcss-relative-color-syntax@^2.0.19":
+  version "2.0.19"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-relative-color-syntax/-/postcss-relative-color-syntax-2.0.19.tgz#246b3a782e88df58184943c2471209c3d2085d65"
+  integrity sha512-MxUMSNvio1WwuS6WRLlQuv6nNPXwIWUFzBBAvL/tBdWfiKjiJnAa6eSSN5gtaacSqUkQ/Ce5Z1OzLRfeaWhADA==
   dependencies:
     "@csstools/css-color-parser" "^2.0.4"
     "@csstools/css-parser-algorithms" "^2.7.1"
     "@csstools/css-tokenizer" "^2.4.1"
-    "@csstools/postcss-progressive-custom-properties" "^3.2.0"
+    "@csstools/postcss-progressive-custom-properties" "^3.3.0"
     "@csstools/utilities" "^1.0.0"
 
 "@csstools/postcss-scope-pseudo-class@^3.0.1":
@@ -687,37 +697,37 @@
   dependencies:
     undici-types "~5.26.4"
 
-"@typescript-eslint/parser@^7.15.0":
-  version "7.15.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-7.15.0.tgz#f4a536e5fc6a1c05c82c4d263a2bfad2da235c80"
-  integrity sha512-k9fYuQNnypLFcqORNClRykkGOMOj+pV6V91R4GO/l1FDGwpqmSwoOQrOHo3cGaH63e+D3ZiCAOsuS/D2c99j/A==
+"@typescript-eslint/parser@^7.16.0":
+  version "7.16.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-7.16.0.tgz#53fae8112f8c912024aea7b499cf7374487af6d8"
+  integrity sha512-ar9E+k7CU8rWi2e5ErzQiC93KKEFAXA2Kky0scAlPcxYblLt8+XZuHUZwlyfXILyQa95P6lQg+eZgh/dDs3+Vw==
   dependencies:
-    "@typescript-eslint/scope-manager" "7.15.0"
-    "@typescript-eslint/types" "7.15.0"
-    "@typescript-eslint/typescript-estree" "7.15.0"
-    "@typescript-eslint/visitor-keys" "7.15.0"
+    "@typescript-eslint/scope-manager" "7.16.0"
+    "@typescript-eslint/types" "7.16.0"
+    "@typescript-eslint/typescript-estree" "7.16.0"
+    "@typescript-eslint/visitor-keys" "7.16.0"
     debug "^4.3.4"
 
-"@typescript-eslint/scope-manager@7.15.0":
-  version "7.15.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/scope-manager/-/scope-manager-7.15.0.tgz#201b34b0720be8b1447df17b963941bf044999b2"
-  integrity sha512-Q/1yrF/XbxOTvttNVPihxh1b9fxamjEoz2Os/Pe38OHwxC24CyCqXxGTOdpb4lt6HYtqw9HetA/Rf6gDGaMPlw==
+"@typescript-eslint/scope-manager@7.16.0":
+  version "7.16.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/scope-manager/-/scope-manager-7.16.0.tgz#eb0757af5720c9c53c8010d7a0355ae27e17b7e5"
+  integrity sha512-8gVv3kW6n01Q6TrI1cmTZ9YMFi3ucDT7i7aI5lEikk2ebk1AEjrwX8MDTdaX5D7fPXMBLvnsaa0IFTAu+jcfOw==
   dependencies:
-    "@typescript-eslint/types" "7.15.0"
-    "@typescript-eslint/visitor-keys" "7.15.0"
+    "@typescript-eslint/types" "7.16.0"
+    "@typescript-eslint/visitor-keys" "7.16.0"
 
-"@typescript-eslint/types@7.15.0":
-  version "7.15.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-7.15.0.tgz#fb894373a6e3882cbb37671ffddce44f934f62fc"
-  integrity sha512-aV1+B1+ySXbQH0pLK0rx66I3IkiZNidYobyfn0WFsdGhSXw+P3YOqeTq5GED458SfB24tg+ux3S+9g118hjlTw==
+"@typescript-eslint/types@7.16.0":
+  version "7.16.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-7.16.0.tgz#60a19d7e7a6b1caa2c06fac860829d162a036ed2"
+  integrity sha512-fecuH15Y+TzlUutvUl9Cc2XJxqdLr7+93SQIbcZfd4XRGGKoxyljK27b+kxKamjRkU7FYC6RrbSCg0ALcZn/xw==
 
-"@typescript-eslint/typescript-estree@7.15.0":
-  version "7.15.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-7.15.0.tgz#e323bfa3966e1485b638ce751f219fc1f31eba37"
-  integrity sha512-gjyB/rHAopL/XxfmYThQbXbzRMGhZzGw6KpcMbfe8Q3nNQKStpxnUKeXb0KiN/fFDR42Z43szs6rY7eHk0zdGQ==
+"@typescript-eslint/typescript-estree@7.16.0":
+  version "7.16.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-7.16.0.tgz#98ac779d526fab2a781e5619c9250f3e33867c09"
+  integrity sha512-a5NTvk51ZndFuOLCh5OaJBELYc2O3Zqxfl3Js78VFE1zE46J2AaVuW+rEbVkQznjkmlzWsUI15BG5tQMixzZLw==
   dependencies:
-    "@typescript-eslint/types" "7.15.0"
-    "@typescript-eslint/visitor-keys" "7.15.0"
+    "@typescript-eslint/types" "7.16.0"
+    "@typescript-eslint/visitor-keys" "7.16.0"
     debug "^4.3.4"
     globby "^11.1.0"
     is-glob "^4.0.3"
@@ -725,12 +735,12 @@
     semver "^7.6.0"
     ts-api-utils "^1.3.0"
 
-"@typescript-eslint/visitor-keys@7.15.0":
-  version "7.15.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/visitor-keys/-/visitor-keys-7.15.0.tgz#1da0726201a859343fe6a05742a7c1792fff5b66"
-  integrity sha512-Hqgy/ETgpt2L5xueA/zHHIl4fJI2O4XUE9l4+OIfbJIRSnTJb/QscncdqqZzofQegIJugRIF57OJea1khw2SDw==
+"@typescript-eslint/visitor-keys@7.16.0":
+  version "7.16.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/visitor-keys/-/visitor-keys-7.16.0.tgz#a1d99fa7a3787962d6e0efd436575ef840e23b06"
+  integrity sha512-rMo01uPy9C7XxG7AFsxa8zLnWXTF8N3PYclekWSrurvhwiw1eW88mrKiAYe6s53AUY57nTRz8dJsuuXdkAhzCg==
   dependencies:
-    "@typescript-eslint/types" "7.15.0"
+    "@typescript-eslint/types" "7.16.0"
     eslint-visitor-keys "^3.4.3"
 
 "@ungap/structured-clone@^1.2.0":
@@ -755,12 +765,7 @@ acorn-jsx@^5.3.2:
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz#7ed5bb55908b3b2f1bc55c6af1653bada7f07937"
   integrity sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==
 
-acorn@^8.8.2:
-  version "8.11.3"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.11.3.tgz#71e0b14e13a4ec160724b38fb7b0f233b1b81d7a"
-  integrity sha512-Y9rRfJG5jcKOE0CLisYbojUjIrIEE7AGMzA/Sm4BslANhbS+cDMpgBdcPT91oJ7OuJ9hYJBx59RjbhxVnrF8Xg==
-
-acorn@^8.9.0:
+acorn@^8.8.2, acorn@^8.9.0:
   version "8.12.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.12.1.tgz#71616bdccbe25e27a54439e0046e89ca76df2248"
   integrity sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==
@@ -1159,10 +1164,10 @@ css-what@^6.1.0:
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-6.1.0.tgz#fb5effcf76f1ddea2c81bdfaa4de44e79bac70f4"
   integrity sha512-HTUrgRJ7r4dsZKU6GjmpfRK1O76h97Z8MfS1G0FozR+oF2kG6Vfe8JE6zwrkbxigziPHinCJ+gCPjA9EaBDtRw==
 
-cssdb@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/cssdb/-/cssdb-8.0.0.tgz#7fdaea83364f6c9edc364e7681ebef644a327d3d"
-  integrity sha512-hfpm8VXc7/dhcEWpLvKDLwImOSk1sa2DxL36OEiY/4h2MGfKjPYIMZo4hnEEl+TCJr2GwcX46jF5TafRASDe9w==
+cssdb@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/cssdb/-/cssdb-8.1.0.tgz#ad25cac6ac0dbc4f23693e09baa65cdd3ef7160a"
+  integrity sha512-BQN57lfS4dYt2iL0LgyrlDbefZKEtUyrO8rbzrbGrqBk6OoyNTQLF+porY9DrpDBjLo4NEvj2IJttC7vf3x+Ew==
 
 cssesc@^3.0.0:
   version "3.0.0"
@@ -2580,12 +2585,7 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-picocolors@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.0.0.tgz#cb5bdc74ff3f51892236eaf79d68bc44564ab81c"
-  integrity sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==
-
-picocolors@^1.0.1:
+picocolors@^1.0.0, picocolors@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.0.1.tgz#a8ad579b571952f0e5d25892de5445bcfe25aaa1"
   integrity sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==
@@ -2627,15 +2627,15 @@ postcss-clamp@^4.1.0:
   dependencies:
     postcss-value-parser "^4.2.0"
 
-postcss-color-functional-notation@^6.0.13:
-  version "6.0.13"
-  resolved "https://registry.yarnpkg.com/postcss-color-functional-notation/-/postcss-color-functional-notation-6.0.13.tgz#d719c844dedc13f648045a44fbb9702148178de9"
-  integrity sha512-c2zzoZPJG1/tH1wrFOstQ2q/bvzFXNIDPFJu+l9idwwpVXbgrD4ThiuIcQxCBhOVY+CJ/Kb7DKiRLNsjTjj/+A==
+postcss-color-functional-notation@^6.0.14:
+  version "6.0.14"
+  resolved "https://registry.yarnpkg.com/postcss-color-functional-notation/-/postcss-color-functional-notation-6.0.14.tgz#958d8fc434fafbb15ebc7964053f19d366773078"
+  integrity sha512-dNUX+UH4dAozZ8uMHZ3CtCNYw8fyFAmqqdcyxMr7PEdM9jLXV19YscoYO0F25KqZYhmtWKQ+4tKrIZQrwzwg7A==
   dependencies:
     "@csstools/css-color-parser" "^2.0.4"
     "@csstools/css-parser-algorithms" "^2.7.1"
     "@csstools/css-tokenizer" "^2.4.1"
-    "@csstools/postcss-progressive-custom-properties" "^3.2.0"
+    "@csstools/postcss-progressive-custom-properties" "^3.3.0"
     "@csstools/utilities" "^1.0.0"
 
 postcss-color-hex-alpha@^9.0.4:
@@ -2739,12 +2739,12 @@ postcss-discard-unused@^7.0.1:
   dependencies:
     postcss-selector-parser "^6.1.0"
 
-postcss-double-position-gradients@^5.0.6:
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/postcss-double-position-gradients/-/postcss-double-position-gradients-5.0.6.tgz#fec69371a131b67ec92740bcf8c9ad6ce7f168d3"
-  integrity sha512-QJ+089FKMaqDxOhhIHsJrh4IP7h4PIHNC5jZP5PMmnfUScNu8Hji2lskqpFWCvu+5sj+2EJFyzKd13sLEWOZmQ==
+postcss-double-position-gradients@^5.0.7:
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/postcss-double-position-gradients/-/postcss-double-position-gradients-5.0.7.tgz#1a4841daf7ac04e94de4672282e8d02d1b3dd274"
+  integrity sha512-1xEhjV9u1s4l3iP5lRt1zvMjI/ya8492o9l/ivcxHhkO3nOz16moC4JpMxDUGrOs4R3hX+KWT7gKoV842cwRgg==
   dependencies:
-    "@csstools/postcss-progressive-custom-properties" "^3.2.0"
+    "@csstools/postcss-progressive-custom-properties" "^3.3.0"
     "@csstools/utilities" "^1.0.0"
     postcss-value-parser "^4.2.0"
 
@@ -2810,15 +2810,15 @@ postcss-js@^4.0.1:
   dependencies:
     camelcase-css "^2.0.1"
 
-postcss-lab-function@^6.0.18:
-  version "6.0.18"
-  resolved "https://registry.yarnpkg.com/postcss-lab-function/-/postcss-lab-function-6.0.18.tgz#7761d3ff87ec508fa47173ca73312f84a7ea8cec"
-  integrity sha512-7/V6sqQW06dVC8hhT6qe913UPhD+PSDdoMUn5jByP+FRDg4ErWXFayl2rpW398hI2QTmOeNLUsTBa0lzbsXZZg==
+postcss-lab-function@^6.0.19:
+  version "6.0.19"
+  resolved "https://registry.yarnpkg.com/postcss-lab-function/-/postcss-lab-function-6.0.19.tgz#09b04c016bfbacd8576988a73dc19c0fdbeae2c4"
+  integrity sha512-vwln/mgvFrotJuGV8GFhpAOu9iGf3pvTBr6dLPDmUcqVD5OsQpEFyQMAFTxSxWXGEzBj6ld4pZ/9GDfEpXvo0g==
   dependencies:
     "@csstools/css-color-parser" "^2.0.4"
     "@csstools/css-parser-algorithms" "^2.7.1"
     "@csstools/css-tokenizer" "^2.4.1"
-    "@csstools/postcss-progressive-custom-properties" "^3.2.0"
+    "@csstools/postcss-progressive-custom-properties" "^3.3.0"
     "@csstools/utilities" "^1.0.0"
 
 postcss-load-config@^4.0.1:
@@ -3005,23 +3005,24 @@ postcss-place@^9.0.1:
   dependencies:
     postcss-value-parser "^4.2.0"
 
-postcss-preset-env@^9.5.16:
-  version "9.5.16"
-  resolved "https://registry.yarnpkg.com/postcss-preset-env/-/postcss-preset-env-9.5.16.tgz#92db61da6b34c9727256d6d294c86af395059a80"
-  integrity sha512-bQhNpSW4WE4k4Tq3xWf9Al9bN4r609aXXzE4ZoPs/KPBSjhTohUMVmXvUJ2wleSbx4II8nyC9tgiPIysPAFh6A==
+postcss-preset-env@^9.6.0:
+  version "9.6.0"
+  resolved "https://registry.yarnpkg.com/postcss-preset-env/-/postcss-preset-env-9.6.0.tgz#da5fc8606f95092b2788c3bdf6d4fc053e50075b"
+  integrity sha512-Lxfk4RYjUdwPCYkc321QMdgtdCP34AeI94z+/8kVmqnTIlD4bMRQeGcMZgwz8BxHrzQiFXYIR5d7k/9JMs2MEA==
   dependencies:
     "@csstools/postcss-cascade-layers" "^4.0.6"
-    "@csstools/postcss-color-function" "^3.0.18"
-    "@csstools/postcss-color-mix-function" "^2.0.18"
+    "@csstools/postcss-color-function" "^3.0.19"
+    "@csstools/postcss-color-mix-function" "^2.0.19"
+    "@csstools/postcss-content-alt-text" "^1.0.0"
     "@csstools/postcss-exponential-functions" "^1.0.9"
     "@csstools/postcss-font-format-keywords" "^3.0.2"
     "@csstools/postcss-gamut-mapping" "^1.0.11"
-    "@csstools/postcss-gradients-interpolation-method" "^4.0.19"
-    "@csstools/postcss-hwb-function" "^3.0.17"
-    "@csstools/postcss-ic-unit" "^3.0.6"
+    "@csstools/postcss-gradients-interpolation-method" "^4.0.20"
+    "@csstools/postcss-hwb-function" "^3.0.18"
+    "@csstools/postcss-ic-unit" "^3.0.7"
     "@csstools/postcss-initial" "^1.0.1"
     "@csstools/postcss-is-pseudo-class" "^4.0.8"
-    "@csstools/postcss-light-dark-function" "^1.0.7"
+    "@csstools/postcss-light-dark-function" "^1.0.8"
     "@csstools/postcss-logical-float-and-clear" "^2.0.1"
     "@csstools/postcss-logical-overflow" "^1.0.1"
     "@csstools/postcss-logical-overscroll-behavior" "^1.0.1"
@@ -3031,9 +3032,9 @@ postcss-preset-env@^9.5.16:
     "@csstools/postcss-media-queries-aspect-ratio-number-values" "^2.0.11"
     "@csstools/postcss-nested-calc" "^3.0.2"
     "@csstools/postcss-normalize-display-values" "^3.0.2"
-    "@csstools/postcss-oklab-function" "^3.0.18"
-    "@csstools/postcss-progressive-custom-properties" "^3.2.0"
-    "@csstools/postcss-relative-color-syntax" "^2.0.18"
+    "@csstools/postcss-oklab-function" "^3.0.19"
+    "@csstools/postcss-progressive-custom-properties" "^3.3.0"
+    "@csstools/postcss-relative-color-syntax" "^2.0.19"
     "@csstools/postcss-scope-pseudo-class" "^3.0.1"
     "@csstools/postcss-stepped-value-functions" "^3.0.10"
     "@csstools/postcss-text-decoration-shorthand" "^3.0.7"
@@ -3044,23 +3045,23 @@ postcss-preset-env@^9.5.16:
     css-blank-pseudo "^6.0.2"
     css-has-pseudo "^6.0.5"
     css-prefers-color-scheme "^9.0.1"
-    cssdb "^8.0.0"
+    cssdb "^8.1.0"
     postcss-attribute-case-insensitive "^6.0.3"
     postcss-clamp "^4.1.0"
-    postcss-color-functional-notation "^6.0.13"
+    postcss-color-functional-notation "^6.0.14"
     postcss-color-hex-alpha "^9.0.4"
     postcss-color-rebeccapurple "^9.0.3"
     postcss-custom-media "^10.0.8"
     postcss-custom-properties "^13.3.12"
     postcss-custom-selectors "^7.1.12"
     postcss-dir-pseudo-class "^8.0.1"
-    postcss-double-position-gradients "^5.0.6"
+    postcss-double-position-gradients "^5.0.7"
     postcss-focus-visible "^9.0.1"
     postcss-focus-within "^8.0.1"
     postcss-font-variant "^5.0.0"
     postcss-gap-properties "^5.0.1"
     postcss-image-set-function "^6.0.3"
-    postcss-lab-function "^6.0.18"
+    postcss-lab-function "^6.0.19"
     postcss-logical "^7.0.1"
     postcss-nesting "^12.1.5"
     postcss-opacity-percentage "^2.0.0"
@@ -3318,10 +3319,10 @@ safe-regex-test@^1.0.0:
     get-intrinsic "^1.1.3"
     is-regex "^1.1.4"
 
-sass@^1.77.6:
-  version "1.77.6"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.77.6.tgz#898845c1348078c2e6d1b64f9ee06b3f8bd489e4"
-  integrity sha512-ByXE1oLD79GVq9Ht1PeHWCPMPB8XHpBuz1r85oByKHjZY6qV6rWnQovQzXJXuQ/XyE1Oj3iPk3lo28uzaRA2/Q==
+sass@^1.77.7:
+  version "1.77.7"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.77.7.tgz#ef3520edc8f59da089f25891d8a6bebf93668ee0"
+  integrity sha512-9ywH75cO+rLjbrZ6en3Gp8qAMwPGBapFtlsMJoDTkcMU/bSe5a6cjKVUn5Jr4Gzg5GbP3HE8cm+02pLCgcoMow==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
@@ -3562,10 +3563,10 @@ tailwindcss@^3.4.4:
     resolve "^1.22.2"
     sucrase "^3.32.0"
 
-terser@^5.31.1:
-  version "5.31.1"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-5.31.1.tgz#735de3c987dd671e95190e6b98cfe2f07f3cf0d4"
-  integrity sha512-37upzU1+viGvuFtBo9NPufCb9dwM0+l9hMxYyWfBA+fbwrPqNJAhbZ6W47bBFnZHKHTUBnMvi87434qq+qnxOg==
+terser@^5.31.2:
+  version "5.31.2"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-5.31.2.tgz#b5ca188107b706084dca82f988089fa6102eba11"
+  integrity sha512-LGyRZVFm/QElZHy/CPr/O4eNZOZIzsrQ92y4v9UJe/pFJjypje2yI3C2FmPtvUEnhadlSbmG2nXtdcjHOjCfxw==
   dependencies:
     "@jridgewell/source-map" "^0.3.3"
     acorn "^8.8.2"
@@ -3731,10 +3732,10 @@ util-deprecate@^1.0.2:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
 
-vite-plugin-full-reload@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/vite-plugin-full-reload/-/vite-plugin-full-reload-1.1.0.tgz#ca6fa32631024a459ea9e5613dd4c0ff0f3b7995"
-  integrity sha512-3cObNDzX6DdfhD9E7kf6w2mNunFpD7drxyNgHLw+XwIYAgb+Xt16SEXo0Up4VH+TMf3n+DSVJZtW2POBGcBYAA==
+vite-plugin-full-reload@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-full-reload/-/vite-plugin-full-reload-1.2.0.tgz#bc4bfdc842abb4d24309ca802be8b955fce1c0c6"
+  integrity sha512-kz18NW79x0IHbxRSHm0jttP4zoO9P9gXh+n6UTwlNKnviTTEpOlum6oS9SmecrTtSr+muHEn5TUuC75UovQzcA==
   dependencies:
     picocolors "^1.0.0"
     picomatch "^2.3.1"
