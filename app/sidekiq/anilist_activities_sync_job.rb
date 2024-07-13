@@ -13,14 +13,13 @@ class AnilistActivitiesSyncJob
     activity_page = AnilistActivity.where(date:, page:)
     current_last_id = activity_page.max(:id)
 
-    response = AniList::Client.execute(AniList::UserAnimeActivitiesLastIdQuery, date:, user_id:, page:, per_page: 50)
+    response = AniList::Client.execute(AniList::UserAnimeActivitiesQuery, date:, user_id:, page:, per_page: 50)
+    has_next_page = response.data&.page&.page_info&.has_next_page? || false
     fetched_last_id = response&.data&.page&.activities&.last&.id
 
     if current_last_id === fetched_last_id
       logger.info("[ANILIST_ACTIVITIES_SYNC] ".yellow + "SKIP SYNCING FOR PAGE #{page}".red)
     else
-      response = AniList::Client.execute(AniList::UserAnimeActivitiesQuery, date:, user_id:, page:, per_page: 50)
-      has_next_page = response.data&.page&.page_info&.has_next_page? || false
       activities = response.data.page.activities.to_a.map do |data|
         activity = data.to_h.dup
         activity["date"] = date

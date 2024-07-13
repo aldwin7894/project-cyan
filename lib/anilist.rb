@@ -156,19 +156,4 @@ module AniList
       }
     }
   GRAPHQL
-
-  UserAnimeActivitiesLastIdQuery = Client.parse <<~'GRAPHQL'
-    query($user_id: Int!, $page: Int, $per_page: Int, $date: Int) {
-      Page(page: $page, perPage: $per_page) {
-        pageInfo {
-          hasNextPage
-        }
-        activities(userId: $user_id, createdAt_greater: $date, sort: ID, type: ANIME_LIST) {
-          ... on ListActivity {
-            id
-          }
-        }
-      }
-    }
-  GRAPHQL
 end
