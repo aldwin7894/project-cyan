@@ -7,5 +7,3 @@
 module ActiveRecord::ConnectionAdapters::DatabaseStatements; end
 module ActiveRecord::ConnectionAdapters::SchemaStatements; end
 module RBI::TypedParam; end
-module Rack::Server; end
-module Rack::Utils::HeaderHash; end

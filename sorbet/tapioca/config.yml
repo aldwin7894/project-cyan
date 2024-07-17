@@ -4,6 +4,7 @@ gem:
     - rubocop-rails
     - rubocop-performance
     - rubocop-packaging
+    - rubocop-ast
     - erb-formatter
     - tzinfo-data
     - sorbet

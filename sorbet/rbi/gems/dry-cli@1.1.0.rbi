@@ -182,13 +182,13 @@ end
 # @api private
 # @since 0.1.0
 #
-# source://dry-cli//lib/dry/cli/option.rb#123
+# source://dry-cli//lib/dry/cli/option.rb#130
 class Dry::CLI::Argument < ::Dry::CLI::Option
   # @api private
   # @return [Boolean]
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/option.rb#126
+  # source://dry-cli//lib/dry/cli/option.rb#133
   def argument?; end
 end
 
@@ -209,7 +209,7 @@ module Dry::CLI::Banner
     # @api private
     # @since 0.1.0
     #
-    # source://dry-cli//lib/dry/cli/banner.rb#128
+    # source://dry-cli//lib/dry/cli/banner.rb#130
     def build_subcommands_list(subcommands); end
 
     # Prints command banner
@@ -400,13 +400,13 @@ class Dry::CLI::Command
     # @param options [Hash] a set of options
     # @since 0.1.0
     #
-    # source://dry-cli//lib/dry/cli/command.rb#201
+    # source://dry-cli//lib/dry/cli/command.rb#197
     def argument(name, options = T.unsafe(nil)); end
 
     # @api private
     # @since 0.1.0
     #
-    # source://dry-cli//lib/dry/cli/command.rb#329
+    # source://dry-cli//lib/dry/cli/command.rb#325
     def default_params; end
 
     # Set the description of the command
@@ -424,7 +424,7 @@ class Dry::CLI::Command
     # @param description [String] the description
     # @since 0.1.0
     #
-    # source://dry-cli//lib/dry/cli/command.rb#71
+    # source://dry-cli//lib/dry/cli/command.rb#67
     def desc(description); end
 
     # Describe the usage of the command
@@ -458,7 +458,7 @@ class Dry::CLI::Command
     # @param examples [Array<String>] one or more examples
     # @since 0.1.0
     #
-    # source://dry-cli//lib/dry/cli/command.rb#107
+    # source://dry-cli//lib/dry/cli/command.rb#103
     def example(*examples); end
 
     # @api private
@@ -572,49 +572,49 @@ class Dry::CLI::Command
     # @param options [Hash] a set of options
     # @since 0.1.0
     #
-    # source://dry-cli//lib/dry/cli/command.rb#315
+    # source://dry-cli//lib/dry/cli/command.rb#311
     def option(name, options = T.unsafe(nil)); end
 
     # @api private
     # @since 0.1.0
     #
-    # source://dry-cli//lib/dry/cli/command.rb#343
+    # source://dry-cli//lib/dry/cli/command.rb#339
     def optional_arguments; end
 
     # @api private
     # @since 0.1.0
     #
-    # source://dry-cli//lib/dry/cli/command.rb#321
+    # source://dry-cli//lib/dry/cli/command.rb#317
     def params; end
 
     # @api private
     # @since 0.1.0
     #
-    # source://dry-cli//lib/dry/cli/command.rb#337
+    # source://dry-cli//lib/dry/cli/command.rb#333
     def required_arguments; end
 
     # @api private
     # @since 0.7.0
     #
-    # source://dry-cli//lib/dry/cli/command.rb#349
+    # source://dry-cli//lib/dry/cli/command.rb#345
     def subcommands; end
 
     # @api private
     # @since 0.7.0
     #
-    # source://dry-cli//lib/dry/cli/command.rb#363
+    # source://dry-cli//lib/dry/cli/command.rb#359
     def superclass_arguments; end
 
     # @api private
     # @since 0.7.0
     #
-    # source://dry-cli//lib/dry/cli/command.rb#369
+    # source://dry-cli//lib/dry/cli/command.rb#365
     def superclass_options; end
 
     # @api private
     # @since 0.7.0
     #
-    # source://dry-cli//lib/dry/cli/command.rb#355
+    # source://dry-cli//lib/dry/cli/command.rb#351
     def superclass_variable_dup(var); end
   end
 end
@@ -657,7 +657,7 @@ module Dry::CLI::Command::ClassMethods
   # @api private
   # @since 0.7.0
   #
-  # source://dry-cli//lib/dry/cli/command.rb#52
+  # source://dry-cli//lib/dry/cli/command.rb#48
   def subcommands=(_arg0); end
 end
 
@@ -693,31 +693,31 @@ end
 # @api private
 # @since 0.4.0
 #
-# source://dry-cli//lib/dry/cli/command_registry.rb#226
+# source://dry-cli//lib/dry/cli/command_registry.rb#227
 class Dry::CLI::CommandRegistry::Chain
   # @api private
   # @return [Chain] a new instance of Chain
   # @since 0.4.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#233
+  # source://dry-cli//lib/dry/cli/command_registry.rb#234
   def initialize; end
 
   # @api private
   # @since 0.4.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#239
+  # source://dry-cli//lib/dry/cli/command_registry.rb#240
   def append(&callback); end
 
   # @api private
   # @since 0.4.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#229
+  # source://dry-cli//lib/dry/cli/command_registry.rb#230
   def chain; end
 
   # @api private
   # @since 0.4.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#245
+  # source://dry-cli//lib/dry/cli/command_registry.rb#246
   def run(context, *args); end
 end
 
@@ -726,56 +726,56 @@ end
 # @api private
 # @since 0.1.0
 #
-# source://dry-cli//lib/dry/cli/command_registry.rb#173
+# source://dry-cli//lib/dry/cli/command_registry.rb#174
 class Dry::CLI::CommandRegistry::LookupResult
   # @api private
   # @return [LookupResult] a new instance of LookupResult
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#184
+  # source://dry-cli//lib/dry/cli/command_registry.rb#185
   def initialize(node, arguments, names, found); end
 
   # @api private
   # @since 0.2.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#217
+  # source://dry-cli//lib/dry/cli/command_registry.rb#218
   def after_callbacks; end
 
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#180
+  # source://dry-cli//lib/dry/cli/command_registry.rb#181
   def arguments; end
 
   # @api private
   # @since 0.2.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#211
+  # source://dry-cli//lib/dry/cli/command_registry.rb#212
   def before_callbacks; end
 
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#199
+  # source://dry-cli//lib/dry/cli/command_registry.rb#200
   def children; end
 
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#205
+  # source://dry-cli//lib/dry/cli/command_registry.rb#206
   def command; end
 
   # @api private
   # @return [Boolean]
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#193
+  # source://dry-cli//lib/dry/cli/command_registry.rb#194
   def found?; end
 
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#176
+  # source://dry-cli//lib/dry/cli/command_registry.rb#177
   def names; end
 end
 
@@ -784,99 +784,99 @@ end
 # @api private
 # @since 0.1.0
 #
-# source://dry-cli//lib/dry/cli/command_registry.rb#80
+# source://dry-cli//lib/dry/cli/command_registry.rb#81
 class Dry::CLI::CommandRegistry::Node
   # @api private
   # @return [Node] a new instance of Node
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#107
+  # source://dry-cli//lib/dry/cli/command_registry.rb#108
   def initialize(parent = T.unsafe(nil)); end
 
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#103
+  # source://dry-cli//lib/dry/cli/command_registry.rb#104
   def after_callbacks; end
 
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#144
+  # source://dry-cli//lib/dry/cli/command_registry.rb#145
   def alias!(key, child); end
 
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#91
+  # source://dry-cli//lib/dry/cli/command_registry.rb#92
   def aliases; end
 
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#150
+  # source://dry-cli//lib/dry/cli/command_registry.rb#151
   def aliases!(aliases); end
 
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#99
+  # source://dry-cli//lib/dry/cli/command_registry.rb#100
   def before_callbacks; end
 
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#87
+  # source://dry-cli//lib/dry/cli/command_registry.rb#88
   def children; end
 
   # @api private
   # @return [Boolean]
   # @since 0.7.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#164
+  # source://dry-cli//lib/dry/cli/command_registry.rb#165
   def children?; end
 
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#95
+  # source://dry-cli//lib/dry/cli/command_registry.rb#96
   def command; end
 
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#131
+  # source://dry-cli//lib/dry/cli/command_registry.rb#132
   def leaf!(command); end
 
   # @api private
   # @return [Boolean]
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#158
+  # source://dry-cli//lib/dry/cli/command_registry.rb#159
   def leaf?; end
 
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#125
+  # source://dry-cli//lib/dry/cli/command_registry.rb#126
   def lookup(token); end
 
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#83
+  # source://dry-cli//lib/dry/cli/command_registry.rb#84
   def parent; end
 
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#119
+  # source://dry-cli//lib/dry/cli/command_registry.rb#120
   def put(parent, key); end
 
   # @api private
   # @since 0.7.0
   #
-  # source://dry-cli//lib/dry/cli/command_registry.rb#137
+  # source://dry-cli//lib/dry/cli/command_registry.rb#138
   def subcommands!(command); end
 end
 
@@ -928,7 +928,7 @@ class Dry::CLI::Option
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/option.rb#109
+  # source://dry-cli//lib/dry/cli/option.rb#116
   def alias_names; end
 
   # @api private
@@ -941,14 +941,14 @@ class Dry::CLI::Option
   # @return [Boolean]
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/option.rb#82
+  # source://dry-cli//lib/dry/cli/option.rb#87
   def argument?; end
 
   # @api private
   # @return [Boolean]
   # @since 0.3.0
   #
-  # source://dry-cli//lib/dry/cli/option.rb#64
+  # source://dry-cli//lib/dry/cli/option.rb#69
   def array?; end
 
   # @api private
@@ -961,7 +961,7 @@ class Dry::CLI::Option
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/option.rb#70
+  # source://dry-cli//lib/dry/cli/option.rb#75
   def default; end
 
   # @api private
@@ -973,8 +973,15 @@ class Dry::CLI::Option
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/option.rb#76
+  # source://dry-cli//lib/dry/cli/option.rb#81
   def description_name; end
+
+  # @api private
+  # @return [Boolean]
+  # @since 0.1.0
+  #
+  # source://dry-cli//lib/dry/cli/option.rb#63
+  def flag?; end
 
   # @api private
   # @since 0.1.0
@@ -991,7 +998,7 @@ class Dry::CLI::Option
   # @api private
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli/option.rb#89
+  # source://dry-cli//lib/dry/cli/option.rb#94
   def parser_options; end
 
   # @api private

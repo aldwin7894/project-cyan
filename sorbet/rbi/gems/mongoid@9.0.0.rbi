@@ -10380,7 +10380,7 @@ module Mongoid::Config
   #   config.running_with_passenger?
   # @return [true | false] If the app is deployed on Passenger.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def running_with_passenger?(*args, **_arg1, &block); end
 
   # source://mongoid//lib/mongoid/config/options.rb#37
@@ -14126,7 +14126,7 @@ class Mongoid::Criteria
   # @param scope [Hash] The scope for the code.
   # @return [Criteria] The criteria.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def for_js(*args, **_arg1, &block); end
 
   # When freezing a criteria we need to initialize the context first
@@ -14245,7 +14245,7 @@ class Mongoid::Criteria
   #   criteria.to_criteria
   # @return [Criteria] self.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def to_criteria(*args, **_arg1, &block); end
 
   # Convert the criteria to a proc.
@@ -15616,7 +15616,7 @@ module Mongoid::Criteria::Queryable::Extensions::Object
   #   obj.regexp?
   # @return [false] Always false.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def regexp?(*args, **_arg1, &block); end
 end
 
@@ -15726,7 +15726,7 @@ module Mongoid::Criteria::Queryable::Extensions::Regexp
   #   /\A[123]/.regexp?
   # @return [true] Always true.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def regexp?(*args, **_arg1, &block); end
 end
 
@@ -15754,7 +15754,7 @@ module Mongoid::Criteria::Queryable::Extensions::Regexp::Raw_
   #   bson_raw_regexp.regexp?
   # @return [true] Always true.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def regexp?(*args, **_arg1, &block); end
 end
 
@@ -18108,7 +18108,7 @@ class Mongoid::Deprecation < ::ActiveSupport::Deprecation
   def behavior; end
 
   class << self
-    # source://activesupport/7.1.3.3/lib/active_support/deprecation/instance_delegator.rb#34
+    # source://activesupport/7.1.3.4/lib/active_support/deprecation/instance_delegator.rb#34
     def behavior(*_arg0, **_arg1, &_arg2); end
   end
 end
@@ -20235,7 +20235,7 @@ module Mongoid::Extensions::Array
   #   [ 1, 2, 3 ].__find_args__
   # @return [Array] The array of args.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def __find_args__(*args, **_arg1, &block); end
 
   # Mongoize the array into an array of object ids.
@@ -20289,7 +20289,7 @@ module Mongoid::Extensions::Array
   #   [ 1, 2, 3 ].multi_arged?
   # @return [true | false] If the array is multi args.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def multi_arged?(*args, **_arg1, &block); end
 
   # Returns whether the object's size can be changed.
@@ -20313,7 +20313,7 @@ module Mongoid::Extensions::Array::ClassMethods
   # @param object [Object] The object to convert.
   # @return [Array] The array of ids.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def __mongoize_fk__(*args, **_arg1, &block); end
 
   # Turn the object from the ruby type we deal with to a Mongo friendly
@@ -20350,7 +20350,7 @@ module Mongoid::Extensions::BigDecimal
   #   bd.__to_inc__
   # @return [Float] The big decimal as a float.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def __to_inc__(*args, **_arg1, &block); end
 
   # Turn the object from the ruby type we deal with to a Mongo friendly
@@ -20581,7 +20581,7 @@ module Mongoid::Extensions::FalseClass
   #   object.__sortable__
   # @return [Integer] 0.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def __sortable__(*args, **_arg1, &block); end
 
   # Is the passed value a boolean?
@@ -20657,7 +20657,7 @@ module Mongoid::Extensions::Hash
   #   { name: "Placebo" }.__consolidate__
   # @return [Hash] A new consolidated hash.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def __consolidate__(*args, **_arg1, &block); end
 
   # Evolves each value in the hash to an object id if it is convertable.
@@ -20685,7 +20685,7 @@ module Mongoid::Extensions::Hash
   #   {}.delete_id
   # @return [Object] The deleted value, or nil.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def delete_id(*args, **_arg1, &block); end
 
   # Get the id attribute from this hash, whether it's prefixed with an
@@ -20696,7 +20696,7 @@ module Mongoid::Extensions::Hash
   #   { :_id => 1 }.extract_id
   # @return [Object] The value of the id.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def extract_id(*args, **_arg1, &block); end
 
   # Turn the object from the ruby type we deal with to a Mongo friendly
@@ -20727,7 +20727,7 @@ module Mongoid::Extensions::Hash
   #   { klass: Band, where: { name: "Depeche Mode" }.to_criteria
   # @return [Criteria] The criteria.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def to_criteria(*args, **_arg1, &block); end
 end
 
@@ -20783,7 +20783,7 @@ module Mongoid::Extensions::Integer
   #   object.unconvertable_to_bson?
   # @return [true] If the object is unconvertable.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def unconvertable_to_bson?(*args, **_arg1, &block); end
 end
 
@@ -20840,7 +20840,7 @@ module Mongoid::Extensions::NilClass
   #   object.__setter__
   # @return [nil] Always nil.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def __setter__(*args, **_arg1, &block); end
 
   # Get the name of a nil collection.
@@ -20873,7 +20873,7 @@ module Mongoid::Extensions::Object
   #   object.__find_args__
   # @return [Object] self.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def __find_args__(*args, **_arg1, &block); end
 
   # Evolve a plain object into an object id.
@@ -20892,7 +20892,7 @@ module Mongoid::Extensions::Object
   #   object.__setter__
   # @return [String] The object as a string plus =.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def __setter__(*args, **_arg1, &block); end
 
   # Get the value of the object as a mongo friendly sort value.
@@ -20902,7 +20902,7 @@ module Mongoid::Extensions::Object
   #   object.__sortable__
   # @return [Object] self.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def __sortable__(*args, **_arg1, &block); end
 
   # Conversion of an object to an $inc-able value.
@@ -20912,7 +20912,7 @@ module Mongoid::Extensions::Object
   #   1.__to_inc__
   # @return [Object] The object.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def __to_inc__(*args, **_arg1, &block); end
 
   # Do or do not, there is no try. -- Yoda.
@@ -20925,7 +20925,7 @@ module Mongoid::Extensions::Object
   # @return [Object | nil] The result of the method call or nil if the
   #   method does not exist.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def do_or_do_not(*args, **_arg1, &block); end
 
   # Get the value for an instance variable or false if it doesn't exist.
@@ -20955,7 +20955,7 @@ module Mongoid::Extensions::Object
   #   object.multi_arged?
   # @return [false] false.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def multi_arged?(*args, **_arg1, &block); end
 
   # Is the object a number?
@@ -21006,7 +21006,7 @@ module Mongoid::Extensions::Object
   # @return [Object | nil] The result of the method call or nil if the
   #   method does not exist. Nil if the object is frozen.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def you_must(*args, **_arg1, &block); end
 
   class << self
@@ -21029,7 +21029,7 @@ module Mongoid::Extensions::Object::ClassMethods
   # @param object [Object] The object to convert.
   # @return [Object] The converted object.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def __mongoize_fk__(*args, **_arg1, &block); end
 
   # Convert the object from its mongo friendly ruby type to this type.
@@ -21113,7 +21113,7 @@ module Mongoid::Extensions::Range
   #   range.__find_args__
   # @return [Array] The range as an array.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def __find_args__(*args, **_arg1, &block); end
 
   # Turn the object from the ruby type we deal with to a Mongo friendly
@@ -21313,7 +21313,7 @@ module Mongoid::Extensions::String
   #   "_id".mongoid_id?
   # @return [true | false] If the string is id or _id.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def mongoid_id?(*args, **_arg1, &block); end
 
   # Is the string a number? The literals "NaN", "Infinity", and "-Infinity"
@@ -21337,12 +21337,12 @@ module Mongoid::Extensions::String
 
   # @deprecated
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def unconvertable_to_bson(*args, **_arg1, &block); end
 
   # @deprecated
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def unconvertable_to_bson=(*args, **_arg1, &block); end
 
   # Is the object not to be converted to bson on criteria creation?
@@ -21352,7 +21352,7 @@ module Mongoid::Extensions::String
   #   object.unconvertable_to_bson?
   # @return [true | false] If the object is unconvertable.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def unconvertable_to_bson?(*args, **_arg1, &block); end
 
   # Is this string a valid_method_name?
@@ -21422,7 +21422,7 @@ module Mongoid::Extensions::Symbol
   #   :_id.mongoid_id?
   # @return [true | false] If the symbol is :id or :_id.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def mongoid_id?(*args, **_arg1, &block); end
 end
 
@@ -21567,7 +21567,7 @@ module Mongoid::Extensions::TrueClass
   #   object.__sortable__
   # @return [Integer] 1.
   #
-  # source://activesupport/7.1.3.3/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
   def __sortable__(*args, **_arg1, &block); end
 
   # Is the passed value a boolean?
@@ -23521,19 +23521,19 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/fields.rb#139
   def ___id_default__; end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#70
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
   def __callbacks; end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#70
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
   def __callbacks?; end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
   def _build_callbacks; end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
   def _commit_callbacks; end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
   def _create_callbacks; end
 
   # source://mongoid//lib/mongoid/scopable.rb#13
@@ -23545,10 +23545,10 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/scopable.rb#13
   def _declared_scopes?; end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
   def _destroy_callbacks; end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
   def _find_callbacks; end
 
   # source://mongoid//lib/mongoid/atomic.rb#25
@@ -23557,79 +23557,79 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/atomic.rb#25
   def _index=(_arg0); end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
   def _initialize_callbacks; end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
   def _persist_parent_callbacks; end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
   def _rollback_callbacks; end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
   def _run_build_callbacks(&block); end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
   def _run_commit_callbacks(&block); end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
   def _run_create_callbacks(&block); end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
   def _run_destroy_callbacks(&block); end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
   def _run_find_callbacks(&block); end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
   def _run_initialize_callbacks(&block); end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
   def _run_persist_parent_callbacks(&block); end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
   def _run_rollback_callbacks(&block); end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
   def _run_save_callbacks(&block); end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
   def _run_touch_callbacks(&block); end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
   def _run_update_callbacks(&block); end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
   def _run_upsert_callbacks(&block); end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
   def _run_validate_callbacks(&block); end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
   def _run_validation_callbacks(&block); end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
   def _save_callbacks; end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
   def _touch_callbacks; end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
   def _update_callbacks; end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
   def _upsert_callbacks; end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
   def _validate_callbacks; end
 
-  # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
   def _validation_callbacks; end
 
-  # source://activemodel/7.1.3.3/lib/active_model/validations.rb#71
+  # source://activemodel/7.1.3.4/lib/active_model/validations.rb#71
   def _validators; end
 
-  # source://activemodel/7.1.3.3/lib/active_model/validations.rb#71
+  # source://activemodel/7.1.3.4/lib/active_model/validations.rb#71
   def _validators?; end
 
   # source://mongoid//lib/mongoid/association/macros.rb#35
@@ -23749,10 +23749,10 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/changeable.rb#460
   def id_will_change!; end
 
-  # source://activemodel/7.1.3.3/lib/active_model/serializers/json.rb#15
+  # source://activemodel/7.1.3.4/lib/active_model/serializers/json.rb#15
   def include_root_in_json; end
 
-  # source://activemodel/7.1.3.3/lib/active_model/serializers/json.rb#15
+  # source://activemodel/7.1.3.4/lib/active_model/serializers/json.rb#15
   def include_root_in_json?; end
 
   # source://mongoid//lib/mongoid/indexable.rb#15
@@ -23770,7 +23770,7 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/fields.rb#126
   def localized_fields?; end
 
-  # source://activemodel/7.1.3.3/lib/active_model/naming.rb#255
+  # source://activemodel/7.1.3.4/lib/active_model/naming.rb#255
   def model_name(&block); end
 
   # source://mongoid//lib/mongoid/attributes/nested.rb#12
@@ -23782,7 +23782,7 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/attributes/nested.rb#12
   def nested_attributes?; end
 
-  # source://activemodel/7.1.3.3/lib/active_model/conversion.rb#32
+  # source://activemodel/7.1.3.4/lib/active_model/conversion.rb#32
   def param_delimiter=(_arg0); end
 
   # source://mongoid//lib/mongoid/association.rb#54
@@ -23863,40 +23863,40 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/association/macros.rb#39
   def stored_as_associations?; end
 
-  # source://activemodel/7.1.3.3/lib/active_model/validations.rb#67
+  # source://activemodel/7.1.3.4/lib/active_model/validations.rb#67
   def validation_context; end
 
   private
 
-  # source://activemodel/7.1.3.3/lib/active_model/validations.rb#67
+  # source://activemodel/7.1.3.4/lib/active_model/validations.rb#67
   def validation_context=(_arg0); end
 
   class << self
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
     def __callbacks; end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
     def __callbacks=(value); end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
     def __callbacks?; end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
     def _build_callbacks; end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
     def _build_callbacks=(value); end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
     def _commit_callbacks; end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
     def _commit_callbacks=(value); end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
     def _create_callbacks; end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
     def _create_callbacks=(value); end
 
     # source://mongoid//lib/mongoid/scopable.rb#13
@@ -23908,112 +23908,112 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/scopable.rb#13
     def _declared_scopes?; end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
     def _destroy_callbacks; end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
     def _destroy_callbacks=(value); end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
     def _find_callbacks; end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
     def _find_callbacks=(value); end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
     def _initialize_callbacks; end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
     def _initialize_callbacks=(value); end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
     def _persist_parent_callbacks; end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
     def _persist_parent_callbacks=(value); end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
     def _rollback_callbacks; end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
     def _rollback_callbacks=(value); end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
     def _save_callbacks; end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
     def _save_callbacks=(value); end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
     def _touch_callbacks; end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
     def _touch_callbacks=(value); end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
     def _update_callbacks; end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
     def _update_callbacks=(value); end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
     def _upsert_callbacks; end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
     def _upsert_callbacks=(value); end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
     def _validate_callbacks; end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
     def _validate_callbacks=(value); end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
     def _validation_callbacks; end
 
-    # source://activesupport/7.1.3.3/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
     def _validation_callbacks=(value); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/validations.rb#71
+    # source://activemodel/7.1.3.4/lib/active_model/validations.rb#71
     def _validators; end
 
-    # source://activemodel/7.1.3.3/lib/active_model/validations.rb#71
+    # source://activemodel/7.1.3.4/lib/active_model/validations.rb#71
     def _validators=(value); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/validations.rb#71
+    # source://activemodel/7.1.3.4/lib/active_model/validations.rb#71
     def _validators?; end
 
     # source://mongoid//lib/mongoid/traversable.rb#173
     def add_discriminator_mapping(value, klass = T.unsafe(nil)); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
     def after_build(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
     def after_create(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
     def after_destroy(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
     def after_find(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
     def after_initialize(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
     def after_persist_parent(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
     def after_save(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
     def after_touch(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
     def after_update(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
     def after_upsert(*args, **options, &block); end
 
     # source://mongoid//lib/mongoid/association/macros.rb#35
@@ -24034,40 +24034,40 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/fields.rb#125
     def aliased_fields?; end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#137
     def around_create(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#137
     def around_destroy(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#137
     def around_persist_parent(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#137
     def around_save(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#137
     def around_update(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#137
     def around_upsert(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#130
     def before_create(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#130
     def before_destroy(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#130
     def before_persist_parent(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#130
     def before_save(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#130
     def before_update(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#130
     def before_upsert(*args, **options, &block); end
 
     # source://mongoid//lib/mongoid/cacheable.rb#11
@@ -24169,10 +24169,10 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/serializable.rb#22
     def include_root_in_json(*_arg0, **_arg1, &_arg2); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/serializers/json.rb#15
+    # source://activemodel/7.1.3.4/lib/active_model/serializers/json.rb#15
     def include_root_in_json=(value); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/serializers/json.rb#15
+    # source://activemodel/7.1.3.4/lib/active_model/serializers/json.rb#15
     def include_root_in_json?; end
 
     # source://mongoid//lib/mongoid/indexable.rb#15
@@ -24199,13 +24199,13 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/attributes/nested.rb#12
     def nested_attributes?; end
 
-    # source://activemodel/7.1.3.3/lib/active_model/conversion.rb#32
+    # source://activemodel/7.1.3.4/lib/active_model/conversion.rb#32
     def param_delimiter; end
 
-    # source://activemodel/7.1.3.3/lib/active_model/conversion.rb#32
+    # source://activemodel/7.1.3.4/lib/active_model/conversion.rb#32
     def param_delimiter=(value); end
 
-    # source://activemodel/7.1.3.3/lib/active_model/conversion.rb#32
+    # source://activemodel/7.1.3.4/lib/active_model/conversion.rb#32
     def param_delimiter?; end
 
     # source://mongoid//lib/mongoid/association.rb#54
@@ -30534,70 +30534,70 @@ end
 # source://mongoid//lib/rails/mongoid.rb#4
 module Rails
   class << self
-    # source://railties/7.1.3.3/lib/rails.rb#42
+    # source://railties/7.1.3.4/lib/rails.rb#42
     def app_class; end
 
-    # source://railties/7.1.3.3/lib/rails.rb#42
+    # source://railties/7.1.3.4/lib/rails.rb#42
     def app_class=(_arg0); end
 
-    # source://railties/7.1.3.3/lib/rails.rb#43
+    # source://railties/7.1.3.4/lib/rails.rb#43
     def application; end
 
-    # source://railties/7.1.3.3/lib/rails.rb#41
+    # source://railties/7.1.3.4/lib/rails.rb#41
     def application=(_arg0); end
 
-    # source://railties/7.1.3.3/lib/rails.rb#123
+    # source://railties/7.1.3.4/lib/rails.rb#123
     def autoloaders; end
 
-    # source://railties/7.1.3.3/lib/rails.rb#54
+    # source://railties/7.1.3.4/lib/rails.rb#54
     def backtrace_cleaner; end
 
-    # source://railties/7.1.3.3/lib/rails.rb#42
+    # source://railties/7.1.3.4/lib/rails.rb#42
     def cache; end
 
-    # source://railties/7.1.3.3/lib/rails.rb#42
+    # source://railties/7.1.3.4/lib/rails.rb#42
     def cache=(_arg0); end
 
-    # source://railties/7.1.3.3/lib/rails.rb#50
+    # source://railties/7.1.3.4/lib/rails.rb#50
     def configuration; end
 
-    # source://railties/7.1.3.3/lib/rails/deprecator.rb#4
+    # source://railties/7.1.3.4/lib/rails/deprecator.rb#4
     def deprecator; end
 
-    # source://railties/7.1.3.3/lib/rails.rb#72
+    # source://railties/7.1.3.4/lib/rails.rb#72
     def env; end
 
-    # source://railties/7.1.3.3/lib/rails.rb#79
+    # source://railties/7.1.3.4/lib/rails.rb#79
     def env=(environment); end
 
-    # source://railties/7.1.3.3/lib/rails.rb#90
+    # source://railties/7.1.3.4/lib/rails.rb#90
     def error; end
 
-    # source://railties/7.1.3.3/lib/rails/gem_version.rb#5
+    # source://railties/7.1.3.4/lib/rails/gem_version.rb#5
     def gem_version; end
 
-    # source://railties/7.1.3.3/lib/rails.rb#103
+    # source://railties/7.1.3.4/lib/rails.rb#103
     def groups(*groups); end
 
-    # source://railties/7.1.3.3/lib/rails.rb#47
+    # source://railties/7.1.3.4/lib/rails.rb#47
     def initialize!(*_arg0, **_arg1, &_arg2); end
 
-    # source://railties/7.1.3.3/lib/rails.rb#47
+    # source://railties/7.1.3.4/lib/rails.rb#47
     def initialized?(*_arg0, **_arg1, &_arg2); end
 
-    # source://railties/7.1.3.3/lib/rails.rb#42
+    # source://railties/7.1.3.4/lib/rails.rb#42
     def logger; end
 
-    # source://railties/7.1.3.3/lib/rails.rb#42
+    # source://railties/7.1.3.4/lib/rails.rb#42
     def logger=(_arg0); end
 
-    # source://railties/7.1.3.3/lib/rails.rb#119
+    # source://railties/7.1.3.4/lib/rails.rb#119
     def public_path; end
 
-    # source://railties/7.1.3.3/lib/rails.rb#63
+    # source://railties/7.1.3.4/lib/rails.rb#63
     def root; end
 
-    # source://railties/7.1.3.3/lib/rails/version.rb#7
+    # source://railties/7.1.3.4/lib/rails/version.rb#7
     def version; end
   end
 end

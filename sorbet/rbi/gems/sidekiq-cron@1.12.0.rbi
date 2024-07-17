@@ -10,58 +10,58 @@
 # source://sidekiq-cron//lib/sidekiq/cron/support.rb#3
 module Sidekiq
   class << self
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#134
+    # source://sidekiq/7.3.0/lib/sidekiq.rb#135
     def configure_client; end
 
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#122
+    # source://sidekiq/7.3.0/lib/sidekiq.rb#123
     def configure_embed(&block); end
 
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#96
+    # source://sidekiq/7.3.0/lib/sidekiq.rb#97
     def configure_server(&block); end
 
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#88
+    # source://sidekiq/7.3.0/lib/sidekiq.rb#89
     def default_configuration; end
 
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#84
+    # source://sidekiq/7.3.0/lib/sidekiq.rb#85
     def default_job_options; end
 
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#80
+    # source://sidekiq/7.3.0/lib/sidekiq.rb#81
     def default_job_options=(hash); end
 
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#56
+    # source://sidekiq/7.3.0/lib/sidekiq.rb#57
     def dump_json(object); end
 
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#64
+    # source://sidekiq/7.3.0/lib/sidekiq.rb#65
     def ent?; end
 
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#101
+    # source://sidekiq/7.3.0/lib/sidekiq.rb#102
     def freeze!; end
 
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#52
+    # source://sidekiq/7.3.0/lib/sidekiq.rb#53
     def load_json(string); end
 
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#92
+    # source://sidekiq/7.3.0/lib/sidekiq.rb#93
     def logger; end
 
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#60
+    # source://sidekiq/7.3.0/lib/sidekiq.rb#61
     def pro?; end
 
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#72
+    # source://sidekiq/7.3.0/lib/sidekiq.rb#73
     def redis(&block); end
 
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#68
+    # source://sidekiq/7.3.0/lib/sidekiq.rb#69
     def redis_pool; end
 
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#48
+    # source://sidekiq/7.3.0/lib/sidekiq.rb#49
     def server?; end
 
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#76
+    # source://sidekiq/7.3.0/lib/sidekiq.rb#77
     def strict_args!(mode = T.unsafe(nil)); end
 
-    # source://sidekiq/7.2.4/lib/sidekiq/transaction_aware_client.rb#40
+    # source://sidekiq/7.3.0/lib/sidekiq/transaction_aware_client.rb#40
     def transactional_push!; end
 
-    # source://sidekiq/7.2.4/lib/sidekiq.rb#44
+    # source://sidekiq/7.3.0/lib/sidekiq.rb#45
     def ❨╯°□°❩╯︵┻━┻; end
   end
 end

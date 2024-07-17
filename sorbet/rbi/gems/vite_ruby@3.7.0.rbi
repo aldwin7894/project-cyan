@@ -397,12 +397,12 @@ module ViteRuby::CLI::FileUtils
   end
 end
 
-# source://vite_ruby//lib/vite_ruby/cli/install.rb#5
+# source://vite_ruby//lib/vite_ruby/cli/install.rb#6
 class ViteRuby::CLI::Install < ::Dry::CLI::Command
   extend ::Dry::CLI::Command::ClassMethods
 
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#8
-  def call(**_arg0); end
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#11
+  def call(package_manager: T.unsafe(nil), **_arg1); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
   def config(*args, **_arg1, &block); end
@@ -421,73 +421,71 @@ class ViteRuby::CLI::Install < ::Dry::CLI::Command
 
   # Internal: The JS packages that should be added to the app.
   #
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#32
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#37
   def js_dependencies; end
 
   private
 
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#60
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#65
   def append(*args); end
 
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#67
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#72
   def copy_template(path, to:); end
 
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#60
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#65
   def cp(*args); end
 
   # Internal: Creates the Vite and vite-plugin-ruby configuration files.
   #
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#72
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#77
   def create_configuration_files; end
 
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#60
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#65
   def inject_line_after(*args); end
 
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#60
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#65
   def inject_line_after_last(*args); end
 
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#60
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#65
   def inject_line_before(*args); end
 
   # Internal: Adds compilation output dirs to git ignore.
   #
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#88
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#104
   def install_gitignore; end
 
   # Internal: Installs vite and vite-plugin-ruby at the project level.
   #
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#80
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#85
   def install_js_dependencies; end
 
-  # Internal: Support all popular package managers.
-  #
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#119
-  def npm_install; end
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#134
+  def install_js_packages(deps); end
 
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#60
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#65
   def replace_first_line(*args); end
 
   # Internal: The root path for the Ruby application.
   #
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#103
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#119
   def root; end
 
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#111
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#127
   def run_with_capture(*args, **options); end
 
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#107
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#123
   def say(*args); end
 
   # Internal: Avoid printing warning about missing vite.json, we will create one.
   #
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#127
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#139
   def silent_warnings; end
 
-  # source://vite_ruby//lib/vite_ruby/cli/install.rb#60
+  # source://vite_ruby//lib/vite_ruby/cli/install.rb#65
   def write(*args); end
 end
 
-# source://vite_ruby//lib/vite_ruby/cli/install.rb#65
+# source://vite_ruby//lib/vite_ruby/cli/install.rb#70
 ViteRuby::CLI::Install::TEMPLATES_PATH = T.let(T.unsafe(nil), Pathname)
 
 # source://vite_ruby//lib/vite_ruby/cli/ssr.rb#3
@@ -540,14 +538,14 @@ class ViteRuby::CLI::Vite < ::Dry::CLI::Command
 
   # @yield [args]
   #
-  # source://vite_ruby//lib/vite_ruby/cli/vite.rb#18
-  def call(mode:, args: T.unsafe(nil), clobber: T.unsafe(nil), **boolean_opts); end
+  # source://vite_ruby//lib/vite_ruby/cli/vite.rb#19
+  def call(mode:, args: T.unsafe(nil), clobber: T.unsafe(nil), node_options: T.unsafe(nil), inspect: T.unsafe(nil), trace_deprecation: T.unsafe(nil), **boolean_opts); end
 
   class << self
     # source://vite_ruby//lib/vite_ruby/cli/vite.rb#6
     def executable_options; end
 
-    # source://vite_ruby//lib/vite_ruby/cli/vite.rb#12
+    # source://vite_ruby//lib/vite_ruby/cli/vite.rb#13
     def shared_options; end
   end
 end
@@ -711,25 +709,25 @@ class ViteRuby::Config
 
   # @return [Config] a new instance of Config
   #
-  # source://vite_ruby//lib/vite_ruby/config.rb#110
+  # source://vite_ruby//lib/vite_ruby/config.rb#120
   def initialize(attrs); end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def additional_entrypoints; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def asset_host; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def assets_dir; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def auto_build; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def base; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def build_cache_dir; end
 
   # Public: The directory where Vite will store the built assets.
@@ -737,25 +735,25 @@ class ViteRuby::Config
   # source://vite_ruby//lib/vite_ruby/config.rb#41
   def build_output_dir; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def config_path; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def dev_server_connect_timeout; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def entrypoints_dir; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def hide_build_console_output; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def host; end
 
   # source://vite_ruby//lib/vite_ruby/config.rb#16
   def host_with_port; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def https; end
 
   # Internal: Path to the manifest files generated by Vite and vite-plugin-ruby.
@@ -773,22 +771,25 @@ class ViteRuby::Config
   # source://vite_ruby//lib/vite_ruby/config.rb#36
   def manifest_paths; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def mode; end
 
   # source://vite_ruby//lib/vite_ruby/config.rb#8
   def origin; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
+  def package_manager; end
+
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def port; end
 
   # source://vite_ruby//lib/vite_ruby/config.rb#12
   def protocol; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def public_dir; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def public_output_dir; end
 
   # Public: The directory where the entries are located.
@@ -796,25 +797,25 @@ class ViteRuby::Config
   # source://vite_ruby//lib/vite_ruby/config.rb#46
   def resolved_entrypoints_dir; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def root; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def skip_compatibility_check; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def skip_proxy; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def source_code_dir; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def ssr_build_enabled; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def ssr_entrypoint; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def ssr_output_dir; end
 
   # Public: Sets additional environment variables for vite-plugin-ruby.
@@ -822,7 +823,7 @@ class ViteRuby::Config
   # source://vite_ruby//lib/vite_ruby/config.rb#67
   def to_env(env_vars = T.unsafe(nil)); end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def vite_bin_path; end
 
   # Internal: The directory where Vite stores its processing cache.
@@ -835,7 +836,7 @@ class ViteRuby::Config
   # source://vite_ruby//lib/vite_ruby/config.rb#56
   def vite_root_dir; end
 
-  # source://vite_ruby//lib/vite_ruby/config.rb#208
+  # source://vite_ruby//lib/vite_ruby/config.rb#220
   def watch_additional_paths; end
 
   # Internal: Files and directories that should be watched for changes.
@@ -852,7 +853,7 @@ class ViteRuby::Config
 
   # Internal: Coerces configuration options to boolean.
   #
-  # source://vite_ruby//lib/vite_ruby/config.rb#106
+  # source://vite_ruby//lib/vite_ruby/config.rb#107
   def coerce_booleans(config, *names); end
 
   # Internal: Coerces all the configuration values, in case they were passed
@@ -861,10 +862,13 @@ class ViteRuby::Config
   # source://vite_ruby//lib/vite_ruby/config.rb#96
   def coerce_values(config); end
 
+  # source://vite_ruby//lib/vite_ruby/config.rb#111
+  def detect_package_manager(root); end
+
   class << self
     # Public: Returns the project configuration for Vite.
     #
-    # source://vite_ruby//lib/vite_ruby/config.rb#119
+    # source://vite_ruby//lib/vite_ruby/config.rb#129
     def resolve_config(**attrs); end
 
     private
@@ -876,46 +880,46 @@ class ViteRuby::Config
 
     # Internal: Extracts the configuration options provided as env vars.
     #
-    # source://vite_ruby//lib/vite_ruby/config.rb#162
+    # source://vite_ruby//lib/vite_ruby/config.rb#172
     def config_from_env; end
 
     # Internal: Loads the configuration options provided in a JSON file.
     #
-    # source://vite_ruby//lib/vite_ruby/config.rb#171
+    # source://vite_ruby//lib/vite_ruby/config.rb#181
     def config_from_file(path, mode:); end
 
     # Internal: Used to load a JSON file from the specified path.
     #
-    # source://vite_ruby//lib/vite_ruby/config.rb#148
+    # source://vite_ruby//lib/vite_ruby/config.rb#158
     def load_json(path); end
 
     def new(*_arg0); end
 
     # Internal: Retrieves a configuration option from environment variables.
     #
-    # source://vite_ruby//lib/vite_ruby/config.rb#157
+    # source://vite_ruby//lib/vite_ruby/config.rb#167
     def option_from_env(name); end
   end
 end
 
 # Internal: Configuration options that can be provided as env vars.
 #
-# source://vite_ruby//lib/vite_ruby/config.rb#188
+# source://vite_ruby//lib/vite_ruby/config.rb#198
 ViteRuby::Config::CONFIGURABLE_WITH_ENV = T.let(T.unsafe(nil), Array)
 
 # Internal: Shared configuration with the Vite plugin for Ruby.
 #
-# source://vite_ruby//lib/vite_ruby/config.rb#182
+# source://vite_ruby//lib/vite_ruby/config.rb#192
 ViteRuby::Config::DEFAULT_CONFIG = T.let(T.unsafe(nil), Hash)
 
 # Internal: If any of these files is modified the build won't be skipped.
 #
-# source://vite_ruby//lib/vite_ruby/config.rb#191
+# source://vite_ruby//lib/vite_ruby/config.rb#201
 ViteRuby::Config::DEFAULT_WATCHED_PATHS = T.let(T.unsafe(nil), Array)
 
 # Internal: Configuration options that can not be provided as env vars.
 #
-# source://vite_ruby//lib/vite_ruby/config.rb#185
+# source://vite_ruby//lib/vite_ruby/config.rb#195
 ViteRuby::Config::NOT_CONFIGURABLE_WITH_ENV = T.let(T.unsafe(nil), Array)
 
 # source://vite_ruby//lib/vite_ruby/version.rb#8
@@ -1272,8 +1276,8 @@ class ViteRuby::Runner
 
   # Internal: Resolves to an executable for Vite.
   #
-  # source://vite_ruby//lib/vite_ruby/runner.rb#41
-  def vite_executable; end
+  # source://vite_ruby//lib/vite_ruby/runner.rb#39
+  def vite_executable(*exec_args); end
 end
 
 # source://vite_ruby//lib/vite_ruby/version.rb#4
