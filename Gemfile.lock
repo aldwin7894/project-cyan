@@ -345,7 +345,7 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
-    ruby-lsp (0.17.7)
+    ruby-lsp (0.17.8)
       language_server-protocol (~> 3.17.0)
       prism (>= 0.29.0, < 0.31)
       rbs (>= 3, < 4)
@@ -368,13 +368,13 @@ GEM
       fugit (~> 1.8)
       globalid (>= 1.0.1)
       sidekiq (>= 6)
-    sorbet (0.5.11485)
-      sorbet-static (= 0.5.11485)
-    sorbet-runtime (0.5.11485)
-    sorbet-static (0.5.11485-x86_64-linux)
-    sorbet-static-and-runtime (0.5.11485)
-      sorbet (= 0.5.11485)
-      sorbet-runtime (= 0.5.11485)
+    sorbet (0.5.11487)
+      sorbet-static (= 0.5.11487)
+    sorbet-runtime (0.5.11487)
+    sorbet-static (0.5.11487-x86_64-linux)
+    sorbet-static-and-runtime (0.5.11487)
+      sorbet (= 0.5.11487)
+      sorbet-runtime (= 0.5.11487)
     spoom (1.3.3)
       erubi (>= 1.10.0)
       prism (>= 0.28.0)
@@ -395,7 +395,7 @@ GEM
       yard-sorbet
     thor (1.3.1)
     timeout (0.4.1)
-    turbo-rails (2.0.5)
+    turbo-rails (2.0.6)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
@@ -481,7 +481,7 @@ DEPENDENCIES
   sorbet
   sorbet-runtime
   tapioca
-  turbo-rails (~> 2.0.5)
+  turbo-rails (~> 2.0.6)
   tzinfo-data
   vite_rails (~> 3.0)
   webdrivers
