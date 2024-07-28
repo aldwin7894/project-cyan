@@ -54,6 +54,8 @@ module LastFM
 
         res["recenttracks"]["track"]
       end
+    rescue HTTParty::Error => e
+      raise ApiError.new(e.message)
     end
 
     def get_top_artists(user:, period:, limit:)
@@ -90,6 +92,8 @@ module LastFM
       end
 
       top_artists
+    rescue HTTParty::Error => e
+      raise ApiError.new(e.message)
     end
   end
 

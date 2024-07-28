@@ -96,44 +96,44 @@ class Faraday::Adapter::NetHttp < ::Faraday::Adapter
   # source://faraday-net_http//lib/faraday/adapter/net_http.rb#43
   def build_connection(env); end
 
-  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#63
+  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#62
   def call(env); end
 
-  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#51
+  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#50
   def net_http_connection(env); end
 
   private
 
-  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#148
+  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#147
   def configure_request(http, req); end
 
-  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#131
+  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#130
   def configure_ssl(http, ssl); end
 
-  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#79
+  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#78
   def create_request(env); end
 
-  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#185
+  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#184
   def encoded_body(http_response); end
 
-  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#95
+  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#94
   def perform_request(http, env); end
 
-  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#109
+  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#108
   def request_with_wrapped_block(http, env, &block); end
 
-  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#121
+  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#120
   def save_http_response(env, http_response); end
 
-  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#168
+  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#167
   def ssl_cert_store(ssl); end
 
-  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#175
+  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#174
   def ssl_verify_mode(ssl); end
 
   # @return [Boolean]
   #
-  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#197
+  # source://faraday-net_http//lib/faraday/adapter/net_http.rb#196
   def verify_hostname_enabled?(http, ssl); end
 end
 

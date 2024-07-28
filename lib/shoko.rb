@@ -119,7 +119,7 @@ module Shoko
 
       Rails.cache.write(cache_key, series, expires_in: 1.month)
       series
-    rescue ApiError
+    rescue HTTParty::Error, ApiError
       nil
     end
 

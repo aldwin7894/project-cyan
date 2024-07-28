@@ -51,6 +51,8 @@ module ListenBrainz
 
         res["payload"]
       end
+    rescue HTTParty::Error => e
+      raise ApiError.new(e.message)
     end
 
     def get_now_playing(user:)
@@ -66,6 +68,8 @@ module ListenBrainz
 
         res["payload"]
       end
+    rescue HTTParty::Error => e
+      raise ApiError.new(e.message)
     end
 
     def get_loved_tracks(user:, offset: 0)
@@ -90,6 +94,8 @@ module ListenBrainz
       total = result["total_count"].to_i
 
       { data:, total: }
+    rescue HTTParty::Error => e
+      raise ApiError.new(e.message)
     end
   end
 

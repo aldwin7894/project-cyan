@@ -301,7 +301,7 @@ end
 #   config.assets.precompile -= Turbo::Engine::PRECOMPILE_ASSETS
 # end
 #
-# source://turbo-rails//lib/turbo/engine.rb#28
+# source://turbo-rails//lib/turbo/engine.rb#45
 Turbo::Engine::PRECOMPILE_ASSETS = T.let(T.unsafe(nil), Array)
 
 module Turbo::Frames; end
@@ -469,6 +469,8 @@ class Turbo::Streams::TagBuilder
   def append_all(targets, content = T.unsafe(nil), **rendering, &block); end
   def before(target, content = T.unsafe(nil), **rendering, &block); end
   def before_all(targets, content = T.unsafe(nil), **rendering, &block); end
+  def morph(target, content = T.unsafe(nil), **rendering, &block); end
+  def morph_all(targets, content = T.unsafe(nil), **rendering, &block); end
   def prepend(target, content = T.unsafe(nil), **rendering, &block); end
   def prepend_all(targets, content = T.unsafe(nil), **rendering, &block); end
   def remove(target); end

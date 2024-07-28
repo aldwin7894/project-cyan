@@ -25,6 +25,8 @@ module Fanart
   class Client
     include HTTParty
     base_uri BASE_URL
+    default_timeout 30
+    open_timeout 10
 
     def initialize
       @options = {
@@ -83,7 +85,7 @@ module Fanart
 
       Rails.cache.write(cache_key, fanart_url, expires_in: 1.month)
       fanart_url
-    rescue ApiError
+    rescue HTTParty::Error, ApiError
       Rails.cache.write(cache_key, fanart_url, expires_in: 12.hours)
       nil
     end
@@ -132,7 +134,7 @@ module Fanart
 
       Rails.cache.write(cache_key, fanart_url, expires_in: 1.month)
       fanart_url
-    rescue ApiError
+    rescue HTTParty::Error, ApiError
       Rails.cache.write(cache_key, fanart_url, expires_in: 12.hours)
       nil
     end

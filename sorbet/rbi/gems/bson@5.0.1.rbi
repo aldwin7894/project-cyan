@@ -3700,10 +3700,13 @@ class BSON::ObjectId
     # Returns an integer timestamp (seconds since the Epoch). Primarily used
     # by the generator to produce object ids.
     #
+    # @note This value is guaranteed to be no more than 4 bytes in length. A
+    #   time value far enough in the future to require a larger integer than
+    #   4 bytes will be truncated to 4 bytes.
     # @return [Integer] the number of seconds since the Epoch.
     # @since 2.0.0
     #
-    # source://bson//lib/bson/object_id.rb#363
+    # source://bson//lib/bson/object_id.rb#373
     def timestamp; end
   end
 end
@@ -4720,7 +4723,7 @@ end
 # source://bson//lib/bson/undefined.rb#31
 BSON::Undefined::BSON_TYPE = T.let(T.unsafe(nil), String)
 
-# source://bson//lib/bson/version.rb#18
+# source://bson//lib/bson/version.rb#19
 BSON::VERSION = T.let(T.unsafe(nil), String)
 
 class BigDecimal < ::Numeric
