@@ -121,6 +121,15 @@ module Mongoid
   def allow_bson5_decimal128?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
+  def allow_scopes_to_unset_default_scope(*args, **_arg1, &block); end
+
+  # source://forwardable/1.3.3/forwardable.rb#231
+  def allow_scopes_to_unset_default_scope=(*args, **_arg1, &block); end
+
+  # source://forwardable/1.3.3/forwardable.rb#231
+  def allow_scopes_to_unset_default_scope?(*args, **_arg1, &block); end
+
+  # source://forwardable/1.3.3/forwardable.rb#231
   def app_name(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -7889,7 +7898,7 @@ class Mongoid::AtomicUpdatePreparer
     # @param value [Object] The value to mongoize.
     # @return [Object] The mongoized value.
     #
-    # source://mongoid//lib/mongoid/atomic_update_preparer.rb#75
+    # source://mongoid//lib/mongoid/atomic_update_preparer.rb#76
     def mongoize_for(operator, klass, key, value); end
 
     # Treats the key as if it were a MongoDB operator and prepares
@@ -7906,16 +7915,17 @@ class Mongoid::AtomicUpdatePreparer
 
     # Get the value for the provided operator, klass, key and value.
     #
-    # This is necessary for special cases like $rename, $addToSet and $push.
+    # This is necessary for special cases like $rename, $addToSet, $push, $pull and $pop.
     #
     # @api private
     # @param operator [String] The operator.
     # @param klass [Class] The model class.
+    # @param key [String | Symbol] The field key.
     # @param value [Object] The original value.
     # @return [Object] Value prepared for the provided operator.
     #
-    # source://mongoid//lib/mongoid/atomic_update_preparer.rb#59
-    def value_for(operator, klass, value); end
+    # source://mongoid//lib/mongoid/atomic_update_preparer.rb#60
+    def value_for(operator, klass, key, value); end
   end
 end
 
@@ -10068,6 +10078,15 @@ module Mongoid::Config
   def allow_bson5_decimal128?; end
 
   # source://mongoid//lib/mongoid/config/options.rb#37
+  def allow_scopes_to_unset_default_scope; end
+
+  # source://mongoid//lib/mongoid/config/options.rb#42
+  def allow_scopes_to_unset_default_scope=(value); end
+
+  # source://mongoid//lib/mongoid/config/options.rb#47
+  def allow_scopes_to_unset_default_scope?; end
+
+  # source://mongoid//lib/mongoid/config/options.rb#37
   def app_name; end
 
   # source://mongoid//lib/mongoid/config/options.rb#42
@@ -10118,14 +10137,14 @@ module Mongoid::Config
   #   config.clients
   # @return [Hash] The clients configuration.
   #
-  # source://mongoid//lib/mongoid/config.rb#359
+  # source://mongoid//lib/mongoid/config.rb#368
   def clients; end
 
   # Returns the Config singleton, for use in the configure DSL.
   #
   # @return [self] The Config singleton.
   #
-  # source://mongoid//lib/mongoid/config.rb#177
+  # source://mongoid//lib/mongoid/config.rb#186
   def config; end
 
   # Has Mongoid been configured? This is checking that at least a valid
@@ -10135,7 +10154,7 @@ module Mongoid::Config
   #   config.configured?
   # @return [true | false] If Mongoid is configured.
   #
-  # source://mongoid//lib/mongoid/config.rb#188
+  # source://mongoid//lib/mongoid/config.rb#197
   def configured?; end
 
   # Connect to the provided database name on the default client.
@@ -10145,7 +10164,7 @@ module Mongoid::Config
   # @note Use only in development or test environments for convenience.
   # @param name [String] The database name.
   #
-  # source://mongoid//lib/mongoid/config.rb#200
+  # source://mongoid//lib/mongoid/config.rb#209
   def connect_to(name, options = T.unsafe(nil)); end
 
   # Deregister a model in the application with Mongoid.
@@ -10153,7 +10172,7 @@ module Mongoid::Config
   # @api private
   # @param klass [Class] The model to deregister.
   #
-  # source://mongoid//lib/mongoid/config.rb#267
+  # source://mongoid//lib/mongoid/config.rb#276
   def deregister_model(klass); end
 
   # Return field names that could cause destructive things to happen if
@@ -10163,7 +10182,7 @@ module Mongoid::Config
   #   config.destructive_fields
   # @return [Array<String>] An array of bad field names.
   #
-  # source://mongoid//lib/mongoid/config.rb#217
+  # source://mongoid//lib/mongoid/config.rb#226
   def destructive_fields; end
 
   # source://mongoid//lib/mongoid/config/options.rb#37
@@ -10255,7 +10274,7 @@ module Mongoid::Config
   # @param path [String] The path to the file.
   # @param environment [String | Symbol] The environment to load.
   #
-  # source://mongoid//lib/mongoid/config.rb#229
+  # source://mongoid//lib/mongoid/config.rb#238
   def load!(path, environment = T.unsafe(nil)); end
 
   # From a hash of settings, load all the configuration.
@@ -10264,7 +10283,7 @@ module Mongoid::Config
   #   config.load_configuration(settings)
   # @param settings [Hash] The configuration settings.
   #
-  # source://mongoid//lib/mongoid/config.rb#279
+  # source://mongoid//lib/mongoid/config.rb#288
   def load_configuration(settings); end
 
   # source://mongoid//lib/mongoid/config/options.rb#42
@@ -10295,7 +10314,7 @@ module Mongoid::Config
   #   config.models
   # @return [Array<Class>] All the models in the application.
   #
-  # source://mongoid//lib/mongoid/config.rb#246
+  # source://mongoid//lib/mongoid/config.rb#255
   def models; end
 
   # Set the configuration options. Will validate each one individually.
@@ -10304,7 +10323,7 @@ module Mongoid::Config
   #   config.options = { raise_not_found_error: true }
   # @param options [Hash] The configuration options.
   #
-  # source://mongoid//lib/mongoid/config.rb#343
+  # source://mongoid//lib/mongoid/config.rb#352
   def options=(options); end
 
   # Override the client to use globally.
@@ -10314,7 +10333,7 @@ module Mongoid::Config
   # @param name [String | Symbol] The name of the client.
   # @return [String | Symbol] The global override.
   #
-  # source://mongoid//lib/mongoid/config.rb#307
+  # source://mongoid//lib/mongoid/config.rb#316
   def override_client(name); end
 
   # Override the database to use globally.
@@ -10324,7 +10343,7 @@ module Mongoid::Config
   # @param name [String | Symbol] The name of the database.
   # @return [String | Symbol] The global override.
   #
-  # source://mongoid//lib/mongoid/config.rb#295
+  # source://mongoid//lib/mongoid/config.rb#304
   def override_database(name); end
 
   # source://mongoid//lib/mongoid/config/options.rb#37
@@ -10352,7 +10371,7 @@ module Mongoid::Config
   # @note This is the fastest way to drop all data.
   # @return [true] true.
   #
-  # source://mongoid//lib/mongoid/config.rb#319
+  # source://mongoid//lib/mongoid/config.rb#328
   def purge!; end
 
   # source://mongoid//lib/mongoid/config/options.rb#37
@@ -10370,7 +10389,7 @@ module Mongoid::Config
   #   config.register_model(Band)
   # @param klass [Class] The model to register.
   #
-  # source://mongoid//lib/mongoid/config.rb#256
+  # source://mongoid//lib/mongoid/config.rb#265
   def register_model(klass); end
 
   # Is the application running under passenger?
@@ -10398,7 +10417,7 @@ module Mongoid::Config
   #   Config.time_zone
   # @return [String] The time zone.
   #
-  # source://mongoid//lib/mongoid/config.rb#369
+  # source://mongoid//lib/mongoid/config.rb#378
   def time_zone; end
 
   # Truncate all data in all collections, but not the indexes.
@@ -10408,7 +10427,7 @@ module Mongoid::Config
   # @note This will be slower than purge!
   # @return [true] true.
   #
-  # source://mongoid//lib/mongoid/config.rb#331
+  # source://mongoid//lib/mongoid/config.rb#340
   def truncate!; end
 
   # source://mongoid//lib/mongoid/config/options.rb#37
@@ -10424,7 +10443,7 @@ module Mongoid::Config
 
   # @raise [Errors::NoClientsConfig]
   #
-  # source://mongoid//lib/mongoid/config.rb#394
+  # source://mongoid//lib/mongoid/config.rb#403
   def clients=(clients); end
 
   # Get database client that respects global overrides
@@ -10432,10 +10451,10 @@ module Mongoid::Config
   #
   # @return [Mongo::Client] Client according to global overrides.
   #
-  # source://mongoid//lib/mongoid/config.rb#405
+  # source://mongoid//lib/mongoid/config.rb#414
   def global_client; end
 
-  # source://mongoid//lib/mongoid/config.rb#389
+  # source://mongoid//lib/mongoid/config.rb#398
   def set_log_levels; end
 end
 
@@ -10455,10 +10474,10 @@ module Mongoid::Config::Defaults
   def load_defaults(version); end
 end
 
-# source://mongoid//lib/mongoid/config.rb#418
+# source://mongoid//lib/mongoid/config.rb#427
 module Mongoid::Config::DeprecatedOptions; end
 
-# source://mongoid//lib/mongoid/config.rb#419
+# source://mongoid//lib/mongoid/config.rb#428
 Mongoid::Config::DeprecatedOptions::OPTIONS = T.let(T.unsafe(nil), Array)
 
 # This module contains the logic for configuring Client Side
@@ -11295,10 +11314,11 @@ module Mongoid::Contextual::Aggregable::Memory
   #   aggregable.sum(:likes)
   # @example Get the sum for the provided block.
   #   aggregable.sum(&:likes)
-  # @param field [Symbol] The field to sum.
+  # @param field [Symbol | Numeric] The field to sum, or the intial
+  #   value of the sum when a block is given.
   # @return [Numeric] The sum value.
   #
-  # source://mongoid//lib/mongoid/contextual/aggregable/memory.rb#96
+  # source://mongoid//lib/mongoid/contextual/aggregable/memory.rb#97
   def sum(field = T.unsafe(nil)); end
 
   private
@@ -11312,7 +11332,7 @@ module Mongoid::Contextual::Aggregable::Memory
   # @param method [Symbol] The method (min_by or max_by).
   # @return [Numeric | nil] The aggregate.
   #
-  # source://mongoid//lib/mongoid/contextual/aggregable/memory.rb#115
+  # source://mongoid//lib/mongoid/contextual/aggregable/memory.rb#116
   def aggregate_by(field, method); end
 end
 
@@ -11390,10 +11410,11 @@ module Mongoid::Contextual::Aggregable::Mongo
   #   aggregable.sum(:likes)
   # @example Get the sum for the provided block.
   #   aggregable.sum(&:likes)
-  # @param field [Symbol] The field to sum.
+  # @param field [Symbol | Numeric] The field to sum, or the initial
+  #   value of the sum when a block is given.
   # @return [Float] The sum value.
   #
-  # source://mongoid//lib/mongoid/contextual/aggregable/mongo.rb#102
+  # source://mongoid//lib/mongoid/contextual/aggregable/mongo.rb#103
   def sum(field = T.unsafe(nil)); end
 
   private
@@ -11406,7 +11427,7 @@ module Mongoid::Contextual::Aggregable::Mongo
   # @param field [String | Symbol] The name of the field.
   # @return [Array] The array of pipeline operators.
   #
-  # source://mongoid//lib/mongoid/contextual/aggregable/mongo.rb#118
+  # source://mongoid//lib/mongoid/contextual/aggregable/mongo.rb#121
   def pipeline(field); end
 end
 
@@ -14522,11 +14543,11 @@ module Mongoid::Criteria::Findable
   # source://mongoid//lib/mongoid/criteria/findable.rb#145
   def prepare_ids_for_find(args); end
 
-  # Convenience method of raising an invalid options error.
+  # Convenience method of raising an invalid find error.
   #
   # @example Raise the error.
   #   criteria.raise_invalid
-  # @raise [Errors::InvalidOptions] The error.
+  # @raise [Errors::InvalidFind] The error.
   #
   # source://mongoid//lib/mongoid/criteria/findable.rb#178
   def raise_invalid; end
@@ -15491,6 +15512,7 @@ module Mongoid::Criteria::Queryable::Extensions::Numeric::ClassMethods
   # @example Get the object as numeric.
   #   Object.__numeric__("1.442")
   # @param object [Object] The object to convert.
+  # @raise [ArgumentError]
   # @return [Object] The converted number.
   #
   # source://mongoid//lib/mongoid/criteria/queryable/extensions/numeric.rb#46
@@ -15503,7 +15525,7 @@ module Mongoid::Criteria::Queryable::Extensions::Numeric::ClassMethods
   # @param object [Object] The object to evolve.
   # @return [Integer] The evolved object.
   #
-  # source://mongoid//lib/mongoid/criteria/queryable/extensions/numeric.rb#58
+  # source://mongoid//lib/mongoid/criteria/queryable/extensions/numeric.rb#72
   def evolve(object); end
 end
 
@@ -19097,6 +19119,20 @@ class Mongoid::Errors::InMemoryCollationNotSupported < ::Mongoid::Errors::Mongoi
   def initialize; end
 end
 
+# This error is raised when an around callback is
+# defined by the user without a yield
+#
+# source://mongoid//lib/mongoid/errors/invalid_around_callback.rb#7
+class Mongoid::Errors::InvalidAroundCallback < ::Mongoid::Errors::MongoidError
+  # Create the new error.
+  #
+  # @api private
+  # @return [InvalidAroundCallback] a new instance of InvalidAroundCallback
+  #
+  # source://mongoid//lib/mongoid/errors/invalid_around_callback.rb#11
+  def initialize; end
+end
+
 # This error is raised when automatic encryption configuration for a client
 # is invalid.
 #
@@ -21807,7 +21843,7 @@ module Mongoid::Fields
   #   model.apply_default("name")
   # @param name [String] The name of the field.
   #
-  # source://mongoid//lib/mongoid/fields.rb#178
+  # source://mongoid//lib/mongoid/fields.rb#183
   def apply_default(name); end
 
   # Apply all the defaults at once.
@@ -21815,7 +21851,7 @@ module Mongoid::Fields
   # @example Apply all the defaults.
   #   model.apply_defaults
   #
-  # source://mongoid//lib/mongoid/fields.rb#194
+  # source://mongoid//lib/mongoid/fields.rb#199
   def apply_defaults; end
 
   # Apply all default values to the document which are procs.
@@ -21824,7 +21860,7 @@ module Mongoid::Fields
   #   model.apply_post_processed_defaults
   # @return [Array<String>] The names of the proc defaults.
   #
-  # source://mongoid//lib/mongoid/fields.rb#165
+  # source://mongoid//lib/mongoid/fields.rb#170
   def apply_post_processed_defaults; end
 
   # Apply all default values to the document which are not procs.
@@ -21833,7 +21869,7 @@ module Mongoid::Fields
   #   model.apply_pre_processed_defaults
   # @return [Array<String>] The names of the non-proc defaults.
   #
-  # source://mongoid//lib/mongoid/fields.rb#153
+  # source://mongoid//lib/mongoid/fields.rb#158
   def apply_pre_processed_defaults; end
 
   # Returns an array of names for the attributes available on this object.
@@ -21845,7 +21881,7 @@ module Mongoid::Fields
   #   document.attribute_names
   # @return [Array<String>] The field names
   #
-  # source://mongoid//lib/mongoid/fields.rb#209
+  # source://mongoid//lib/mongoid/fields.rb#214
   def attribute_names; end
 
   # Get the name of the provided field as it is stored in the database.
@@ -21856,7 +21892,7 @@ module Mongoid::Fields
   # @param name [String | Symbol] The name to get.
   # @return [String] The name of the field as it's stored in the db.
   #
-  # source://mongoid//lib/mongoid/fields.rb#222
+  # source://mongoid//lib/mongoid/fields.rb#227
   def database_field_name(name); end
 
   # Does this field start with a dollar sign ($) or contain a dot/period (.)?
@@ -21865,7 +21901,7 @@ module Mongoid::Fields
   # @param name [String] The field name.
   # @return [true | false] If this field is dotted or dollared.
   #
-  # source://mongoid//lib/mongoid/fields.rb#258
+  # source://mongoid//lib/mongoid/fields.rb#263
   def dot_dollar_field?(name); end
 
   # Is the provided field a lazy evaluation?
@@ -21876,7 +21912,7 @@ module Mongoid::Fields
   # @param value [Object] The current value.
   # @return [true | false] If we set the field lazily.
   #
-  # source://mongoid//lib/mongoid/fields.rb#235
+  # source://mongoid//lib/mongoid/fields.rb#240
   def lazy_settable?(field, value); end
 
   # Is the document using object ids?
@@ -21886,7 +21922,7 @@ module Mongoid::Fields
   # @note Refactored from using delegate for class load performance.
   # @return [true | false] Using object ids.
   #
-  # source://mongoid//lib/mongoid/fields.rb#247
+  # source://mongoid//lib/mongoid/fields.rb#252
   def using_object_ids?; end
 
   # Validate whether or not the field starts with a dollar sign ($) or
@@ -21896,7 +21932,7 @@ module Mongoid::Fields
   # @param name [String] The field name.
   # @raise [InvalidDotDollarAssignment] If contains dots or starts with a dollar.
   #
-  # source://mongoid//lib/mongoid/fields.rb#271
+  # source://mongoid//lib/mongoid/fields.rb#276
   def validate_writable_field_name!(name); end
 
   class << self
@@ -21940,7 +21976,7 @@ module Mongoid::Fields
     # @param aliased_associations [Hash] The aliased associations.
     # @return [String] The name of the field as stored in the database.
     #
-    # source://mongoid//lib/mongoid/fields.rb#410
+    # source://mongoid//lib/mongoid/fields.rb#415
     def database_field_name(name, relations, aliased_fields, aliased_associations); end
 
     # Stores the provided block to be run when the option name specified is
@@ -21957,7 +21993,7 @@ module Mongoid::Fields
     # @param option_name [Symbol] the option name to match against
     # @param &block the handler to execute when the option is provided.
     #
-    # source://mongoid//lib/mongoid/fields.rb#293
+    # source://mongoid//lib/mongoid/fields.rb#298
     def option(option_name, &block); end
 
     # Return a map of custom option names to their handlers.
@@ -21967,7 +22003,7 @@ module Mongoid::Fields
     #   # => { :required => #<Proc:0x00000100976b38> }
     # @return [Hash] the option map
     #
-    # source://mongoid//lib/mongoid/fields.rb#304
+    # source://mongoid//lib/mongoid/fields.rb#309
     def options; end
 
     # Traverse down the association tree and search for the field for the
@@ -21996,7 +22032,7 @@ module Mongoid::Fields
     # @yieldparam Whether [true | false] the second yield parameter is a
     #   field or not.
     #
-    # source://mongoid//lib/mongoid/fields.rb#335
+    # source://mongoid//lib/mongoid/fields.rb#340
     def traverse_association_tree(key, fields, associations, aliased_associations); end
   end
 
@@ -22040,7 +22076,7 @@ end
 # source://mongoid//lib/mongoid/fields.rb#17
 Mongoid::Fields::Boolean = Mongoid::Boolean
 
-# source://mongoid//lib/mongoid/fields.rb#52
+# source://mongoid//lib/mongoid/fields.rb#57
 module Mongoid::Fields::ClassMethods
   # Returns an array of names for the attributes available on this object.
   #
@@ -22051,7 +22087,7 @@ module Mongoid::Fields::ClassMethods
   #   Model.attribute_names
   # @return [Array<String>] The field names
   #
-  # source://mongoid//lib/mongoid/fields.rb#448
+  # source://mongoid//lib/mongoid/fields.rb#454
   def attribute_names; end
 
   # Removes the _translations from the given field name. This is done only
@@ -22062,7 +22098,7 @@ module Mongoid::Fields::ClassMethods
   # @param name [String | Symbol] The name of the field to cleanse.
   # @return [Field] The field name without _translations
   #
-  # source://mongoid//lib/mongoid/fields.rb#95
+  # source://mongoid//lib/mongoid/fields.rb#100
   def cleanse_localized_field_names(name); end
 
   # Get the name of the provided field as it is stored in the database.
@@ -22071,7 +22107,7 @@ module Mongoid::Fields::ClassMethods
   # @param name [String | Symbol] The name to get.
   # @return [String] The name of the field as it's stored in the db.
   #
-  # source://mongoid//lib/mongoid/fields.rb#458
+  # source://mongoid//lib/mongoid/fields.rb#464
   def database_field_name(name); end
 
   # Extracts the id field from the specified attributes hash based on
@@ -22081,7 +22117,7 @@ module Mongoid::Fields::ClassMethods
   # @param attributes [Hash] The attributes to inspect.
   # @return [Object] The id value.
   #
-  # source://mongoid//lib/mongoid/fields.rb#78
+  # source://mongoid//lib/mongoid/fields.rb#83
   def extract_id_field(attributes); end
 
   # Defines all the fields that are accessible on the Document
@@ -22097,7 +22133,7 @@ module Mongoid::Fields::ClassMethods
   # @param options [Hash] The options to pass to the field.
   # @return [Field] The generated field
   #
-  # source://mongoid//lib/mongoid/fields.rb#477
+  # source://mongoid//lib/mongoid/fields.rb#483
   def field(name, options = T.unsafe(nil)); end
 
   # Returns the list of id fields for this model class, as both strings
@@ -22106,7 +22142,7 @@ module Mongoid::Fields::ClassMethods
   # @api private
   # @return [Array<Symbol | String>] List of id fields.
   #
-  # source://mongoid//lib/mongoid/fields.rb#59
+  # source://mongoid//lib/mongoid/fields.rb#64
   def id_fields; end
 
   # Replace a field with a new type.
@@ -22117,7 +22153,7 @@ module Mongoid::Fields::ClassMethods
   # @param type [Class] The new type of field.
   # @return [Serializable] The new field.
   #
-  # source://mongoid//lib/mongoid/fields.rb#496
+  # source://mongoid//lib/mongoid/fields.rb#502
   def replace_field(name, type); end
 
   # Traverse down the association tree and search for the field for the
@@ -22134,7 +22170,7 @@ module Mongoid::Fields::ClassMethods
   # @yieldparam Whether [true | false] the second yield parameter is a
   #   field or not.
   #
-  # source://mongoid//lib/mongoid/fields.rb#527
+  # source://mongoid//lib/mongoid/fields.rb#533
   def traverse_association_tree(key, &block); end
 
   # Convenience method for determining if we are using +BSON::ObjectIds+ as
@@ -22144,7 +22180,7 @@ module Mongoid::Fields::ClassMethods
   #   person.using_object_ids?
   # @return [true | false] If the class uses BSON::ObjectIds for the id.
   #
-  # source://mongoid//lib/mongoid/fields.rb#508
+  # source://mongoid//lib/mongoid/fields.rb#514
   def using_object_ids?; end
 
   protected
@@ -22157,7 +22193,7 @@ module Mongoid::Fields::ClassMethods
   #   Model.add_defaults(field)
   # @param field [Field] The field to add for.
   #
-  # source://mongoid//lib/mongoid/fields.rb#542
+  # source://mongoid//lib/mongoid/fields.rb#548
   def add_defaults(field); end
 
   # Define a field attribute for the +Document+.
@@ -22168,7 +22204,7 @@ module Mongoid::Fields::ClassMethods
   # @param name [Symbol] The name of the field.
   # @param options [Hash] The hash of options.
   #
-  # source://mongoid//lib/mongoid/fields.rb#563
+  # source://mongoid//lib/mongoid/fields.rb#569
   def add_field(name, options = T.unsafe(nil)); end
 
   # Create the field accessors.
@@ -22184,7 +22220,7 @@ module Mongoid::Fields::ClassMethods
   # @param meth [Symbol] The name of the accessor.
   # @param options [Hash] The options.
   #
-  # source://mongoid//lib/mongoid/fields.rb#616
+  # source://mongoid//lib/mongoid/fields.rb#622
   def create_accessors(name, meth, options = T.unsafe(nil)); end
 
   # Create the check method for the provided field.
@@ -22195,7 +22231,7 @@ module Mongoid::Fields::ClassMethods
   # @param name [String] The name of the attribute.
   # @param meth [String] The name of the method.
   #
-  # source://mongoid//lib/mongoid/fields.rb#708
+  # source://mongoid//lib/mongoid/fields.rb#714
   def create_field_check(name, meth); end
 
   # Create the getter method for the provided field.
@@ -22207,7 +22243,7 @@ module Mongoid::Fields::ClassMethods
   # @param meth [String] The name of the method.
   # @param field [Field] The field.
   #
-  # source://mongoid//lib/mongoid/fields.rb#641
+  # source://mongoid//lib/mongoid/fields.rb#647
   def create_field_getter(name, meth, field); end
 
   # Create the getter_before_type_cast method for the provided field. If
@@ -22220,7 +22256,7 @@ module Mongoid::Fields::ClassMethods
   # @param name [String] The name of the attribute.
   # @param meth [String] The name of the method.
   #
-  # source://mongoid//lib/mongoid/fields.rb#665
+  # source://mongoid//lib/mongoid/fields.rb#671
   def create_field_getter_before_type_cast(name, meth); end
 
   # Create the setter method for the provided field.
@@ -22232,7 +22268,7 @@ module Mongoid::Fields::ClassMethods
   # @param meth [String] The name of the method.
   # @param field [Field] The field.
   #
-  # source://mongoid//lib/mongoid/fields.rb#687
+  # source://mongoid//lib/mongoid/fields.rb#693
   def create_field_setter(name, meth, field); end
 
   # Create the translation getter method for the provided field.
@@ -22243,7 +22279,7 @@ module Mongoid::Fields::ClassMethods
   # @param name [String] The name of the attribute.
   # @param meth [String] The name of the method.
   #
-  # source://mongoid//lib/mongoid/fields.rb#726
+  # source://mongoid//lib/mongoid/fields.rb#732
   def create_translations_getter(name, meth); end
 
   # Create the translation setter method for the provided field.
@@ -22255,7 +22291,7 @@ module Mongoid::Fields::ClassMethods
   # @param meth [String] The name of the method.
   # @param field [Field] The field.
   #
-  # source://mongoid//lib/mongoid/fields.rb#746
+  # source://mongoid//lib/mongoid/fields.rb#752
   def create_translations_setter(name, meth, field); end
 
   # Create a field for the given name and options.
@@ -22265,7 +22301,7 @@ module Mongoid::Fields::ClassMethods
   # @param options [Hash] The hash of options.
   # @return [Field] The created field.
   #
-  # source://mongoid//lib/mongoid/fields.rb#796
+  # source://mongoid//lib/mongoid/fields.rb#802
   def field_for(name, options); end
 
   # Include the field methods as a module, so they can be overridden.
@@ -22275,7 +22311,7 @@ module Mongoid::Fields::ClassMethods
   #   Person.generated_methods
   # @return [Module] The module of generated methods.
   #
-  # source://mongoid//lib/mongoid/fields.rb#767
+  # source://mongoid//lib/mongoid/fields.rb#773
   def generated_methods; end
 
   # Run through all custom options stored in Mongoid::Fields.options and
@@ -22292,7 +22328,7 @@ module Mongoid::Fields::ClassMethods
   #   # => "called"
   # @param field [Field] the field to process
   #
-  # source://mongoid//lib/mongoid/fields.rb#592
+  # source://mongoid//lib/mongoid/fields.rb#598
   def process_options(field); end
 
   # Remove the default keys for the provided name.
@@ -22302,7 +22338,7 @@ module Mongoid::Fields::ClassMethods
   #   Model.remove_defaults(name)
   # @param name [String] The field name.
   #
-  # source://mongoid//lib/mongoid/fields.rb#783
+  # source://mongoid//lib/mongoid/fields.rb#789
   def remove_defaults(name); end
 
   # Get the class for the given type.
@@ -22314,7 +22350,7 @@ module Mongoid::Fields::ClassMethods
   #   type.
   # @return [Class] The type of the field.
   #
-  # source://mongoid//lib/mongoid/fields.rb#816
+  # source://mongoid//lib/mongoid/fields.rb#822
   def retrieve_and_validate_type(name, type); end
 
   # Returns the type of the field if the type was not in the TYPE_MAPPINGS
@@ -22324,7 +22360,7 @@ module Mongoid::Fields::ClassMethods
   # @param type [Symbol | Class] The type of the field.
   # @return [Class] The type of the field.
   #
-  # source://mongoid//lib/mongoid/fields.rb#841
+  # source://mongoid//lib/mongoid/fields.rb#847
   def unmapped_type(type); end
 
   # Queries whether or not the given type is permitted as a declared field
@@ -22334,7 +22370,7 @@ module Mongoid::Fields::ClassMethods
   # @param type [Class] The type to query
   # @return [true | false] whether or not the type is supported
   #
-  # source://mongoid//lib/mongoid/fields.rb#857
+  # source://mongoid//lib/mongoid/fields.rb#863
   def unsupported_type?(type); end
 end
 
@@ -22840,6 +22876,13 @@ end
 
 # source://mongoid//lib/mongoid/fields.rb#16
 Mongoid::Fields::StringifiedSymbol = Mongoid::StringifiedSymbol
+
+# The suffix for generated translated fields.
+#
+# @api private
+#
+# source://mongoid//lib/mongoid/fields.rb#55
+Mongoid::Fields::TRANSLATIONS_SFX = T.let(T.unsafe(nil), String)
 
 # For fields defined with symbols use the correct class.
 #
@@ -23518,7 +23561,7 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   extend ::Mongoid::Document::ClassMethods
   extend ::Mongoid::Traversable::DiscriminatorAssignment
 
-  # source://mongoid//lib/mongoid/fields.rb#139
+  # source://mongoid//lib/mongoid/fields.rb#144
   def ___id_default__; end
 
   # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
@@ -23641,13 +23684,13 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/association/macros.rb#35
   def aliased_associations?; end
 
-  # source://mongoid//lib/mongoid/fields.rb#125
+  # source://mongoid//lib/mongoid/fields.rb#130
   def aliased_fields; end
 
-  # source://mongoid//lib/mongoid/fields.rb#125
+  # source://mongoid//lib/mongoid/fields.rb#130
   def aliased_fields=(_arg0); end
 
-  # source://mongoid//lib/mongoid/fields.rb#125
+  # source://mongoid//lib/mongoid/fields.rb#130
   def aliased_fields?; end
 
   # source://mongoid//lib/mongoid/interceptable.rb#51
@@ -23716,25 +23759,25 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/encryptable.rb#10
   def encrypt_metadata?; end
 
-  # source://mongoid//lib/mongoid/fields.rb#127
+  # source://mongoid//lib/mongoid/fields.rb#132
   def fields; end
 
-  # source://mongoid//lib/mongoid/fields.rb#127
+  # source://mongoid//lib/mongoid/fields.rb#132
   def fields=(_arg0); end
 
-  # source://mongoid//lib/mongoid/fields.rb#127
+  # source://mongoid//lib/mongoid/fields.rb#132
   def fields?; end
 
-  # source://mongoid//lib/mongoid/fields.rb#643
+  # source://mongoid//lib/mongoid/fields.rb#649
   def id; end
 
-  # source://mongoid//lib/mongoid/fields.rb#689
+  # source://mongoid//lib/mongoid/fields.rb#695
   def id=(value); end
 
-  # source://mongoid//lib/mongoid/fields.rb#710
+  # source://mongoid//lib/mongoid/fields.rb#716
   def id?; end
 
-  # source://mongoid//lib/mongoid/fields.rb#667
+  # source://mongoid//lib/mongoid/fields.rb#673
   def id_before_type_cast; end
 
   # source://mongoid//lib/mongoid/changeable.rb#385
@@ -23761,13 +23804,13 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/indexable.rb#15
   def index_specifications=(val); end
 
-  # source://mongoid//lib/mongoid/fields.rb#126
+  # source://mongoid//lib/mongoid/fields.rb#131
   def localized_fields; end
 
-  # source://mongoid//lib/mongoid/fields.rb#126
+  # source://mongoid//lib/mongoid/fields.rb#131
   def localized_fields=(_arg0); end
 
-  # source://mongoid//lib/mongoid/fields.rb#126
+  # source://mongoid//lib/mongoid/fields.rb#131
   def localized_fields?; end
 
   # source://activemodel/7.1.3.4/lib/active_model/naming.rb#255
@@ -23794,22 +23837,22 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/association.rb#54
   def polymorphic?; end
 
-  # source://mongoid//lib/mongoid/fields.rb#129
+  # source://mongoid//lib/mongoid/fields.rb#134
   def post_processed_defaults; end
 
-  # source://mongoid//lib/mongoid/fields.rb#129
+  # source://mongoid//lib/mongoid/fields.rb#134
   def post_processed_defaults=(_arg0); end
 
-  # source://mongoid//lib/mongoid/fields.rb#129
+  # source://mongoid//lib/mongoid/fields.rb#134
   def post_processed_defaults?; end
 
-  # source://mongoid//lib/mongoid/fields.rb#128
+  # source://mongoid//lib/mongoid/fields.rb#133
   def pre_processed_defaults; end
 
-  # source://mongoid//lib/mongoid/fields.rb#128
+  # source://mongoid//lib/mongoid/fields.rb#133
   def pre_processed_defaults=(_arg0); end
 
-  # source://mongoid//lib/mongoid/fields.rb#128
+  # source://mongoid//lib/mongoid/fields.rb#133
   def pre_processed_defaults?; end
 
   # source://mongoid//lib/mongoid/attributes/readonly.rb#12
@@ -24025,13 +24068,13 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/association/macros.rb#35
     def aliased_associations?; end
 
-    # source://mongoid//lib/mongoid/fields.rb#125
+    # source://mongoid//lib/mongoid/fields.rb#130
     def aliased_fields; end
 
-    # source://mongoid//lib/mongoid/fields.rb#125
+    # source://mongoid//lib/mongoid/fields.rb#130
     def aliased_fields=(value); end
 
-    # source://mongoid//lib/mongoid/fields.rb#125
+    # source://mongoid//lib/mongoid/fields.rb#130
     def aliased_fields?; end
 
     # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#137
@@ -24154,13 +24197,13 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/encryptable.rb#10
     def encrypt_metadata?; end
 
-    # source://mongoid//lib/mongoid/fields.rb#127
+    # source://mongoid//lib/mongoid/fields.rb#132
     def fields; end
 
-    # source://mongoid//lib/mongoid/fields.rb#127
+    # source://mongoid//lib/mongoid/fields.rb#132
     def fields=(value); end
 
-    # source://mongoid//lib/mongoid/fields.rb#127
+    # source://mongoid//lib/mongoid/fields.rb#132
     def fields?; end
 
     # source://mongoid//lib/mongoid/traversable.rb#188
@@ -24181,13 +24224,13 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/indexable.rb#15
     def index_specifications=(val); end
 
-    # source://mongoid//lib/mongoid/fields.rb#126
+    # source://mongoid//lib/mongoid/fields.rb#131
     def localized_fields; end
 
-    # source://mongoid//lib/mongoid/fields.rb#126
+    # source://mongoid//lib/mongoid/fields.rb#131
     def localized_fields=(value); end
 
-    # source://mongoid//lib/mongoid/fields.rb#126
+    # source://mongoid//lib/mongoid/fields.rb#131
     def localized_fields?; end
 
     # source://mongoid//lib/mongoid/attributes/nested.rb#12
@@ -24217,22 +24260,22 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/association.rb#54
     def polymorphic?; end
 
-    # source://mongoid//lib/mongoid/fields.rb#129
+    # source://mongoid//lib/mongoid/fields.rb#134
     def post_processed_defaults; end
 
-    # source://mongoid//lib/mongoid/fields.rb#129
+    # source://mongoid//lib/mongoid/fields.rb#134
     def post_processed_defaults=(value); end
 
-    # source://mongoid//lib/mongoid/fields.rb#129
+    # source://mongoid//lib/mongoid/fields.rb#134
     def post_processed_defaults?; end
 
-    # source://mongoid//lib/mongoid/fields.rb#128
+    # source://mongoid//lib/mongoid/fields.rb#133
     def pre_processed_defaults; end
 
-    # source://mongoid//lib/mongoid/fields.rb#128
+    # source://mongoid//lib/mongoid/fields.rb#133
     def pre_processed_defaults=(value); end
 
-    # source://mongoid//lib/mongoid/fields.rb#128
+    # source://mongoid//lib/mongoid/fields.rb#133
     def pre_processed_defaults?; end
 
     # source://mongoid//lib/mongoid/attributes/readonly.rb#12
@@ -24607,7 +24650,7 @@ module Mongoid::Interceptable
   # @param callback_list [Array<ActiveSupport::Callbacks::CallbackSequence, ActiveSupport::Callbacks::Filters::Environment>] List of
   #   pairs of callback sequence and environment.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#244
+  # source://mongoid//lib/mongoid/interceptable.rb#249
   def _mongoid_run_child_after_callbacks(callback_list: T.unsafe(nil)); end
 
   # Execute the before callbacks of given kind for embedded documents.
@@ -24619,7 +24662,7 @@ module Mongoid::Interceptable
   #   pairs of callback sequence and environment. This list will be later used
   #   to execute after callbacks in reverse order.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#220
+  # source://mongoid//lib/mongoid/interceptable.rb#225
   def _mongoid_run_child_before_callbacks(kind, children: T.unsafe(nil), callback_list: T.unsafe(nil)); end
 
   # Run the callbacks for embedded documents.
@@ -24636,10 +24679,6 @@ module Mongoid::Interceptable
   # Execute the callbacks of given kind for embedded documents including
   # around callbacks.
   #
-  # @note This method is prone to stack overflow errors if the document
-  #   has a large number of embedded documents. It is recommended to avoid
-  #   using around callbacks for embedded documents until a proper solution
-  #   is implemented.
   # @param kind [Symbol] The type of callback to execute.
   # @param children [Array<Document>] Children to execute callbacks on. If
   #   nil, callbacks will be executed on all cascadable children of
@@ -24647,7 +24686,7 @@ module Mongoid::Interceptable
   #
   #   @api private
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#175
+  # source://mongoid//lib/mongoid/interceptable.rb#170
   def _mongoid_run_child_callbacks_with_around(kind, children: T.unsafe(nil), &block); end
 
   # Execute the callbacks of given kind for embedded documents without
@@ -24659,7 +24698,7 @@ module Mongoid::Interceptable
   #   nil, callbacks will be executed on all cascadable children of
   #   the document.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#198
+  # source://mongoid//lib/mongoid/interceptable.rb#203
   def _mongoid_run_child_callbacks_without_around(kind, children: T.unsafe(nil), &block); end
 
   # Is the provided type of callback executable by this document?
@@ -24688,7 +24727,7 @@ module Mongoid::Interceptable
   # @api private
   # @return [Array<Symbol>] Method symbols of the stored pending callbacks.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#256
+  # source://mongoid//lib/mongoid/interceptable.rb#261
   def pending_callbacks; end
 
   # Stores callbacks to be executed later. A good use case for
@@ -24700,7 +24739,7 @@ module Mongoid::Interceptable
   # @param value [Array<Symbol>] Method symbols of the pending callbacks to store.
   # @return [Array<Symbol>] Method symbols of the stored pending callbacks.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#270
+  # source://mongoid//lib/mongoid/interceptable.rb#275
   def pending_callbacks=(value); end
 
   # Run only the after callbacks for the specific event.
@@ -24750,7 +24789,7 @@ module Mongoid::Interceptable
   #
   # @api private
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#279
+  # source://mongoid//lib/mongoid/interceptable.rb#284
   def run_pending_callbacks; end
 
   private
@@ -24763,7 +24802,7 @@ module Mongoid::Interceptable
   #   document.before_callback_halted?
   # @return [true | false] If a before callback was halted.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#301
+  # source://mongoid//lib/mongoid/interceptable.rb#306
   def before_callback_halted?; end
 
   # Determine if the child should fire the callback.
@@ -24774,7 +24813,7 @@ module Mongoid::Interceptable
   # @param child [Document] The child document.
   # @return [true | false] If the child should fire the callback.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#341
+  # source://mongoid//lib/mongoid/interceptable.rb#346
   def cascadable_child?(kind, child, association); end
 
   # Get all the child embedded documents that are flagged as cascadable.
@@ -24784,7 +24823,7 @@ module Mongoid::Interceptable
   # @param kind [Symbol] The type of callback.
   # @return [Array<Document>] The children.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#313
+  # source://mongoid//lib/mongoid/interceptable.rb#318
   def cascadable_children(kind, children = T.unsafe(nil)); end
 
   # Get the name of the callback that the child should fire. This changes
@@ -24798,7 +24837,7 @@ module Mongoid::Interceptable
   # @param child [Document] The child document
   # @return [Symbol] The name of the callback.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#359
+  # source://mongoid//lib/mongoid/interceptable.rb#364
   def child_callback_type(kind, child); end
 
   # Compile the callback chain.
@@ -24810,7 +24849,7 @@ module Mongoid::Interceptable
   # @param type [Symbol | nil] The type of callback chain to compile.
   # @return [ActiveSupport::Callbacks::CallbackSequence] The compiled callback sequence.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#423
+  # source://mongoid//lib/mongoid/interceptable.rb#428
   def compile_callbacks(chain, type = T.unsafe(nil)); end
 
   # We need to hook into this for autosave, since we don't want it firing if
@@ -24823,7 +24862,7 @@ module Mongoid::Interceptable
   # @param name [Symbol] The name of the callback that was halted
   #   (requires Rails 6.1+)
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#380
+  # source://mongoid//lib/mongoid/interceptable.rb#385
   def halted_callback_hook(filter, name = T.unsafe(nil)); end
 
   # Run only the callbacks for the target location (before, after, around)
@@ -24835,7 +24874,7 @@ module Mongoid::Interceptable
   # @param kind [Symbol] The type of callback, :save, :create, :update.
   # @return [Object] The result of the chain execution.
   #
-  # source://mongoid//lib/mongoid/interceptable.rb#394
+  # source://mongoid//lib/mongoid/interceptable.rb#399
   def run_targeted_callbacks(place, kind); end
 
   module GeneratedClassMethods
@@ -27998,7 +28037,7 @@ module Mongoid::Scopable::ClassMethods
   #   Model.process_default_scope(value)
   # @param value [Criteria | Proc] The default scope value.
   #
-  # source://mongoid//lib/mongoid/scopable.rb#313
+  # source://mongoid//lib/mongoid/scopable.rb#319
   def process_default_scope(value); end
 end
 
