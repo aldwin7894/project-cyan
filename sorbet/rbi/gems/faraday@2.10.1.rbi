@@ -1392,7 +1392,7 @@ class Faraday::Middleware
 
   # @return [Middleware] a new instance of Middleware
   #
-  # source://faraday//lib/faraday/middleware.rb#14
+  # source://faraday//lib/faraday/middleware.rb#15
   def initialize(app = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # Returns the value of attribute app.
@@ -1400,10 +1400,10 @@ class Faraday::Middleware
   # source://faraday//lib/faraday/middleware.rb#10
   def app; end
 
-  # source://faraday//lib/faraday/middleware.rb#57
+  # source://faraday//lib/faraday/middleware.rb#54
   def call(env); end
 
-  # source://faraday//lib/faraday/middleware.rb#67
+  # source://faraday//lib/faraday/middleware.rb#64
   def close; end
 
   # Returns the value of attribute options.
@@ -1416,7 +1416,7 @@ class Faraday::Middleware
     # with the values of any Faraday::Middleware defaults, and merges with
     # subclass defaults
     #
-    # source://faraday//lib/faraday/middleware.rb#38
+    # source://faraday//lib/faraday/middleware.rb#39
     def default_options; end
 
     # Faraday::Middleware::default_options= allows user to set default options at the Faraday::Middleware
@@ -1428,23 +1428,23 @@ class Faraday::Middleware
     #
     # @example Set the Faraday::Response::RaiseError option, `include_request` to `false`
     #
-    # source://faraday//lib/faraday/middleware.rb#28
+    # source://faraday//lib/faraday/middleware.rb#29
     def default_options=(options = T.unsafe(nil)); end
 
     private
 
-    # source://faraday//lib/faraday/middleware.rb#44
-    def lock; end
-
     # @raise [Faraday::InitializationError]
     #
-    # source://faraday//lib/faraday/middleware.rb#48
+    # source://faraday//lib/faraday/middleware.rb#45
     def validate_default_options(options); end
   end
 end
 
 # source://faraday//lib/faraday/middleware.rb#12
 Faraday::Middleware::DEFAULT_OPTIONS = T.let(T.unsafe(nil), Hash)
+
+# source://faraday//lib/faraday/middleware.rb#13
+Faraday::Middleware::LOCK = T.let(T.unsafe(nil), Thread::Mutex)
 
 # Adds the ability for other modules to register and lookup
 # middleware classes.
