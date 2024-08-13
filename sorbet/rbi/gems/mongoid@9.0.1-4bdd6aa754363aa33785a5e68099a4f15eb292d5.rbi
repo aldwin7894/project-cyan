@@ -651,7 +651,7 @@ module Mongoid::Association::Accessors
   #   person.reset_relation_criteria(:preferences)
   # @param name [Symbol] The name of the association.
   #
-  # source://mongoid//lib/mongoid/association/accessors.rb#72
+  # source://mongoid//lib/mongoid/association/accessors.rb#73
   def reset_relation_criteria(name); end
 
   # Set the supplied association to an instance variable on the class with the
@@ -663,7 +663,7 @@ module Mongoid::Association::Accessors
   # @param relation [Proxy] The association to set.
   # @return [Proxy] The association.
   #
-  # source://mongoid//lib/mongoid/association/accessors.rb#88
+  # source://mongoid//lib/mongoid/association/accessors.rb#89
   def set_relation(name, relation); end
 
   private
@@ -682,7 +682,7 @@ module Mongoid::Association::Accessors
   # @param assoc_key [String]
   # @return [Hash | nil]
   #
-  # source://mongoid//lib/mongoid/association/accessors.rb#153
+  # source://mongoid//lib/mongoid/association/accessors.rb#158
   def _mongoid_filter_selected_fields(assoc_key); end
 
   # Get the association. Extracted out from the getter method to avoid
@@ -697,12 +697,12 @@ module Mongoid::Association::Accessors
   # @param reload [true | false] If the association is to be reloaded.
   # @return [Proxy] The association.
   #
-  # source://mongoid//lib/mongoid/association/accessors.rb#108
+  # source://mongoid//lib/mongoid/association/accessors.rb#109
   def get_relation(name, association, object, reload = T.unsafe(nil)); end
 
   # @return [Boolean]
   #
-  # source://mongoid//lib/mongoid/association/accessors.rb#219
+  # source://mongoid//lib/mongoid/association/accessors.rb#224
   def needs_no_database_query?(object, association); end
 
   # Parse out the attributes and the options from the args passed to a
@@ -713,7 +713,7 @@ module Mongoid::Association::Accessors
   # @param *args [Hash...] The arguments.
   # @return [Array<Hash>] The attributes and options.
   #
-  # source://mongoid//lib/mongoid/association/accessors.rb#258
+  # source://mongoid//lib/mongoid/association/accessors.rb#263
   def parse_args(*args); end
 
   # Yield to the block with autobuild functionality turned off.
@@ -724,7 +724,7 @@ module Mongoid::Association::Accessors
   #   end
   # @return [Object] The result of the yield.
   #
-  # source://mongoid//lib/mongoid/association/accessors.rb#242
+  # source://mongoid//lib/mongoid/association/accessors.rb#247
   def without_autobuild; end
 
   # Is the current code executing without autobuild functionality?
@@ -733,7 +733,7 @@ module Mongoid::Association::Accessors
   #   document.without_autobuild?
   # @return [true | false] If autobuild is disabled.
   #
-  # source://mongoid//lib/mongoid/association/accessors.rb#230
+  # source://mongoid//lib/mongoid/association/accessors.rb#235
   def without_autobuild?; end
 
   class << self
@@ -745,7 +745,7 @@ module Mongoid::Association::Accessors
     # @param association [Mongoid::Association::Relatable] The association for the association.
     # @return [Class] The class being set up.
     #
-    # source://mongoid//lib/mongoid/association/accessors.rb#389
+    # source://mongoid//lib/mongoid/association/accessors.rb#394
     def define_builder!(association); end
 
     # Defines a creator method for an embeds_one association. This is
@@ -757,7 +757,7 @@ module Mongoid::Association::Accessors
     # @param association [Mongoid::Association::Relatable] The association for the association.
     # @return [Class] The class being set up.
     #
-    # source://mongoid//lib/mongoid/association/accessors.rb#414
+    # source://mongoid//lib/mongoid/association/accessors.rb#419
     def define_creator!(association); end
 
     # Adds the existence check for associations.
@@ -771,7 +771,7 @@ module Mongoid::Association::Accessors
     # @param association [Mongoid::Association::Relatable] The association.
     # @return [Class] The model being set up.
     #
-    # source://mongoid//lib/mongoid/association/accessors.rb#275
+    # source://mongoid//lib/mongoid/association/accessors.rb#280
     def define_existence_check!(association); end
 
     # Defines the getter for the association. Nothing too special here: just
@@ -783,7 +783,7 @@ module Mongoid::Association::Accessors
     # @param association [Mongoid::Association::Relatable] The association metadata for the association.
     # @return [Class] The class being set up.
     #
-    # source://mongoid//lib/mongoid/association/accessors.rb#297
+    # source://mongoid//lib/mongoid/association/accessors.rb#302
     def define_getter!(association); end
 
     # Defines the getter for the ids of documents in the association. Should
@@ -794,7 +794,7 @@ module Mongoid::Association::Accessors
     # @param association [Mongoid::Association::Relatable] The association metadata for the association.
     # @return [Class] The class being set up.
     #
-    # source://mongoid//lib/mongoid/association/accessors.rb#319
+    # source://mongoid//lib/mongoid/association/accessors.rb#324
     def define_ids_getter!(association); end
 
     # Defines the setter method that allows you to set documents
@@ -810,7 +810,7 @@ module Mongoid::Association::Accessors
     # @example Set up the id_setter for the association.
     #   Person.define_ids_setter!(association)
     #
-    # source://mongoid//lib/mongoid/association/accessors.rb#370
+    # source://mongoid//lib/mongoid/association/accessors.rb#375
     def define_ids_setter!(association); end
 
     # Defines the setter for the association. This does a few things based on
@@ -823,7 +823,7 @@ module Mongoid::Association::Accessors
     # @param association [Mongoid::Association::Relatable] The association metadata for the association.
     # @return [Class] The class being set up.
     #
-    # source://mongoid//lib/mongoid/association/accessors.rb#339
+    # source://mongoid//lib/mongoid/association/accessors.rb#344
     def define_setter!(association); end
   end
 end
@@ -3640,7 +3640,7 @@ class Mongoid::Association::Nested::One
   #   one.acceptable_id?
   # @return [true | false] If the id part of the logic will allow an update.
   #
-  # source://mongoid//lib/mongoid/association/nested/one.rb#82
+  # source://mongoid//lib/mongoid/association/nested/one.rb#95
   def acceptable_id?; end
 
   # Checks to see if the _id attribute (which is supposed to be
@@ -3652,8 +3652,16 @@ class Mongoid::Association::Nested::One
   # @raise [Errors::ImmutableAttribute] if _id has changed, and
   #   the document has been persisted.
   #
-  # source://mongoid//lib/mongoid/association/nested/one.rb#137
+  # source://mongoid//lib/mongoid/association/nested/one.rb#150
   def check_for_id_violation!; end
+
+  # Coerces the argument into a class, or defaults to the association's class.
+  #
+  # @param name_or_class [String | Mongoid::Document | nil] the value to coerce
+  # @return [Mongoid::Document] the resulting class
+  #
+  # source://mongoid//lib/mongoid/association/nested/one.rb#67
+  def class_from(name_or_class); end
 
   # Can the existing association be deleted?
   #
@@ -3661,7 +3669,7 @@ class Mongoid::Association::Nested::One
   #   one.delete?
   # @return [true | false] If the association should be deleted.
   #
-  # source://mongoid//lib/mongoid/association/nested/one.rb#93
+  # source://mongoid//lib/mongoid/association/nested/one.rb#106
   def delete?; end
 
   # Can the existing association potentially be destroyed?
@@ -3671,7 +3679,7 @@ class Mongoid::Association::Nested::One
   # @return [true | false] If the association can potentially be
   #   destroyed.
   #
-  # source://mongoid//lib/mongoid/association/nested/one.rb#105
+  # source://mongoid//lib/mongoid/association/nested/one.rb#118
   def destroyable?; end
 
   # Extracts and converts the id to the expected type.
@@ -3679,7 +3687,7 @@ class Mongoid::Association::Nested::One
   # @return [BSON::ObjectId | String | Object | nil] The converted id,
   #   or nil if no id is present in the attributes hash.
   #
-  # source://mongoid//lib/mongoid/association/nested/one.rb#66
+  # source://mongoid//lib/mongoid/association/nested/one.rb#79
   def extracted_id; end
 
   # Is the document to be replaced?
@@ -3688,7 +3696,7 @@ class Mongoid::Association::Nested::One
   #   one.replace?
   # @return [true | false] If the document should be replaced.
   #
-  # source://mongoid//lib/mongoid/association/nested/one.rb#115
+  # source://mongoid//lib/mongoid/association/nested/one.rb#128
   def replace?; end
 
   # Should the document be updated?
@@ -3697,7 +3705,7 @@ class Mongoid::Association::Nested::One
   #   one.update?
   # @return [true | false] If the object should have its attributes updated.
   #
-  # source://mongoid//lib/mongoid/association/nested/one.rb#125
+  # source://mongoid//lib/mongoid/association/nested/one.rb#138
   def update?; end
 end
 
@@ -4164,7 +4172,7 @@ class Mongoid::Association::Referenced::BelongsTo
   #
   # @return [String] The field used to store the type of polymorphic association.
   #
-  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#109
+  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#124
   def inverse_type; end
 
   # The nested builder object.
@@ -4173,7 +4181,7 @@ class Mongoid::Association::Referenced::BelongsTo
   # @param options [Hash] The options for the association.
   # @return [Association::Nested::One] The Nested Builder object.
   #
-  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#119
+  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#134
   def nested_builder(attributes, options); end
 
   # Get the path calculator for the supplied document.
@@ -4183,7 +4191,7 @@ class Mongoid::Association::Referenced::BelongsTo
   # @param document [Document] The document to calculate on.
   # @return [Root] The root atomic path calculator.
   #
-  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#131
+  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#146
   def path(document); end
 
   # Is this association polymorphic?
@@ -4207,11 +4215,25 @@ class Mongoid::Association::Referenced::BelongsTo
   # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#56
   def relation_complements; end
 
+  # Returns the object responsible for converting polymorphic type references into
+  # class objects, and vice versa. This is obtained via the `:polymorphic` option
+  # that was given when the association was defined.
+  #
+  # See Mongoid::ModelResolver.resolver for how the `:polymorphic` option is
+  # interpreted here.
+  #
+  # @raise KeyError if no such resolver has been registered under the given
+  #   identifier.
+  # @return [nil | Mongoid::ModelResolver] the resolver to use
+  #
+  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#117
+  def resolver; end
+
   # Get the scope to be applied when querying the association.
   #
   # @return [Proc | Symbol | nil] The association scope, if any.
   #
-  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#138
+  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#153
   def scope; end
 
   # Setup the instance methods, fields, etc. on the association owning class.
@@ -4237,35 +4259,35 @@ class Mongoid::Association::Referenced::BelongsTo
 
   private
 
-  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#214
+  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#229
   def create_foreign_key_field!; end
 
-  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#173
+  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#188
   def default_foreign_key_field; end
 
-  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#169
+  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#184
   def default_primary_key; end
 
-  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#195
+  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#210
   def determine_inverses(other); end
 
-  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#161
+  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#176
   def index_spec; end
 
-  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#177
+  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#192
   def polymorph!; end
 
-  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#184
+  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#199
   def polymorphic_inverses(other = T.unsafe(nil)); end
 
   # If set to true, then the associated object will be validated when this object is saved
   #
   # @return [Boolean]
   #
-  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#208
+  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#223
   def require_association?; end
 
-  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#144
+  # source://mongoid//lib/mongoid/association/referenced/belongs_to.rb#159
   def setup_instance_methods!; end
 end
 
@@ -4304,7 +4326,7 @@ class Mongoid::Association::Referenced::BelongsTo::Binding
   #   game.person.unbind(:continue => true)
   #   game.person = nil
   #
-  # source://mongoid//lib/mongoid/association/referenced/belongs_to/binding.rb#46
+  # source://mongoid//lib/mongoid/association/referenced/belongs_to/binding.rb#52
   def unbind_one; end
 
   private
@@ -4316,7 +4338,7 @@ class Mongoid::Association::Referenced::BelongsTo::Binding
   #   binding.check_inverses!(doc)
   # @param doc [Document] The document to check.
   #
-  # source://mongoid//lib/mongoid/association/referenced/belongs_to/binding.rb#72
+  # source://mongoid//lib/mongoid/association/referenced/belongs_to/binding.rb#78
   def check_polymorphic_inverses!(doc); end
 end
 
@@ -5194,16 +5216,22 @@ class Mongoid::Association::Referenced::HasMany
   include ::Mongoid::Association::Options
   include ::Mongoid::Association::Relatable
   include ::Mongoid::Association::Referenced::HasMany::Buildable
+  include ::Mongoid::Association::Referenced::WithPolymorphicCriteria
 
   # Add polymorphic query criteria to a Criteria object, if this association is
   #  polymorphic.
   #
+  # It appears as if this method is an artifact left over from a refactoring that renamed it
+  # `with_polymorphic_criterion`, and made it private. Regardless, this method isn't referenced
+  # anywhere else, and is unlikely to be useful to external clients. We should remove it.
+  #
+  # @deprecated in 9.0.x
   # @param criteria [Mongoid::Criteria] The criteria object to add to.
   # @param object_class [Class] The object class.
   # @return [Mongoid::Criteria] The criteria object.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#134
-  def add_polymorphic_criterion(criteria, object_class); end
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
+  def add_polymorphic_criterion(*args, **_arg1, &block); end
 
   # Whether trying to bind an object using this association should raise
   # an error.
@@ -5211,21 +5239,21 @@ class Mongoid::Association::Referenced::HasMany
   # @param doc [Document] The document to be bound.
   # @return [true | false] Whether the document can be bound.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#155
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#164
   def bindable?(doc); end
 
   # The criteria used for querying this association.
   #
   # @return [Mongoid::Criteria] The criteria used for querying this association.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#114
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#116
   def criteria(base); end
 
   # Is this association type embedded?
   #
   # @return [false] Always false.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#92
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#94
   def embedded?; end
 
   # Get the foreign key field on the inverse for saving the association reference.
@@ -5233,7 +5261,7 @@ class Mongoid::Association::Referenced::HasMany
   # @return [String] The foreign key field on the inverse for saving the
   #   association reference.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#84
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#86
   def foreign_key; end
 
   # The nested builder object.
@@ -5242,7 +5270,7 @@ class Mongoid::Association::Referenced::HasMany
   # @param options [Hash] The options for the association.
   # @return [Association::Nested::Many] The Nested Builder object.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#165
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#174
   def nested_builder(attributes, options); end
 
   # Get the path calculator for the supplied document.
@@ -5252,56 +5280,56 @@ class Mongoid::Association::Referenced::HasMany
   # @param document [Document] The document to calculate on.
   # @return [Root] The root atomic path calculator.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#177
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#186
   def path(document); end
 
   # Is this association polymorphic?
   #
   # @return [true | false] Whether this association is polymorphic.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#145
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#154
   def polymorphic?; end
 
   # Get the association proxy class for this association type.
   #
   # @return [Association::HasMany::Proxy] The proxy class.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#107
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#109
   def relation; end
 
   # The list of association complements.
   #
   # @return [Array<Mongoid::Association::Relatable>] The association complements.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#51
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#53
   def relation_complements; end
 
   # Get the scope to be applied when querying the association.
   #
   # @return [Proc | Symbol | nil] The association scope, if any.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#184
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#193
   def scope; end
 
   # Setup the instance methods, fields, etc. on the association owning class.
   #
   # @return [self]
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#58
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#60
   def setup!; end
 
   # Setup the instance methods on the class having this association type.
   #
   # @return [self]
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#66
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#68
   def setup_instance_methods!; end
 
   # Does this association type store the foreign key?
   #
   # @return [true] Always true.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#102
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#104
   def stores_foreign_key?; end
 
   # The type of this association if it's polymorphic.
@@ -5309,41 +5337,38 @@ class Mongoid::Association::Referenced::HasMany
   # @note Only relevant for polymorphic associations.
   # @return [String | nil] The type field.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#123
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#125
   def type; end
 
   # The default for validation the association object.
   #
   # @return [true] Always true.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#97
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#99
   def validation_default; end
 
   private
 
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#190
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#199
   def default_foreign_key_field; end
 
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#211
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#220
   def default_primary_key; end
 
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#198
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#207
   def determine_inverses(other); end
 
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#194
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#203
   def polymorphic_inverses(other); end
 
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#215
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#224
   def query_criteria(object, base); end
 
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#241
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#242
   def with_inverse_field_criterion(criteria); end
 
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#233
+  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#234
   def with_ordering(criteria); end
-
-  # source://mongoid//lib/mongoid/association/referenced/has_many.rb#225
-  def with_polymorphic_criterion(criteria, base); end
 end
 
 # The options available for this type of association, in addition to the
@@ -5351,7 +5376,7 @@ end
 #
 # @return [Array<Symbol>] The extra valid options.
 #
-# source://mongoid//lib/mongoid/association/referenced/has_many.rb#23
+# source://mongoid//lib/mongoid/association/referenced/has_many.rb#25
 Mongoid::Association::Referenced::HasMany::ASSOCIATION_OPTIONS = T.let(T.unsafe(nil), Array)
 
 # Binding class for has_many associations.
@@ -5852,7 +5877,7 @@ end
 #
 # @return [String] '_id'
 #
-# source://mongoid//lib/mongoid/association/referenced/has_many.rb#46
+# source://mongoid//lib/mongoid/association/referenced/has_many.rb#48
 Mongoid::Association::Referenced::HasMany::FOREIGN_KEY_SUFFIX = T.let(T.unsafe(nil), String)
 
 # Transparent proxy for has_many associations.
@@ -6320,7 +6345,7 @@ end
 #
 # @return [Array<Symbol>] The valid options.
 #
-# source://mongoid//lib/mongoid/association/referenced/has_many.rb#41
+# source://mongoid//lib/mongoid/association/referenced/has_many.rb#43
 Mongoid::Association::Referenced::HasMany::VALID_OPTIONS = T.let(T.unsafe(nil), Array)
 
 # The has_one association.
@@ -6330,6 +6355,7 @@ class Mongoid::Association::Referenced::HasOne
   include ::Mongoid::Association::Constrainable
   include ::Mongoid::Association::Options
   include ::Mongoid::Association::Relatable
+  include ::Mongoid::Association::Referenced::WithPolymorphicCriteria
   include ::Mongoid::Association::Referenced::HasOne::Buildable
 
   # Whether trying to bind an object using this association should raise
@@ -6495,8 +6521,10 @@ end
 
 # The Builder behavior for has_one associations.
 #
-# source://mongoid//lib/mongoid/association/referenced/has_one/buildable.rb#10
+# source://mongoid//lib/mongoid/association/referenced/has_one/buildable.rb#12
 module Mongoid::Association::Referenced::HasOne::Buildable
+  include ::Mongoid::Association::Referenced::WithPolymorphicCriteria
+
   # This method either takes an _id or an object and queries for the
   # inverse side using the id or sets the object after clearing the
   # associated object.
@@ -6507,27 +6535,24 @@ module Mongoid::Association::Referenced::HasOne::Buildable
   # @param selected_fields [nil] Must be nil.
   # @return [Document] A single document.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_one/buildable.rb#22
+  # source://mongoid//lib/mongoid/association/referenced/has_one/buildable.rb#25
   def build(base, object, type = T.unsafe(nil), selected_fields = T.unsafe(nil)); end
 
   private
 
-  # source://mongoid//lib/mongoid/association/referenced/has_one/buildable.rb#35
+  # source://mongoid//lib/mongoid/association/referenced/has_one/buildable.rb#38
   def clear_associated(object); end
 
-  # source://mongoid//lib/mongoid/association/referenced/has_one/buildable.rb#56
+  # source://mongoid//lib/mongoid/association/referenced/has_one/buildable.rb#59
   def execute_query(object, base); end
 
   # @return [Boolean]
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_one/buildable.rb#68
+  # source://mongoid//lib/mongoid/association/referenced/has_one/buildable.rb#63
   def query?(object); end
 
-  # source://mongoid//lib/mongoid/association/referenced/has_one/buildable.rb#49
+  # source://mongoid//lib/mongoid/association/referenced/has_one/buildable.rb#52
   def query_criteria(object, base); end
-
-  # source://mongoid//lib/mongoid/association/referenced/has_one/buildable.rb#60
-  def with_polymorphic_criterion(criteria, base); end
 end
 
 # Eager class for has_one associations.
@@ -6744,6 +6769,27 @@ module Mongoid::Association::Referenced::Syncable::ClassMethods
   #
   # source://mongoid//lib/mongoid/association/referenced/syncable.rb#124
   def synced_save(association); end
+end
+
+# Implements the `with_polymorphic_criteria` shared behavior.
+#
+# @api private
+#
+# source://mongoid//lib/mongoid/association/referenced/with_polymorphic_criteria.rb#9
+module Mongoid::Association::Referenced::WithPolymorphicCriteria
+  # If the receiver represents a polymorphic association, applies
+  # the polymorphic search criteria to the given `criteria` object.
+  #
+  # @api private
+  # @param criteria [Mongoid::Criteria] the criteria to append to
+  #   if receiver is polymorphic.
+  # @param base [Mongoid::Document] the document to use when resolving
+  #   the polymorphic type keys.
+  # @return [Mongoid::Criteria] the resulting criteria, which may be
+  #   the same as the input.
+  #
+  # source://mongoid//lib/mongoid/association/referenced/with_polymorphic_criteria.rb#20
+  def with_polymorphic_criterion(criteria, base); end
 end
 
 # The reflections module provides convenience methods that can retrieve
@@ -8377,7 +8423,7 @@ module Mongoid::Attributes::Nested::ClassMethods
   #   Person.autosave_nested_attributes(metadata)
   # @param association [Mongoid::Association::Relatable] The existing association metadata.
   #
-  # source://mongoid//lib/mongoid/attributes/nested.rb#81
+  # source://mongoid//lib/mongoid/attributes/nested.rb#82
   def autosave_nested_attributes(association); end
 end
 
@@ -9422,7 +9468,7 @@ module Mongoid::Clients::Sessions
   #
   # Currently emits a warning.
   #
-  # source://mongoid//lib/mongoid/clients/sessions.rb#266
+  # source://mongoid//lib/mongoid/clients/sessions.rb#263
   def ensure_client_compatibility!; end
 
   class << self
@@ -9444,34 +9490,34 @@ module Mongoid::Clients::Sessions::ClassMethods
   # See +ActiveSupport::Callbacks::ClassMethods::set_callback+ for more
   # information about method parameters and possible options.
   #
-  # source://mongoid//lib/mongoid/clients/sessions.rb#118
+  # source://mongoid//lib/mongoid/clients/sessions.rb#119
   def after_commit(*args, &block); end
 
   # Shortcut for +after_commit :hook, on: :create+.
   #
-  # source://mongoid//lib/mongoid/clients/sessions.rb#130
+  # source://mongoid//lib/mongoid/clients/sessions.rb#131
   def after_create_commit(*args, &block); end
 
   # Shortcut for +after_commit :hook, on: :destroy+.
   #
-  # source://mongoid//lib/mongoid/clients/sessions.rb#142
+  # source://mongoid//lib/mongoid/clients/sessions.rb#143
   def after_destroy_commit(*args, &block); end
 
   # This callback is called after a create, update, or destroy are rolled back.
   #
   # Please check the documentation of +after_commit+ for options.
   #
-  # source://mongoid//lib/mongoid/clients/sessions.rb#150
+  # source://mongoid//lib/mongoid/clients/sessions.rb#151
   def after_rollback(*args, &block); end
 
   # Shortcut for +after_commit :hook, on: [ :create, :update ]+
   #
-  # source://mongoid//lib/mongoid/clients/sessions.rb#124
+  # source://mongoid//lib/mongoid/clients/sessions.rb#125
   def after_save_commit(*args, &block); end
 
   # Shortcut for +after_commit :hook, on: :update+.
   #
-  # source://mongoid//lib/mongoid/clients/sessions.rb#136
+  # source://mongoid//lib/mongoid/clients/sessions.rb#137
   def after_update_commit(*args, &block); end
 
   # Executes a block within the context of a transaction.
@@ -9520,17 +9566,8 @@ module Mongoid::Clients::Sessions::ClassMethods
 
   # @return [Mongo::Session] Session for the current client.
   #
-  # source://mongoid//lib/mongoid/clients/sessions.rb#174
+  # source://mongoid//lib/mongoid/clients/sessions.rb#175
   def _session; end
-
-  # Aborts the active transaction on the session, and calls
-  # after_rollback callbacks on modified documents.
-  #
-  # @param session [Mongo::Session] Session on which
-  #   a transaction is started.
-  #
-  # source://mongoid//lib/mongoid/clients/sessions.rb#209
-  def abort_transaction(session); end
 
   # Asserts that the given actions are valid for after_commit
   # and after_rollback callbacks.
@@ -9538,17 +9575,8 @@ module Mongoid::Clients::Sessions::ClassMethods
   # @param actions [Array<Symbol>] Actions to be checked.
   # @raise [ArgumentError] If any of the actions is not valid.
   #
-  # source://mongoid//lib/mongoid/clients/sessions.rb#237
+  # source://mongoid//lib/mongoid/clients/sessions.rb#234
   def assert_valid_transaction_action(actions); end
-
-  # Commits the active transaction on the session, and calls
-  # after_commit callbacks on modified documents.
-  #
-  # @param session [Mongo::Session] Session on which
-  #   a transaction is started.
-  #
-  # source://mongoid//lib/mongoid/clients/sessions.rb#197
-  def commit_transaction(session); end
 
   # This method should be used to detect whether a persistence operation
   # is executed inside transaction or not.
@@ -9561,18 +9589,34 @@ module Mongoid::Clients::Sessions::ClassMethods
   # @return [true | false] Whether there is a session for the current
   #   client, and there is a transaction in progress for this session.
   #
-  # source://mongoid//lib/mongoid/clients/sessions.rb#188
+  # source://mongoid//lib/mongoid/clients/sessions.rb#189
   def in_transaction?; end
+
+  # Runs after_rollback callbacks on modified documents.
+  #
+  # @param session [Mongo::Session] Session on which
+  #   a transaction is started.
+  #
+  # source://mongoid//lib/mongoid/clients/sessions.rb#207
+  def run_abort_callbacks(session); end
+
+  # Runs after_commit callbacks on modified documents.
+  #
+  # @param session [Mongo::Session] Session on which
+  #   a transaction is started.
+  #
+  # source://mongoid//lib/mongoid/clients/sessions.rb#197
+  def run_commit_callbacks(session); end
 
   # Transforms custom options for after_commit and after_rollback callbacks
   # into options for +set_callback+.
   #
-  # source://mongoid//lib/mongoid/clients/sessions.rb#218
+  # source://mongoid//lib/mongoid/clients/sessions.rb#215
   def set_options_for_callbacks!(args); end
 
   # @return [Boolean]
   #
-  # source://mongoid//lib/mongoid/clients/sessions.rb#243
+  # source://mongoid//lib/mongoid/clients/sessions.rb#240
   def transaction_include_any_action?(actions); end
 
   # Driver version 2.20 introduced a new exception for reporting that
@@ -9586,7 +9630,7 @@ module Mongoid::Clients::Sessions::ClassMethods
   # Once support is removed for all versions prior to 2.20.0, we can
   # replace this method.
   #
-  # source://mongoid//lib/mongoid/clients/sessions.rb#167
+  # source://mongoid//lib/mongoid/clients/sessions.rb#168
   def transactions_not_supported_exceptions; end
 end
 
@@ -9776,7 +9820,7 @@ end
 
 # This module provides inclusions of all behavior in a Mongoid document.
 #
-# source://mongoid//lib/mongoid/composable.rb#28
+# source://mongoid//lib/mongoid/composable.rb#29
 module Mongoid::Composable
   include ::ActiveModel::ForbiddenAttributesProtection
   include ::Mongoid::Evolvable
@@ -9802,6 +9846,7 @@ module Mongoid::Composable
   include ::Mongoid::Attributes::Readonly
   include ::Mongoid::Attributes
   include ::Mongoid::Fields
+  include ::Mongoid::Identifiable
   include ::Mongoid::Indexable
   include ::Mongoid::Matchable
   include ::Mongoid::Persistable::Creatable
@@ -9861,6 +9906,7 @@ module Mongoid::Composable
   mixes_in_class_methods ::Mongoid::Attributes::Readonly::ClassMethods
   mixes_in_class_methods ::Mongoid::Attributes::ClassMethods
   mixes_in_class_methods ::Mongoid::Fields::ClassMethods
+  mixes_in_class_methods ::Mongoid::Identifiable::ClassMethods
   mixes_in_class_methods ::Mongoid::Indexable::ClassMethods
   mixes_in_class_methods ::Mongoid::Persistable::Creatable::ClassMethods
   mixes_in_class_methods ::Mongoid::Persistable::Deletable::ClassMethods
@@ -9893,7 +9939,7 @@ module Mongoid::Composable
     #   Mongoid::Components.prohibited_methods
     # @return [Array<Symbol>]
     #
-    # source://mongoid//lib/mongoid/composable.rb#128
+    # source://mongoid//lib/mongoid/composable.rb#130
     def prohibited_methods; end
   end
 
@@ -10041,7 +10087,7 @@ module Mongoid::Composable
   end
 end
 
-# source://mongoid//lib/mongoid/composable.rb#68
+# source://mongoid//lib/mongoid/composable.rb#70
 Mongoid::Composable::MODULES = T.let(T.unsafe(nil), Array)
 
 # These are methods names defined in included blocks that may conflict
@@ -10052,7 +10098,7 @@ Mongoid::Composable::MODULES = T.let(T.unsafe(nil), Array)
 #
 # @return [Array<Symbol>] A list of reserved method names.
 #
-# source://mongoid//lib/mongoid/composable.rb#106
+# source://mongoid//lib/mongoid/composable.rb#108
 Mongoid::Composable::RESERVED_METHOD_NAMES = T.let(T.unsafe(nil), Array)
 
 # This module defines all the configuration options for Mongoid, including
@@ -10399,7 +10445,7 @@ module Mongoid::Config
   #   config.running_with_passenger?
   # @return [true | false] If the app is deployed on Passenger.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def running_with_passenger?(*args, **_arg1, &block); end
 
   # source://mongoid//lib/mongoid/config/options.rb#37
@@ -14147,7 +14193,7 @@ class Mongoid::Criteria
   # @param scope [Hash] The scope for the code.
   # @return [Criteria] The criteria.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def for_js(*args, **_arg1, &block); end
 
   # When freezing a criteria we need to initialize the context first
@@ -14266,7 +14312,7 @@ class Mongoid::Criteria
   #   criteria.to_criteria
   # @return [Criteria] self.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def to_criteria(*args, **_arg1, &block); end
 
   # Convert the criteria to a proc.
@@ -15638,7 +15684,7 @@ module Mongoid::Criteria::Queryable::Extensions::Object
   #   obj.regexp?
   # @return [false] Always false.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def regexp?(*args, **_arg1, &block); end
 end
 
@@ -15748,7 +15794,7 @@ module Mongoid::Criteria::Queryable::Extensions::Regexp
   #   /\A[123]/.regexp?
   # @return [true] Always true.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def regexp?(*args, **_arg1, &block); end
 end
 
@@ -15776,7 +15822,7 @@ module Mongoid::Criteria::Queryable::Extensions::Regexp::Raw_
   #   bson_raw_regexp.regexp?
   # @return [true] Always true.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def regexp?(*args, **_arg1, &block); end
 end
 
@@ -18128,17 +18174,12 @@ class Mongoid::Deprecation < ::ActiveSupport::Deprecation
   #
   # source://mongoid//lib/mongoid/deprecation.rb#21
   def behavior; end
-
-  class << self
-    # source://activesupport/7.1.3.4/lib/active_support/deprecation/instance_delegator.rb#34
-    def behavior(*_arg0, **_arg1, &_arg2); end
-  end
 end
 
 # This is the base module for all domain objects that need to be persisted to
 # the database as documents.
 #
-# source://mongoid//lib/mongoid/document.rb#24
+# source://mongoid//lib/mongoid/document.rb#25
 module Mongoid::Document
   include ::Mongoid::Touchable::InstanceMethods
   extend ::ActiveSupport::Concern
@@ -18160,6 +18201,7 @@ module Mongoid::Document
   include ::Mongoid::Attributes::Readonly
   include ::Mongoid::Attributes
   include ::Mongoid::Fields
+  include ::Mongoid::Identifiable
   include ::Mongoid::Indexable
   include ::Mongoid::Matchable
   include ::Mongoid::Persistable::Creatable
@@ -18220,6 +18262,7 @@ module Mongoid::Document
   mixes_in_class_methods ::Mongoid::Attributes::Readonly::ClassMethods
   mixes_in_class_methods ::Mongoid::Attributes::ClassMethods
   mixes_in_class_methods ::Mongoid::Fields::ClassMethods
+  mixes_in_class_methods ::Mongoid::Identifiable::ClassMethods
   mixes_in_class_methods ::Mongoid::Indexable::ClassMethods
   mixes_in_class_methods ::Mongoid::Persistable::Creatable::ClassMethods
   mixes_in_class_methods ::Mongoid::Persistable::Deletable::ClassMethods
@@ -18257,19 +18300,19 @@ module Mongoid::Document
   # @param attrs [Hash] The attributes to set up the document with.
   # @return [Document] A new document.
   #
-  # source://mongoid//lib/mongoid/document.rb#102
+  # source://mongoid//lib/mongoid/document.rb#104
   def initialize(attrs = T.unsafe(nil), &block); end
 
   # Returns the value of attribute __selected_fields.
   #
-  # source://mongoid//lib/mongoid/document.rb#29
+  # source://mongoid//lib/mongoid/document.rb#30
   def __selected_fields; end
 
   # Sets the attribute __selected_fields
   #
   # @param value the value to set the attribute __selected_fields to.
   #
-  # source://mongoid//lib/mongoid/document.rb#29
+  # source://mongoid//lib/mongoid/document.rb#30
   def __selected_fields=(_arg0); end
 
   # Handles the setup and execution of callbacks, if callbacks are to
@@ -18280,7 +18323,7 @@ module Mongoid::Document
   # @param execute_callbacks [true | false] Whether callbacks should be
   #   executed or not.
   #
-  # source://mongoid//lib/mongoid/document.rb#184
+  # source://mongoid//lib/mongoid/document.rb#186
   def _handle_callbacks_after_instantiation(execute_callbacks); end
 
   # Return a hash of the entire document hierarchy from this document and
@@ -18291,7 +18334,7 @@ module Mongoid::Document
   #   person.as_document
   # @return [Hash] A hash of all attributes in the hierarchy.
   #
-  # source://mongoid//lib/mongoid/document.rb#134
+  # source://mongoid//lib/mongoid/document.rb#136
   def as_document; end
 
   # Returns an instance of the specified class with the attributes,
@@ -18303,7 +18346,7 @@ module Mongoid::Document
   # @raise [ArgumentError] If the class doesn't include Mongoid::Document
   # @return [Document] An instance of the specified class.
   #
-  # source://mongoid//lib/mongoid/document.rb#149
+  # source://mongoid//lib/mongoid/document.rb#151
   def becomes(klass); end
 
   # Freezes the internal attributes of the document.
@@ -18312,7 +18355,7 @@ module Mongoid::Document
   #   document.freeze
   # @return [Document] The document.
   #
-  # source://mongoid//lib/mongoid/document.rb#49
+  # source://mongoid//lib/mongoid/document.rb#51
   def freeze; end
 
   # Checks if the document is frozen
@@ -18321,7 +18364,7 @@ module Mongoid::Document
   #   document.frozen?
   # @return [true | false] True if frozen, else false.
   #
-  # source://mongoid//lib/mongoid/document.rb#59
+  # source://mongoid//lib/mongoid/document.rb#61
   def frozen?; end
 
   # Delegates to identity in order to allow two records of the same identity
@@ -18334,7 +18377,7 @@ module Mongoid::Document
   #   document.hash
   # @return [Integer] The hash of the document's identity.
   #
-  # source://mongoid//lib/mongoid/document.rb#73
+  # source://mongoid//lib/mongoid/document.rb#75
   def hash; end
 
   # A Document's is identified absolutely by its class and database id:
@@ -18345,7 +18388,7 @@ module Mongoid::Document
   #   document.identity
   # @return [Array] An array containing [document.class, document._id]
   #
-  # source://mongoid//lib/mongoid/document.rb#85
+  # source://mongoid//lib/mongoid/document.rb#87
   def identity; end
 
   # Sets the internal state of this document. Used only by #becomes to
@@ -18354,7 +18397,7 @@ module Mongoid::Document
   # @api private
   # @param state [Hash] The map of internal state values.
   #
-  # source://mongoid//lib/mongoid/document.rb#164
+  # source://mongoid//lib/mongoid/document.rb#166
   def internal_state=(state); end
 
   # Return the model name of the document.
@@ -18363,12 +18406,12 @@ module Mongoid::Document
   #   document.model_name
   # @return [String] The model name.
   #
-  # source://mongoid//lib/mongoid/document.rb#112
+  # source://mongoid//lib/mongoid/document.rb#114
   def model_name; end
 
   # Returns the value of attribute new_record.
   #
-  # source://mongoid//lib/mongoid/document.rb#30
+  # source://mongoid//lib/mongoid/document.rb#31
   def new_record; end
 
   # Return the key value for the document.
@@ -18377,7 +18420,7 @@ module Mongoid::Document
   #   document.to_key
   # @return [String] The id of the document or nil if new.
   #
-  # source://mongoid//lib/mongoid/document.rb#122
+  # source://mongoid//lib/mongoid/document.rb#124
   def to_key; end
 
   private
@@ -18387,7 +18430,7 @@ module Mongoid::Document
   # @param name [String | Symbol] the name of the relation to add
   # @param meta [Mongoid::Assocation::Relatable] the relation object
   #
-  # source://mongoid//lib/mongoid/document.rb#281
+  # source://mongoid//lib/mongoid/document.rb#283
   def add_attributes_for_relation(name, meta); end
 
   # Returns a hash of the attributes.
@@ -18399,7 +18442,7 @@ module Mongoid::Document
   #
   # @return [Hash] The attributes hash.
   #
-  # source://mongoid//lib/mongoid/document.rb#265
+  # source://mongoid//lib/mongoid/document.rb#267
   def as_attributes; end
 
   # Does the construction of a document.
@@ -18414,7 +18457,7 @@ module Mongoid::Document
   # @param options [Hash] The options to use.
   # @return [Document] A new document.
   #
-  # source://mongoid//lib/mongoid/document.rb#214
+  # source://mongoid//lib/mongoid/document.rb#216
   def construct_document(attrs = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # Constructs a hash representing the internal state of this object,
@@ -18422,14 +18465,14 @@ module Mongoid::Document
   #
   # @return [Hash] the map of internal state values
   #
-  # source://mongoid//lib/mongoid/document.rb#308
+  # source://mongoid//lib/mongoid/document.rb#310
   def internal_state; end
 
   # Returns the logger
   #
   # @return [Logger] The configured logger or a default Logger instance.
   #
-  # source://mongoid//lib/mongoid/document.rb#243
+  # source://mongoid//lib/mongoid/document.rb#245
   def logger; end
 
   # Marks all embedded documents with the given "new_record" state.
@@ -18437,7 +18480,7 @@ module Mongoid::Document
   # @param new_record [true | false] whether or not the embedded records
   #   should be flagged as new records or not.
   #
-  # source://mongoid//lib/mongoid/document.rb#332
+  # source://mongoid//lib/mongoid/document.rb#334
   def mark_persisted_state_for_embedded_documents(new_record); end
 
   # Get the name of the model used in caching.
@@ -18446,7 +18489,7 @@ module Mongoid::Document
   #   model.model_key
   # @return [String] The model key.
   #
-  # source://mongoid//lib/mongoid/document.rb#253
+  # source://mongoid//lib/mongoid/document.rb#255
   def model_key; end
 
   # Checks that the given argument is an instance of `Mongoid::Document`.
@@ -18455,13 +18498,13 @@ module Mongoid::Document
   # @raise [ArgumentError] if the class does not include
   #   Mongoid::Document.
   #
-  # source://mongoid//lib/mongoid/document.rb#298
+  # source://mongoid//lib/mongoid/document.rb#300
   def mongoid_document_check!(klass); end
 
   # Initializes the object state prior to attribute processing; this is
   # called only from #construct_document.
   #
-  # source://mongoid//lib/mongoid/document.rb#233
+  # source://mongoid//lib/mongoid/document.rb#235
   def prepare_to_process_attributes; end
 
   # Either executes or enqueues the post-construction callbacks.
@@ -18469,7 +18512,7 @@ module Mongoid::Document
   # @param execute_callbacks [true | false] whether the callbacks
   #   should be executed (true) or enqueued (false)
   #
-  # source://mongoid//lib/mongoid/document.rb#347
+  # source://mongoid//lib/mongoid/document.rb#349
   def resolve_post_construction_callbacks(execute_callbacks); end
 
   # Updates the value of the discriminator_key for this object, setting its
@@ -18477,7 +18520,7 @@ module Mongoid::Document
   #
   # @param key_was [String] the previous value of the discriminator key.
   #
-  # source://mongoid//lib/mongoid/document.rb#323
+  # source://mongoid//lib/mongoid/document.rb#325
   def update_discriminator(key_was); end
 
   module GeneratedClassMethods
@@ -18626,7 +18669,7 @@ end
 
 # Class-level methods for Document objects.
 #
-# source://mongoid//lib/mongoid/document.rb#358
+# source://mongoid//lib/mongoid/document.rb#360
 module Mongoid::Document::ClassMethods
   # Clear the @_type cache. This is generally called when changing the discriminator
   # key/value on a class.
@@ -18635,7 +18678,7 @@ module Mongoid::Document::ClassMethods
   # @example Get the types.
   #   document._mongoid_clear_types
   #
-  # source://mongoid//lib/mongoid/document.rb#461
+  # source://mongoid//lib/mongoid/document.rb#463
   def _mongoid_clear_types; end
 
   # Returns all types to query for when using this class as the base.
@@ -18644,7 +18687,7 @@ module Mongoid::Document::ClassMethods
   #   document._types
   # @return [Array<Class>] All subclasses of the current document.
   #
-  # source://mongoid//lib/mongoid/document.rb#450
+  # source://mongoid//lib/mongoid/document.rb#452
   def _types; end
 
   # Allocates and constructs a document.
@@ -18659,14 +18702,14 @@ module Mongoid::Document::ClassMethods
   # @param options [Hash] The options to use.
   # @return [Document] A new document.
   #
-  # source://mongoid//lib/mongoid/document.rb#439
+  # source://mongoid//lib/mongoid/document.rb#441
   def construct_document(attrs = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # Set the i18n scope to overwrite ActiveModel.
   #
   # @return [Symbol] :mongoid
   #
-  # source://mongoid//lib/mongoid/document.rb#469
+  # source://mongoid//lib/mongoid/document.rb#471
   def i18n_scope; end
 
   # Instantiate a new object, only when loaded from the database or when
@@ -18679,7 +18722,7 @@ module Mongoid::Document::ClassMethods
   #   criteria.
   # @return [Document] A new document.
   #
-  # source://mongoid//lib/mongoid/document.rb#384
+  # source://mongoid//lib/mongoid/document.rb#386
   def instantiate(attrs = T.unsafe(nil), selected_fields = T.unsafe(nil), &block); end
 
   # Instantiate the document.
@@ -18697,7 +18740,7 @@ module Mongoid::Document::ClassMethods
   # @yield [Mongoid::Document] If a block is given, yields the newly
   #   instantiated document to it.
   #
-  # source://mongoid//lib/mongoid/document.rb#408
+  # source://mongoid//lib/mongoid/document.rb#410
   def instantiate_document(attrs = T.unsafe(nil), selected_fields = T.unsafe(nil), options = T.unsafe(nil), &block); end
 
   # Returns the logger
@@ -18706,7 +18749,7 @@ module Mongoid::Document::ClassMethods
   #   Person.logger
   # @return [Logger] The configured logger or a default Logger instance.
   #
-  # source://mongoid//lib/mongoid/document.rb#479
+  # source://mongoid//lib/mongoid/document.rb#481
   def logger; end
 
   # Indicate whether callbacks should be invoked by default or not,
@@ -18716,7 +18759,7 @@ module Mongoid::Document::ClassMethods
   # @param execute_callbacks [true | false] Whether callbacks should be
   #   suppressed or not.
   #
-  # source://mongoid//lib/mongoid/document.rb#365
+  # source://mongoid//lib/mongoid/document.rb#367
   def with_callbacks(execute_callbacks); end
 end
 
@@ -18726,7 +18769,7 @@ end
 # When ruby driver 2.3.0 is released and Mongoid can be updated
 # to require >= 2.3.0, the BSON constant can be used.
 #
-# source://mongoid//lib/mongoid/document.rb#41
+# source://mongoid//lib/mongoid/document.rb#43
 Mongoid::Document::ILLEGAL_KEY = T.let(T.unsafe(nil), Regexp)
 
 # This module is used to extend Mongoid::Document
@@ -20182,6 +20225,110 @@ class Mongoid::Errors::UnknownModel < ::Mongoid::Errors::MongoidError
   def initialize(klass, value); end
 end
 
+# Raised when a polymorphic association is queried, but the type of the
+# association cannot be resolved. This usually happens when the data in
+# the database references a type that no longer exists.
+#
+# For example, consider the following model:
+#
+#   class Manager
+#     include Mongoid::Document
+#     belongs_to :unit, polymorphic: true
+#   end
+#
+# Imagine there is a document in the `managers` collection that looks
+# something like this:
+#
+#   { _id: ..., unit_id: ..., unit_type: 'Department::Engineering' }
+#
+# If, at some point in your refactoring, you rename the `Department::Engineering`
+# model to something else, Mongoid will no longer be able to resolve the
+# type of this association, and asking for `manager.unit` will raise this
+# exception.
+#
+# To fix this exception, you can add an alias to the model class so that it
+# can still be found, even after renaming it:
+#
+#   module Engineering
+#     class Department
+#       include Mongoid::Document
+#
+#       identify_as 'Department::Engineering'
+#
+#       # ...
+#     end
+#   end
+#
+# Better practice would be to use unique strings instead of class names to
+# identify these polymorphic types in the database (e.g. 'dept' instead of
+# 'Department::Engineering').
+#
+# source://mongoid//lib/mongoid/errors/unrecognized_model_alias.rb#42
+class Mongoid::Errors::UnrecognizedModelAlias < ::Mongoid::Errors::MongoidError
+  # @return [UnrecognizedModelAlias] a new instance of UnrecognizedModelAlias
+  #
+  # source://mongoid//lib/mongoid/errors/unrecognized_model_alias.rb#43
+  def initialize(model_alias); end
+end
+
+# Raised when a model resolver is referenced, but not registered.
+#
+#   class Manager
+#     include Mongoid::Document
+#     belongs_to :unit, polymorphic: :org
+#   end
+#
+# If `:org` has not previously been registered as a model resolver,
+# Mongoid will raise UnrecognizedResolver when it tries to resolve
+# a manager's unit.
+#
+# source://mongoid//lib/mongoid/errors/unrecognized_resolver.rb#15
+class Mongoid::Errors::UnrecognizedResolver < ::Mongoid::Errors::MongoidError
+  # @return [UnrecognizedResolver] a new instance of UnrecognizedResolver
+  #
+  # source://mongoid//lib/mongoid/errors/unrecognized_resolver.rb#16
+  def initialize(resolver); end
+end
+
+# Raised when Mongoid tries to query the identifier to use for a given
+# class in a polymorphic association, but the class has not previously
+# been registered by resolver that was used for the query.
+#
+# Here's an exammple:
+#
+#   class Department
+#     include Mongoid::Document
+#     has_many :managers, as: :unit
+#   end
+#
+#   class Manager
+#     include Mongoid::Document
+#     belongs_to :unit, polymorphic: :org
+#   end
+#
+# The Manager class is configured to use a custom resolver named `:org`
+# when resolving the polymorphic `unit` association. However, the `Department`
+# class is not registered with that resolver. When the program tries to
+# associate a manager record with a department, it will not be able to find
+# the required key in the `:org` resolver, and will fail with this exception.
+#
+# The solution is to make sure the `Department` class is properly registered
+# with the `:org` resolver:
+#
+#   class Department
+#     include Mongoid::Document
+#     identify_as resolver: :org
+#     has_many :managers, as: :unit
+#   end
+#
+# source://mongoid//lib/mongoid/errors/unregistered_class.rb#35
+class Mongoid::Errors::UnregisteredClass < ::Mongoid::Errors::MongoidError
+  # @return [UnregisteredClass] a new instance of UnregisteredClass
+  #
+  # source://mongoid//lib/mongoid/errors/unregistered_class.rb#36
+  def initialize(klass, resolver); end
+end
+
 # Raised when attempting to call create or create! through a
 # references_many when the parent document has not been saved. This
 # prevents the child from getting persisted and immediately being orphaned.
@@ -20271,7 +20418,7 @@ module Mongoid::Extensions::Array
   #   [ 1, 2, 3 ].__find_args__
   # @return [Array] The array of args.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def __find_args__(*args, **_arg1, &block); end
 
   # Mongoize the array into an array of object ids.
@@ -20325,7 +20472,7 @@ module Mongoid::Extensions::Array
   #   [ 1, 2, 3 ].multi_arged?
   # @return [true | false] If the array is multi args.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def multi_arged?(*args, **_arg1, &block); end
 
   # Returns whether the object's size can be changed.
@@ -20349,7 +20496,7 @@ module Mongoid::Extensions::Array::ClassMethods
   # @param object [Object] The object to convert.
   # @return [Array] The array of ids.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def __mongoize_fk__(*args, **_arg1, &block); end
 
   # Turn the object from the ruby type we deal with to a Mongo friendly
@@ -20386,7 +20533,7 @@ module Mongoid::Extensions::BigDecimal
   #   bd.__to_inc__
   # @return [Float] The big decimal as a float.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def __to_inc__(*args, **_arg1, &block); end
 
   # Turn the object from the ruby type we deal with to a Mongo friendly
@@ -20617,7 +20764,7 @@ module Mongoid::Extensions::FalseClass
   #   object.__sortable__
   # @return [Integer] 0.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def __sortable__(*args, **_arg1, &block); end
 
   # Is the passed value a boolean?
@@ -20693,7 +20840,7 @@ module Mongoid::Extensions::Hash
   #   { name: "Placebo" }.__consolidate__
   # @return [Hash] A new consolidated hash.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def __consolidate__(*args, **_arg1, &block); end
 
   # Evolves each value in the hash to an object id if it is convertable.
@@ -20721,7 +20868,7 @@ module Mongoid::Extensions::Hash
   #   {}.delete_id
   # @return [Object] The deleted value, or nil.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def delete_id(*args, **_arg1, &block); end
 
   # Get the id attribute from this hash, whether it's prefixed with an
@@ -20732,7 +20879,7 @@ module Mongoid::Extensions::Hash
   #   { :_id => 1 }.extract_id
   # @return [Object] The value of the id.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def extract_id(*args, **_arg1, &block); end
 
   # Turn the object from the ruby type we deal with to a Mongo friendly
@@ -20763,7 +20910,7 @@ module Mongoid::Extensions::Hash
   #   { klass: Band, where: { name: "Depeche Mode" }.to_criteria
   # @return [Criteria] The criteria.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def to_criteria(*args, **_arg1, &block); end
 end
 
@@ -20819,7 +20966,7 @@ module Mongoid::Extensions::Integer
   #   object.unconvertable_to_bson?
   # @return [true] If the object is unconvertable.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def unconvertable_to_bson?(*args, **_arg1, &block); end
 end
 
@@ -20876,7 +21023,7 @@ module Mongoid::Extensions::NilClass
   #   object.__setter__
   # @return [nil] Always nil.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def __setter__(*args, **_arg1, &block); end
 
   # Get the name of a nil collection.
@@ -20909,7 +21056,7 @@ module Mongoid::Extensions::Object
   #   object.__find_args__
   # @return [Object] self.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def __find_args__(*args, **_arg1, &block); end
 
   # Evolve a plain object into an object id.
@@ -20928,7 +21075,7 @@ module Mongoid::Extensions::Object
   #   object.__setter__
   # @return [String] The object as a string plus =.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def __setter__(*args, **_arg1, &block); end
 
   # Get the value of the object as a mongo friendly sort value.
@@ -20938,7 +21085,7 @@ module Mongoid::Extensions::Object
   #   object.__sortable__
   # @return [Object] self.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def __sortable__(*args, **_arg1, &block); end
 
   # Conversion of an object to an $inc-able value.
@@ -20948,7 +21095,7 @@ module Mongoid::Extensions::Object
   #   1.__to_inc__
   # @return [Object] The object.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def __to_inc__(*args, **_arg1, &block); end
 
   # Do or do not, there is no try. -- Yoda.
@@ -20961,7 +21108,7 @@ module Mongoid::Extensions::Object
   # @return [Object | nil] The result of the method call or nil if the
   #   method does not exist.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def do_or_do_not(*args, **_arg1, &block); end
 
   # Get the value for an instance variable or false if it doesn't exist.
@@ -20991,7 +21138,7 @@ module Mongoid::Extensions::Object
   #   object.multi_arged?
   # @return [false] false.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def multi_arged?(*args, **_arg1, &block); end
 
   # Is the object a number?
@@ -21042,7 +21189,7 @@ module Mongoid::Extensions::Object
   # @return [Object | nil] The result of the method call or nil if the
   #   method does not exist. Nil if the object is frozen.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def you_must(*args, **_arg1, &block); end
 
   class << self
@@ -21065,7 +21212,7 @@ module Mongoid::Extensions::Object::ClassMethods
   # @param object [Object] The object to convert.
   # @return [Object] The converted object.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def __mongoize_fk__(*args, **_arg1, &block); end
 
   # Convert the object from its mongo friendly ruby type to this type.
@@ -21149,7 +21296,7 @@ module Mongoid::Extensions::Range
   #   range.__find_args__
   # @return [Array] The range as an array.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def __find_args__(*args, **_arg1, &block); end
 
   # Turn the object from the ruby type we deal with to a Mongo friendly
@@ -21349,7 +21496,7 @@ module Mongoid::Extensions::String
   #   "_id".mongoid_id?
   # @return [true | false] If the string is id or _id.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def mongoid_id?(*args, **_arg1, &block); end
 
   # Is the string a number? The literals "NaN", "Infinity", and "-Infinity"
@@ -21373,12 +21520,12 @@ module Mongoid::Extensions::String
 
   # @deprecated
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def unconvertable_to_bson(*args, **_arg1, &block); end
 
   # @deprecated
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def unconvertable_to_bson=(*args, **_arg1, &block); end
 
   # Is the object not to be converted to bson on criteria creation?
@@ -21388,7 +21535,7 @@ module Mongoid::Extensions::String
   #   object.unconvertable_to_bson?
   # @return [true | false] If the object is unconvertable.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def unconvertable_to_bson?(*args, **_arg1, &block); end
 
   # Is this string a valid_method_name?
@@ -21458,7 +21605,7 @@ module Mongoid::Extensions::Symbol
   #   :_id.mongoid_id?
   # @return [true | false] If the symbol is :id or :_id.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def mongoid_id?(*args, **_arg1, &block); end
 end
 
@@ -21603,7 +21750,7 @@ module Mongoid::Extensions::TrueClass
   #   object.__sortable__
   # @return [Integer] 1.
   #
-  # source://activesupport/7.1.3.4/lib/active_support/deprecation/method_wrappers.rb#46
+  # source://activesupport/7.2.0/lib/active_support/deprecation/method_wrappers.rb#46
   def __sortable__(*args, **_arg1, &block); end
 
   # Is the passed value a boolean?
@@ -23464,6 +23611,7 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   include ::Mongoid::Attributes::Processing
   include ::Mongoid::Attributes
   include ::Mongoid::Fields
+  include ::Mongoid::Identifiable
   include ::Mongoid::Indexable
   include ::Mongoid::Matchable
   include ::Mongoid::Persistable::Creatable
@@ -23534,6 +23682,7 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   extend ::Mongoid::Attributes::Readonly::ClassMethods
   extend ::Mongoid::Attributes::ClassMethods
   extend ::Mongoid::Fields::ClassMethods
+  extend ::Mongoid::Identifiable::ClassMethods
   extend ::Mongoid::Indexable::ClassMethods
   extend ::Mongoid::Persistable::Creatable::ClassMethods
   extend ::Mongoid::Persistable::Deletable::ClassMethods
@@ -23564,19 +23713,19 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/fields.rb#144
   def ___id_default__; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#70
   def __callbacks; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#70
   def __callbacks?; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#924
   def _build_callbacks; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#924
   def _commit_callbacks; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#924
   def _create_callbacks; end
 
   # source://mongoid//lib/mongoid/scopable.rb#13
@@ -23588,10 +23737,10 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/scopable.rb#13
   def _declared_scopes?; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#924
   def _destroy_callbacks; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#924
   def _find_callbacks; end
 
   # source://mongoid//lib/mongoid/atomic.rb#25
@@ -23600,79 +23749,79 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/atomic.rb#25
   def _index=(_arg0); end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#924
   def _initialize_callbacks; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#924
   def _persist_parent_callbacks; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#924
   def _rollback_callbacks; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#912
   def _run_build_callbacks(&block); end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#912
   def _run_commit_callbacks(&block); end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#912
   def _run_create_callbacks(&block); end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#912
   def _run_destroy_callbacks(&block); end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#912
   def _run_find_callbacks(&block); end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#912
   def _run_initialize_callbacks(&block); end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#912
   def _run_persist_parent_callbacks(&block); end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#912
   def _run_rollback_callbacks(&block); end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#912
   def _run_save_callbacks(&block); end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#912
   def _run_touch_callbacks(&block); end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#912
   def _run_update_callbacks(&block); end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#912
   def _run_upsert_callbacks(&block); end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#912
   def _run_validate_callbacks(&block); end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#912
   def _run_validation_callbacks(&block); end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#924
   def _save_callbacks; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#924
   def _touch_callbacks; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#924
   def _update_callbacks; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#924
   def _upsert_callbacks; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#924
   def _validate_callbacks; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.2.0/lib/active_support/callbacks.rb#924
   def _validation_callbacks; end
 
-  # source://activemodel/7.1.3.4/lib/active_model/validations.rb#71
+  # source://activemodel/7.2.0/lib/active_model/validations.rb#71
   def _validators; end
 
-  # source://activemodel/7.1.3.4/lib/active_model/validations.rb#71
+  # source://activemodel/7.2.0/lib/active_model/validations.rb#71
   def _validators?; end
 
   # source://mongoid//lib/mongoid/association/macros.rb#35
@@ -23792,10 +23941,10 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/changeable.rb#460
   def id_will_change!; end
 
-  # source://activemodel/7.1.3.4/lib/active_model/serializers/json.rb#15
+  # source://activemodel/7.2.0/lib/active_model/serializers/json.rb#15
   def include_root_in_json; end
 
-  # source://activemodel/7.1.3.4/lib/active_model/serializers/json.rb#15
+  # source://activemodel/7.2.0/lib/active_model/serializers/json.rb#15
   def include_root_in_json?; end
 
   # source://mongoid//lib/mongoid/indexable.rb#15
@@ -23813,8 +23962,8 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/fields.rb#131
   def localized_fields?; end
 
-  # source://activemodel/7.1.3.4/lib/active_model/naming.rb#255
-  def model_name(&block); end
+  # source://activemodel/7.2.0/lib/active_model/naming.rb#255
+  def model_name(&_arg0); end
 
   # source://mongoid//lib/mongoid/attributes/nested.rb#12
   def nested_attributes; end
@@ -23825,7 +23974,7 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/attributes/nested.rb#12
   def nested_attributes?; end
 
-  # source://activemodel/7.1.3.4/lib/active_model/conversion.rb#32
+  # source://activemodel/7.2.0/lib/active_model/conversion.rb#32
   def param_delimiter=(_arg0); end
 
   # source://mongoid//lib/mongoid/association.rb#54
@@ -23906,40 +24055,40 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   # source://mongoid//lib/mongoid/association/macros.rb#39
   def stored_as_associations?; end
 
-  # source://activemodel/7.1.3.4/lib/active_model/validations.rb#67
+  # source://activemodel/7.2.0/lib/active_model/validations.rb#67
   def validation_context; end
 
   private
 
-  # source://activemodel/7.1.3.4/lib/active_model/validations.rb#67
+  # source://activemodel/7.2.0/lib/active_model/validations.rb#67
   def validation_context=(_arg0); end
 
   class << self
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#70
     def __callbacks; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#70
     def __callbacks=(value); end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#70
     def __callbacks?; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#916
     def _build_callbacks; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#920
     def _build_callbacks=(value); end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#916
     def _commit_callbacks; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#920
     def _commit_callbacks=(value); end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#916
     def _create_callbacks; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#920
     def _create_callbacks=(value); end
 
     # source://mongoid//lib/mongoid/scopable.rb#13
@@ -23951,112 +24100,112 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/scopable.rb#13
     def _declared_scopes?; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#916
     def _destroy_callbacks; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#920
     def _destroy_callbacks=(value); end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#916
     def _find_callbacks; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#920
     def _find_callbacks=(value); end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#916
     def _initialize_callbacks; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#920
     def _initialize_callbacks=(value); end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#916
     def _persist_parent_callbacks; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#920
     def _persist_parent_callbacks=(value); end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#916
     def _rollback_callbacks; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#920
     def _rollback_callbacks=(value); end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#916
     def _save_callbacks; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#920
     def _save_callbacks=(value); end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#916
     def _touch_callbacks; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#920
     def _touch_callbacks=(value); end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#916
     def _update_callbacks; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#920
     def _update_callbacks=(value); end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#916
     def _upsert_callbacks; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#920
     def _upsert_callbacks=(value); end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#916
     def _validate_callbacks; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#920
     def _validate_callbacks=(value); end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#916
     def _validation_callbacks; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.2.0/lib/active_support/callbacks.rb#920
     def _validation_callbacks=(value); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/validations.rb#71
+    # source://activemodel/7.2.0/lib/active_model/validations.rb#71
     def _validators; end
 
-    # source://activemodel/7.1.3.4/lib/active_model/validations.rb#71
+    # source://activemodel/7.2.0/lib/active_model/validations.rb#71
     def _validators=(value); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/validations.rb#71
+    # source://activemodel/7.2.0/lib/active_model/validations.rb#71
     def _validators?; end
 
-    # source://mongoid//lib/mongoid/traversable.rb#173
+    # source://mongoid//lib/mongoid/traversable.rb#178
     def add_discriminator_mapping(value, klass = T.unsafe(nil)); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#144
     def after_build(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#144
     def after_create(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#144
     def after_destroy(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#144
     def after_find(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#144
     def after_initialize(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#144
     def after_persist_parent(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#144
     def after_save(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#144
     def after_touch(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#144
     def after_update(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#144
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#144
     def after_upsert(*args, **options, &block); end
 
     # source://mongoid//lib/mongoid/association/macros.rb#35
@@ -24077,40 +24226,40 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/fields.rb#130
     def aliased_fields?; end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#137
     def around_create(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#137
     def around_destroy(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#137
     def around_persist_parent(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#137
     def around_save(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#137
     def around_update(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#137
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#137
     def around_upsert(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#130
     def before_create(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#130
     def before_destroy(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#130
     def before_persist_parent(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#130
     def before_save(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#130
     def before_update(*args, **options, &block); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/callbacks.rb#130
+    # source://activemodel/7.2.0/lib/active_model/callbacks.rb#130
     def before_upsert(*args, **options, &block); end
 
     # source://mongoid//lib/mongoid/cacheable.rb#11
@@ -24155,19 +24304,19 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/association/depending.rb#16
     def dependents_owner?; end
 
-    # source://mongoid//lib/mongoid/traversable.rb#156
+    # source://mongoid//lib/mongoid/traversable.rb#161
     def discriminator_key(*_arg0, **_arg1, &_arg2); end
 
-    # source://mongoid//lib/mongoid/traversable.rb#95
+    # source://mongoid//lib/mongoid/traversable.rb#100
     def discriminator_key=(value); end
 
-    # source://mongoid//lib/mongoid/traversable.rb#153
+    # source://mongoid//lib/mongoid/traversable.rb#158
     def discriminator_key?; end
 
-    # source://mongoid//lib/mongoid/traversable.rb#163
+    # source://mongoid//lib/mongoid/traversable.rb#168
     def discriminator_mapping; end
 
-    # source://mongoid//lib/mongoid/traversable.rb#163
+    # source://mongoid//lib/mongoid/traversable.rb#168
     def discriminator_mapping=(_arg0); end
 
     # source://mongoid//lib/mongoid/association/macros.rb#11
@@ -24206,16 +24355,16 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/fields.rb#132
     def fields?; end
 
-    # source://mongoid//lib/mongoid/traversable.rb#188
+    # source://mongoid//lib/mongoid/traversable.rb#193
     def get_discriminator_mapping(value); end
 
     # source://mongoid//lib/mongoid/serializable.rb#22
     def include_root_in_json(*_arg0, **_arg1, &_arg2); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/serializers/json.rb#15
+    # source://activemodel/7.2.0/lib/active_model/serializers/json.rb#15
     def include_root_in_json=(value); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/serializers/json.rb#15
+    # source://activemodel/7.2.0/lib/active_model/serializers/json.rb#15
     def include_root_in_json?; end
 
     # source://mongoid//lib/mongoid/indexable.rb#15
@@ -24242,13 +24391,13 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/attributes/nested.rb#12
     def nested_attributes?; end
 
-    # source://activemodel/7.1.3.4/lib/active_model/conversion.rb#32
+    # source://activemodel/7.2.0/lib/active_model/conversion.rb#32
     def param_delimiter; end
 
-    # source://activemodel/7.1.3.4/lib/active_model/conversion.rb#32
+    # source://activemodel/7.2.0/lib/active_model/conversion.rb#32
     def param_delimiter=(value); end
 
-    # source://activemodel/7.1.3.4/lib/active_model/conversion.rb#32
+    # source://activemodel/7.2.0/lib/active_model/conversion.rb#32
     def param_delimiter?; end
 
     # source://mongoid//lib/mongoid/association.rb#54
@@ -24332,6 +24481,22 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     # source://mongoid//lib/mongoid/association/macros.rb#39
     def stored_as_associations?; end
   end
+end
+
+# Implements the "identify_as" interface (for specifying type aliases
+# for document classes).
+#
+# source://mongoid//lib/mongoid/identifiable.rb#8
+module Mongoid::Identifiable
+  extend ::ActiveSupport::Concern
+
+  mixes_in_class_methods ::Mongoid::Identifiable::ClassMethods
+end
+
+# source://mongoid//lib/mongoid/identifiable.rb#0
+module Mongoid::Identifiable::ClassMethods
+  # source://mongoid//lib/mongoid/identifiable.rb#23
+  def identify_as(*aliases, resolver: T.unsafe(nil)); end
 end
 
 # Encapsulates behavior around defining indexes.
@@ -26448,6 +26613,104 @@ module Mongoid::Matcher::Type
     # source://mongoid//lib/mongoid/matcher/type.rb#50
     def one_matches?(exists, value, condition); end
   end
+end
+
+# The default class for resolving model classes based on discriminant keys.
+# Given a key, it will return the corresponding model class, if any. By
+# default, it looks for classes with names that match the given keys, but
+# additional mappings may be provided.
+#
+# It is also possible to instantiate multiple resolvers---and even implement
+# your own---so that different sets of classes can use independent resolution
+# mechanics.
+#
+# source://mongoid//lib/mongoid/model_resolver.rb#14
+class Mongoid::ModelResolver
+  include ::Mongoid::ModelResolver::Interface
+
+  # Instantiates a new ModelResolver instance.
+  #
+  # @return [ModelResolver] a new instance of ModelResolver
+  #
+  # source://mongoid//lib/mongoid/model_resolver.rb#75
+  def initialize; end
+
+  # Registers the given model class with the given keys. In addition to the given keys, the
+  # class name itself will be included as a key to identify the class. Keys are given in priority
+  # order, with highest priority keys first and lowest last. The class name, if not given explicitly,
+  # is always given lowest priority.
+  #
+  # If called more than once, newer keys have higher priority than older keys. All duplicate keys will
+  # be removed.
+  #
+  # @param klass [Mongoid::Document] the document class to register
+  # @param *keys [Array<String>] the list of keys to use as an alias (optional)
+  #
+  # source://mongoid//lib/mongoid/model_resolver.rb#90
+  def register(klass, *keys); end
+
+  class << self
+    # Returns the default instance of the ModelResolver.
+    #
+    # @return [Mongoid::ModelResolver] the default ModelResolver instance.
+    #
+    # source://mongoid//lib/mongoid/model_resolver.rb#27
+    def instance; end
+
+    # source://forwardable/1.3.3/forwardable.rb#231
+    def register(*args, **_arg1, &block); end
+
+    # Register the given resolver under the given name.
+    #
+    # @param resolver [Mongoid::ModelResolver::Interface] the resolver to register.
+    # @param name [String | Symbol] the identifier to use to register the resolver.
+    #
+    # source://mongoid//lib/mongoid/model_resolver.rb#68
+    def register_resolver(resolver, name); end
+
+    # Returns the resolver instance that corresponds to the argument.
+    #
+    # @param identifier_or_object [nil | true | false Symbol | String | Mongoid::ModelResolver::Interface] When nil or false, returns nil. When true or :default, corresponds to the default resolver.
+    #   When any other symbol or string, corresponds to the registered resolver with that identifier.
+    #   Otherwise, it must be a resolver instance itself.
+    # @raise Mongoid::Errors::UnrecognizedResolver if the given identifier is a
+    #   symbol or string and it does not match any registered resolver.
+    # @return [Mongoid::ModelResolver::Interface] the resolver instance corresponding to the
+    #   given argument.
+    #
+    # source://mongoid//lib/mongoid/model_resolver.rb#52
+    def resolver(identifier_or_object = T.unsafe(nil)); end
+
+    # Returns the map of registered resolvers. The default resolver is not
+    # included here.
+    #
+    # @return [Hash<Symbol => Mongoid::ModelResolver::Interface>] the hash of
+    #   resolver instances, mapped by symbol identifier.
+    #
+    # source://mongoid//lib/mongoid/model_resolver.rb#36
+    def resolvers; end
+  end
+end
+
+# The mutex instance used to make the `.instance` method thread-safe.
+#
+# @api private
+#
+# source://mongoid//lib/mongoid/model_resolver.rb#18
+Mongoid::ModelResolver::INSTANCE_MUTEX = T.let(T.unsafe(nil), Thread::Mutex)
+
+# source://mongoid//lib/mongoid/model_resolver.rb#0
+module Mongoid::ModelResolver::Interface
+  extend ::ActiveSupport::Concern
+
+  # source://mongoid//lib/mongoid/model_resolver.rb#114
+  def default_key_for(record); end
+
+  # source://mongoid//lib/mongoid/model_resolver.rb#126
+  def keys_for(record); end
+
+  # source://mongoid//lib/mongoid/model_resolver.rb#147
+  def model_for(key); end
 end
 
 # A string added to the platform details of Ruby driver client handshake documents.
@@ -29643,7 +29906,7 @@ Mongoid::Touchable::SUPPRESS_TOUCH_CALLBACKS_KEY = T.let(T.unsafe(nil), String)
 # Mixin module included in Mongoid::Document to provide behavior
 # around traversing the document graph.
 #
-# source://mongoid//lib/mongoid/traversable.rb#8
+# source://mongoid//lib/mongoid/traversable.rb#9
 module Mongoid::Traversable
   extend ::ActiveSupport::Concern
   include GeneratedInstanceMethods
@@ -29658,7 +29921,7 @@ module Mongoid::Traversable
   # @api private
   # @return [Array<Document>] All child documents in the hierarchy.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#198
+  # source://mongoid//lib/mongoid/traversable.rb#203
   def _children(reset: T.unsafe(nil)); end
 
   # Get all descendant +Documents+ of this +Document+ recursively.
@@ -29671,7 +29934,7 @@ module Mongoid::Traversable
   # @api private
   # @return [Array<Document>] All descendant documents in the hierarchy.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#221
+  # source://mongoid//lib/mongoid/traversable.rb#226
   def _descendants(reset: T.unsafe(nil)); end
 
   # Retrieves the parent document of this document.
@@ -29679,7 +29942,7 @@ module Mongoid::Traversable
   # @api private
   # @return [Mongoid::Document | nil] the parent document
   #
-  # source://mongoid//lib/mongoid/traversable.rb#69
+  # source://mongoid//lib/mongoid/traversable.rb#74
   def _parent; end
 
   # Sets the parent document of this document.
@@ -29688,7 +29951,7 @@ module Mongoid::Traversable
   # @param document [Mongoid::Document | nil] the document to set as
   #   the parent document.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#81
+  # source://mongoid//lib/mongoid/traversable.rb#86
   def _parent=(document); end
 
   # Resets the memoized descendants on the object. Called internally when an
@@ -29697,7 +29960,7 @@ module Mongoid::Traversable
   # @api private
   # @return [nil] nil.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#348
+  # source://mongoid//lib/mongoid/traversable.rb#353
   def _reset_memoized_descendants!; end
 
   # Return the root document in the object graph. If the current document
@@ -29707,7 +29970,7 @@ module Mongoid::Traversable
   #   document._root
   # @return [Document] The root document in the hierarchy.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#361
+  # source://mongoid//lib/mongoid/traversable.rb#366
   def _root; end
 
   # Is this document the root document of the hierarchy?
@@ -29716,7 +29979,7 @@ module Mongoid::Traversable
   #   document._root?
   # @return [true | false] If the document is the root.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#373
+  # source://mongoid//lib/mongoid/traversable.rb#378
   def _root?; end
 
   # Collect all the children of this document.
@@ -29724,7 +29987,7 @@ module Mongoid::Traversable
   # @api private
   # @return [Array<Document>] The children.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#239
+  # source://mongoid//lib/mongoid/traversable.rb#244
   def collect_children; end
 
   # Collect all the descendants of this document.
@@ -29732,14 +29995,14 @@ module Mongoid::Traversable
   # @api private
   # @return [Array<Document>] The descendants.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#255
+  # source://mongoid//lib/mongoid/traversable.rb#260
   def collect_descendants; end
 
   # Marks all descendants as being persisted.
   #
   # @return [Array<Document>] The flagged descendants.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#281
+  # source://mongoid//lib/mongoid/traversable.rb#286
   def flag_descendants_persisted; end
 
   # Determines if the document is a subclass of another document.
@@ -29748,7 +30011,7 @@ module Mongoid::Traversable
   #   Square.new.hereditary?
   # @return [true | false] True if hereditary, false if not.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#293
+  # source://mongoid//lib/mongoid/traversable.rb#298
   def hereditary?; end
 
   # Sets up a child/parent association. This is used for newly created
@@ -29759,7 +30022,7 @@ module Mongoid::Traversable
   # @param document [Document] The parent document.
   # @return [Document] The parent document.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#306
+  # source://mongoid//lib/mongoid/traversable.rb#311
   def parentize(document); end
 
   # Remove a child document from this parent. If an embeds one then set to
@@ -29771,7 +30034,7 @@ module Mongoid::Traversable
   #   document.remove_child(child)
   # @param child [Document] The child (embedded) document to remove.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#319
+  # source://mongoid//lib/mongoid/traversable.rb#324
   def remove_child(child); end
 
   # After descendants are persisted we can call this to move all their
@@ -29779,7 +30042,7 @@ module Mongoid::Traversable
   #
   # @return [Array<Document>] The descendants.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#334
+  # source://mongoid//lib/mongoid/traversable.rb#339
   def reset_persisted_descendants; end
 
   module GeneratedClassMethods
@@ -29793,7 +30056,7 @@ end
 
 # Class-level methods for the Traversable behavior.
 #
-# source://mongoid//lib/mongoid/traversable.rb#12
+# source://mongoid//lib/mongoid/traversable.rb#13
 module Mongoid::Traversable::ClassMethods
   # Determines if the document is a subclass of another document.
   #
@@ -29801,7 +30064,7 @@ module Mongoid::Traversable::ClassMethods
   #   Square.hereditary?
   # @return [true | false] True if hereditary, false if not.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#19
+  # source://mongoid//lib/mongoid/traversable.rb#20
   def hereditary?; end
 
   # When inheriting, we want to copy the fields from the parent class and
@@ -29813,7 +30076,7 @@ module Mongoid::Traversable::ClassMethods
   #   Person.inherited(Doctor)
   # @param subclass [Class] The inheriting class.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#33
+  # source://mongoid//lib/mongoid/traversable.rb#34
   def inherited(subclass); end
 end
 
@@ -29821,7 +30084,7 @@ end
 #
 # @api private
 #
-# source://mongoid//lib/mongoid/traversable.rb#88
+# source://mongoid//lib/mongoid/traversable.rb#93
 module Mongoid::Traversable::DiscriminatorAssignment
   # Sets the discriminator key.
   #
@@ -29830,7 +30093,7 @@ module Mongoid::Traversable::DiscriminatorAssignment
   # @param value [String] The discriminator key to set.
   # @raise [Errors::InvalidDiscriminatorKeyTarget]
   #
-  # source://mongoid//lib/mongoid/traversable.rb#95
+  # source://mongoid//lib/mongoid/traversable.rb#100
   def discriminator_key=(value); end
 
   # Returns the discriminator key.
@@ -29838,7 +30101,7 @@ module Mongoid::Traversable::DiscriminatorAssignment
   # @api private
   # @return [String] The discriminator key.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#129
+  # source://mongoid//lib/mongoid/traversable.rb#134
   def discriminator_value=(value); end
 end
 
@@ -29851,13 +30114,13 @@ end
 #
 # @api private
 #
-# source://mongoid//lib/mongoid/traversable.rb#145
+# source://mongoid//lib/mongoid/traversable.rb#150
 module Mongoid::Traversable::DiscriminatorRetrieval
   # Get the name on the reading side if the discriminator_value is nil
   #
   # @api private
   #
-  # source://mongoid//lib/mongoid/traversable.rb#147
+  # source://mongoid//lib/mongoid/traversable.rb#152
   def discriminator_value; end
 end
 
@@ -30573,70 +30836,70 @@ end
 # source://mongoid//lib/rails/mongoid.rb#4
 module Rails
   class << self
-    # source://railties/7.1.3.4/lib/rails.rb#42
+    # source://railties/7.2.0/lib/rails.rb#44
     def app_class; end
 
-    # source://railties/7.1.3.4/lib/rails.rb#42
+    # source://railties/7.2.0/lib/rails.rb#44
     def app_class=(_arg0); end
 
-    # source://railties/7.1.3.4/lib/rails.rb#43
+    # source://railties/7.2.0/lib/rails.rb#45
     def application; end
 
-    # source://railties/7.1.3.4/lib/rails.rb#41
+    # source://railties/7.2.0/lib/rails.rb#43
     def application=(_arg0); end
 
-    # source://railties/7.1.3.4/lib/rails.rb#123
+    # source://railties/7.2.0/lib/rails.rb#126
     def autoloaders; end
 
-    # source://railties/7.1.3.4/lib/rails.rb#54
+    # source://railties/7.2.0/lib/rails.rb#56
     def backtrace_cleaner; end
 
-    # source://railties/7.1.3.4/lib/rails.rb#42
+    # source://railties/7.2.0/lib/rails.rb#44
     def cache; end
 
-    # source://railties/7.1.3.4/lib/rails.rb#42
+    # source://railties/7.2.0/lib/rails.rb#44
     def cache=(_arg0); end
 
-    # source://railties/7.1.3.4/lib/rails.rb#50
+    # source://railties/7.2.0/lib/rails.rb#52
     def configuration; end
 
-    # source://railties/7.1.3.4/lib/rails/deprecator.rb#4
+    # source://railties/7.2.0/lib/rails/deprecator.rb#4
     def deprecator; end
 
-    # source://railties/7.1.3.4/lib/rails.rb#72
+    # source://railties/7.2.0/lib/rails.rb#75
     def env; end
 
-    # source://railties/7.1.3.4/lib/rails.rb#79
+    # source://railties/7.2.0/lib/rails.rb#82
     def env=(environment); end
 
-    # source://railties/7.1.3.4/lib/rails.rb#90
+    # source://railties/7.2.0/lib/rails.rb#93
     def error; end
 
-    # source://railties/7.1.3.4/lib/rails/gem_version.rb#5
+    # source://railties/7.2.0/lib/rails/gem_version.rb#5
     def gem_version; end
 
-    # source://railties/7.1.3.4/lib/rails.rb#103
+    # source://railties/7.2.0/lib/rails.rb#106
     def groups(*groups); end
 
-    # source://railties/7.1.3.4/lib/rails.rb#47
+    # source://railties/7.2.0/lib/rails.rb#49
     def initialize!(*_arg0, **_arg1, &_arg2); end
 
-    # source://railties/7.1.3.4/lib/rails.rb#47
+    # source://railties/7.2.0/lib/rails.rb#49
     def initialized?(*_arg0, **_arg1, &_arg2); end
 
-    # source://railties/7.1.3.4/lib/rails.rb#42
+    # source://railties/7.2.0/lib/rails.rb#44
     def logger; end
 
-    # source://railties/7.1.3.4/lib/rails.rb#42
+    # source://railties/7.2.0/lib/rails.rb#44
     def logger=(_arg0); end
 
-    # source://railties/7.1.3.4/lib/rails.rb#119
+    # source://railties/7.2.0/lib/rails.rb#122
     def public_path; end
 
-    # source://railties/7.1.3.4/lib/rails.rb#63
+    # source://railties/7.2.0/lib/rails.rb#65
     def root; end
 
-    # source://railties/7.1.3.4/lib/rails/version.rb#7
+    # source://railties/7.2.0/lib/rails/version.rb#7
     def version; end
   end
 end

@@ -304,7 +304,8 @@ class HomeController < ApplicationController
       fanart_url = nil
 
       tvdb_id = series&.[](:IDs)&.[](:TvDB)&.first
-      tmdb_id = series&.[](:IDs)&.[](:TMDB)&.first
+      tmdb_id = series&.[](:IDs)&.[](:TMDB)&.[](:Movie)&.first
+      tmdb_id ||= series&.[](:IDs)&.[](:TMDB)&.[](:Show)&.first
 
       if tvdb_id.present? || tmdb_id.present?
         fanart = Fanart::Client.new

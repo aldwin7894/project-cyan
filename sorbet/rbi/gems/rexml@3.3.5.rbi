@@ -3961,28 +3961,28 @@ class REXML::Parsers::BaseParser
 
   # @return [Boolean]
   #
-  # source://rexml//lib/rexml/parsers/baseparser.rb#582
+  # source://rexml//lib/rexml/parsers/baseparser.rb#580
   def need_source_encoding_update?(xml_declaration_encoding); end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#702
+  # source://rexml//lib/rexml/parsers/baseparser.rb#700
   def parse_attributes(prefixes, curr_ns); end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#601
+  # source://rexml//lib/rexml/parsers/baseparser.rb#599
   def parse_id(base_error_message, accept_external_id:, accept_public_id:); end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#629
+  # source://rexml//lib/rexml/parsers/baseparser.rb#627
   def parse_id_invalid_details(accept_external_id:, accept_public_id:); end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#588
+  # source://rexml//lib/rexml/parsers/baseparser.rb#586
   def parse_name(base_error_message); end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#667
+  # source://rexml//lib/rexml/parsers/baseparser.rb#665
   def process_instruction; end
 
   # source://rexml//lib/rexml/parsers/baseparser.rb#226
   def pull_event; end
 
-  # source://rexml//lib/rexml/parsers/baseparser.rb#575
+  # source://rexml//lib/rexml/parsers/baseparser.rb#573
   def record_entity_expansion; end
 end
 

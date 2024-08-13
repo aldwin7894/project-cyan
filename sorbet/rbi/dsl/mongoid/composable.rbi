@@ -18,6 +18,7 @@ module Mongoid::Composable
   mixes_in_class_methods ::Mongoid::Attributes::Readonly::ClassMethods
   mixes_in_class_methods ::Mongoid::Attributes::ClassMethods
   mixes_in_class_methods ::Mongoid::Fields::ClassMethods
+  mixes_in_class_methods ::Mongoid::Identifiable::ClassMethods
   mixes_in_class_methods ::Mongoid::Indexable::ClassMethods
   mixes_in_class_methods ::Mongoid::Persistable::Creatable::ClassMethods
   mixes_in_class_methods ::Mongoid::Persistable::Deletable::ClassMethods

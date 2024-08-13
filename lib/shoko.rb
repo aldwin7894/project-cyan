@@ -124,10 +124,12 @@ module Shoko
     end
 
     def get_fanart_by_series(series:)
-      return nil if series.blank? || series&.[](:IDs)&.[](:ID).blank?
+      series_id = series&.[](:IDs)&.[](:ID)&.to_s
+      return nil if series_id.blank?
 
-      cache_key = "SHOKO/FANART/#{series[:IDs][:ID]}"
+      cache_key = "SHOKO/FANART/#{series_id}"
       fanart_url = nil
+      url = "/Series/#{series_id}/Images"
 
       if Rails.cache.exist? cache_key
         Rails.logger.tagged("CACHE".yellow, "Shoko.get_series_fanart_by_name".yellow, cache_key.yellow) do
@@ -140,8 +142,14 @@ module Shoko
         Rails.logger.info("MISS".red)
       end
 
-      if series&.[](:Images)&.[](:Fanarts).blank?
-        Rails.logger.tagged("SHOKO".yellow, "GET FANART".yellow, series&.[](:IDs)&.[](:ID)&.to_s&.yellow) do
+      res = self.class.get(url, **@options)
+      unless res.success?
+        raise ApiError.new("Shoko API error")
+      end
+
+      res = JSON.parse res, symbolize_names: true
+      if res&.[](:Backdrops).blank?
+        Rails.logger.tagged("SHOKO".yellow, "GET FANART".yellow, series_id&.yellow) do
           Rails.logger.info("NO FANARTS".red)
         end
         return fanart_url
@@ -151,7 +159,7 @@ module Shoko
         Rails.logger.info("FOUND".green)
       end
 
-      fanart = series[:Images][:Fanarts].first
+      fanart = res[:Backdrops].sort_by { |x| x[:Preferred] ? 0 : 1 }.first
       source = fanart[:Source]
       id = fanart[:ID]
 
@@ -164,7 +172,7 @@ module Shoko
 
     private
       def get_fanart_url(id:, source:)
-        "#{BASE_URL}Image/#{source}/Fanart/#{id}"
+        "#{BASE_URL}Image/#{source}/Backdrop/#{id}"
       end
 
       def alternative(string)

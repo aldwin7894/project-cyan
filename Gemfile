@@ -6,11 +6,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.3.4"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem "rails", "~> 7.1.0"
+gem "rails", "~> 7.2.0"
 # use vite to build javascripts and assets
 gem "vite_rails", "~> 3.0"
 # Use mongodb
-gem "mongoid", "~> 9.0"
+gem "mongoid", git: 'https://github.com/AlexKovynev/mongoid.git', branch: 'Rails72Support' # TODO: REPLACE WITH "~> 9.0"
 gem "bson", "~> 5.0"
 # Use Puma as the app server
 gem "puma", "~> 6.4"

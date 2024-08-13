@@ -8,11 +8,11 @@ ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
 RUN apt-get update -yq \
   && apt-get install -yq --no-install-recommends \
-  wget \
   build-essential \
-  tar \
   git \
-  && wget --quiet "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
+  tar \
+  wget \
+  && wget --quiet "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" --max-redirect=0 \
   && mkdir -p "/node-v${NODE_VERSION}-linux-x64" \
   && tar xzf "node-v$NODE_VERSION-linux-x64.tar.gz" --directory / \
   && npm i -g "npm@$NPM_VERSION" "yarn@$YARN_VERSION" \
@@ -66,10 +66,10 @@ ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 RUN apt-get update -yq \
   && apt-get install -yq --no-install-recommends \
   gnupg \
-  wget \
   libjemalloc2 \
-  tzdata \
   patchelf \
+  tzdata \
+  wget \
   && patchelf --add-needed libjemalloc.so.2 /usr/local/bin/ruby \
   && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
   && apt-get purge patchelf -y \
