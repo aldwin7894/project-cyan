@@ -13,6 +13,14 @@ class AnilistController < ApplicationController
     # new
   end
 
+  def show
+    @user = AnilistUser.find_by(username: params[:id])
+    @following = @user.following
+    @followers = @user.followers
+    @following_count = @following.size
+    @followers_count = @followers.size
+  end
+
   def fetch_followers
     @success = false
     return @error = "Username can't be empty" if params[:username].blank?
