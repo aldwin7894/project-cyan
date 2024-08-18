@@ -1,0 +1,109 @@
+<% bgs = (1..10).to_a.shuffle %>
+
+<section x-data="{swiper:null}">
+  <div class=" relative flex w-screen min-h-[calc(100vh-56px)] xs:min-h-[calc(100vh-116px)] max-h-[calc(100vh-56px)] xs:max-h-[calc(100vh-116px)] font-sans ">
+    <div id="anilist-carousel" class="absolute top-0 left-0 w-full h-full swiper" x-init="swiper = new Swiper('#anilist-carousel', { modules: [Navigation, Autoplay, EffectFade], effect: 'fade', loop: true, speed: 3000, threshold: 40, autoplay: { delay: 10000, disableOnInteraction: false }, fadeEffect: { crossFade: true }, }); swiper.translateTo(window.screen.width * -1, 0, false, false);">
+      <div class="swiper-wrapper">
+        <% bgs.each do |num| %>
+          <div class="swiper-slide background-ailane-<%= num %>">
+            <img src="<%= vite_asset_path "images/ailane-bg-#{num}.webp" %>" alt="carousel-item" class="hidden visually-hidden"/>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="relative z-10 flex w-full pointer-events-none bg-gradient-to-br from-cyan-500/80 to-pink-500/80 tablet:overflow-y-hidden">
+      <div class="flex flex-col flex-1 w-full py-4 backdrop-blur-sm p6-4">
+        <div class="max-w-sm mx-auto mb-6 font-sans text-3xl font-semibold text-center text-black dark:text-white">
+          <div class="pointer-events-auto">
+            <span class="dark:opacity-80">Take me</span>
+            <%= link_to "Back", anilist_index_path, class: "hover:text-[#3DB4F2] border-b", data: { turbo: false } %>
+          </div>
+        </div>
+        <% if @user.sync_in_progress? %>
+          <div class="justify-items-center container relative text-center">
+            <div class="max-w-lg w-full pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto dark:bg-fg--dark/90 bg-fg--light/80 h-fit mx-auto px-10 py-5 flex flex-col gap-4">
+              <iconify-icon icon="line-md:loading-alt-loop" width="100" class="mx-auto text-cyan-600"></iconify-icon>
+              <h1 class="text-2xl font-bold dark:text-text--dark text-text--light">
+                Still being processed, please check again later.
+              </h1>
+              <%= link_to "Reload", anilist_path(id: @user.job_id), class: "flex items-center px-4 py-3 font-medium text-white rounded cursor-pointer bg-cyan-700 hover:bg-cyan-600 justify-center", data: { turbo: false } %>
+            </div>
+          </div>
+        <% elsif @user.last_known_error %>
+          <div class="justify-items-center container relative text-center">
+            <div class="max-w-lg w-full pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto dark:bg-fg--dark/90 bg-fg--light/80 h-fit mx-auto px-10 py-5 flex flex-col gap-4">
+              <iconify-icon icon="material-symbols:error" width="100" class="mx-auto text-red-600"></iconify-icon>
+              <h1 class="text-2xl font-bold dark:text-text--dark text-text--light">
+                Something went wrong, please submit a new request."
+              </h1>
+            </div>
+          </div>
+        <% else %>
+          <div class=" phone:grid-cols-1 dark:[color-scheme:dark] phone:overflow-y-auto tablet:grid-cols-2 tablet:overflow-y-auto desktop:grid-cols-4 desktop:my-auto desktop:overflow-hidden justify-items-center container relative grid justify-between gap-5 text-center ">
+            <div class="w-full max-w-sm pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto dark:bg-fg--dark/90 bg-fg--light/80 h-fit tablet:h-full">
+              <div class="sticky top-0 px-10 pt-5 mb-5 bg-transparent">
+                <h1 class="text-2xl font-bold border-b-2 border-b-text--light dark:border-b-text--dark dark:text-text--dark text-text--light">
+                  <%= sanitize "Not Following You (<span class='text-[#3DB4F2]'>#{(@following - @followers).size}</span>)" %>
+                </h1>
+              </div>
+              <ul class="desktop:h-[70vh] dark:[color-scheme:dark] desktop:overflow-y-auto list-none mx-5">
+                <% (@following - @followers).each do |f| %>
+                  <li class="hover:text-cyan-400 dark:text-blue-400 text-[#5c728a] font-semibold">
+                    <%= link_to f, "https://anilist.co/user/#{f}", target: "_blank", rel: "noreferrer noopener" %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+
+            <div class="w-full max-w-sm pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto dark:bg-fg--dark/90 bg-fg--light/80 h-fit tablet:h-full">
+              <div class="sticky top-0 px-10 pt-5 mb-5 bg-transparent">
+                <h1 class="text-2xl font-bold border-b-2 border-b-text--light dark:border-b-text--dark dark:text-text--dark text-text--light">
+                  <%= sanitize "You're Not Following (<span class='text-[#3DB4F2]'>#{(@followers - @following).size}</span>)" %>
+                </h1>
+              </div>
+              <ul class="desktop:h-[70vh] dark:[color-scheme:dark] desktop:overflow-y-auto list-none mx-5">
+                <% (@followers - @following).each do |f| %>
+                  <li class="hover:text-cyan-400 dark:text-blue-400 text-[#5c728a] font-semibold">
+                    <%= link_to f, "https://anilist.co/user/#{f}", target: "_blank", rel: "noreferrer noopener" %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+
+            <div class="w-full max-w-sm pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto dark:bg-fg--dark/90 bg-fg--light/80 h-fit tablet:h-full">
+              <div class="sticky top-0 px-10 pt-5 mb-5 bg-transparent">
+                <h1 class="text-2xl font-bold border-b-2 border-b-text--light dark:border-b-text--dark dark:text-text--dark text-text--light">
+                  <%= sanitize "Following (<span class='text-[#3DB4F2]'>#{@following_count}</span>)" %>
+                </h1>
+              </div>
+
+              <ul class="desktop:h-[70vh] dark:[color-scheme:dark] desktop:overflow-y-auto list-none mx-5">
+                <% @following.each do |f| %>
+                  <li class="hover:text-cyan-400 dark:text-blue-400 text-[#5c728a] font-semibold">
+                    <%= link_to f, "https://anilist.co/user/#{f}", target: "_blank", rel: "noreferrer noopener" %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+
+            <div class="w-full max-w-sm pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto dark:bg-fg--dark/90 bg-fg--light/80 h-fit tablet:h-full">
+              <div class="sticky top-0 px-10 pt-5 mb-5 bg-transparent">
+                <h1 class="text-2xl font-bold border-b-2 border-b-text--light dark:border-b-text--dark dark:text-text--dark text-text--light">
+                  <%= sanitize "Followers (<span class='text-[#3DB4F2]'>#{@followers_count}</span>)" %>
+                </h1>
+              </div>
+
+              <ul class="desktop:h-[70vh] dark:[color-scheme:dark] desktop:overflow-y-auto list-none mx-5">
+                <% @followers.each do |f| %>
+                  <li class="hover:text-cyan-400 dark:text-blue-400 text-[#5c728a] font-semibold">
+                    <%= link_to f, "https://anilist.co/user/#{f}", target: "_blank", rel: "noreferrer noopener" %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

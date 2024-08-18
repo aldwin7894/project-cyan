@@ -34,6 +34,9 @@ module GeneratedPathHelpersModule
   def anilist_index_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def anilist_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def anilist_user_activities_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }

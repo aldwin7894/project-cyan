@@ -34,6 +34,9 @@ module GeneratedUrlHelpersModule
   def anilist_index_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def anilist_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def anilist_user_activities_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }

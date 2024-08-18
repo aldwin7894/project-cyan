@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   get "music-np-banner/listenbrainz",
     to: "music_np_banner#listenbrainz",
     constraints: lambda { |req| ["html", "svg"].include? req.format }
-  resources :anilist, only: [:index, :new] do
+  resources :anilist, only: [:index, :new, :show] do
     collection do
       get "fetch_followers"
     end
