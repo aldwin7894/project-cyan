@@ -10,6 +10,7 @@ class AnilistUser
   field :followers, type: Array, default: []
   field :last_known_error, type: String, default: nil
   field :sync_in_progress, type: Boolean, default: true
+  field :job_id, type: String, default: nil
 
   index({ _id: 1 }, { unique: true })
 end

@@ -7,20 +7,13 @@
 
 class AnilistFollowListCheckerJob
   class << self
-    sig { params(username: T.untyped, type: T.untyped, page: T.untyped).returns(String) }
-    def perform_async(username, type = T.unsafe(nil), page = T.unsafe(nil)); end
+    sig { params(id: T.untyped, type: T.untyped, page: T.untyped).returns(String) }
+    def perform_async(id, type = T.unsafe(nil), page = T.unsafe(nil)); end
 
-    sig do
-      params(
-        interval: T.any(DateTime, Time),
-        username: T.untyped,
-        type: T.untyped,
-        page: T.untyped
-      ).returns(String)
-    end
-    def perform_at(interval, username, type = T.unsafe(nil), page = T.unsafe(nil)); end
+    sig { params(interval: T.any(DateTime, Time), id: T.untyped, type: T.untyped, page: T.untyped).returns(String) }
+    def perform_at(interval, id, type = T.unsafe(nil), page = T.unsafe(nil)); end
 
-    sig { params(interval: Numeric, username: T.untyped, type: T.untyped, page: T.untyped).returns(String) }
-    def perform_in(interval, username, type = T.unsafe(nil), page = T.unsafe(nil)); end
+    sig { params(interval: Numeric, id: T.untyped, type: T.untyped, page: T.untyped).returns(String) }
+    def perform_in(interval, id, type = T.unsafe(nil), page = T.unsafe(nil)); end
   end
 end

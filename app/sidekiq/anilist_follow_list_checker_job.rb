@@ -4,27 +4,23 @@ require "anilist"
 
 class AnilistFollowListCheckerJob
   include Sidekiq::Job
-  sidekiq_options retry: 5
-  sidekiq_retry_in { 5.minutes }
-  sidekiq_retries_exhausted  do |job, error|
+  sidekiq_options retry: 5,
+    lock: :until_and_while_executing,
+    on_conflict: { client: :log, server: :reject }
+  sidekiq_retry_in { 1.minute }
+  sidekiq_retries_exhausted do |job, error|
     user = AnilistUser.find_by(job["args"].first)
     user.last_known_error = error.message
     user.sync_in_progress = false
     user.save
   end
 
-  def perform(username, type = "following", page = 1)
-    user = AnilistUser.find_by(username:)
-    if (user.blank?)
-      user_id = AniList::Client.execute(AniList::UserIdQuery, username:).user.id
-      user = AnilistUser.new(
-        _id: user_id,
-        username:,
-      )
+  def perform(id, type = "following", page = 1)
+    user = AnilistUser.find(id)
+    if type === "following" && page === 1
+      user.following = []
+      user.job_id = self.jid
     end
-
-    user.sync_in_progress = true
-    user.following = [] if type === "following" && page === 1
     user.followers = [] if type === "followers" && page === 1
 
     if type === "following"
@@ -44,9 +40,9 @@ class AnilistFollowListCheckerJob
     end
 
     if response.data.page.page_info.has_next_page? === false && type === "following"
-      self.class.perform_in(1.minute, username, "followers", 1)
+      self.class.perform_in(20.seconds, id, "followers", 1)
     elsif response.data.page.page_info.has_next_page?
-      self.class.perform_in(1.minute, username, type, page + 1)
+      self.class.perform_in(20.seconds, id, type, page + 1)
     else
       user.sync_in_progress = false
     end
@@ -55,7 +51,7 @@ class AnilistFollowListCheckerJob
 
     case error.status_code
     when 404
-      logger.info("[ANILIST FOLLOW CHECKER] ".yellow + "#{username} was not found or has a private profile.".red)
+      logger.info("[ANILIST FOLLOW CHECKER] ".yellow + "#{@user.username} was not found or has a private profile.".red)
       user.sync_in_progress = false
     when 429
       logger.error("[ANILIST FOLLOW CHECKER] ".yellow + "Rate limited".red)
@@ -64,6 +60,9 @@ class AnilistFollowListCheckerJob
       logger.error("[ANILIST FOLLOW CHECKER] ".yellow + error.message.red)
       throw error
     end
+  rescue StandardError => error
+    user.last_known_error = error.message
+    user.sync_in_progress = false
   ensure
     user.save
   end

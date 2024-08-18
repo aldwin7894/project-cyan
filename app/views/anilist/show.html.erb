@@ -16,18 +16,26 @@
         <div class="max-w-sm mx-auto mb-6 font-sans text-3xl font-semibold text-center text-black dark:text-white">
           <div class="pointer-events-auto">
             <span class="dark:opacity-80">Take me</span>
-            <%= link_to "Back", anilist_index_path, data: { turbo: false }, class: "hover:text-[#3DB4F2] border-b" %>
+            <%= link_to "Back", anilist_index_path, class: "hover:text-[#3DB4F2] border-b", data: { turbo: false } %>
           </div>
         </div>
         <% if @user.sync_in_progress? %>
-          <div class="desktop:overflow-hidden justify-items-center container relative text-center">
-            <div class="w-full pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto dark:bg-fg--dark/90 bg-fg--light/80 h-fit">
-              <div class="px-10 pt-5 mb-5 bg-transparent">
-                <h1 class="text-2xl font-bold dark:text-text--dark text-text--light">
-                  Still in progress, please check again later
-                </h1>
-              </div>
-
+          <div class="justify-items-center container relative text-center">
+            <div class="max-w-lg w-full pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto dark:bg-fg--dark/90 bg-fg--light/80 h-fit mx-auto px-10 py-5 flex flex-col gap-4">
+              <iconify-icon icon="line-md:loading-alt-loop" width="100" class="mx-auto text-cyan-600"></iconify-icon>
+              <h1 class="text-2xl font-bold dark:text-text--dark text-text--light">
+                Still being processed, please check again later.
+              </h1>
+              <%= link_to "Reload", anilist_path(id: @user.job_id), class: "flex items-center px-4 py-3 font-medium text-white rounded cursor-pointer bg-cyan-700 hover:bg-cyan-600 justify-center", data: { turbo: false } %>
+            </div>
+          </div>
+        <% elsif @user.last_known_error %>
+          <div class="justify-items-center container relative text-center">
+            <div class="max-w-lg w-full pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto dark:bg-fg--dark/90 bg-fg--light/80 h-fit mx-auto px-10 py-5 flex flex-col gap-4">
+              <iconify-icon icon="material-symbols:error" width="100" class="mx-auto text-red-600"></iconify-icon>
+              <h1 class="text-2xl font-bold dark:text-text--dark text-text--light">
+                Something went wrong, please submit a new request."
+              </h1>
             </div>
           </div>
         <% else %>
