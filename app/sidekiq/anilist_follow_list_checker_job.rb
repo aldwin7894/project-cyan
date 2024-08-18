@@ -15,6 +15,8 @@ class AnilistFollowListCheckerJob
     user.save
   end
 
+  TAG = "[ANILIST FOLLOW CHECKER] ".yellow
+
   def perform(id, type = "following", page = 1)
     user = AnilistUser.find(id)
     if type === "following" && page === 1
@@ -51,13 +53,13 @@ class AnilistFollowListCheckerJob
 
     case error.status_code
     when 404
-      logger.info("[ANILIST FOLLOW CHECKER] ".yellow + "#{@user.username} was not found or has a private profile.".red)
+      logger.info(TAG + "#{@user.username} was not found or has a private profile.".red)
       user.sync_in_progress = false
     when 429
-      logger.error("[ANILIST FOLLOW CHECKER] ".yellow + "Rate limited".red)
+      logger.error(TAG + "Rate limited".red)
       throw error
     else
-      logger.error("[ANILIST FOLLOW CHECKER] ".yellow + error.message.red)
+      logger.error(TAG + error.message.red)
       throw error
     end
   rescue StandardError => error
