@@ -3070,10 +3070,10 @@ rimraf@^3.0.2:
   dependencies:
     glob "^7.1.3"
 
-rollup-plugin-gzip@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-gzip/-/rollup-plugin-gzip-4.0.0.tgz#524b5c879b423e53b8c5f1d7f4e10578851d177b"
-  integrity sha512-0T+2fKTZlo4u/5x77xDacjqhpL7GveC+cDL2DZB52Z6gI0Aq9l6zZrxgWlyeHXshvtOLTa4L85zboqsDvGz6LQ==
+rollup-plugin-gzip@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-gzip/-/rollup-plugin-gzip-4.0.1.tgz#d1bf44c4e0708ea93eaa8a9d35ca3a375970e1f4"
+  integrity sha512-HVukJ5vwTxgzKaNeKCNEqFRQ+/T/j/3zqoUaCN3VGTt8/Mn7Wu2nMCE8VBIDubjM5U+QGgiWs6fYysn63JZY1g==
 
 rollup-plugin-visualizer@^5.12.0:
   version "5.12.0"
