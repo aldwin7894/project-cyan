@@ -1,10 +1,10 @@
 GIT
   remote: https://github.com/AlexKovynev/mongoid.git
-  revision: 4bdd6aa754363aa33785a5e68099a4f15eb292d5
+  revision: dd1f464846199663db8c51ef73fe108fc16b8641
   branch: Rails72Support
   specs:
     mongoid (9.0.1)
-      activemodel (>= 5.1, < 8.0, != 7.0.0)
+      activemodel (>= 5.1, < 7.3, != 7.0.0)
       concurrent-ruby (>= 1.0.5, < 2.0)
       mongo (>= 2.18.0, < 3.0.0)
 
@@ -203,7 +203,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2024.0806)
     mini_mime (1.1.5)
-    minitest (5.24.1)
+    minitest (5.25.1)
     mongo (2.20.1)
       bson (>= 4.14.1, < 6.0.0)
     msgpack (1.7.2)
