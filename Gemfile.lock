@@ -304,7 +304,7 @@ GEM
     rdoc (6.7.0)
       psych (>= 4.0.0)
     recaptcha (5.17.0)
-    redis (5.2.0)
+    redis (5.3.0)
       redis-client (>= 0.22.0)
     redis-client (0.22.2)
       connection_pool
@@ -474,7 +474,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 3.3)
   rails (~> 7.2.0)
   recaptcha (~> 5.17)
-  redis (~> 5.2)
+  redis (~> 5.3)
   responders (~> 3.1)
   rubocop
   rubocop-packaging
