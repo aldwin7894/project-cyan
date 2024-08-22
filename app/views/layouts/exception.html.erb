@@ -5,8 +5,8 @@
       <%= "Cyan★Nyan♪ | Error - #{@status} (#{@response})" %>
     </title>
 
-    <%= render "layouts/preconnect" %>
-    <%= render "layouts/favicon" %>
+    <%= render partial: "layouts/meta", locals: { title: "Cyan★Nyan♪ | Error - #{@status} (#{@response})", description: "Error" } %>
+
     <%= render "layouts/ga" %>
 
     <%= csrf_meta_tags %>

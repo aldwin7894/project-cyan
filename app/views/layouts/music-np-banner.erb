@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Cyan★Nyan♪ |
-      <%= action_name.titleize %>
-      Now Playing Banner</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta http-equiv="content-type" content="text/html"/>
-    <meta charset="UTF-8"/>
+    <% title = "Cyan★Nyan♪ | #{action_name.titleize} Now Playing Banner" %>
+    <% description = "#{action_name.titleize} now playing banner" %>
+
+    <title><%= title %></title>
+    <%= render partial: "layouts/meta", locals: { title:, description: } %>
+
+    <%= render "layouts/ga" %>
 
     <%= render "layouts/favicon" %>
     <%= csrf_meta_tags %>

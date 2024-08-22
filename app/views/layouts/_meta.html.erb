@@ -1,0 +1,21 @@
+<% title ||= "Cyan★Nyan♪" %>
+
+<meta name="application-name" content="<%= title %>"/>
+<meta name="description" content="<%= description %>">
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta http-equiv="content-type" content="text/html"/>
+<meta charset="UTF-8"/>
+<meta name="keywords" content="aldwin7894, cyannyan, cyannyann, anilist, al, myanimelist, mal, lastfm, project-cyan, cyan, follow, check">
+<meta name="author" content="aldwin7894">
+
+<meta property="og:title" content="<%= title %>">
+<meta property="og:description" content="<%= description %>">
+<meta property="og:type" content="website">
+<meta property="og:url" content="<%= ENV.fetch("RAILS_HOST") %>">
+<meta property="og:image" content="<%= vite_asset_url "images/cyan-bg-3.webp" %>">
+<meta property="og:site_name" content="Cyan★Nyan♪">
+
+<link rel="canonical" href="<%= ENV.fetch("RAILS_HOST") %>">
+
+<%= render "layouts/favicon" %>
+<%= render "layouts/preconnect" %>
