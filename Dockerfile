@@ -41,6 +41,8 @@ COPY *.json .
 COPY Rakefile .
 COPY build.sh .
 COPY config.ru .
+COPY entrypoint.sh .
+COPY entrypoint-sidekiq.sh .
 
 RUN --mount=type=secret,id=TZ \
     --mount=type=secret,id=RAILS_ENV \
@@ -82,23 +84,20 @@ COPY --from=build-env /usr/local/bundle /usr/local/bundle
 COPY --from=build-env /gems /gems
 COPY --from=build-env "/node-v${NODE_VERSION}-linux-x64" "/node-v${NODE_VERSION}-linux-x64"
 
-COPY entrypoint-sidekiq.sh .
-RUN chmod +x ./entrypoint-sidekiq.sh
-
 # Configure jemalloc
 ENV MALLOC_CONF='narenas:2,background_thread:true,thp:never,dirty_decay_ms:1000,muzzy_decay_ms:0'
 
 # Add a script to be executed every time the container starts.
-COPY entrypoint.sh .
-RUN chmod +x ./entrypoint.sh
-RUN groupadd -r docker && useradd -r -g docker docker
-RUN chown -R docker:docker /usr/src/app
+RUN chmod +x ./entrypoint.sh \
+  && chmod +x ./entrypoint-sidekiq.sh \
+  && groupadd -r docker && useradd -r -g docker docker \
+  && chown -R docker:docker /usr/src/app
 USER docker
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
 EXPOSE 3000
 
 HEALTHCHECK --interval=5m --timeout=10s --retries=5 --start-period=10s  \
-  CMD wget --no-verbose --tries=1 --spider http://0.0.0.0:3000/ping || exit 1
+  CMD ["wget", "--no-verbose", "--tries=1", "--spider", "http://web:3000/ping", "||", "exit", "1"]
 
 # Configure the main process to run when running the image
 CMD ["bin/rails", "s", "-b", "0.0.0.0"]

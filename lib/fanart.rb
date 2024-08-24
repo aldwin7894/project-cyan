@@ -27,6 +27,8 @@ module Fanart
     base_uri BASE_URL
     default_timeout 30
     open_timeout 10
+    CACHE_TAG = "CACHE".yellow
+    FANART_TAG = "FANART".yellow
 
     def initialize
       @options = {
@@ -45,15 +47,16 @@ module Fanart
       url = "/movies/#{tmdb_id}"
       cache_key = "FANART/TMDB/#{tmdb_id}"
       fanart_url = nil
+      log_tag = "GET MOVIE FANART: TMDB".yellow
 
       if Rails.cache.exist? cache_key
-        Rails.logger.tagged("CACHE".yellow, "FanartTV.get_fanart_by_tmdb_id".yellow, cache_key.yellow) do
+        Rails.logger.tagged(CACHE_TAG, "FanartTV.get_fanart_by_tmdb_id".yellow, cache_key.yellow) do
           Rails.logger.info("HIT".green)
         end
         return Rails.cache.fetch(cache_key)
       end
 
-      Rails.logger.tagged("CACHE".yellow, "FanartTV.get_fanart_by_tmdb_id".yellow, cache_key.yellow) do
+      Rails.logger.tagged(CACHE_TAG, "FanartTV.get_fanart_by_tmdb_id".yellow, cache_key.yellow) do
         Rails.logger.info("MISS".red)
       end
 
@@ -64,7 +67,7 @@ module Fanart
 
       res = JSON.parse res, symbolize_names: true
       if !res&.[](:moviebackground).is_a?(Array)
-        Rails.logger.tagged("FANART".yellow, "GET MOVIE FANART: TMDB".yellow, tmdb_id.to_s.yellow) do
+        Rails.logger.tagged(FANART_TAG, log_tag, tmdb_id.to_s.yellow) do
           Rails.logger.info("NOT FOUND".red)
         end
         return fanart_url
@@ -72,13 +75,13 @@ module Fanart
 
       fanart = res[:moviebackground]&.sort_by { |x| [-x[:likes].to_i, -x[:id].to_i] }&.first
       if fanart.blank?
-        Rails.logger.tagged("FANART".yellow, "GET MOVIE FANART: TMDB".yellow, tmdb_id.to_s.yellow) do
+        Rails.logger.tagged(FANART_TAG, log_tag, tmdb_id.to_s.yellow) do
           Rails.logger.info("NO FANARTS".red)
         end
         return fanart_url
       end
 
-      Rails.logger.tagged("FANART".yellow, "GET MOVIE FANART: TMDB".yellow, tmdb_id.to_s.yellow) do
+      Rails.logger.tagged(FANART_TAG, log_tag, tmdb_id.to_s.yellow) do
         Rails.logger.info("FOUND".green)
       end
       fanart_url = fanart[:url]
@@ -93,15 +96,16 @@ module Fanart
       url = "/tv/#{tvdb_id}"
       cache_key = "FANART/TVDB/#{tvdb_id}"
       fanart_url = nil
+      log_tag = "GET SERIES FANART: TVDB".yellow
 
       if Rails.cache.exist? cache_key
-        Rails.logger.tagged("CACHE".yellow, "FanartTV.get_fanart_by_tvdb_id".yellow, cache_key.yellow) do
+        Rails.logger.tagged(CACHE_TAG, "FanartTV.get_fanart_by_tvdb_id".yellow, cache_key.yellow) do
           Rails.logger.info("HIT".green)
         end
         return Rails.cache.fetch(cache_key)
       end
 
-      Rails.logger.tagged("CACHE".yellow, "FanartTV.get_fanart_by_tvdb_id".yellow, cache_key.yellow) do
+      Rails.logger.tagged(CACHE_TAG, "FanartTV.get_fanart_by_tvdb_id".yellow, cache_key.yellow) do
         Rails.logger.info("MISS".red)
       end
 
@@ -112,7 +116,7 @@ module Fanart
 
       res = JSON.parse res, symbolize_names: true
       if !res&.[](:showbackground).is_a?(Array)
-        Rails.logger.tagged("FANART".yellow, "GET SERIES FANART: TVDB".yellow, tvdb_id.to_s.yellow) do
+        Rails.logger.tagged(FANART_TAG, log_tag, tvdb_id.to_s.yellow) do
           Rails.logger.info("NOT FOUND".red)
         end
         return fanart_url
@@ -120,13 +124,13 @@ module Fanart
 
       fanart = res[:showbackground]&.sort_by { |x| [-x[:likes].to_i, -x[:id].to_i] }&.first
       if fanart.blank?
-        Rails.logger.tagged("FANART".yellow, "GET SERIES FANART: TVDB".yellow, tvdb_id.to_s.yellow) do
+        Rails.logger.tagged(FANART_TAG, log_tag, tvdb_id.to_s.yellow) do
           Rails.logger.info("NO FANARTS".red)
         end
         return fanart_url
       end
 
-      Rails.logger.tagged("FANART".yellow, "GET SERIES FANART: TVDB".yellow, tvdb_id.to_s.yellow) do
+      Rails.logger.tagged(FANART_TAG, log_tag, tvdb_id.to_s.yellow) do
         Rails.logger.info("FOUND".green)
       end
       fanart_url = fanart[:url]
