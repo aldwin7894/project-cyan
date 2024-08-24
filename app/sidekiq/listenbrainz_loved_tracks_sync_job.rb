@@ -8,6 +8,8 @@ class ListenbrainzLovedTracksSyncJob
   sidekiq_options retry: 5
   sidekiq_retry_in { 30.minutes }
 
+  TAG = "[LISTENBRAINZ FAVORITES SYNC]"
+
   def perform(*args)
     offset = T.let(0, T.untyped)
     total = T.let(1, T.untyped)
@@ -27,5 +29,6 @@ class ListenbrainzLovedTracksSyncJob
 
     ListenbrainzLovedTrack.destroy_all
     ListenbrainzLovedTrack.create!(loved_tracks)
+    logger.info(TAG + "SYNCING DONE".green)
   end
 end

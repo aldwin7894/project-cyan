@@ -8,6 +8,8 @@ class AnilistActivitiesSyncJob
   sidekiq_options retry: 5
   sidekiq_retry_in { 30.minutes }
 
+  TAG = "[ANILIST ACTIVITIES SYNC] ".yellow
+
   def perform(date = 1704038400, page = 1)
     user_id = ENV.fetch("ANILIST_USER_ID")
     activity_page = AnilistActivity.where(date:, page:)
@@ -18,7 +20,7 @@ class AnilistActivitiesSyncJob
     fetched_last_id = response&.data&.page&.activities&.last&.id
 
     if current_last_id === fetched_last_id
-      logger.info("[ANILIST_ACTIVITIES_SYNC] ".yellow + "SKIP SYNCING FOR PAGE #{page}".red)
+      logger.info(TAG + "SKIP SYNCING FOR PAGE #{page}".red)
     else
       activities = response.data.page.activities.to_a.map do |data|
         activity = data.to_h.dup
@@ -31,12 +33,12 @@ class AnilistActivitiesSyncJob
       activity_page.destroy
       AnilistActivity.create(activities)
 
-      logger.info("[ANILIST_ACTIVITIES_SYNC] ".yellow + "SYNCING DONE FOR PAGE #{page}".green)
+      logger.info(TAG + "SYNCING DONE FOR PAGE #{page}".green)
     end
 
     if has_next_page == true
       self.class.perform_in(Rails.env.development? ? 20.seconds : 60.seconds, date, page + 1)
-      logger.info("[ANILIST_ACTIVITIES_SYNC] ".yellow + "SYNCING FOR PAGE #{page + 1} IS SCHEDULED".green)
+      logger.info(TAG + "SYNCING FOR PAGE #{page + 1} IS SCHEDULED".green)
     end
   end
 end

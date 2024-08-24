@@ -9,14 +9,11 @@ class AnilistController < ApplicationController
     # index
   end
 
-  def new
-    # new
-  end
-
   def show
     @user = AnilistUser.find_by(job_id: params[:id])
     if @user.blank?
-      raise ActionController::RoutingError.new('Not Found')
+      raise ActionController::RoutingError.new("Not Found")
+
     end
 
     @following = @user.following
@@ -24,6 +21,10 @@ class AnilistController < ApplicationController
     @following_count = @following.size
     @followers_count = @followers.size
   end
+  def new
+    # new
+  end
+
 
   def fetch_followers
     @success = false
@@ -47,7 +48,7 @@ class AnilistController < ApplicationController
       return @error = "User <strong>#{username}</strong> is already in the queue and is being processed!<br />Please wait for the result."
     end
 
-    if (@user.blank?)
+    if @user.blank?
       user_id = query(AniList::UserIdQuery, username:).user.id
       @user = AnilistUser.new(
         _id: user_id,

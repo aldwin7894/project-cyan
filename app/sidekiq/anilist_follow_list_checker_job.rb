@@ -1,4 +1,5 @@
-# typed: false
+# frozen_string_literal: true
+# typed: true
 
 require "anilist"
 
@@ -19,6 +20,7 @@ class AnilistFollowListCheckerJob
 
   def perform(id, type = "following", page = 1)
     user = AnilistUser.find(id)
+    username = "[#{user.username}] ".blue
     if type === "following" && page === 1
       user.following = []
       user.job_id = self.jid
@@ -26,6 +28,7 @@ class AnilistFollowListCheckerJob
     user.followers = [] if type === "followers" && page === 1
 
     if type === "following"
+      logger.info(TAG + username + "FETCHING FOLLOWING: PAGE #{page}".green)
       following = user.following
       response = AniList::Client.execute(AniList::UserFollowingQuery, user_id: user._id, page:)
       following.push(*response.data.page.following.map(&:name))
@@ -33,6 +36,7 @@ class AnilistFollowListCheckerJob
 
       user.following = following
     elsif type === "followers"
+      logger.info(TAG + username + "FETCHING FOLLOWERS: PAGE #{page}".green)
       followers = user.followers
       response = AniList::Client.execute(AniList::UserFollowersQuery, user_id: user._id, page:)
       followers.push(*response.data.page.followers.map(&:name))
@@ -46,6 +50,7 @@ class AnilistFollowListCheckerJob
     elsif response.data.page.page_info.has_next_page?
       self.class.perform_in(20.seconds, id, type, page + 1)
     else
+      logger.info(TAG + username + "FETCHING DONE".green)
       user.sync_in_progress = false
     end
   rescue Graphlient::Errors::ServerError => error
@@ -53,13 +58,13 @@ class AnilistFollowListCheckerJob
 
     case error.status_code
     when 404
-      logger.info(TAG + "#{@user.username} was not found or has a private profile.".red)
+      logger.info(TAG + username + "NOT FOUND OR HAS A PRIVATE PROFILE".red)
       user.sync_in_progress = false
     when 429
-      logger.error(TAG + "Rate limited".red)
+      logger.error(TAG + username + "RATE LIMITED, WILL BE RETRIED".red)
       throw error
     else
-      logger.error(TAG + error.message.red)
+      logger.error(TAG + username + error.message.red)
       throw error
     end
   rescue StandardError => error
