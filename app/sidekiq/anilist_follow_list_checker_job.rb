@@ -7,7 +7,11 @@ class AnilistFollowListCheckerJob
   include Sidekiq::Job
   sidekiq_options retry: 5,
     lock: :until_and_while_executing,
-    on_conflict: { client: :log, server: :reject }
+    lock_args_method: ->(args) { [args.first, args.second] },
+    on_conflict: {
+      client: :log,
+      server: :reject
+    }
   sidekiq_retry_in { 1.minute }
   sidekiq_retries_exhausted do |job, error|
     user = AnilistUser.find_by(job["args"].first)
