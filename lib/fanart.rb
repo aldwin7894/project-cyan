@@ -86,7 +86,7 @@ module Fanart
       end
       fanart_url = fanart[:url]
 
-      Rails.cache.write(cache_key, fanart_url, expires_in: 1.month)
+      Rails.cache.write(cache_key, fanart_url, expires_in: 3.months)
       fanart_url
     rescue HTTParty::Error, ApiError
       nil
@@ -135,7 +135,7 @@ module Fanart
       end
       fanart_url = fanart[:url]
 
-      Rails.cache.write(cache_key, fanart_url, expires_in: 1.month)
+      Rails.cache.write(cache_key, fanart_url, expires_in: 3.months)
       fanart_url
     rescue HTTParty::Error, ApiError
       nil

@@ -10,5 +10,8 @@ echo "Start seeding db..."
 bin/rails db:seed_game_ids
 bin/rails db:seed_spotify_artist_whitelists
 
+echo "Clear vite image cache"
+bin/rails cache:clear_vite
+
 # Then exec the container's main process (what's set as CMD in the Dockerfile).
 exec "$@"

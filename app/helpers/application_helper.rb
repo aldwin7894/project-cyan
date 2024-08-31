@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# typed: true
 
 require "addressable/uri"
 require "brotli"
@@ -11,7 +12,7 @@ module ApplicationHelper
 
     filetype = Addressable::URI.parse(url).extname.remove(".")
 
-    img = Rails.cache.fetch("IMAGES/#{url}", expires_in: 1.week, skip_nil: true) do
+    img = Rails.cache.fetch("IMAGES/#{url}", expires_in: 3.months, skip_nil: true) do
       data = {}
       res = HTTParty.get(
         url,
@@ -44,10 +45,10 @@ module ApplicationHelper
 
   def vite_url_to_base64(url)
     image = nil
-    ext = nil
+    ext = T.let(nil, T.untyped)
     return image if url.blank?
 
-    asset = Rails.cache.fetch("ASSETS/#{url}", expires_in: 1.month, skip_nil: true) do
+    asset = Rails.cache.fetch("ASSETS/#{url}", skip_nil: true) do
       res = HTTParty.get(
         url,
         format: :plain,

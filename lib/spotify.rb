@@ -70,7 +70,7 @@ module Spotify
         Rails.logger.tagged("CACHE".yellow, "Spotify.get_artists_images".yellow, cache_key.yellow) do
           Rails.logger.info("MISS".red)
         end
-        artist_images = Rails.cache.fetch(cache_key, expires_in: 1.week, skip_nil: true) do
+        artist_images = Rails.cache.fetch(cache_key, expires_in: 1.month, skip_nil: true) do
           res = self.class.get("/artists", headers:, query:)
           break if res.code >= 300
 

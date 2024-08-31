@@ -81,7 +81,7 @@ module LastFM
         Rails.logger.tagged("CACHE".yellow, "LastFM.get_top_artists".yellow, cache_key.yellow) do
           Rails.logger.info("MISS".red)
         end
-        top_artists = Rails.cache.fetch(cache_key, expires_in: 1.week, skip_nil: true) do
+        top_artists = Rails.cache.fetch(cache_key, expires_in: 1.month, skip_nil: true) do
           res = self.class.get("/", headers:, query:)
           unless res.success?
             raise ApiError.new(res["message"], res["error"])

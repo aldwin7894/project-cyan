@@ -117,7 +117,7 @@ module Shoko
         index += 1
       end
 
-      Rails.cache.write(cache_key, series, expires_in: 1.month)
+      Rails.cache.write(cache_key, series, expires_in: 3.months)
       series
     rescue HTTParty::Error, ApiError
       nil
@@ -163,7 +163,7 @@ module Shoko
       source = fanart[:Source]
       id = fanart[:ID]
 
-      fanart_url = Rails.cache.fetch(cache_key, expires_in: 1.month, skip_nil: true) do
+      fanart_url = Rails.cache.fetch(cache_key, expires_in: 3.months, skip_nil: true) do
         get_fanart_url(id:, source:)
       end
 
