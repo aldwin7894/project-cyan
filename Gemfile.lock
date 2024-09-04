@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AlexKovynev/mongoid.git
-  revision: dd1f464846199663db8c51ef73fe108fc16b8641
+  revision: b51ddae576801dfe8190c2e39d61302ae1ed3ecc
   branch: Rails72Support
   specs:
     mongoid (9.0.1)
@@ -182,7 +182,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.0)
+    logger (1.6.1)
     lograge (0.14.0)
       actionpack (>= 4)
       activesupport (>= 4)
