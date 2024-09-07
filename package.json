@@ -33,7 +33,7 @@
     "cssnano": "^7.0.6",
     "cssnano-preset-advanced": "^7.0.6",
     "iconify-icon": "^2.1.0",
-    "postcss": "^8.4.41",
+    "postcss": "^8.4.45",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^16.1.0",
     "postcss-preset-env": "^10.0.2",
@@ -52,7 +52,7 @@
     "vite-plugin-ruby": "^5.1.0"
   },
   "devDependencies": {
-    "@types/node": "^22.5.0",
+    "@types/node": "^22.5.4",
     "@typescript-eslint/parser": "^8.4.0",
     "eslint": "8.57.0",
     "eslint-config-prettier": "^9.1.0",
@@ -64,7 +64,7 @@
     "typescript": "^5.5.4"
   },
   "engines": {
-    "node": "20.14.0",
+    "node": "20.17.0",
     "npm": ">= 10.8",
     "yarn": ">= 1.22"
   }
