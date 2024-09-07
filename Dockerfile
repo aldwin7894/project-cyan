@@ -1,6 +1,6 @@
 FROM ruby:3.3.5-slim-bookworm AS build-env
 
-ENV NODE_VERSION=20.14.0
+ENV NODE_VERSION=20.17.0
 ENV NPM_VERSION=10.8
 ENV YARN_VERSION=1.22
 ENV BUNDLE_PATH=/gems
@@ -45,18 +45,18 @@ COPY entrypoint.sh .
 COPY entrypoint-sidekiq.sh .
 
 RUN --mount=type=secret,id=TZ \
-    --mount=type=secret,id=RAILS_ENV \
-    --mount=type=secret,id=NODE_ENV \
-    --mount=type=secret,id=RAILS_MASTER_KEY \
-    --mount=type=secret,id=RAILS_ASSET_HOST \
-    chmod -R 755 ./bin/* \
-    && chmod -R 755 ./build.sh \
-    && bash ./build.sh
+  --mount=type=secret,id=RAILS_ENV \
+  --mount=type=secret,id=NODE_ENV \
+  --mount=type=secret,id=RAILS_MASTER_KEY \
+  --mount=type=secret,id=RAILS_ASSET_HOST \
+  chmod -R 755 ./bin/* \
+  && chmod -R 755 ./build.sh \
+  && bash ./build.sh
 
 #==============================================
 FROM ruby:3.3.5-slim-bookworm
 
-ENV NODE_VERSION=20.14.0
+ENV NODE_VERSION=20.17.0
 ENV BUNDLE_PATH=/gems
 ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
