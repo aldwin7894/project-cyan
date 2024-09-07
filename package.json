@@ -25,12 +25,12 @@
     "@hotwired/turbo-rails": "^8.0.5",
     "@rails/actioncable": "^7.2.100",
     "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/forms": "^0.5.8",
+    "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
     "alpinejs": "^3.14.1",
     "autoprefixer": "^10.4.20",
     "chart.js": "^4.4.4",
-    "cssnano": "^7.0.5",
+    "cssnano": "^7.0.6",
     "cssnano-preset-advanced": "^7.0.5",
     "iconify-icon": "^2.1.0",
     "postcss": "^8.4.41",
@@ -49,7 +49,7 @@
     "tippy.js": "^6.3.7",
     "vite": "^5.4.3",
     "vite-plugin-full-reload": "^1.2.0",
-    "vite-plugin-ruby": "^5.0.0"
+    "vite-plugin-ruby": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^22.5.0",
