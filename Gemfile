@@ -119,3 +119,5 @@ gem "sidekiq-cron", "~> 1.12"
 gem "colorize", "~> 1.1"
 
 gem "sidekiq-unique-jobs", "~> 8.0"
+
+gem "ostruct", "~> 0.6.0"

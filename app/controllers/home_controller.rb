@@ -283,7 +283,7 @@ class HomeController < ApplicationController
       return {} if activity.blank?
 
       user_activity = activity.deep_dup
-      name = user_activity["media"]["format"] == "TV" && user_activity["media"]["countryOfOrigin"] != "CN" ?
+      name = user_activity["media"]["format"] === "TV" && user_activity["media"]["countryOfOrigin"] != "CN" ?
         user_activity["media"]["title"]["userPreferred"] :
         user_activity["media"]["title"]["english"]
       name ||= user_activity["media"]["title"]["userPreferred"]
@@ -301,19 +301,18 @@ class HomeController < ApplicationController
 
       shoko = Shoko::Client.new
       series = shoko.find_series(name:, year:, mal_id:, alternatives:)
-      fanart_url = nil
+      fanart_url = shoko.get_fanart_by_series(series:)
 
       tvdb_id = series&.[](:IDs)&.[](:TvDB)&.first
       tmdb_id = series&.[](:IDs)&.[](:TMDB)&.[](:Movie)&.first
       tmdb_id ||= series&.[](:IDs)&.[](:TMDB)&.[](:Show)&.first
 
-      if tvdb_id.present? || tmdb_id.present?
+      if fanart_url.blank? && (tvdb_id.present? || tmdb_id.present?)
         fanart = Fanart::Client.new
-        fanart_url ||= fanart.get_fanart_by_tvdb_id(tvdb_id:) if tvdb_id.present?
         fanart_url ||= fanart.get_fanart_by_tmdb_id(tmdb_id:) if tmdb_id.present?
+        fanart_url ||= fanart.get_fanart_by_tvdb_id(tvdb_id:) if tvdb_id.present?
       end
 
-      fanart_url ||= shoko.get_fanart_by_series(series:)
       user_activity["media"]["bannerImage"] = fanart_url if fanart_url.present?
       user_activity
     end
