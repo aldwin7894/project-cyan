@@ -4771,10 +4771,6 @@ class Object < ::BasicObject
   include ::BSON::Object
 end
 
-class OpenStruct
-  include ::BSON::OpenStruct
-end
-
 class Regexp
   include ::BSON::JSON
   include ::BSON::Regexp

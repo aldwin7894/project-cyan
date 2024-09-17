@@ -271,5 +271,5 @@ ConnectionPool::Wrapper::METHODS = T.let(T.unsafe(nil), Array)
 module Process
   extend ::RedisClient::PIDCache::CoreExt
   extend ::ConnectionPool::ForkTracker
-  extend ::ActiveSupport::ForkTracker::ModernCoreExt
+  extend ::ActiveSupport::ForkTracker::CoreExt
 end

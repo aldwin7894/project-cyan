@@ -6,7 +6,7 @@ class AnilistUserStatisticsSyncJob
   sidekiq_options retry: 5
   sidekiq_retry_in { 30.minutes }
 
-  TAG = "[ANILIST STATS SYNC]".yellow
+  TAG = "[ANILIST STATS SYNC] ".yellow
 
   def perform
     user_id = ENV.fetch("ANILIST_USER_ID")
