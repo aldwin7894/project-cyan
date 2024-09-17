@@ -98,8 +98,8 @@ module LastFM
   end
 
   def self.get_cover_art_url(track)
-    url = track&.[]("image")&.[](2)&.[]("#text")
-    return nil unless url.present? && url.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
+    url = T.let(track&.[]("image")&.[](2)&.[]("#text"), T.untyped)
+    return nil unless url.present? && url.is_a?(String) && url.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
 
     # res = self.class.head(url)
     # return nil unless res.success?
