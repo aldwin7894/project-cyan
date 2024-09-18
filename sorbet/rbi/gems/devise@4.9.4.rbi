@@ -10,7 +10,7 @@ module ActionDispatch::Routing; end
 
 # source://devise//lib/devise/rails/routes.rb#35
 class ActionDispatch::Routing::Mapper
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/mapper.rb#2313
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/mapper.rb#2348
   def initialize(set); end
 
   # source://health_check/3.1.0/lib/health_check/health_check_routes.rb#9
@@ -354,22 +354,22 @@ class ActionDispatch::Routing::Mapper
   def with_devise_exclusive_scope(new_path, new_as, options); end
 
   class << self
-    # source://actionpack/7.1.3.4/lib/action_dispatch/routing/mapper.rb#16
+    # source://actionpack/7.2.1/lib/action_dispatch/routing/mapper.rb#27
     def backtrace_cleaner; end
 
-    # source://actionpack/7.1.3.4/lib/action_dispatch/routing/mapper.rb#16
+    # source://actionpack/7.2.1/lib/action_dispatch/routing/mapper.rb#27
     def backtrace_cleaner=(val); end
 
-    # source://actionpack/7.1.3.4/lib/action_dispatch/routing/mapper.rb#392
+    # source://actionpack/7.2.1/lib/action_dispatch/routing/mapper.rb#429
     def normalize_name(name); end
 
-    # source://actionpack/7.1.3.4/lib/action_dispatch/routing/mapper.rb#375
+    # source://actionpack/7.2.1/lib/action_dispatch/routing/mapper.rb#414
     def normalize_path(path); end
 
-    # source://actionpack/7.1.3.4/lib/action_dispatch/routing/mapper.rb#15
+    # source://actionpack/7.2.1/lib/action_dispatch/routing/mapper.rb#26
     def route_source_locations; end
 
-    # source://actionpack/7.1.3.4/lib/action_dispatch/routing/mapper.rb#15
+    # source://actionpack/7.2.1/lib/action_dispatch/routing/mapper.rb#26
     def route_source_locations=(val); end
   end
 end
@@ -378,171 +378,174 @@ end
 class ActionDispatch::Routing::RouteSet
   include ::Devise::RouteSet
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#366
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#384
   def initialize(config = T.unsafe(nil)); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#649
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#664
   def add_polymorphic_mapping(klass, options, &block); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#618
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#633
   def add_route(mapping, name); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#653
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#668
   def add_url_helper(name, options, &block); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#396
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#415
   def api_only?; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#435
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#454
   def append(&block); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#879
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#893
   def call(env); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#459
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#478
   def clear!; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#409
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#428
   def default_env; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#336
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#354
   def default_scope; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#336
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#354
   def default_scope=(_arg0); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#338
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#356
   def default_url_options; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#338
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#356
   def default_url_options=(_arg0); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#481
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#499
   def define_mounted_helper(name, script_namer = T.unsafe(nil)); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#337
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#355
   def disable_clear_and_finalize; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#337
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#355
   def disable_clear_and_finalize=(_arg0); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#428
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#447
   def draw(&block); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#338
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#356
   def draw_paths; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#338
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#356
   def draw_paths=(_arg0); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#386
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#404
   def eager_load!; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#614
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#629
   def empty?; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#339
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#357
   def env_key; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#794
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#808
   def extra_keys(options, recall = T.unsafe(nil)); end
 
   # source://devise//lib/devise/rails/routes.rb#8
   def finalize!; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#822
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#836
   def find_script_name(options); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#336
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#354
   def formatter; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#336
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#354
   def formatter=(_arg0); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#798
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#29
+  def from_requirements(requirements); end
+
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#812
   def generate_extras(options, recall = T.unsafe(nil)); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#508
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#526
   def generate_url_helpers(supports_path); end
 
   def inspect; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#477
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#495
   def mounted_helpers; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#336
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#354
   def named_routes; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#336
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#354
   def named_routes=(_arg0); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#818
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#832
   def optimize_routes_generation?; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#826
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#840
   def path_for(options, route_name = T.unsafe(nil), reserved = T.unsafe(nil)); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#339
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#357
   def polymorphic_mappings; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#439
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#458
   def prepend(&block); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#885
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#899
   def recognize_path(path, environment = T.unsafe(nil)); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#900
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#914
   def recognize_path_with_request(req, path, extras, raise_on_missing: T.unsafe(nil)); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#392
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#411
   def relative_url_root; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#400
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#419
   def request_class; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#337
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#355
   def resources_path_names; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#337
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#355
   def resources_path_names=(_arg0); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#336
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#354
   def router; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#336
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#354
   def router=(_arg0); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#336
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#354
   def routes; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#336
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#354
   def set; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#336
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#354
   def set=(_arg0); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#831
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#845
   def url_for(options, route_name = T.unsafe(nil), url_strategy = T.unsafe(nil), method_name = T.unsafe(nil), reserved = T.unsafe(nil)); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#500
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#518
   def url_helpers(supports_path = T.unsafe(nil)); end
 
   private
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#443
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#462
   def eval_block(block); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#809
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#823
   def generate(route_name, options, recall = T.unsafe(nil), method_name = T.unsafe(nil)); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#404
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#423
   def make_request(env); end
 
   class << self
-    # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#343
+    # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#361
     def default_resources_path_names; end
 
-    # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#347
+    # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#365
     def new_with_config(config); end
   end
 end
@@ -1855,7 +1858,7 @@ end
 # source://devise//lib/devise/rails.rb#7
 class Devise::Engine < ::Rails::Engine
   class << self
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.2.1/lib/active_support/callbacks.rb#70
     def __callbacks; end
   end
 end
@@ -1882,25 +1885,25 @@ class Devise::FailureApp < ::ActionController::Metal
   extend ::ActiveSupport::Callbacks::ClassMethods
   extend ::AbstractController::Callbacks::ClassMethods
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
+  # source://activesupport/7.2.1/lib/active_support/callbacks.rb#70
   def __callbacks; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
+  # source://activesupport/7.2.1/lib/active_support/callbacks.rb#70
   def __callbacks?; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#963
+  # source://activesupport/7.2.1/lib/active_support/callbacks.rb#924
   def _process_action_callbacks; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#951
+  # source://activesupport/7.2.1/lib/active_support/callbacks.rb#912
   def _run_process_action_callbacks(&block); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/url_for.rb#97
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/url_for.rb#100
   def default_url_options; end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/url_for.rb#97
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/url_for.rb#100
   def default_url_options=(_arg0); end
 
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/url_for.rb#97
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/url_for.rb#100
   def default_url_options?; end
 
   # source://devise//lib/devise/failure_app.rb#19
@@ -1909,22 +1912,22 @@ class Devise::FailureApp < ::ActionController::Metal
   # source://devise//lib/devise/failure_app.rb#52
   def http_auth; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/configurable.rb#115
+  # source://activesupport/7.2.1/lib/active_support/configurable.rb#115
   def logger; end
 
-  # source://activesupport/7.1.3.4/lib/active_support/configurable.rb#116
+  # source://activesupport/7.2.1/lib/active_support/configurable.rb#116
   def logger=(value); end
 
-  # source://actionpack/7.1.3.4/lib/abstract_controller/callbacks.rb#36
+  # source://actionpack/7.2.1/lib/abstract_controller/callbacks.rb#36
   def raise_on_missing_callback_actions; end
 
-  # source://actionpack/7.1.3.4/lib/abstract_controller/callbacks.rb#36
+  # source://actionpack/7.2.1/lib/abstract_controller/callbacks.rb#36
   def raise_on_missing_callback_actions=(val); end
 
-  # source://actionpack/7.1.3.4/lib/action_controller/metal/redirecting.rb#15
+  # source://actionpack/7.2.1/lib/action_controller/metal/redirecting.rb#17
   def raise_on_open_redirects; end
 
-  # source://actionpack/7.1.3.4/lib/action_controller/metal/redirecting.rb#15
+  # source://actionpack/7.2.1/lib/action_controller/metal/redirecting.rb#17
   def raise_on_open_redirects=(val); end
 
   # source://devise//lib/devise/failure_app.rb#59
@@ -2052,22 +2055,22 @@ class Devise::FailureApp < ::ActionController::Metal
   def root_path_defined?(context); end
 
   class << self
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.2.1/lib/active_support/callbacks.rb#70
     def __callbacks; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.2.1/lib/active_support/callbacks.rb#70
     def __callbacks=(value); end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.2.1/lib/active_support/callbacks.rb#70
     def __callbacks?; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#955
+    # source://activesupport/7.2.1/lib/active_support/callbacks.rb#916
     def _process_action_callbacks; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#959
+    # source://activesupport/7.2.1/lib/active_support/callbacks.rb#920
     def _process_action_callbacks=(value); end
 
-    # source://actionpack/7.1.3.4/lib/action_dispatch/routing/route_set.rb#584
+    # source://actionpack/7.2.1/lib/action_dispatch/routing/route_set.rb#600
     def _routes; end
 
     # source://devise//lib/devise/failure_app.rb#26
@@ -2080,31 +2083,31 @@ class Devise::FailureApp < ::ActionController::Metal
     # source://devise//lib/devise/failure_app.rb#34
     def default_url_options(*args); end
 
-    # source://actionpack/7.1.3.4/lib/action_dispatch/routing/url_for.rb#97
+    # source://actionpack/7.2.1/lib/action_dispatch/routing/url_for.rb#100
     def default_url_options=(value); end
 
-    # source://actionpack/7.1.3.4/lib/action_dispatch/routing/url_for.rb#97
+    # source://actionpack/7.2.1/lib/action_dispatch/routing/url_for.rb#100
     def default_url_options?; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/configurable.rb#115
+    # source://activesupport/7.2.1/lib/active_support/configurable.rb#115
     def logger; end
 
-    # source://activesupport/7.1.3.4/lib/active_support/configurable.rb#116
+    # source://activesupport/7.2.1/lib/active_support/configurable.rb#116
     def logger=(value); end
 
-    # source://actionpack/7.1.3.4/lib/action_controller/metal.rb#262
+    # source://actionpack/7.2.1/lib/action_controller/metal.rb#288
     def middleware_stack; end
 
-    # source://actionpack/7.1.3.4/lib/abstract_controller/callbacks.rb#36
+    # source://actionpack/7.2.1/lib/abstract_controller/callbacks.rb#36
     def raise_on_missing_callback_actions; end
 
-    # source://actionpack/7.1.3.4/lib/abstract_controller/callbacks.rb#36
+    # source://actionpack/7.2.1/lib/abstract_controller/callbacks.rb#36
     def raise_on_missing_callback_actions=(val); end
 
-    # source://actionpack/7.1.3.4/lib/action_controller/metal/redirecting.rb#15
+    # source://actionpack/7.2.1/lib/action_controller/metal/redirecting.rb#17
     def raise_on_open_redirects; end
 
-    # source://actionpack/7.1.3.4/lib/action_controller/metal/redirecting.rb#15
+    # source://actionpack/7.2.1/lib/action_controller/metal/redirecting.rb#17
     def raise_on_open_redirects=(val); end
   end
 end
@@ -2164,7 +2167,7 @@ class Devise::Mailer < ::ActionMailer::Base
 
   private
 
-  # source://actionview/7.1.3.4/lib/action_view/layouts.rb#330
+  # source://actionview/7.2.1/lib/action_view/layouts.rb#328
   def _layout(lookup_context, formats); end
 end
 

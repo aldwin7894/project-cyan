@@ -8,7 +8,7 @@ class ListenbrainzLovedTracksSyncJob
   sidekiq_options retry: 5
   sidekiq_retry_in { 30.minutes }
 
-  TAG = "[LISTENBRAINZ FAVORITES SYNC]"
+  TAG = "[LISTENBRAINZ FAVORITES SYNC] ".yellow
 
   def perform(*args)
     offset = T.let(0, T.untyped)

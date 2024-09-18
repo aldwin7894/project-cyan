@@ -10,7 +10,7 @@ module ActionDispatch::Routing; end
 
 # source://health_check//lib/health_check/health_check_routes.rb#2
 class ActionDispatch::Routing::Mapper
-  # source://actionpack/7.1.3.4/lib/action_dispatch/routing/mapper.rb#2313
+  # source://actionpack/7.2.1/lib/action_dispatch/routing/mapper.rb#2348
   def initialize(set); end
 
   # source://health_check//lib/health_check/health_check_routes.rb#9
@@ -73,22 +73,22 @@ class ActionDispatch::Routing::Mapper
   def with_devise_exclusive_scope(new_path, new_as, options); end
 
   class << self
-    # source://actionpack/7.1.3.4/lib/action_dispatch/routing/mapper.rb#16
+    # source://actionpack/7.2.1/lib/action_dispatch/routing/mapper.rb#27
     def backtrace_cleaner; end
 
-    # source://actionpack/7.1.3.4/lib/action_dispatch/routing/mapper.rb#16
+    # source://actionpack/7.2.1/lib/action_dispatch/routing/mapper.rb#27
     def backtrace_cleaner=(val); end
 
-    # source://actionpack/7.1.3.4/lib/action_dispatch/routing/mapper.rb#392
+    # source://actionpack/7.2.1/lib/action_dispatch/routing/mapper.rb#429
     def normalize_name(name); end
 
-    # source://actionpack/7.1.3.4/lib/action_dispatch/routing/mapper.rb#375
+    # source://actionpack/7.2.1/lib/action_dispatch/routing/mapper.rb#414
     def normalize_path(path); end
 
-    # source://actionpack/7.1.3.4/lib/action_dispatch/routing/mapper.rb#15
+    # source://actionpack/7.2.1/lib/action_dispatch/routing/mapper.rb#26
     def route_source_locations; end
 
-    # source://actionpack/7.1.3.4/lib/action_dispatch/routing/mapper.rb#15
+    # source://actionpack/7.2.1/lib/action_dispatch/routing/mapper.rb#26
     def route_source_locations=(val); end
   end
 end
@@ -438,7 +438,7 @@ class HealthCheck::Engine < ::Rails::Engine
   def routes_explicitly_defined=(val); end
 
   class << self
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.2.1/lib/active_support/callbacks.rb#70
     def __callbacks; end
 
     # source://health_check//lib/health_check.rb#7
@@ -474,20 +474,20 @@ class HealthCheck::HealthCheckController < ::ActionController::Base
 
   private
 
-  # source://actionview/7.1.3.4/lib/action_view/layouts.rb#330
+  # source://actionview/7.2.1/lib/action_view/layouts.rb#328
   def _layout(lookup_context, formats); end
 
   class << self
-    # source://activesupport/7.1.3.4/lib/active_support/callbacks.rb#70
+    # source://activesupport/7.2.1/lib/active_support/callbacks.rb#70
     def __callbacks; end
 
-    # source://actionview/7.1.3.4/lib/action_view/layouts.rb#211
+    # source://actionview/7.2.1/lib/action_view/layouts.rb#211
     def _layout; end
 
-    # source://actionview/7.1.3.4/lib/action_view/layouts.rb#212
+    # source://actionview/7.2.1/lib/action_view/layouts.rb#212
     def _layout_conditions; end
 
-    # source://actionpack/7.1.3.4/lib/action_controller/metal.rb#262
+    # source://actionpack/7.2.1/lib/action_controller/metal.rb#288
     def middleware_stack; end
   end
 end

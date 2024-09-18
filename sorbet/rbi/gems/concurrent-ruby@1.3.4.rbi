@@ -5591,6 +5591,135 @@ end
 # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#220
 Concurrent::MutableStruct::FACTORY = T.let(T.unsafe(nil), T.untyped)
 
+class Concurrent::MutableStruct::ThreadSafeConfig < ::Concurrent::Synchronization::LockableObject
+  include ::Concurrent::Synchronization::AbstractStruct
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def current_redis_version; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def current_redis_version=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def debug_lua; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def debug_lua=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def enabled; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def enabled=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def lock_info; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def lock_info=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def lock_prefix; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def lock_prefix=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def lock_timeout; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def lock_timeout=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def lock_ttl; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def lock_ttl=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def locks; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def locks=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def logger; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def logger=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def logger_enabled; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def logger_enabled=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def max_history; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def max_history=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/synchronization/abstract_struct.rb#145
+  def ns_initialize(*values); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def raise_on_config_error; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def raise_on_config_error=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def reaper; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def reaper=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def reaper_count; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def reaper_count=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def reaper_interval; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def reaper_interval=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def reaper_resurrector_enabled; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def reaper_resurrector_enabled=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def reaper_resurrector_interval; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def reaper_resurrector_interval=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def reaper_timeout; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def reaper_timeout=(value); end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#226
+  def strategies; end
+
+  # source://concurrent-ruby//lib/concurrent-ruby/concurrent/mutable_struct.rb#229
+  def strategies=(value); end
+
+  class << self
+    # source://concurrent-ruby//lib/concurrent-ruby/concurrent/synchronization/safe_initialization.rb#29
+    def [](*args, &block); end
+  end
+end
+
+# source://concurrent-ruby//lib/concurrent-ruby/concurrent/synchronization/abstract_struct.rb#144
+Concurrent::MutableStruct::ThreadSafeConfig::MEMBERS = T.let(T.unsafe(nil), Array)
+
 # A boolean value that can be updated atomically. Reads and writes to an atomic
 # boolean and thread-safe and guaranteed to succeed. Reads and writes may block
 # briefly but no explicit locking is required.
