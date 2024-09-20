@@ -27722,7 +27722,7 @@ class Mongoid::PersistenceContext
   # @param opts [Hash] The persistence context options.
   # @return [PersistenceContext] a new instance of PersistenceContext
   #
-  # source://mongoid//lib/mongoid/persistence_context.rb#45
+  # source://mongoid//lib/mongoid/persistence_context.rb#46
   def initialize(object, opts = T.unsafe(nil)); end
 
   # Determine if this persistence context is equal to another.
@@ -27732,7 +27732,7 @@ class Mongoid::PersistenceContext
   # @param other [Object] The object to be compared with this one.
   # @return [true | false] Whether the two persistence contexts are equal.
   #
-  # source://mongoid//lib/mongoid/persistence_context.rb#150
+  # source://mongoid//lib/mongoid/persistence_context.rb#151
   def ==(other); end
 
   # Get the client for this persistence context.
@@ -27742,7 +27742,7 @@ class Mongoid::PersistenceContext
   # @return [Mongo::Client] The client for this persistence
   #   context.
   #
-  # source://mongoid//lib/mongoid/persistence_context.rb#116
+  # source://mongoid//lib/mongoid/persistence_context.rb#117
   def client; end
 
   # Get the client name for this persistence context.
@@ -27752,7 +27752,7 @@ class Mongoid::PersistenceContext
   # @return [Symbol] The client name for this persistence
   #   context.
   #
-  # source://mongoid//lib/mongoid/persistence_context.rb#136
+  # source://mongoid//lib/mongoid/persistence_context.rb#137
   def client_name; end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -27767,7 +27767,7 @@ class Mongoid::PersistenceContext
   # @return [Mongo::Collection] The collection for this persistence
   #   context.
   #
-  # source://mongoid//lib/mongoid/persistence_context.rb#80
+  # source://mongoid//lib/mongoid/persistence_context.rb#81
   def collection(parent = T.unsafe(nil)); end
 
   # Get the collection name for this persistence context.
@@ -27777,7 +27777,7 @@ class Mongoid::PersistenceContext
   # @return [String] The collection name for this persistence
   #   context.
   #
-  # source://mongoid//lib/mongoid/persistence_context.rb#93
+  # source://mongoid//lib/mongoid/persistence_context.rb#94
   def collection_name; end
 
   # Get the database name for this persistence context.
@@ -27787,7 +27787,7 @@ class Mongoid::PersistenceContext
   # @return [String] The database name for this persistence
   #   context.
   #
-  # source://mongoid//lib/mongoid/persistence_context.rb#105
+  # source://mongoid//lib/mongoid/persistence_context.rb#106
   def database_name; end
 
   # Returns a new persistence context that is consistent with the given
@@ -27797,7 +27797,7 @@ class Mongoid::PersistenceContext
   # @param document [Mongoid::Document | Class] the child document
   # @return [PersistenceContext] the new persistence context
   #
-  # source://mongoid//lib/mongoid/persistence_context.rb#58
+  # source://mongoid//lib/mongoid/persistence_context.rb#59
   def for_child(document); end
 
   # The options defining this persistence context.
@@ -27814,7 +27814,7 @@ class Mongoid::PersistenceContext
   # @return [Hash | nil] the requested storage options, or nil if
   #   none were specified.
   #
-  # source://mongoid//lib/mongoid/persistence_context.rb#177
+  # source://mongoid//lib/mongoid/persistence_context.rb#178
   def requested_storage_options; end
 
   # Whether the client of the context can be reused later, and therefore should
@@ -27828,7 +27828,7 @@ class Mongoid::PersistenceContext
   # @api private
   # @return [true | false] True if client can be reused, otherwise false.
   #
-  # source://mongoid//lib/mongoid/persistence_context.rb#166
+  # source://mongoid//lib/mongoid/persistence_context.rb#167
   def reusable_client?; end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -27836,16 +27836,16 @@ class Mongoid::PersistenceContext
 
   private
 
-  # source://mongoid//lib/mongoid/persistence_context.rb#193
+  # source://mongoid//lib/mongoid/persistence_context.rb#194
   def __evaluate__(name); end
 
-  # source://mongoid//lib/mongoid/persistence_context.rb#198
+  # source://mongoid//lib/mongoid/persistence_context.rb#199
   def client_options; end
 
-  # source://mongoid//lib/mongoid/persistence_context.rb#210
+  # source://mongoid//lib/mongoid/persistence_context.rb#211
   def database_name_option; end
 
-  # source://mongoid//lib/mongoid/persistence_context.rb#184
+  # source://mongoid//lib/mongoid/persistence_context.rb#185
   def set_options!(opts); end
 
   class << self
@@ -27858,7 +27858,7 @@ class Mongoid::PersistenceContext
     # @param original_context [Mongoid::PersistenceContext] The original persistence
     #   context that was set before this context was used.
     #
-    # source://mongoid//lib/mongoid/persistence_context.rb#267
+    # source://mongoid//lib/mongoid/persistence_context.rb#268
     def clear(object, cluster = T.unsafe(nil), original_context = T.unsafe(nil)); end
 
     # Get the persistence context for a particular class or model instance.
@@ -27868,7 +27868,7 @@ class Mongoid::PersistenceContext
     # @param object [Object] The class or model instance.
     # @return [Mongoid::PersistenceContext] The persistence context for the object.
     #
-    # source://mongoid//lib/mongoid/persistence_context.rb#254
+    # source://mongoid//lib/mongoid/persistence_context.rb#255
     def get(object); end
 
     # Set the persistence context for a particular class or model instance.
@@ -27883,7 +27883,7 @@ class Mongoid::PersistenceContext
     #   options or a persistence context object.
     # @return [Mongoid::PersistenceContext] The persistence context for the object.
     #
-    # source://mongoid//lib/mongoid/persistence_context.rb#231
+    # source://mongoid//lib/mongoid/persistence_context.rb#232
     def set(object, options_or_context); end
 
     private
@@ -27896,7 +27896,7 @@ class Mongoid::PersistenceContext
     # @return [Mongoid::PersistenceContext | nil] The persistence context
     #   for the object if previously stored, otherwise nil.
     #
-    # source://mongoid//lib/mongoid/persistence_context.rb#293
+    # source://mongoid//lib/mongoid/persistence_context.rb#294
     def get_context(object); end
 
     # Store persistence context for a given object in the thread local
@@ -27906,7 +27906,7 @@ class Mongoid::PersistenceContext
     # @param object [Object] Object to store the persistance context for.
     # @param context [Mongoid::PersistenceContext] Context to store
     #
-    # source://mongoid//lib/mongoid/persistence_context.rb#305
+    # source://mongoid//lib/mongoid/persistence_context.rb#306
     def store_context(object, context); end
   end
 end
@@ -27925,7 +27925,7 @@ Mongoid::PersistenceContext::EXTRA_OPTIONS = T.let(T.unsafe(nil), Array)
 # @return [Array<Symbol>] The full list of options defining the persistence
 #   context.
 #
-# source://mongoid//lib/mongoid/persistence_context.rb#35
+# source://mongoid//lib/mongoid/persistence_context.rb#36
 Mongoid::PersistenceContext::VALID_OPTIONS = T.let(T.unsafe(nil), Array)
 
 # This module is responsible for taking update selectors and switching out

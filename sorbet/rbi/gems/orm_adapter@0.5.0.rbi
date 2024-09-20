@@ -9,7 +9,7 @@
 module Mongoid
   extend ::Mongoid::GlobalDiscriminatorKeyAssignment
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/extensions/raw_value.rb#13
+  # source://mongoid/9.0.2/lib/mongoid/extensions/raw_value.rb#13
   def RawValue(*args); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -75,7 +75,7 @@ module Mongoid
   # source://forwardable/1.3.3/forwardable.rb#231
   def belongs_to_required_by_default?(*args, **_arg1, &block); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid.rb#119
+  # source://mongoid/9.0.2/lib/mongoid.rb#119
   def client(name); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -84,7 +84,7 @@ module Mongoid
   # source://forwardable/1.3.3/forwardable.rb#231
   def config(*args, **_arg1, &block); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid.rb#77
+  # source://mongoid/9.0.2/lib/mongoid.rb#77
   def configure(&block); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -93,7 +93,7 @@ module Mongoid
   # source://forwardable/1.3.3/forwardable.rb#231
   def connect_to(*args, **_arg1, &block); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid.rb#89
+  # source://mongoid/9.0.2/lib/mongoid.rb#89
   def default_client; end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -102,7 +102,7 @@ module Mongoid
   # source://forwardable/1.3.3/forwardable.rb#231
   def destructive_fields(*args, **_arg1, &block); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid.rb#99
+  # source://mongoid/9.0.2/lib/mongoid.rb#99
   def disconnect_clients; end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -219,7 +219,7 @@ module Mongoid
   # source://forwardable/1.3.3/forwardable.rb#231
   def override_database(*args, **_arg1, &block); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid.rb#134
+  # source://mongoid/9.0.2/lib/mongoid.rb#134
   def persistence_context; end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -252,7 +252,7 @@ module Mongoid
   # source://forwardable/1.3.3/forwardable.rb#231
   def raise_not_found_error?(*args, **_arg1, &block); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid.rb#109
+  # source://mongoid/9.0.2/lib/mongoid.rb#109
   def reconnect_clients; end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -270,7 +270,7 @@ module Mongoid
   # source://forwardable/1.3.3/forwardable.rb#231
   def scope_overwrite_exception?(*args, **_arg1, &block); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid.rb#142
+  # source://mongoid/9.0.2/lib/mongoid.rb#142
   def storage_options; end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -396,81 +396,81 @@ module Mongoid::Document
   mixes_in_class_methods ::Mongoid::Document::ClassMethods
   mixes_in_class_methods ::Mongoid::Traversable::DiscriminatorAssignment
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#104
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#104
   def initialize(attrs = T.unsafe(nil), &block); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#30
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#30
   def __selected_fields; end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#30
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#30
   def __selected_fields=(_arg0); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#186
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#186
   def _handle_callbacks_after_instantiation(execute_callbacks); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#136
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#136
   def as_document; end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#151
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#151
   def becomes(klass); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#51
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#51
   def freeze; end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#61
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#61
   def frozen?; end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#75
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#75
   def hash; end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#87
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#87
   def identity; end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#166
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#166
   def internal_state=(state); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#114
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#114
   def model_name; end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#31
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#31
   def new_record; end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#124
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#124
   def to_key; end
 
   private
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#283
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#283
   def add_attributes_for_relation(name, meta); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#267
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#267
   def as_attributes; end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#216
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#216
   def construct_document(attrs = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#310
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#310
   def internal_state; end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#245
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#245
   def logger; end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#334
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#334
   def mark_persisted_state_for_embedded_documents(new_record); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#255
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#255
   def model_key; end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#300
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#300
   def mongoid_document_check!(klass); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#235
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#235
   def prepare_to_process_attributes; end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#349
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#349
   def resolve_post_construction_callbacks(execute_callbacks); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#325
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#325
   def update_discriminator(key_was); end
 
   module GeneratedClassMethods
@@ -621,28 +621,28 @@ end
 module Mongoid::Document::ClassMethods
   include ::OrmAdapter::ToAdapter
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#463
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#463
   def _mongoid_clear_types; end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#452
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#452
   def _types; end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#441
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#441
   def construct_document(attrs = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#471
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#471
   def i18n_scope; end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#386
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#386
   def instantiate(attrs = T.unsafe(nil), selected_fields = T.unsafe(nil), &block); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#410
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#410
   def instantiate_document(attrs = T.unsafe(nil), selected_fields = T.unsafe(nil), options = T.unsafe(nil), &block); end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#481
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#481
   def logger; end
 
-  # source://mongoid/9.0.1-b51ddae576801dfe8190c2e39d61302ae1ed3ecc/lib/mongoid/document.rb#367
+  # source://mongoid/9.0.2/lib/mongoid/document.rb#367
   def with_callbacks(execute_callbacks); end
 end
 

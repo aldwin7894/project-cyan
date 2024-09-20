@@ -182,6 +182,18 @@ Chart.register(PieController, ArcElement, Tooltip);
 
 const CropImage = (imgSrc, canvasId, divElement, width, height) => {
   return new Promise((resolve, reject) => {
+    const div = document.getElementById(divElement);
+    const showDiv = () => {
+      setTimeout(() => {
+        div.style.opacity = 100;
+        resolve();
+      }, 200);
+    };
+
+    if (!imgSrc) {
+      showDiv();
+    }
+
     /**
      * @type {HTMLCanvasElement}
      */
@@ -215,12 +227,11 @@ const CropImage = (imgSrc, canvasId, divElement, width, height) => {
             height,
           );
           const url = canvas.toDataURL("image/png");
-          const div = document.getElementById(divElement);
           div.style.background = `no-repeat center/cover url(${url})`;
           canvas.parentNode.removeChild(canvas);
-          resolve();
+          showDiv();
         })
-        .catch(err => reject(err));
+        .catch(reject);
     };
 
     image.src = imgSrc;

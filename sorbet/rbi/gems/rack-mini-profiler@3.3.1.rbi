@@ -9,22 +9,22 @@
 #
 # source://rack-mini-profiler//lib/patches/db/mongo.rb#4
 class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#106
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#106
   def initialize(server, options = T.unsafe(nil)); end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#166
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#166
   def closed?; end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#229
-  def connect!; end
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#229
+  def connect!(context = T.unsafe(nil)); end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#154
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#154
   def connected?; end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#146
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#146
   def connection_pool; end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#305
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#311
   def disconnect!(options = T.unsafe(nil)); end
 
   # source://rack-mini-profiler//lib/patches/db/mongo.rb#5
@@ -35,67 +35,67 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
 
   # TODO: change to Module#prepend as soon as Ruby 1.9.3 support is dropped
   #
-  # source://mongo/2.20.1/lib/mongo/server/connection_base.rb#150
+  # source://mongo/2.21.0/lib/mongo/server/connection_base.rb#150
   def dispatch_without_timing(messages, context, options = T.unsafe(nil)); end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#186
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#186
   def error?; end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#140
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#140
   def global_id; end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#136
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#136
   def id; end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#181
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#181
   def interrupted!; end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#176
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#176
   def interrupted?; end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#130
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#130
   def last_checkin; end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#205
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#205
   def pin; end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#350
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#356
   def ping; end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#198
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#198
   def pinned?; end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#380
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#386
   def record_checkin!; end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#366
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#372
   def socket_timeout; end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#366
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#372
   def timeout; end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#212
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#212
   def unpin; end
 
   private
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#259
-  def create_socket; end
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#259
+  def create_socket(context = T.unsafe(nil)); end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#387
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#393
   def deliver(message, client, options = T.unsafe(nil)); end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#271
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#277
   def do_connect; end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#393
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#399
   def handle_errors; end
 
-  # source://mongo/2.20.1/lib/mongo/server/connection.rb#411
+  # source://mongo/2.21.0/lib/mongo/server/connection.rb#417
   def raise_if_closed!; end
 
   class << self
-    # source://mongo/2.20.1/lib/mongo/id.rb#60
+    # source://mongo/2.21.0/lib/mongo/id.rb#60
     def next_id; end
   end
 end

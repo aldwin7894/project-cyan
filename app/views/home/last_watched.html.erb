@@ -2,7 +2,7 @@
 <% cover = cover&.exclude?("anilist") ? cached_image_url_to_base64(cover) : cover %>
 <turbo-frame id="last_watched" class="w-full h-full">
   <canvas id="canvas-bg" hidden></canvas>
-  <div id="cover-bg" class="w-full h-full transition-all duration-500 bg-center bg-cover" style="opacity: 0; background: no-repeat center<%= cover.present? ? "/cover url(#{cover})" : "/75% url(#{vite_asset_path("images/bvl-logo.webp")}); background-color: darkred" %>">
+  <div id="cover-bg" class="w-full h-full transition-all duration-500 bg-center bg-cover" style="opacity: 0; background: no-repeat center/75% url(<%= vite_asset_path("images/bvl-logo.webp") %>); background-color: darkred">
     <div class="<%= cover.present? ? "backdrop-brightness-50" : "backdrop-brightness-[0.2]" %> flex flex-col w-full h-full px-4 py-4 text-white">
       <h2 class="text-lg font-bold text-shadow shadow-black">LAST WATCHED ANIME</h2>
 
@@ -20,12 +20,7 @@
 
   <script>
     (async () => {
-      <% if @last_watched&.[]("media")&.[]("bannerImage").present? %>
-        await CropImage("<%= cover %>", "canvas-bg", "cover-bg", 1280, 1080);
-      <% end %>
-
-      const bg = document.getElementById("cover-bg");
-      bg.style.opacity = 100;
+      await CropImage("<%= cover %>", "canvas-bg", "cover-bg", 1280, 1080);
     })();
   </script>
 </turbo-frame>
