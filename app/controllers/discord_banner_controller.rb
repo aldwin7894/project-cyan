@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# typed: true
 
 class DiscordBannerController < ApplicationController
   include DiscordHelper
@@ -57,56 +58,60 @@ class DiscordBannerController < ApplicationController
     @large_image = nil
     @icon = nil
 
-    current_user = DiscordBot::BOT.user(ENV.fetch("DISCORD_USER_ID"))
+    current_user = T.let(DiscordBot::BOT.user(ENV.fetch("DISCORD_USER_ID")), Discordrb::User)
     @display_name = current_user.display_name
     @username = current_user.username
     @online_status = current_user.status
     @device = current_user.client_status.keys.first
     @client_status = current_user.client_status.values.first
     @avatar = current_user.avatar_url
-    activity = current_user&.activities&.to_a&.first
+    activities = T.let(current_user.activities.to_a, T.nilable(T::Array[Discordrb::Activity]))
+    activity = activities&.first
 
     if activity.present?
-      title = "Playing #{activity&.name}"
-      details = [activity&.state, activity&.details].compact_blank.join(" - ")
-      subdetails = "#{activity&.assets&.large_text}"
-      large_image = activity&.assets&.large_image_url("png")
+      title = "Playing #{activity.name}"
+      details = [activity.state, activity.details].compact_blank.join(" - ")
+      subdetails = "#{activity.assets&.large_text}"
+      large_image = activity.assets&.large_image_url("png")
       icon = ""
 
-      activity_name = activity&.name
-      activity_type = activity&.type
+      activity_name = activity.name
+      activity_type = activity.type
+      activity_state = activity.state
+      activity_details = activity.details
+      activity_assets = T.let(activity.assets, T.nilable(Discordrb::Activity::Assets))
 
       case activity_name
       when "Spotify"
-        large_image = "https://i.scdn.co/image/#{activity&.assets&.large_image_url&.split(':')&.last&.split('.')&.first.gsub('b273', '4851')}"
+        large_image = "https://i.scdn.co/image/#{activity_assets&.large_image_url&.split(':')&.last&.split('.')&.first.gsub('b273', '4851')}"
         title = "Listening on Spotify"
       when "Jellyfin"
-        title = "Watching on #{activity&.name}"
+        title = "Watching on #{activity_name}"
         large_image = get_jellyfin_poster_url(large_image)
-        details = activity&.state
-        subdetails = activity&.details.remove!("Watching").strip
+        details = activity_state
+        subdetails = activity_details.remove!("Watching").strip unless activity_details&.include? "Movie"
       when "Music"
-        title = "Listening to #{activity&.name}"
-        details = activity&.details
-        subdetails = [activity&.state, activity&.assets&.large_text].compact_blank.join(" - ")
+        title = "Listening to #{activity_name}"
+        details = activity_details
+        subdetails = [activity_state, activity_assets&.large_text].compact_blank.join(" - ")
       else
         case activity_type
         when 0
-          title = "Playing #{activity&.name || 'Playing a game'}"
-          details = details.presence || activity&.name
-          subdetails = subdetails.presence || get_playing_elapsed_time(activity&.timestamps&.start)
+          title = "Playing #{activity_name || 'Playing a game'}"
+          details = details.presence || activity_name
+          subdetails = subdetails.presence || get_playing_elapsed_time(activity.timestamps&.start)
         when 1
-          title = "Streaming #{activity&.name}"
+          title = "Streaming #{activity_name}"
         when 2
-          title = "Listening to #{activity&.name}"
+          title = "Listening to #{activity_name}"
         when 3
-          title = "Watching on #{activity&.name}"
+          title = "Watching on #{activity_name}"
         when 4
-          title = "Playing #{activity&.name}"
+          title = "Playing #{activity_name}"
         when 5
-          title = "Competing #{activity&.name}"
+          title = "Competing #{activity_name}"
         else
-          title = "Playing #{activity&.name}"
+          title = "Playing #{activity_name}"
         end
       end
     end
