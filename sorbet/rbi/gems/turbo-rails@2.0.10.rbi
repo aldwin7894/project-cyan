@@ -439,6 +439,7 @@ module Turbo::Streams::Broadcasts
 
   private
 
+  def render_broadcast_action(rendering); end
   def render_format(format, **rendering); end
 end
 

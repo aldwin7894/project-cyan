@@ -1,10 +1,17 @@
+<% tooltip = "<strong>Case-sensitive</strong><br /><em>Due to AniList imposing tight limits on their API requests, checking will be done in the background and will be viewable at a later time. You can check the progress via the link that would be provided after.</em>" %>
+
 <div class="container relative" x-data="{ submitDisabled: false }">
-  <div class="relative dark:bg-fg--dark/80 dark:text-text--dark backdrop-blur-sm bg-fg--light/80 text-text--light flex items-center justify-center p-8 rounded-lg shadow-lg top-[calc(45%-56px)] xs:top-[calc(45%-116px)] pointer-events-auto">
-    <%= form_with(url: fetch_followers_anilist_index_path, method: :get, data: { turbo_frame: "anilist" }, html: { class: "max-w-lg flex flex-col flex-1 gap-3" }) do |f| %>
+  <div class="relative dark:bg-fg--dark/80 dark:text-text--dark backdrop-blur-sm bg-fg--light/80 text-text--light flex flex-col gap-y-16 w-full items-center justify-center p-8 rounded-lg shadow-lg top-[calc(30%-56px)] xs:top-[calc(30%-116px)] pointer-events-auto">
+    <div class="flex flex-col items-center gap-2">
+      <img src="<%= vite_asset_url("images/anilist-logo.svg") %>" width="80" alt="AniList">
+      <h1 class="text-3xl text-center font-mono animate-pulse">anilist follow checker</h1>
+    </div>
+
+    <%= form_with(url: fetch_followers_anilist_index_path, method: :get, data: { turbo_frame: "anilist" }, html: { class: "max-w-lg w-full flex flex-col flex-1 gap-3" }) do |f| %>
       <%= f.hidden_field :format, value: "turbo_stream" %>
       <div class="flex flex-row gap-2">
         <%= f.label :username, "AniList Username:", class: "block font-bold", autocomplete: "off" %>
-        <iconify-icon icon="material-symbols:info" width="25" class="cursor-help" data-tippy="tooltip" data-tippy-content="<strong>Case-sensitive</strong><br /><em>Due to AniList imposing tight limits on their API requests, checking will be done in the background and will be viewable at a later time. You can check the progress via the link that would be provided after.</em>"/>
+        <iconify-icon icon="material-symbols:info" width="25" class="cursor-help" data-tippy="tooltip" data-tippy-content="<%= tooltip %>"/>
       </div>
       <%= f.text_field :username, class: "w-full block py-3 px-4 rounded-full border focus:shadow-none focus:border-cyan-500 focus:outline-none dark:bg-fg--dark bg-fg--light", autocomplete: "off" %>
 
