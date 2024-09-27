@@ -11,11 +11,16 @@
 <meta property="og:title" content="<%= title %>">
 <meta property="og:description" content="<%= description %>">
 <meta property="og:type" content="website">
-<meta property="og:url" content="<%= ENV.fetch("RAILS_HOST") %>">
-<meta property="og:image" content="<%= vite_asset_url "images/cyan-bg-3.webp" %>">
+<meta property="og:url" content="<%= url_for(host: ENV.fetch("RAILS_HOST")) %>">
+<meta property="og:image" content="<%= ENV.fetch("RAILS_HOST") %>/favicon-196x196.png">
 <meta property="og:site_name" content="Cyan★Nyan♪">
 
-<link rel="canonical" href="<%= ENV.fetch("RAILS_HOST") %>">
+<meta property="twitter:card" content="summary">
+<meta property="twitter:title" content="<%= title %>">
+<meta property="twitter:description" content="<%= description %>">
+<meta property="twitter:image" content="<%= ENV.fetch("RAILS_HOST") %>/favicon-196x196.png">
+
+<link rel="canonical" href="<%= url_for(host: ENV.fetch("RAILS_HOST")) %>">
 
 <%= render "layouts/favicon" %>
 <%= render "layouts/preconnect" %>

@@ -6955,7 +6955,7 @@ module ActionController::Renderers
   # source://actionpack//lib/action_controller/metal/renderers.rb#156
   def _render_with_renderer_json(json, options); end
 
-  # source://turbo-rails/2.0.9/lib/turbo/engine.rb#107
+  # source://turbo-rails/2.0.10/lib/turbo/engine.rb#107
   def _render_with_renderer_turbo_stream(turbo_streams_html, options); end
 
   # source://actionpack//lib/action_controller/metal/renderers.rb#176
@@ -15687,7 +15687,7 @@ end
 
 # source://actionpack//lib/action_dispatch/testing/integration.rb#0
 class ActionDispatch::RequestEncoder::TurboStreamEncoder < ::ActionDispatch::RequestEncoder::IdentityEncoder
-  # source://turbo-rails/2.0.9/lib/turbo/engine.rb#148
+  # source://turbo-rails/2.0.10/lib/turbo/engine.rb#148
   def accept_header; end
 end
 
