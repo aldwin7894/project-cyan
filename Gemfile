@@ -15,7 +15,7 @@ gem "bson", "~> 5.0"
 # Use Puma as the app server
 gem "puma", "~> 6.4"
 # Turbo gives you the speed of a single-page web application without having to write any JavaScript.
-gem "turbo-rails", "~> 2.0.10"
+gem "turbo-rails", "~> 2.0.11"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 5.3"
 # Use Active Model has_secure_password
