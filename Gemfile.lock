@@ -345,7 +345,7 @@ GEM
       prism (>= 1.2, < 2.0)
       rbs (>= 3, < 4)
       sorbet-runtime (>= 0.5.10782)
-    ruby-lsp-rails (0.3.20)
+    ruby-lsp-rails (0.3.21)
       ruby-lsp (>= 0.20.0, < 0.21.0)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
