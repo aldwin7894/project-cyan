@@ -98,7 +98,7 @@ module Shoko
         query = {
           query: possible_queries[index]&.[](:name),
           fuzzy: true,
-          limit: 1
+          limit: 5
         }
         res = self.class.get(url, query:, **@options)
         unless res.success?
@@ -106,8 +106,9 @@ module Shoko
         end
 
         res = JSON.parse res, symbolize_names: true
-        if res.is_a?(Array) && res.first&.[](:IDs)&.[](:MAL)&.include?(possible_queries[index]&.[](:mal_id))
-          series = res.first
+        if res.is_a?(Array) && !res.empty?
+          series = res.find { |x| x&.[](:IDs)&.[](:MAL)&.include?(possible_queries[index]&.[](:mal_id)) }
+          series ||= res.first
           break
         end
 
@@ -116,6 +117,8 @@ module Shoko
         end
         index += 1
       end
+
+      return series if series.blank?
 
       Rails.cache.write(cache_key, series, expires_in: 3.months)
       series

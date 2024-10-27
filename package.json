@@ -52,7 +52,7 @@
     "vite-plugin-ruby": "^5.1.0"
   },
   "devDependencies": {
-    "@types/node": "^22.7.3",
+    "@types/node": "^22.8.1",
     "@typescript-eslint/parser": "^8.11.0",
     "eslint": "8.57.1",
     "eslint-config-prettier": "^9.1.0",
