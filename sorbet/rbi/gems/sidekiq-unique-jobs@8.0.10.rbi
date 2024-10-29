@@ -159,58 +159,61 @@ end
 # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb#8
 module Sidekiq
   class << self
-    # source://sidekiq/7.3.2/lib/sidekiq.rb#135
+    # source://sidekiq/7.3.4/lib/sidekiq.rb#136
     def configure_client; end
 
-    # source://sidekiq/7.3.2/lib/sidekiq.rb#123
+    # source://sidekiq/7.3.4/lib/sidekiq.rb#124
     def configure_embed(&block); end
 
-    # source://sidekiq/7.3.2/lib/sidekiq.rb#97
+    # source://sidekiq/7.3.4/lib/sidekiq.rb#97
     def configure_server(&block); end
 
-    # source://sidekiq/7.3.2/lib/sidekiq.rb#89
+    # source://sidekiq/7.3.4/lib/sidekiq.rb#89
     def default_configuration; end
 
-    # source://sidekiq/7.3.2/lib/sidekiq.rb#85
+    # source://sidekiq/7.3.4/lib/sidekiq.rb#85
     def default_job_options; end
 
-    # source://sidekiq/7.3.2/lib/sidekiq.rb#81
+    # source://sidekiq/7.3.4/lib/sidekiq.rb#81
     def default_job_options=(hash); end
 
-    # source://sidekiq/7.3.2/lib/sidekiq.rb#57
+    # source://sidekiq/7.3.4/lib/sidekiq.rb#57
     def dump_json(object); end
 
-    # source://sidekiq/7.3.2/lib/sidekiq.rb#65
+    # source://sidekiq/7.3.4/lib/sidekiq.rb#65
     def ent?; end
 
-    # source://sidekiq/7.3.2/lib/sidekiq.rb#102
+    # source://sidekiq/7.3.4/lib/sidekiq.rb#102
     def freeze!; end
 
-    # source://sidekiq/7.3.2/lib/sidekiq.rb#53
+    # source://sidekiq/7.3.4/lib/sidekiq/version.rb#7
+    def gem_version; end
+
+    # source://sidekiq/7.3.4/lib/sidekiq.rb#53
     def load_json(string); end
 
-    # source://sidekiq/7.3.2/lib/sidekiq.rb#93
+    # source://sidekiq/7.3.4/lib/sidekiq.rb#93
     def logger; end
 
-    # source://sidekiq/7.3.2/lib/sidekiq.rb#61
+    # source://sidekiq/7.3.4/lib/sidekiq.rb#61
     def pro?; end
 
-    # source://sidekiq/7.3.2/lib/sidekiq.rb#73
+    # source://sidekiq/7.3.4/lib/sidekiq.rb#73
     def redis(&block); end
 
-    # source://sidekiq/7.3.2/lib/sidekiq.rb#69
+    # source://sidekiq/7.3.4/lib/sidekiq.rb#69
     def redis_pool; end
 
-    # source://sidekiq/7.3.2/lib/sidekiq.rb#49
+    # source://sidekiq/7.3.4/lib/sidekiq.rb#49
     def server?; end
 
-    # source://sidekiq/7.3.2/lib/sidekiq.rb#77
+    # source://sidekiq/7.3.4/lib/sidekiq.rb#77
     def strict_args!(mode = T.unsafe(nil)); end
 
-    # source://sidekiq/7.3.2/lib/sidekiq/transaction_aware_client.rb#40
+    # source://sidekiq/7.3.4/lib/sidekiq/transaction_aware_client.rb#40
     def transactional_push!; end
 
-    # source://sidekiq/7.3.2/lib/sidekiq.rb#45
+    # source://sidekiq/7.3.4/lib/sidekiq.rb#45
     def ❨╯°□°❩╯︵┻━┻; end
   end
 end
@@ -223,69 +226,69 @@ end
 class Sidekiq::JobRecord
   include ::Sidekiq::JobRecord::UniqueExtension
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#347
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#347
   def initialize(item, queue_name = T.unsafe(nil)); end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#460
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#460
   def [](name); end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#412
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#412
   def args; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#420
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#420
   def bid; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#428
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#428
   def created_at; end
 
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb#82
   def delete; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#390
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#390
   def display_args; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#373
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#373
   def display_class; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#424
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#424
   def enqueued_at; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#436
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#436
   def error_backtrace; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#337
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#337
   def item; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#416
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#416
   def jid; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#369
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#369
   def klass; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#446
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#446
   def latency; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#356
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#356
   def parse(item); end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#343
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#343
   def queue; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#432
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#432
   def tags; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#340
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#340
   def value; end
 
   private
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#472
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#472
   def deserialize_argument(argument); end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#488
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#488
   def serialized_global_id?(hash); end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#492
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#492
   def uncompress_backtrace(backtrace); end
 end
 
@@ -312,25 +315,25 @@ end
 class Sidekiq::JobSet < ::Sidekiq::SortedSet
   include ::Sidekiq::JobSet::UniqueExtension
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#747
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#747
   def delete(score, jid); end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#747
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#747
   def delete_by_jid(score, jid); end
 
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb#134
   def delete_by_value(name, value); end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#671
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#671
   def each; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#699
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#699
   def fetch(score, jid = T.unsafe(nil)); end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#724
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#724
   def find_job(jid); end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#665
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#665
   def schedule(timestamp, job); end
 end
 
@@ -366,38 +369,38 @@ end
 class Sidekiq::Queue
   include ::Sidekiq::Queue::UniqueExtension
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#241
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#241
   def initialize(name = T.unsafe(nil)); end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#324
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#324
   def as_json(options = T.unsafe(nil)); end
 
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb#102
   def clear; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#275
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#275
   def each; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#305
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#305
   def find_job(jid); end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#264
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#264
   def latency; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#238
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#238
   def name; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#255
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#255
   def paused?; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#250
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#250
   def size; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#311
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#311
   def 💣; end
 
   class << self
-    # source://sidekiq/7.3.2/lib/sidekiq/api.rb#234
+    # source://sidekiq/7.3.4/lib/sidekiq/api.rb#234
     def all; end
   end
 end
@@ -425,7 +428,7 @@ end
 class Sidekiq::ScheduledSet < ::Sidekiq::JobSet
   include ::Sidekiq::ScheduledSet::UniqueExtension
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#775
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#775
   def initialize; end
 end
 
@@ -454,34 +457,34 @@ end
 class Sidekiq::SortedEntry < ::Sidekiq::JobRecord
   include ::Sidekiq::SortedEntry::UniqueExtension
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#509
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#509
   def initialize(parent, score, item); end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#540
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#540
   def add_to_queue; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#516
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#516
   def at; end
 
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb#23
   def delete; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#564
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#564
   def error?; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#558
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#558
   def kill; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#505
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#505
   def parent; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#532
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#532
   def reschedule(at); end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#549
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#549
   def retry; end
 
-  # source://sidekiq/7.3.2/lib/sidekiq/api.rb#504
+  # source://sidekiq/7.3.4/lib/sidekiq/api.rb#504
   def score; end
 
   private

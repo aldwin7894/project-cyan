@@ -16,17 +16,17 @@ module JWT
 
   private
 
-  # source://jwt//lib/jwt.rb#30
+  # source://jwt//lib/jwt.rb#33
   def decode(jwt, key = T.unsafe(nil), verify = T.unsafe(nil), options = T.unsafe(nil), &keyfinder); end
 
-  # source://jwt//lib/jwt.rb#23
+  # source://jwt//lib/jwt.rb#26
   def encode(payload, key, algorithm = T.unsafe(nil), header_fields = T.unsafe(nil)); end
 
   class << self
-    # source://jwt//lib/jwt.rb#30
+    # source://jwt//lib/jwt.rb#33
     def decode(jwt, key = T.unsafe(nil), verify = T.unsafe(nil), options = T.unsafe(nil), &keyfinder); end
 
-    # source://jwt//lib/jwt.rb#23
+    # source://jwt//lib/jwt.rb#26
     def encode(payload, key, algorithm = T.unsafe(nil), header_fields = T.unsafe(nil)); end
 
     # source://jwt//lib/jwt/version.rb#5
@@ -81,11 +81,66 @@ end
 # source://jwt//lib/jwt/error.rb#20
 class JWT::Base64DecodeError < ::JWT::DecodeError; end
 
+# JWT Claim verifications
+# https://datatracker.ietf.org/doc/html/rfc7519#section-4
+#
+# Verification is supported for the following claims:
+# exp
+# nbf
+# iss
+# iat
+# jti
+# aud
+# sub
+# required
+# numeric
+#
 # source://jwt//lib/jwt/claims/audience.rb#4
 module JWT::Claims
   class << self
-    # source://jwt//lib/jwt/claims.rb#29
+    # Returns the errors in the claims of the JWT token.
+    #
+    # @param options [Array] the options for verifying the claims.
+    # @return [Array<JWT::Claims::Error>] the errors in the claims of the JWT
+    #
+    # source://jwt//lib/jwt/claims.rb#67
+    def payload_errors(payload, *options); end
+
+    # Checks if the claims in the JWT payload are valid.
+    #
+    # @param payload [Hash] the JWT payload.
+    # @param options [Array] the options for verifying the claims.
+    # @return [Boolean] true if the claims are valid, false otherwise
+    #
+    # source://jwt//lib/jwt/claims.rb#59
+    def valid_payload?(payload, *options); end
+
+    # @deprecated Use {verify_payload!} instead. Will be removed in the next major version of ruby-jwt.
+    #
+    # source://jwt//lib/jwt/claims.rb#36
     def verify!(payload, options); end
+
+    # Checks if the claims in the JWT payload are valid.
+    #
+    # @example
+    #
+    #   ::JWT::Claims.verify_payload!({"exp" => Time.now.to_i + 10}, :exp)
+    #   ::JWT::Claims.verify_payload!({"exp" => Time.now.to_i - 10}, exp: { leeway: 11})
+    # @param payload [Hash] the JWT payload.
+    # @param options [Array] the options for verifying the claims.
+    # @raise [JWT::DecodeError] if any claim is invalid.
+    # @return [void]
+    #
+    # source://jwt//lib/jwt/claims.rb#50
+    def verify_payload!(payload, *options); end
+
+    private
+
+    # source://jwt//lib/jwt/claims.rb#77
+    def token_errors(token, *options); end
+
+    # source://jwt//lib/jwt/claims.rb#73
+    def verify_token!(token, *options); end
   end
 end
 
@@ -107,6 +162,47 @@ class JWT::Claims::Audience
   #
   # source://jwt//lib/jwt/claims/audience.rb#17
   def expected_audience; end
+end
+
+# Verifiers to support the ::JWT.decode method
+#
+# @private
+#
+# source://jwt//lib/jwt/claims/decode_verifier.rb#13
+module JWT::Claims::DecodeVerifier
+  class << self
+    # @private
+    #
+    # source://jwt//lib/jwt/claims/decode_verifier.rb#29
+    def verify!(payload, options); end
+  end
+end
+
+# source://jwt//lib/jwt/claims/decode_verifier.rb#14
+JWT::Claims::DecodeVerifier::VERIFIERS = T.let(T.unsafe(nil), Hash)
+
+# Represents a claim verification error
+#
+# source://jwt//lib/jwt/claims.rb#32
+class JWT::Claims::Error < ::Struct
+  # Returns the value of attribute message
+  #
+  # @return [Object] the current value of message
+  def message; end
+
+  # Sets the attribute message
+  #
+  # @param value [Object] the value to set the attribute message to.
+  # @return [Object] the newly set value
+  def message=(_); end
+
+  class << self
+    def [](*_arg0); end
+    def inspect; end
+    def keyword_init?; end
+    def members; end
+    def new(*_arg0); end
+  end
 end
 
 # source://jwt//lib/jwt/claims/expiration.rb#5
@@ -195,31 +291,40 @@ end
 
 # source://jwt//lib/jwt/claims/numeric.rb#5
 class JWT::Claims::Numeric
-  # @return [Numeric] a new instance of Numeric
-  #
-  # source://jwt//lib/jwt/claims/numeric.rb#18
-  def initialize(payload); end
-
-  # source://jwt//lib/jwt/claims/numeric.rb#22
-  def verify!; end
+  # source://jwt//lib/jwt/claims/numeric.rb#28
+  def verify!(context:); end
 
   private
 
   # @raise [InvalidPayload]
   #
-  # source://jwt//lib/jwt/claims/numeric.rb#36
-  def validate_is_numeric(claim); end
+  # source://jwt//lib/jwt/claims/numeric.rb#44
+  def validate_is_numeric(payload, claim); end
 
-  # source://jwt//lib/jwt/claims/numeric.rb#30
-  def validate_numeric_claims; end
+  # source://jwt//lib/jwt/claims/numeric.rb#38
+  def validate_numeric_claims(payload); end
 
   class << self
-    # source://jwt//lib/jwt/claims/numeric.rb#6
+    # source://jwt//lib/jwt/claims/numeric.rb#22
+    def new(*args); end
+
+    # source://jwt//lib/jwt/claims/numeric.rb#32
     def verify!(payload:, **_args); end
   end
 end
 
-# source://jwt//lib/jwt/claims/numeric.rb#12
+# source://jwt//lib/jwt/claims/numeric.rb#6
+class JWT::Claims::Numeric::Compat
+  # @return [Compat] a new instance of Compat
+  #
+  # source://jwt//lib/jwt/claims/numeric.rb#7
+  def initialize(payload); end
+
+  # source://jwt//lib/jwt/claims/numeric.rb#11
+  def verify!; end
+end
+
+# source://jwt//lib/jwt/claims/numeric.rb#16
 JWT::Claims::Numeric::NUMERIC_CLAIMS = T.let(T.unsafe(nil), Array)
 
 # source://jwt//lib/jwt/claims/required.rb#5
@@ -260,10 +365,11 @@ class JWT::Claims::Subject
   def expected_subject; end
 end
 
-# source://jwt//lib/jwt/claims.rb#17
-JWT::Claims::VERIFIERS = T.let(T.unsafe(nil), Hash)
-
-# source://jwt//lib/jwt/claims.rb#15
+# Context class to contain the data passed to individual claim validators
+#
+# @private
+#
+# source://jwt//lib/jwt/claims/decode_verifier.rb#8
 class JWT::Claims::VerificationContext < ::Struct
   # Returns the value of attribute payload
   #
@@ -283,6 +389,47 @@ class JWT::Claims::VerificationContext < ::Struct
     def members; end
     def new(*_arg0); end
   end
+end
+
+# @private
+#
+# source://jwt//lib/jwt/claims/verifier.rb#6
+module JWT::Claims::Verifier
+  class << self
+    # @private
+    #
+    # source://jwt//lib/jwt/claims/verifier.rb#32
+    def errors(context, *options); end
+
+    # @private
+    #
+    # source://jwt//lib/jwt/claims/verifier.rb#43
+    def iterate_verifiers(*options); end
+
+    # @private
+    #
+    # source://jwt//lib/jwt/claims/verifier.rb#24
+    def verify!(context, *options); end
+
+    private
+
+    # source://jwt//lib/jwt/claims/verifier.rb#55
+    def verify_one!(context, verifier, options); end
+  end
+end
+
+# source://jwt//lib/jwt/claims/verifier.rb#7
+JWT::Claims::Verifier::VERIFIERS = T.let(T.unsafe(nil), Hash)
+
+# source://jwt//lib/jwt/claims_validator.rb#6
+class JWT::ClaimsValidator
+  # @return [ClaimsValidator] a new instance of ClaimsValidator
+  #
+  # source://jwt//lib/jwt/claims_validator.rb#7
+  def initialize(payload); end
+
+  # source://jwt//lib/jwt/claims_validator.rb#11
+  def validate!; end
 end
 
 # source://jwt//lib/jwt/configuration/decode_configuration.rb#4
@@ -527,60 +674,60 @@ class JWT::Decode
 
   private
 
-  # source://jwt//lib/jwt/decode.rb#137
+  # source://jwt//lib/jwt/decode.rb#138
   def alg_in_header; end
 
-  # source://jwt//lib/jwt/decode.rb#88
+  # source://jwt//lib/jwt/decode.rb#89
   def allowed_algorithms; end
 
-  # source://jwt//lib/jwt/decode.rb#70
+  # source://jwt//lib/jwt/decode.rb#71
   def allowed_and_valid_algorithms; end
 
-  # source://jwt//lib/jwt/decode.rb#133
+  # source://jwt//lib/jwt/decode.rb#134
   def decode_signature; end
 
   # @raise [JWT::DecodeError]
   #
-  # source://jwt//lib/jwt/decode.rb#105
+  # source://jwt//lib/jwt/decode.rb#106
   def find_key(&keyfinder); end
 
-  # source://jwt//lib/jwt/decode.rb#80
+  # source://jwt//lib/jwt/decode.rb#81
   def given_algorithms; end
 
-  # source://jwt//lib/jwt/decode.rb#141
+  # source://jwt//lib/jwt/decode.rb#142
   def header; end
 
   # @return [Boolean]
   #
-  # source://jwt//lib/jwt/decode.rb#129
+  # source://jwt//lib/jwt/decode.rb#130
   def none_algorithm?; end
 
-  # source://jwt//lib/jwt/decode.rb#153
+  # source://jwt//lib/jwt/decode.rb#154
   def parse_and_decode(segment); end
 
-  # source://jwt//lib/jwt/decode.rb#145
+  # source://jwt//lib/jwt/decode.rb#146
   def payload; end
 
-  # source://jwt//lib/jwt/decode.rb#92
+  # source://jwt//lib/jwt/decode.rb#93
   def resolve_allowed_algorithms; end
 
-  # source://jwt//lib/jwt/decode.rb#125
+  # source://jwt//lib/jwt/decode.rb#126
   def segment_length; end
 
-  # source://jwt//lib/jwt/decode.rb#56
+  # source://jwt//lib/jwt/decode.rb#57
   def set_key; end
 
-  # source://jwt//lib/jwt/decode.rb#149
+  # source://jwt//lib/jwt/decode.rb#150
   def signing_input; end
 
   # Move algorithms matching the JWT alg header to the beginning of the list
   #
-  # source://jwt//lib/jwt/decode.rb#99
+  # source://jwt//lib/jwt/decode.rb#100
   def sort_by_alg_header(algs); end
 
   # @raise [JWT::DecodeError]
   #
-  # source://jwt//lib/jwt/decode.rb#117
+  # source://jwt//lib/jwt/decode.rb#118
   def validate_segment_count!; end
 
   # @raise [JWT::IncorrectAlgorithm]
@@ -588,7 +735,7 @@ class JWT::Decode
   # source://jwt//lib/jwt/decode.rb#50
   def verify_algo; end
 
-  # source://jwt//lib/jwt/decode.rb#113
+  # source://jwt//lib/jwt/decode.rb#114
   def verify_claims; end
 
   # @raise [JWT::DecodeError]
@@ -598,13 +745,13 @@ class JWT::Decode
 
   # @return [Boolean]
   #
-  # source://jwt//lib/jwt/decode.rb#64
+  # source://jwt//lib/jwt/decode.rb#65
   def verify_signature_for?(key); end
 end
 
 # Order is very important - first check for string keys, next for symbols
 #
-# source://jwt//lib/jwt/decode.rb#75
+# source://jwt//lib/jwt/decode.rb#76
 JWT::Decode::ALGORITHM_KEYS = T.let(T.unsafe(nil), Array)
 
 # source://jwt//lib/jwt/error.rb#5
@@ -725,29 +872,58 @@ class JWT::JSON
   end
 end
 
-# source://jwt//lib/jwt/jwa/signing_algorithm.rb#4
+# source://jwt//lib/jwt/jwa/compat.rb#4
 module JWT::JWA
   class << self
-    # source://jwt//lib/jwt/jwa/signing_algorithm.rb#48
+    # source://jwt//lib/jwt/jwa.rb#45
+    def create(algorithm); end
+
+    # source://jwt//lib/jwt/jwa/signing_algorithm.rb#49
     def find(algo); end
 
-    # source://jwt//lib/jwt/jwa/signing_algorithm.rb#44
+    # source://jwt//lib/jwt/jwa/signing_algorithm.rb#45
     def register_algorithm(algo); end
 
-    # source://jwt//lib/jwt/jwa.rb#33
+    # source://jwt//lib/jwt/jwa.rb#34
     def resolve(algorithm); end
 
     private
 
-    # source://jwt//lib/jwt/jwa/signing_algorithm.rb#54
+    # source://jwt//lib/jwt/jwa/signing_algorithm.rb#55
     def algorithms; end
   end
+end
+
+# source://jwt//lib/jwt/jwa/compat.rb#5
+module JWT::JWA::Compat
+  mixes_in_class_methods ::JWT::JWA::Compat::ClassMethods
+
+  class << self
+    # @private
+    #
+    # source://jwt//lib/jwt/jwa/compat.rb#24
+    def included(klass); end
+  end
+end
+
+# source://jwt//lib/jwt/jwa/compat.rb#6
+module JWT::JWA::Compat::ClassMethods
+  # source://jwt//lib/jwt/jwa/compat.rb#7
+  def from_algorithm(algorithm); end
+
+  # source://jwt//lib/jwt/jwa/compat.rb#11
+  def sign(algorithm, msg, key); end
+
+  # source://jwt//lib/jwt/jwa/compat.rb#17
+  def verify(algorithm, key, signing_input, signature); end
 end
 
 # source://jwt//lib/jwt/jwa/ecdsa.rb#5
 class JWT::JWA::Ecdsa
   include ::JWT::JWA::SigningAlgorithm
+  include ::JWT::JWA::Compat
   extend ::JWT::JWA::SigningAlgorithm::ClassMethods
+  extend ::JWT::JWA::Compat::ClassMethods
 
   # @return [Ecdsa] a new instance of Ecdsa
   #
@@ -762,23 +938,26 @@ class JWT::JWA::Ecdsa
 
   private
 
-  # source://jwt//lib/jwt/jwa/ecdsa.rb#83
+  # source://jwt//lib/jwt/jwa/ecdsa.rb#87
   def asn1_to_raw(signature, public_key); end
 
-  # source://jwt//lib/jwt/jwa/ecdsa.rb#72
+  # source://jwt//lib/jwt/jwa/ecdsa.rb#76
   def curve_by_name(name); end
 
   # Returns the value of attribute digest.
   #
-  # source://jwt//lib/jwt/jwa/ecdsa.rb#70
+  # source://jwt//lib/jwt/jwa/ecdsa.rb#74
   def digest; end
 
-  # source://jwt//lib/jwt/jwa/ecdsa.rb#76
+  # source://jwt//lib/jwt/jwa/ecdsa.rb#80
   def raw_to_asn1(signature, private_key); end
 
   class << self
-    # source://jwt//lib/jwt/jwa/ecdsa.rb#62
+    # source://jwt//lib/jwt/jwa/ecdsa.rb#66
     def curve_by_name(name); end
+
+    # source://jwt//lib/jwt/jwa/ecdsa.rb#62
+    def from_algorithm(algorithm); end
   end
 end
 
@@ -788,30 +967,37 @@ JWT::JWA::Ecdsa::NAMED_CURVES = T.let(T.unsafe(nil), Hash)
 # source://jwt//lib/jwt/jwa/hmac.rb#5
 class JWT::JWA::Hmac
   include ::JWT::JWA::SigningAlgorithm
+  include ::JWT::JWA::Compat
   extend ::JWT::JWA::SigningAlgorithm::ClassMethods
+  extend ::JWT::JWA::Compat::ClassMethods
 
   # @return [Hmac] a new instance of Hmac
   #
-  # source://jwt//lib/jwt/jwa/hmac.rb#8
+  # source://jwt//lib/jwt/jwa/hmac.rb#12
   def initialize(alg, digest); end
 
-  # source://jwt//lib/jwt/jwa/hmac.rb#13
+  # source://jwt//lib/jwt/jwa/hmac.rb#17
   def sign(data:, signing_key:); end
 
-  # source://jwt//lib/jwt/jwa/hmac.rb#26
+  # source://jwt//lib/jwt/jwa/hmac.rb#30
   def verify(data:, signature:, verification_key:); end
 
   private
 
   # Returns the value of attribute digest.
   #
-  # source://jwt//lib/jwt/jwa/hmac.rb#36
+  # source://jwt//lib/jwt/jwa/hmac.rb#40
   def digest; end
+
+  class << self
+    # source://jwt//lib/jwt/jwa/hmac.rb#8
+    def from_algorithm(algorithm); end
+  end
 end
 
 # Copy of https://github.com/rails/rails/blob/v7.0.3.1/activesupport/lib/active_support/security_utils.rb
 #
-# source://jwt//lib/jwt/jwa/hmac.rb#40
+# source://jwt//lib/jwt/jwa/hmac.rb#44
 module JWT::JWA::Hmac::SecurityUtils
   private
 
@@ -819,7 +1005,7 @@ module JWT::JWA::Hmac::SecurityUtils
   #
   # @raise [ArgumentError]
   #
-  # source://jwt//lib/jwt/jwa/hmac.rb#47
+  # source://jwt//lib/jwt/jwa/hmac.rb#51
   def fixed_length_secure_compare(a, b); end
 
   # Secure string comparison for strings of variable length.
@@ -829,7 +1015,7 @@ module JWT::JWA::Hmac::SecurityUtils
   # the secret length. This should be considered when using secure_compare
   # to compare weak, short secrets to user input.
   #
-  # source://jwt//lib/jwt/jwa/hmac.rb#71
+  # source://jwt//lib/jwt/jwa/hmac.rb#75
   def secure_compare(a, b); end
 
   class << self
@@ -837,7 +1023,7 @@ module JWT::JWA::Hmac::SecurityUtils
     #
     # @raise [ArgumentError]
     #
-    # source://jwt//lib/jwt/jwa/hmac.rb#47
+    # source://jwt//lib/jwt/jwa/hmac.rb#51
     def fixed_length_secure_compare(a, b); end
 
     # Secure string comparison for strings of variable length.
@@ -847,7 +1033,7 @@ module JWT::JWA::Hmac::SecurityUtils
     # the secret length. This should be considered when using secure_compare
     # to compare weak, short secrets to user input.
     #
-    # source://jwt//lib/jwt/jwa/hmac.rb#71
+    # source://jwt//lib/jwt/jwa/hmac.rb#75
     def secure_compare(a, b); end
   end
 end
@@ -855,7 +1041,9 @@ end
 # source://jwt//lib/jwt/jwa/none.rb#5
 class JWT::JWA::None
   include ::JWT::JWA::SigningAlgorithm
+  include ::JWT::JWA::Compat
   extend ::JWT::JWA::SigningAlgorithm::ClassMethods
+  extend ::JWT::JWA::Compat::ClassMethods
 
   # @return [None] a new instance of None
   #
@@ -872,7 +1060,9 @@ end
 # source://jwt//lib/jwt/jwa/ps.rb#5
 class JWT::JWA::Ps
   include ::JWT::JWA::SigningAlgorithm
+  include ::JWT::JWA::Compat
   extend ::JWT::JWA::SigningAlgorithm::ClassMethods
+  extend ::JWT::JWA::Compat::ClassMethods
 
   # @return [Ps] a new instance of Ps
   #
@@ -896,7 +1086,9 @@ end
 # source://jwt//lib/jwt/jwa/rsa.rb#5
 class JWT::JWA::Rsa
   include ::JWT::JWA::SigningAlgorithm
+  include ::JWT::JWA::Compat
   extend ::JWT::JWA::SigningAlgorithm::ClassMethods
+  extend ::JWT::JWA::Compat::ClassMethods
 
   # @return [Rsa] a new instance of Rsa
   #
@@ -919,31 +1111,34 @@ end
 
 # source://jwt//lib/jwt/jwa/signing_algorithm.rb#5
 module JWT::JWA::SigningAlgorithm
+  include ::JWT::JWA::Compat
+
   mixes_in_class_methods ::JWT::JWA::SigningAlgorithm::ClassMethods
+  mixes_in_class_methods ::JWT::JWA::Compat::ClassMethods
 
   # Returns the value of attribute alg.
   #
-  # source://jwt//lib/jwt/jwa/signing_algorithm.rb#16
+  # source://jwt//lib/jwt/jwa/signing_algorithm.rb#17
   def alg; end
 
-  # source://jwt//lib/jwt/jwa/signing_algorithm.rb#22
+  # source://jwt//lib/jwt/jwa/signing_algorithm.rb#23
   def header(*_arg0); end
 
-  # source://jwt//lib/jwt/jwa/signing_algorithm.rb#38
+  # source://jwt//lib/jwt/jwa/signing_algorithm.rb#39
   def raise_sign_error!(message); end
 
-  # source://jwt//lib/jwt/jwa/signing_algorithm.rb#34
+  # source://jwt//lib/jwt/jwa/signing_algorithm.rb#35
   def raise_verify_error!(message); end
 
-  # source://jwt//lib/jwt/jwa/signing_algorithm.rb#26
+  # source://jwt//lib/jwt/jwa/signing_algorithm.rb#27
   def sign(*_arg0); end
 
   # @return [Boolean]
   #
-  # source://jwt//lib/jwt/jwa/signing_algorithm.rb#18
+  # source://jwt//lib/jwt/jwa/signing_algorithm.rb#19
   def valid_alg?(alg_to_check); end
 
-  # source://jwt//lib/jwt/jwa/signing_algorithm.rb#30
+  # source://jwt//lib/jwt/jwa/signing_algorithm.rb#31
   def verify(*_arg0); end
 
   class << self
@@ -963,6 +1158,7 @@ end
 # source://jwt//lib/jwt/jwa/unsupported.rb#5
 module JWT::JWA::Unsupported
   extend ::JWT::JWA::SigningAlgorithm
+  extend ::JWT::JWA::Compat
 
   class << self
     # source://jwt//lib/jwt/jwa/unsupported.rb#9
@@ -978,7 +1174,9 @@ end
 # source://jwt//lib/jwt/jwa/wrapper.rb#5
 class JWT::JWA::Wrapper
   include ::JWT::JWA::SigningAlgorithm
+  include ::JWT::JWA::Compat
   extend ::JWT::JWA::SigningAlgorithm::ClassMethods
+  extend ::JWT::JWA::Compat::ClassMethods
 
   # @return [Wrapper] a new instance of Wrapper
   #
@@ -1519,6 +1717,73 @@ JWT::VERSION::TINY = T.let(T.unsafe(nil), Integer)
 
 # source://jwt//lib/jwt/error.rb#8
 class JWT::VerificationError < ::JWT::DecodeError; end
+
+# source://jwt//lib/jwt/verify.rb#6
+class JWT::Verify
+  # @return [Verify] a new instance of Verify
+  #
+  # source://jwt//lib/jwt/verify.rb#23
+  def initialize(payload, options); end
+
+  # source://jwt//lib/jwt/verify.rb#29
+  def verify_aud; end
+
+  # source://jwt//lib/jwt/verify.rb#29
+  def verify_expiration; end
+
+  # source://jwt//lib/jwt/verify.rb#29
+  def verify_iat; end
+
+  # source://jwt//lib/jwt/verify.rb#29
+  def verify_iss; end
+
+  # source://jwt//lib/jwt/verify.rb#29
+  def verify_jti; end
+
+  # source://jwt//lib/jwt/verify.rb#29
+  def verify_not_before; end
+
+  # source://jwt//lib/jwt/verify.rb#29
+  def verify_required_claims; end
+
+  # source://jwt//lib/jwt/verify.rb#29
+  def verify_sub; end
+
+  class << self
+    # source://jwt//lib/jwt/verify.rb#12
+    def verify_aud(payload, options); end
+
+    # source://jwt//lib/jwt/verify.rb#17
+    def verify_claims(payload, options); end
+
+    # source://jwt//lib/jwt/verify.rb#12
+    def verify_expiration(payload, options); end
+
+    # source://jwt//lib/jwt/verify.rb#12
+    def verify_iat(payload, options); end
+
+    # source://jwt//lib/jwt/verify.rb#12
+    def verify_iss(payload, options); end
+
+    # source://jwt//lib/jwt/verify.rb#12
+    def verify_jti(payload, options); end
+
+    # source://jwt//lib/jwt/verify.rb#12
+    def verify_not_before(payload, options); end
+
+    # source://jwt//lib/jwt/verify.rb#12
+    def verify_required_claims(payload, options); end
+
+    # source://jwt//lib/jwt/verify.rb#12
+    def verify_sub(payload, options); end
+  end
+end
+
+# source://jwt//lib/jwt/verify.rb#7
+JWT::Verify::DEFAULTS = T.let(T.unsafe(nil), Hash)
+
+# source://jwt//lib/jwt/verify.rb#8
+JWT::Verify::METHODS = T.let(T.unsafe(nil), Array)
 
 # If the x5c header certificate chain can be validated by trusted root
 # certificates, and none of the certificates are revoked, returns the public

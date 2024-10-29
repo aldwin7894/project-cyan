@@ -217,7 +217,7 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     netrc (0.11.0)
-    nio4r (2.7.3)
+    nio4r (2.7.4)
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     opus-ruby (1.0.1)
@@ -368,13 +368,13 @@ GEM
       concurrent-ruby (~> 1.0, >= 1.0.5)
       sidekiq (>= 7.0.0, < 8.0.0)
       thor (>= 1.0, < 3.0)
-    sorbet (0.5.11618)
-      sorbet-static (= 0.5.11618)
-    sorbet-runtime (0.5.11618)
-    sorbet-static (0.5.11618-x86_64-linux)
-    sorbet-static-and-runtime (0.5.11618)
-      sorbet (= 0.5.11618)
-      sorbet-runtime (= 0.5.11618)
+    sorbet (0.5.11620)
+      sorbet-static (= 0.5.11620)
+    sorbet-runtime (0.5.11620)
+    sorbet-static (0.5.11620-x86_64-linux)
+    sorbet-static-and-runtime (0.5.11620)
+      sorbet (= 0.5.11620)
+      sorbet-runtime (= 0.5.11620)
     spoom (1.5.0)
       erubi (>= 1.10.0)
       prism (>= 0.28.0)
@@ -492,4 +492,4 @@ RUBY VERSION
    ruby 3.3.5p100
 
 BUNDLED WITH
-   2.5.18
+   2.5.22

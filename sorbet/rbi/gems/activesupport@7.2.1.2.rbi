@@ -12518,10 +12518,10 @@ class ActiveSupport::TestCase < ::Minitest::Test
   # source://minitest/5.25.1/lib/minitest/assertions.rb#817
   def assert_not_same(exp, act, msg = T.unsafe(nil)); end
 
-  # source://turbo-rails/2.0.10/lib/turbo/test_assertions.rb#7
+  # source://turbo-rails/2.0.11/lib/turbo/test_assertions.rb#7
   def dom_class(*_arg0, **_arg1, &_arg2); end
 
-  # source://turbo-rails/2.0.10/lib/turbo/test_assertions.rb#7
+  # source://turbo-rails/2.0.11/lib/turbo/test_assertions.rb#7
   def dom_id(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/testing/file_fixtures.rb#20
@@ -14789,7 +14789,7 @@ ActiveSupport::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActiveSupport::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://activesupport//lib/active_support/gem_version.rb#13
-ActiveSupport::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
+ActiveSupport::VERSION::PRE = T.let(T.unsafe(nil), String)
 
 # source://activesupport//lib/active_support/gem_version.rb#15
 ActiveSupport::VERSION::STRING = T.let(T.unsafe(nil), String)
