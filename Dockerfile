@@ -4,7 +4,13 @@ ENV NODE_VERSION=20.17.0
 ENV NPM_VERSION=10.8
 ENV YARN_VERSION=1.22
 ENV BUNDLE_PATH=/gems
-ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
+ARG TARGETARCH
+RUN if [ "$TARGETARCH" = "arm64" ] ; then \
+      ARCH="arm64"; \
+    elif [ "$TARGETARCH" = "amd64" ] ; then \
+      ARCH="x64"; \
+    fi;
+ENV PATH="/node-v${NODE_VERSION}-linux-${ARCH:-x64}/bin:${PATH}"
 
 RUN apt-get update -yq \
   && apt-get install -yq --no-install-recommends \
@@ -12,12 +18,12 @@ RUN apt-get update -yq \
   git \
   tar \
   wget \
-  && wget --quiet "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" --max-redirect=0 \
-  && mkdir -p "/node-v${NODE_VERSION}-linux-x64" \
-  && tar xzf "node-v$NODE_VERSION-linux-x64.tar.gz" --directory / \
+  && wget --quiet "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-${ARCH:-x64}.tar.gz" --max-redirect=0 \
+  && mkdir -p "/node-v${NODE_VERSION}-linux-${ARCH:-x64}" \
+  && tar xzf "node-v$NODE_VERSION-linux-${ARCH:-x64}.tar.gz" --directory / \
   && npm i -g "npm@$NPM_VERSION" "yarn@$YARN_VERSION" \
   && npm cache clean --force \
-  && rm -f "./node-v$NODE_VERSION-linux-x64.tar.gz" \
+  && rm -f "./node-v$NODE_VERSION-linux-${ARCH:-x64}.tar.gz" \
   && apt-get clean \
   && apt-get autoremove
 
@@ -58,7 +64,14 @@ FROM ruby:3.3.5-slim-bookworm
 
 ENV NODE_VERSION=20.17.0
 ENV BUNDLE_PATH=/gems
-ENV PATH="/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
+ARG TARGETARCH
+RUN if [ "$TARGETARCH" = "arm64" ] ; then \
+      ARCH="arm64"; \
+    elif [ "$TARGETARCH" = "amd64" ] ; then \
+      ARCH="x64"; \
+    fi;
+
+ENV PATH="/node-v${NODE_VERSION}-linux-${ARCH:-x64}/bin:${PATH}"
 
 # Install MS Edge for Ferrum
 # && wget --quiet --output-document=- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/trusted.gpg.d/microsoft-edge-beta.gpg \
@@ -82,7 +95,7 @@ WORKDIR /usr/src/app
 COPY --from=build-env /usr/src/app .
 COPY --from=build-env /usr/local/bundle /usr/local/bundle
 COPY --from=build-env /gems /gems
-COPY --from=build-env "/node-v${NODE_VERSION}-linux-x64" "/node-v${NODE_VERSION}-linux-x64"
+COPY --from=build-env "/node-v${NODE_VERSION}-linux-${ARCH:-x64}" "/node-v${NODE_VERSION}-linux-${ARCH:-x64}"
 
 # Configure jemalloc
 ENV MALLOC_CONF='narenas:2,background_thread:true,thp:never,dirty_decay_ms:1000,muzzy_decay_ms:0'
