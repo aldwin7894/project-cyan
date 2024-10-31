@@ -11,8 +11,8 @@ RUN apt-get update -yq \
   tar \
   wget \
   curl \
-  && curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
-  && apt-get install -y nodejs \
+  && curl --proto "=https" -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
+  && apt-get install -yq --no-install-recommends nodejs \
   && npm i -g "npm@$NPM_VERSION" "yarn@$YARN_VERSION" \
   && npm cache clean --force \
   && apt-get clean \

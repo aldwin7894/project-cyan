@@ -62,3 +62,5 @@ vendor
 !.vscode/*.shared.json
 
 stats.html
+
+/config/credentials/production.key
