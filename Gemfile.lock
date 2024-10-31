@@ -131,7 +131,6 @@ GEM
       logger
     faraday-net_http (3.3.0)
       net-http
-    ffi (1.17.0)
     ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-x86_64-linux-gnu)
     fugit (1.11.1)
@@ -197,7 +196,6 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2024.1001)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.7)
     minitest (5.25.1)
     mongo (2.21.0)
       bson (>= 4.14.1, < 6.0.0)
@@ -221,9 +219,6 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.7.4)
-    nokogiri (1.16.7)
-      mini_portile2 (~> 2.8.2)
-      racc (~> 1.4)
     nokogiri (1.16.7-aarch64-linux)
       racc (~> 1.4)
     nokogiri (1.16.7-x86_64-linux)
@@ -376,14 +371,14 @@ GEM
       concurrent-ruby (~> 1.0, >= 1.0.5)
       sidekiq (>= 7.0.0, < 8.0.0)
       thor (>= 1.0, < 3.0)
-    sorbet (0.5.11625)
-      sorbet-static (= 0.5.11625)
-    sorbet-runtime (0.5.11625)
-    sorbet-static (0.5.11625-aarch64-linux)
-    sorbet-static (0.5.11625-x86_64-linux)
-    sorbet-static-and-runtime (0.5.11625)
-      sorbet (= 0.5.11625)
-      sorbet-runtime (= 0.5.11625)
+    sorbet (0.5.11630)
+      sorbet-static (= 0.5.11630)
+    sorbet-runtime (0.5.11630)
+    sorbet-static (0.5.11630-aarch64-linux)
+    sorbet-static (0.5.11630-x86_64-linux)
+    sorbet-static-and-runtime (0.5.11630)
+      sorbet (= 0.5.11630)
+      sorbet-runtime (= 0.5.11630)
     spoom (1.5.0)
       erubi (>= 1.10.0)
       prism (>= 0.28.0)
@@ -443,7 +438,6 @@ GEM
 
 PLATFORMS
   aarch64-linux
-  ruby
   x86_64-linux
 
 DEPENDENCIES
