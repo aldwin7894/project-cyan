@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "@hotwired/turbo-rails": "^8.0.12",
-    "@rails/actioncable": "^7.2.102",
+    "@rails/actioncable": "^7.2.200",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
@@ -52,7 +52,7 @@
     "vite-plugin-ruby": "^5.1.0"
   },
   "devDependencies": {
-    "@types/node": "^22.8.2",
+    "@types/node": "^22.8.5",
     "@typescript-eslint/parser": "^8.12.2",
     "eslint": "8.57.1",
     "eslint-config-prettier": "^9.1.0",
