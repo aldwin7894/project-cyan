@@ -4,15 +4,15 @@ ENV NPM_VERSION=10.8
 ENV YARN_VERSION=1.22
 ENV BUNDLE_PATH=/gems
 
-RUN apt-get update -yq \
+RUN curl --proto "=https" -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
+  && apt-get update -yq \
   && apt-get install -yq --no-install-recommends \
   build-essential \
+  curl \
   git \
+  nodejs \
   tar \
   wget \
-  curl \
-  && curl --proto "=https" -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
-  && apt-get install -yq --no-install-recommends nodejs \
   && npm i -g "npm@$NPM_VERSION" "yarn@$YARN_VERSION" \
   && npm cache clean --force \
   && apt-get clean \
