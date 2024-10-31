@@ -5,7 +5,6 @@ ENV YARN_VERSION=1.22
 ENV BUNDLE_PATH=/gems
 
 RUN curl --proto "=https" -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
-  && apt-get update -yq \
   && apt-get install -yq --no-install-recommends \
   build-essential \
   curl \
