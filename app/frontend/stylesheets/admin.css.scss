@@ -1,8 +1,8 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-@import "./utils/fonts.css.scss";
-@import "./utils/backgrounds.css.scss";
+@use "tailwindcss/base";
+@use "tailwindcss/components";
+@use "tailwindcss/utilities";
+@use "./utils/fonts.css.scss";
+@use "./utils/backgrounds.css.scss";
 
 @layer base {
   html {
