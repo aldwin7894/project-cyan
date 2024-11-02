@@ -1,8 +1,0 @@
-@use 'sass:math';
-
-@function randomNum($min, $max) {
-  $rand: random();
-  $randomNum: $min + math.floor($rand * (($max - $min) + 1));
-
-  @return $randomNum;
-}

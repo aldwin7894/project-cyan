@@ -1,9 +1,16 @@
+@use "sass:math";
 @use "tailwindcss/base";
 @use "tailwindcss/components";
 @use "tailwindcss/utilities";
-@use "./utils/randomNum.css.scss";
-@use "./utils/fonts.css.scss";
-@use "./utils/backgrounds.css.scss";
+@use "utils/fonts.css.scss";
+@use "utils/backgrounds.css.scss";
+
+@function randomNum($min, $max) {
+  $rand: math.random();
+  $randomNum: $min + math.floor($rand * (($max - $min) + 1));
+
+  @return $randomNum;
+}
 
 @layer base {
   html {
