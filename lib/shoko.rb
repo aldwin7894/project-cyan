@@ -108,8 +108,8 @@ module Shoko
         res = JSON.parse res, symbolize_names: true
         if res.is_a?(Array) && !res.empty?
           series = res.find { |x| x&.[](:IDs)&.[](:MAL)&.include?(possible_queries[index]&.[](:mal_id)) }
-          series ||= res.first
-          break
+          series ||= res.find { |x| x&.[](:Distance) <= 0.5 }
+          break if series.present?
         end
 
         Rails.logger.tagged("SHOKO".yellow, "FIND SERIES".yellow, possible_queries[index]&.[](:name)&.yellow) do
