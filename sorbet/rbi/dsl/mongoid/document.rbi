@@ -41,7 +41,6 @@ module Mongoid::Document
   module GeneratedClassMethods
     def __callbacks; end
     def __callbacks=(value); end
-    def __callbacks?; end
     def _declared_scopes; end
     def _declared_scopes=(value); end
     def _declared_scopes?; end
@@ -118,7 +117,6 @@ module Mongoid::Document
 
   module GeneratedInstanceMethods
     def __callbacks; end
-    def __callbacks?; end
     def _declared_scopes; end
     def _declared_scopes=(value); end
     def _declared_scopes?; end

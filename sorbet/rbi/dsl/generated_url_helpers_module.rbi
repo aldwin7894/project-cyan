@@ -100,6 +100,9 @@ module GeneratedUrlHelpersModule
   def ping_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def rails_info_notes_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def rails_info_properties_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }

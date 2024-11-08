@@ -3,14 +3,14 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.3.5"
+ruby "3.3.6"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem "rails", "~> 7.2.2"
+gem "rails", "~> 8.0.0"
 # use vite to build javascripts and assets
 gem "vite_rails", "~> 3.0"
 # Use mongodb
-gem "mongoid", "~> 9.0"
+gem "mongoid", git: 'https://github.com/mongodb/mongoid.git', branch: 'master' # TODO: REPLACE WITH "~> 9.0.3"
 gem "bson", "~> 5.0"
 # Use Puma as the app server
 gem "puma", "~> 6.4"
@@ -57,7 +57,7 @@ group :test do
   gem "capybara", ">= 3.26"
   gem "selenium-webdriver"
   # Easy installation and use of web drivers to run system tests with browsers
-  gem "webdrivers"
+  gem "webdrivers", "=5.3.0"
 end
 
 gem "httparty", "~> 0.22.0"

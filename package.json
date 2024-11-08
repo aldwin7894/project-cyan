@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "@hotwired/turbo-rails": "^8.0.12",
-    "@rails/actioncable": "^7.2.200",
+    "@rails/actioncable": "^8.0.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
@@ -49,10 +49,10 @@
     "tippy.js": "^6.3.7",
     "vite": "^5.4.10",
     "vite-plugin-full-reload": "^1.2.0",
-    "vite-plugin-ruby": "^5.1.0"
+    "vite-plugin-ruby": "^5.1.1"
   },
   "devDependencies": {
-    "@types/node": "^22.8.6",
+    "@types/node": "^22.9.0",
     "@typescript-eslint/parser": "^8.13.0",
     "eslint": "8.57.1",
     "eslint-config-prettier": "^9.1.0",
@@ -65,7 +65,7 @@
   },
   "engines": {
     "node": "20.18.0",
-    "npm": ">= 10.8",
+    "npm": ">= 10.9",
     "yarn": ">= 1.22"
   }
 }

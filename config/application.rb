@@ -28,6 +28,7 @@ module Aldwin7894
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     config.time_zone = "Singapore"
+    config.active_support.to_time_preserves_timezone = :zone
     config.x.feature.lograge = Rails.application.credentials.config.dig(:LOGRAGE) == "true"
     config.middleware.use Mongo::QueryCache::Middleware
     config.middleware.use Rack::Deflater

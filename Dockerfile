@@ -1,7 +1,5 @@
-FROM ruby:3.3.5-slim-bookworm AS build-env
+FROM ruby:3.3.6-slim-bookworm AS build-env
 
-ENV NPM_VERSION=10.8
-ENV YARN_VERSION=1.22
 ENV BUNDLE_PATH=/gems
 
 RUN apt-get update && apt-get install -yq --no-install-recommends \
@@ -12,7 +10,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
   wget \
   && curl --proto "=https" -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
   && apt-get install -yq --no-install-recommends nodejs \
-  && npm i -g "npm@$NPM_VERSION" "yarn@$YARN_VERSION" \
+  && npm i -g --ignore-scripts npm yarn \
   && npm cache clean --force \
   && apt-get clean \
   && apt-get autoremove
@@ -50,7 +48,7 @@ RUN --mount=type=secret,id=TZ \
   && bash ./build.sh
 
 #==============================================
-FROM ruby:3.3.5-slim-bookworm
+FROM ruby:3.3.6-slim-bookworm
 
 ENV BUNDLE_PATH=/gems
 

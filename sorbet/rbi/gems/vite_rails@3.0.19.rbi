@@ -5,6 +5,10 @@
 # Please instead update this file by running `bin/tapioca gem vite_rails`.
 
 
+module ActionController::Base::HelperMethods
+  include ::ViteRails::TagHelpers
+end
+
 # source://vite_rails//lib/vite_rails/version.rb#3
 module ViteRails; end
 
@@ -59,8 +63,11 @@ end
 # source://vite_rails//lib/vite_rails/engine.rb#5
 class ViteRails::Engine < ::Rails::Engine
   class << self
-    # source://activesupport/7.2.1.2/lib/active_support/callbacks.rb#70
+    # source://activesupport/8.0.0/lib/active_support/class_attribute.rb#12
     def __callbacks; end
+
+    # source://activesupport/8.0.0/lib/active_support/class_attribute.rb#15
+    def __callbacks=(new_value); end
   end
 end
 
