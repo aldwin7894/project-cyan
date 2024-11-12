@@ -111,7 +111,7 @@ gem "brotli", "~> 0.6.0"
 
 gem "sidekiq", "~> 7.3"
 
-gem "sidekiq-cron", "~> 1.12"
+gem "sidekiq-cron", "~> 2.0"
 
 gem "colorize", "~> 1.1"
 
