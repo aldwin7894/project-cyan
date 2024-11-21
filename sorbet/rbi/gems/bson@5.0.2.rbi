@@ -46,7 +46,7 @@ end
 # source://bson//lib/bson/array.rb#25
 module BSON::Array
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # This method recursively invokes +as_extended_json+ with the provided
   # options on each array element.
@@ -211,6 +211,7 @@ end
 # source://bson//lib/bson/binary.rb#25
 class BSON::Binary
   include ::BSON::JSON
+  include ::Comparable
 
   # Instantiate the new binary object.
   #
@@ -228,8 +229,20 @@ class BSON::Binary
   # @return [Binary] a new instance of Binary
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#150
+  # source://bson//lib/bson/binary.rb#165
   def initialize(data = T.unsafe(nil), type = T.unsafe(nil)); end
+
+  # Compare this binary object to another object. The two objects must have
+  # the same type for any meaningful comparison.
+  #
+  # @param other [Object] The object to compare against.
+  # @return [Integer | nil] If the objects have the same type, the result
+  #   is -1 if self < other, 0 if self == other, and 1 if self > other. If
+  #   other is not a Binary, or is a Binary of a different type, returns nil.
+  # @since 2.0.0
+  #
+  # source://bson//lib/bson/binary.rb#102
+  def <=>(other); end
 
   # Determine if this binary object is equal to another object.
   #
@@ -239,18 +252,18 @@ class BSON::Binary
   # @return [true, false] If the objects are equal.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#86
+  # source://bson//lib/bson/binary.rb#87
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # @option opts
   # @param opts [Hash] a customizable set of options
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#121
+  # source://bson//lib/bson/binary.rb#136
   def as_extended_json(**options); end
 
   # Return a representation of the object for use in
@@ -261,7 +274,7 @@ class BSON::Binary
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#110
+  # source://bson//lib/bson/binary.rb#125
   def as_json(*_args); end
 
   def bson_type; end
@@ -271,7 +284,7 @@ class BSON::Binary
   # @return [String] The raw binary data.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#68
+  # source://bson//lib/bson/binary.rb#69
   def data; end
 
   # Determine if this binary object is equal to another object.
@@ -282,7 +295,7 @@ class BSON::Binary
   # @return [true, false] If the objects are equal.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#86
+  # source://bson//lib/bson/binary.rb#87
   def eql?(other); end
 
   # Generates a Fixnum hash value for this object.
@@ -292,7 +305,7 @@ class BSON::Binary
   # @return [Fixnum]
   # @since 2.3.1
   #
-  # source://bson//lib/bson/binary.rb#100
+  # source://bson//lib/bson/binary.rb#115
   def hash; end
 
   # For legacy deserialization support where BSON::Binary objects are
@@ -301,7 +314,7 @@ class BSON::Binary
   # @api private
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#159
+  # source://bson//lib/bson/binary.rb#174
   def init_with(coder); end
 
   # Get a nice string for use with object inspection.
@@ -311,13 +324,13 @@ class BSON::Binary
   # @return [String] The binary in form BSON::Binary:object_id
   # @since 2.3.0
   #
-  # source://bson//lib/bson/binary.rb#171
+  # source://bson//lib/bson/binary.rb#186
   def inspect; end
 
   # @return [String] The raw type value, as an encoded integer.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#74
+  # source://bson//lib/bson/binary.rb#75
   def raw_type; end
 
   # Encode the binary type
@@ -328,7 +341,7 @@ class BSON::Binary
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#227
+  # source://bson//lib/bson/binary.rb#242
   def to_bson(buffer = T.unsafe(nil)); end
 
   # Returns a string representation of the UUID stored in this Binary.
@@ -356,13 +369,13 @@ class BSON::Binary
   # @return [String] The string representation of the UUID.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#201
+  # source://bson//lib/bson/binary.rb#216
   def to_uuid(representation = T.unsafe(nil)); end
 
   # @return [Symbol] The binary type.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#71
+  # source://bson//lib/bson/binary.rb#72
   def type; end
 
   private
@@ -373,7 +386,7 @@ class BSON::Binary
   # @return [String] the csharp-legacy-formatted UUID
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#430
+  # source://bson//lib/bson/binary.rb#445
   def from_uuid_old_to_csharp_legacy_uuid(hex); end
 
   # Converts a UUID-old object to a java-legacy representation.
@@ -382,7 +395,7 @@ class BSON::Binary
   # @return [String] the java-legacy-formatted UUID
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#439
+  # source://bson//lib/bson/binary.rb#454
   def from_uuid_old_to_java_legacy_uuid(hex); end
 
   # Converts a UUID-old object to a python-legacy representation.
@@ -391,7 +404,7 @@ class BSON::Binary
   # @return [String] the python-legacy-formatted UUID
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#450
+  # source://bson//lib/bson/binary.rb#465
   def from_uuid_old_to_python_legacy_uuid(hex); end
 
   # Tries to convert a UUID-old object to a standard representation, which is
@@ -401,7 +414,7 @@ class BSON::Binary
   # @raise [ArgumentError] because standard representation is not supported
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#421
+  # source://bson//lib/bson/binary.rb#436
   def from_uuid_old_to_standard_uuid(_hex); end
 
   # Converts the UUID-old object to a UUID of the given representation.
@@ -411,7 +424,7 @@ class BSON::Binary
   # @return [String] the UUID as a string
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#401
+  # source://bson//lib/bson/binary.rb#416
   def from_uuid_old_to_uuid(representation); end
 
   # Converts the Binary UUID object to a UUID of the given representation.
@@ -422,7 +435,7 @@ class BSON::Binary
   # @return [String] the UUID as a string
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#382
+  # source://bson//lib/bson/binary.rb#397
   def from_uuid_to_uuid(representation); end
 
   # initializes an instance of BSON::Binary.
@@ -431,7 +444,7 @@ class BSON::Binary
   # @param type [Symbol] the type to assign the binary object
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#362
+  # source://bson//lib/bson/binary.rb#377
   def initialize_instance(data, type); end
 
   # Test that the given integer type is valid.
@@ -441,7 +454,7 @@ class BSON::Binary
   # @return [Symbol] the symbolic type corresponding to the argument.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#489
+  # source://bson//lib/bson/binary.rb#504
   def validate_integer_type!(type); end
 
   # Test that the given symbol type is valid.
@@ -451,7 +464,7 @@ class BSON::Binary
   # @return [Symbol] the symbolic type corresponding to the argument.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#508
+  # source://bson//lib/bson/binary.rb#523
   def validate_symbol_type!(type); end
 
   # Validate the provided type is a valid type.
@@ -464,7 +477,7 @@ class BSON::Binary
   # @return [Symbol] the symbolic type corresponding to the argument.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#468
+  # source://bson//lib/bson/binary.rb#483
   def validate_type!(type); end
 
   class << self
@@ -477,7 +490,7 @@ class BSON::Binary
     # @see http://bsonspec.org/#/specification
     # @since 2.0.0
     #
-    # source://bson//lib/bson/binary.rb#247
+    # source://bson//lib/bson/binary.rb#262
     def from_bson(buffer, **_options); end
 
     # Constructs a new binary object from a csharp legacy-format binary UUID
@@ -488,7 +501,7 @@ class BSON::Binary
     # @return [BSON::Binary] the Binary object
     # @since 2.0.0
     #
-    # source://bson//lib/bson/binary.rb#324
+    # source://bson//lib/bson/binary.rb#339
     def from_csharp_legacy_uuid(uuid_binary); end
 
     # Constructs a new binary object from a java legacy-format binary UUID
@@ -499,7 +512,7 @@ class BSON::Binary
     # @return [BSON::Binary] the Binary object
     # @since 2.0.0
     #
-    # source://bson//lib/bson/binary.rb#337
+    # source://bson//lib/bson/binary.rb#352
     def from_java_legacy_uuid(uuid_binary); end
 
     # Constructs a new binary object from a python legacy-format binary UUID
@@ -510,7 +523,7 @@ class BSON::Binary
     # @return [BSON::Binary] the Binary object
     # @since 2.0.0
     #
-    # source://bson//lib/bson/binary.rb#352
+    # source://bson//lib/bson/binary.rb#367
     def from_python_legacy_uuid(uuid_binary); end
 
     # Constructs a new binary object from a standard-format binary UUID
@@ -521,7 +534,7 @@ class BSON::Binary
     # @return [BSON::Binary] the Binary object
     # @since 2.0.0
     #
-    # source://bson//lib/bson/binary.rb#312
+    # source://bson//lib/bson/binary.rb#327
     def from_standard_uuid(uuid_binary); end
 
     # Creates a BSON::Binary from a string representation of a UUID.
@@ -548,7 +561,7 @@ class BSON::Binary
     # @return [Binary] The binary.
     # @since 2.0.0
     #
-    # source://bson//lib/bson/binary.rb#292
+    # source://bson//lib/bson/binary.rb#307
     def from_uuid(uuid, representation = T.unsafe(nil)); end
   end
 end
@@ -557,7 +570,7 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/binary.rb#31
+# source://bson//lib/bson/binary.rb#32
 BSON::Binary::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # The mappings of subtypes to their single byte identifiers.
@@ -569,21 +582,21 @@ BSON::Binary::BSON_TYPE = T.let(T.unsafe(nil), String)
 #   An application should not create new BSON::Binary objects of this subtype.
 # @since 2.0.0
 #
-# source://bson//lib/bson/binary.rb#42
+# source://bson//lib/bson/binary.rb#43
 BSON::Binary::SUBTYPES = T.let(T.unsafe(nil), Hash)
 
 # The mappings of single byte subtypes to their symbol counterparts.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/binary.rb#61
+# source://bson//lib/bson/binary.rb#62
 BSON::Binary::TYPES = T.let(T.unsafe(nil), Hash)
 
 # The starting point of the user-defined subtype range.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/binary.rb#56
+# source://bson//lib/bson/binary.rb#57
 BSON::Binary::USER_SUBTYPE = T.let(T.unsafe(nil), Integer)
 
 # Represents a boolean type, which compares less than any other value in the
@@ -684,7 +697,7 @@ class BSON::Code
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # @option opts
   # @param opts [Hash] a customizable set of options
@@ -779,7 +792,7 @@ class BSON::CodeWithScope
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # @option opts
   # @param opts [Hash] a customizable set of options
@@ -1030,7 +1043,7 @@ class BSON::DbPointer
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # @return [Hash] The extended json representation.
   #
@@ -1123,7 +1136,7 @@ class BSON::Decimal128
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # @option opts
   # @param opts [Hash] a customizable set of options
@@ -2263,7 +2276,7 @@ class BSON::Error::UnsupportedBinarySubtype < ::BSON::Error; end
 class BSON::Error::UnsupportedType < ::BSON::Error; end
 
 # This module contains methods for parsing Extended JSON 2.0.
-# https://github.com/mongodb/specifications/blob/master/source/extended-json.rst
+# https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md
 #
 # source://bson//lib/bson/ext_json.rb#23
 module BSON::ExtJSON
@@ -2522,7 +2535,7 @@ BSON::FalseClass::FALSE_BYTE = T.let(T.unsafe(nil), String)
 # source://bson//lib/bson/float.rb#25
 module BSON::Float
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # This method returns the float itself if relaxed representation is
   # requested and the value is finite, otherwise a $numberDouble hash.
@@ -2586,7 +2599,7 @@ BSON::Float::PACK = T.let(T.unsafe(nil), String)
 # source://bson//lib/bson/hash.rb#23
 module BSON::Hash
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # This method recursively invokes +as_extended_json+ with the provided
   # options on each hash value.
@@ -2743,7 +2756,7 @@ class BSON::Int32
   def ===(other); end
 
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # This method returns the integer value if relaxed representation is
   # requested, otherwise a $numberInt hash.
@@ -2882,7 +2895,7 @@ class BSON::Int64
   def ===(other); end
 
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # This method returns the integer value if relaxed representation is
   # requested, otherwise a $numberLong hash.
@@ -2985,7 +2998,7 @@ BSON::Int64::PACK = T.let(T.unsafe(nil), String)
 # source://bson//lib/bson/integer.rb#25
 module BSON::Integer
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # This method returns the integer itself if relaxed representation is
   # requested, otherwise a $numberInt hash if the value fits in 32 bits
@@ -3183,7 +3196,7 @@ class BSON::MaxKey
   def <=>(other); end
 
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # @option opts
   # @param opts [Hash] a customizable set of options
@@ -3247,7 +3260,7 @@ class BSON::MinKey
   def <=>(other); end
 
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # @option opts
   # @param opts [Hash] a customizable set of options
@@ -3342,7 +3355,7 @@ end
 # source://bson//lib/bson/object.rb#22
 module BSON::Object
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # Subclasses should override this method to provide custom serialization
   # to Extended JSON.
@@ -3387,7 +3400,7 @@ module BSON::Object
   def to_bson_normalized_value; end
 
   # Serializes this object to Extended JSON
-  # (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # Subclasses should override +as_extended_json+ rather than this method.
   #
@@ -3464,7 +3477,7 @@ class BSON::ObjectId
   def _process_part; end
 
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # @return [Hash] The extended json representation.
   # @since 2.0.0
@@ -3922,7 +3935,7 @@ class BSON::Regexp::Raw
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # @option opts
   # @param opts [Hash] a customizable set of options
@@ -4228,7 +4241,7 @@ BSON::String::ILLEGAL_KEY = T.let(T.unsafe(nil), Regexp)
 # source://bson//lib/bson/symbol.rb#28
 module BSON::Symbol
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # @return [Hash] The extended json representation.
   # @since 2.0.0
@@ -4333,7 +4346,7 @@ class BSON::Symbol::Raw
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # @return [Hash] The extended json representation.
   # @since 2.0.0
@@ -4420,7 +4433,7 @@ module BSON::Time
   def _bson_to_i; end
 
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # @note The time is floored to the nearest millisecond.
   # @option opts
@@ -4550,7 +4563,7 @@ class BSON::Timestamp
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # @option opts
   # @param opts [Hash] a customizable set of options
@@ -4691,7 +4704,7 @@ class BSON::Undefined
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
-  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json.rst).
+  # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
   #
   # @option opts
   # @param opts [Hash] a customizable set of options

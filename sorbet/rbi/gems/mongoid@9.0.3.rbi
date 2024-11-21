@@ -3161,17 +3161,6 @@ class Mongoid::Association::Many < ::Mongoid::Association::Proxy
   # source://mongoid//lib/mongoid/association/many.rb#22
   def blank?; end
 
-  # For compatibility with Rails' caching. Returns a string based on the
-  # given timestamp, and includes the number of records in the relation
-  # in the version.
-  #
-  # @param timestamp_column [String | Symbol] the timestamp column to
-  #   use when constructing the key.
-  # @return [String] the cache version string
-  #
-  # source://mongoid//lib/mongoid/association/many.rb#189
-  def cache_version(timestamp_column = T.unsafe(nil)); end
-
   # Creates a new document on the references many association. This will
   # save the document if the parent has been persisted.
   #
@@ -3307,31 +3296,8 @@ class Mongoid::Association::Many < ::Mongoid::Association::Proxy
 
   private
 
-  # source://mongoid//lib/mongoid/association/many.rb#196
+  # source://mongoid//lib/mongoid/association/many.rb#183
   def _session; end
-
-  # Return a 2-tuple of the number of elements in the relation, and the
-  # largest timestamp value.
-  #
-  # source://mongoid//lib/mongoid/association/many.rb#242
-  def analyze_loaded_target(timestamp_column); end
-
-  # Returns a 2-tuple of the number of elements in the relation, and the
-  # largest timestamp value. This will query the database to perform a
-  # $sum and a $max.
-  #
-  # source://mongoid//lib/mongoid/association/many.rb#251
-  def analyze_unloaded_target(timestamp_column); end
-
-  # Computes the cache version for the relation using the given
-  # timestamp colum; see `#cache_version`.
-  #
-  # @param timestamp_column [String | Symbol] the timestamp column to
-  #   use when constructing the key.
-  # @return [String] the cache version string
-  #
-  # source://mongoid//lib/mongoid/association/many.rb#222
-  def compute_cache_version(timestamp_column); end
 
   # Find the first object given the supplied attributes or create/initialize it.
   #
@@ -3343,7 +3309,7 @@ class Mongoid::Association::Many < ::Mongoid::Association::Proxy
   #   @param [ Class ] type The optional subclass to build.
   # @return [Document] A matching document or a new/created one.
   #
-  # source://mongoid//lib/mongoid/association/many.rb#210
+  # source://mongoid//lib/mongoid/association/many.rb#197
   def find_or(method, attrs = T.unsafe(nil), type = T.unsafe(nil), &block); end
 end
 
@@ -8746,34 +8712,18 @@ module Mongoid::Cacheable
   # Print out the cache key. This will append different values on the
   # plural model name.
   #
-  # If new_record? - will append /new
-  # Non-nil cache_version? - append /id
-  # Non-nil updated_at - append /id-updated_at.to_formatted_s(cache_timestamp_format)
-  # Otherwise - append /id
+  # If new_record?     - will append /new
+  # If not             - will append /id-updated_at.to_formatted_s(cache_timestamp_format)
+  # Without updated_at - will append /id
   #
   # This is usually called inside a cache() block
   #
   # @example Returns the cache key
   #   document.cache_key
-  # @return [String] the generated cache key
+  # @return [String] the string with or without updated_at
   #
-  # source://mongoid//lib/mongoid/cacheable.rb#29
+  # source://mongoid//lib/mongoid/cacheable.rb#28
   def cache_key; end
-
-  # Return the cache version for this model. By default, it returns the updated_at
-  # field (if present) formatted as a string, or nil if the model has no
-  # updated_at field. Models with different needs may override this method to
-  # suit their desired behavior.
-  #
-  # TODO: we can test this by using a MemoryStore, putting something in
-  # it, then updating the timestamp on the record and trying to read the
-  # value from the memory store. It shouldn't find it, because the version
-  # has changed.
-  #
-  # @return [String | nil] the cache version value
-  #
-  # source://mongoid//lib/mongoid/cacheable.rb#47
-  def cache_version; end
 end
 
 # Defines behavior for dirty tracking.
@@ -13275,12 +13225,12 @@ class Mongoid::Contextual::Mongo
 
   private
 
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#898
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#888
   def _session; end
 
   # @return [Boolean]
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#902
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#892
   def acknowledged_write?; end
 
   # Apply the field limitations.
@@ -13310,25 +13260,6 @@ class Mongoid::Contextual::Mongo
   # source://mongoid//lib/mongoid/contextual/mongo.rb#817
   def apply_options; end
 
-  # Demongoizes (converts from database to Ruby representation) the values
-  # of the given hash as if it were the raw representation of a document of
-  # the given klass.
-  #
-  # reasons. If you wish to preserve the original hash, duplicate it before
-  # passing it to this method.
-  #
-  # @api private
-  # @note this method will modify the given hash, in-place, for performance
-  # @param klass [Document] the Document class that the given hash ought
-  #   to represent
-  # @param hash [Hash | nil] the Hash instance containing the values to
-  #   demongoize.
-  # @return [Hash | nil] the demongoized result (nil if the input Hash
-  #   was nil)
-  #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#1009
-  def demongoize_hash(klass, hash); end
-
   # Demongoize the value for the given field. If the field is nil or the
   # field is a translations field, the value is demongoized using its class.
   #
@@ -13339,7 +13270,7 @@ class Mongoid::Contextual::Mongo
   #   _translations field.
   # @return [Object] The demongoized value.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#1045
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#993
   def demongoize_with_field(field, value, is_translation); end
 
   # Get the documents the context should iterate.
@@ -13360,7 +13291,7 @@ class Mongoid::Contextual::Mongo
   # @param field_name [String] The name of the field to extract.
   # @param The [Object] value for the given field name
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#933
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#923
   def extract_value(attrs, field_name); end
 
   # Fetch the element from the given hash and demongoize it using the
@@ -13373,7 +13304,7 @@ class Mongoid::Contextual::Mongo
   # @param field [Field] The field to use for demongoization.
   # @return [Object] The demongoized value.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#917
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#907
   def fetch_and_demongoize(obj, meth, field); end
 
   # Map the inverse sort symbols to the correct MongoDB values.
@@ -13388,12 +13319,12 @@ class Mongoid::Contextual::Mongo
   # @return [Array<Document> | Document] The list of documents or a
   #   single document.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#1067
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#1015
   def process_raw_docs(raw_docs, limit); end
 
   # @raise [Errors::DocumentNotFound]
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#1103
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#1044
   def raise_document_not_found_error; end
 
   # Recursively demongoize the given value. This method recursively traverses
@@ -13405,19 +13336,19 @@ class Mongoid::Contextual::Mongo
   #   _translations field.
   # @return [Object] The demongoized value.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#987
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#977
   def recursive_demongoize(field_name, value, is_translation); end
 
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#1107
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#1048
   def retrieve_nth(n); end
 
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#1120
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#1061
   def retrieve_nth_to_last(n); end
 
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#1124
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#1065
   def retrieve_nth_to_last_with_limit(n, limit); end
 
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#1111
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#1052
   def retrieve_nth_with_limit(n, limit); end
 
   # Update the documents for the provided method.
@@ -13442,7 +13373,7 @@ class Mongoid::Contextual::Mongo
   # @return [true | false] whether or not the current context
   #   excludes a `$where` operator.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#1091
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#1032
   def valid_for_count_documents?(hash = T.unsafe(nil)); end
 
   # Yield to the document.
@@ -14092,7 +14023,7 @@ class Mongoid::Criteria
   # @param klass [Class] The model class.
   # @return [Criteria] a new instance of Criteria
   #
-  # source://mongoid//lib/mongoid/criteria.rb#294
+  # source://mongoid//lib/mongoid/criteria.rb#233
   def initialize(klass); end
 
   # Returns true if the supplied +Enumerable+ or +Criteria+ is equal to the results
@@ -14112,28 +14043,6 @@ class Mongoid::Criteria
   #
   # source://mongoid//lib/mongoid/criteria/findable.rb#43
   def _findable_find(*args); end
-
-  # An internal helper for getting/setting the "raw" flag on a given criteria
-  # object.
-  #
-  # @api private
-  # @return [nil | Hash] If set, it is a hash with two keys, :raw and :typed,
-  #   that describe whether raw results should be returned, and whether they
-  #   ought to be typecast.
-  #
-  # source://mongoid//lib/mongoid/criteria.rb#215
-  def _raw_results; end
-
-  # An internal helper for getting/setting the "raw" flag on a given criteria
-  # object.
-  #
-  # @api private
-  # @return [nil | Hash] If set, it is a hash with two keys, :raw and :typed,
-  #   that describe whether raw results should be returned, and whether they
-  #   ought to be typecast.
-  #
-  # source://mongoid//lib/mongoid/criteria.rb#215
-  def _raw_results=(_arg0); end
 
   # Needed to properly get a criteria back as json
   #
@@ -14202,7 +14111,7 @@ class Mongoid::Criteria
   #   criteria.empty_and_chainable?
   # @return [true | false] If the criteria is a none.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#363
+  # source://mongoid//lib/mongoid/criteria.rb#301
   def empty_and_chainable?; end
 
   # Extract a single id from the provided criteria. Could be in an $and
@@ -14212,7 +14121,7 @@ class Mongoid::Criteria
   #   criteria.extract_id
   # @return [Object] The id.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#243
+  # source://mongoid//lib/mongoid/criteria.rb#182
   def extract_id; end
 
   # Adds a criterion to the +Criteria+ that specifies additional options
@@ -14224,7 +14133,7 @@ class Mongoid::Criteria
   # @param extras [Hash] The extra driver options.
   # @return [Criteria] The cloned criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#256
+  # source://mongoid//lib/mongoid/criteria.rb#195
   def extras(extras); end
 
   # Get the list of included fields.
@@ -14233,7 +14142,7 @@ class Mongoid::Criteria
   #   criteria.field_list
   # @return [Array<String>] The fields.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#268
+  # source://mongoid//lib/mongoid/criteria.rb#207
   def field_list; end
 
   # Finds one or many documents given the provided _id values, or filters
@@ -14296,7 +14205,7 @@ class Mongoid::Criteria
   #   criteria.freeze
   # @return [Criteria] The frozen criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#284
+  # source://mongoid//lib/mongoid/criteria.rb#223
   def freeze; end
 
   # Returns the value of attribute klass.
@@ -14329,7 +14238,7 @@ class Mongoid::Criteria
   # @param other [Criteria] The other criterion to merge with.
   # @return [Criteria] A cloned self.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#321
+  # source://mongoid//lib/mongoid/criteria.rb#260
   def merge(other); end
 
   # Merge the other criteria into this one.
@@ -14339,7 +14248,7 @@ class Mongoid::Criteria
   # @param other [Criteria | Hash] The criteria to merge in.
   # @return [Criteria] The merged criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#335
+  # source://mongoid//lib/mongoid/criteria.rb#274
   def merge!(other); end
 
   # Returns a criteria that will always contain zero results and never hits
@@ -14349,7 +14258,7 @@ class Mongoid::Criteria
   #   criteria.none
   # @return [Criteria] The none criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#353
+  # source://mongoid//lib/mongoid/criteria.rb#291
   def none; end
 
   # Overriden to include _type in the fields.
@@ -14359,7 +14268,7 @@ class Mongoid::Criteria
   # @param *args [[ Symbol | Array<Symbol> ]...] The field name(s).
   # @return [Criteria] The cloned criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#375
+  # source://mongoid//lib/mongoid/criteria.rb#313
   def only(*args); end
 
   # Returns the value of attribute parent_document.
@@ -14374,34 +14283,6 @@ class Mongoid::Criteria
   # source://mongoid//lib/mongoid/criteria.rb#68
   def parent_document=(_arg0); end
 
-  # Produce a clone of the current criteria object with it's "raw"
-  # setting set to the given value. A criteria set to "raw" will return
-  # all results as raw hashes. If `typed` is true, the values in the hashes
-  # will be typecast according to the fields that they correspond to.
-  #
-  # When "raw" is not set (or if `raw_results` is false), the criteria will
-  # return all results as instantiated Document instances.
-  #
-  # @example Return query results as raw hashes:
-  #   Person.where(city: 'Boston').raw
-  # @param raw_results [true | false] Whether the new criteria should be
-  #   placed in "raw" mode or not.
-  # @param typed [true | false] Whether the raw results should be typecast
-  #   before being returned. Default is true if raw_results is false, and
-  #   false otherwise.
-  # @return [Criteria] the cloned criteria object.
-  #
-  # source://mongoid//lib/mongoid/criteria.rb#193
-  def raw(raw_results = T.unsafe(nil), typed: T.unsafe(nil)); end
-
-  # Predicate that answers the question: is this criteria object currently
-  # in raw mode? (See #raw for a description of raw mode.)
-  #
-  # @return [true | false] whether the criteria is in raw mode or not.
-  #
-  # source://mongoid//lib/mongoid/criteria.rb#221
-  def raw_results?; end
-
   # Set the read preference for the criteria.
   #
   # @example Set the read preference.
@@ -14409,7 +14290,7 @@ class Mongoid::Criteria
   # @param value [Hash] The mode preference.
   # @return [Criteria] The cloned criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#395
+  # source://mongoid//lib/mongoid/criteria.rb#333
   def read(value = T.unsafe(nil)); end
 
   # Returns true if criteria responds to the given method.
@@ -14420,7 +14301,7 @@ class Mongoid::Criteria
   # @param include_private [true | false] Whether to include privates.
   # @return [true | false] If the criteria responds to the method.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#423
+  # source://mongoid//lib/mongoid/criteria.rb#361
   def respond_to?(name, include_private = T.unsafe(nil)); end
 
   def to_ary(*_arg0); end
@@ -14441,7 +14322,7 @@ class Mongoid::Criteria
   #   criteria.to_proc
   # @return [Proc] The wrapped criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#447
+  # source://mongoid//lib/mongoid/criteria.rb#385
   def to_proc; end
 
   # Adds a criterion to the +Criteria+ that specifies a type or an Array of
@@ -14453,19 +14334,8 @@ class Mongoid::Criteria
   # @param types [Array<String>] The types to match against.
   # @return [Criteria] The cloned criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#461
+  # source://mongoid//lib/mongoid/criteria.rb#399
   def type(types); end
-
-  # Predicate that answers the question: should the results returned by
-  # this criteria object be typecast? (See #raw for a description of this.)
-  # The answer is meaningless unless #raw_results? is true, since if
-  # instantiated document objects are returned they will always be typecast.
-  #
-  # @return [true | false] whether the criteria should return typecast
-  #   results.
-  #
-  # source://mongoid//lib/mongoid/criteria.rb#232
-  def typecast_results?; end
 
   # This is the general entry point for most MongoDB queries. This either
   # creates a standard field: value selection, and expanded selection with
@@ -14481,7 +14351,7 @@ class Mongoid::Criteria
   #   is embedded.
   # @return [Criteria] The cloned selectable.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#482
+  # source://mongoid//lib/mongoid/criteria.rb#420
   def where(*args); end
 
   # Overriden to exclude _id from the fields.
@@ -14491,7 +14361,7 @@ class Mongoid::Criteria
   # @param *args [Symbol...] The field name(s).
   # @return [Criteria] The cloned criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#409
+  # source://mongoid//lib/mongoid/criteria.rb#347
   def without(*args); end
 
   # Get a version of this criteria without the options.
@@ -14500,7 +14370,7 @@ class Mongoid::Criteria
   #   criteria.without_options
   # @return [Criteria] The cloned criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#508
+  # source://mongoid//lib/mongoid/criteria.rb#446
   def without_options; end
 
   private
@@ -14516,7 +14386,7 @@ class Mongoid::Criteria
   # @raise [Errors::DocumentNotFound] If none are found and raising an
   #   error.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#554
+  # source://mongoid//lib/mongoid/criteria.rb#492
   def check_for_missing_documents!(result, ids); end
 
   # Clone or dup the current +Criteria+. This will return a new criteria with
@@ -14530,7 +14400,7 @@ class Mongoid::Criteria
   # @param other [Criteria] The criteria getting cloned.
   # @return [nil] nil.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#574
+  # source://mongoid//lib/mongoid/criteria.rb#512
   def initialize_copy(other); end
 
   # For models where inheritance is at play we need to add the type
@@ -14540,7 +14410,7 @@ class Mongoid::Criteria
   #   criteria.merge_type_selection
   # @return [true | false] If type selection was added.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#612
+  # source://mongoid//lib/mongoid/criteria.rb#549
   def merge_type_selection; end
 
   # Used for chaining +Criteria+ scopes together in the for of class methods
@@ -14552,7 +14422,7 @@ class Mongoid::Criteria
   # @param *args [Object...] The arguments.
   # @return [Object] The result of the method call.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#593
+  # source://mongoid//lib/mongoid/criteria.rb#530
   def method_missing(name, *args, **_arg2, &block); end
 
   # Get a new selector with type selection in it.
@@ -14562,7 +14432,7 @@ class Mongoid::Criteria
   #   criteria.selector_with_type_selection
   # @return [Hash] The selector.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#655
+  # source://mongoid//lib/mongoid/criteria.rb#592
   def selector_with_type_selection; end
 
   # Is the criteria type selectable?
@@ -14572,7 +14442,7 @@ class Mongoid::Criteria
   #   criteria.type_selectable?
   # @return [true | false] If type selection should be added.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#624
+  # source://mongoid//lib/mongoid/criteria.rb#561
   def type_selectable?; end
 
   # Get the selector for type selection.
@@ -14582,7 +14452,7 @@ class Mongoid::Criteria
   #   criteria.type_selection
   # @return [Hash] The type selection.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#638
+  # source://mongoid//lib/mongoid/criteria.rb#575
   def type_selection; end
 
   class << self
@@ -15104,13 +14974,6 @@ module Mongoid::Criteria::Queryable
   #
   # source://mongoid//lib/mongoid/criteria/queryable.rb#40
   def serializers; end
-
-  # Returns selector and options of the criteria in form of MongoDB command.
-  #
-  # @return [Hash] The command.
-  #
-  # source://mongoid//lib/mongoid/criteria/queryable.rb#93
-  def to_mql; end
 
   private
 
@@ -23329,7 +23192,7 @@ module Mongoid::Findable
   #   Person.empty?
   # @return [true | false] If the collection is empty.
   #
-  # source://mongoid//lib/mongoid/findable.rb#95
+  # source://mongoid//lib/mongoid/findable.rb#94
   def empty?; end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -23341,7 +23204,7 @@ module Mongoid::Findable
   #   Person.estimated_count
   # @return [Integer] The number of matching documents.
   #
-  # source://mongoid//lib/mongoid/findable.rb#85
+  # source://mongoid//lib/mongoid/findable.rb#84
   def estimated_count; end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -23364,7 +23227,7 @@ module Mongoid::Findable
   # @return [true | false] If any documents exist for the conditions.
   #   Always false if passed nil or false.
   #
-  # source://mongoid//lib/mongoid/findable.rb#116
+  # source://mongoid//lib/mongoid/findable.rb#115
   def exists?(id_or_conditions = T.unsafe(nil)); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -23423,7 +23286,7 @@ module Mongoid::Findable
   #   the +raise_not_found_error+ Mongoid configuration option is truthy.
   # @return [Document | Array<Document> | nil] A document or matching documents.
   #
-  # source://mongoid//lib/mongoid/findable.rb#169
+  # source://mongoid//lib/mongoid/findable.rb#168
   def find(*args, &block); end
 
   # Find the first +Document+ given the conditions.
@@ -23440,7 +23303,7 @@ module Mongoid::Findable
   # @return [Document | nil] A matching document.
   # @yield [result]
   #
-  # source://mongoid//lib/mongoid/findable.rb#192
+  # source://mongoid//lib/mongoid/findable.rb#191
   def find_by(attrs = T.unsafe(nil)); end
 
   # Find the first +Document+ given the conditions, or raises
@@ -23453,7 +23316,7 @@ module Mongoid::Findable
   # @return [Document] A matching document.
   # @yield [result]
   #
-  # source://mongoid//lib/mongoid/findable.rb#212
+  # source://mongoid//lib/mongoid/findable.rb#211
   def find_by!(attrs = T.unsafe(nil)); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -23481,7 +23344,7 @@ module Mongoid::Findable
   # @param limit [Integer] The number of documents to return.
   # @return [Document] The first matching document.
   #
-  # source://mongoid//lib/mongoid/findable.rb#227
+  # source://mongoid//lib/mongoid/findable.rb#226
   def first(limit = T.unsafe(nil)); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -23530,7 +23393,7 @@ module Mongoid::Findable
   # @param limit [Integer] The number of documents to return.
   # @return [Document] The last matching document.
   #
-  # source://mongoid//lib/mongoid/findable.rb#240
+  # source://mongoid//lib/mongoid/findable.rb#239
   def last(limit = T.unsafe(nil)); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -23606,7 +23469,7 @@ module Mongoid::Findable
   # @param limit [Integer] The number of documents to return.
   # @return [Document] The first matching document.
   #
-  # source://mongoid//lib/mongoid/findable.rb#227
+  # source://mongoid//lib/mongoid/findable.rb#226
   def one(limit = T.unsafe(nil)); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
@@ -23626,9 +23489,6 @@ module Mongoid::Findable
 
   # source://forwardable/1.3.3/forwardable.rb#231
   def pluck(*args, **_arg1, &block); end
-
-  # source://forwardable/1.3.3/forwardable.rb#231
-  def raw(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.3/forwardable.rb#231
   def read(*args, **_arg1, &block); end

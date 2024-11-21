@@ -3442,38 +3442,38 @@ class Sidekiq::WebApplication
   # source://sidekiq//lib/sidekiq/web/application.rb#30
   def initialize(klass); end
 
-  # source://sidekiq//lib/sidekiq/web/application.rb#383
+  # source://sidekiq//lib/sidekiq/web/application.rb#365
   def call(env); end
 
-  # source://sidekiq//lib/sidekiq/web/application.rb#413
+  # source://sidekiq//lib/sidekiq/web/application.rb#395
   def process_csp(env, input); end
 
   # source://sidekiq//lib/sidekiq/web/application.rb#34
   def settings; end
 
   class << self
-    # source://sidekiq//lib/sidekiq/web/application.rb#429
+    # source://sidekiq//lib/sidekiq/web/application.rb#411
     def after(path = T.unsafe(nil), &block); end
 
-    # source://sidekiq//lib/sidekiq/web/application.rb#450
+    # source://sidekiq//lib/sidekiq/web/application.rb#432
     def afters; end
 
-    # source://sidekiq//lib/sidekiq/web/application.rb#425
+    # source://sidekiq//lib/sidekiq/web/application.rb#407
     def before(path = T.unsafe(nil), &block); end
 
-    # source://sidekiq//lib/sidekiq/web/application.rb#446
+    # source://sidekiq//lib/sidekiq/web/application.rb#428
     def befores; end
 
-    # source://sidekiq//lib/sidekiq/web/application.rb#417
+    # source://sidekiq//lib/sidekiq/web/application.rb#399
     def helpers(mod = T.unsafe(nil), &block); end
 
-    # source://sidekiq//lib/sidekiq/web/application.rb#437
+    # source://sidekiq//lib/sidekiq/web/application.rb#419
     def run_afters(app, action); end
 
-    # source://sidekiq//lib/sidekiq/web/application.rb#433
+    # source://sidekiq//lib/sidekiq/web/application.rb#415
     def run_befores(app, action); end
 
-    # source://sidekiq//lib/sidekiq/web/application.rb#441
+    # source://sidekiq//lib/sidekiq/web/application.rb#423
     def run_hooks(hooks, app, action); end
 
     # source://sidekiq//lib/sidekiq/web/application.rb#46
@@ -3493,7 +3493,7 @@ Sidekiq::WebApplication::CSP_HEADER_TEMPLATE = T.let(T.unsafe(nil), String)
 # source://sidekiq//lib/sidekiq/web/application.rb#23
 Sidekiq::WebApplication::METRICS_PERIODS = T.let(T.unsafe(nil), Hash)
 
-# source://sidekiq//lib/sidekiq/web/application.rb#119
+# source://sidekiq//lib/sidekiq/web/application.rb#123
 Sidekiq::WebApplication::QUEUE_NAME = T.let(T.unsafe(nil), Regexp)
 
 # source://sidekiq//lib/sidekiq/web/application.rb#7

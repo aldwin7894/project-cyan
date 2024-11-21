@@ -696,7 +696,7 @@ class GraphQL::Client::HTTP
   #
   # Returns a Net::HTTP object
   #
-  # source://graphql-client//lib/graphql/client/http.rb#85
+  # source://graphql-client//lib/graphql/client/http.rb#91
   def connection; end
 
   # Public: Make an HTTP request for GraphQL query.
@@ -710,7 +710,7 @@ class GraphQL::Client::HTTP
   #
   # Returns { "data" => ... , "errors" => ... } Hash.
   #
-  # source://graphql-client//lib/graphql/client/http.rb#58
+  # source://graphql-client//lib/graphql/client/http.rb#63
   def execute(document:, operation_name: T.unsafe(nil), variables: T.unsafe(nil), context: T.unsafe(nil)); end
 
   # Public: Extension point for subclasses to set custom request headers.
@@ -719,6 +719,13 @@ class GraphQL::Client::HTTP
   #
   # source://graphql-client//lib/graphql/client/http.rb#44
   def headers(_context); end
+
+  # Public: full reponse from last request
+  #
+  # Returns Hash.
+  #
+  # source://graphql-client//lib/graphql/client/http.rb#51
+  def last_response; end
 
   # Public: Parsed endpoint URI
   #
@@ -935,8 +942,8 @@ class GraphQL::Client::Response
   #
   # @return [Response] a new instance of Response
   #
-  # source://graphql-client//lib/graphql/client/response.rb#35
-  def initialize(hash, data: T.unsafe(nil), errors: T.unsafe(nil), extensions: T.unsafe(nil)); end
+  # source://graphql-client//lib/graphql/client/response.rb#40
+  def initialize(hash, data: T.unsafe(nil), errors: T.unsafe(nil), extensions: T.unsafe(nil), full_response: T.unsafe(nil)); end
 
   # Public: Wrapped ObjectType of data returned from the server.
   #
@@ -960,6 +967,13 @@ class GraphQL::Client::Response
   #
   # source://graphql-client//lib/graphql/client/response.rb#32
   def extensions; end
+
+  # Public: Complete response hash returned from server.
+  #
+  # Returns Hash
+  #
+  # source://graphql-client//lib/graphql/client/response.rb#37
+  def full_response; end
 
   # Public: Original JSON response hash returned from server.
   #

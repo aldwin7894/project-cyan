@@ -33,7 +33,7 @@
     "cssnano": "^7.0.6",
     "cssnano-preset-advanced": "^7.0.6",
     "iconify-icon": "^2.1.0",
-    "postcss": "^8.4.47",
+    "postcss": "^8.4.49",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^16.1.0",
     "postcss-preset-env": "^10.1.1",
@@ -52,7 +52,7 @@
     "vite-plugin-ruby": "^5.1.1"
   },
   "devDependencies": {
-    "@types/node": "^22.9.0",
+    "@types/node": "^22.9.1",
     "@typescript-eslint/parser": "^8.15.0",
     "eslint": "8.57.1",
     "eslint-config-prettier": "^9.1.0",

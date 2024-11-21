@@ -93,7 +93,7 @@ module Random::Formatter
   #   prng = Random.new
   #   prng.alphanumeric(10, chars: [*"!".."/"]) #=> ",.,++%/''."
   #
-  # source://securerandom//lib/random/formatter.rb#369
+  # source://securerandom//lib/random/formatter.rb#368
   def alphanumeric(n = T.unsafe(nil), chars: T.unsafe(nil)); end
 
   # Generate a random base64 string.
@@ -203,7 +203,7 @@ module Random::Formatter
   #
   # The result contains 122 random bits (15.25 random bytes).
   #
-  # See RFC4122[https://datatracker.ietf.org/doc/html/rfc4122] for details of UUID.
+  # See RFC9562[https://www.rfc-editor.org/rfc/rfc9562] for details of UUIDv4.
   #
   # source://securerandom//lib/random/formatter.rb#170
   def uuid; end
@@ -223,7 +223,7 @@ module Random::Formatter
   #
   # The result contains 122 random bits (15.25 random bytes).
   #
-  # See RFC4122[https://datatracker.ietf.org/doc/html/rfc4122] for details of UUID.
+  # See RFC9562[https://www.rfc-editor.org/rfc/rfc9562] for details of UUIDv4.
   #
   # source://securerandom//lib/random/formatter.rb#170
   def uuid_v4; end
@@ -253,11 +253,10 @@ module Random::Formatter
   #
   # The result contains 74 random bits (9.25 random bytes).
   #
-  # Note that this method cannot be made reproducable because its output
+  # Note that this method cannot be made reproducible because its output
   # includes not only random bits but also timestamp.
   #
-  # See draft-ietf-uuidrev-rfc4122bis[https://datatracker.ietf.org/doc/draft-ietf-uuidrev-rfc4122bis/]
-  # for details of UUIDv7.
+  # See RFC9562[https://www.rfc-editor.org/rfc/rfc9562] for details of UUIDv7.
   #
   # ==== Monotonicity
   #
@@ -294,10 +293,10 @@ module Random::Formatter
   #
   # Counters and other mechanisms for stronger guarantees of monotonicity are
   # not implemented.  Applications with stricter requirements should follow
-  # {Section 6.2}[https://www.ietf.org/archive/id/draft-ietf-uuidrev-rfc4122bis-07.html#monotonicity_counters]
+  # {Section 6.2}[https://www.rfc-editor.org/rfc/rfc9562.html#name-monotonicity-and-counters]
   # of the specification.
   #
-  # source://securerandom//lib/random/formatter.rb#248
+  # source://securerandom//lib/random/formatter.rb#247
   def uuid_v7(extra_timestamp_bits: T.unsafe(nil)); end
 
   private
@@ -317,12 +316,12 @@ module Random::Formatter
   #   prng.choose([*'l'..'r'], 16) #=> "lmrqpoonmmlqlron"
   #   prng.choose([*'0'..'9'], 5)  #=> "27309"
   #
-  # source://securerandom//lib/random/formatter.rb#314
+  # source://securerandom//lib/random/formatter.rb#313
   def choose(source, n); end
 
   # Internal interface to Random; Generate random data _n_ bytes.
   #
-  # source://securerandom//lib/random/formatter.rb#296
+  # source://securerandom//lib/random/formatter.rb#295
   def gen_random(n); end
 end
 
