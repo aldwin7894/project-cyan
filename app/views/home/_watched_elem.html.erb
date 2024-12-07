@@ -4,17 +4,14 @@
 <% studios = activity["media"]["studios"]["nodes"].uniq %>
 
 <div class="group flex flex-col select-none w-[210px] mx-auto">
-  <div class="hidden visually-hidden">
-    <img src="<%= activity["media"]["coverImage"]["extraLarge"] %>" alt="anime-poster">
-  </div>
-
-  <a href="<%= activity["media"]["siteUrl"] %>" rel="noopener noreferrer" target="_blank" class="h-[290px] w-full bg-center bg-cover relative overflow-hidden" style="background-image: url(<%= activity["media"]["coverImage"]["extraLarge"] %>)">
+  <a href="<%= activity["media"]["siteUrl"] %>" rel="noopener noreferrer" target="_blank" class="h-[290px] w-full relative overflow-hidden rounded-lg">
+    <img src="<%= activity["media"]["coverImage"]["extraLarge"] %>" alt="anime-poster" loading="lazy" class="absolute top-0 left-0 w-full h-full text-transparent">
     <div class="w-full h-full hover:opacity-[.18] absolute top-0 bottom-0 right-0 left-0 bg-black opacity-0 transition-opacity ease-linear"></div>
     <div class="absolute bottom-0 left-0 w-full px-2 py-2 dark:text-white dark:bg-black/80 bg-white/80 leading-normal h-[3lh]">
     </div>
 
     <div class="absolute bottom-0 left-0 flex w-full gap-2 px-2 py-2 text-left dark:text-white leading-normal h-[3lh] group-hover:translate-x-0 translate-x-full will-change-transform duration-500 items-center ease-in-out">
-      <h3 class="flex flex-row gap-2 line-clamp-2 flex-wrap">
+      <h3 class="flex flex-row flex-wrap gap-2 line-clamp-2">
         <% activity["media"]["genres"].first(3).each do |genre| %>
           <span class="align-center w-max flex px-3 py-1 text-xs font-semibold rounded-full h-fit <%= text_color %>" style="background-color: <%= color %>">
             <%= genre.downcase %>

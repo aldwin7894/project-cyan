@@ -27,12 +27,12 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
-    "alpinejs": "^3.14.6",
+    "alpinejs": "^3.14.7",
     "autoprefixer": "^10.4.20",
     "chart.js": "^4.4.7",
     "cssnano": "^7.0.6",
     "cssnano-preset-advanced": "^7.0.6",
-    "iconify-icon": "^2.1.0",
+    "iconify-icon": "^2.2.0",
     "postcss": "^8.4.49",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^16.1.0",
@@ -52,7 +52,7 @@
     "vite-plugin-ruby": "^5.1.1"
   },
   "devDependencies": {
-    "@types/node": "^22.9.1",
+    "@types/node": "^22.10.1",
     "@typescript-eslint/parser": "^8.17.0",
     "eslint": "8.57.1",
     "eslint-config-prettier": "^9.1.0",
@@ -64,7 +64,7 @@
     "typescript": "^5.7.2"
   },
   "engines": {
-    "node": "22.11.0",
+    "node": "22.12.0",
     "npm": ">= 10.9",
     "yarn": ">= 1.22"
   }

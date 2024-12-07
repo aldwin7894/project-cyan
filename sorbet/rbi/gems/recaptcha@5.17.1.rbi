@@ -5,6 +5,15 @@
 # Please instead update this file by running `bin/tapioca gem recaptcha`.
 
 
+class ActionController::API < ::ActionController::Metal
+  include ::ActionDispatch::Routing::PolymorphicRoutes
+  include ::ActionController::Head
+  include ::AbstractController::Caching::ConfigMethods
+  include ::Recaptcha::Adapters::ControllerMethods
+  include ::Devise::Controllers::SignInOut
+  include ::Devise::Controllers::StoreLocation
+end
+
 class ActionController::Base < ::ActionController::Metal
   include ::ActionDispatch::Routing::PolymorphicRoutes
   include ::ActionController::Head
@@ -14,6 +23,44 @@ class ActionController::Base < ::ActionController::Metal
   include ::Devise::Controllers::SignInOut
   include ::Devise::Controllers::StoreLocation
   extend ::AbstractController::Helpers::Resolution
+end
+
+class ActionView::Base
+  include ::ERB::Escape
+  include ::ActiveSupport::CoreExt::ERBUtil
+  include ::ActiveSupport::CoreExt::ERBUtilPrivate
+  include ::ActiveSupport::Benchmarkable
+  include ::ActionView::Helpers::ActiveModelHelper
+  include ::ActionView::Helpers::AssetUrlHelper
+  include ::ActionView::Helpers::CaptureHelper
+  include ::ActionView::Helpers::OutputSafetyHelper
+  include ::ActionView::Helpers::TagHelper
+  include ::ActionView::Helpers::AssetTagHelper
+  include ::ActionView::Helpers::AtomFeedHelper
+  include ::ActionView::Helpers::CacheHelper
+  include ::ActionView::Helpers::ContentExfiltrationPreventionHelper
+  include ::ActionView::Helpers::ControllerHelper
+  include ::ActionView::Helpers::CspHelper
+  include ::ActionView::Helpers::CsrfHelper
+  include ::ActionView::Helpers::DateHelper
+  include ::ActionView::Helpers::DebugHelper
+  include ::ActionView::ModelNaming
+  include ::ActionView::RecordIdentifier
+  include ::ActionView::Helpers::FormOptionsHelper
+  include ::ActionView::Helpers::JavaScriptHelper
+  include ::ActionView::Helpers::NumberHelper
+  include ::ActionView::Helpers::RenderingHelper
+  include ::Recaptcha::Adapters::ViewMethods
+end
+
+module ERB::Escape
+  private
+
+  def html_escape(_arg0); end
+
+  class << self
+    def html_escape(_arg0); end
+  end
 end
 
 # source://recaptcha//lib/recaptcha/configuration.rb#3
@@ -361,10 +408,10 @@ module Recaptcha::Helpers
     # source://recaptcha//lib/recaptcha/helpers.rb#91
     def invisible_recaptcha_tags(custom); end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#303
+    # source://recaptcha//lib/recaptcha/helpers.rb#304
     def recaptcha_execute_method_name; end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#307
+    # source://recaptcha//lib/recaptcha/helpers.rb#308
     def recaptcha_ready_method_name; end
 
     # source://recaptcha//lib/recaptcha/helpers.rb#48
@@ -375,17 +422,17 @@ module Recaptcha::Helpers
 
     # Returns the name of an async JavaScript function that executes the reCAPTCHA code.
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#265
+    # source://recaptcha//lib/recaptcha/helpers.rb#266
     def recaptcha_v3_async_execute_function_name(action); end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#269
+    # source://recaptcha//lib/recaptcha/helpers.rb#270
     def recaptcha_v3_default_callback_name(action); end
 
     # Returns the name of the JavaScript function that actually executes the
     # reCAPTCHA code (calls `grecaptcha.execute` or
     # `grecaptcha.enterprise.execute`). You can call it again later to reset it.
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#260
+    # source://recaptcha//lib/recaptcha/helpers.rb#261
     def recaptcha_v3_execute_function_name(action); end
 
     # source://recaptcha//lib/recaptcha/helpers.rb#110
@@ -402,26 +449,26 @@ module Recaptcha::Helpers
     # Returns a dasherized string that is safe for use as an HTML ID
     # dasherize_action('my/action') => 'my-action'
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#326
+    # source://recaptcha//lib/recaptcha/helpers.rb#327
     def dasherize_action(action); end
 
     # v2
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#275
+    # source://recaptcha//lib/recaptcha/helpers.rb#276
     def default_callback(options = T.unsafe(nil)); end
 
     # @return [Boolean]
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#311
+    # source://recaptcha//lib/recaptcha/helpers.rb#312
     def default_callback_required?(options); end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#334
+    # source://recaptcha//lib/recaptcha/helpers.rb#335
     def element_check_condition(options); end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#330
+    # source://recaptcha//lib/recaptcha/helpers.rb#331
     def hash_to_query(hash); end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#240
+    # source://recaptcha//lib/recaptcha/helpers.rb#241
     def recaptcha_v3_define_default_callback(callback, options); end
 
     # Returns true if we should be adding the default callback.
@@ -430,28 +477,28 @@ module Recaptcha::Helpers
     #
     # @return [Boolean]
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#252
+    # source://recaptcha//lib/recaptcha/helpers.rb#253
     def recaptcha_v3_define_default_callback?(callback, action, options); end
 
     # Renders a script that calls `grecaptcha.execute` or
     # `grecaptcha.enterprise.execute` for the given `site_key` and `action` and
     # calls the `callback` with the resulting response token.
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#182
+    # source://recaptcha//lib/recaptcha/helpers.rb#183
     def recaptcha_v3_inline_script(site_key, action, callback, id, options = T.unsafe(nil)); end
 
     # @return [Boolean]
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#234
+    # source://recaptcha//lib/recaptcha/helpers.rb#235
     def recaptcha_v3_inline_script?(options); end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#216
+    # source://recaptcha//lib/recaptcha/helpers.rb#217
     def recaptcha_v3_onload_script(site_key, action, callback, id, options = T.unsafe(nil)); end
 
     # Returns a camelized string that is safe for use in a JavaScript variable/function name.
     # sanitize_action_for_js('my/action') => 'MyAction'
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#320
+    # source://recaptcha//lib/recaptcha/helpers.rb#321
     def sanitize_action_for_js(action); end
   end
 end

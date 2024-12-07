@@ -10,11 +10,11 @@
     </button>
   </div>
 
-  <div id="watched_movie_swiper" class="overflow-hidden" x-init="swiper = new Swiper('#watched_movie_swiper', { modules: [Navigation], slidesPerView: 'auto', spaceBetween: 20, speed: 500, navigation: { disabledClass: 'disabled', hiddenClass: 'invisible', prevEl: '#watched_movie_prev', nextEl: '#watched_movie_next' } });">
+  <div id="watched_movie_swiper" class="overflow-hidden" x-init="swiper = new Swiper('#watched_movie_swiper', { modules: [Navigation], slidesPerView: 'auto', slidesPerGroupAuto: 'true', lazyPreloadPrevNext: 1, spaceBetween: 10, speed: 500, navigation: { disabledClass: 'disabled', hiddenClass: 'invisible', prevEl: '#watched_movie_prev', nextEl: '#watched_movie_next' } });">
     <div class="text-center swiper-wrapper">
       <% @watched_movie.each_slice(6).each_with_index do |(*activities), index| %>
         <% activities.each_index do |index2| %>
-          <turbo-frame id="watched_movie_<%= "#{index}_#{index2}" %>" src="<%= anilist_user_activities_path %>" loading="lazy" class="swiper-slide w-auto">
+          <turbo-frame id="watched_movie_<%= "#{index}_#{index2}" %>" src="<%= anilist_user_activities_path %>" loading="lazy" class="w-auto swiper-slide">
             <%= render "home/watched_placeholder" %>
           </turbo-frame>
         <% end %>
