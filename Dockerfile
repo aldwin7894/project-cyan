@@ -1,6 +1,7 @@
 FROM ruby:3.3.6-slim-bookworm AS build-env
 
 ENV BUNDLE_PATH=/gems
+ENV NODE_VERSION=22.12.0
 
 RUN apt-get update && apt-get install -yq --no-install-recommends \
   build-essential \
@@ -8,7 +9,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
   git \
   tar \
   wget \
-  && curl --proto "=https" -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
+  && curl --proto "=https" -fsSL https://deb.nodesource.com/setup_lts.x | bash -s -- ${NODE_VERSION} \
   && apt-get install -yq --no-install-recommends nodejs \
   && npm i -g --ignore-scripts npm yarn \
   && npm cache clean --force \
