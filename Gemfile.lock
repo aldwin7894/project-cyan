@@ -309,7 +309,7 @@ GEM
       logger
     rdoc (6.8.1)
       psych (>= 4.0.0)
-    recaptcha (5.17.1)
+    recaptcha (5.18.0)
     redis (5.3.0)
       redis-client (>= 0.22.0)
     redis-client (0.22.2)
@@ -482,7 +482,7 @@ DEPENDENCIES
   rack-cors (~> 2.0)
   rack-mini-profiler (~> 3.3)
   rails (~> 8.0.0)
-  recaptcha (~> 5.17)
+  recaptcha (~> 5.18)
   redis (~> 5.3)
   responders (~> 3.1)
   rubocop

@@ -87,7 +87,7 @@ gem "addressable", "~> 2.8"
 
 gem "jwt", "~> 2.9"
 
-gem "recaptcha", "~> 5.17"
+gem "recaptcha", "~> 5.18"
 
 # gem "ferrum", "~> 0.13"
 
