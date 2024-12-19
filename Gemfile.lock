@@ -103,7 +103,7 @@ GEM
       unicode (>= 0.4.4.5)
     csv (3.3.0)
     date (3.4.1)
-    debug (1.9.2)
+    debug (1.10.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
     devise (4.9.4)
@@ -168,7 +168,7 @@ GEM
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     io-console (0.8.0)
-    irb (1.14.2)
+    irb (1.14.3)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.9.0)
@@ -244,7 +244,7 @@ GEM
       persistent_http (< 2)
     prettier_print (1.2.1)
     prism (1.2.0)
-    psych (5.2.1)
+    psych (5.2.2)
       date
       stringio
     public_suffix (6.0.1)
@@ -307,7 +307,7 @@ GEM
       sorbet-runtime (>= 0.5.9204)
     rbs (3.7.0)
       logger
-    rdoc (6.9.0)
+    rdoc (6.10.0)
       psych (>= 4.0.0)
     recaptcha (5.18.0)
     redis (5.3.0)
@@ -315,7 +315,7 @@ GEM
     redis-client (0.23.0)
       connection_pool
     regexp_parser (2.9.3)
-    reline (0.5.12)
+    reline (0.6.0)
       io-console (~> 0.5)
     request_store (1.7.0)
       rack (>= 1.4)
