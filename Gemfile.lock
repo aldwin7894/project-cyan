@@ -172,7 +172,7 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.9.0)
-    jwt (2.9.3)
+    jwt (2.10.0)
       base64
     kodachroma (1.0.2)
     language_server-protocol (3.17.0.3)
@@ -468,7 +468,7 @@ DEPENDENCIES
   health_check (~> 3.1)
   httparty (~> 0.22.0)
   httplog (~> 1.7)
-  jwt (~> 2.9)
+  jwt (~> 2.10)
   kodachroma (~> 1.0)
   listen (~> 3.8)
   lograge (~> 0.14.0)
