@@ -4,8 +4,8 @@ require:
   - rubocop-rails
 
 AllCops:
-  TargetRubyVersion: 3.3.6
-  TargetRailsVersion: 8.0.0
+  TargetRubyVersion: 3.4.1
+  TargetRailsVersion: 8.0.1
   # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
   # to ignore them, so only the ones explicitly set in this file are enabled.
   DisabledByDefault: true
