@@ -32,7 +32,7 @@
     "chart.js": "^4.4.7",
     "cssnano": "^7.0.6",
     "cssnano-preset-advanced": "^7.0.6",
-    "iconify-icon": "^2.2.0",
+    "iconify-icon": "^2.3.0",
     "postcss": "^8.4.49",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^16.1.0",
