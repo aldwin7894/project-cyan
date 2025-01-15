@@ -7,10 +7,11 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
   build-essential \
   curl \
   git \
+  libyaml-dev \
   tar \
   wget \
   && curl --proto "=https" -fsSL https://deb.nodesource.com/setup_lts.x | bash -s -- ${NODE_VERSION} \
-  && apt-get install -yq --no-install-recommends nodejs \
+  && apt-get install -yq --no-install-recommends nodejs=${NODE_VERSION}-1nodesource1 \
   && npm i -g --ignore-scripts npm yarn \
   && npm cache clean --force \
   && apt-get clean \
