@@ -6,5 +6,3 @@
 
 module ActiveRecord::ConnectionAdapters::DatabaseStatements; end
 module ActiveRecord::ConnectionAdapters::SchemaStatements; end
-module ActiveSupport::ForkTracker::ModernCoreExt; end
-module RBI::TypedParam; end
