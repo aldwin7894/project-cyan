@@ -7,7 +7,9 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
   build-essential \
   curl \
   git \
+  libffi-dev \
   libyaml-dev \
+  ruby-dev \
   tar \
   wget \
   && curl --proto "=https" -fsSL https://deb.nodesource.com/setup_lts.x | bash -s -- ${NODE_VERSION} \
