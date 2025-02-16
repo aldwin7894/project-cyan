@@ -5,8 +5,7 @@ require "listenbrainz"
 
 class ListenbrainzLovedTracksSyncJob
   include Sidekiq::Job
-  sidekiq_options retry: 5
-  sidekiq_retry_in { 30.minutes }
+  sidekiq_options retry: 10
 
   TAG = "[LISTENBRAINZ FAVORITES SYNC] ".yellow
 

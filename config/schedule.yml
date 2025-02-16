@@ -1,13 +1,13 @@
 anilist_activities_sync_job:
   cron: "every 4 hours"
   class: "AnilistActivitiesSyncJob"
-  queue: default
+  queue: critical
   # args:
   #   - <%= Time.zone.now.beginning_of_month.to_i %>
 anilist_user_statistics_sync_job:
   cron: "every day at 00:10"
   class: "AnilistUserStatisticsSyncJob"
-  queue: default
+  queue: critical
 listenbrainz_loved_tracks_sync_job:
   cron: "every day at 3"
   class: "ListenbrainzLovedTracksSyncJob"

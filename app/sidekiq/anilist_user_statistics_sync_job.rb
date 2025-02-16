@@ -3,8 +3,7 @@
 
 class AnilistUserStatisticsSyncJob
   include Sidekiq::Job
-  sidekiq_options retry: 5
-  sidekiq_retry_in { 30.minutes }
+  sidekiq_options retry: 10
 
   TAG = "[ANILIST STATS SYNC] ".yellow
 

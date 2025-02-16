@@ -6,7 +6,6 @@ require "anilist"
 class AnilistActivitiesSyncJob
   include Sidekiq::Job
   sidekiq_options retry: 5
-  sidekiq_retry_in { 30.minutes }
 
   TAG = "[ANILIST ACTIVITIES SYNC] ".yellow
 
@@ -37,7 +36,7 @@ class AnilistActivitiesSyncJob
     end
 
     if has_next_page == true
-      self.class.perform_in(Rails.env.development? ? 20.seconds : 60.seconds, date, page + 1)
+      self.class.perform_in(5.seconds, date, page + 1)
       logger.info(TAG + "SYNCING FOR PAGE #{page + 1} IS SCHEDULED".green)
     end
   end

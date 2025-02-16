@@ -6,13 +6,13 @@ require "anilist"
 class AnilistFollowListCheckerJob
   include Sidekiq::Job
   sidekiq_options retry: 5,
+    queue: 'default',
     lock: :until_and_while_executing,
-    lock_args_method: ->(args) { [args.first, args.second] },
+    lock_args_method: ->(args) { [args.first] },
     on_conflict: {
       client: :log,
       server: :reject
     }
-  sidekiq_retry_in { 1.minute }
   sidekiq_retries_exhausted do |job, error|
     user = AnilistUser.find_by(job["args"].first)
     user.last_known_error = error.message
@@ -50,9 +50,9 @@ class AnilistFollowListCheckerJob
     end
 
     if response.data.page.page_info.has_next_page? === false && type === "following"
-      self.class.perform_in(20.seconds, id, "followers", 1)
+      self.class.perform_in(5.seconds, id, "followers", 1)
     elsif response.data.page.page_info.has_next_page?
-      self.class.perform_in(20.seconds, id, type, page + 1)
+      self.class.perform_in(5.seconds, id, type, page + 1)
     else
       logger.info(TAG + username + "FETCHING DONE".green)
       user.sync_in_progress = false
