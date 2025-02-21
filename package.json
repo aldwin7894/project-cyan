@@ -29,7 +29,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "alpinejs": "^3.14.8",
     "autoprefixer": "^10.4.20",
-    "chart.js": "^4.4.7",
+    "chart.js": "^4.4.8",
     "cssnano": "^7.0.6",
     "cssnano-preset-advanced": "^7.0.6",
     "iconify-icon": "^2.3.0",
@@ -47,7 +47,7 @@
     "tailwindcss-animatecss": "^3.0.5",
     "terser": "^5.39.0",
     "tippy.js": "^6.3.7",
-    "vite": "^6.1.0",
+    "vite": "^6.1.1",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-ruby": "^5.1.1"
   },
