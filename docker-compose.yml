@@ -54,6 +54,7 @@ services:
     container_name: project-cyan-app
     image: aldwin7894/project-cyan:prod
     restart: always
+    pull_policy: always
     depends_on:
       - db
       - redis
@@ -87,6 +88,7 @@ services:
     healthcheck:
       test: ["NONE"]
     restart: always
+    pull_policy: always
     depends_on:
       - db
       - redis
