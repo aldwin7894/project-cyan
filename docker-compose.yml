@@ -13,20 +13,20 @@ services:
       - dbdata:/data/db
   redis:
     container_name: project-cyan-redis
-    build:
-      context: ./config/redis/
-      dockerfile: Dockerfile
-      x-bake:
-        platforms:
-          - linux/amd64
-          - linux/arm64
-    pull_policy: build
+    image: redis:alpine
     restart: always
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping", "||", "exit", "1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     environment:
       - TZ
     ports:
       - 6379:6379
     volumes:
+      - ./config/redis:/usr/local/etc/redis
       - redis:/data
   redisinsight:
     container_name: project-cyan-redisinsight
@@ -38,23 +38,22 @@ services:
       - redisinsight:/data
 
   web:
-    build: &build
-      context: .
-      dockerfile: Dockerfile
-      x-bake:
-        platforms:
-          - linux/amd64
-          - linux/arm64
-      secrets:
-        - TZ
-        - RAILS_ENV
-        - NODE_ENV
-        - RAILS_MASTER_KEY
-        - RAILS_ASSET_HOST
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    #   x-bake:
+    #     platforms:
+    #       - linux/amd64
+    #       - linux/arm64
+    #   secrets:
+    #     - TZ
+    #     - RAILS_ENV
+    #     - NODE_ENV
+    #     - RAILS_MASTER_KEY
+    #     - RAILS_ASSET_HOST
     container_name: project-cyan-app
     image: aldwin7894/project-cyan:prod
     restart: always
-    pull_policy: always
     depends_on:
       - db
       - redis
@@ -80,7 +79,6 @@ services:
       - RUBY_GC_OLDMALLOC_LIMIT_MAX=16000100
       - VITE_RUBY_SKIP_ASSETS_PRECOMPILE_EXTENSION=true
   sidekiq:
-    build: *build
     container_name: project-cyan-sidekiq
     image: aldwin7894/project-cyan:prod
     entrypoint: /usr/src/app/entrypoint-sidekiq.sh
