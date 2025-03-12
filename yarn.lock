@@ -631,10 +631,10 @@
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.2.102.tgz#0ad6214681f2fdadf5baeee2dbba4ad229612a41"
   integrity sha512-cqgfFwU8bFye53jkzJRVErbIFUnbWSJSccbY3EZvyOxatpcUEuuYGvLv/It6gT1/HNgweiARllmVbnegcAN3Lg==
 
-"@rails/actioncable@^8.0.100":
-  version "8.0.100"
-  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-8.0.100.tgz#83733a8fa35be5d085cf0fe10b341d0428022bc0"
-  integrity sha512-/vXTG6gzSW0CDqmA0hWasZ1UAGZC7g5NGM21jowh58rCCeTHAGbWwKExHn49VDuYXz+cHbL4MGfc5LMdTp9m3A==
+"@rails/actioncable@^8.0.200":
+  version "8.0.200"
+  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-8.0.200.tgz#1d27d9d55e45266e061190db045925e0b4d53d6b"
+  integrity sha512-EDqWyxck22BHmv1e+mD8Kl6GmtNkhEPdRfGFT7kvsv1yoXd9iYrqHDVAaR8bKmU/syC5eEZ2I5aWWxtB73ukMw==
 
 "@rollup/rollup-android-arm-eabi@4.34.8":
   version "4.34.8"
