@@ -10,7 +10,7 @@ module ActionDispatch::Routing; end
 
 # source://health_check//lib/health_check/health_check_routes.rb#2
 class ActionDispatch::Routing::Mapper
-  # source://actionpack/7.2.1.2/lib/action_dispatch/routing/mapper.rb#2348
+  # source://actionpack/8.0.2/lib/action_dispatch/routing/mapper.rb#2378
   def initialize(set); end
 
   # source://health_check//lib/health_check/health_check_routes.rb#9
@@ -73,22 +73,22 @@ class ActionDispatch::Routing::Mapper
   def with_devise_exclusive_scope(new_path, new_as, options); end
 
   class << self
-    # source://actionpack/7.2.1.2/lib/action_dispatch/routing/mapper.rb#27
+    # source://actionpack/8.0.2/lib/action_dispatch/routing/mapper.rb#27
     def backtrace_cleaner; end
 
-    # source://actionpack/7.2.1.2/lib/action_dispatch/routing/mapper.rb#27
+    # source://actionpack/8.0.2/lib/action_dispatch/routing/mapper.rb#27
     def backtrace_cleaner=(val); end
 
-    # source://actionpack/7.2.1.2/lib/action_dispatch/routing/mapper.rb#429
+    # source://actionpack/8.0.2/lib/action_dispatch/routing/mapper.rb#412
     def normalize_name(name); end
 
-    # source://actionpack/7.2.1.2/lib/action_dispatch/routing/mapper.rb#414
+    # source://actionpack/8.0.2/lib/action_dispatch/routing/mapper.rb#397
     def normalize_path(path); end
 
-    # source://actionpack/7.2.1.2/lib/action_dispatch/routing/mapper.rb#26
+    # source://actionpack/8.0.2/lib/action_dispatch/routing/mapper.rb#26
     def route_source_locations; end
 
-    # source://actionpack/7.2.1.2/lib/action_dispatch/routing/mapper.rb#26
+    # source://actionpack/8.0.2/lib/action_dispatch/routing/mapper.rb#26
     def route_source_locations=(val); end
   end
 end
@@ -438,14 +438,19 @@ class HealthCheck::Engine < ::Rails::Engine
   def routes_explicitly_defined=(val); end
 
   class << self
-    # source://activesupport/7.2.1.2/lib/active_support/callbacks.rb#70
-    def __callbacks; end
-
     # source://health_check//lib/health_check.rb#7
     def routes_explicitly_defined; end
 
     # source://health_check//lib/health_check.rb#7
     def routes_explicitly_defined=(val); end
+
+    private
+
+    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
+    def __class_attr___callbacks; end
+
+    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
+    def __class_attr___callbacks=(new_value); end
   end
 end
 
@@ -474,21 +479,35 @@ class HealthCheck::HealthCheckController < ::ActionController::Base
 
   private
 
-  # source://actionview/7.2.1.2/lib/action_view/layouts.rb#328
-  def _layout(lookup_context, formats); end
+  # source://actionview/8.0.2/lib/action_view/layouts.rb#328
+  def _layout(lookup_context, formats, keys); end
 
   class << self
-    # source://activesupport/7.2.1.2/lib/active_support/callbacks.rb#70
-    def __callbacks; end
+    private
 
-    # source://actionview/7.2.1.2/lib/action_view/layouts.rb#211
-    def _layout; end
+    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
+    def __class_attr___callbacks; end
 
-    # source://actionview/7.2.1.2/lib/action_view/layouts.rb#212
-    def _layout_conditions; end
+    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
+    def __class_attr___callbacks=(new_value); end
 
-    # source://actionpack/7.2.1.2/lib/action_controller/metal.rb#288
-    def middleware_stack; end
+    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
+    def __class_attr__layout; end
+
+    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
+    def __class_attr__layout=(new_value); end
+
+    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
+    def __class_attr__layout_conditions; end
+
+    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
+    def __class_attr__layout_conditions=(new_value); end
+
+    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
+    def __class_attr_middleware_stack; end
+
+    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 

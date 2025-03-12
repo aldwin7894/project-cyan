@@ -409,7 +409,7 @@ class Graphlient::Schema < ::SimpleDelegator
   # source://graphlient//lib/graphlient/schema.rb#21
   def dump!; end
 
-  # source://delegate/0.3.1/delegate.rb#318
+  # source://delegate/0.4.0/delegate.rb#318
   def graphql_schema; end
 
   # Returns the value of attribute http.

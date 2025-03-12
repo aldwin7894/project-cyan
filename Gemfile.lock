@@ -148,7 +148,7 @@ GEM
     graphlient (0.8.0)
       faraday (~> 2.0)
       graphql-client
-    graphql (2.0.31)
+    graphql (2.0.32)
       base64
     graphql-client (0.25.0)
       activesupport (>= 3.0)
@@ -201,9 +201,9 @@ GEM
     mime-types (3.6.0)
       logger
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2025.0204)
+    mime-types-data (3.2025.0304)
     mini_mime (1.1.5)
-    minitest (5.25.4)
+    minitest (5.25.5)
     mongo (2.21.0)
       bson (>= 4.14.1, < 6.0.0)
     mongoid (9.0.6)
@@ -257,7 +257,7 @@ GEM
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.8.1)
-    rack (3.1.10)
+    rack (3.1.12)
     rack-brotli (2.0.0)
       brotli (>= 0.3)
       rack (>= 3)
@@ -308,8 +308,9 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rbi (0.2.4)
+    rbi (0.3.0)
       prism (~> 1.0)
+      rbs (>= 3.4.4)
       sorbet-runtime (>= 0.5.9204)
     rbs (3.8.1)
       logger
@@ -318,7 +319,7 @@ GEM
     recaptcha (5.19.0)
     redis (5.4.0)
       redis-client (>= 0.22.0)
-    redis-client (0.23.2)
+    redis-client (0.24.0)
       connection_pool
     regexp_parser (2.10.0)
     reline (0.6.0)
@@ -396,7 +397,7 @@ GEM
     sorbet-static-and-runtime (0.5.11919)
       sorbet (= 0.5.11919)
       sorbet-runtime (= 0.5.11919)
-    spoom (1.5.3)
+    spoom (1.6.0)
       erubi (>= 1.10.0)
       prism (>= 0.28.0)
       rbi (>= 0.2.3)
@@ -521,4 +522,4 @@ RUBY VERSION
    ruby 3.4.2p28
 
 BUNDLED WITH
-   2.6.3
+   2.6.5

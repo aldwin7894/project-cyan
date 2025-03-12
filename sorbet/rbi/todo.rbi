@@ -4,5 +4,6 @@
 
 # typed: false
 
+module ::Tapioca::SourceURI; end
 module ActiveRecord::ConnectionAdapters::DatabaseStatements; end
 module ActiveRecord::ConnectionAdapters::SchemaStatements; end

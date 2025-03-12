@@ -15268,7 +15268,7 @@ end
 # source://discordrb//lib/discordrb/websocket.rb#7
 module WebSocket::Client::Simple
   class << self
-    # source://websocket-client-simple/0.8.0/lib/websocket-client-simple/client.rb#5
+    # source://websocket-client-simple/0.9.0/lib/websocket-client-simple/client.rb#5
     def connect(url, options = T.unsafe(nil)); end
   end
 end
@@ -15277,22 +15277,22 @@ end
 #
 # source://discordrb//lib/discordrb/websocket.rb#9
 class WebSocket::Client::Simple::Client
-  # source://websocket-client-simple/0.8.0/lib/websocket-client-simple/client.rb#88
+  # source://websocket-client-simple/0.9.0/lib/websocket-client-simple/client.rb#88
   def close; end
 
-  # source://websocket-client-simple/0.8.0/lib/websocket-client-simple/client.rb#104
+  # source://websocket-client-simple/0.9.0/lib/websocket-client-simple/client.rb#104
   def closed?; end
 
-  # source://websocket-client-simple/0.8.0/lib/websocket-client-simple/client.rb#16
+  # source://websocket-client-simple/0.9.0/lib/websocket-client-simple/client.rb#16
   def connect(url, options = T.unsafe(nil)); end
 
-  # source://websocket-client-simple/0.8.0/lib/websocket-client-simple/client.rb#14
+  # source://websocket-client-simple/0.9.0/lib/websocket-client-simple/client.rb#14
   def handshake; end
 
-  # source://websocket-client-simple/0.8.0/lib/websocket-client-simple/client.rb#100
+  # source://websocket-client-simple/0.9.0/lib/websocket-client-simple/client.rb#100
   def open?; end
 
-  # source://websocket-client-simple/0.8.0/lib/websocket-client-simple/client.rb#73
+  # source://websocket-client-simple/0.9.0/lib/websocket-client-simple/client.rb#73
   def send(data, opt = T.unsafe(nil)); end
 
   # @return [Thread] the internal thread this client is using for the event loop.
@@ -15300,6 +15300,6 @@ class WebSocket::Client::Simple::Client
   # source://discordrb//lib/discordrb/websocket.rb#11
   def thread; end
 
-  # source://websocket-client-simple/0.8.0/lib/websocket-client-simple/client.rb#14
+  # source://websocket-client-simple/0.9.0/lib/websocket-client-simple/client.rb#14
   def url; end
 end

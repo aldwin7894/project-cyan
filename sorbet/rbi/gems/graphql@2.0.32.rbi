@@ -3384,12 +3384,12 @@ class GraphQL::Language::Nodes::AbstractNode
   def initialize_copy(other); end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#165
+    # source://graphql//lib/graphql/language/nodes.rb#167
     def children_of_type; end
 
     # Add a default `#visit_method` and `#children_method_name` using the class name
     #
-    # source://graphql//lib/graphql/language/nodes.rb#142
+    # source://graphql//lib/graphql/language/nodes.rb#144
     def inherited(child_class); end
 
     private
@@ -3400,17 +3400,17 @@ class GraphQL::Language::Nodes::AbstractNode
     # - Add a persistent update method to add a child
     # - Generate a `#children` method
     #
-    # source://graphql//lib/graphql/language/nodes.rb#176
+    # source://graphql//lib/graphql/language/nodes.rb#178
     def children_methods(children_of_type); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#264
+    # source://graphql//lib/graphql/language/nodes.rb#266
     def generate_initialize_node; end
 
     # These methods return a plain Ruby value, not another node
     # - Add reader methods
     # - Add a `#scalars` method
     #
-    # source://graphql//lib/graphql/language/nodes.rb#242
+    # source://graphql//lib/graphql/language/nodes.rb#244
     def scalar_methods(*method_names); end
   end
 end
@@ -3433,150 +3433,150 @@ GraphQL::Language::Nodes::AbstractNode::NO_CHILDREN = T.let(T.unsafe(nil), Array
 
 # A key-value pair for a field's inputs
 #
-# source://graphql//lib/graphql/language/nodes.rb#315
+# source://graphql//lib/graphql/language/nodes.rb#318
 class GraphQL::Language::Nodes::Argument < ::GraphQL::Language::Nodes::AbstractNode
-  # source://graphql//lib/graphql/language/nodes.rb#325
+  # source://graphql//lib/graphql/language/nodes.rb#328
   def children; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), value: T.unsafe(nil)); end
 
   # @return [String] the key for this argument
   #
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
   # @return [String, Float, Integer, Boolean, Array, InputObject, VariableIdentifier] The value passed for this key
   #
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def value; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#293
+    # source://graphql//lib/graphql/language/nodes.rb#295
     def from_a(filename, line, col, name, value); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#330
+# source://graphql//lib/graphql/language/nodes.rb#333
 class GraphQL::Language::Nodes::Directive < ::GraphQL::Language::Nodes::AbstractNode
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def arguments; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def children; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), arguments: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_argument(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#293
+    # source://graphql//lib/graphql/language/nodes.rb#295
     def from_a(filename, line, col, name, arguments); end
 
+    # source://graphql//lib/graphql/language/nodes.rb#158
+    def visit_method; end
+  end
+end
+
+# source://graphql//lib/graphql/language/nodes.rb#341
+class GraphQL::Language::Nodes::DirectiveDefinition < ::GraphQL::Language::Nodes::AbstractNode
+  include ::GraphQL::Language::Nodes::AbstractNode::DefinitionNode
+
+  # source://graphql//lib/graphql/language/nodes.rb#192
+  def arguments; end
+
+  # source://graphql//lib/graphql/language/nodes.rb#213
+  def children; end
+
+  # Returns the value of attribute description.
+  #
+  # source://graphql//lib/graphql/language/nodes.rb#343
+  def description; end
+
+  # source://graphql//lib/graphql/language/nodes.rb#290
+  def initialize_node(name: T.unsafe(nil), repeatable: T.unsafe(nil), description: T.unsafe(nil), arguments: T.unsafe(nil), locations: T.unsafe(nil)); end
+
+  # source://graphql//lib/graphql/language/nodes.rb#192
+  def locations; end
+
+  # source://graphql//lib/graphql/language/nodes.rb#200
+  def merge_argument(node_opts); end
+
+  # source://graphql//lib/graphql/language/nodes.rb#200
+  def merge_location(node_opts); end
+
+  # source://graphql//lib/graphql/language/nodes.rb#256
+  def name; end
+
+  # source://graphql//lib/graphql/language/nodes.rb#256
+  def repeatable; end
+
+  # source://graphql//lib/graphql/language/nodes.rb#258
+  def scalars; end
+
+  # source://graphql//lib/graphql/language/nodes.rb#151
+  def visit_method; end
+
+  class << self
     # source://graphql//lib/graphql/language/nodes.rb#156
+    def children_method_name; end
+
+    # source://graphql//lib/graphql/language/nodes.rb#156
+    def children_method_name=(_arg0); end
+
+    # source://graphql//lib/graphql/language/nodes.rb#298
+    def from_a(filename, line, col, name, repeatable, description, arguments, locations); end
+
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
 # source://graphql//lib/graphql/language/nodes.rb#338
-class GraphQL::Language::Nodes::DirectiveDefinition < ::GraphQL::Language::Nodes::AbstractNode
-  include ::GraphQL::Language::Nodes::AbstractNode::DefinitionNode
-
-  # source://graphql//lib/graphql/language/nodes.rb#190
-  def arguments; end
-
-  # source://graphql//lib/graphql/language/nodes.rb#211
-  def children; end
-
-  # Returns the value of attribute description.
-  #
-  # source://graphql//lib/graphql/language/nodes.rb#340
-  def description; end
-
-  # source://graphql//lib/graphql/language/nodes.rb#288
-  def initialize_node(name: T.unsafe(nil), repeatable: T.unsafe(nil), description: T.unsafe(nil), arguments: T.unsafe(nil), locations: T.unsafe(nil)); end
-
-  # source://graphql//lib/graphql/language/nodes.rb#190
-  def locations; end
-
-  # source://graphql//lib/graphql/language/nodes.rb#198
-  def merge_argument(node_opts); end
-
-  # source://graphql//lib/graphql/language/nodes.rb#198
-  def merge_location(node_opts); end
-
-  # source://graphql//lib/graphql/language/nodes.rb#254
-  def name; end
-
-  # source://graphql//lib/graphql/language/nodes.rb#254
-  def repeatable; end
-
-  # source://graphql//lib/graphql/language/nodes.rb#256
-  def scalars; end
-
-  # source://graphql//lib/graphql/language/nodes.rb#149
-  def visit_method; end
-
-  class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
-    def children_method_name; end
-
-    # source://graphql//lib/graphql/language/nodes.rb#154
-    def children_method_name=(_arg0); end
-
-    # source://graphql//lib/graphql/language/nodes.rb#296
-    def from_a(filename, line, col, name, repeatable, description, arguments, locations); end
-
-    # source://graphql//lib/graphql/language/nodes.rb#156
-    def visit_method; end
-  end
-end
-
-# source://graphql//lib/graphql/language/nodes.rb#335
 class GraphQL::Language::Nodes::DirectiveLocation < ::GraphQL::Language::Nodes::NameOnlyNode
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
@@ -3597,772 +3597,772 @@ end
 #
 #   document.to_query_string(printer: VariableScrubber.new)
 #
-# source://graphql//lib/graphql/language/nodes.rb#544
+# source://graphql//lib/graphql/language/nodes.rb#547
 class GraphQL::Language::Nodes::Document < ::GraphQL::Language::Nodes::AbstractNode
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def children; end
 
   # @return [Array<OperationDefinition, FragmentDefinition>] top-level GraphQL units: operations or fragments
   #
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def definitions; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(definitions: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#550
+  # source://graphql//lib/graphql/language/nodes.rb#553
   def slice_definition(name); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#292
+    # source://graphql//lib/graphql/language/nodes.rb#294
     def from_a(filename, line, col, definitions); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
 # An enum value. The string is available as {#name}.
 #
-# source://graphql//lib/graphql/language/nodes.rb#349
+# source://graphql//lib/graphql/language/nodes.rb#352
 class GraphQL::Language::Nodes::Enum < ::GraphQL::Language::Nodes::NameOnlyNode
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#701
+# source://graphql//lib/graphql/language/nodes.rb#704
 class GraphQL::Language::Nodes::EnumTypeDefinition < ::GraphQL::Language::Nodes::AbstractNode
   include ::GraphQL::Language::Nodes::AbstractNode::DefinitionNode
 
-  # source://graphql//lib/graphql/language/nodes.rb#211
+  # source://graphql//lib/graphql/language/nodes.rb#213
   def children; end
 
   # Returns the value of attribute description.
   #
-  # source://graphql//lib/graphql/language/nodes.rb#703
+  # source://graphql//lib/graphql/language/nodes.rb#706
   def description; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), description: T.unsafe(nil), directives: T.unsafe(nil), values: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_value(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def values; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#295
+    # source://graphql//lib/graphql/language/nodes.rb#297
     def from_a(filename, line, col, name, description, directives, values); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#712
+# source://graphql//lib/graphql/language/nodes.rb#715
 class GraphQL::Language::Nodes::EnumTypeExtension < ::GraphQL::Language::Nodes::AbstractNode
-  # source://graphql//lib/graphql/language/nodes.rb#211
+  # source://graphql//lib/graphql/language/nodes.rb#213
   def children; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), directives: T.unsafe(nil), values: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_value(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def values; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#294
+    # source://graphql//lib/graphql/language/nodes.rb#296
     def from_a(filename, line, col, name, directives, values); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#691
+# source://graphql//lib/graphql/language/nodes.rb#694
 class GraphQL::Language::Nodes::EnumValueDefinition < ::GraphQL::Language::Nodes::AbstractNode
   include ::GraphQL::Language::Nodes::AbstractNode::DefinitionNode
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def children; end
 
   # Returns the value of attribute description.
   #
-  # source://graphql//lib/graphql/language/nodes.rb#693
+  # source://graphql//lib/graphql/language/nodes.rb#696
   def description; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), description: T.unsafe(nil), directives: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#294
+    # source://graphql//lib/graphql/language/nodes.rb#296
     def from_a(filename, line, col, name, description, directives); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
 # A single selection in a GraphQL query.
 #
-# source://graphql//lib/graphql/language/nodes.rb#357
+# source://graphql//lib/graphql/language/nodes.rb#360
 class GraphQL::Language::Nodes::Field < ::GraphQL::Language::Nodes::AbstractNode
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def alias; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def arguments; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#211
+  # source://graphql//lib/graphql/language/nodes.rb#213
   def children; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#368
+  # source://graphql//lib/graphql/language/nodes.rb#371
   def initialize_node(attributes); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_argument(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_selection(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
   # @return [Array<Nodes::Field>] Selections on this object (or empty array if this is a scalar field)
   #
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def selections; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#377
+    # source://graphql//lib/graphql/language/nodes.rb#380
     def from_a(filename, line, col, graphql_alias, name, arguments, directives, selections); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#609
+# source://graphql//lib/graphql/language/nodes.rb#612
 class GraphQL::Language::Nodes::FieldDefinition < ::GraphQL::Language::Nodes::AbstractNode
   include ::GraphQL::Language::Nodes::AbstractNode::DefinitionNode
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def arguments; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#211
+  # source://graphql//lib/graphql/language/nodes.rb#213
   def children; end
 
   # Returns the value of attribute description.
   #
-  # source://graphql//lib/graphql/language/nodes.rb#611
+  # source://graphql//lib/graphql/language/nodes.rb#614
   def description; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
   # this is so that `children_method_name` of `InputValueDefinition` works properly
   # with `#replace_child`
   #
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def fields; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), type: T.unsafe(nil), description: T.unsafe(nil), arguments: T.unsafe(nil), directives: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#622
+  # source://graphql//lib/graphql/language/nodes.rb#625
   def merge(new_options); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_argument(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def type; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#296
+    # source://graphql//lib/graphql/language/nodes.rb#298
     def from_a(filename, line, col, name, type, description, arguments, directives); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
 # A reusable fragment, defined at document-level.
 #
-# source://graphql//lib/graphql/language/nodes.rb#386
+# source://graphql//lib/graphql/language/nodes.rb#389
 class GraphQL::Language::Nodes::FragmentDefinition < ::GraphQL::Language::Nodes::AbstractNode
-  # source://graphql//lib/graphql/language/nodes.rb#211
+  # source://graphql//lib/graphql/language/nodes.rb#213
   def children; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#392
+  # source://graphql//lib/graphql/language/nodes.rb#395
   def initialize_node(name: T.unsafe(nil), type: T.unsafe(nil), directives: T.unsafe(nil), selections: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_selection(node_opts); end
 
   # @return [String] the identifier for this fragment, which may be applied with `...#{name}`
   #
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def selections; end
 
   # @return [String] the type condition for this fragment (name of type which it may apply to)
   #
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def type; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#399
+    # source://graphql//lib/graphql/language/nodes.rb#402
     def from_a(filename, line, col, name, type, directives, selections); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
 # Application of a named fragment in a selection
 #
-# source://graphql//lib/graphql/language/nodes.rb#413
+# source://graphql//lib/graphql/language/nodes.rb#416
 class GraphQL::Language::Nodes::FragmentSpread < ::GraphQL::Language::Nodes::AbstractNode
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def children; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), directives: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#293
+    # source://graphql//lib/graphql/language/nodes.rb#295
     def from_a(filename, line, col, name, directives); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
 # An unnamed fragment, defined directly in the query with `... {  }`
 #
-# source://graphql//lib/graphql/language/nodes.rb#424
+# source://graphql//lib/graphql/language/nodes.rb#427
 class GraphQL::Language::Nodes::InlineFragment < ::GraphQL::Language::Nodes::AbstractNode
-  # source://graphql//lib/graphql/language/nodes.rb#211
+  # source://graphql//lib/graphql/language/nodes.rb#213
   def children; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(type: T.unsafe(nil), directives: T.unsafe(nil), selections: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_selection(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def selections; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def type; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#294
+    # source://graphql//lib/graphql/language/nodes.rb#296
     def from_a(filename, line, col, type, directives, selections); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
 # A collection of key-value inputs which may be a field argument
 #
-# source://graphql//lib/graphql/language/nodes.rb#438
+# source://graphql//lib/graphql/language/nodes.rb#441
 class GraphQL::Language::Nodes::InputObject < ::GraphQL::Language::Nodes::AbstractNode
   # @return [Array<Nodes::Argument>] A list of key-value pairs inside this input object
   #
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def arguments; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def children; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(arguments: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_argument(node_opts); end
 
   # @return [Hash<String, Any>] Recursively turn this input object into a Ruby Hash
   #
-  # source://graphql//lib/graphql/language/nodes.rb#446
+  # source://graphql//lib/graphql/language/nodes.rb#449
   def to_h(options = T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   private
 
-  # source://graphql//lib/graphql/language/nodes.rb#458
+  # source://graphql//lib/graphql/language/nodes.rb#461
   def serialize_value_for_hash(value); end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#292
+    # source://graphql//lib/graphql/language/nodes.rb#294
     def from_a(filename, line, col, arguments); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#721
+# source://graphql//lib/graphql/language/nodes.rb#724
 class GraphQL::Language::Nodes::InputObjectTypeDefinition < ::GraphQL::Language::Nodes::AbstractNode
   include ::GraphQL::Language::Nodes::AbstractNode::DefinitionNode
 
-  # source://graphql//lib/graphql/language/nodes.rb#211
+  # source://graphql//lib/graphql/language/nodes.rb#213
   def children; end
 
   # Returns the value of attribute description.
   #
-  # source://graphql//lib/graphql/language/nodes.rb#723
+  # source://graphql//lib/graphql/language/nodes.rb#726
   def description; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def fields; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), description: T.unsafe(nil), directives: T.unsafe(nil), fields: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_field(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#295
+    # source://graphql//lib/graphql/language/nodes.rb#297
     def from_a(filename, line, col, name, description, directives, fields); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#732
+# source://graphql//lib/graphql/language/nodes.rb#735
 class GraphQL::Language::Nodes::InputObjectTypeExtension < ::GraphQL::Language::Nodes::AbstractNode
-  # source://graphql//lib/graphql/language/nodes.rb#211
+  # source://graphql//lib/graphql/language/nodes.rb#213
   def children; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def fields; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), directives: T.unsafe(nil), fields: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_field(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#294
+    # source://graphql//lib/graphql/language/nodes.rb#296
     def from_a(filename, line, col, name, directives, fields); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#599
+# source://graphql//lib/graphql/language/nodes.rb#602
 class GraphQL::Language::Nodes::InputValueDefinition < ::GraphQL::Language::Nodes::AbstractNode
   include ::GraphQL::Language::Nodes::AbstractNode::DefinitionNode
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def children; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def default_value; end
 
   # Returns the value of attribute description.
   #
-  # source://graphql//lib/graphql/language/nodes.rb#601
+  # source://graphql//lib/graphql/language/nodes.rb#604
   def description; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), type: T.unsafe(nil), default_value: T.unsafe(nil), description: T.unsafe(nil), directives: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def type; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#296
+    # source://graphql//lib/graphql/language/nodes.rb#298
     def from_a(filename, line, col, name, type, default_value, description, directives); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#650
+# source://graphql//lib/graphql/language/nodes.rb#653
 class GraphQL::Language::Nodes::InterfaceTypeDefinition < ::GraphQL::Language::Nodes::AbstractNode
   include ::GraphQL::Language::Nodes::AbstractNode::DefinitionNode
 
-  # source://graphql//lib/graphql/language/nodes.rb#211
+  # source://graphql//lib/graphql/language/nodes.rb#213
   def children; end
 
   # Returns the value of attribute description.
   #
-  # source://graphql//lib/graphql/language/nodes.rb#652
+  # source://graphql//lib/graphql/language/nodes.rb#655
   def description; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def fields; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), description: T.unsafe(nil), interfaces: T.unsafe(nil), directives: T.unsafe(nil), fields: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def interfaces; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_field(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_interface(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#296
+    # source://graphql//lib/graphql/language/nodes.rb#298
     def from_a(filename, line, col, name, description, interfaces, directives, fields); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#662
+# source://graphql//lib/graphql/language/nodes.rb#665
 class GraphQL::Language::Nodes::InterfaceTypeExtension < ::GraphQL::Language::Nodes::AbstractNode
-  # source://graphql//lib/graphql/language/nodes.rb#211
+  # source://graphql//lib/graphql/language/nodes.rb#213
   def children; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def fields; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), interfaces: T.unsafe(nil), directives: T.unsafe(nil), fields: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def interfaces; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_field(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_interface(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#295
+    # source://graphql//lib/graphql/language/nodes.rb#297
     def from_a(filename, line, col, name, interfaces, directives, fields); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
 # A list type definition, denoted with `[...]` (used for variable type definitions)
 #
-# source://graphql//lib/graphql/language/nodes.rb#477
+# source://graphql//lib/graphql/language/nodes.rb#480
 class GraphQL::Language::Nodes::ListType < ::GraphQL::Language::Nodes::WrapperType
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
@@ -4372,170 +4372,170 @@ GraphQL::Language::Nodes::NONE = T.let(T.unsafe(nil), Array)
 
 # Base class for nodes whose only value is a name (no child nodes or other scalars)
 #
-# source://graphql//lib/graphql/language/nodes.rb#309
+# source://graphql//lib/graphql/language/nodes.rb#312
 class GraphQL::Language::Nodes::NameOnlyNode < ::GraphQL::Language::Nodes::AbstractNode
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#292
+    # source://graphql//lib/graphql/language/nodes.rb#294
     def from_a(filename, line, col, name); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
 # A non-null type definition, denoted with `...!` (used for variable type definitions)
 #
-# source://graphql//lib/graphql/language/nodes.rb#481
+# source://graphql//lib/graphql/language/nodes.rb#484
 class GraphQL::Language::Nodes::NonNullType < ::GraphQL::Language::Nodes::WrapperType
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
 # A null value literal.
 #
-# source://graphql//lib/graphql/language/nodes.rb#353
+# source://graphql//lib/graphql/language/nodes.rb#356
 class GraphQL::Language::Nodes::NullValue < ::GraphQL::Language::Nodes::NameOnlyNode
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#630
+# source://graphql//lib/graphql/language/nodes.rb#633
 class GraphQL::Language::Nodes::ObjectTypeDefinition < ::GraphQL::Language::Nodes::AbstractNode
   include ::GraphQL::Language::Nodes::AbstractNode::DefinitionNode
 
-  # source://graphql//lib/graphql/language/nodes.rb#211
+  # source://graphql//lib/graphql/language/nodes.rb#213
   def children; end
 
   # Returns the value of attribute description.
   #
-  # source://graphql//lib/graphql/language/nodes.rb#632
+  # source://graphql//lib/graphql/language/nodes.rb#635
   def description; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def fields; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), interfaces: T.unsafe(nil), description: T.unsafe(nil), directives: T.unsafe(nil), fields: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def interfaces; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_field(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#296
+    # source://graphql//lib/graphql/language/nodes.rb#298
     def from_a(filename, line, col, name, interfaces, description, directives, fields); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#641
+# source://graphql//lib/graphql/language/nodes.rb#644
 class GraphQL::Language::Nodes::ObjectTypeExtension < ::GraphQL::Language::Nodes::AbstractNode
-  # source://graphql//lib/graphql/language/nodes.rb#211
+  # source://graphql//lib/graphql/language/nodes.rb#213
   def children; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def fields; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), interfaces: T.unsafe(nil), directives: T.unsafe(nil), fields: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def interfaces; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_field(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#295
+    # source://graphql//lib/graphql/language/nodes.rb#297
     def from_a(filename, line, col, name, interfaces, directives, fields); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
@@ -4544,437 +4544,437 @@ end
 # May be anonymous or named.
 # May be explicitly typed (eg `mutation { ... }`) or implicitly a query (eg `{ ... }`).
 #
-# source://graphql//lib/graphql/language/nodes.rb#503
+# source://graphql//lib/graphql/language/nodes.rb#506
 class GraphQL::Language::Nodes::OperationDefinition < ::GraphQL::Language::Nodes::AbstractNode
-  # source://graphql//lib/graphql/language/nodes.rb#211
+  # source://graphql//lib/graphql/language/nodes.rb#213
   def children; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(operation_type: T.unsafe(nil), name: T.unsafe(nil), variables: T.unsafe(nil), directives: T.unsafe(nil), selections: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_selection(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_variable(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
   # @return [String, nil] The root type for this operation, or `nil` for implicit `"query"`
   #
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def operation_type; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
   # @return [Array<Field>] Root-level fields on this operation
   #
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def selections; end
 
   # @return [Array<VariableDefinition>] Variable $definitions for this operation
   #
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def variables; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#296
+    # source://graphql//lib/graphql/language/nodes.rb#298
     def from_a(filename, line, col, operation_type, name, variables, directives, selections); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#581
+# source://graphql//lib/graphql/language/nodes.rb#584
 class GraphQL::Language::Nodes::ScalarTypeDefinition < ::GraphQL::Language::Nodes::AbstractNode
   include ::GraphQL::Language::Nodes::AbstractNode::DefinitionNode
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def children; end
 
   # Returns the value of attribute description.
   #
-  # source://graphql//lib/graphql/language/nodes.rb#583
+  # source://graphql//lib/graphql/language/nodes.rb#586
   def description; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), description: T.unsafe(nil), directives: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#294
+    # source://graphql//lib/graphql/language/nodes.rb#296
     def from_a(filename, line, col, name, description, directives); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#591
+# source://graphql//lib/graphql/language/nodes.rb#594
 class GraphQL::Language::Nodes::ScalarTypeExtension < ::GraphQL::Language::Nodes::AbstractNode
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def children; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), directives: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#293
+    # source://graphql//lib/graphql/language/nodes.rb#295
     def from_a(filename, line, col, name, directives); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#564
+# source://graphql//lib/graphql/language/nodes.rb#567
 class GraphQL::Language::Nodes::SchemaDefinition < ::GraphQL::Language::Nodes::AbstractNode
   include ::GraphQL::Language::Nodes::AbstractNode::DefinitionNode
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def children; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(query: T.unsafe(nil), mutation: T.unsafe(nil), subscription: T.unsafe(nil), directives: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def mutation; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def query; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def subscription; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#295
+    # source://graphql//lib/graphql/language/nodes.rb#297
     def from_a(filename, line, col, query, mutation, subscription, directives); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#573
+# source://graphql//lib/graphql/language/nodes.rb#576
 class GraphQL::Language::Nodes::SchemaExtension < ::GraphQL::Language::Nodes::AbstractNode
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def children; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(query: T.unsafe(nil), mutation: T.unsafe(nil), subscription: T.unsafe(nil), directives: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def mutation; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def query; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def subscription; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#295
+    # source://graphql//lib/graphql/language/nodes.rb#297
     def from_a(filename, line, col, query, mutation, subscription, directives); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
 # A type name, used for variable definitions
 #
-# source://graphql//lib/graphql/language/nodes.rb#556
+# source://graphql//lib/graphql/language/nodes.rb#559
 class GraphQL::Language::Nodes::TypeName < ::GraphQL::Language::Nodes::NameOnlyNode
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#672
+# source://graphql//lib/graphql/language/nodes.rb#675
 class GraphQL::Language::Nodes::UnionTypeDefinition < ::GraphQL::Language::Nodes::AbstractNode
   include ::GraphQL::Language::Nodes::AbstractNode::DefinitionNode
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def children; end
 
   # Returns the value of attribute description.
   #
-  # source://graphql//lib/graphql/language/nodes.rb#674
+  # source://graphql//lib/graphql/language/nodes.rb#677
   def description; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), types: T.unsafe(nil), description: T.unsafe(nil), directives: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
   # Returns the value of attribute types.
   #
-  # source://graphql//lib/graphql/language/nodes.rb#674
+  # source://graphql//lib/graphql/language/nodes.rb#677
   def types; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#295
+    # source://graphql//lib/graphql/language/nodes.rb#297
     def from_a(filename, line, col, name, types, description, directives); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
-# source://graphql//lib/graphql/language/nodes.rb#682
+# source://graphql//lib/graphql/language/nodes.rb#685
 class GraphQL::Language::Nodes::UnionTypeExtension < ::GraphQL::Language::Nodes::AbstractNode
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def children; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#190
+  # source://graphql//lib/graphql/language/nodes.rb#192
   def directives; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), types: T.unsafe(nil), directives: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#198
+  # source://graphql//lib/graphql/language/nodes.rb#200
   def merge_directive(node_opts); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
   # Returns the value of attribute types.
   #
-  # source://graphql//lib/graphql/language/nodes.rb#683
+  # source://graphql//lib/graphql/language/nodes.rb#686
   def types; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#294
+    # source://graphql//lib/graphql/language/nodes.rb#296
     def from_a(filename, line, col, name, types, directives); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
 # An operation-level query variable
 #
-# source://graphql//lib/graphql/language/nodes.rb#485
+# source://graphql//lib/graphql/language/nodes.rb#488
 class GraphQL::Language::Nodes::VariableDefinition < ::GraphQL::Language::Nodes::AbstractNode
   # @return [String, Integer, Float, Boolean, Array, NullValue] A Ruby value to use if no other value is provided
   #
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def default_value; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(name: T.unsafe(nil), type: T.unsafe(nil), default_value: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def name; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
   # @return [TypeName, NonNullType, ListType] The expected type of this value
   #
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def type; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#294
+    # source://graphql//lib/graphql/language/nodes.rb#296
     def from_a(filename, line, col, name, type, default_value); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
 # Usage of a variable in a query. Name does _not_ include `$`.
 #
-# source://graphql//lib/graphql/language/nodes.rb#560
+# source://graphql//lib/graphql/language/nodes.rb#563
 class GraphQL::Language::Nodes::VariableIdentifier < ::GraphQL::Language::Nodes::NameOnlyNode
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
 
 # Base class for non-null type names and list type names
 #
-# source://graphql//lib/graphql/language/nodes.rb#303
+# source://graphql//lib/graphql/language/nodes.rb#306
 class GraphQL::Language::Nodes::WrapperType < ::GraphQL::Language::Nodes::AbstractNode
-  # source://graphql//lib/graphql/language/nodes.rb#288
+  # source://graphql//lib/graphql/language/nodes.rb#290
   def initialize_node(of_type: T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/language/nodes.rb#254
+  # source://graphql//lib/graphql/language/nodes.rb#256
   def of_type; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#256
+  # source://graphql//lib/graphql/language/nodes.rb#258
   def scalars; end
 
-  # source://graphql//lib/graphql/language/nodes.rb#149
+  # source://graphql//lib/graphql/language/nodes.rb#151
   def visit_method; end
 
   class << self
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name; end
 
-    # source://graphql//lib/graphql/language/nodes.rb#154
+    # source://graphql//lib/graphql/language/nodes.rb#156
     def children_method_name=(_arg0); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#292
+    # source://graphql//lib/graphql/language/nodes.rb#294
     def from_a(filename, line, col, of_type); end
 
-    # source://graphql//lib/graphql/language/nodes.rb#156
+    # source://graphql//lib/graphql/language/nodes.rb#158
     def visit_method; end
   end
 end
@@ -5451,232 +5451,232 @@ class GraphQL::Language::Visitor
   # source://graphql//lib/graphql/language/visitor.rb#61
   def [](node_class); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_argument(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#218
+  # source://graphql//lib/graphql/language/visitor.rb#157
   def on_argument_children(new_node); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#117
+  # source://graphql//lib/graphql/language/visitor.rb#216
   def on_argument_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_directive(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_directive_definition(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#130
+  # source://graphql//lib/graphql/language/visitor.rb#229
   def on_directive_definition_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_directive_location(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#117
+  # source://graphql//lib/graphql/language/visitor.rb#216
   def on_directive_location_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#123
+  # source://graphql//lib/graphql/language/visitor.rb#222
   def on_directive_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_document(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#140
+  # source://graphql//lib/graphql/language/visitor.rb#79
   def on_document_children(document_node); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#117
+  # source://graphql//lib/graphql/language/visitor.rb#216
   def on_document_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_enum(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_enum_type_definition(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#130
+  # source://graphql//lib/graphql/language/visitor.rb#229
   def on_enum_type_definition_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_enum_type_extension(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#130
+  # source://graphql//lib/graphql/language/visitor.rb#229
   def on_enum_type_extension_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_enum_value_definition(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#123
+  # source://graphql//lib/graphql/language/visitor.rb#222
   def on_enum_value_definition_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#117
+  # source://graphql//lib/graphql/language/visitor.rb#216
   def on_enum_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_field(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#153
+  # source://graphql//lib/graphql/language/visitor.rb#92
   def on_field_children(new_node); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_field_definition(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#130
+  # source://graphql//lib/graphql/language/visitor.rb#229
   def on_field_definition_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#117
+  # source://graphql//lib/graphql/language/visitor.rb#216
   def on_field_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_fragment_definition(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#197
+  # source://graphql//lib/graphql/language/visitor.rb#136
   def on_fragment_definition_children(new_node); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#117
+  # source://graphql//lib/graphql/language/visitor.rb#216
   def on_fragment_definition_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_fragment_spread(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#123
+  # source://graphql//lib/graphql/language/visitor.rb#222
   def on_fragment_spread_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_inline_fragment(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#197
+  # source://graphql//lib/graphql/language/visitor.rb#136
   def on_inline_fragment_children(new_node); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#117
+  # source://graphql//lib/graphql/language/visitor.rb#216
   def on_inline_fragment_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_input_object(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_input_object_type_definition(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#130
+  # source://graphql//lib/graphql/language/visitor.rb#229
   def on_input_object_type_definition_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_input_object_type_extension(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#130
+  # source://graphql//lib/graphql/language/visitor.rb#229
   def on_input_object_type_extension_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#123
+  # source://graphql//lib/graphql/language/visitor.rb#222
   def on_input_object_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_input_value_definition(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#123
+  # source://graphql//lib/graphql/language/visitor.rb#222
   def on_input_value_definition_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_interface_type_definition(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#137
+  # source://graphql//lib/graphql/language/visitor.rb#236
   def on_interface_type_definition_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_interface_type_extension(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#137
+  # source://graphql//lib/graphql/language/visitor.rb#236
   def on_interface_type_extension_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_list_type(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#117
+  # source://graphql//lib/graphql/language/visitor.rb#216
   def on_list_type_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_non_null_type(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#117
+  # source://graphql//lib/graphql/language/visitor.rb#216
   def on_non_null_type_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_null_value(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#117
+  # source://graphql//lib/graphql/language/visitor.rb#216
   def on_null_value_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_object_type_definition(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#130
+  # source://graphql//lib/graphql/language/visitor.rb#229
   def on_object_type_definition_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_object_type_extension(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#130
+  # source://graphql//lib/graphql/language/visitor.rb#229
   def on_object_type_extension_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_operation_definition(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#205
+  # source://graphql//lib/graphql/language/visitor.rb#144
   def on_operation_definition_children(new_node); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#117
+  # source://graphql//lib/graphql/language/visitor.rb#216
   def on_operation_definition_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_scalar_type_definition(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#123
+  # source://graphql//lib/graphql/language/visitor.rb#222
   def on_scalar_type_definition_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_scalar_type_extension(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#123
+  # source://graphql//lib/graphql/language/visitor.rb#222
   def on_scalar_type_extension_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_schema_definition(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#123
+  # source://graphql//lib/graphql/language/visitor.rb#222
   def on_schema_definition_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_schema_extension(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#123
+  # source://graphql//lib/graphql/language/visitor.rb#222
   def on_schema_extension_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_type_name(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#117
+  # source://graphql//lib/graphql/language/visitor.rb#216
   def on_type_name_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_union_type_definition(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#123
+  # source://graphql//lib/graphql/language/visitor.rb#222
   def on_union_type_definition_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_union_type_extension(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#123
+  # source://graphql//lib/graphql/language/visitor.rb#222
   def on_union_type_extension_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_variable_definition(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#117
+  # source://graphql//lib/graphql/language/visitor.rb#216
   def on_variable_definition_with_modifications(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#95
+  # source://graphql//lib/graphql/language/visitor.rb#196
   def on_variable_identifier(node, parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#117
+  # source://graphql//lib/graphql/language/visitor.rb#216
   def on_variable_identifier_with_modifications(node, parent); end
 
   # @return [GraphQL::Language::Nodes::Document] The document with any modifications applied
@@ -5691,34 +5691,32 @@ class GraphQL::Language::Visitor
   # source://graphql//lib/graphql/language/visitor.rb#67
   def visit; end
 
-  # source://graphql//lib/graphql/language/visitor.rb#166
+  # source://graphql//lib/graphql/language/visitor.rb#105
   def visit_directives(new_node); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#177
+  # source://graphql//lib/graphql/language/visitor.rb#116
   def visit_selections(new_node); end
 
   private
 
-  # source://graphql//lib/graphql/language/visitor.rb#282
+  # source://graphql//lib/graphql/language/visitor.rb#285
   def apply_modifications(node, parent, new_node_and_new_parent); end
 
-  # source://graphql//lib/graphql/language/visitor.rb#309
+  # source://graphql//lib/graphql/language/visitor.rb#312
   def begin_visit(node, parent); end
 
   # Should global `leave` visitors come first or last?
   #
-  # source://graphql//lib/graphql/language/visitor.rb#315
+  # source://graphql//lib/graphql/language/visitor.rb#318
   def end_visit(node, parent); end
 
   class << self
     # If one of the visitors returns SKIP, stop visiting this node
     #
-    # source://graphql//lib/graphql/language/visitor.rb#321
+    # source://graphql//lib/graphql/language/visitor.rb#324
     def apply_hooks(hooks, node, parent); end
 
-    # We don't use `alias` here because it breaks `super`
-    #
-    # source://graphql//lib/graphql/language/visitor.rb#80
+    # source://graphql//lib/graphql/language/visitor.rb#181
     def make_visit_methods(ast_node_class); end
   end
 end
@@ -5736,28 +5734,28 @@ class GraphQL::Language::Visitor::DeleteNode; end
 #
 # Access {NodeVisitor}s via {GraphQL::Language::Visitor#[]}
 #
-# source://graphql//lib/graphql/language/visitor.rb#331
+# source://graphql//lib/graphql/language/visitor.rb#334
 class GraphQL::Language::Visitor::NodeVisitor
   # @return [NodeVisitor] a new instance of NodeVisitor
   #
-  # source://graphql//lib/graphql/language/visitor.rb#337
+  # source://graphql//lib/graphql/language/visitor.rb#340
   def initialize; end
 
   # Shorthand to add a hook to the {#enter} array
   #
   # @param hook [Proc] A hook to add
   #
-  # source://graphql//lib/graphql/language/visitor.rb#344
+  # source://graphql//lib/graphql/language/visitor.rb#347
   def <<(hook); end
 
   # @return [Array<Proc>] Hooks to call when entering a node of this type
   #
-  # source://graphql//lib/graphql/language/visitor.rb#333
+  # source://graphql//lib/graphql/language/visitor.rb#336
   def enter; end
 
   # @return [Array<Proc>] Hooks to call when leaving a node of this type
   #
-  # source://graphql//lib/graphql/language/visitor.rb#335
+  # source://graphql//lib/graphql/language/visitor.rb#338
   def leave; end
 end
 
@@ -8189,48 +8187,48 @@ class GraphQL::Schema::Argument
 
   # @return [Boolean]
   #
-  # source://graphql//lib/graphql/schema/argument.rb#150
+  # source://graphql//lib/graphql/schema/argument.rb#148
   def authorized?(obj, value, ctx); end
 
   # @return [Boolean]
   #
-  # source://graphql//lib/graphql/schema/argument.rb#154
+  # source://graphql//lib/graphql/schema/argument.rb#152
   def authorized_as_type?(obj, value, ctx, as_type:); end
 
   # @api private
   #
-  # source://graphql//lib/graphql/schema/argument.rb#235
+  # source://graphql//lib/graphql/schema/argument.rb#233
   def coerce_into_values(parent_object, values, context, argument_values); end
 
   # @param default_value [Object] The value to use when the client doesn't provide one
   # @return [Object] the value used when the client doesn't provide a value for this argument
   #
-  # source://graphql//lib/graphql/schema/argument.rb#105
+  # source://graphql//lib/graphql/schema/argument.rb#103
   def default_value(new_default_value = T.unsafe(nil)); end
 
   # @return [Boolean] True if this argument has a default value
   #
-  # source://graphql//lib/graphql/schema/argument.rb#113
+  # source://graphql//lib/graphql/schema/argument.rb#111
   def default_value?; end
 
   # @return [String] Deprecation reason for this argument
   #
-  # source://graphql//lib/graphql/schema/argument.rb#133
+  # source://graphql//lib/graphql/schema/argument.rb#131
   def deprecation_reason(text = T.unsafe(nil)); end
 
-  # source://graphql//lib/graphql/schema/argument.rb#141
+  # source://graphql//lib/graphql/schema/argument.rb#139
   def deprecation_reason=(new_reason); end
 
   # @return [String] Documentation for this argument
   #
-  # source://graphql//lib/graphql/schema/argument.rb#124
+  # source://graphql//lib/graphql/schema/argument.rb#122
   def description(text = T.unsafe(nil)); end
 
   # Sets the attribute description
   #
   # @param value the value to set the attribute description to.
   #
-  # source://graphql//lib/graphql/schema/argument.rb#121
+  # source://graphql//lib/graphql/schema/argument.rb#119
   def description=(_arg0); end
 
   # @return [Boolean] true if a resolver defined this argument
@@ -8243,7 +8241,7 @@ class GraphQL::Schema::Argument
   # source://graphql//lib/graphql/schema/argument.rb#13
   def graphql_name; end
 
-  # source://graphql//lib/graphql/schema/argument.rb#99
+  # source://graphql//lib/graphql/schema/argument.rb#97
   def inspect; end
 
   # @return [Symbol] This argument's name in Ruby keyword arguments
@@ -8251,7 +8249,7 @@ class GraphQL::Schema::Argument
   # source://graphql//lib/graphql/schema/argument.rb#29
   def keyword; end
 
-  # source://graphql//lib/graphql/schema/argument.rb#295
+  # source://graphql//lib/graphql/schema/argument.rb#293
   def load_and_authorize_value(load_method_owner, coerced_value, context); end
 
   # @return [Class, Module, nil] If this argument should load an application object, this is the type of object to load
@@ -8280,49 +8278,49 @@ class GraphQL::Schema::Argument
   #
   # @api private
   #
-  # source://graphql//lib/graphql/schema/argument.rb#208
+  # source://graphql//lib/graphql/schema/argument.rb#206
   def prepare_value(obj, value, context: T.unsafe(nil)); end
 
   # @return [Boolean]
   #
-  # source://graphql//lib/graphql/schema/argument.rb#117
+  # source://graphql//lib/graphql/schema/argument.rb#115
   def replace_null_with_default?; end
 
   # @return [Boolean]
   #
-  # source://graphql//lib/graphql/schema/argument.rb#199
+  # source://graphql//lib/graphql/schema/argument.rb#197
   def statically_coercible?; end
 
-  # source://graphql//lib/graphql/schema/argument.rb#187
+  # source://graphql//lib/graphql/schema/argument.rb#185
   def type; end
 
-  # source://graphql//lib/graphql/schema/argument.rb#177
+  # source://graphql//lib/graphql/schema/argument.rb#175
   def type=(new_type); end
 
   # @api private
   #
-  # source://graphql//lib/graphql/schema/argument.rb#334
+  # source://graphql//lib/graphql/schema/argument.rb#332
   def validate_default_value; end
 
   # @return [Boolean]
   #
-  # source://graphql//lib/graphql/schema/argument.rb#146
+  # source://graphql//lib/graphql/schema/argument.rb#144
   def visible?(context); end
 
   private
 
-  # source://graphql//lib/graphql/schema/argument.rb#382
+  # source://graphql//lib/graphql/schema/argument.rb#380
   def validate_deprecated_or_optional(null:, deprecation_reason:); end
 
-  # source://graphql//lib/graphql/schema/argument.rb#370
+  # source://graphql//lib/graphql/schema/argument.rb#368
   def validate_input_type(input_type); end
 end
 
-# source://graphql//lib/graphql/schema/argument.rb#361
+# source://graphql//lib/graphql/schema/argument.rb#359
 class GraphQL::Schema::Argument::InvalidDefaultValueError < ::GraphQL::Error
   # @return [InvalidDefaultValueError] a new instance of InvalidDefaultValueError
   #
-  # source://graphql//lib/graphql/schema/argument.rb#362
+  # source://graphql//lib/graphql/schema/argument.rb#360
   def initialize(argument); end
 end
 
@@ -8438,7 +8436,7 @@ module GraphQL::Schema::BuildFromDefinition::Builder
 
   # @api private
   #
-  # source://graphql//lib/graphql/schema/build_from_definition.rb#467
+  # source://graphql//lib/graphql/schema/build_from_definition.rb#468
   def build_resolve_type(lookup_hash, directives, missing_type_handler); end
 
   # @api private
@@ -8458,6 +8456,11 @@ module GraphQL::Schema::BuildFromDefinition::Builder
 
   # @api private
   #
+  # source://graphql//lib/graphql/schema/build_from_definition.rb#461
+  def define_field_resolve_method(owner, method_name, field_name); end
+
+  # @api private
+  #
   # source://graphql//lib/graphql/schema/build_from_definition.rb#235
   def prepare_directives(ast_node, type_resolver); end
 
@@ -8474,7 +8477,7 @@ module GraphQL::Schema::BuildFromDefinition::Builder
 
   # @api private
   #
-  # source://graphql//lib/graphql/schema/build_from_definition.rb#491
+  # source://graphql//lib/graphql/schema/build_from_definition.rb#492
   def resolve_type_name(type); end
 end
 
@@ -9755,7 +9758,7 @@ class GraphQL::Schema::InputObject < ::GraphQL::Schema::Member
 
   private
 
-  # source://graphql//lib/graphql/schema/input_object.rb#249
+  # source://graphql//lib/graphql/schema/input_object.rb#251
   def overwrite_argument(key, value); end
 
   class << self
@@ -9767,16 +9770,16 @@ class GraphQL::Schema::InputObject < ::GraphQL::Schema::Member
     # source://graphql//lib/graphql/schema/input_object.rb#58
     def authorized?(obj, value, ctx); end
 
-    # source://graphql//lib/graphql/schema/input_object.rb#207
+    # source://graphql//lib/graphql/schema/input_object.rb#202
     def coerce_input(value, ctx); end
 
     # It's funny to think of a _result_ of an input object.
     # This is used for rendering the default value in introspection responses.
     #
-    # source://graphql//lib/graphql/schema/input_object.rb#226
+    # source://graphql//lib/graphql/schema/input_object.rb#221
     def coerce_result(value, ctx); end
 
-    # source://graphql//lib/graphql/schema/input_object.rb#143
+    # source://graphql//lib/graphql/schema/input_object.rb#138
     def kind; end
 
     # source://graphql//lib/graphql/schema/input_object.rb#72
@@ -9787,8 +9790,13 @@ class GraphQL::Schema::InputObject < ::GraphQL::Schema::Member
     # source://graphql//lib/graphql/schema/input_object.rb#81
     def one_of?; end
 
-    # source://graphql//lib/graphql/schema/input_object.rb#150
+    # source://graphql//lib/graphql/schema/input_object.rb#145
     def validate_non_null_input(input, ctx, max_errors: T.unsafe(nil)); end
+
+    private
+
+    # source://graphql//lib/graphql/schema/input_object.rb#243
+    def define_accessor_method(method_name); end
   end
 end
 
@@ -15638,90 +15646,90 @@ GraphQL::Tracing::ActiveSupportNotificationsTracing::NOTIFICATIONS_ENGINE = T.le
 module GraphQL::Tracing::AppOpticsTrace
   include ::GraphQL::Tracing::PlatformTrace
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#41
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#43
   def analyze_multiplex(**data); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#41
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#43
   def analyze_query(**data); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#88
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#92
   def authorized(**data); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#99
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#103
   def authorized_lazy(**data); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#58
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#62
   def execute_field(query:, field:, ast_node:, arguments:, object:); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#84
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#88
   def execute_field_lazy(query:, field:, ast_node:, arguments:, object:); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#41
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#43
   def execute_multiplex(**data); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#41
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#43
   def execute_query(**data); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#41
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#43
   def execute_query_lazy(**data); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#41
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#43
   def lex(**data); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#41
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#43
   def parse(**data); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#139
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#143
   def platform_authorized_key(type); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#135
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#139
   def platform_field_key(field); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#143
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#147
   def platform_resolve_type_key(type); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#110
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#114
   def resolve_type(**data); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#122
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#126
   def resolve_type_lazy(**data); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#41
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#43
   def validate(**data); end
 
   private
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#149
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#153
   def gql_config; end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#202
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#206
   def graphql_context(context, layer); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#228
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#232
   def graphql_multiplex(data); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#210
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#214
   def graphql_query(query); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#221
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#225
   def graphql_query_string(query_string); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#182
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#186
   def metadata(data, layer); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#164
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#168
   def multiplex_transaction_name(names); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#244
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#248
   def remove_comments(query); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#235
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#239
   def sanitize(query); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#174
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#178
   def span_name(key); end
 
-  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#153
+  # source://graphql//lib/graphql/tracing/appoptics_trace.rb#157
   def transaction_name(query); end
 
   class << self
@@ -15843,64 +15851,64 @@ module GraphQL::Tracing::AppsignalTrace
   # source://graphql//lib/graphql/tracing/appsignal_trace.rb#11
   def initialize(set_action_name: T.unsafe(nil), **rest); end
 
-  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#26
+  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#28
   def analyze_multiplex(**data); end
 
-  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#26
+  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#28
   def analyze_query(**data); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#72
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#75
   def authorized(type:, query:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#72
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#75
   def authorized_lazy(type:, query:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#44
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#47
   def execute_field(query:, field:, ast_node:, arguments:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#44
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#47
   def execute_field_lazy(query:, field:, ast_node:, arguments:, object:); end
 
-  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#26
+  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#28
   def execute_multiplex(**data); end
 
-  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#26
+  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#28
   def execute_query(**data); end
 
-  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#26
+  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#28
   def execute_query_lazy(**data); end
 
-  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#26
+  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#28
   def lex(**data); end
 
-  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#26
+  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#28
   def parse(**data); end
 
-  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#52
+  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#56
   def platform_authorized(platform_key); end
 
-  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#68
+  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#72
   def platform_authorized_key(type); end
 
-  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#46
+  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#50
   def platform_execute_field(platform_key); end
 
-  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#64
+  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#68
   def platform_field_key(field); end
 
-  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#58
+  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#62
   def platform_resolve_type(platform_key); end
 
-  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#72
+  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#76
   def platform_resolve_type_key(type); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#85
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#88
   def resolve_type(query:, type:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#85
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#88
   def resolve_type_lazy(query:, type:, object:); end
 
-  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#26
+  # source://graphql//lib/graphql/tracing/appsignal_trace.rb#28
   def validate(**data); end
 end
 
@@ -15994,46 +16002,46 @@ module GraphQL::Tracing::DataDogTrace
   # source://graphql//lib/graphql/tracing/data_dog_trace.rb#9
   def initialize(tracer: T.unsafe(nil), analytics_enabled: T.unsafe(nil), analytics_sample_rate: T.unsafe(nil), service: T.unsafe(nil), **rest); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#33
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#35
   def analyze_multiplex(**data); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#33
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#35
   def analyze_query(**data); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#111
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#115
   def authorized(query:, type:, object:); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#130
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#134
   def authorized_lazy(object:, type:, query:); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#117
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#121
   def authorized_span(span_key, object, type, query); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#99
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#103
   def execute_field(query:, field:, ast_node:, arguments:, object:); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#105
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#109
   def execute_field_lazy(query:, field:, ast_node:, arguments:, object:); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#72
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#76
   def execute_field_span(span_key, query, field, ast_node, arguments, object); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#33
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#35
   def execute_multiplex(**data); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#33
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#35
   def execute_query(**data); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#33
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#35
   def execute_query_lazy(**data); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#33
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#35
   def lex(**data); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#33
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#35
   def parse(**data); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#174
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#178
   def platform_authorized_key(type); end
 
   # Implement this method in a subclass to apply custom tags to datadog spans
@@ -16044,22 +16052,22 @@ module GraphQL::Tracing::DataDogTrace
   # @param data [Hash] The runtime data for this event (@see GraphQL::Tracing for keys for each event)
   # @param span [Datadog::Tracing::SpanOperation] The datadog span for this event
   #
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#170
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#174
   def platform_field_key(field); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#178
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#182
   def platform_resolve_type_key(type); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#136
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#140
   def resolve_type(object:, type:, query:); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#142
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#146
   def resolve_type_lazy(object:, type:, query:); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#148
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#152
   def resolve_type_span(span_key, object, type, query); end
 
-  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#33
+  # source://graphql//lib/graphql/tracing/data_dog_trace.rb#35
   def validate(**data); end
 end
 
@@ -16127,16 +16135,16 @@ module GraphQL::Tracing::NewRelicTrace
   # source://graphql//lib/graphql/tracing/new_relic_trace.rb#35
   def analyze_query(**_keys); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#72
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#75
   def authorized(type:, query:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#72
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#75
   def authorized_lazy(type:, query:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#44
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#47
   def execute_field(query:, field:, ast_node:, arguments:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#44
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#47
   def execute_field_lazy(query:, field:, ast_node:, arguments:, object:); end
 
   # source://graphql//lib/graphql/tracing/new_relic_trace.rb#35
@@ -16172,10 +16180,10 @@ module GraphQL::Tracing::NewRelicTrace
   # source://graphql//lib/graphql/tracing/new_relic_trace.rb#70
   def platform_resolve_type_key(type); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#85
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#88
   def resolve_type(query:, type:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#85
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#88
   def resolve_type_lazy(query:, type:, object:); end
 
   # source://graphql//lib/graphql/tracing/new_relic_trace.rb#35
@@ -16227,46 +16235,46 @@ module GraphQL::Tracing::NotificationsTrace
   # source://graphql//lib/graphql/tracing/notifications_trace.rb#14
   def initialize(engine:, **rest); end
 
-  # source://graphql//lib/graphql/tracing/notifications_trace.rb#35
+  # source://graphql//lib/graphql/tracing/notifications_trace.rb#37
   def analyze_multiplex(**metadata, &blk); end
 
-  # source://graphql//lib/graphql/tracing/notifications_trace.rb#35
+  # source://graphql//lib/graphql/tracing/notifications_trace.rb#37
   def analyze_query(**metadata, &blk); end
 
-  # source://graphql//lib/graphql/tracing/notifications_trace.rb#35
+  # source://graphql//lib/graphql/tracing/notifications_trace.rb#37
   def authorized(**metadata, &blk); end
 
-  # source://graphql//lib/graphql/tracing/notifications_trace.rb#35
+  # source://graphql//lib/graphql/tracing/notifications_trace.rb#37
   def authorized_lazy(**metadata, &blk); end
 
-  # source://graphql//lib/graphql/tracing/notifications_trace.rb#35
+  # source://graphql//lib/graphql/tracing/notifications_trace.rb#37
   def execute_field(**metadata, &blk); end
 
-  # source://graphql//lib/graphql/tracing/notifications_trace.rb#35
+  # source://graphql//lib/graphql/tracing/notifications_trace.rb#37
   def execute_field_lazy(**metadata, &blk); end
 
-  # source://graphql//lib/graphql/tracing/notifications_trace.rb#35
+  # source://graphql//lib/graphql/tracing/notifications_trace.rb#37
   def execute_multiplex(**metadata, &blk); end
 
-  # source://graphql//lib/graphql/tracing/notifications_trace.rb#35
+  # source://graphql//lib/graphql/tracing/notifications_trace.rb#37
   def execute_query(**metadata, &blk); end
 
-  # source://graphql//lib/graphql/tracing/notifications_trace.rb#35
+  # source://graphql//lib/graphql/tracing/notifications_trace.rb#37
   def execute_query_lazy(**metadata, &blk); end
 
-  # source://graphql//lib/graphql/tracing/notifications_trace.rb#35
+  # source://graphql//lib/graphql/tracing/notifications_trace.rb#37
   def lex(**metadata, &blk); end
 
-  # source://graphql//lib/graphql/tracing/notifications_trace.rb#35
+  # source://graphql//lib/graphql/tracing/notifications_trace.rb#37
   def parse(**metadata, &blk); end
 
-  # source://graphql//lib/graphql/tracing/notifications_trace.rb#35
+  # source://graphql//lib/graphql/tracing/notifications_trace.rb#37
   def resolve_type(**metadata, &blk); end
 
-  # source://graphql//lib/graphql/tracing/notifications_trace.rb#35
+  # source://graphql//lib/graphql/tracing/notifications_trace.rb#37
   def resolve_type_lazy(**metadata, &blk); end
 
-  # source://graphql//lib/graphql/tracing/notifications_trace.rb#35
+  # source://graphql//lib/graphql/tracing/notifications_trace.rb#37
   def validate(**metadata, &blk); end
 end
 
@@ -16347,13 +16355,13 @@ module GraphQL::Tracing::PlatformTrace
 
   private
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#113
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#118
   def fallback_transaction_name(context); end
 
   # Get the transaction name based on the operation type and name if possible, or fall back to a user provided
   # one. Useful for anonymous queries.
   #
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#101
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#106
   def transaction_name(query); end
 
   class << self
@@ -16475,78 +16483,78 @@ module GraphQL::Tracing::PrometheusTrace
   # source://graphql//lib/graphql/tracing/prometheus_trace.rb#8
   def initialize(client: T.unsafe(nil), keys_whitelist: T.unsafe(nil), collector_type: T.unsafe(nil), **rest); end
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#26
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#28
   def analyze_multiplex(**data, &block); end
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#26
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#28
   def analyze_query(**data, &block); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#72
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#75
   def authorized(type:, query:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#72
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#75
   def authorized_lazy(type:, query:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#44
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#47
   def execute_field(query:, field:, ast_node:, arguments:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#44
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#47
   def execute_field_lazy(query:, field:, ast_node:, arguments:, object:); end
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#26
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#28
   def execute_multiplex(**data, &block); end
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#26
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#28
   def execute_query(**data, &block); end
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#26
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#28
   def execute_query_lazy(**data, &block); end
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#26
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#28
   def lex(**data, &block); end
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#26
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#28
   def parse(**data, &block); end
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#41
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#45
   def platform_authorized(platform_key, &block); end
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#61
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#65
   def platform_authorized_key(type); end
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#45
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#49
   def platform_authorized_lazy(platform_key, &block); end
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#33
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#37
   def platform_execute_field(platform_key, &block); end
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#37
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#41
   def platform_execute_field_lazy(platform_key, &block); end
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#57
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#61
   def platform_field_key(field); end
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#49
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#53
   def platform_resolve_type(platform_key, &block); end
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#65
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#69
   def platform_resolve_type_key(type); end
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#53
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#57
   def platform_resolve_type_lazy(platform_key, &block); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#85
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#88
   def resolve_type(query:, type:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#85
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#88
   def resolve_type_lazy(query:, type:, object:); end
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#26
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#28
   def validate(**data, &block); end
 
   private
 
-  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#71
+  # source://graphql//lib/graphql/tracing/prometheus_trace.rb#75
   def instrument_execution(platform_key, key, &block); end
 end
 
@@ -16602,64 +16610,64 @@ module GraphQL::Tracing::ScoutTrace
   # source://graphql//lib/graphql/tracing/scout_trace.rb#13
   def initialize(set_transaction_name: T.unsafe(nil), **_rest); end
 
-  # source://graphql//lib/graphql/tracing/scout_trace.rb#29
+  # source://graphql//lib/graphql/tracing/scout_trace.rb#31
   def analyze_multiplex(**data); end
 
-  # source://graphql//lib/graphql/tracing/scout_trace.rb#29
+  # source://graphql//lib/graphql/tracing/scout_trace.rb#31
   def analyze_query(**data); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#72
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#75
   def authorized(type:, query:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#72
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#75
   def authorized_lazy(type:, query:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#44
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#47
   def execute_field(query:, field:, ast_node:, arguments:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#44
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#47
   def execute_field_lazy(query:, field:, ast_node:, arguments:, object:); end
 
-  # source://graphql//lib/graphql/tracing/scout_trace.rb#29
+  # source://graphql//lib/graphql/tracing/scout_trace.rb#31
   def execute_multiplex(**data); end
 
-  # source://graphql//lib/graphql/tracing/scout_trace.rb#29
+  # source://graphql//lib/graphql/tracing/scout_trace.rb#31
   def execute_query(**data); end
 
-  # source://graphql//lib/graphql/tracing/scout_trace.rb#29
+  # source://graphql//lib/graphql/tracing/scout_trace.rb#31
   def execute_query_lazy(**data); end
 
-  # source://graphql//lib/graphql/tracing/scout_trace.rb#29
+  # source://graphql//lib/graphql/tracing/scout_trace.rb#31
   def lex(**data); end
 
-  # source://graphql//lib/graphql/tracing/scout_trace.rb#29
+  # source://graphql//lib/graphql/tracing/scout_trace.rb#31
   def parse(**data); end
 
-  # source://graphql//lib/graphql/tracing/scout_trace.rb#53
+  # source://graphql//lib/graphql/tracing/scout_trace.rb#56
   def platform_authorized(platform_key, &block); end
 
-  # source://graphql//lib/graphql/tracing/scout_trace.rb#63
+  # source://graphql//lib/graphql/tracing/scout_trace.rb#66
   def platform_authorized_key(type); end
 
-  # source://graphql//lib/graphql/tracing/scout_trace.rb#49
+  # source://graphql//lib/graphql/tracing/scout_trace.rb#52
   def platform_execute_field(platform_key, &block); end
 
-  # source://graphql//lib/graphql/tracing/scout_trace.rb#59
+  # source://graphql//lib/graphql/tracing/scout_trace.rb#62
   def platform_field_key(field); end
 
-  # source://graphql//lib/graphql/tracing/scout_trace.rb#53
+  # source://graphql//lib/graphql/tracing/scout_trace.rb#56
   def platform_resolve_type(platform_key, &block); end
 
-  # source://graphql//lib/graphql/tracing/scout_trace.rb#67
+  # source://graphql//lib/graphql/tracing/scout_trace.rb#70
   def platform_resolve_type_key(type); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#85
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#88
   def resolve_type(query:, type:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#85
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#88
   def resolve_type_lazy(query:, type:, object:); end
 
-  # source://graphql//lib/graphql/tracing/scout_trace.rb#29
+  # source://graphql//lib/graphql/tracing/scout_trace.rb#31
   def validate(**data); end
 end
 
@@ -16708,64 +16716,64 @@ module GraphQL::Tracing::StatsdTrace
   # source://graphql//lib/graphql/tracing/statsd_trace.rb#9
   def initialize(statsd:, **rest); end
 
-  # source://graphql//lib/graphql/tracing/statsd_trace.rb#24
+  # source://graphql//lib/graphql/tracing/statsd_trace.rb#26
   def analyze_multiplex(**data); end
 
-  # source://graphql//lib/graphql/tracing/statsd_trace.rb#24
+  # source://graphql//lib/graphql/tracing/statsd_trace.rb#26
   def analyze_query(**data); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#72
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#75
   def authorized(type:, query:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#72
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#75
   def authorized_lazy(type:, query:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#44
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#47
   def execute_field(query:, field:, ast_node:, arguments:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#44
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#47
   def execute_field_lazy(query:, field:, ast_node:, arguments:, object:); end
 
-  # source://graphql//lib/graphql/tracing/statsd_trace.rb#24
+  # source://graphql//lib/graphql/tracing/statsd_trace.rb#26
   def execute_multiplex(**data); end
 
-  # source://graphql//lib/graphql/tracing/statsd_trace.rb#24
+  # source://graphql//lib/graphql/tracing/statsd_trace.rb#26
   def execute_query(**data); end
 
-  # source://graphql//lib/graphql/tracing/statsd_trace.rb#24
+  # source://graphql//lib/graphql/tracing/statsd_trace.rb#26
   def execute_query_lazy(**data); end
 
-  # source://graphql//lib/graphql/tracing/statsd_trace.rb#24
+  # source://graphql//lib/graphql/tracing/statsd_trace.rb#26
   def lex(**data); end
 
-  # source://graphql//lib/graphql/tracing/statsd_trace.rb#24
+  # source://graphql//lib/graphql/tracing/statsd_trace.rb#26
   def parse(**data); end
 
-  # source://graphql//lib/graphql/tracing/statsd_trace.rb#37
+  # source://graphql//lib/graphql/tracing/statsd_trace.rb#41
   def platform_authorized(key, &block); end
 
-  # source://graphql//lib/graphql/tracing/statsd_trace.rb#47
+  # source://graphql//lib/graphql/tracing/statsd_trace.rb#51
   def platform_authorized_key(type); end
 
-  # source://graphql//lib/graphql/tracing/statsd_trace.rb#33
+  # source://graphql//lib/graphql/tracing/statsd_trace.rb#37
   def platform_execute_field(platform_key, &block); end
 
-  # source://graphql//lib/graphql/tracing/statsd_trace.rb#43
+  # source://graphql//lib/graphql/tracing/statsd_trace.rb#47
   def platform_field_key(field); end
 
-  # source://graphql//lib/graphql/tracing/statsd_trace.rb#37
+  # source://graphql//lib/graphql/tracing/statsd_trace.rb#41
   def platform_resolve_type(key, &block); end
 
-  # source://graphql//lib/graphql/tracing/statsd_trace.rb#51
+  # source://graphql//lib/graphql/tracing/statsd_trace.rb#55
   def platform_resolve_type_key(type); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#85
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#88
   def resolve_type(query:, type:, object:); end
 
-  # source://graphql//lib/graphql/tracing/platform_trace.rb#85
+  # source://graphql//lib/graphql/tracing/platform_trace.rb#88
   def resolve_type_lazy(query:, type:, object:); end
 
-  # source://graphql//lib/graphql/tracing/statsd_trace.rb#24
+  # source://graphql//lib/graphql/tracing/statsd_trace.rb#26
   def validate(**data); end
 end
 

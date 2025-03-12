@@ -8,25 +8,25 @@
 # source://graphql-client//lib/graphql/client/type_stack.rb#2
 module GraphQL
   class << self
-    # source://graphql/2.0.31/lib/graphql.rb#35
+    # source://graphql/2.0.32/lib/graphql.rb#35
     def default_parser; end
 
-    # source://graphql/2.0.31/lib/graphql.rb#39
+    # source://graphql/2.0.32/lib/graphql.rb#39
     def default_parser=(_arg0); end
 
-    # source://graphql/2.0.31/lib/graphql.rb#45
+    # source://graphql/2.0.32/lib/graphql.rb#45
     def parse(graphql_string, trace: T.unsafe(nil)); end
 
-    # source://graphql/2.0.31/lib/graphql.rb#52
+    # source://graphql/2.0.32/lib/graphql.rb#52
     def parse_file(filename); end
 
-    # source://graphql/2.0.31/lib/graphql.rb#62
+    # source://graphql/2.0.32/lib/graphql.rb#62
     def parse_with_racc(string, filename: T.unsafe(nil), trace: T.unsafe(nil)); end
 
-    # source://graphql/2.0.31/lib/graphql.rb#58
+    # source://graphql/2.0.32/lib/graphql.rb#58
     def scan(graphql_string); end
 
-    # source://graphql/2.0.31/lib/graphql.rb#66
+    # source://graphql/2.0.32/lib/graphql.rb#66
     def scan_with_ruby(graphql_string); end
   end
 end
