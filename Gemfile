@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.4.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem "rails", "~> 8.0.1"
+gem "rails", "~> 8.0.2"
 # use vite to build javascripts and assets
 gem "vite_rails", "~> 3.0"
 # Use mongodb
