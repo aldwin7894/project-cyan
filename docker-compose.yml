@@ -68,6 +68,7 @@ services:
       - RAILS_ENV
       - NODE_ENV
       - RAILS_ASSET_HOST
+      - ABOUT_ME
       - DISCORDRB_NONACL=true
       - RACK_TIMEOUT_SERVICE_TIMEOUT=60
       - RACK_TIMEOUT_WAIT_TIMEOUT=60
@@ -108,3 +109,5 @@ secrets:
     environment: RAILS_MASTER_KEY
   RAILS_ASSET_HOST:
     environment: RAILS_ASSET_HOST
+  ABOUT_ME:
+    environment: ABOUT_ME

@@ -1,7 +1,7 @@
 FROM ruby:3.4.2-slim-bookworm AS build-env
 
 ENV BUNDLE_PATH=/gems
-ENV NODE_VERSION=22.12.0
+ENV NODE_VERSION=22.14.0
 
 RUN apt-get update && apt-get install -yq --no-install-recommends \
   build-essential \

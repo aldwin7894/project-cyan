@@ -111,7 +111,7 @@ class Sidekiq::Cron::Configuration
   # If a job specifies a namespace that is not included in the provided list,
   # a warning will be logged, and the job will be assigned to the default namespace.
   #
-  # source://sidekiq-cron//lib/sidekiq/cron.rb#54
+  # source://sidekiq-cron//lib/sidekiq/cron.rb#40
   def available_namespaces; end
 
   # List of available namespaces
@@ -124,7 +124,7 @@ class Sidekiq::Cron::Configuration
   # If a job specifies a namespace that is not included in the provided list,
   # a warning will be logged, and the job will be assigned to the default namespace.
   #
-  # source://sidekiq-cron//lib/sidekiq/cron.rb#54
+  # source://sidekiq-cron//lib/sidekiq/cron.rb#40
   def available_namespaces=(_arg0); end
 
   # The maximum number of recent cron job execution histories to retain.
@@ -176,7 +176,7 @@ class Sidekiq::Cron::Configuration
   # :single -- use the first parsed cron line and ignore the rest (default)
   # :strict -- raise an error if multiple cron lines are parsed from one string
   #
-  # source://sidekiq-cron//lib/sidekiq/cron.rb#35
+  # source://sidekiq-cron//lib/sidekiq/cron.rb#46
   def natural_cron_parsing_mode; end
 
   # source://sidekiq-cron//lib/sidekiq/cron.rb#66
@@ -189,7 +189,7 @@ class Sidekiq::Cron::Configuration
   # when the deployment is done and Sidekiq-Cron starts to catch up, it will consider older
   # jobs that missed their schedules during the deployment. E.g., jobs that run once a day.
   #
-  # source://sidekiq-cron//lib/sidekiq/cron.rb#43
+  # source://sidekiq-cron//lib/sidekiq/cron.rb#54
   def reschedule_grace_period; end
 
   # The poller will not enqueue jobs that are late by more than this amount of seconds.
@@ -199,7 +199,7 @@ class Sidekiq::Cron::Configuration
   # when the deployment is done and Sidekiq-Cron starts to catch up, it will consider older
   # jobs that missed their schedules during the deployment. E.g., jobs that run once a day.
   #
-  # source://sidekiq-cron//lib/sidekiq/cron.rb#43
+  # source://sidekiq-cron//lib/sidekiq/cron.rb#54
   def reschedule_grace_period=(_arg0); end
 end
 
@@ -213,10 +213,10 @@ class Sidekiq::Cron::Job
   # Active Job has different structure how it is loading data from Sidekiq
   # queue, it creates a wrapper around job.
   #
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#216
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#212
   def active_job_message; end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#512
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#508
   def add_jid_history(jid); end
 
   # Returns the value of attribute args.
@@ -228,7 +228,7 @@ class Sidekiq::Cron::Job
   #
   # @param value the value to set the attribute args to.
   #
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#599
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#595
   def args=(args); end
 
   # Returns the value of attribute cron.
@@ -243,9 +243,14 @@ class Sidekiq::Cron::Job
   # source://sidekiq-cron//lib/sidekiq/cron/job.rb#20
   def cron=(_arg0); end
 
+  # Returns the value of attribute cron_expression_string.
+  #
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#599
+  def cron_expression_string; end
+
   # @return [Boolean]
   #
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#168
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#164
   def date_as_argument?; end
 
   # Returns the value of attribute description.
@@ -260,23 +265,23 @@ class Sidekiq::Cron::Job
   # source://sidekiq-cron//lib/sidekiq/cron/job.rb#20
   def description=(_arg0); end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#527
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#523
   def destroy; end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#360
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#356
   def disable!; end
 
   # @return [Boolean]
   #
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#374
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#370
   def disabled?; end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#365
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#361
   def enable!; end
 
   # @return [Boolean]
   #
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#370
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#366
   def enabled?; end
 
   # Enqueue cron job to queue.
@@ -284,21 +289,21 @@ class Sidekiq::Cron::Job
   # source://sidekiq-cron//lib/sidekiq/cron/job.rb#132
   def enqueue!(time = T.unsafe(nil)); end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#177
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#173
   def enqueue_active_job(klass_const); end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#172
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#168
   def enqueue_args; end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#181
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#177
   def enqueue_sidekiq_worker(klass_const); end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#444
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#440
   def errors; end
 
   # @return [Boolean]
   #
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#591
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#587
   def exists?; end
 
   # Returns the value of attribute fetch_missing_args.
@@ -306,21 +311,21 @@ class Sidekiq::Cron::Job
   # source://sidekiq-cron//lib/sidekiq/cron/job.rb#21
   def fetch_missing_args; end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#575
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#571
   def formatted_enqueue_time(now = T.unsafe(nil)); end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#579
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#575
   def formatted_last_time(now = T.unsafe(nil)); end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#384
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#380
   def human_cron; end
 
   # @return [Boolean]
   #
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#162
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#157
   def is_active_job?(klass = T.unsafe(nil)); end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#411
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#407
   def jid_history_from_redis; end
 
   # Returns the value of attribute klass.
@@ -335,7 +340,7 @@ class Sidekiq::Cron::Job
   # source://sidekiq-cron//lib/sidekiq/cron/job.rb#20
   def klass=(_arg0); end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#471
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#467
   def klass_valid; end
 
   # Returns the value of attribute last_enqueue_time.
@@ -343,13 +348,13 @@ class Sidekiq::Cron::Job
   # source://sidekiq-cron//lib/sidekiq/cron/job.rb#21
   def last_enqueue_time; end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#401
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#397
   def last_enqueue_time_from_redis; end
 
   # Parse cron specification '* * * * *' and returns
   # time when last run should be performed
   #
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#571
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#567
   def last_time(now = T.unsafe(nil)); end
 
   # Returns the value of attribute message.
@@ -388,10 +393,10 @@ class Sidekiq::Cron::Job
   # source://sidekiq-cron//lib/sidekiq/cron/job.rb#20
   def namespace=(_arg0); end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#378
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#374
   def pretty_message; end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#192
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#188
   def queue_name_with_prefix; end
 
   # Remove previous information about run times,
@@ -400,10 +405,10 @@ class Sidekiq::Cron::Job
   # source://sidekiq-cron//lib/sidekiq/cron/job.rb#116
   def remove_previous_enqueues(time); end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#481
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#477
   def save; end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#505
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#501
   def save_last_enqueue_time; end
 
   # Crucial part of whole enqueuing job.
@@ -415,10 +420,10 @@ class Sidekiq::Cron::Job
 
   # Sidekiq worker message.
   #
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#186
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#182
   def sidekiq_worker_message; end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#595
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#591
   def sort_name; end
 
   # Returns the value of attribute source.
@@ -426,10 +431,10 @@ class Sidekiq::Cron::Job
   # source://sidekiq-cron//lib/sidekiq/cron/job.rb#21
   def source; end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#356
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#352
   def status; end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#390
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#386
   def status_from_redis; end
 
   # Test if job should be enqueued.
@@ -439,12 +444,12 @@ class Sidekiq::Cron::Job
 
   # Export job data to hash.
   #
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#423
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#419
   def to_hash; end
 
   # @return [Boolean]
   #
-  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#448
+  # source://sidekiq-cron//lib/sidekiq/cron/job.rb#444
   def valid?; end
 
   private
@@ -523,15 +528,15 @@ class Sidekiq::Cron::Job
   class << self
     # Get all cron jobs.
     #
-    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#298
+    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#294
     def all(namespace = T.unsafe(nil)); end
 
-    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#315
+    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#311
     def count(namespace = T.unsafe(nil)); end
 
     # Create new instance of cron job.
     #
-    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#340
+    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#336
     def create(hash); end
 
     # source://sidekiq-cron//lib/sidekiq/cron/job.rb#685
@@ -539,25 +544,25 @@ class Sidekiq::Cron::Job
 
     # Destroy job by name.
     #
-    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#345
+    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#341
     def destroy(name, namespace = T.unsafe(nil)); end
 
     # Remove all job from cron.
     #
-    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#546
+    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#542
     def destroy_all!; end
 
     # Remove "removed jobs" between current jobs and new jobs
     #
-    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#554
+    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#550
     def destroy_removed_jobs(new_job_names); end
 
     # @return [Boolean]
     #
-    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#583
+    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#579
     def exists?(name, namespace = T.unsafe(nil)); end
 
-    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#325
+    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#321
     def find(name, namespace = T.unsafe(nil)); end
 
     # source://sidekiq-cron//lib/sidekiq/cron/job.rb#737
@@ -595,13 +600,13 @@ class Sidekiq::Cron::Job
     #   }
     # ]
     #
-    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#280
+    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#276
     def load_from_array(array, options = T.unsafe(nil)); end
 
     # Like #load_from_array.
     # If exists old jobs in Redis but removed from args, destroy old jobs.
     #
-    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#291
+    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#287
     def load_from_array!(array, options = T.unsafe(nil)); end
 
     # Load cron jobs from Hash.
@@ -620,13 +625,13 @@ class Sidekiq::Cron::Job
     #   }
     # }
     #
-    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#247
+    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#243
     def load_from_hash(hash, options = T.unsafe(nil)); end
 
     # Like #load_from_hash.
     # If exists old jobs in Redis but removed from args, destroy old jobs.
     #
-    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#257
+    # source://sidekiq-cron//lib/sidekiq/cron/job.rb#253
     def load_from_hash!(hash, options = T.unsafe(nil)); end
 
     # source://sidekiq-cron//lib/sidekiq/cron/job.rb#704
@@ -725,25 +730,71 @@ class Sidekiq::Cron::Poller < ::Sidekiq::Scheduled::Poller
   def poll_interval_average(process_count = T.unsafe(nil)); end
 end
 
+# source://sidekiq-cron//lib/sidekiq/cron/schedule_loader.rb#3
+class Sidekiq::Cron::ScheduleLoader
+  # @return [Boolean]
+  #
+  # source://sidekiq-cron//lib/sidekiq/cron/schedule_loader.rb#14
+  def has_schedule_file?; end
+
+  # source://sidekiq-cron//lib/sidekiq/cron/schedule_loader.rb#4
+  def load_schedule; end
+
+  private
+
+  # source://sidekiq-cron//lib/sidekiq/cron/schedule_loader.rb#24
+  def rendered_schedule_template; end
+
+  # source://sidekiq-cron//lib/sidekiq/cron/schedule_loader.rb#20
+  def schedule; end
+
+  # source://sidekiq-cron//lib/sidekiq/cron/schedule_loader.rb#28
+  def schedule_file_content; end
+
+  # source://sidekiq-cron//lib/sidekiq/cron/schedule_loader.rb#32
+  def schedule_file_name; end
+
+  # source://sidekiq-cron//lib/sidekiq/cron/schedule_loader.rb#36
+  def schedule_file_name_from_config; end
+
+  # source://sidekiq-cron//lib/sidekiq/cron/schedule_loader.rb#40
+  def yml_to_yaml_unless_file_exists(file_name); end
+end
+
 # source://sidekiq-cron//lib/sidekiq/cron/support.rb#3
 module Sidekiq::Cron::Support
   class << self
-    # Inspired by Active Support Inflector
-    #
-    # source://sidekiq-cron//lib/sidekiq/cron/support.rb#5
-    def constantize(camel_cased_word); end
-
-    # source://sidekiq-cron//lib/sidekiq/cron/support.rb#35
+    # source://sidekiq-cron//lib/sidekiq/cron/support.rb#10
     def load_yaml(src); end
+
+    # source://sidekiq-cron//lib/sidekiq/cron/support.rb#4
+    def safe_constantize(klass_name); end
   end
 end
 
 # source://sidekiq-cron//lib/sidekiq/cron/web_extension.rb#3
 module Sidekiq::Cron::WebExtension
   class << self
-    # source://sidekiq-cron//lib/sidekiq/cron/web_extension.rb#4
+    # source://sidekiq-cron//lib/sidekiq/cron/web_extension.rb#29
     def registered(app); end
   end
+end
+
+# source://sidekiq-cron//lib/sidekiq/cron/web_extension.rb#4
+module Sidekiq::Cron::WebExtension::Helpers
+  # source://sidekiq-cron//lib/sidekiq/cron/web_extension.rb#5
+  def cron_route_params(key); end
+
+  # This method constructs the URL for the cron jobs page within the specified namespace.
+  #
+  # source://sidekiq-cron//lib/sidekiq/cron/web_extension.rb#14
+  def namespace_redirect_path; end
+
+  # source://sidekiq-cron//lib/sidekiq/cron/web_extension.rb#18
+  def redirect_to_previous_or_default; end
+
+  # source://sidekiq-cron//lib/sidekiq/cron/web_extension.rb#22
+  def render_erb(view); end
 end
 
 # source://sidekiq-cron//lib/sidekiq/options.rb#3
