@@ -2189,10 +2189,10 @@ hasown@^2.0.0, hasown@^2.0.1, hasown@^2.0.2:
   dependencies:
     function-bind "^1.1.2"
 
-iconify-icon@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/iconify-icon/-/iconify-icon-2.3.0.tgz#8441b01f241ef317b9062db238fd803ecb7042c8"
-  integrity sha512-C0beI9oTDxQz6voI5CKl7MiJf0Lw4UU8K4G4t6pcUDClLmCvuMOpcvd8MAztQ2SfoH0iv7WHdxBFjekKPFKH2Q==
+iconify-icon@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/iconify-icon/-/iconify-icon-3.0.0.tgz#7af27e97c9abac709a92380e387d1cea6bf1bf15"
+  integrity sha512-yPcnpkn8HUEUckrxxJBOer3jbGv3bqozHsLMLBRxhk3As1X76BgV2mS2a1HTNOIagR8nUs30H3qAd9GLe8Mnlg==
   dependencies:
     "@iconify/types" "^2.0.0"
 
