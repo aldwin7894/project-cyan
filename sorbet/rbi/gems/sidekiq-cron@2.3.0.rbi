@@ -693,15 +693,15 @@ class Sidekiq::Cron::Namespace
     # source://sidekiq-cron//lib/sidekiq/cron/namespace.rb#4
     def all; end
 
-    # source://sidekiq-cron//lib/sidekiq/cron/namespace.rb#26
+    # source://sidekiq-cron//lib/sidekiq/cron/namespace.rb#21
     def all_with_count; end
 
     # @return [Boolean]
     #
-    # source://sidekiq-cron//lib/sidekiq/cron/namespace.rb#43
+    # source://sidekiq-cron//lib/sidekiq/cron/namespace.rb#36
     def available_namespaces_provided?; end
 
-    # source://sidekiq-cron//lib/sidekiq/cron/namespace.rb#35
+    # source://sidekiq-cron//lib/sidekiq/cron/namespace.rb#30
     def count(name = T.unsafe(nil)); end
   end
 end
@@ -775,7 +775,7 @@ end
 # source://sidekiq-cron//lib/sidekiq/cron/web_extension.rb#3
 module Sidekiq::Cron::WebExtension
   class << self
-    # source://sidekiq-cron//lib/sidekiq/cron/web_extension.rb#29
+    # source://sidekiq-cron//lib/sidekiq/cron/web_extension.rb#33
     def registered(app); end
   end
 end
@@ -793,7 +793,7 @@ module Sidekiq::Cron::WebExtension::Helpers
   # source://sidekiq-cron//lib/sidekiq/cron/web_extension.rb#18
   def redirect_to_previous_or_default; end
 
-  # source://sidekiq-cron//lib/sidekiq/cron/web_extension.rb#22
+  # source://sidekiq-cron//lib/sidekiq/cron/web_extension.rb#26
   def render_erb(view); end
 end
 
