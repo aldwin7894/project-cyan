@@ -79,7 +79,7 @@ GEM
     bcrypt (3.1.20)
     benchmark (0.4.0)
     bigdecimal (3.1.9)
-    bootsnap (1.18.4)
+    bootsnap (1.18.6)
       msgpack (~> 1.2)
     brotli (0.6.0)
     bson (5.0.2)
@@ -313,7 +313,7 @@ GEM
       prism (~> 1.0)
       rbs (>= 3.4.4)
       sorbet-runtime (>= 0.5.9204)
-    rbs (3.9.3)
+    rbs (3.9.4)
       logger
     rdoc (6.13.1)
       psych (>= 4.0.0)
@@ -363,13 +363,13 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.75.0, < 2.0)
       rubocop-ast (>= 1.38.0, < 2.0)
-    ruby-lsp (0.23.18)
+    ruby-lsp (0.23.20)
       language_server-protocol (~> 3.17.0)
       prism (>= 1.2, < 2.0)
       rbs (>= 3, < 4)
       sorbet-runtime (>= 0.5.10782)
-    ruby-lsp-rails (0.4.2)
-      ruby-lsp (>= 0.23.16, < 0.24.0)
+    ruby-lsp-rails (0.4.3)
+      ruby-lsp (>= 0.23.18, < 0.24.0)
     ruby-progressbar (1.13.0)
     rubyzip (2.4.1)
     securerandom (0.4.1)
@@ -392,14 +392,14 @@ GEM
       concurrent-ruby (~> 1.0, >= 1.0.5)
       sidekiq (>= 7.0.0, < 8.0.0)
       thor (>= 1.0, < 3.0)
-    sorbet (0.5.12087)
-      sorbet-static (= 0.5.12087)
-    sorbet-runtime (0.5.12087)
-    sorbet-static (0.5.12087-aarch64-linux)
-    sorbet-static (0.5.12087-x86_64-linux)
-    sorbet-static-and-runtime (0.5.12087)
-      sorbet (= 0.5.12087)
-      sorbet-runtime (= 0.5.12087)
+    sorbet (0.5.12109)
+      sorbet-static (= 0.5.12109)
+    sorbet-runtime (0.5.12109)
+    sorbet-static (0.5.12109-aarch64-linux)
+    sorbet-static (0.5.12109-x86_64-linux)
+    sorbet-static-and-runtime (0.5.12109)
+      sorbet (= 0.5.12109)
+      sorbet-runtime (= 0.5.12109)
     spoom (1.6.3)
       erubi (>= 1.10.0)
       prism (>= 0.28.0)
@@ -523,7 +523,7 @@ DEPENDENCIES
   webdrivers (= 5.3.0)
 
 RUBY VERSION
-   ruby 3.4.3p32
+   ruby 3.4.4p34
 
 BUNDLED WITH
-   2.6.8
+   2.6.9

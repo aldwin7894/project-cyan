@@ -98,7 +98,7 @@
             </a>
             <% if @lastfm_recent&.[]("@attr")&.[]('nowplaying').blank? %>
               <div>
-                <a href="https://www.last.fm/user/aldwin7894/library" rel="noopener noreferrer" target="_blank" class="text-lg break-words hover:underline line-clamp-1">
+                <a href="https://www.last.fm/user/CyanNyan/library" rel="noopener noreferrer" target="_blank" class="text-lg break-words hover:underline line-clamp-1">
                   last played
                   <% if time_ago_in_words(Time.zone.at(@lastfm_recent['date']['uts'].to_i)) == 'less than a minute' %>
                     just now
