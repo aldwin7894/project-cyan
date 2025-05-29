@@ -378,20 +378,20 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sidekiq (7.3.9)
-      base64
-      connection_pool (>= 2.3.0)
-      logger
-      rack (>= 2.2.4)
-      redis-client (>= 0.22.2)
+    sidekiq (8.0.4)
+      connection_pool (>= 2.5.0)
+      json (>= 2.9.0)
+      logger (>= 1.6.2)
+      rack (>= 3.1.0)
+      redis-client (>= 0.23.2)
     sidekiq-cron (2.3.0)
       cronex (>= 0.13.0)
       fugit (~> 1.8, >= 1.11.1)
       globalid (>= 1.0.1)
       sidekiq (>= 6.5.0)
-    sidekiq-unique-jobs (8.0.10)
+    sidekiq-unique-jobs (8.0.11)
       concurrent-ruby (~> 1.0, >= 1.0.5)
-      sidekiq (>= 7.0.0, < 8.0.0)
+      sidekiq (>= 7.0.0, < 9.0.0)
       thor (>= 1.0, < 3.0)
     sorbet (0.5.12124)
       sorbet-static (= 0.5.12124)
@@ -513,7 +513,7 @@ DEPENDENCIES
   ruby-lsp
   ruby-lsp-rails
   selenium-webdriver
-  sidekiq (~> 7.3)
+  sidekiq (~> 8.0)
   sidekiq-cron (~> 2.3)
   sidekiq-unique-jobs (~> 8.0)
   sorbet
