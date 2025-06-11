@@ -266,7 +266,7 @@ GEM
     rack-cors (3.0.0)
       logger
       rack (>= 3.0.14)
-    rack-mini-profiler (3.3.1)
+    rack-mini-profiler (4.0.0)
       rack (>= 1.2.0)
     rack-proxy (0.7.7)
       rack
@@ -507,7 +507,7 @@ DEPENDENCIES
   rack (~> 3)
   rack-brotli (~> 2.0)
   rack-cors (~> 3.0)
-  rack-mini-profiler (~> 3.3)
+  rack-mini-profiler (~> 4.0)
   rails (~> 8.0.2)
   recaptcha (~> 5.19)
   redis (~> 5.4)
