@@ -35,7 +35,7 @@
     "iconify-icon": "^3.0.0",
     "postcss": "^8.5.2",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-import": "^16.1.0",
+    "postcss-import": "^16.1.1",
     "postcss-preset-env": "^10.2.3",
     "promise-polyfill": "^8.3.0",
     "rollup-plugin-gzip": "^4.1.1",
