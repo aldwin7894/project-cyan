@@ -236,7 +236,7 @@ GEM
     opus-ruby (1.0.1)
       ffi
     orm_adapter (0.5.0)
-    ostruct (0.6.1)
+    ostruct (0.6.2)
     parallel (1.27.0)
     parser (3.3.8.0)
       ast (~> 2.4.1)
@@ -500,7 +500,7 @@ DEPENDENCIES
   lograge (~> 0.14.0)
   logstash-event (~> 1.2)
   mongoid (~> 9.0.6)
-  ostruct (~> 0.6.0)
+  ostruct (~> 0.6.2)
   persistent_httparty (~> 0.1.2)
   puma (~> 6.6)
   rack (~> 3)
