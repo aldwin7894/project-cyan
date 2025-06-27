@@ -47,20 +47,20 @@
     "tailwindcss-animatecss": "^3.0.5",
     "terser": "^5.43.1",
     "tippy.js": "^6.3.7",
-    "vite": "^6.3.5",
+    "vite": "^7.0.0",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-ruby": "^5.1.1"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
-    "@typescript-eslint/parser": "^8.34.1",
+    "@typescript-eslint/parser": "^8.35.0",
     "eslint": "8.57.1",
     "eslint-config-prettier": "^10.1.5",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-prettier": "^5.5.0",
+    "eslint-plugin-prettier": "^5.5.1",
     "eslint-plugin-tailwindcss": "^3.18.0",
-    "prettier": "^3.5.3",
+    "prettier": "^3.6.2",
     "typescript": "^5.8.3"
   },
   "engines": {
