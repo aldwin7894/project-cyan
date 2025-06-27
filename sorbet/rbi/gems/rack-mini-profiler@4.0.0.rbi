@@ -9,25 +9,7 @@
 #
 # source://rack-mini-profiler//lib/patches/db/mongo.rb#4
 class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#106
-  def initialize(server, options = T.unsafe(nil)); end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#166
-  def closed?; end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#229
-  def connect!(context = T.unsafe(nil)); end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#154
-  def connected?; end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#146
-  def connection_pool; end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#311
-  def disconnect!(options = T.unsafe(nil)); end
-
-  # source://rack-mini-profiler//lib/patches/db/mongo.rb#5
+  # source://rack-mini-profiler//lib/patches/db/mongo.rb#16
   def dispatch(*args, &blk); end
 
   # source://rack-mini-profiler//lib/patches/db/mongo.rb#5
@@ -35,81 +17,15 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
 
   # TODO: change to Module#prepend as soon as Ruby 1.9.3 support is dropped
   #
-  # source://mongo/2.21.0/lib/mongo/server/connection_base.rb#150
+  # source://rack-mini-profiler//lib/patches/db/mongo.rb#15
   def dispatch_without_timing(messages, context, options = T.unsafe(nil)); end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#186
-  def error?; end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#140
-  def global_id; end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#136
-  def id; end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#181
-  def interrupted!; end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#176
-  def interrupted?; end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#130
-  def last_checkin; end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#205
-  def pin; end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#356
-  def ping; end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#198
-  def pinned?; end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#386
-  def record_checkin!; end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#372
-  def socket_timeout; end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#372
-  def timeout; end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#212
-  def unpin; end
-
-  private
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#259
-  def create_socket(context = T.unsafe(nil)); end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#393
-  def deliver(message, client, options = T.unsafe(nil)); end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#277
-  def do_connect; end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#399
-  def handle_errors; end
-
-  # source://mongo/2.21.0/lib/mongo/server/connection.rb#417
-  def raise_if_closed!; end
-
-  class << self
-    # source://mongo/2.21.0/lib/mongo/id.rb#60
-    def next_id; end
-  end
 end
 
 # based off https://github.com/newrelic/rpm/blob/master/lib/new_relic/agent/instrumentation/active_record.rb
 # fallback for alls sorts of weird dbs
 #
 # source://rack-mini-profiler//lib/mini_profiler/version.rb#3
-module Rack
-  class << self
-    # source://rack/3.1.12/lib/rack/version.rb#18
-    def release; end
-  end
-end
+module Rack; end
 
 # source://rack-mini-profiler//lib/mini_profiler/version.rb#4
 class Rack::MiniProfiler
@@ -490,7 +406,7 @@ class Rack::MiniProfiler::Config
   # source://rack-mini-profiler//lib/mini_profiler/config.rb#9
   def authorization_mode; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/config.rb#101
+  # source://rack-mini-profiler//lib/mini_profiler/config.rb#9
   def authorization_mode=(mode); end
 
   # Returns the value of attribute auto_inject.
@@ -1394,47 +1310,47 @@ module Rack::MiniProfiler::ProfilingMethods
   #
   # Returns the result of the block, or nil when no block is given.
   #
-  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#147
+  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#148
   def counter(type, duration_ms = T.unsafe(nil)); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#68
+  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#69
   def counter_method(klass, method, &blk); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#31
+  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#32
   def finish_step(obj); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#76
+  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#77
   def profile_method(klass, method, type = T.unsafe(nil), &blk); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#128
+  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#129
   def profile_singleton_method(klass, method, type = T.unsafe(nil), &blk); end
 
   # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#7
-  def record_sql(query, elapsed_ms, params = T.unsafe(nil)); end
+  def record_sql(query, elapsed_ms, params = T.unsafe(nil), cached = T.unsafe(nil)); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#20
+  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#21
   def report_reader_duration(elapsed_ms, row_count = T.unsafe(nil), class_name = T.unsafe(nil)); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#24
+  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#25
   def start_step(name); end
 
   # perform a profiling step on given block
   #
-  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#39
+  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#40
   def step(name, opts = T.unsafe(nil)); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#72
+  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#73
   def uncounter_method(klass, method); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#54
+  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#55
   def unprofile_method(klass, method); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#132
+  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#133
   def unprofile_singleton_method(klass, method); end
 
   private
 
-  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#161
+  # source://rack-mini-profiler//lib/mini_profiler/profiling_methods.rb#162
   def clean_method_name(method); end
 end
 
@@ -1711,7 +1627,7 @@ class Rack::MiniProfiler::TimerStruct::Page < ::Rack::MiniProfiler::TimerStruct:
   # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#60
   def initialize(env); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#131
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#132
   def as_json(options = T.unsafe(nil)); end
 
   # Returns the value of attribute attributes.
@@ -1719,28 +1635,28 @@ class Rack::MiniProfiler::TimerStruct::Page < ::Rack::MiniProfiler::TimerStruct:
   # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#58
   def attributes; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#123
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#124
   def attributes_to_serialize; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#111
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#112
   def duration_ms; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#115
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#116
   def duration_ms_in_sql; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#135
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#136
   def extra_json; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#99
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#100
   def name; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#103
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#104
   def page_name(env); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#119
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#120
   def root; end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#127
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/page.rb#128
   def to_json(*a); end
 
   class << self
@@ -1767,13 +1683,13 @@ class Rack::MiniProfiler::TimerStruct::Request < ::Rack::MiniProfiler::TimerStru
   # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#81
   def add_child(name); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#134
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#135
   def add_custom(type, elapsed_ms, page); end
 
   # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#104
-  def add_sql(query, elapsed_ms, page, params = T.unsafe(nil), skip_backtrace = T.unsafe(nil), full_backtrace = T.unsafe(nil)); end
+  def add_sql(query, elapsed_ms, page, params = T.unsafe(nil), skip_backtrace = T.unsafe(nil), full_backtrace = T.unsafe(nil), cached = T.unsafe(nil)); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#178
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#179
   def adjust_depth; end
 
   # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#69
@@ -1806,10 +1722,10 @@ class Rack::MiniProfiler::TimerStruct::Request < ::Rack::MiniProfiler::TimerStru
   # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#90
   def move_child(child, destination); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#151
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#152
   def move_custom(type, custom, destination); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#115
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#116
   def move_sql(sql, destination); end
 
   # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#49
@@ -1827,12 +1743,12 @@ class Rack::MiniProfiler::TimerStruct::Request < ::Rack::MiniProfiler::TimerStru
   # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#14
   def parent=(_arg0); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#171
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#172
   def record_time(milliseconds = T.unsafe(nil)); end
 
   # please call SqlTiming#report_reader_duration instead
   #
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#129
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#130
   def report_reader_duration(elapsed_ms, row_count = T.unsafe(nil), class_name = T.unsafe(nil)); end
 
   # source://rack-mini-profiler//lib/mini_profiler/timer_struct/request.rb#77
@@ -1864,7 +1780,7 @@ class Rack::MiniProfiler::TimerStruct::Sql < ::Rack::MiniProfiler::TimerStruct::
   # @return [Sql] a new instance of Sql
   #
   # source://rack-mini-profiler//lib/mini_profiler/timer_struct/sql.rb#13
-  def initialize(query, duration_ms, page, parent, params = T.unsafe(nil), skip_backtrace = T.unsafe(nil), full_backtrace = T.unsafe(nil)); end
+  def initialize(query, duration_ms, page, parent, params = T.unsafe(nil), skip_backtrace = T.unsafe(nil), full_backtrace = T.unsafe(nil), cached = T.unsafe(nil)); end
 
   # Returns the value of attribute parent.
   #
@@ -1878,10 +1794,10 @@ class Rack::MiniProfiler::TimerStruct::Sql < ::Rack::MiniProfiler::TimerStruct::
   # source://rack-mini-profiler//lib/mini_profiler/timer_struct/sql.rb#11
   def parent=(_arg0); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/sql.rb#54
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/sql.rb#57
   def report_reader_duration(elapsed_ms, row_count = T.unsafe(nil), class_name = T.unsafe(nil)); end
 
-  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/sql.rb#64
+  # source://rack-mini-profiler//lib/mini_profiler/timer_struct/sql.rb#67
   def trim_binds(binds); end
 end
 
@@ -1939,10 +1855,10 @@ module Rack::MiniProfilerRails
   extend ::Rack::MiniProfilerRailsMethods
 
   class << self
-    # source://rack-mini-profiler//lib/mini_profiler_rails/railtie.rb#132
+    # source://rack-mini-profiler//lib/mini_profiler_rails/railtie.rb#133
     def create_engine; end
 
-    # source://rack-mini-profiler//lib/mini_profiler_rails/railtie.rb#153
+    # source://rack-mini-profiler//lib/mini_profiler_rails/railtie.rb#154
     def get_key(payload); end
 
     # call direct if needed to do a defer init
@@ -1952,18 +1868,18 @@ module Rack::MiniProfilerRails
 
     # @return [Boolean]
     #
-    # source://rack-mini-profiler//lib/mini_profiler_rails/railtie.rb#161
+    # source://rack-mini-profiler//lib/mini_profiler_rails/railtie.rb#162
     def serves_static_assets?(app); end
 
-    # source://rack-mini-profiler//lib/mini_profiler_rails/railtie.rb#157
+    # source://rack-mini-profiler//lib/mini_profiler_rails/railtie.rb#158
     def shorten_identifier(identifier); end
 
-    # source://rack-mini-profiler//lib/mini_profiler_rails/railtie.rb#143
+    # source://rack-mini-profiler//lib/mini_profiler_rails/railtie.rb#144
     def subscribe(event, &blk); end
   end
 end
 
-# source://rack-mini-profiler//lib/mini_profiler_rails/railtie.rb#177
+# source://rack-mini-profiler//lib/mini_profiler_rails/railtie.rb#178
 class Rack::MiniProfilerRails::Railtie < ::Rails::Railtie; end
 
 # source://rack-mini-profiler//lib/mini_profiler_rails/railtie_methods.rb#3

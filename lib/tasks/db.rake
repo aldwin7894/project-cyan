@@ -11,11 +11,12 @@ namespace :db do
     GameId.create(name: "Blue Archive (Asia Region)", ign: "CyanNyan", game_id: "4481406", icon_filename: "bluearchive.webp")
     GameId.create(name: "BanG Dream! Girls Band Party! (EN Server)", ign: "Cyan★Nyan♪", game_id: "828925", icon_filename: "bandori_en.webp")
     GameId.create(name: "BanG Dream! Girls Band Party! (JP Server)", ign: "Cyan★Nyan♪", game_id: "105489256", icon_filename: "bandori_jp.webp")
-    GameId.create(name: "Love Live! All Stars (EN Server)", ign: "Cyan★Nyan♪", game_id: "851181555", icon_filename: "lovelive_en.webp")
-    GameId.create(name: "Love Live! All Stars (JP Server)", ign: "CyanNyan", game_id: "848051041", icon_filename: "lovelive_jp.webp")
-    GameId.create(name: "SHOW BY ROCK!! FES A LIVE (JP Server)", ign: "CyanNyan", game_id: "UEKGJQ58", icon_filename: "shobafes.webp")
+    GameId.create(name: "Uma Musume Pretty Derby (EN Server)", ign: "CyanNyan", game_id: "731974364821", icon_filename: "umamusume.webp")
     GameId.create(name: "Uma Musume Pretty Derby (JP Server)", ign: "CyanNyan", game_id: "258149676", icon_filename: "umamusume.webp")
-    GameId.create(name: "Revue Starlight Re LIVE (EN Server)", ign: "CyanNyan", game_id: "6328475113", icon_filename: "revue.webp")
+    GameId.create(name: "[Offline] Love Live! All Stars (EN Server)", ign: "Cyan★Nyan♪", game_id: "851181555", icon_filename: "lovelive_en.webp")
+    GameId.create(name: "[Offline] Love Live! All Stars (JP Server)", ign: "CyanNyan", game_id: "848051041", icon_filename: "lovelive_jp.webp")
+    GameId.create(name: "[Offline] SHOW BY ROCK!! FES A LIVE (JP Server)", ign: "CyanNyan", game_id: "UEKGJQ58", icon_filename: "shobafes.webp")
+    GameId.create(name: "[Offline] Revue Starlight Re LIVE (EN Server)", ign: "CyanNyan", game_id: "6328475113", icon_filename: "revue.webp")
   end
 
   desc "Seed Spotify Artist Whitelists"

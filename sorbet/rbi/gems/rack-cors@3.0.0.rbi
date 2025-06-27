@@ -6,12 +6,7 @@
 
 
 # source://rack-cors//lib/rack/cors/resources/cors_misconfiguration_error.rb#3
-module Rack
-  class << self
-    # source://rack/3.1.12/lib/rack/version.rb#18
-    def release; end
-  end
-end
+module Rack; end
 
 # source://rack-cors//lib/rack/cors/resources/cors_misconfiguration_error.rb#4
 class Rack::Cors

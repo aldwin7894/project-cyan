@@ -16,10 +16,10 @@
   },
   "browserslist": [
     "defaults",
-    "chrome >= 87",
-    "firefox >= 78",
-    "safari >= 13",
-    "edge >= 88"
+    "chrome >= 107",
+    "firefox >= 104",
+    "safari >= 16",
+    "edge >= 107"
   ],
   "dependencies": {
     "@hotwired/turbo-rails": "^8.0.16",
@@ -36,7 +36,7 @@
     "postcss": "^8.5.2",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^16.1.1",
-    "postcss-preset-env": "^10.2.3",
+    "postcss-preset-env": "^10.2.4",
     "promise-polyfill": "^8.3.0",
     "rollup-plugin-gzip": "^4.1.1",
     "rollup-plugin-visualizer": "^6.0.3",
@@ -57,7 +57,7 @@
     "eslint": "8.57.1",
     "eslint-config-prettier": "^10.1.5",
     "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.1",
     "eslint-plugin-tailwindcss": "^3.18.0",
     "prettier": "^3.6.2",

@@ -6,13 +6,6 @@ import gzipPlugin from "rollup-plugin-gzip";
 import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: "modern-compiler",
-      },
-    },
-  },
   plugins: [
     RubyPlugin(),
     ...(process.env.NODE_ENV !== "production"
@@ -35,7 +28,6 @@ export default defineConfig({
     emptyOutDir: true,
     assetsInlineLimit: 24000,
     cssCodeSplit: true,
-    target: ["chrome87", "firefox78", "safari13", "edge88"],
     minify: "terser",
     sourcemap: false,
     rollupOptions: {

@@ -6,30 +6,7 @@
 
 
 # source://graphql-client//lib/graphql/client/type_stack.rb#2
-module GraphQL
-  class << self
-    # source://graphql/2.0.32/lib/graphql.rb#35
-    def default_parser; end
-
-    # source://graphql/2.0.32/lib/graphql.rb#39
-    def default_parser=(_arg0); end
-
-    # source://graphql/2.0.32/lib/graphql.rb#45
-    def parse(graphql_string, trace: T.unsafe(nil)); end
-
-    # source://graphql/2.0.32/lib/graphql.rb#52
-    def parse_file(filename); end
-
-    # source://graphql/2.0.32/lib/graphql.rb#62
-    def parse_with_racc(string, filename: T.unsafe(nil), trace: T.unsafe(nil)); end
-
-    # source://graphql/2.0.32/lib/graphql.rb#58
-    def scan(graphql_string); end
-
-    # source://graphql/2.0.32/lib/graphql.rb#66
-    def scan_with_ruby(graphql_string); end
-  end
-end
+module GraphQL; end
 
 # GraphQL Client helps build and execute queries against a GraphQL backend.
 #
@@ -368,7 +345,7 @@ class GraphQL::Client::DefinitionVariables::VariablesVisitor < ::GraphQL::Langua
 
   # @return [VariablesVisitor] a new instance of VariablesVisitor
   #
-  # source://graphql-client//lib/graphql/client/type_stack.rb#30
+  # source://graphql-client//lib/graphql/client/definition_variables.rb#35
   def initialize(document, schema:, **rest); end
 
   # source://graphql-client//lib/graphql/client/definition_variables.rb#42
@@ -403,7 +380,7 @@ class GraphQL::Client::DocumentTypes::AnalyzeTypesVisitor < ::GraphQL::Language:
 
   # @return [AnalyzeTypesVisitor] a new instance of AnalyzeTypesVisitor
   #
-  # source://graphql-client//lib/graphql/client/type_stack.rb#30
+  # source://graphql-client//lib/graphql/client/document_types.rb#13
   def initialize(document, schema:, **rest); end
 
   # Returns the value of attribute fields.
@@ -411,16 +388,16 @@ class GraphQL::Client::DocumentTypes::AnalyzeTypesVisitor < ::GraphQL::Language:
   # source://graphql-client//lib/graphql/client/document_types.rb#11
   def fields; end
 
-  # source://graphql-client//lib/graphql/client/type_stack.rb#48
+  # source://graphql-client//lib/graphql/client/document_types.rb#33
   def on_field(node, parent); end
 
-  # source://graphql-client//lib/graphql/client/type_stack.rb#119
+  # source://graphql-client//lib/graphql/client/document_types.rb#23
   def on_fragment_definition(node, parent); end
 
-  # source://graphql-client//lib/graphql/client/type_stack.rb#102
+  # source://graphql-client//lib/graphql/client/document_types.rb#28
   def on_inline_fragment(node, parent); end
 
-  # source://graphql-client//lib/graphql/client/type_stack.rb#91
+  # source://graphql-client//lib/graphql/client/document_types.rb#18
   def on_operation_definition(node, parent); end
 end
 
@@ -481,7 +458,7 @@ class GraphQL::Client::Errors
   #
   # @return [Boolean]
   #
-  # source://graphql-client//lib/graphql/client/errors.rb#168
+  # source://graphql-client//lib/graphql/client/errors.rb#171
   def blank?; end
 
   # Public: Count the number of errors on object.
@@ -491,7 +468,7 @@ class GraphQL::Client::Errors
   #
   # Returns the number of error messages.
   #
-  # source://graphql-client//lib/graphql/client/errors.rb#157
+  # source://graphql-client//lib/graphql/client/errors.rb#160
   def count; end
 
   # Public: Access Hash of error objects.
@@ -544,7 +521,7 @@ class GraphQL::Client::Errors
   #
   # @return [Boolean]
   #
-  # source://graphql-client//lib/graphql/client/errors.rb#145
+  # source://graphql-client//lib/graphql/client/errors.rb#148
   def has_key?(field); end
 
   # Public: Check if there are any errors on a given field.
@@ -579,7 +556,7 @@ class GraphQL::Client::Errors
   #
   # @return [Boolean]
   #
-  # source://graphql-client//lib/graphql/client/errors.rb#145
+  # source://graphql-client//lib/graphql/client/errors.rb#149
   def key?(field); end
 
   # Public: Returns all message keys.
@@ -753,13 +730,13 @@ class GraphQL::Client::HashWithIndifferentAccess
   # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#31
   def [](key); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
   def each(*args, **_arg1, &block); end
 
   # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#46
   def each_key(&block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
   def empty?(*args, **_arg1, &block); end
 
   # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#35
@@ -767,15 +744,15 @@ class GraphQL::Client::HashWithIndifferentAccess
 
   # @return [Boolean]
   #
-  # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#39
+  # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#43
   def has_key?(key); end
 
   # @return [Boolean]
   #
-  # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#39
+  # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#42
   def include?(key); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
   def inspect(*args, **_arg1, &block); end
 
   # @return [Boolean]
@@ -783,27 +760,27 @@ class GraphQL::Client::HashWithIndifferentAccess
   # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#39
   def key?(key); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
   def keys(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
   def length(*args, **_arg1, &block); end
 
   # @return [Boolean]
   #
-  # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#39
+  # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#44
   def member?(key); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
   def size(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
   def to_h(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
   def to_hash(*args, **_arg1, &block); end
 
-  # source://forwardable/1.3.3/forwardable.rb#231
+  # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
   def values(*args, **_arg1, &block); end
 
   private
@@ -869,7 +846,7 @@ class GraphQL::Client::NotImplementedError < ::GraphQL::Client::Error; end
 class GraphQL::Client::OperationDefinition < ::GraphQL::Client::Definition
   # Public: Alias for definition name.
   #
-  # source://graphql-client//lib/graphql/client/definition.rb#86
+  # source://graphql-client//lib/graphql/client/operation_definition.rb#11
   def operation_name; end
 end
 
@@ -986,14 +963,14 @@ class GraphQL::Client::Response
   #
   # Returns Hash.
   #
-  # source://graphql-client//lib/graphql/client/response.rb#13
+  # source://graphql-client//lib/graphql/client/response.rb#14
   def to_h; end
 
   # Public: Original JSON response hash returned from server.
   #
   # Returns Hash.
   #
-  # source://graphql-client//lib/graphql/client/response.rb#13
+  # source://graphql-client//lib/graphql/client/response.rb#15
   def to_hash; end
 end
 
@@ -1304,7 +1281,7 @@ class GraphQL::Client::Schema::ObjectClass
   #
   # Returns Hash
   #
-  # source://graphql-client//lib/graphql/client/schema/object_type.rb#191
+  # source://graphql-client//lib/graphql/client/schema/object_type.rb#194
   def to_hash; end
 
   private

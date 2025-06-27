@@ -13,10 +13,10 @@ end
 module Turbo
   extend ::ActiveSupport::Autoload
 
-  # source://activesupport/8.0.2/lib/active_support/core_ext/module/attribute_accessors_per_thread.rb#74
+  # source://turbo-rails//lib/turbo-rails.rb#9
   def current_request_id; end
 
-  # source://activesupport/8.0.2/lib/active_support/core_ext/module/attribute_accessors_per_thread.rb#116
+  # source://turbo-rails//lib/turbo-rails.rb#9
   def current_request_id=(obj); end
 
   # source://turbo-rails//lib/turbo-rails.rb#7
@@ -26,10 +26,10 @@ module Turbo
   def draw_routes=(val); end
 
   class << self
-    # source://activesupport/8.0.2/lib/active_support/core_ext/module/attribute_accessors_per_thread.rb#49
+    # source://turbo-rails//lib/turbo-rails.rb#9
     def current_request_id; end
 
-    # source://activesupport/8.0.2/lib/active_support/core_ext/module/attribute_accessors_per_thread.rb#108
+    # source://turbo-rails//lib/turbo-rails.rb#9
     def current_request_id=(obj); end
 
     # source://turbo-rails//lib/turbo-rails.rb#7
@@ -38,13 +38,13 @@ module Turbo
     # source://turbo-rails//lib/turbo-rails.rb#7
     def draw_routes=(val); end
 
-    # source://railties/8.0.2/lib/rails/engine.rb#413
+    # source://turbo-rails//lib/turbo/engine.rb#5
     def railtie_helpers_paths; end
 
-    # source://railties/8.0.2/lib/rails/engine.rb#396
+    # source://turbo-rails//lib/turbo/engine.rb#5
     def railtie_namespace; end
 
-    # source://railties/8.0.2/lib/rails/engine.rb#417
+    # source://turbo-rails//lib/turbo/engine.rb#5
     def railtie_routes_url_helpers(include_path_helpers = T.unsafe(nil)); end
 
     # source://turbo-rails//lib/turbo-rails.rb#14
@@ -60,10 +60,10 @@ module Turbo
     # source://turbo-rails//lib/turbo-rails.rb#12
     def signed_stream_verifier_key=(_arg0); end
 
-    # source://railties/8.0.2/lib/rails/engine.rb#399
+    # source://turbo-rails//lib/turbo/engine.rb#5
     def table_name_prefix; end
 
-    # source://railties/8.0.2/lib/rails/engine.rb#409
+    # source://turbo-rails//lib/turbo/engine.rb#5
     def use_relative_model_naming?; end
 
     # source://turbo-rails//lib/turbo-rails.rb#22
@@ -292,17 +292,7 @@ module Turbo::DriveHelper
 end
 
 # source://turbo-rails//lib/turbo/engine.rb#4
-class Turbo::Engine < ::Rails::Engine
-  class << self
-    private
-
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
-    def __class_attr___callbacks; end
-
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
-    def __class_attr___callbacks=(new_value); end
-  end
-end
+class Turbo::Engine < ::Rails::Engine; end
 
 # If you don't want to precompile Turbo's assets (eg. because you're using webpack),
 # you can do this in an intiailzer:
@@ -359,16 +349,12 @@ class Turbo::Native::NavigationController < ::ActionController::Base
 
   private
 
-  # source://actionview/8.0.2/lib/action_view/layouts.rb#328
   def _layout(lookup_context, formats, keys); end
 
   class << self
     private
 
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
     def __class_attr_middleware_stack; end
-
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
     def __class_attr_middleware_stack=(new_value); end
   end
 end
@@ -381,7 +367,7 @@ module Turbo::RequestIdTracking
   def turbo_tracking_request_id(&block); end
 end
 
-# source://turbo-rails//lib/turbo/system_test_helper.rb#0
+# source://turbo-rails//lib/turbo/system_test_helper.rb#107
 module Turbo::Streams; end
 
 class Turbo::Streams::ActionBroadcastJob < ::ActiveJob::Base
@@ -390,10 +376,7 @@ class Turbo::Streams::ActionBroadcastJob < ::ActiveJob::Base
   class << self
     private
 
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
     def __class_attr_rescue_handlers; end
-
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
     def __class_attr_rescue_handlers=(new_value); end
   end
 end
@@ -417,10 +400,7 @@ class Turbo::Streams::BroadcastJob < ::ActiveJob::Base
   class << self
     private
 
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
     def __class_attr_rescue_handlers; end
-
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
     def __class_attr_rescue_handlers=(new_value); end
   end
 end
@@ -431,10 +411,7 @@ class Turbo::Streams::BroadcastStreamJob < ::ActiveJob::Base
   class << self
     private
 
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
     def __class_attr_rescue_handlers; end
-
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
     def __class_attr_rescue_handlers=(new_value); end
   end
 end
@@ -534,16 +511,6 @@ class Turbo::StreamsChannel < ::ActionCable::Channel::Base
   extend ::Turbo::Streams::Broadcasts
 
   def subscribed; end
-
-  class << self
-    private
-
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
-    def __class_attr___callbacks; end
-
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
-    def __class_attr___callbacks=(new_value); end
-  end
 end
 
 module Turbo::StreamsHelper
