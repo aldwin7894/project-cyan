@@ -10,10 +10,24 @@ class AnilistFollowListCheckerJob
     sig { params(id: T.untyped, type: T.untyped, page: T.untyped).returns(String) }
     def perform_async(id, type = T.unsafe(nil), page = T.unsafe(nil)); end
 
-    sig { params(interval: T.any(DateTime, Time), id: T.untyped, type: T.untyped, page: T.untyped).returns(String) }
+    sig do
+      params(
+        interval: T.any(DateTime, Time, ActiveSupport::TimeWithZone),
+        id: T.untyped,
+        type: T.untyped,
+        page: T.untyped
+      ).returns(String)
+    end
     def perform_at(interval, id, type = T.unsafe(nil), page = T.unsafe(nil)); end
 
-    sig { params(interval: Numeric, id: T.untyped, type: T.untyped, page: T.untyped).returns(String) }
+    sig do
+      params(
+        interval: T.any(Numeric, ActiveSupport::Duration),
+        id: T.untyped,
+        type: T.untyped,
+        page: T.untyped
+      ).returns(String)
+    end
     def perform_in(interval, id, type = T.unsafe(nil), page = T.unsafe(nil)); end
   end
 end

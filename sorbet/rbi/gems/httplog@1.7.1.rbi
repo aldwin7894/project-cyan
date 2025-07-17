@@ -14,7 +14,7 @@ module HttpLog
     # source://httplog//lib/httplog/http_log.rb#177
     def colorize(msg); end
 
-    # source://httplog//lib/httplog/http_log.rb#18
+    # source://httplog//lib/httplog/http_log.rb#21
     def config; end
 
     # source://httplog//lib/httplog/http_log.rb#18
@@ -441,6 +441,14 @@ class Net::HTTP < ::Net::Protocol
   # source://httplog//lib/httplog/adapters/net_http.rb#44
   def connect; end
 
+  # source://httplog//lib/httplog/adapters/net_http.rb#5
+  def orig_request(*args, &block); end
+
   # source://httplog//lib/httplog/adapters/net_http.rb#8
   def request(req, body = T.unsafe(nil), &block); end
+
+  private
+
+  # source://httplog//lib/httplog/adapters/net_http.rb#6
+  def orig_connect; end
 end

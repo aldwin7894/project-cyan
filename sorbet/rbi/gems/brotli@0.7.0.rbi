@@ -8,8 +8,13 @@
 # source://brotli//lib/brotli/version.rb#1
 module Brotli
   class << self
+    # source://brotli//lib/brotli.rb#2
     def deflate(*_arg0); end
-    def inflate(_arg0); end
+
+    # source://brotli//lib/brotli.rb#2
+    def inflate(*_arg0); end
+
+    # source://brotli//lib/brotli.rb#2
     def version; end
   end
 end
@@ -20,10 +25,18 @@ class Brotli::Error < ::StandardError; end
 Brotli::VERSION = T.let(T.unsafe(nil), String)
 
 class Brotli::Writer
+  # source://brotli//lib/brotli.rb#2
   def initialize(*_arg0); end
 
+  # source://brotli//lib/brotli.rb#2
   def close; end
+
+  # source://brotli//lib/brotli.rb#2
   def finish; end
+
+  # source://brotli//lib/brotli.rb#2
   def flush; end
+
+  # source://brotli//lib/brotli.rb#2
   def write(_arg0); end
 end

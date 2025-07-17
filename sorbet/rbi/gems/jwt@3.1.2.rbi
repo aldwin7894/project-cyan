@@ -1606,6 +1606,9 @@ class JWT::JWK::EC < ::JWT::JWK::KeyBase
   # source://jwt//lib/jwt/jwk/ec.rb#55
   def export(options = T.unsafe(nil)); end
 
+  # source://jwt//lib/jwt/jwk/ec.rb#74
+  def jwa; end
+
   # source://jwt//lib/jwt/jwk/ec.rb#61
   def key_digest; end
 
@@ -1653,9 +1656,6 @@ class JWT::JWK::EC < ::JWT::JWK::KeyBase
 
   # source://jwt//lib/jwt/jwk/ec.rb#87
   def extract_key_params(key); end
-
-  # source://jwt//lib/jwt/jwk/ec.rb#76
-  def jwa; end
 
   # source://jwt//lib/jwt/jwk/ec.rb#107
   def keypair_components(ec_keypair); end

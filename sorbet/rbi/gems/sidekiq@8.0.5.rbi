@@ -8,80 +8,31 @@
 # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#36
 module ActiveJob; end
 
-class ActiveJob::Base
-  include ::Sidekiq::Job::Options
-  extend ::Sidekiq::Job::Options::ClassMethods
-
-  # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#32
-  def sidekiq_options_hash; end
-
-  # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#32
-  def sidekiq_options_hash=(_arg0); end
-
-  # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#32
-  def sidekiq_retries_exhausted_block; end
-
-  # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#32
-  def sidekiq_retries_exhausted_block=(_arg0); end
-
-  # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#32
-  def sidekiq_retry_in_block; end
-
-  # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#32
-  def sidekiq_retry_in_block=(_arg0); end
-
-  class << self
-    # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#32
-    def sidekiq_options_hash; end
-
-    # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#32
-    def sidekiq_options_hash=(val); end
-
-    # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#32
-    def sidekiq_retries_exhausted_block; end
-
-    # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#32
-    def sidekiq_retries_exhausted_block=(val); end
-
-    # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#32
-    def sidekiq_retry_in_block; end
-
-    # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#32
-    def sidekiq_retry_in_block=(val); end
-
-    private
-
-    # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#32
-    def __synchronized_sidekiq_options_hash; end
-
-    # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#32
-    def __synchronized_sidekiq_retries_exhausted_block; end
-
-    # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#32
-    def __synchronized_sidekiq_retry_in_block; end
-  end
-end
+class ActiveJob::Base; end
 
 # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#37
 module ActiveJob::QueueAdapters; end
 
 # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#46
-class ActiveJob::QueueAdapters::SidekiqAdapter
-  # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#55
+class ActiveJob::QueueAdapters::SidekiqAdapter < ::ActiveJob::QueueAdapters::AbstractAdapter
+  # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#62
   def enqueue(job); end
 
-  # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#50
+  # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#57
   def enqueue_after_transaction_commit?; end
 
-  # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#71
+  # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#78
   def enqueue_all(jobs); end
 
-  # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#63
+  # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#70
   def enqueue_at(job, timestamp); end
+
+  # source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#110
+  def stopping?; end
 end
 
-# source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#104
-class ActiveJob::QueueAdapters::SidekiqAdapter::JobWrapper < ::Sidekiq::ActiveJob::Wrapper; end
+# source://sidekiq//lib/active_job/queue_adapters/sidekiq_adapter.rb#114
+ActiveJob::QueueAdapters::SidekiqAdapter::JobWrapper = Sidekiq::ActiveJob::Wrapper
 
 # Use `Sidekiq.transactional_push!` in your sidekiq.rb initializer
 #
@@ -2386,21 +2337,21 @@ class Sidekiq::Queue
   end
 end
 
-# source://sidekiq//lib/sidekiq/rails.rb#11
+# source://sidekiq//lib/sidekiq/rails.rb#10
 class Sidekiq::Rails < ::Rails::Engine; end
 
-# source://sidekiq//lib/sidekiq/rails.rb#12
+# source://sidekiq//lib/sidekiq/rails.rb#11
 class Sidekiq::Rails::Reloader
-  # source://sidekiq//lib/sidekiq/rails.rb#13
+  # source://sidekiq//lib/sidekiq/rails.rb#12
   def initialize(app = T.unsafe(nil)); end
 
-  # source://sidekiq//lib/sidekiq/rails.rb#17
+  # source://sidekiq//lib/sidekiq/rails.rb#16
   def call; end
 
-  # source://sidekiq//lib/sidekiq/rails.rb#24
+  # source://sidekiq//lib/sidekiq/rails.rb#23
   def inspect; end
 
-  # source://sidekiq//lib/sidekiq/rails.rb#28
+  # source://sidekiq//lib/sidekiq/rails.rb#27
   def to_hash; end
 end
 
@@ -3280,23 +3231,23 @@ class Sidekiq::Web::Config
 
   # @return [Config] a new instance of Config
   #
-  # source://sidekiq//lib/sidekiq/web/config.rb#55
+  # source://sidekiq//lib/sidekiq/web/config.rb#58
   def initialize; end
 
-  # source://sidekiq//lib/sidekiq/web/config.rb#64
+  # source://sidekiq//lib/sidekiq/web/config.rb#67
   def [](*args, **_arg1, &block); end
 
-  # source://sidekiq//lib/sidekiq/web/config.rb#64
+  # source://sidekiq//lib/sidekiq/web/config.rb#67
   def []=(*args, **_arg1, &block); end
 
   # Adds the "Back to App" link in the header
   #
-  # source://sidekiq//lib/sidekiq/web/config.rb#53
+  # source://sidekiq//lib/sidekiq/web/config.rb#56
   def app_url; end
 
   # Adds the "Back to App" link in the header
   #
-  # source://sidekiq//lib/sidekiq/web/config.rb#53
+  # source://sidekiq//lib/sidekiq/web/config.rb#56
   def app_url=(_arg0); end
 
   # Allows users to add custom rows to all of the Job
@@ -3314,7 +3265,7 @@ class Sidekiq::Web::Config
   #     end
   #   end
   #
-  # source://sidekiq//lib/sidekiq/web/config.rb#45
+  # source://sidekiq//lib/sidekiq/web/config.rb#48
   def custom_job_info_rows; end
 
   # Allows users to add custom rows to all of the Job
@@ -3332,32 +3283,32 @@ class Sidekiq::Web::Config
   #     end
   #   end
   #
-  # source://sidekiq//lib/sidekiq/web/config.rb#45
+  # source://sidekiq//lib/sidekiq/web/config.rb#48
   def custom_job_info_rows=(_arg0); end
 
-  # source://sidekiq//lib/sidekiq/web/config.rb#64
+  # source://sidekiq//lib/sidekiq/web/config.rb#67
   def dig(*args, **_arg1, &block); end
 
-  # source://sidekiq//lib/sidekiq/web/config.rb#64
+  # source://sidekiq//lib/sidekiq/web/config.rb#67
   def fetch(*args, **_arg1, &block); end
 
-  # source://sidekiq//lib/sidekiq/web/config.rb#64
+  # source://sidekiq//lib/sidekiq/web/config.rb#67
   def has_key?(*args, **_arg1, &block); end
 
-  # source://sidekiq//lib/sidekiq/web/config.rb#64
+  # source://sidekiq//lib/sidekiq/web/config.rb#67
   def key?(*args, **_arg1, &block); end
 
   # Returns the value of attribute locales.
   #
-  # source://sidekiq//lib/sidekiq/web/config.rb#48
+  # source://sidekiq//lib/sidekiq/web/config.rb#51
   def locales; end
 
-  # source://sidekiq//lib/sidekiq/web/config.rb#64
+  # source://sidekiq//lib/sidekiq/web/config.rb#67
   def merge!(*args, **_arg1, &block); end
 
   # Returns the value of attribute middlewares.
   #
-  # source://sidekiq//lib/sidekiq/web/config.rb#50
+  # source://sidekiq//lib/sidekiq/web/config.rb#53
   def middlewares; end
 
   # Register a class as a Sidekiq Web UI extension. The class should
@@ -3376,7 +3327,7 @@ class Sidekiq::Web::Config
   # @yield [_self]
   # @yieldparam _self [Sidekiq::Web::Config] the object that the method was called on
   #
-  # source://sidekiq//lib/sidekiq/web/config.rb#114
+  # source://sidekiq//lib/sidekiq/web/config.rb#117
   def register(extclass, name:, tab:, index:, root_dir: T.unsafe(nil), cache_for: T.unsafe(nil), asset_paths: T.unsafe(nil)); end
 
   # Register a class as a Sidekiq Web UI extension. The class should
@@ -3395,20 +3346,20 @@ class Sidekiq::Web::Config
   # @yield [_self]
   # @yieldparam _self [Sidekiq::Web::Config] the object that the method was called on
   #
-  # source://sidekiq//lib/sidekiq/web/config.rb#83
+  # source://sidekiq//lib/sidekiq/web/config.rb#86
   def register_extension(extclass, name:, tab:, index:, root_dir: T.unsafe(nil), cache_for: T.unsafe(nil), asset_paths: T.unsafe(nil)); end
 
   # Returns the value of attribute tabs.
   #
-  # source://sidekiq//lib/sidekiq/web/config.rb#47
+  # source://sidekiq//lib/sidekiq/web/config.rb#50
   def tabs; end
 
-  # source://sidekiq//lib/sidekiq/web/config.rb#66
+  # source://sidekiq//lib/sidekiq/web/config.rb#69
   def use(*args, &block); end
 
   # Returns the value of attribute views.
   #
-  # source://sidekiq//lib/sidekiq/web/config.rb#49
+  # source://sidekiq//lib/sidekiq/web/config.rb#52
   def views; end
 end
 

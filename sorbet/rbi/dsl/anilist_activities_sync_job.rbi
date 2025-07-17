@@ -10,10 +10,16 @@ class AnilistActivitiesSyncJob
     sig { params(date: T.untyped, page: T.untyped).returns(String) }
     def perform_async(date = T.unsafe(nil), page = T.unsafe(nil)); end
 
-    sig { params(interval: T.any(DateTime, Time), date: T.untyped, page: T.untyped).returns(String) }
+    sig do
+      params(
+        interval: T.any(DateTime, Time, ActiveSupport::TimeWithZone),
+        date: T.untyped,
+        page: T.untyped
+      ).returns(String)
+    end
     def perform_at(interval, date = T.unsafe(nil), page = T.unsafe(nil)); end
 
-    sig { params(interval: Numeric, date: T.untyped, page: T.untyped).returns(String) }
+    sig { params(interval: T.any(Numeric, ActiveSupport::Duration), date: T.untyped, page: T.untyped).returns(String) }
     def perform_in(interval, date = T.unsafe(nil), page = T.unsafe(nil)); end
   end
 end
