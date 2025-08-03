@@ -390,17 +390,42 @@ class HttpLog::Configuration
   # source://httplog//lib/httplog/configuration.rb#5
   def severity=(_arg0); end
 
-  # Returns the value of attribute url_blacklist_pattern.
+  # Returns the value of attribute url_allowlist_pattern.
   #
   # source://httplog//lib/httplog/configuration.rb#5
+  def url_allowlist_pattern; end
+
+  # Sets the attribute url_allowlist_pattern
+  #
+  # @param value the value to set the attribute url_allowlist_pattern to.
+  #
+  # source://httplog//lib/httplog/configuration.rb#5
+  def url_allowlist_pattern=(_arg0); end
+
+  # Returns the value of attribute url_denylist_pattern.
+  # Backward compatibility aliases to version prior to 1.7.2
+  #
+  # source://httplog//lib/httplog/configuration.rb#58
   def url_blacklist_pattern; end
 
-  # Sets the attribute url_blacklist_pattern
+  # Sets the attribute url_denylist_pattern
   #
-  # @param value the value to set the attribute url_blacklist_pattern to.
+  # @param value the value to set the attribute url_denylist_pattern to.
+  #
+  # source://httplog//lib/httplog/configuration.rb#59
+  def url_blacklist_pattern=(_arg0); end
+
+  # Returns the value of attribute url_denylist_pattern.
   #
   # source://httplog//lib/httplog/configuration.rb#5
-  def url_blacklist_pattern=(_arg0); end
+  def url_denylist_pattern; end
+
+  # Sets the attribute url_denylist_pattern
+  #
+  # @param value the value to set the attribute url_denylist_pattern to.
+  #
+  # source://httplog//lib/httplog/configuration.rb#5
+  def url_denylist_pattern=(_arg0); end
 
   # Returns the value of attribute url_masked_body_pattern.
   #
@@ -414,16 +439,16 @@ class HttpLog::Configuration
   # source://httplog//lib/httplog/configuration.rb#5
   def url_masked_body_pattern=(_arg0); end
 
-  # Returns the value of attribute url_whitelist_pattern.
+  # Returns the value of attribute url_allowlist_pattern.
   #
-  # source://httplog//lib/httplog/configuration.rb#5
+  # source://httplog//lib/httplog/configuration.rb#60
   def url_whitelist_pattern; end
 
-  # Sets the attribute url_whitelist_pattern
+  # Sets the attribute url_allowlist_pattern
   #
-  # @param value the value to set the attribute url_whitelist_pattern to.
+  # @param value the value to set the attribute url_allowlist_pattern to.
   #
-  # source://httplog//lib/httplog/configuration.rb#5
+  # source://httplog//lib/httplog/configuration.rb#61
   def url_whitelist_pattern=(_arg0); end
 end
 

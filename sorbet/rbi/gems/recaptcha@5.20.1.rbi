@@ -53,33 +53,20 @@ class ActionView::Base
   include ::Recaptcha::Adapters::ViewMethods
 end
 
-module ERB::Escape
-  private
-
-  def html_escape(_arg0); end
-
-  class << self
-    def html_escape(_arg0); end
-  end
-end
+module ERB::Escape; end
 
 # source://recaptcha//lib/recaptcha/configuration.rb#3
 module Recaptcha
   class << self
-    # @return [Boolean]
-    #
-    # source://recaptcha//lib/recaptcha.rb#125
-    def action_valid?(action, expected_action); end
-
-    # source://recaptcha//lib/recaptcha.rb#170
+    # source://recaptcha//lib/recaptcha.rb#127
     def api_verification_enterprise(query_params, body, project_id, timeout: T.unsafe(nil)); end
 
-    # source://recaptcha//lib/recaptcha.rb#155
+    # source://recaptcha//lib/recaptcha.rb#112
     def api_verification_free(verify_hash, timeout: T.unsafe(nil), json: T.unsafe(nil)); end
 
     # Gives access to the current Configuration.
     #
-    # source://recaptcha//lib/recaptcha.rb#25
+    # source://recaptcha//lib/recaptcha.rb#26
     def configuration; end
 
     # Allows easy setting of multiple configuration options. See Configuration
@@ -91,47 +78,32 @@ module Recaptcha
     #
     # @yield [config]
     #
-    # source://recaptcha//lib/recaptcha.rb#35
+    # source://recaptcha//lib/recaptcha.rb#36
     def configure; end
 
-    # @return [Boolean]
-    #
-    # source://recaptcha//lib/recaptcha.rb#115
-    def hostname_valid?(hostname, validation); end
-
-    # source://recaptcha//lib/recaptcha.rb#140
+    # source://recaptcha//lib/recaptcha.rb#97
     def http_client_for(uri:, timeout: T.unsafe(nil)); end
 
     # @return [Boolean]
     #
-    # source://recaptcha//lib/recaptcha.rb#57
+    # source://recaptcha//lib/recaptcha.rb#58
     def invalid_response?(resp); end
 
     # @return [Boolean]
     #
-    # source://recaptcha//lib/recaptcha.rb#132
-    def score_above_threshold?(score, minimum_score); end
-
-    # @return [Boolean]
-    #
-    # source://recaptcha//lib/recaptcha.rb#136
-    def score_below_threshold?(score, maximum_score); end
-
-    # @return [Boolean]
-    #
-    # source://recaptcha//lib/recaptcha.rb#53
+    # source://recaptcha//lib/recaptcha.rb#54
     def skip_env?(env); end
 
-    # source://recaptcha//lib/recaptcha.rb#61
+    # source://recaptcha//lib/recaptcha.rb#62
     def verify_via_api_call(response, options); end
 
-    # source://recaptcha//lib/recaptcha.rb#69
+    # source://recaptcha//lib/recaptcha.rb#70
     def verify_via_api_call_enterprise(response, options); end
 
-    # source://recaptcha//lib/recaptcha.rb#96
+    # source://recaptcha//lib/recaptcha.rb#86
     def verify_via_api_call_free(response, options); end
 
-    # source://recaptcha//lib/recaptcha.rb#40
+    # source://recaptcha//lib/recaptcha.rb#41
     def with_configuration(config); end
   end
 end
@@ -143,18 +115,18 @@ module Recaptcha::Adapters; end
 module Recaptcha::Adapters::ControllerMethods
   private
 
-  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#88
+  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#90
   def recaptcha_error(model, attribute, message); end
 
-  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#84
+  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#86
   def recaptcha_failure_reason; end
 
   # @return [Boolean]
   #
-  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#96
+  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#98
   def recaptcha_flash_supported?; end
 
-  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#80
+  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#82
   def recaptcha_reply; end
 
   # Extracts response token from params. params['g-recaptcha-response-data'] for recaptcha_v3 or
@@ -164,7 +136,7 @@ module Recaptcha::Adapters::ControllerMethods
   #
   # @return [String] A response token if one was passed in the params; otherwise, `''`
   #
-  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#105
+  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#107
   def recaptcha_response_token(action = T.unsafe(nil)); end
 
   # Your private API can be specified in the +options+ hash or preferably
@@ -173,7 +145,7 @@ module Recaptcha::Adapters::ControllerMethods
   # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#10
   def verify_recaptcha(options = T.unsafe(nil)); end
 
-  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#76
+  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#78
   def verify_recaptcha!(options = T.unsafe(nil)); end
 end
 
@@ -414,7 +386,7 @@ end
 # source://recaptcha//lib/recaptcha/configuration.rb#33
 Recaptcha::Configuration::DEFAULTS = T.let(T.unsafe(nil), Hash)
 
-# source://recaptcha//lib/recaptcha.rb#16
+# source://recaptcha//lib/recaptcha.rb#17
 Recaptcha::DEFAULT_TIMEOUT = T.let(T.unsafe(nil), Integer)
 
 # source://recaptcha//lib/recaptcha/helpers.rb#4
@@ -534,8 +506,79 @@ class Recaptcha::Railtie < ::Rails::Railtie
   end
 end
 
-# source://recaptcha//lib/recaptcha.rb#18
+# source://recaptcha//lib/recaptcha.rb#19
 class Recaptcha::RecaptchaError < ::StandardError; end
 
-# source://recaptcha//lib/recaptcha.rb#21
+# source://recaptcha//lib/recaptcha/reply.rb#4
+class Recaptcha::Reply
+  # @return [Reply] a new instance of Reply
+  #
+  # source://recaptcha//lib/recaptcha/reply.rb#5
+  def initialize(raw_reply, enterprise:); end
+
+  # source://recaptcha//lib/recaptcha/reply.rb#10
+  def [](key); end
+
+  # source://recaptcha//lib/recaptcha/reply.rb#42
+  def action; end
+
+  # @return [Boolean]
+  #
+  # source://recaptcha//lib/recaptcha/reply.rb#85
+  def action_valid?(expected_action); end
+
+  # source://recaptcha//lib/recaptcha/reply.rb#66
+  def challenge_ts; end
+
+  # @return [Boolean]
+  #
+  # source://recaptcha//lib/recaptcha/reply.rb#102
+  def enterprise?; end
+
+  # source://recaptcha//lib/recaptcha/reply.rb#58
+  def error_codes; end
+
+  # source://recaptcha//lib/recaptcha/reply.rb#34
+  def hostname; end
+
+  # @return [Boolean]
+  #
+  # source://recaptcha//lib/recaptcha/reply.rb#72
+  def hostname_valid?(validation); end
+
+  # source://recaptcha//lib/recaptcha/reply.rb#50
+  def score; end
+
+  # @return [Boolean]
+  #
+  # source://recaptcha//lib/recaptcha/reply.rb#94
+  def score_above_threshold?(minimum_score); end
+
+  # @return [Boolean]
+  #
+  # source://recaptcha//lib/recaptcha/reply.rb#98
+  def score_below_threshold?(maximum_score); end
+
+  # source://recaptcha//lib/recaptcha/reply.rb#26
+  def success; end
+
+  # @return [Boolean]
+  #
+  # source://recaptcha//lib/recaptcha/reply.rb#14
+  def success?(options = T.unsafe(nil)); end
+
+  # source://recaptcha//lib/recaptcha/reply.rb#106
+  def to_h; end
+
+  # source://recaptcha//lib/recaptcha/reply.rb#114
+  def to_json(*args); end
+
+  # source://recaptcha//lib/recaptcha/reply.rb#110
+  def to_s; end
+
+  # source://recaptcha//lib/recaptcha/reply.rb#22
+  def token_properties; end
+end
+
+# source://recaptcha//lib/recaptcha.rb#22
 class Recaptcha::VerifyError < ::Recaptcha::RecaptchaError; end

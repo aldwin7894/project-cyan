@@ -9,6 +9,7 @@
     "sonarsource.sonarlint-vscode",
     "shopify.ruby-lsp",
     "sorbet.sorbet-vscode-extension",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "elia.erb-formatter"
   ]
 }

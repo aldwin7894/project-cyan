@@ -43,7 +43,6 @@
   },
   "erb-formatter.lineLength": 500,
   "rubyLsp.formatter": "rubocop",
-  "rubyLsp.enableExperimentalFeatures": true,
   "rubyLsp.enabledFeatures": {
     "codeActions": true,
     "diagnostics": true,
@@ -69,5 +68,10 @@
   },
   "sorbet.enabled": true,
   "sorbet.highlightUntyped": "nowhere",
-  "eslint.useFlatConfig": false
+  "eslint.format.enable": true,
+  "eslint.useFlatConfig": true,
+  "eslint.validate": [
+    "json",
+    "javascript"
+  ],
 }
