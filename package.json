@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "@hotwired/turbo-rails": "^8.0.16",
-    "@rails/actioncable": "^8.0.200",
+    "@rails/actioncable": "^8.0.201",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
@@ -66,7 +66,7 @@
     "globals": "^16.3.0",
     "prettier": "^3.6.2",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.39.0"
+    "typescript-eslint": "^8.39.1"
   },
   "engines": {
     "node": "22.14.0",
