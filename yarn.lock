@@ -1564,30 +1564,30 @@ cssesc@^3.0.0:
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
 
-cssnano-preset-advanced@^7.0.8:
-  version "7.0.8"
-  resolved "https://registry.yarnpkg.com/cssnano-preset-advanced/-/cssnano-preset-advanced-7.0.8.tgz#384f196ca25120d94756d5d7edaeeed3cd0d24ad"
-  integrity sha512-KYw7gH8xmIzTwHefuM/m3lkMz4jn5EbjxZO2RHVsOGvrXCxSjbc0/f/gELWW9ZIgbQdJMCkijEo76gBYGY4S3Q==
+cssnano-preset-advanced@^7.0.9:
+  version "7.0.9"
+  resolved "https://registry.yarnpkg.com/cssnano-preset-advanced/-/cssnano-preset-advanced-7.0.9.tgz#3bd0ebbe63062fb4d82bd804c47277de1228573c"
+  integrity sha512-nczUlcRbMuupYDIjlYTQ6nqWh2AjV1omdf5OkUEKpOqPuRb8CZp/KgpZjD2eelX/sfFh6V/aybfgu7lVJH7Z/w==
   dependencies:
     autoprefixer "^10.4.21"
     browserslist "^4.25.1"
-    cssnano-preset-default "^7.0.8"
+    cssnano-preset-default "^7.0.9"
     postcss-discard-unused "^7.0.4"
     postcss-merge-idents "^7.0.1"
     postcss-reduce-idents "^7.0.1"
     postcss-zindex "^7.0.1"
 
-cssnano-preset-default@^7.0.8:
-  version "7.0.8"
-  resolved "https://registry.yarnpkg.com/cssnano-preset-default/-/cssnano-preset-default-7.0.8.tgz#a2e380cb73931dc817fa360217840b2e377463ee"
-  integrity sha512-d+3R2qwrUV3g4LEMOjnndognKirBZISylDZAF/TPeCWVjEwlXS2e4eN4ICkoobRe7pD3H6lltinKVyS1AJhdjQ==
+cssnano-preset-default@^7.0.8, cssnano-preset-default@^7.0.9:
+  version "7.0.9"
+  resolved "https://registry.yarnpkg.com/cssnano-preset-default/-/cssnano-preset-default-7.0.9.tgz#ba778ab7cbec830e4dbcac722443a90fd99ae34e"
+  integrity sha512-tCD6AAFgYBOVpMBX41KjbvRh9c2uUjLXRyV7KHSIrwHiq5Z9o0TFfUCoM3TwVrRsRteN3sVXGNvjVNxYzkpTsA==
   dependencies:
     browserslist "^4.25.1"
     css-declaration-sorter "^7.2.0"
     cssnano-utils "^5.0.1"
     postcss-calc "^10.1.1"
     postcss-colormin "^7.0.4"
-    postcss-convert-values "^7.0.6"
+    postcss-convert-values "^7.0.7"
     postcss-discard-comments "^7.0.4"
     postcss-discard-duplicates "^7.0.2"
     postcss-discard-empty "^7.0.1"
@@ -3531,10 +3531,10 @@ postcss-colormin@^7.0.4:
     colord "^2.9.3"
     postcss-value-parser "^4.2.0"
 
-postcss-convert-values@^7.0.6:
-  version "7.0.6"
-  resolved "https://registry.yarnpkg.com/postcss-convert-values/-/postcss-convert-values-7.0.6.tgz#aece10411e05409c221263cd77deb4e6ad2c483e"
-  integrity sha512-MD/eb39Mr60hvgrqpXsgbiqluawYg/8K4nKsqRsuDX9f+xN1j6awZCUv/5tLH8ak3vYp/EMXwdcnXvfZYiejCQ==
+postcss-convert-values@^7.0.7:
+  version "7.0.7"
+  resolved "https://registry.yarnpkg.com/postcss-convert-values/-/postcss-convert-values-7.0.7.tgz#e24f8118d8f5cb3830dd8841c8a01537b7535293"
+  integrity sha512-HR9DZLN04Xbe6xugRH6lS4ZQH2zm/bFh/ZyRkpedZozhvh+awAfbA0P36InO4fZfDhvYfNJeNvlTf1sjwGbw/A==
   dependencies:
     browserslist "^4.25.1"
     postcss-value-parser "^4.2.0"
