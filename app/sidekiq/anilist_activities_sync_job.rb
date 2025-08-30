@@ -21,16 +21,16 @@ class AnilistActivitiesSyncJob
     if current_last_id === fetched_last_id
       logger.info(TAG + "SKIP SYNCING FOR PAGE #{page}".red)
     else
-      activities = response.data.page.activities.to_a.map do |data|
+      activity_page.destroy
+
+      response.data.page.activities.to_a.each do |data|
         activity = data.to_h.dup
         activity["date"] = date
         activity["page"] = page
 
-        activity
+        activity = AnilistActivity.new(activity)
+        activity.upsert(replace: true)
       end
-
-      activity_page.destroy
-      AnilistActivity.create(activities)
 
       logger.info(TAG + "SYNCING DONE FOR PAGE #{page}".green)
     end

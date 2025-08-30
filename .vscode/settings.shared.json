@@ -74,4 +74,21 @@
     "json",
     "javascript"
   ],
+  "sorbet.userLspConfigs": [
+    {
+      "id": "custom-build",
+      "name": "Custom Sorbet Build",
+      "description": "",
+      "env": {
+        "SRB_SORBET_EXE": "bin/sorbet"
+      },
+      "command": [
+        "bundle",
+        "exec",
+        "srb",
+        "typecheck",
+        "--lsp"
+      ]
+    }
+  ]
 }
