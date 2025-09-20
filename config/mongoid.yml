@@ -54,7 +54,7 @@ development:
         # Force a the driver cluster to behave in a certain manner instead of auto-
         # discovering. Can be one of: :direct, :replica_set, :sharded. Set to :direct
         # when connecting to hidden members of a replica set.
-        # connect: :direct
+        connect: :direct
 
         # Changes the default time in seconds the server monitors refresh their status
         # via hello commands. (default: 10)

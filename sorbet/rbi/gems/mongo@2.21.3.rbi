@@ -33861,6 +33861,7 @@ end
 # source://mongo//lib/mongo/socket/ssl.rb#24
 class Mongo::Socket::SSL < ::Mongo::Socket
   include ::OpenSSL
+  include ::Mongo::Loggable
 
   # Initializes a new TLS socket.
   #
@@ -33892,31 +33893,31 @@ class Mongo::Socket::SSL < ::Mongo::Socket
   # @return [SSL] a new instance of SSL
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#103
+  # source://mongo//lib/mongo/socket/ssl.rb#104
   def initialize(host, port, host_name, timeout, family, options = T.unsafe(nil)); end
 
   # @return [SSLContext] context The TLS context.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#122
+  # source://mongo//lib/mongo/socket/ssl.rb#123
   def context; end
 
   # @return [String] host The host to connect to.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#125
+  # source://mongo//lib/mongo/socket/ssl.rb#126
   def host; end
 
   # @return [String] host_name The original host name.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#128
+  # source://mongo//lib/mongo/socket/ssl.rb#129
   def host_name; end
 
   # @return [Integer] port The port to connect to.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#131
+  # source://mongo//lib/mongo/socket/ssl.rb#132
   def port; end
 
   # Read a single byte from the socket.
@@ -33926,7 +33927,7 @@ class Mongo::Socket::SSL < ::Mongo::Socket
   # @return [Object] The read byte.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#187
+  # source://mongo//lib/mongo/socket/ssl.rb#188
   def readbyte; end
 
   private
@@ -33940,12 +33941,12 @@ class Mongo::Socket::SSL < ::Mongo::Socket
   # @return [SSL] The connected socket instance.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#144
+  # source://mongo//lib/mongo/socket/ssl.rb#145
   def connect!; end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#221
+  # source://mongo//lib/mongo/socket/ssl.rb#222
   def connect_tcp_socket_with_timeout(sockaddr, deadline, connect_timeout); end
 
   # Connects the socket with the connect timeout. The timeout applies to
@@ -33954,7 +33955,7 @@ class Mongo::Socket::SSL < ::Mongo::Socket
   # @param sockaddr [String] Address to connect to.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#211
+  # source://mongo//lib/mongo/socket/ssl.rb#212
   def connect_with_timeout(sockaddr, connect_timeout); end
 
   # Connects the socket without a timeout provided.
@@ -33962,17 +33963,17 @@ class Mongo::Socket::SSL < ::Mongo::Socket
   # @param sockaddr [String] Address to connect to.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#199
+  # source://mongo//lib/mongo/socket/ssl.rb#200
   def connect_without_timeout(sockaddr); end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#237
+  # source://mongo//lib/mongo/socket/ssl.rb#238
   def connnect_ssl_socket_with_timeout(deadline, connect_timeout); end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#309
+  # source://mongo//lib/mongo/socket/ssl.rb#310
   def create_context(options); end
 
   # This was originally a scan + regex, but the regex was particularly
@@ -33980,70 +33981,77 @@ class Mongo::Socket::SSL < ::Mongo::Socket
   #
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#491
+  # source://mongo//lib/mongo/socket/ssl.rb#495
   def extract_certs(text); end
 
+  # Find the issuer certificate in the chain.
+  #
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#476
-  def human_address; end
-
-  # @since 2.0.0
-  #
-  # source://mongo//lib/mongo/socket/ssl.rb#412
-  def load_private_key(text, passphrase); end
-
-  # @since 2.0.0
-  #
-  # source://mongo//lib/mongo/socket/ssl.rb#470
-  def read_buffer_size; end
+  # source://mongo//lib/mongo/socket/ssl.rb#512
+  def find_issuer(cert, cert_chain); end
 
   # @since 2.0.0
   #
   # source://mongo//lib/mongo/socket/ssl.rb#480
+  def human_address; end
+
+  # @since 2.0.0
+  #
+  # source://mongo//lib/mongo/socket/ssl.rb#413
+  def load_private_key(text, passphrase); end
+
+  # @since 2.0.0
+  #
+  # source://mongo//lib/mongo/socket/ssl.rb#474
+  def read_buffer_size; end
+
+  # @since 2.0.0
+  #
+  # source://mongo//lib/mongo/socket/ssl.rb#484
   def run_tls_context_hooks; end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#353
+  # source://mongo//lib/mongo/socket/ssl.rb#354
   def set_cert(context, options); end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#433
+  # source://mongo//lib/mongo/socket/ssl.rb#434
   def set_cert_verification(context, options); end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#401
+  # source://mongo//lib/mongo/socket/ssl.rb#402
   def set_key(context, options); end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#449
+  # source://mongo//lib/mongo/socket/ssl.rb#450
   def verify_certificate!(socket); end
 
   # @return [Boolean]
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#277
+  # source://mongo//lib/mongo/socket/ssl.rb#278
   def verify_certificate?; end
 
   # @return [Boolean]
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#288
+  # source://mongo//lib/mongo/socket/ssl.rb#289
   def verify_hostname?; end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#457
+  # source://mongo//lib/mongo/socket/ssl.rb#458
   def verify_ocsp_endpoint!(socket, timeout = T.unsafe(nil)); end
 
   # @return [Boolean]
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#299
+  # source://mongo//lib/mongo/socket/ssl.rb#300
   def verify_ocsp_endpoint?; end
 
   # Raises +Error::SocketTimeoutError+ exception if deadline reached or the
@@ -34052,18 +34060,18 @@ class Mongo::Socket::SSL < ::Mongo::Socket
   #
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/socket/ssl.rb#266
+  # source://mongo//lib/mongo/socket/ssl.rb#267
   def with_select_timeout(deadline, connect_timeout, &block); end
 end
 
 # @since 2.0.0
 #
-# source://mongo//lib/mongo/socket/ssl.rb#486
+# source://mongo//lib/mongo/socket/ssl.rb#490
 Mongo::Socket::SSL::BEGIN_CERT = T.let(T.unsafe(nil), String)
 
 # @since 2.0.0
 #
-# source://mongo//lib/mongo/socket/ssl.rb#487
+# source://mongo//lib/mongo/socket/ssl.rb#491
 Mongo::Socket::SSL::END_CERT = T.let(T.unsafe(nil), String)
 
 # Error message for TLS related exceptions.

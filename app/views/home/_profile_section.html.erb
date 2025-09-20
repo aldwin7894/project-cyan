@@ -1,6 +1,6 @@
 <section x-data="{swiper: null}">
   <div class="relative flex w-screen min-h-screen">
-    <div id="profile-carousel" class="absolute top-0 left-0 w-full h-full swiper" x-init="swiper = new Swiper('#profile-carousel', { modules: [Navigation, Autoplay, EffectFade], effect: 'fade', loop: true, speed: 1000, threshold: 40, autoplay: { delay: 5000, disableOnInteraction: false }, fadeEffect: { crossFade: true }, }); swiper.translateTo(window.screen.width * -1, 0, false, false);">
+    <div id="profile-carousel" class="absolute top-0 left-0 w-full h-full swiper" x-init="swiper = new Swiper('#profile-carousel', { modules: [Navigation, Autoplay, EffectFade], effect: 'fade', loop: true, speed: 1000, threshold: 40, autoplay: { delay: 5000, disableOnInteraction: false }, fadeEffect: { crossFade: true }, });">
       <div class="swiper-wrapper">
         <% bgs.each do |num| %>
           <div class="swiper-slide background-cyan-<%= num %>">

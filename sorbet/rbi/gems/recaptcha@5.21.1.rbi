@@ -136,7 +136,7 @@ module Recaptcha::Adapters::ControllerMethods
   #
   # @return [String] A response token if one was passed in the params; otherwise, `''`
   #
-  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#107
+  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#109
   def recaptcha_response_token(action = T.unsafe(nil)); end
 
   # Your private API can be specified in the +options+ hash or preferably
