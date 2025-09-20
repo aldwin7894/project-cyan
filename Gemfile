@@ -10,7 +10,7 @@ gem "rails", "~> 8.0.2"
 # use vite to build javascripts and assets
 gem "vite_rails", "~> 3.0"
 # Use mongodb
-gem "mongoid", "~> 9.0.7"
+gem "mongoid", "~> 9.0.8"
 gem "bson", "~> 5.1"
 # Use Puma as the app server
 gem "puma", "~> 7.0"
