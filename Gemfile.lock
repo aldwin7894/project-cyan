@@ -82,7 +82,7 @@ GEM
     bootsnap (1.18.6)
       msgpack (~> 1.2)
     brotli (0.7.0)
-    bson (5.1.1)
+    bson (5.2.0)
     builder (3.3.0)
     byebug (12.0.0)
     capybara (3.40.0)
@@ -482,7 +482,7 @@ DEPENDENCIES
   addressable (~> 2.8)
   bootsnap (>= 1.4.4)
   brotli (~> 0.7.0)
-  bson (~> 5.1)
+  bson (~> 5.2)
   byebug
   capybara (>= 3.26)
   colorize (~> 1.1)
