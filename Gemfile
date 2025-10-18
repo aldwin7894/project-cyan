@@ -11,7 +11,7 @@ gem "rails", "~> 8.0.3"
 gem "vite_rails", "~> 3.0"
 # Use mongodb
 gem "mongoid", "~> 9.0.8"
-gem "bson", "~> 5.1"
+gem "bson", "~> 5.2"
 # Use Puma as the app server
 gem "puma", "~> 7.0"
 # Turbo gives you the speed of a single-page web application without having to write any JavaScript.
