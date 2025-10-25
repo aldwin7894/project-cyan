@@ -273,7 +273,7 @@ class HomeController < ApplicationController
 
       respond_to do |format|
         format.html do
-          return render template: "home/#{turbo_frame_request_id}", layout: false if turbo_frame_request?
+          render template: "home/#{turbo_frame_request_id}", layout: false if turbo_frame_request?
           render nothing: true
         end
       end

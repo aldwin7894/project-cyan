@@ -36,6 +36,7 @@ module Aldwin7894
     config.action_controller.forgery_protection_origin_check = false
     config.session_store :cookie_store, key: "_app_session"
     config.action_view.form_with_generates_remote_forms = false
+    config.autoload_paths += %W(#{config.root}/lib/discord_bot)
 
     config.generators do |g|
       g.orm :mongoid

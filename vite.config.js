@@ -8,16 +8,16 @@ import { visualizer } from "rollup-plugin-visualizer";
 export default defineConfig({
   plugins: [
     RubyPlugin(),
-    ...(process.env.NODE_ENV !== "production"
-      ? [
+    ...(process.env.NODE_ENV === "production"
+      ? []
+      : [
           FullReload(["config/routes.rb", "app/views/**/*"], { delay: 200 }),
           visualizer({
             brotliSize: true,
             gzipSize: true,
             template: "treemap",
           }),
-        ]
-      : []),
+        ]),
     gzipPlugin(),
     gzipPlugin({
       customCompression: content => brotliCompressSync(Buffer.from(content)),

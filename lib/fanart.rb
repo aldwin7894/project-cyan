@@ -66,7 +66,7 @@ module Fanart
       end
 
       res = JSON.parse res, symbolize_names: true
-      if !res&.[](:moviebackground).is_a?(Array)
+      unless res&.[](:moviebackground).is_a?(Array)
         Rails.logger.tagged(FANART_TAG, log_tag, tmdb_id.to_s.yellow) do
           Rails.logger.info("NOT FOUND".red)
         end
@@ -115,7 +115,7 @@ module Fanart
       end
 
       res = JSON.parse res, symbolize_names: true
-      if !res&.[](:showbackground).is_a?(Array)
+      unless res&.[](:showbackground).is_a?(Array)
         Rails.logger.tagged(FANART_TAG, log_tag, tvdb_id.to_s.yellow) do
           Rails.logger.info("NOT FOUND".red)
         end

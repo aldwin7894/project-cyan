@@ -70,6 +70,7 @@ export default defineConfig([
           argsIgnorePattern: "^_",
         },
       ],
+      "import/enforce-node-protocol-usage": "off",
     },
   },
 ]);

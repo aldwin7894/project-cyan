@@ -9,7 +9,7 @@ module FormatDateHelper
     sec = include_seconds ? [sec.round, "s"] : nil
 
     date = [day, hr, min, sec].compact
-    if !array_values
+    unless array_values
       date = date.map { |x| x.join() }.join(" ")
     end
 

@@ -85,7 +85,8 @@ ENV MALLOC_CONF='narenas:2,background_thread:true,thp:never,dirty_decay_ms:1000,
 # Add a script to be executed every time the container starts.
 RUN chmod +x ./entrypoint.sh \
   && chmod +x ./entrypoint-sidekiq.sh \
-  && groupadd -r docker && useradd -r -g docker docker \
+  && groupadd -r docker \
+  && useradd -m -r -g docker docker \
   && chown -R docker:docker /usr/src/app
 USER docker
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]

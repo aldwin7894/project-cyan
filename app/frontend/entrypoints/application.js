@@ -2,7 +2,6 @@
 
 import "iconify-icon";
 import "@hotwired/turbo-rails";
-import PromisePolyfill from "promise-polyfill";
 import Alpine from "alpinejs";
 import { Chart, PieController, ArcElement, Tooltip } from "chart.js";
 import Tippy, { followCursor } from "tippy.js";
@@ -14,7 +13,6 @@ import {
   EffectCoverflow,
 } from "swiper/modules";
 import smartcrop from "smartcrop";
-smartcrop.Promise = PromisePolyfill;
 
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
@@ -228,7 +226,7 @@ const CropImage = (imgSrc, canvasId, divElement, width, height) => {
           );
           const url = canvas.toDataURL("image/png");
           div.style.background = `no-repeat center/cover url(${url})`;
-          canvas.parentNode.removeChild(canvas);
+          canvas.remove();
           showDiv();
         })
         .catch(reject);
@@ -238,7 +236,7 @@ const CropImage = (imgSrc, canvasId, divElement, width, height) => {
   });
 };
 
-Object.assign(window, {
+Object.assign(globalThis, {
   Alpine,
   Chart,
   Tippy,
