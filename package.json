@@ -31,7 +31,7 @@
     "autoprefixer": "^10.4.21",
     "chart.js": "^4.5.1",
     "cssnano": "^7.1.1",
-    "cssnano-preset-advanced": "^7.0.9",
+    "cssnano-preset-advanced": "^7.0.10",
     "iconify-icon": "^3.0.2",
     "postcss": "^8.5.2",
     "postcss-flexbugs-fixes": "^5.0.2",
