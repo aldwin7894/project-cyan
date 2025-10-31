@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.4.7"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem "rails", "~> 8.0.3"
+gem "rails", "~> 8.0.4"
 # use vite to build javascripts and assets
 gem "vite_rails", "~> 3.0"
 # Use mongodb
@@ -15,7 +15,7 @@ gem "bson", "~> 5.2"
 # Use Puma as the app server
 gem "puma", "~> 7.1"
 # Turbo gives you the speed of a single-page web application without having to write any JavaScript.
-gem "turbo-rails", "~> 2.0.17"
+gem "turbo-rails", "~> 2.0.20"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 5.4"
 # Use Active Model has_secure_password

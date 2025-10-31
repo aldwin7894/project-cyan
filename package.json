@@ -22,16 +22,16 @@
     "edge >= 107"
   ],
   "dependencies": {
-    "@hotwired/turbo-rails": "^8.0.18",
+    "@hotwired/turbo-rails": "^8.0.20",
     "@rails/actioncable": "^8.1.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.19",
-    "alpinejs": "^3.15.0",
+    "alpinejs": "^3.15.1",
     "autoprefixer": "^10.4.21",
     "chart.js": "^4.5.1",
     "cssnano": "^7.1.1",
-    "cssnano-preset-advanced": "^7.0.9",
+    "cssnano-preset-advanced": "^7.0.10",
     "iconify-icon": "^3.0.2",
     "postcss": "^8.5.2",
     "postcss-flexbugs-fixes": "^5.0.2",
@@ -51,7 +51,7 @@
     "vite-plugin-ruby": "^5.1.1"
   },
   "devDependencies": {
-    "@eslint/compat": "^1.4.0",
+    "@eslint/compat": "^1.4.1",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.38.0",
     "@types/node": "^22.14.0",
