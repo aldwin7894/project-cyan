@@ -529,9 +529,6 @@ module ActiveJob::Callbacks
     # source://activejob//lib/active_job/callbacks.rb#23
     def __callbacks; end
 
-    # source://activejob//lib/active_job/callbacks.rb#23
-    def __callbacks=(value); end
-
     # source://activejob//lib/active_job/callbacks.rb#24
     def _execute_callbacks; end
 
