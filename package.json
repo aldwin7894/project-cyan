@@ -51,7 +51,7 @@
     "vite-plugin-ruby": "^5.1.1"
   },
   "devDependencies": {
-    "@eslint/compat": "^1.4.1",
+    "@eslint/compat": "^2.0.0",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.9.2",
