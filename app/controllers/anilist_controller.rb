@@ -61,8 +61,8 @@ class AnilistController < ApplicationController
     @user.save
     @job_id = AnilistFollowListCheckerJob.perform_async(@user._id)
 
-    Rails.cache.fetch("ANILIST/FOLLOW_CHECKER_CD", expires_in: 30.minutes) do
-      30.minutes.from_now
+    Rails.cache.fetch("ANILIST/FOLLOW_CHECKER_CD", expires_in: 20.minutes) do
+      20.minutes.from_now
     end
     @success = true
   rescue Graphlient::Errors::ServerError => error
@@ -72,10 +72,10 @@ class AnilistController < ApplicationController
 
     case error.status_code
     when 429
-      Rails.cache.write("ANILIST_FOLLOW_CHECKER_CD", expires_in: 5.minutes)
+      Rails.cache.write("ANILIST/FOLLOW_CHECKER_CD", expires_in: 5.minutes)
       @error = "We're being rate-limited by AniList API, please try again later."
     when 404
-      Rails.cache.write("ANILIST_FOLLOW_CHECKER_CD", nil)
+      Rails.cache.write("ANILIST/FOLLOW_CHECKER_CD", nil)
       @error = "User <strong>#{username}</strong> was not found or has a private profile."
     else
       @error = "Something went wrong, please try again later."
