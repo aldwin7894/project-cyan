@@ -91,7 +91,7 @@ gem "recaptcha", "~> 5.21"
 
 # gem "ferrum", "~> 0.13"
 
-gem "discordrb", "~> 3.6.1"
+gem "discordrb", "~> 3.7.0"
 
 # gem "opentelemetry-sdk"
 
