@@ -65,7 +65,7 @@ class LogStash::Event
 
   # @raise [DeprecatedMethod]
   #
-  # source://logstash-event//lib/logstash/event.rb#265
+  # source://logstash-event//lib/logstash/event.rb#163
   def fields; end
 
   # @return [Boolean]

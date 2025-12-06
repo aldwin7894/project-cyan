@@ -191,7 +191,7 @@ class PersistentHTTP
 
   # Return the size of the connection pool
   #
-  # source://persistent_http//lib/persistent_http.rb#270
+  # source://persistent_http//lib/persistent_http.rb#118
   def pool_size; end
 
   # Reset the size of the connection pool

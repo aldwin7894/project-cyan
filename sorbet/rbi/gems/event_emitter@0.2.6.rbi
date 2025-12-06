@@ -38,7 +38,7 @@ module EventEmitter::InstanceMethods
 
   # @raise [ArgumentError]
   #
-  # source://event_emitter//lib/event_emitter/emitter.rb#20
+  # source://event_emitter//lib/event_emitter/emitter.rb#32
   def on(type, params = T.unsafe(nil), &block); end
 
   # source://event_emitter//lib/event_emitter/emitter.rb#65

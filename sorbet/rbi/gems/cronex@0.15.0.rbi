@@ -341,7 +341,7 @@ class Cronex::Resource
   # source://cronex//lib/cronex/resource.rb#28
   def [](key); end
 
-  # source://cronex//lib/cronex/resource.rb#28
+  # source://cronex//lib/cronex/resource.rb#31
   def get(key); end
 
   # source://cronex//lib/cronex/resource.rb#22

@@ -199,7 +199,7 @@ class Webdrivers::Chromedriver < ::Webdrivers::Common
     #
     # @return [Gem::Version]
     #
-    # source://webdrivers//lib/webdrivers/chromedriver.rb#50
+    # source://webdrivers//lib/webdrivers/chromedriver.rb#53
     def chrome_version; end
 
     # Returns current chromedriver version.
@@ -239,7 +239,7 @@ class Webdrivers::Chromedriver < ::Webdrivers::Common
     # @example
     #   73.0.3683.75 (major.minor.build.patch) -> 73.0.3683 (major.minor.build)
     #
-    # source://webdrivers//lib/webdrivers/chromedriver.rb#152
+    # source://webdrivers//lib/webdrivers/chromedriver.rb#156
     def chrome_build_version; end
 
     # source://webdrivers//lib/webdrivers/chromedriver.rb#165

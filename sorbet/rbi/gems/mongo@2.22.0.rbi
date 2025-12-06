@@ -101,23 +101,23 @@ class Mongo::Address
 
   # Initialize the address.
   #
-  # @example Initialize the address with a DNS entry and port.
-  #   Mongo::Address.new("app.example.com:27017")
   # @example Initialize the address with a DNS entry and no port.
   #   Mongo::Address.new("app.example.com")
-  # @example Initialize the address with an IPV4 address and port.
-  #   Mongo::Address.new("127.0.0.1:27017")
-  # @example Initialize the address with an IPV4 address and no port.
-  #   Mongo::Address.new("127.0.0.1")
-  # @example Initialize the address with an IPV6 address and port.
-  #   Mongo::Address.new("[::1]:27017")
-  # @example Initialize the address with an IPV6 address and no port.
-  #   Mongo::Address.new("[::1]")
+  # @example Initialize the address with a DNS entry and port.
+  #   Mongo::Address.new("app.example.com:27017")
   # @example Initialize the address with a unix socket.
   #   Mongo::Address.new("/path/to/socket.sock")
+  # @example Initialize the address with an IPV4 address and no port.
+  #   Mongo::Address.new("127.0.0.1")
+  # @example Initialize the address with an IPV4 address and port.
+  #   Mongo::Address.new("127.0.0.1:27017")
+  # @example Initialize the address with an IPV6 address and no port.
+  #   Mongo::Address.new("[::1]")
+  # @example Initialize the address with an IPV6 address and port.
+  #   Mongo::Address.new("[::1]:27017")
   # @option options
-  # @param seed [String] The provided address.
   # @param options [Hash] The address options.
+  # @param seed [String] The provided address.
   # @return [Address] a new instance of Address
   # @since 2.0.0
   #
@@ -234,8 +234,8 @@ class Mongo::Address
   # @option opts
   # @option opts
   # @option opts
-  # @param socket_timeout [Float] The socket timeout.
   # @param opts [Hash] The options.
+  # @param socket_timeout [Float] The socket timeout.
   # @raise [Mongo::Error] If network connection failed.
   # @return [Mongo::Socket::SSL | Mongo::Socket::TCP | Mongo::Socket::Unix] The socket.
   # @since 2.0.0
@@ -255,6 +255,14 @@ class Mongo::Address
 
   private
 
+  # This is a simple wrapper around Socket.getaddrinfo added to
+  # make testing easier.
+  #
+  # @since 2.0.0
+  #
+  # source://mongo//lib/mongo/address.rb#281
+  def getaddrinfo(host, family); end
+
   # Maps some errors to different ones, mostly low-level errors to driver
   # level errors
   #
@@ -262,12 +270,12 @@ class Mongo::Address
   #   should be considered when connecting the socket.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/address.rb#293
+  # source://mongo//lib/mongo/address.rb#299
   def map_exceptions(csot); end
 
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/address.rb#279
+  # source://mongo//lib/mongo/address.rb#285
   def parse_host_port; end
 end
 
@@ -335,8 +343,8 @@ class Mongo::Address::IPv4
   # @option options
   # @option options
   # @option options
-  # @param socket_timeout [Float] The socket timeout.
   # @param options [Hash] The options.
+  # @param socket_timeout [Float] The socket timeout.
   # @return [Mongo::Socket::SSL, Mongo::Socket::TCP] The socket.
   # @since 2.0.0
   #
@@ -428,8 +436,8 @@ class Mongo::Address::IPv6
   # @option options
   # @option options
   # @option options
-  # @param socket_timeout [Float] The socket timeout.
   # @param options [Hash] The options.
+  # @param socket_timeout [Float] The socket timeout.
   # @return [Mongo::Socket::SSL, Mongo::Socket::TCP] The socket.
   # @since 2.0.0
   #
@@ -499,8 +507,8 @@ class Mongo::Address::Unix
   # @example Get a Unix socket.
   #   address.socket(5)
   # @option options
-  # @param socket_timeout [Float] The socket timeout.
   # @param options [Hash] The options.
+  # @param socket_timeout [Float] The socket timeout.
   # @return [Mongo::Socket::Unix] The socket.
   # @since 2.0.0
   #
@@ -573,9 +581,9 @@ module Mongo::Auth
   # @api private
   # @option opts
   # @option opts
-  # @param user [Auth::User] The user to authenticate.
   # @param connection [Mongo::Connection] The connection to authenticate over.
   # @param opts [Hash] a customizable set of options
+  # @param user [Auth::User] The user to authenticate.
   # @raise [InvalidMechanism]
   # @return [Auth::Aws | Auth::CR | Auth::Gssapi | Auth::LDAP |
   # Auth::Scram | Auth::Scram256 | Auth::X509] The authenticator.
@@ -608,10 +616,10 @@ class Mongo::Auth::Aws::Conversation < ::Mongo::Auth::SaslConversationBase
   # communication.
   #
   # @api private
-  # @param reply_document [BSON::Document] The reply document of the
-  #   previous message.
   # @param connection [Server::Connection] The connection being
   #   authenticated.
+  # @param reply_document [BSON::Document] The reply document of the
+  #   previous message.
   # @return [Protocol::Message] The next message to send.
   #
   # source://mongo//lib/mongo/auth/aws/conversation.rb#40
@@ -843,8 +851,8 @@ end
 # source://mongo//lib/mongo/auth/aws/credentials_retriever.rb#52
 class Mongo::Auth::Aws::CredentialsRetriever
   # @api private
-  # @param user [Auth::User | nil] The user object, if one was provided.
   # @param credentials_cache [Auth::Aws::CredentialsCache] The credentials cache.
+  # @param user [Auth::User | nil] The user object, if one was provided.
   # @return [CredentialsRetriever] a new instance of CredentialsRetriever
   #
   # source://mongo//lib/mongo/auth/aws/credentials_retriever.rb#61
@@ -983,13 +991,13 @@ class Mongo::Auth::Aws::CredentialsRetriever
   #   the timeout defined on the operation context.
   #
   # @api private
-  # @param token [String] The OAuth 2.0 access token or
-  #   OpenID Connect ID token that is provided by the identity provider.
   # @param role_arn [String] The Amazon Resource Name (ARN) of the role
   #   that the caller is assuming.
   # @param role_session_name [String] An identifier for the assumed
   #   role session.
   # @param timeout_holder [CsotTimeoutHolder | nil] CSOT timeout.
+  # @param token [String] The OAuth 2.0 access token or
+  #   OpenID Connect ID token that is provided by the identity provider.
   # @return [Net::HTTPResponse | nil] AWS API response if successful,
   #   otherwise nil.
   #
@@ -1052,11 +1060,11 @@ class Mongo::Auth::Aws::Request
   # @note By overriding the time, it is possible to create reproducible
   #   requests (in other words, replay a request).
   # @param access_key_id [String] The access key id.
+  # @param host [String] The value of Host HTTP header to use.
   # @param secret_access_key [String] The secret access key.
+  # @param server_nonce [String] The server nonce binary string.
   # @param session_token [String] The session token for temporary
   #   credentials.
-  # @param host [String] The value of Host HTTP header to use.
-  # @param server_nonce [String] The server nonce binary string.
   # @param time [Time] The time of the request.
   # @return [Request] a new instance of Request
   #
@@ -1243,9 +1251,9 @@ class Mongo::Auth::Base
   # Initializes the authenticator.
   #
   # @api private
-  # @param user [Auth::User] The user to authenticate.
   # @param connection [Mongo::Connection] The connection to authenticate
   #   over.
+  # @param user [Auth::User] The user to authenticate.
   # @return [Base] a new instance of Base
   #
   # source://mongo//lib/mongo/auth/base.rb#40
@@ -1350,10 +1358,10 @@ class Mongo::Auth::CR::Conversation < ::Mongo::Auth::ConversationBase
   # communication.
   #
   # @api private
-  # @param reply_document [BSON::Document] The reply document of the
-  #   previous message.
   # @param connection [Mongo::Server::Connection] The connection being
   #   authenticated.
+  # @param reply_document [BSON::Document] The reply document of the
+  #   previous message.
   # @return [Protocol::Message] The next message to send.
   # @since 2.0.0
   #
@@ -1413,9 +1421,9 @@ class Mongo::Auth::ConversationBase
   # Create the new conversation.
   #
   # @api private
-  # @param user [Auth::User] The user to authenticate.
   # @param connection [Mongo::Connection] The connection to authenticate
   #   over.
+  # @param user [Auth::User] The user to authenticate.
   # @return [ConversationBase] a new instance of ConversationBase
   #
   # source://mongo//lib/mongo/auth/conversation_base.rb#32
@@ -1561,9 +1569,9 @@ class Mongo::Auth::Gssapi::Conversation < ::Mongo::Auth::SaslConversationBase
   # @api private
   # @example Create the new conversation.
   #   Conversation.new(user, 'test.example.com')
-  # @param user [Auth::User] The user to converse about.
   # @param connection [Mongo::Connection] The connection to
   #   authenticate over.
+  # @param user [Auth::User] The user to converse about.
   # @return [Conversation] a new instance of Conversation
   # @since 2.0.0
   #
@@ -1916,9 +1924,9 @@ class Mongo::Auth::Scram < ::Mongo::Auth::Base
   # @api private
   # @option opts
   # @option opts
-  # @param user [Auth::User] The user to authenticate.
   # @param connection [Mongo::Connection] The connection to authenticate over.
   # @param opts [Hash] a customizable set of options
+  # @param user [Auth::User] The user to authenticate.
   # @return [Scram] a new instance of Scram
   #
   # source://mongo//lib/mongo/auth/scram.rb#40
@@ -2052,12 +2060,12 @@ class Mongo::Auth::ScramConversationBase < ::Mongo::Auth::SaslConversationBase
   # Create the new conversation.
   #
   # @api private
-  # @param user [Auth::User] The user to converse about.
   # @param client_nonce [String | nil] The client nonce to use.
   #   If this conversation is created for a connection that performed
   #   speculative authentication, this client nonce must be equal to the
   #   client nonce used for speculative authentication; otherwise, the
   #   client nonce must not be specified.
+  # @param user [Auth::User] The user to converse about.
   # @return [ScramConversationBase] a new instance of ScramConversationBase
   #
   # source://mongo//lib/mongo/auth/scram_conversation_base.rb#38
@@ -2074,10 +2082,10 @@ class Mongo::Auth::ScramConversationBase < ::Mongo::Auth::SaslConversationBase
   # communication.
   #
   # @api private
-  # @param reply_document [BSON::Document] The reply document of the
-  #   previous message.
   # @param connection [Server::Connection] The connection being
   #   authenticated.
+  # @param reply_document [BSON::Document] The reply document of the
+  #   previous message.
   # @return [Protocol::Message] The next message to send.
   #
   # source://mongo//lib/mongo/auth/scram_conversation_base.rb#73
@@ -2374,9 +2382,9 @@ module Mongo::Auth::StringPrep
   # @option options
   # @param data [String] The string to prepare.
   # @param mappings [Array] A list of mappings to apply to the data.
+  # @param options [Hash] Optional operations to perform during string preparation.
   # @param prohibited [Array] A list of prohibited character lists to ensure the data doesn't
   #   contain after mapping and normalizing the data.
-  # @param options [Hash] Optional operations to perform during string preparation.
   # @raise [Error::FailedStringPrepValidation] If stringprep validations fails.
   # @since 2.6.0
   #
@@ -2614,13 +2622,13 @@ class Mongo::Auth::Unauthorized < ::Mongo::Error::AuthError
   #
   # @example Instantiate the error.
   #   Mongo::Auth::Unauthorized.new(user)
-  # @param user [Mongo::Auth::User] The unauthorized user.
-  # @param used_mechanism [String] Auth mechanism actually used for
-  #   authentication. This is a full string like SCRAM-SHA-256.
+  # @param The [Integer] error code.
   # @param message [String] The error message returned by the server.
   # @param server [Server] The server instance that authentication
   #   was attempted against.
-  # @param The [Integer] error code.
+  # @param used_mechanism [String] Auth mechanism actually used for
+  #   authentication. This is a full string like SCRAM-SHA-256.
+  # @param user [Mongo::Auth::User] The unauthorized user.
   # @return [Unauthorized] a new instance of Unauthorized
   # @since 2.0.0
   #
@@ -2826,8 +2834,8 @@ class Mongo::Auth::User::View
   #   view.create('user', password: 'password', roles: [ 'readWrite' ])
   # @option options
   # @option options
-  # @param user_or_name [Auth::User, String] The user object or user name.
   # @param options [Hash] The user options.
+  # @param user_or_name [Auth::User, String] The user object or user name.
   # @return [Result] The command response.
   # @since 2.0.0
   #
@@ -2879,8 +2887,8 @@ class Mongo::Auth::User::View
   #   view.update('name', password: 'testpwd')
   # @option options
   # @option options
-  # @param user_or_name [Auth::User, String] The user object or user name.
   # @param options [Hash] The user options.
+  # @param user_or_name [Auth::User, String] The user object or user name.
   # @return [Result] The response.
   # @since 2.0.0
   #
@@ -2915,8 +2923,8 @@ class Mongo::Auth::X509 < ::Mongo::Auth::Base
   # Initializes the X.509 authenticator.
   #
   # @api private
-  # @param user [Auth::User] The user to authenticate.
   # @param connection [Mongo::Connection] The connection to authenticate over.
+  # @param user [Auth::User] The user to authenticate.
   # @return [X509] a new instance of X509
   # @since 2.0.0
   #
@@ -3079,8 +3087,6 @@ class Mongo::BulkWrite
   # @api private
   # @example Create an ordered bulk write.
   #   Mongo::BulkWrite.new(collection, [{ insert_one: { _id: 1 }}])
-  # @example Create an unordered bulk write.
-  #   Mongo::BulkWrite.new(collection, [{ insert_one: { _id: 1 }}], ordered: false)
   # @example Create an ordered mixed bulk write.
   #   Mongo::BulkWrite.new(
   #   collection,
@@ -3090,10 +3096,12 @@ class Mongo::BulkWrite
   #   { delete_one: { filter: { _id: 2 }}}
   #   ]
   #   )
+  # @example Create an unordered bulk write.
+  #   Mongo::BulkWrite.new(collection, [{ insert_one: { _id: 1 }}], ordered: false)
   # @param collection [Mongo::Collection] The collection.
+  # @param options [Hash, BSON::Document] The options.
   # @param requests [Enumerable<Hash, BSON::Document>] The requests,
   #   cannot be empty.
-  # @param options [Hash, BSON::Document] The options.
   # @return [BulkWrite] a new instance of BulkWrite
   # @since 2.1.0
   #
@@ -3371,8 +3379,8 @@ class Mongo::BulkWrite::Result
   # @api private
   # @example Create the new result.
   #   Result.new({ 'n_inserted' => 10 })
-  # @param results [BSON::Document, Hash] The results document.
   # @param acknowledged [Boolean] Is the result acknowledged?
+  # @param results [BSON::Document, Hash] The results document.
   # @return [Result] a new instance of Result
   # @since 2.1.0
   #
@@ -3554,8 +3562,8 @@ class Mongo::BulkWrite::ResultCombiner
   # @api private
   # @example Add the result.
   #   combiner.combine!(result, count)
-  # @param result [Operation::Result] The result to combine.
   # @param count [Integer] The count of requests in the batch.
+  # @param result [Operation::Result] The result to combine.
   # @since 2.1.0
   #
   # source://mongo//lib/mongo/bulk_write/result_combiner.rb#58
@@ -3632,7 +3640,7 @@ module Mongo::BulkWrite::Transformable
   # @api private
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/bulk_write/transformable.rb#150
+  # source://mongo//lib/mongo/bulk_write/transformable.rb#152
   def transform(name, document); end
 end
 
@@ -3689,7 +3697,7 @@ Mongo::BulkWrite::Transformable::INSERT_ONE_TRANSFORM = T.let(T.unsafe(nil), Pro
 # @api private
 # @since 2.1.0
 #
-# source://mongo//lib/mongo/bulk_write/transformable.rb#139
+# source://mongo//lib/mongo/bulk_write/transformable.rb#141
 Mongo::BulkWrite::Transformable::MAPPERS = T.let(T.unsafe(nil), Hash)
 
 # The replace one model constant.
@@ -3721,7 +3729,7 @@ Mongo::BulkWrite::Transformable::UPDATE_MANY = T.let(T.unsafe(nil), Symbol)
 # @api private
 # @since 2.1.0
 #
-# source://mongo//lib/mongo/bulk_write/transformable.rb#108
+# source://mongo//lib/mongo/bulk_write/transformable.rb#109
 Mongo::BulkWrite::Transformable::UPDATE_MANY_TRANSFORM = T.let(T.unsafe(nil), Proc)
 
 # The update one model constant.
@@ -3737,7 +3745,7 @@ Mongo::BulkWrite::Transformable::UPDATE_ONE = T.let(T.unsafe(nil), Symbol)
 # @api private
 # @since 2.1.0
 #
-# source://mongo//lib/mongo/bulk_write/transformable.rb#124
+# source://mongo//lib/mongo/bulk_write/transformable.rb#125
 Mongo::BulkWrite::Transformable::UPDATE_ONE_TRANSFORM = T.let(T.unsafe(nil), Proc)
 
 # Combines groups of bulk write operations in no order.
@@ -3783,8 +3791,8 @@ module Mongo::BulkWrite::Validatable
   # @api private
   # @example Validate the document.
   #   validatable.validate(:insert_one, { _id: 0 })
-  # @param name [Symbol] The operation name.
   # @param document [Hash, BSON::Document] The document.
+  # @param name [Symbol] The operation name.
   # @raise [InvalidBulkOperation] If not valid.
   # @return [Hash, BSON::Document] The document.
   # @since 2.1.0
@@ -3863,15 +3871,15 @@ class Mongo::Client
 
   # Instantiate a new driver client.
   #
-  # @example Instantiate a single server or mongos client.
-  #   Mongo::Client.new(['127.0.0.1:27017'])
-  # @example Instantiate a client for a replica set.
-  #   Mongo::Client.new(['127.0.0.1:27017', '127.0.0.1:27021'])
   # @example Directly connect to a mongod in a replica set
   #   Mongo::Client.new(['127.0.0.1:27017'], :connect => :direct)
   #   # without `:connect => :direct`, Mongo::Client will discover and
   #   # connect to the replica set if given the address of a server in
   #   # a replica set
+  # @example Instantiate a client for a replica set.
+  #   Mongo::Client.new(['127.0.0.1:27017', '127.0.0.1:27021'])
+  # @example Instantiate a single server or mongos client.
+  #   Mongo::Client.new(['127.0.0.1:27017'])
   # @option options
   # @option options
   # @option options
@@ -4020,13 +4028,13 @@ class Mongo::Client
   #
   # @example Get the database names.
   #   client.database_names
-  # @option opts
-  # @option opts
-  # @option opts
   # @option options
+  # @option opts
+  # @option opts
+  # @option opts
   # @param filter [Hash] The filter criteria for getting a list of databases.
-  # @param opts [Hash] The command options.
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] The command options.
   # @return [Array<String>] The names of the databases.
   # @since 2.0.5
   #
@@ -4107,15 +4115,15 @@ class Mongo::Client
   #
   # @example Get the info for each database.
   #   client.list_databases
-  # @option opts
-  # @option opts
+  # @option options
   # @option options
   # @option opts
-  # @option options
+  # @option opts
+  # @option opts
   # @param filter [Hash] The filter criteria for getting a list of databases.
   # @param name_only [true, false] Whether to only return each database name without full metadata.
-  # @param opts [Hash] The command options.
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] The command options.
   # @return [Array<Hash>] The info for each database.
   # @since 2.0.5
   #
@@ -4126,11 +4134,11 @@ class Mongo::Client
   #
   # @example Get a list of Mongo::Database objects.
   #   client.list_mongo_databases
-  # @option opts
   # @option options
+  # @option opts
   # @param filter [Hash] The filter criteria for getting a list of databases.
-  # @param opts [Hash] The command options.
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] The command options.
   # @return [Array<Mongo::Database>] The list of database objects.
   # @since 2.5.0
   #
@@ -4321,8 +4329,8 @@ class Mongo::Client
   # @option options
   # @option options
   # @option options
-  # @param pipeline [Array<Hash>] Optional additional filter operators.
   # @param options [Hash] The change stream options.
+  # @param pipeline [Array<Hash>] Optional additional filter operators.
   # @return [ChangeStream] The change stream object.
   # @since 2.6.0
   #
@@ -4656,9 +4664,9 @@ class Mongo::ClientEncryption
   #   :auto_encryption_options. Therefore, in order to use the collection
   #   created by this method with automatic encryption, the user must create
   #   a new client after calling this function with the :encrypted_fields returned.
-  # @param database [Mongo::Database] Database to create collection in.
   # @param coll_name [String] Name of collection to create.
   # @param coll_opts [Hash] Options for collection to create.
+  # @param database [Mongo::Database] Database to create collection in.
   # @param kms_provider [String] KMS provider to encrypt fields.
   # @param master_key [Hash | nil] Document describing master key to encrypt fields.
   # @raise [ArgumentError]
@@ -4700,8 +4708,8 @@ class Mongo::ClientEncryption
   # @option options
   # @option options
   # @option options
-  # @param value [Object] The value to encrypt.
   # @param options [Hash]
+  # @param value [Object] The value to encrypt.
   # @raise [ArgumentError] if either contention_factor or query_type
   #   is set, and algorithm is not "Indexed".
   # @return [BSON::Binary] A BSON Binary object of subtype 6 (ciphertext)
@@ -4718,15 +4726,15 @@ class Mongo::ClientEncryption
   #
   # # @param [ Hash ] options
   #
-  # @example Encrypt Match Expression.
-  #   encryption.encrypt_expression(
-  #   {'$and' =>  [{'field' => {'$gt' => 10}}, {'field' =>  {'$lt' => 20 }}]}
-  #   )
   # @example Encrypt Aggregate Expression.
   #   encryption.encrypt_expression(
   #   {'$and' =>  [{'$gt' => ['$field', 10]}, {'$lt' => ['$field', 20]}}
   #   )
   #   {$and: [{$gt: [<fieldpath>, <value1>]}, {$lt: [<fieldpath>, <value2>]}]
+  # @example Encrypt Match Expression.
+  #   encryption.encrypt_expression(
+  #   {'$and' =>  [{'field' => {'$gt' => 10}}, {'field' =>  {'$lt' => 20 }}]}
+  #   )
   # @note The :key_id and :key_alt_name options are mutually exclusive. Only
   #   one is required to perform explicit encryption.
   # @option options
@@ -4844,11 +4852,11 @@ class Mongo::Cluster
   # @option options
   # @option options
   # @option options
-  # @param seeds [Array<String>] The addresses of the configured servers
   # @param monitoring [Monitoring] The monitoring.
   # @param options [Hash] Options. Client constructor forwards its
   #   options to Cluster constructor, although Cluster recognizes
   #   only a subset of the options recognized by Client.
+  # @param seeds [Array<String>] The addresses of the configured servers
   # @return [Cluster] a new instance of Cluster
   # @since 2.0.0
   #
@@ -5029,12 +5037,12 @@ class Mongo::Cluster
   #
   # @example Get the next primary server.
   #   cluster.next_primary
+  # @param :timeout [Float | nil] Timeout in seconds for the operation,
+  #   if any.
   # @param ping [true, false] Whether to ping the server before selection.
   #   Deprecated and ignored.
   # @param session [Session | nil] Optional session to take into account
   #   for mongos pinning.
-  # @param :timeout [Float | nil] Timeout in seconds for the operation,
-  #   if any.
   # @return [Mongo::Server] A primary server.
   # @since 2.0.0
   #
@@ -5102,9 +5110,9 @@ class Mongo::Cluster
   #   server.remove('127.0.0.1:27017')
   # @note The return value of this method is not part of the driver's
   #   public API.
-  # @param host [String] The host/port or socket address.
   # @param disconnect [true | false] Whether to disconnect the servers
   #   being removed. For internal driver use only.
+  # @param host [String] The host/port or socket address.
   # @return [Array<Server> | true | false] If disconnect is any value other
   #   than false, including nil, returns whether any servers were removed.
   #   If disconnect is false, returns an array of servers that were removed
@@ -5132,9 +5140,9 @@ class Mongo::Cluster
   # @option options
   # @option options
   # @option options
+  # @param options [Hash] Options.
   # @param previous_desc [Server::Description] Previous server description.
   # @param updated_desc [Server::Description] The changed description.
-  # @param options [Hash] Options.
   # @since 2.0.0
   #
   # source://mongo//lib/mongo/cluster.rb#638
@@ -5936,9 +5944,9 @@ class Mongo::Cluster::Topology::Base
   # @option options
   # @option options
   # @option options
-  # @param options [Hash] The options.
-  # @param monitoring [Monitoring] The monitoring.
   # @param cluster [Cluster] The cluster.
+  # @param monitoring [Monitoring] The monitoring.
+  # @param options [Hash] The options.
   # @return [Base] a new instance of Base
   # @since 2.7.0
   #
@@ -6770,19 +6778,19 @@ class Mongo::Collection
   #
   # @example Instantiate a new collection.
   #   Mongo::Collection.new(database, 'test')
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
   # @option options
   # @option options
   # @option options
   # @option options
   # @option options
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
   # @option opts
   # @option opts
   # @option opts
@@ -6825,8 +6833,8 @@ class Mongo::Collection
   # @option options
   # @option options
   # @option options
-  # @param pipeline [Array<Hash>] The aggregation pipeline.
   # @param options [Hash] The aggregation options.
+  # @param pipeline [Array<Hash>] The aggregation pipeline.
   # @return [View::Aggregation] The aggregation object.
   # @since 2.1.0
   #
@@ -6843,8 +6851,8 @@ class Mongo::Collection
   # @option options
   # @option options
   # @option options
-  # @param requests [Enumerable<Hash>] The bulk write requests.
   # @param options [Hash] The options.
+  # @param requests [Enumerable<Hash>] The bulk write requests.
   # @return [BulkWrite::Result] The result of the operation.
   # @since 2.0.0
   #
@@ -7008,12 +7016,12 @@ class Mongo::Collection
   # @example Drop the collection.
   #   collection.drop
   # @note An error returned if the collection doesn't exist is suppressed.
-  # @option opts
-  # @option opts
-  # @option opts
   # @option options
-  # @param opts [Hash] The options for the drop operation.
+  # @option opts
+  # @option opts
+  # @option opts
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] The options for the drop operation.
   # @return [Result] The result of the command.
   # @since 2.0.0
   #
@@ -7091,16 +7099,16 @@ class Mongo::Collection
   # @return [BSON::Document, nil] The document, if found.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#1157
+  # source://mongo//lib/mongo/collection.rb#1167
   def find_one_and_delete(filter, options = T.unsafe(nil)); end
 
   # Finds a single document and replaces it, returning the original doc unless
   # otherwise specified.
   #
-  # @example Find a document and replace it, returning the original.
-  #   collection.find_one_and_replace({ name: 'test' }, { name: 'test1' })
   # @example Find a document and replace it, returning the new document.
   #   collection.find_one_and_replace({ name: 'test' }, { name: 'test1' }, :return_document => :after)
+  # @example Find a document and replace it, returning the original.
+  #   collection.find_one_and_replace({ name: 'test' }, { name: 'test1' })
   # @option options
   # @option options
   # @option options
@@ -7114,12 +7122,12 @@ class Mongo::Collection
   # @option options
   # @option options
   # @param filter [Hash] The filter to use.
-  # @param replacement [BSON::Document] The replacement document.
   # @param options [Hash] The options.
+  # @param replacement [BSON::Document] The replacement document.
   # @return [BSON::Document] The document.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#1243
+  # source://mongo//lib/mongo/collection.rb#1253
   def find_one_and_replace(filter, replacement, options = T.unsafe(nil)); end
 
   # Finds a single document via findAndModify and updates it, returning the original doc unless
@@ -7143,12 +7151,12 @@ class Mongo::Collection
   # @option options
   # @option options
   # @param filter [Hash] The filter to use.
-  # @param update [Hash | Array<Hash>] The update document or pipeline.
   # @param options [Hash] The options.
+  # @param update [Hash | Array<Hash>] The update document or pipeline.
   # @return [BSON::Document] The document.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#1201
+  # source://mongo//lib/mongo/collection.rb#1211
   def find_one_and_update(filter, update, options = T.unsafe(nil)); end
 
   # Get a view of all indexes for this collection. Can be iterated or has
@@ -7186,14 +7194,14 @@ class Mongo::Collection
   #
   # @example Insert a document into the collection.
   #   collection.insert_one({ name: 'test' })
-  # @option opts
-  # @option opts
-  # @option opts
   # @option options
   # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
   # @param document [Hash] The document to insert.
-  # @param opts [Hash] The insert options.
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] The insert options.
   # @return [Result] The database response wrapper.
   # @since 2.0.0
   #
@@ -7223,7 +7231,7 @@ class Mongo::Collection
   # @return [String] The collection namespace.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#1255
+  # source://mongo//lib/mongo/collection.rb#1265
   def namespace; end
 
   # source://mongo//lib/mongo/collection.rb#58
@@ -7234,7 +7242,7 @@ class Mongo::Collection
   #   and/or timeout_ms that is set on collection/database/client level (if any).
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#1280
+  # source://mongo//lib/mongo/collection.rb#1290
   def operation_timeouts(opts = T.unsafe(nil)); end
 
   # @return [Hash] The collection options.
@@ -7302,13 +7310,14 @@ class Mongo::Collection
   # @option options
   # @option options
   # @option options
+  # @option options
   # @param filter [Hash] The filter to use.
-  # @param replacement [Hash] The replacement document..
   # @param options [Hash] The options.
+  # @param replacement [Hash] The replacement document..
   # @return [Result] The response from the database.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#1056
+  # source://mongo//lib/mongo/collection.rb#1061
   def replace_one(filter, replacement, options = T.unsafe(nil)); end
 
   # Get a view of all search indexes for this collection. Can be iterated or
@@ -7344,7 +7353,7 @@ class Mongo::Collection
   # @return [Boolean] Whether the system is a system collection.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#1264
+  # source://mongo//lib/mongo/collection.rb#1274
   def system_collection?; end
 
   # @api private
@@ -7352,7 +7361,7 @@ class Mongo::Collection
   #   for the corresponding client.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection.rb#1272
+  # source://mongo//lib/mongo/collection.rb#1282
   def timeout_ms; end
 
   # Update documents in the collection.
@@ -7368,12 +7377,12 @@ class Mongo::Collection
   # @option options
   # @option options
   # @param filter [Hash] The filter to use.
-  # @param update [Hash | Array<Hash>] The update document or pipeline.
   # @param options [Hash] The options.
+  # @param update [Hash | Array<Hash>] The update document or pipeline.
   # @return [Result] The response from the database.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#1089
+  # source://mongo//lib/mongo/collection.rb#1094
   def update_many(filter, update, options = T.unsafe(nil)); end
 
   # Update a single document in the collection.
@@ -7388,13 +7397,14 @@ class Mongo::Collection
   # @option options
   # @option options
   # @option options
+  # @option options
   # @param filter [Hash] The filter to use.
-  # @param update [Hash | Array<Hash>] The update document or pipeline.
   # @param options [Hash] The options.
+  # @param update [Hash | Array<Hash>] The update document or pipeline.
   # @return [Result] The response from the database.
   # @since 2.1.0
   #
-  # source://mongo//lib/mongo/collection.rb#1122
+  # source://mongo//lib/mongo/collection.rb#1132
   def update_one(filter, update, options = T.unsafe(nil)); end
 
   # As of version 3.6 of the MongoDB server, a ``$changeStream`` pipeline
@@ -7419,8 +7429,8 @@ class Mongo::Collection
   # @option options
   # @option options
   # @option options
-  # @param pipeline [Array<Hash>] Optional additional filter operators.
   # @param options [Hash] The change stream options.
+  # @param pipeline [Array<Hash>] Optional additional filter operators.
   # @return [ChangeStream] The change stream object.
   # @since 2.5.0
   #
@@ -7503,9 +7513,9 @@ module Mongo::Collection::Helpers
   # Executes drop operation and and ignores NamespaceNotFound error.
   #
   # @api private
+  # @param context [Operation::Context] Context to use for execution.
   # @param operation [Operation::Drop] Drop operation to be executed.
   # @param session [Session] Session to be use for execution.
-  # @param context [Operation::Context] Context to use for execution.
   # @return [Result] The result of the execution.
   #
   # source://mongo//lib/mongo/collection/helpers.rb#31
@@ -7529,9 +7539,9 @@ module Mongo::Collection::QueryableEncryption
   # Creates auxiliary collections and indices for queryable encryption if necessary.
   #
   # @api private
+  # @param client [Client] Mongo client to be used to create auxiliary collections.
   # @param encrypted_fields [Hash | nil] Encrypted fields hash that was
   #   provided to `create` collection helper.
-  # @param client [Client] Mongo client to be used to create auxiliary collections.
   # @param session [Session] Session to be used to create auxiliary collections.
   # @return [Result] The result of provided block.
   #
@@ -7541,9 +7551,9 @@ module Mongo::Collection::QueryableEncryption
   # Drops auxiliary collections and indices for queryable encryption if necessary.
   #
   # @api private
+  # @param client [Client] Mongo client to be used to drop auxiliary collections.
   # @param encrypted_fields [Hash | nil] Encrypted fields hash that was
   #   provided to `create` collection helper.
-  # @param client [Client] Mongo client to be used to drop auxiliary collections.
   # @param session [Session] Session to be used to drop auxiliary collections.
   # @return [Result] The result of provided block.
   #
@@ -7641,12 +7651,12 @@ class Mongo::Collection::View
   # Creates a new +View+.
   #
   # @api semipublic
-  # @example Find all users named Emily.
-  #   View.new(collection, {:name => 'Emily'})
   # @example Find all users named Emily skipping 5 and returning 10.
   #   View.new(collection, {:name => 'Emily'}, :skip => 5, :limit => 10)
   # @example Find all users named Emily using a specific read preference.
   #   View.new(collection, {:name => 'Emily'}, :read => :secondary_preferred)
+  # @example Find all users named Emily.
+  #   View.new(collection, {:name => 'Emily'})
   # @option options
   # @option options
   # @option options
@@ -7855,9 +7865,9 @@ class Mongo::Collection::View::Aggregation
   # @option options
   # @option options
   # @option options
-  # @param view [Collection::View] The collection view.
-  # @param pipeline [Array<Hash>] The pipeline of operations.
   # @param options [Hash] The aggregation options.
+  # @param pipeline [Array<Hash>] The pipeline of operations.
+  # @param view [Collection::View] The collection view.
   # @return [Aggregation] a new instance of Aggregation
   # @since 2.0.0
   #
@@ -8030,9 +8040,9 @@ class Mongo::Collection::View::Builder::Aggregation
 
   # Initialize the builder.
   #
+  # @param options [Hash] The map/reduce and read preference options.
   # @param pipeline [Array<Hash>] The aggregation pipeline.
   # @param view [Collection::View] The collection view.
-  # @param options [Hash] The map/reduce and read preference options.
   # @return [Aggregation] a new instance of Aggregation
   # @since 2.2.0
   #
@@ -8118,9 +8128,9 @@ class Mongo::Collection::View::Builder::MapReduce
   # @example Initialize the builder.
   #   MapReduce.new(map, reduce, view, options)
   # @param map [String] The map function.
+  # @param options [Hash] The map/reduce options.
   # @param reduce [String] The reduce function.
   # @param view [Collection::View] The collection view.
-  # @param options [Hash] The map/reduce options.
   # @return [MapReduce] a new instance of MapReduce
   # @since 2.2.0
   #
@@ -8234,9 +8244,9 @@ class Mongo::Collection::View::ChangeStream < ::Mongo::Collection::View::Aggrega
   # @option options
   # @option options
   # @option options
-  # @param view [Collection::View] The collection view.
-  # @param pipeline [Array<Hash>] The pipeline of operators to filter the change notifications.
   # @param options [Hash] The change stream options.
+  # @param pipeline [Array<Hash>] The pipeline of operators to filter the change notifications.
+  # @param view [Collection::View] The collection view.
   # @return [ChangeStream] a new instance of ChangeStream
   # @since 2.5.0
   #
@@ -8681,10 +8691,10 @@ class Mongo::Collection::View::MapReduce
   # and options.
   #
   # @example Create the new map/reduce view.
-  # @param view [Collection::View] The collection view.
   # @param map [String] The map function.
-  # @param reduce [String] The reduce function.
   # @param options [Hash] The map/reduce options.
+  # @param reduce [String] The reduce function.
+  # @param view [Collection::View] The collection view.
   # @return [MapReduce] a new instance of MapReduce
   # @since 2.0.0
   #
@@ -8759,14 +8769,14 @@ class Mongo::Collection::View::MapReduce
 
   # Set or get the output location for the operation.
   #
-  # @example Set the output to inline.
-  #   map_reduce.out(inline: 1)
   # @example Set the output collection to merge.
   #   map_reduce.out(merge: 'users')
-  # @example Set the output collection to replace.
-  #   map_reduce.out(replace: 'users')
   # @example Set the output collection to reduce.
   #   map_reduce.out(reduce: 'users')
+  # @example Set the output collection to replace.
+  #   map_reduce.out(replace: 'users')
+  # @example Set the output to inline.
+  #   map_reduce.out(inline: 1)
   # @param location [Hash] The output location details.
   # @return [MapReduce, Hash] The new MapReduce operation or the value
   #   of the output location.
@@ -8952,8 +8962,8 @@ module Mongo::Collection::View::Readable
   # @option options
   # @option options
   # @option options
-  # @param pipeline [Array<Hash>] The aggregation pipeline.
   # @param options [Hash] The aggregation options.
+  # @param pipeline [Array<Hash>] The aggregation pipeline.
   # @return [Aggregation] The aggregation object.
   # @since 2.0.0
   #
@@ -9025,17 +9035,17 @@ module Mongo::Collection::View::Readable
   #   * $nearSphere should be replaced with $geoWithin with $centerSphere
   # @example Get the number of documents in the collection.
   #   collection_view.count
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
   # @option options
-  # @param opts [Hash] Options for the operation.
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] Options for the operation.
   # @return [Integer] The document count.
   # @since 2.0.0
   #
@@ -9046,18 +9056,18 @@ module Mongo::Collection::View::Readable
   #
   # @example Get the number of documents in the collection.
   #   collection_view.count
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
   # @option ops
   # @option options
-  # @param opts [Hash] Options for the operation.
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
   # @param ops [Hash] a customizable set of options
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] Options for the operation.
   # @return [Integer] The document count.
   # @since 2.6.0
   #
@@ -9079,13 +9089,13 @@ module Mongo::Collection::View::Readable
   #
   # @example Get the distinct values.
   #   collection_view.distinct('name')
-  # @option opts
-  # @option opts
-  # @option opts
   # @option options
+  # @option opts
+  # @option opts
+  # @option opts
   # @param field_name [String, Symbol] The name of the field.
-  # @param opts [Hash] Options for the distinct command.
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] Options for the distinct command.
   # @return [Array<Object>] The list of distinct values.
   # @since 2.0.0
   #
@@ -9096,12 +9106,12 @@ module Mongo::Collection::View::Readable
   #
   # @example Get the number of documents in the collection.
   #   collection_view.estimated_document_count
-  # @option opts
-  # @option opts
-  # @option opts
   # @option options
-  # @param opts [Hash] Options for the operation.
+  # @option opts
+  # @option opts
+  # @option opts
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] Options for the operation.
   # @return [Integer] The document count.
   # @since 2.6.0
   #
@@ -9135,8 +9145,8 @@ module Mongo::Collection::View::Readable
   # @example Execute a map/reduce.
   #   view.map_reduce(map, reduce)
   # @param map [String] The map js function.
-  # @param reduce [String] The reduce js function.
   # @param options [Hash] The map/reduce options.
+  # @param reduce [String] The reduce js function.
   # @return [MapReduce] The map reduce wrapper.
   # @since 2.0.0
   #
@@ -9381,15 +9391,15 @@ module Mongo::Collection::View::Writable
   #
   # @example Remove multiple documents from the collection.
   #   collection_view.delete_many
-  # @option opts
-  # @option opts
   # @option options
   # @option opts
   # @option opts
   # @option opts
   # @option opts
-  # @param opts [Hash] The options.
+  # @option opts
+  # @option opts
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] The options.
   # @return [Result] The response from the database.
   # @since 2.0.0
   #
@@ -9400,15 +9410,15 @@ module Mongo::Collection::View::Writable
   #
   # @example Remove a single document from the collection.
   #   collection_view.delete_one
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
   # @option options
   # @option opts
-  # @param opts [Hash] The options.
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] The options.
   # @return [Result] The response from the database.
   # @since 2.0.0
   #
@@ -9420,18 +9430,18 @@ module Mongo::Collection::View::Writable
   #
   # @example Find one document and delete it.
   #   view.find_one_and_delete
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
   # @option options
   # @option opts
   # @option opts
   # @option opts
-  # @param opts [Hash] The options.
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] The options.
   # @return [BSON::Document, nil] The document, if found.
   # @since 2.0.0
   #
@@ -9440,21 +9450,21 @@ module Mongo::Collection::View::Writable
 
   # Finds a single document and replaces it.
   #
-  # @example Find a document and replace it, returning the original.
-  #   view.find_one_and_replace({ name: 'test' }, :return_document => :before)
   # @example Find a document and replace it, returning the new document.
   #   view.find_one_and_replace({ name: 'test' }, :return_document => :after)
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
+  # @example Find a document and replace it, returning the original.
+  #   view.find_one_and_replace({ name: 'test' }, :return_document => :before)
   # @option options
   # @option opts
   # @option opts
-  # @param replacement [BSON::Document] The replacement.
-  # @param opts [Hash] The options.
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] The options.
+  # @param replacement [BSON::Document] The replacement.
   # @return [BSON::Document] The document.
   # @since 2.0.0
   #
@@ -9467,23 +9477,23 @@ module Mongo::Collection::View::Writable
   #
   # @example Find a document and update it, returning the original.
   #   view.find_one_and_update({ "$set" => { name: 'test' }}, :return_document => :before)
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
   # @option options
   # @option opts
   # @option opts
   # @option opts
   # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
   # @param document [BSON::Document] The updates.
-  # @param opts [Hash] The options.
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] The options.
   # @return [BSON::Document | nil] The document or nil if none is found.
   # @since 2.0.0
   #
@@ -9494,68 +9504,70 @@ module Mongo::Collection::View::Writable
   #
   # @example Replace a single document.
   #   collection_view.replace_one({ name: 'test' })
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
   # @option options
   # @option opts
   # @option opts
-  # @param replacement [Hash] The replacement document.
-  # @param opts [Hash] The options.
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] The options.
+  # @param replacement [Hash] The replacement document.
   # @return [Result] The response from the database.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection/view/writable.rb#396
+  # source://mongo//lib/mongo/collection/view/writable.rb#401
   def replace_one(replacement, opts = T.unsafe(nil)); end
 
   # Update documents in the collection.
   #
   # @example Update multiple documents in the collection.
   #   collection_view.update_many('$set' => { name: 'test' })
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
   # @option options
   # @option opts
   # @option opts
-  # @param spec [Hash | Array<Hash>] The update document or pipeline.
-  # @param opts [Hash] The options.
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] The options.
+  # @param spec [Hash | Array<Hash>] The update document or pipeline.
   # @return [Result] The response from the database.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection/view/writable.rb#476
+  # source://mongo//lib/mongo/collection/view/writable.rb#482
   def update_many(spec, opts = T.unsafe(nil)); end
 
   # Update a single document in the collection.
   #
   # @example Update a single document in the collection.
   #   collection_view.update_one('$set' => { name: 'test' })
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
   # @option options
   # @option opts
   # @option opts
-  # @param spec [Hash | Array<Hash>] The update document or pipeline.
-  # @param opts [Hash] The options.
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] The options.
+  # @param spec [Hash | Array<Hash>] The update document or pipeline.
   # @return [Result] The response from the database.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection/view/writable.rb#556
+  # source://mongo//lib/mongo/collection/view/writable.rb#567
   def update_one(spec, opts = T.unsafe(nil)); end
 
   private
@@ -9569,7 +9581,7 @@ module Mongo::Collection::View::Writable
   #   document does not start with a $.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection/view/writable.rb#636
+  # source://mongo//lib/mongo/collection/view/writable.rb#648
   def validate_replacement_documents!(spec); end
 
   # Checks the update documents to make sure they only have atomic modifiers.
@@ -9581,7 +9593,7 @@ module Mongo::Collection::View::Writable
   #   document does not start with a $.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/collection/view/writable.rb#614
+  # source://mongo//lib/mongo/collection/view/writable.rb#626
   def validate_update_documents!(spec); end
 end
 
@@ -9765,12 +9777,12 @@ class Mongo::Crypt::AutoDecryptionContext < ::Mongo::Crypt::Context
   # Create a new AutoEncryptionContext object
   #
   # @api private
-  # @param mongocrypt [Mongo::Crypt::Handle] a Handle that
-  #   wraps a mongocrypt_t object used to create a new mongocrypt_ctx_t.
+  # @param command [Hash] The command to be decrypted.
   # @param io [ClientEncryption::IO] A instance of the IO class
   #   that implements driver I/O methods required to run the
   #   state machine.
-  # @param command [Hash] The command to be decrypted.
+  # @param mongocrypt [Mongo::Crypt::Handle] a Handle that
+  #   wraps a mongocrypt_t object used to create a new mongocrypt_ctx_t.
   # @return [AutoDecryptionContext] a new instance of AutoDecryptionContext
   #
   # source://mongo//lib/mongo/crypt/auto_decryption_context.rb#34
@@ -9836,9 +9848,9 @@ class Mongo::Crypt::AutoEncrypter
   # Encrypt a database command.
   #
   # @api private
+  # @param command [Hash] The command to be encrypted.
   # @param database_name [String] The name of the database on which the
   #   command is being run.
-  # @param command [Hash] The command to be encrypted.
   # @return [BSON::Document] The encrypted command.
   #
   # source://mongo//lib/mongo/crypt/auto_encrypter.rb#190
@@ -9925,14 +9937,14 @@ class Mongo::Crypt::AutoEncryptionContext < ::Mongo::Crypt::Context
   # Create a new AutoEncryptionContext object
   #
   # @api private
-  # @param mongocrypt [Mongo::Crypt::Handle] a Handle that
-  #   wraps a mongocrypt_t object used to create a new mongocrypt_ctx_t
+  # @param command [Hash] The command to be encrypted
+  # @param db_name [String] The name of the database against which
+  #   the command is being made
   # @param io [ClientEncryption::IO] A instance of the IO class
   #   that implements driver I/O methods required to run the
   #   state machine
-  # @param db_name [String] The name of the database against which
-  #   the command is being made
-  # @param command [Hash] The command to be encrypted
+  # @param mongocrypt [Mongo::Crypt::Handle] a Handle that
+  #   wraps a mongocrypt_t object used to create a new mongocrypt_ctx_t
   # @return [AutoEncryptionContext] a new instance of AutoEncryptionContext
   #
   # source://mongo//lib/mongo/crypt/auto_encryption_context.rb#36
@@ -10046,11 +10058,11 @@ class Mongo::Crypt::Context
   # Create a new Context object
   #
   # @api private
-  # @param mongocrypt_handle [Mongo::Crypt::Handle] A handle to libmongocrypt
-  #   used to create a new context object.
   # @param io [ClientEncryption::IO] An instance of the IO class
   #   that implements driver I/O methods required to run the
   #   state machine.
+  # @param mongocrypt_handle [Mongo::Crypt::Handle] A handle to libmongocrypt
+  #   used to create a new context object.
   # @return [Context] a new instance of Context
   #
   # source://mongo//lib/mongo/crypt/context.rb#41
@@ -10169,18 +10181,18 @@ class Mongo::Crypt::DataKeyContext < ::Mongo::Crypt::Context
   # Create a new DataKeyContext object
   #
   # @api private
-  # @param mongocrypt [Mongo::Crypt::Handle] a Handle that
-  #   wraps a mongocrypt_t object used to create a new mongocrypt_ctx_t
-  # @param io [Mongo::Crypt::EncryptionIO] An object that performs all
-  #   driver I/O on behalf of libmongocrypt
-  # @param master_key_document [Mongo::Crypt::KMS::MasterKeyDocument] The master
-  #   key document that contains master encryption key parameters.
-  # @param key_alt_names [Array<String> | nil] An optional array of strings specifying
-  #   alternate names for the new data key.
   # @param :key_material [String | nil] Optional
   #   96 bytes to use as custom key material for the data key being created.
   #   If :key_material option is given, the custom key material is used
   #   for encrypting and decrypting data.
+  # @param io [Mongo::Crypt::EncryptionIO] An object that performs all
+  #   driver I/O on behalf of libmongocrypt
+  # @param key_alt_names [Array<String> | nil] An optional array of strings specifying
+  #   alternate names for the new data key.
+  # @param master_key_document [Mongo::Crypt::KMS::MasterKeyDocument] The master
+  #   key document that contains master encryption key parameters.
+  # @param mongocrypt [Mongo::Crypt::Handle] a Handle that
+  #   wraps a mongocrypt_t object used to create a new mongocrypt_ctx_t
   # @return [DataKeyContext] a new instance of DataKeyContext
   #
   # source://mongo//lib/mongo/crypt/data_key_context.rb#41
@@ -10224,14 +10236,14 @@ class Mongo::Crypt::EncryptionIO
   # @option mongocryptd_options
   # @param client [Mongo::Client] The client used to connect to the collection
   #   that stores the encrypted documents, defaults to nil.
-  # @param mongocryptd_client [Mongo::Client] The client connected to mongocryptd,
-  #   defaults to nil.
   # @param key_vault_client [Mongo::Client] The client connected to the
   #   key vault collection.
-  # @param metadata_client [Mongo::Client | nil] The client to be used to
-  #   obtain collection metadata.
   # @param key_vault_namespace [String] The key vault namespace in the format
   #   db_name.collection_name.
+  # @param metadata_client [Mongo::Client | nil] The client to be used to
+  #   obtain collection metadata.
+  # @param mongocryptd_client [Mongo::Client] The client connected to mongocryptd,
+  #   defaults to nil.
   # @param mongocryptd_options [Hash] Options related to mongocryptd.
   # @return [EncryptionIO] a new instance of EncryptionIO
   #
@@ -10249,10 +10261,10 @@ class Mongo::Crypt::EncryptionIO
   # Get collection info for a collection matching the provided filter
   #
   # @api private
-  # @param filter [Hash]
   # @param :timeout_ms [Integer] The operation timeout in milliseconds.
   #   Must be a non-negative integer. An explicit value of 0 means infinite.
   #   The default value is unset which means the feature is not enabled.
+  # @param filter [Hash]
   # @return [Hash] The collection information
   #
   # source://mongo//lib/mongo/crypt/encryption_io.rb#105
@@ -10270,15 +10282,15 @@ class Mongo::Crypt::EncryptionIO
   # KmsContext object
   #
   # @api private
+  # @param :timeout_ms [Integer] The operation timeout in milliseconds.
+  #   Must be a non-negative integer. An explicit value of 0 means infinite.
+  #   The default value is unset which means the feature is not enabled.
   # @param kms_context [Mongo::Crypt::KmsContext] A KmsContext object
   #   corresponding to one remote KMS data key. Contains information about
   #   the endpoint at which to establish a TLS connection and the message
   #   to send on that connection.
   # @param tls_options. [Hash] TLS options to connect to KMS provider.
   #   The options are same as for Mongo::Client.
-  # @param :timeout_ms [Integer] The operation timeout in milliseconds.
-  #   Must be a non-negative integer. An explicit value of 0 means infinite.
-  #   The default value is unset which means the feature is not enabled.
   #
   # source://mongo//lib/mongo/crypt/encryption_io.rb#161
   def feed_kms(kms_context, tls_options, timeout_ms: T.unsafe(nil)); end
@@ -10287,10 +10299,10 @@ class Mongo::Crypt::EncryptionIO
   # filter
   #
   # @api private
-  # @param filter [Hash]
   # @param :timeout_ms [Integer] The operation timeout in milliseconds.
   #   Must be a non-negative integer. An explicit value of 0 means infinite.
   #   The default value is unset which means the feature is not enabled.
+  # @param filter [Hash]
   # @return [Array<BSON::Document>] The query results
   #
   # source://mongo//lib/mongo/crypt/encryption_io.rb#81
@@ -10321,10 +10333,10 @@ class Mongo::Crypt::EncryptionIO
   # Insert a document into the key vault collection
   #
   # @api private
-  # @param document [Hash]
   # @param :timeout_ms [Integer] The operation timeout in milliseconds.
   #   Must be a non-negative integer. An explicit value of 0 means infinite.
   #   The default value is unset which means the feature is not enabled.
+  # @param document [Hash]
   # @return [Mongo::Operation::Insert::Result] The insertion result
   #
   # source://mongo//lib/mongo/crypt/encryption_io.rb#93
@@ -10333,10 +10345,10 @@ class Mongo::Crypt::EncryptionIO
   # Send the command to mongocryptd to be marked with intent-to-encrypt markings
   #
   # @api private
-  # @param cmd [Hash]
   # @param :timeout_ms [Integer] The operation timeout in milliseconds.
   #   Must be a non-negative integer. An explicit value of 0 means infinite.
   #   The default value is unset which means the feature is not enabled.
+  # @param cmd [Hash]
   # @return [Hash] The marked command
   #
   # source://mongo//lib/mongo/crypt/encryption_io.rb#125
@@ -10429,12 +10441,12 @@ class Mongo::Crypt::ExplicitDecryptionContext < ::Mongo::Crypt::Context
   # Create a new ExplicitDecryptionContext object
   #
   # @api private
-  # @param mongocrypt [Mongo::Crypt::Handle] a Handle that
-  #   wraps a mongocrypt_t object used to create a new mongocrypt_ctx_t
+  # @param doc [BSON::Document] A document to decrypt
   # @param io [ClientEncryption::IO] A instance of the IO class
   #   that implements driver I/O methods required to run the
   #   state machine
-  # @param doc [BSON::Document] A document to decrypt
+  # @param mongocrypt [Mongo::Crypt::Handle] a Handle that
+  #   wraps a mongocrypt_t object used to create a new mongocrypt_ctx_t
   # @return [ExplicitDecryptionContext] a new instance of ExplicitDecryptionContext
   #
   # source://mongo//lib/mongo/crypt/explicit_decryption_context.rb#34
@@ -10486,14 +10498,14 @@ class Mongo::Crypt::ExplicitEncrypter
   # the KMS master key.
   #
   # @api private
-  # @param master_key_document [Mongo::Crypt::KMS::MasterKeyDocument] The master
-  #   key document that contains master encryption key parameters.
   # @param key_alt_names [Array<String> | nil] An optional array of strings specifying
   #   alternate names for the new data key.
   # @param key_material [String | nil] Optional 96 bytes to use as
   #   custom key material for the data key being created.
   #   If key_material option is given, the custom key material is used
   #   for encrypting and decrypting data.
+  # @param master_key_document [Mongo::Crypt::KMS::MasterKeyDocument] The master
+  #   key document that contains master encryption key parameters.
   # @return [BSON::Binary] The 16-byte UUID of the new data key as a
   #   BSON::Binary object with type :uuid.
   #
@@ -10534,8 +10546,8 @@ class Mongo::Crypt::ExplicitEncrypter
   # @option options
   # @option options
   # @option options
-  # @param value [Object] The value to encrypt
   # @param options [Hash]
+  # @param value [Object] The value to encrypt
   # @raise [ArgumentError] if either contention_factor or query_type
   #   is set, and algorithm is not "Indexed".
   # @return [BSON::Binary] A BSON Binary object of subtype 6 (ciphertext)
@@ -10554,15 +10566,15 @@ class Mongo::Crypt::ExplicitEncrypter
   # intended for public use.
   #
   # @api private
-  # @example Encrypt Match Expression.
-  #   encryption.encrypt_expression(
-  #   {'$and' =>  [{'field' => {'$gt' => 10}}, {'field' =>  {'$lt' => 20 }}]}
-  #   )
   # @example Encrypt Aggregate Expression.
   #   encryption.encrypt_expression(
   #   {'$and' =>  [{'$gt' => ['$field', 10]}, {'$lt' => ['$field', 20]}}
   #   )
   #   {$and: [{$gt: [<fieldpath>, <value1>]}, {$lt: [<fieldpath>, <value2>]}]
+  # @example Encrypt Match Expression.
+  #   encryption.encrypt_expression(
+  #   {'$and' =>  [{'field' => {'$gt' => 10}}, {'field' =>  {'$lt' => 20 }}]}
+  #   )
   # @note The Range algorithm is experimental only. It is not
   # @note The :key_id and :key_alt_name options are mutually exclusive. Only
   #   one is required to perform explicit encryption.
@@ -10642,8 +10654,8 @@ class Mongo::Crypt::ExplicitEncrypter
   #
   # @api private
   # @option [
-  # @param opts [Hash] the options hash
   # @param [ [Hash] a customizable set of options
+  # @param opts [Hash] the options hash
   # @return [KMS::MasterKeyDocument | nil] the new master key document,
   #   or nil if no provider was given.
   #
@@ -10694,12 +10706,12 @@ class Mongo::Crypt::ExplicitEncryptionContext < ::Mongo::Crypt::Context
   # @option options
   # @option options
   # @option options
-  # @param mongocrypt [Mongo::Crypt::Handle] a Handle that
-  #   wraps a mongocrypt_t object used to create a new mongocrypt_ctx_t
+  # @param doc [BSON::Document] A document to encrypt
   # @param io [ClientEncryption::IO] A instance of the IO class
   #   that implements driver I/O methods required to run the
   #   state machine
-  # @param doc [BSON::Document] A document to encrypt
+  # @param mongocrypt [Mongo::Crypt::Handle] a Handle that
+  #   wraps a mongocrypt_t object used to create a new mongocrypt_ctx_t
   # @param options [Hash]
   # @raise [ArgumentError|Mongo::Error::CryptError] If invalid options are provided
   # @return [ExplicitEncryptionContext] a new instance of ExplicitEncryptionContext
@@ -10933,11 +10945,11 @@ module Mongo::Crypt::Hooks
   # An AES encrypt or decrypt method.
   #
   # @api private
-  # @param key [String] The 32-byte AES encryption key
-  # @param iv [String] The 16-byte AES IV
-  # @param input [String] The data to be encrypted/decrypted
   # @param decrypt [true | false] Whether this method is decrypting. Default is
   #   false, which means the method will create an encryption cipher by default
+  # @param input [String] The data to be encrypted/decrypted
+  # @param iv [String] The 16-byte AES IV
+  # @param key [String] The 32-byte AES encryption key
   # @param mode [Symbol] AES mode of operation
   # @raise [Exception] Exceptions raised during encryption are propagated
   #   to caller.
@@ -10961,8 +10973,8 @@ module Mongo::Crypt::Hooks
   #
   # @api private
   # @param digest_name [String] The name of the digest, either "SHA256" or "SHA512"
-  # @param key [String] The 32-byte AES encryption key
   # @param input [String] The data to be tagged
+  # @param key [String] The 32-byte AES encryption key
   # @raise [Exception] Exceptions raised during encryption are propagated
   #   to caller.
   # @return [String]
@@ -10984,8 +10996,8 @@ module Mongo::Crypt::Hooks
   # An RSASSA-PKCS1-v1_5 with SHA-256 signature function.
   #
   # @api private
-  # @param key [String] The PKCS#8 private key in DER format, base64 encoded.
   # @param input [String] The data to be signed.
+  # @param key [String] The PKCS#8 private key in DER format, base64 encoded.
   # @return [String] The signature.
   #
   # source://mongo//lib/mongo/crypt/hooks.rb#99
@@ -10995,11 +11007,11 @@ module Mongo::Crypt::Hooks
     # An AES encrypt or decrypt method.
     #
     # @api private
-    # @param key [String] The 32-byte AES encryption key
-    # @param iv [String] The 16-byte AES IV
-    # @param input [String] The data to be encrypted/decrypted
     # @param decrypt [true | false] Whether this method is decrypting. Default is
     #   false, which means the method will create an encryption cipher by default
+    # @param input [String] The data to be encrypted/decrypted
+    # @param iv [String] The 16-byte AES IV
+    # @param key [String] The 32-byte AES encryption key
     # @param mode [Symbol] AES mode of operation
     # @raise [Exception] Exceptions raised during encryption are propagated
     #   to caller.
@@ -11023,8 +11035,8 @@ module Mongo::Crypt::Hooks
     #
     # @api private
     # @param digest_name [String] The name of the digest, either "SHA256" or "SHA512"
-    # @param key [String] The 32-byte AES encryption key
     # @param input [String] The data to be tagged
+    # @param key [String] The 32-byte AES encryption key
     # @raise [Exception] Exceptions raised during encryption are propagated
     #   to caller.
     # @return [String]
@@ -11046,8 +11058,8 @@ module Mongo::Crypt::Hooks
     # An RSASSA-PKCS1-v1_5 with SHA-256 signature function.
     #
     # @api private
-    # @param key [String] The PKCS#8 private key in DER format, base64 encoded.
     # @param input [String] The data to be signed.
+    # @param key [String] The PKCS#8 private key in DER format, base64 encoded.
     # @return [String] The signature.
     #
     # source://mongo//lib/mongo/crypt/hooks.rb#113
@@ -11319,9 +11331,9 @@ class Mongo::Crypt::KMS::Azure::CredentialsRetriever
     # Performs a request to Azure metadata host.
     #
     # @api private
-    # @param uri [URI] URI to Azure metadata host.
     # @param req [Net::HTTP::Get] Request object.
     # @param timeout_holder [CsotTimeoutHolder | nil] CSOT timeout.
+    # @param uri [URI] URI to Azure metadata host.
     # @raise [KMS::CredentialsNotFound] If cannot execute request.
     # @raise Error::TimeoutError if credentials cannot be retrieved within
     #   the timeout.
@@ -11333,9 +11345,9 @@ class Mongo::Crypt::KMS::Azure::CredentialsRetriever
     # Fetches response from Azure metadata host.
     #
     # @api private
-    # @param uri [URI] URI to Azure metadata host.
     # @param req [Net::HTTP::Get] Request object.
     # @param timeout_holder [CsotTimeoutHolder | nil] CSOT timeout.
+    # @param uri [URI] URI to Azure metadata host.
     # @raise [KMS::CredentialsNotFound] If cannot fetch response or
     #   response is invalid.
     # @raise Error::TimeoutError if credentials cannot be retrieved within
@@ -12001,14 +12013,14 @@ class Mongo::Crypt::RewrapManyDataKeyContext < ::Mongo::Crypt::Context
   # Create a new RewrapManyDataKeyContext object
   #
   # @api private
-  # @param mongocrypt [Mongo::Crypt::Handle] a Handle that
-  #   wraps a mongocrypt_t object used to create a new mongocrypt_ctx_t
-  # @param io [Mongo::Crypt::EncryptionIO] An object that performs all
-  #   driver I/O on behalf of libmongocrypt
   # @param filter [Hash] Filter used to find keys to be updated.
   #   alternate names for the new data key.
+  # @param io [Mongo::Crypt::EncryptionIO] An object that performs all
+  #   driver I/O on behalf of libmongocrypt
   # @param master_key_document [Mongo::Crypt::KMS::MasterKeyDocument | nil] The optional master
   #   key document that contains master encryption key parameters.
+  # @param mongocrypt [Mongo::Crypt::Handle] a Handle that
+  #   wraps a mongocrypt_t object used to create a new mongocrypt_ctx_t
   # @return [RewrapManyDataKeyContext] a new instance of RewrapManyDataKeyContext
   #
   # source://mongo//lib/mongo/crypt/rewrap_many_data_key_context.rb#37
@@ -12115,8 +12127,8 @@ class Mongo::Crypt::Status
   # Set a label, code, and message on the Status
   #
   # @api private
-  # @param label [Symbol] One of :ok, :error_client, or :error_kms
   # @param code [Integer]
+  # @param label [Symbol] One of :ok, :error_client, or :error_kms
   # @param message [String]
   # @return [Mongo::Crypt::Status] returns self
   #
@@ -12246,10 +12258,10 @@ end
 # and the enumerator is backed by a +Cursor+ instance.
 #
 # @api private
-# @example Get an array of 5 users named Emily.
-#   users.find({:name => 'Emily'}).limit(5).to_a
 # @example Call a block on each user doc.
 #   users.find.each { |doc| puts doc }
+# @example Get an array of 5 users named Emily.
+#   users.find({:name => 'Emily'}).limit(5).to_a
 #
 # source://mongo//lib/mongo/cursor.rb#34
 class Mongo::Cursor
@@ -12265,10 +12277,10 @@ class Mongo::Cursor
   # @option options
   # @option options
   # @option options
-  # @param view [CollectionView] The +CollectionView+ defining the query.
+  # @param options [Hash] The cursor options.
   # @param result [Operation::Result] The result of the first execution.
   # @param server [Server] The server this cursor is locked to.
-  # @param options [Hash] The cursor options.
+  # @param view [CollectionView] The +CollectionView+ defining the query.
   # @return [Cursor] a new instance of Cursor
   # @since 2.0.0
   #
@@ -12585,8 +12597,8 @@ class Mongo::Cursor
     # in a killCursors operation executed by the Cluster's CursorReaper.
     #
     # @api private
-    # @param kill_spec [Cursor::KillSpec] The KillCursor operation specification.
     # @param cluster [Mongo::Cluster] The cluster associated with this cursor and its server.
+    # @param kill_spec [Cursor::KillSpec] The KillCursor operation specification.
     # @return [Proc] The Finalizer.
     #
     # source://mongo//lib/mongo/cursor.rb#128
@@ -12715,9 +12727,9 @@ module Mongo::CursorHost
   #
   #
   # @api private
-  # @param options [Hash] The options to inspect.
   # @param forbid [Array<Symbol>] The list of options to forbid for this
   #   class.
+  # @param options [Hash] The options to inspect.
   # @raise [ArgumentError] if inconsistent or incompatible options are
   #   detected.
   #
@@ -12790,8 +12802,8 @@ class Mongo::Database
   # @option options
   # @option options
   # @option options
-  # @param pipeline [Array<Hash>] The aggregation pipeline.
   # @param options [Hash] The aggregation options.
+  # @param pipeline [Array<Hash>] The aggregation pipeline.
   # @return [Collection::View::Aggregation] The aggregation object.
   # @since 2.10.0
   #
@@ -12862,13 +12874,13 @@ class Mongo::Database
   #
   # @example Execute a command.
   #   database.command(:hello => 1)
-  # @option opts
-  # @option opts
   # @option options
   # @option opts
+  # @option opts
+  # @option opts
   # @param operation [Hash] The command to execute.
-  # @param opts [Hash] The command options.
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] The command options.
   # @return [Mongo::Operation::Result] The result of the command execution.
   # @since 2.0.0
   #
@@ -12965,13 +12977,13 @@ class Mongo::Database
   # Execute a read command on the database, retrying the read if necessary.
   #
   # @api private
-  # @option opts
-  # @option opts
-  # @option opts
   # @option options
+  # @option opts
+  # @option opts
+  # @option opts
   # @param operation [Hash] The command to execute.
-  # @param opts [Hash] The command options.
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] The command options.
   # @return [Hash] The result of the command execution.
   # @since 2.0.0
   #
@@ -13024,8 +13036,8 @@ class Mongo::Database
   # @option options
   # @option options
   # @option options
-  # @param pipeline [Array<Hash>] Optional additional filter operators.
   # @param options [Hash] The change stream options.
+  # @param pipeline [Array<Hash>] Optional additional filter operators.
   # @return [ChangeStream] The change stream object.
   # @since 2.6.0
   #
@@ -13127,8 +13139,8 @@ class Mongo::Database::View
   #   view.aggregate([
   #   { "$listLocalSessions" => {} }
   #   ])
-  # @param pipeline [Array<Hash>] The aggregation pipeline.
   # @param options [Hash] The aggregation options.
+  # @param pipeline [Array<Hash>] The aggregation pipeline.
   # @return [Collection::View::Aggregation] The aggregation object.
   # @since 2.10.0
   #
@@ -13272,9 +13284,9 @@ class Mongo::Database::View
   # @option options
   # @option options
   # @option options
+  # @param options [Hash]
   # @param server [Server] Server to send the query to.
   # @param session [Session] Session that should be used to send the query.
-  # @param options [Hash]
   # @return [Operation::Result] Result of the query.
   # @since 2.0.0
   #
@@ -13663,8 +13675,8 @@ class Mongo::Error::FileNotFound < ::Mongo::Error
   #
   # @example Create the new exception.
   #   Mongo::Error::FileNotFound.new(id, :id)
-  # @param value [Object] The property value used to find the file.
   # @param property [String, Symbol] The name of the property used to find the file.
+  # @param value [Object] The property value used to find the file.
   # @return [FileNotFound] a new instance of FileNotFound
   # @since 2.1.0
   #
@@ -13745,8 +13757,8 @@ class Mongo::Error::InvalidBulkOperation < ::Mongo::Error
   #
   # @example Instantiate the exception.
   #   Mongo::Error::InvalidBulkOperation.new(name)
-  # @param type [String] The bulk operation type.
   # @param operation [Hash] The bulk operation.
+  # @param type [String] The bulk operation type.
   # @return [InvalidBulkOperation] a new instance of InvalidBulkOperation
   # @since 2.0.0
   #
@@ -14135,9 +14147,9 @@ class Mongo::Error::InvalidSignature < ::Mongo::Error
   #
   # @example Create the new exception.
   #   InvalidSignature.new(verifier, server_signature)
-  # @param verifier [String] The verifier returned from the server.
   # @param server_signature [String] The expected value from the
   #   server.
+  # @param verifier [String] The verifier returned from the server.
   # @return [InvalidSignature] a new instance of InvalidSignature
   # @since 2.0.0
   #
@@ -14189,8 +14201,8 @@ class Mongo::Error::InvalidTransactionOperation < ::Mongo::Error
     #
     # @example Create the error message.
     #   InvalidTransactionOperation.cannot_call_after(last_op, current_op)
-    # @param last_op [Symbol] The operation which was run before.
     # @param current_op [Symbol] The operation which cannot be run.
+    # @param last_op [Symbol] The operation which was run before.
     # @since 2.6.0
     #
     # source://mongo//lib/mongo/error/invalid_transaction_operation.rb#80
@@ -14470,8 +14482,8 @@ class Mongo::Error::MissingFileChunk < ::Mongo::Error
   # @api private
   # @example Create the new exception.
   #   Mongo::Error::MissingFileChunk.new(expected_n, chunk)
-  # @param expected_n [Integer] The expected index value.
   # @param chunk [Grid::File::Chunk | Integer] The chunk read from GridFS.
+  # @param expected_n [Integer] The expected index value.
   # @return [MissingFileChunk] a new instance of MissingFileChunk
   # @since 2.1.0
   #
@@ -14583,10 +14595,10 @@ class Mongo::Error::NoServerAvailable < ::Mongo::Error
   #
   # @example Instantiate the exception.
   #   Mongo::Error::NoServerAvailable.new(server_selector)
-  # @param server_selector [Hash] The server preference that could not be
-  #   satisfied.
   # @param cluster [Cluster] The cluster that server selection was
   #   performed on. (added in 2.7.0)
+  # @param server_selector [Hash] The server preference that could not be
+  #   satisfied.
   # @return [NoServerAvailable] a new instance of NoServerAvailable
   # @since 2.0.0
   #
@@ -14760,8 +14772,8 @@ module Mongo::Error::OperationFailure::Family
   # @option options
   # @option options
   # @param message [String] The error message.
-  # @param result [Operation::Result] The result object.
   # @param options [Hash] Additional parameters.
+  # @param result [Operation::Result] The result object.
   #
   # source://mongo//lib/mongo/error/operation_failure.rb#187
   def initialize(message = T.unsafe(nil), result = T.unsafe(nil), options = T.unsafe(nil)); end
@@ -14965,8 +14977,8 @@ class Mongo::Error::Parser
   #   Parser.new({ 'errmsg' => 'failed' })
   # @option options
   # @param document [BSON::Document] The returned document.
-  # @param replies [Array<Protocol::Message>] The message replies.
   # @param options [Hash] The options.
+  # @param replies [Array<Protocol::Message>] The message replies.
   # @return [Parser] a new instance of Parser
   # @since 2.0.0
   #
@@ -15542,8 +15554,8 @@ class Mongo::Error::UnexpectedChunkLength < ::Mongo::Error
   #
   # @example Create the new exception.
   #   Mongo::Error::UnexpectedChunkLength.new(expected_len, chunk)
-  # @param expected_len [Integer] The expected length.
   # @param chunk [Grid::File::Chunk] The chunk read from GridFS.
+  # @param expected_len [Integer] The expected length.
   # @return [UnexpectedChunkLength] a new instance of UnexpectedChunkLength
   # @since 2.1.0
   #
@@ -15907,8 +15919,8 @@ module Mongo::Event::Publisher
   #
   # @example Publish an event.
   #   publisher.publish("my_event", "payload")
-  # @param event [String] The event to publish.
   # @param args [Array<Object>] The objects to pass to the listeners.
+  # @param event [String] The event to publish.
   # @since 2.0.0
   #
   # source://mongo//lib/mongo/event/publisher.rb#38
@@ -16079,8 +16091,8 @@ class Mongo::Grid::FSBucket
   # @option options
   # @option options
   # @option options
-  # @param selector [Hash] The selector to use in the find.
   # @param options [Hash] The options for the find.
+  # @param selector [Hash] The selector to use in the find.
   # @return [CollectionView] The collection view.
   # @since 2.1.0
   #
@@ -16091,10 +16103,10 @@ class Mongo::Grid::FSBucket
   #
   # @deprecated Please use #find instead with a limit of -1.
   #   Will be removed in version 3.0.
-  # @example Find a file by its id.
-  #   fs.find_one(_id: id)
   # @example Find a file by its filename.
   #   fs.find_one(filename: 'test.txt')
+  # @example Find a file by its id.
+  #   fs.find_one(_id: id)
   # @param selector [Hash] The selector.
   # @return [Grid::File] The file.
   # @since 2.0.0
@@ -16162,16 +16174,16 @@ class Mongo::Grid::FSBucket
   # Opens an upload stream to GridFS to which the contents of a file or
   # blob can be written.
   #
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
   # @option options
   # @option options
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
   # @param filename [String] The name of the file in GridFS.
-  # @param opts [Hash] The options for the write stream.
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] The options for the write stream.
   # @return [Stream::Write] The write stream.
   # @since 2.1.0
   # @yieldparam The [Hash] write stream.
@@ -16219,17 +16231,17 @@ class Mongo::Grid::FSBucket
   #
   # @example Upload a file to the GridFS bucket.
   #   fs.upload_from_stream('a-file.txt', file)
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
   # @option options
   # @option options
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
   # @param filename [String] The filename of the file to upload.
   # @param io [IO] The source io stream to upload from.
-  # @param opts [Hash] The options for the write stream.
   # @param options [Hash] a customizable set of options
+  # @param opts [Hash] The options for the write stream.
   # @return [BSON::ObjectId] The ObjectId file id.
   # @since 2.1.0
   #
@@ -16525,12 +16537,12 @@ class Mongo::Grid::FSBucket::Stream::Write
   # @example Create the stream.
   #   Stream::Write.new(fs, options)
   # @option options
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
   # @option options
   # @option options
+  # @option opts
+  # @option opts
+  # @option opts
+  # @option opts
   # @param fs [FSBucket] The GridFS bucket object.
   # @param options [Hash] The write stream options.
   # @param opts [Hash] a customizable set of options
@@ -16877,8 +16889,8 @@ class Mongo::Grid::File::Chunk
     # @api private
     # @example Split the data into chunks.
     #   Chunks.split(data)
-    # @param io [String, IO] The raw bytes.
     # @param file_info [File::Info] The files collection file doc.
+    # @param io [String, IO] The raw bytes.
     # @param offset [Integer] The offset.
     # @return [Array<Chunk>] The chunks of the data.
     # @since 2.0.0
@@ -17273,17 +17285,17 @@ class Mongo::Index::View
 
   # Creates multiple indexes on the collection.
   #
-  # @example Create multiple indexes.
-  #   view.create_many([
-  #   { key: { name: 1 }, unique: true },
-  #   { key: { age: -1 }, background: true }
-  #   ])
   # @example Create multiple indexes with options.
   #   view.create_many(
   #   { key: { name: 1 }, unique: true },
   #   { key: { age: -1 }, background: true },
   #   { commit_quorum: 'majority' }
   #   )
+  # @example Create multiple indexes.
+  #   view.create_many([
+  #   { key: { name: 1 }, unique: true },
+  #   { key: { age: -1 }, background: true }
+  #   ])
   # @note On MongoDB 3.0.0 and higher, the indexes will be created in
   #   parallel on the server.
   # @param models [Array<Hash>] The index specifications. Each model MUST
@@ -17777,8 +17789,8 @@ class Mongo::Monitoring
   #
   # @example Publish a failed event.
   #   monitoring.failed(COMMAND, event)
-  # @param topic [String] The event topic.
   # @param event [Event] The event to publish.
+  # @param topic [String] The event topic.
   # @since 2.1.0
   #
   # source://mongo//lib/mongo/monitoring.rb#306
@@ -17808,8 +17820,8 @@ class Mongo::Monitoring
   # This method is used for event types which only have a single event
   # in them.
   #
-  # @param topic [String] The event topic.
   # @param event [Event] The event to publish.
+  # @param topic [String] The event topic.
   # @since 2.9.0
   #
   # source://mongo//lib/mongo/monitoring.rb#258
@@ -17822,8 +17834,8 @@ class Mongo::Monitoring
   #
   # @example Publish a started event.
   #   monitoring.started(COMMAND, event)
-  # @param topic [String] The event topic.
   # @param event [Event] The event to publish.
+  # @param topic [String] The event topic.
   # @since 2.1.0
   #
   # source://mongo//lib/mongo/monitoring.rb#274
@@ -17836,8 +17848,8 @@ class Mongo::Monitoring
   #
   # @example Publish a succeeded event.
   #   monitoring.succeeded(COMMAND, event)
-  # @param topic [String] The event topic.
   # @param event [Event] The event to publish.
+  # @param topic [String] The event topic.
   # @since 2.1.0
   #
   # source://mongo//lib/mongo/monitoring.rb#290
@@ -18392,9 +18404,9 @@ class Mongo::Monitoring::Event::Cmap::PoolCleared < ::Mongo::Monitoring::Event::
   #
   # @api private
   # @param address [Address]
-  # @param service_id [Object] The service id, if any.
   # @param interrupt_in_use_connections [true | false | nil] The
   #   interrupt_in_use_connections flag, if given.
+  # @param service_id [Object] The service id, if any.
   # @return [PoolCleared] a new instance of PoolCleared
   # @since 2.9.0
   #
@@ -18579,17 +18591,17 @@ class Mongo::Monitoring::Event::CommandFailed < ::Mongo::Event::Base
   #
   # @api private
   # @example Create the event.
+  # @param address [Server::Address] The server address.
   # @param command_name [String] The name of the command.
   # @param database_name [String] The database_name name.
-  # @param address [Server::Address] The server address.
-  # @param request_id [Integer] The request id.
-  # @param operation_id [Integer] The operation id.
-  # @param message [String] The error message.
-  # @param failure [BSON::Document] The error document, if any.
   # @param duration [Float] The duration the command took in seconds.
+  # @param failure [BSON::Document] The error document, if any.
+  # @param message [String] The error message.
+  # @param operation_id [Integer] The operation id.
+  # @param request_id [Integer] The request id.
+  # @param service_id [Object] The service id, if any.
   # @param started_event [Monitoring::Event::CommandStarted] The corresponding
   #   started event.
-  # @param service_id [Object] The service id, if any.
   # @return [CommandFailed] a new instance of CommandFailed
   # @since 2.1.0
   #
@@ -18685,14 +18697,14 @@ class Mongo::Monitoring::Event::CommandFailed < ::Mongo::Event::Base
     # @example Create the event.
     #   CommandFailed.generate(address, 1, payload, duration)
     # @param address [Server::Address] The server address.
+    # @param duration [Float] The duration of the command in seconds.
+    # @param failure [BSON::Document] The error document, if any.
+    # @param message [String] The error message.
     # @param operation_id [Integer] The operation id.
     # @param payload [Hash] The message payload.
-    # @param message [String] The error message.
-    # @param failure [BSON::Document] The error document, if any.
-    # @param duration [Float] The duration of the command in seconds.
+    # @param service_id [Object] The service id, if any.
     # @param started_event [Monitoring::Event::CommandStarted] The corresponding
     #   started event.
-    # @param service_id [Object] The service id, if any.
     # @return [CommandFailed] The event.
     # @since 2.1.0
     #
@@ -18713,12 +18725,12 @@ class Mongo::Monitoring::Event::CommandStarted < ::Mongo::Event::Base
   #
   # @api private
   # @example Create the event.
+  # @param address [Server::Address] The server address.
+  # @param command [BSON::Document] The command arguments.
   # @param command_name [String] The name of the command.
   # @param database_name [String] The database_name name.
-  # @param address [Server::Address] The server address.
-  # @param request_id [Integer] The request id.
   # @param operation_id [Integer] The operation id.
-  # @param command [BSON::Document] The command arguments.
+  # @param request_id [Integer] The request id.
   # @param service_id [Object] The service id, if any.
   # @return [CommandStarted] a new instance of CommandStarted
   # @since 2.1.0
@@ -18862,16 +18874,16 @@ class Mongo::Monitoring::Event::CommandSucceeded < ::Mongo::Event::Base
   #
   # @api private
   # @example Create the event.
+  # @param address [Server::Address] The server address.
   # @param command_name [String] The name of the command.
   # @param database_name [String] The database name.
-  # @param address [Server::Address] The server address.
-  # @param request_id [Integer] The request id.
+  # @param duration [Float] The duration the command took in seconds.
   # @param operation_id [Integer] The operation id.
   # @param reply [BSON::Document] The command reply.
-  # @param duration [Float] The duration the command took in seconds.
+  # @param request_id [Integer] The request id.
+  # @param service_id [Object] The service id, if any.
   # @param started_event [Monitoring::Event::CommandStarted] The corresponding
   #   started event.
-  # @param service_id [Object] The service id, if any.
   # @return [CommandSucceeded] a new instance of CommandSucceeded
   # @since 2.1.0
   #
@@ -18957,13 +18969,13 @@ class Mongo::Monitoring::Event::CommandSucceeded < ::Mongo::Event::Base
     # @example Create the event.
     #   CommandSucceeded.generate(address, 1, command_payload, reply_payload, 0.5)
     # @param address [Server::Address] The server address.
-    # @param operation_id [Integer] The operation id.
     # @param command_payload [Hash] The command message payload.
-    # @param reply_payload [Hash] The reply message payload.
     # @param duration [Float] The duration of the command in seconds.
+    # @param operation_id [Integer] The operation id.
+    # @param reply_payload [Hash] The reply message payload.
+    # @param service_id [Object] The service id, if any.
     # @param started_event [Monitoring::Event::CommandStarted] The corresponding
     #   started event.
-    # @param service_id [Object] The service id, if any.
     # @return [CommandCompleted] The event.
     # @since 2.1.0
     #
@@ -19090,11 +19102,11 @@ class Mongo::Monitoring::Event::ServerDescriptionChanged < ::Mongo::Event::Base
   # @example Create the event.
   #   ServerDescriptionChanged.new(address, topology, previous, new)
   # @param address [Address] The server address.
-  # @param topology [Integer] The topology.
-  # @param previous_description [Server::Description] The previous description.
-  # @param new_description [Server::Description] The new description.
   # @param awaited [true | false] Whether the server description was
   #   a result of processing an awaited hello response.
+  # @param new_description [Server::Description] The new description.
+  # @param previous_description [Server::Description] The previous description.
+  # @param topology [Integer] The topology.
   # @return [ServerDescriptionChanged] a new instance of ServerDescriptionChanged
   # @since 2.4.0
   #
@@ -19164,8 +19176,8 @@ class Mongo::Monitoring::Event::ServerHeartbeatFailed < ::Mongo::Event::Base
   # @example Create the event.
   #   ServerHeartbeatSucceeded.new(address, duration)
   # @param address [Address] The server address.
-  # @param round_trip_time [Float] Duration of hello call in seconds.
   # @param awaited [true | false] Whether the heartbeat was awaited.
+  # @param round_trip_time [Float] Duration of hello call in seconds.
   # @param started_event [Monitoring::Event::ServerHeartbeatStarted] The corresponding started event.
   # @return [ServerHeartbeatFailed] a new instance of ServerHeartbeatFailed
   # @since 2.7.0
@@ -19285,8 +19297,8 @@ class Mongo::Monitoring::Event::ServerHeartbeatSucceeded < ::Mongo::Event::Base
   # @example Create the event.
   #   ServerHeartbeatSucceeded.new(address, duration)
   # @param address [Address] The server address.
-  # @param round_trip_time [Float] Duration of hello call in seconds.
   # @param awaited [true | false] Whether the heartbeat was awaited.
+  # @param round_trip_time [Float] Duration of hello call in seconds.
   # @param started_event [Monitoring::Event::ServerHeartbeatStarted] The corresponding started event.
   # @return [ServerHeartbeatSucceeded] a new instance of ServerHeartbeatSucceeded
   # @since 2.7.0
@@ -19389,8 +19401,8 @@ class Mongo::Monitoring::Event::TopologyChanged < ::Mongo::Event::Base
   #
   # @example Create the event.
   #   TopologyChanged.new(previous, new)
-  # @param previous_topology [Cluster::Topology] The previous topology.
   # @param new_topology [Cluster::Topology] The new topology.
+  # @param previous_topology [Cluster::Topology] The previous topology.
   # @return [TopologyChanged] a new instance of TopologyChanged
   # @since 2.4.0
   #
@@ -19690,13 +19702,13 @@ module Mongo::Monitoring::Subscribable
   # times as it is subscribed and to unsubscribe it the same number
   # of unsubscribe calls will be needed.
   #
-  # @example Subscribe to the topic.
-  #   monitoring.subscribe(QUERY, subscriber)
   # @example Subscribe to the topic globally.
   #   Monitoring::Global.subscribe(QUERY, subscriber)
+  # @example Subscribe to the topic.
+  #   monitoring.subscribe(QUERY, subscriber)
   # @note It is possible to subscribe the same listener to the same topic
-  # @param topic [String] The event topic.
   # @param subscriber [Object] The subscriber to handle the event.
+  # @param topic [String] The event topic.
   # @since 2.1.0
   #
   # source://mongo//lib/mongo/monitoring.rb#105
@@ -19704,10 +19716,10 @@ module Mongo::Monitoring::Subscribable
 
   # Get all the subscribers.
   #
-  # @example Get all the subscribers.
-  #   monitoring.subscribers
   # @example Get all the global subscribers.
   #   Mongo::Monitoring::Global.subscribers
+  # @example Get all the subscribers.
+  #   monitoring.subscribers
   # @return [Hash<String, Object>] The subscribers.
   # @since 2.1.0
   #
@@ -19716,10 +19728,10 @@ module Mongo::Monitoring::Subscribable
 
   # Determine if there are any subscribers for a particular event.
   #
-  # @example Are there subscribers?
-  #   monitoring.subscribers?(COMMAND)
   # @example Are there global subscribers?
   #   Mongo::Monitoring::Global.subscribers?(COMMAND)
+  # @example Are there subscribers?
+  #   monitoring.subscribers?(COMMAND)
   # @param topic [String] The event topic.
   # @return [true, false] If there are subscribers for the topic.
   # @since 2.1.0
@@ -19735,10 +19747,10 @@ module Mongo::Monitoring::Subscribable
   # If the listener was not subscribed to the topic, this operation
   # is a no-op and no exceptions are raised.
   #
-  # @example Unsubscribe from the topic.
-  #   monitoring.unsubscribe(QUERY, subscriber)
   # @example Unsubscribe from the topic globally.
   #   Mongo::Monitoring::Global.unsubscribe(QUERY, subscriber)
+  # @example Unsubscribe from the topic.
+  #   monitoring.unsubscribe(QUERY, subscriber)
   # @note Global subscriber registry is separate from per-client
   #   subscriber registry. The same subscriber can be subscribed to
   #   events from a particular client as well as globally; unsubscribing
@@ -19748,8 +19760,8 @@ module Mongo::Monitoring::Subscribable
   #   a client whenever the client is created. Thus unsubscribing a
   #   subscriber globally has no effect for existing clients - they will
   #   continue sending events to the unsubscribed subscriber.
-  # @param topic [String] The event topic.
   # @param subscriber [Object] The subscriber to be unsubscribed.
+  # @param topic [String] The event topic.
   # @since 2.6.0
   #
   # source://mongo//lib/mongo/monitoring.rb#138
@@ -20111,13 +20123,13 @@ class Mongo::Operation::CollectionsInfo::Result < ::Mongo::Operation::Result
   # Initialize a new result.
   #
   # @api private
-  # @param replies [Array<Protocol::Message> | nil] The wire protocol replies, if any.
   # @param connection_description [Server::Description] Server description of the server that performed the operation that
   #   this result is for.
   # @param connection_global_id [Integer] Global id of the connection on which the operation that
   #   this result is for was performed.
   # @param database_name [String] The name of the database that the
   #   query was sent to.
+  # @param replies [Array<Protocol::Message> | nil] The wire protocol replies, if any.
   # @return [Result] a new instance of Result
   # @since 2.1.0
   #
@@ -21477,12 +21489,12 @@ class Mongo::Operation::Insert::BulkResult < ::Mongo::Operation::Result
   # @api private
   # @example Instantiate the result.
   #   Result.new(replies, inserted_ids)
-  # @param replies [Array<Protocol::Message> | nil] The wire protocol replies, if any.
   # @param connection_description [Server::Description] Server description of the server that performed the operation that
   #   this result is for.
   # @param connection_global_id [Integer] Global id of the connection on which the operation that
   #   this result is for was performed.
   # @param ids [Array<Object>] The ids of the inserted documents.
+  # @param replies [Array<Protocol::Message> | nil] The wire protocol replies, if any.
   # @return [BulkResult] a new instance of BulkResult
   # @since 2.0.0
   #
@@ -21577,14 +21589,14 @@ class Mongo::Operation::Insert::Result < ::Mongo::Operation::Result
   # @api private
   # @example Instantiate the result.
   #   Result.new(replies, inserted_ids)
-  # @param replies [Array<Protocol::Message> | nil] The wire protocol replies, if any.
   # @param connection_description [Server::Description] Server description of the server that performed the operation that
   #   this result is for.
   # @param connection_global_id [Integer] Global id of the connection on which the operation that
   #   this result is for was performed.
-  # @param ids [Array<Object>] The ids of the inserted documents.
   # @param context [Operation::Context | nil] the operation context that
   #   was active when this result was produced.
+  # @param ids [Array<Object>] The ids of the inserted documents.
+  # @param replies [Array<Protocol::Message> | nil] The wire protocol replies, if any.
   # @return [Result] a new instance of Result
   # @since 2.0.0
   #
@@ -22014,9 +22026,9 @@ module Mongo::Operation::OpMsgExecutable
   # Execute the operation.
   #
   # @api private
-  # @param server [Mongo::Server] The server to send the operation to.
   # @param context [Operation::Context] The operation context.
   # @param options [Hash] Operation execution options.
+  # @param server [Mongo::Server] The server to send the operation to.
   # @return [Mongo::Operation::Result] The operation result.
   #
   # source://mongo//lib/mongo/operation/shared/op_msg_executable.rb#34
@@ -22215,9 +22227,9 @@ module Mongo::Operation::ReadPreferenceSupported
   # $readPreference is not sent to pre-OP_MSG replica set members.
   #
   # @api private
-  # @param sel [Hash] Existing command document.
   # @param connection [Server::Connection] The connection that the
   #   operation will be executed on.
+  # @param sel [Hash] Existing command document.
   # @return [Hash] New command document to send to the server.
   # @since 2.5.2
   #
@@ -22339,10 +22351,10 @@ module Mongo::Operation::ResponseHandling
   # @note The client argument is optional because some operations, such as
   #   end_session, do not pass the client as an argument to the execute
   #   method.
-  # @param error [Mongo::Error] The error to which to add the label.
   # @param connection [Mongo::Server::Connection] The connection on which
   #   the operation is performed.
   # @param context [Mongo::Operation::Context] The operation context.
+  # @param error [Mongo::Error] The error to which to add the label.
   #
   # source://mongo//lib/mongo/operation/shared/response_handling.rb#144
   def maybe_add_retryable_write_error_label!(error, connection, context); end
@@ -22354,17 +22366,17 @@ module Mongo::Operation::ResponseHandling
   # @note This method takes the session as an argument because this module
   #   is included in BulkWrite which does not store the session in the
   #   receiver (despite Specifiable doing so).
-  # @param session [Session | nil] Session to consider.
   # @param connection [Connection | nil] Connection to unpin.
+  # @param session [Session | nil] Session to consider.
   #
   # source://mongo//lib/mongo/operation/shared/response_handling.rb#91
   def unpin_maybe(session, connection); end
 
   # @api private
-  # @param result [Mongo::Operation::Result] The operation result.
   # @param connection [Mongo::Server::Connection] The connection on which
   #   the operation is performed.
   # @param context [Mongo::Operation::Context] The operation context.
+  # @param result [Mongo::Operation::Result] The operation result.
   #
   # source://mongo//lib/mongo/operation/shared/response_handling.rb#32
   def validate_result(result, connection, context); end
@@ -22394,7 +22406,6 @@ class Mongo::Operation::Result
   # or an array containing a single Protocol::Message instance.
   #
   # @api private
-  # @param replies [Protocol::Message | Array<Protocol::Message> | nil] The wire protocol replies.
   # @param connection_description [Server::Description | nil] Server description of the server that performed the operation that
   #   this result is for. This parameter is allowed to be nil for
   #   compatibility with existing mongo_kerberos library, but should
@@ -22403,6 +22414,7 @@ class Mongo::Operation::Result
   #   this result is for was performed.
   # @param context [Operation::Context | nil] the context that was active
   #   when this result was produced.
+  # @param replies [Protocol::Message | Array<Protocol::Message> | nil] The wire protocol replies.
   # @return [Result] a new instance of Result
   # @since 2.0.0
   #
@@ -22872,9 +22884,9 @@ module Mongo::Operation::SessionsSupported
   # $readPreference is sent to OP_MSG-grokking replica set members.
   #
   # @api private
-  # @param sel [Hash] Existing command document which will be mutated.
   # @param connection [Server::Connection] The connection that the
   #   operation will be executed on.
+  # @param sel [Hash] Existing command document which will be mutated.
   # @since 2.5.2
   #
   # source://mongo//lib/mongo/operation/shared/sessions_supported.rb#167
@@ -23618,9 +23630,9 @@ module Mongo::Operation::Timed
   # not yet expired, add :maxTimeMS to the spec.
   #
   # @api private
-  # @param spec [Hash] The spec to modify
   # @param connection [Connection] The connection that will be used to
   #   execute the operation
+  # @param spec [Hash] The spec to modify
   # @return [Hash] the spec
   #
   # source://mongo//lib/mongo/operation/shared/timed.rb#22
@@ -24056,8 +24068,8 @@ module Mongo::Operation::Write
   # Execute the operation.
   #
   # @api private
-  # @param server [Mongo::Server] The server to send the operation to.
   # @param context [Operation::Context] The operation context.
+  # @param server [Mongo::Server] The server to send the operation to.
   # @return [Mongo::Operation::Result] The operation result.
   # @since 2.5.2
   #
@@ -24161,8 +24173,8 @@ module Mongo::Options::Mapper
   #
   # @example Transform the options.
   #   Mapper.transform({ name: 1 }, { :name => :nombre })
-  # @param options [Hash] The options to transform
   # @param mappings [Hash] The key mappings.
+  # @param options [Hash] The options to transform
   # @return [Hash] The transformed options.
   # @since 2.0.0
   #
@@ -24175,9 +24187,9 @@ module Mongo::Options::Mapper
   #
   # @example Transform the options.
   #   Mapper.transform_documents({ name: 1 }, { :name => :nombre })
-  # @param options [BSON::Document] The options to transform
-  # @param mappings [BSON::Document] The key mappings.
   # @param document [BSON::Document] The output document.
+  # @param mappings [BSON::Document] The key mappings.
+  # @param options [BSON::Document] The options to transform
   # @return [BSON::Document] The transformed options.
   # @since 2.0.0
   #
@@ -24384,8 +24396,8 @@ class Mongo::Protocol::Compressed < ::Mongo::Protocol::Message
   # @api semipublic
   # @example Create an OP_COMPRESSED message.
   #   Compressed.new(original_message, 'zlib')
-  # @param message [Mongo::Protocol::Message] The original message.
   # @param compressor [String, Symbol] The compression algorithm to use.
+  # @param message [Mongo::Protocol::Message] The original message.
   # @param zlib_compression_level [Integer] The zlib compression level to use.
   #   -1 and nil imply default.
   # @return [Compressed] a new instance of Compressed
@@ -24557,10 +24569,10 @@ class Mongo::Protocol::GetMore < ::Mongo::Protocol::Message
   # @api semipublic
   # @example Get 15 additional documents from cursor 123 in 'xgen.users'.
   #   GetMore.new('xgen', 'users', 15, 123)
-  # @param database [String, Symbol] The database to query.
   # @param collection [String, Symbol] The collection to query.
-  # @param number_to_return [Integer] The number of documents to return.
   # @param cursor_id [Integer] The cursor id returned in a reply.
+  # @param database [String, Symbol] The database to query.
+  # @param number_to_return [Integer] The number of documents to return.
   # @return [GetMore] a new instance of GetMore
   #
   # source://mongo//lib/mongo/protocol/get_more.rb#42
@@ -24706,8 +24718,8 @@ class Mongo::Protocol::KillCursors < ::Mongo::Protocol::Message
   # @example Kill the cursor on the server with id 1.
   #   KillCursors.new([1])
   # @param collection [Mongo::Database] The collection.
-  # @param database [Mongo::Database] The database.
   # @param cursor_ids [Array<Fixnum>] The cursor ids to kill.
+  # @param database [Mongo::Database] The database.
   # @return [KillCursors] a new instance of KillCursors
   #
   # source://mongo//lib/mongo/protocol/kill_cursors.rb#37
@@ -25039,8 +25051,8 @@ class Mongo::Protocol::Message
     # @api private
     # @option options
     # @option options
-    # @param max_message_size [Integer] The max message size.
     # @param io [IO] Stream containing a message
+    # @param max_message_size [Integer] The max message size.
     # @param options [Hash]
     # @return [Message] Instance of a Message class
     #
@@ -25055,9 +25067,9 @@ class Mongo::Protocol::Message
     #
     # @api semiprivate
     # @option options
-    # @param message [Message] Message to contain the deserialized array.
-    # @param io [IO] Stream containing the array to deserialize.
     # @param field [Hash] Hash representing a field.
+    # @param io [IO] Stream containing the array to deserialize.
+    # @param message [Message] Message to contain the deserialized array.
     # @param options [Hash]
     # @return [Message] Message with deserialized array.
     #
@@ -25068,9 +25080,9 @@ class Mongo::Protocol::Message
     #
     # @api semiprivate
     # @option options
-    # @param message [Message] Message to contain the deserialized field.
-    # @param io [IO] Stream containing the field to deserialize.
     # @param field [Hash] Hash representing a field.
+    # @param io [IO] Stream containing the field to deserialize.
+    # @param message [Message] Message to contain the deserialized field.
     # @param options [Hash]
     # @return [Message] Message with deserialized field.
     #
@@ -25089,8 +25101,6 @@ class Mongo::Protocol::Message
     # A method for declaring a message field
     #
     # @api semiprivate
-    # @param name [String] Name of the field
-    # @param type [Module] Type specific serialization strategies
     # @param multi [true, false, Symbol] Specify as +true+ to
     #   serialize the field's value as an array of type +:type+ or as a
     #   symbol describing the field having the number of items in the
@@ -25100,6 +25110,8 @@ class Mongo::Protocol::Message
     #   containing number items in the repetition, the field containing
     #   that information *must* be deserialized prior to deserializing
     #   fields that use the number.
+    # @param name [String] Name of the field
+    # @param type [Module] Type specific serialization strategies
     # @return [NilClass]
     #
     # source://mongo//lib/mongo/protocol/message.rb#407
@@ -25187,10 +25199,10 @@ class Mongo::Protocol::Msg < ::Mongo::Protocol::Message
   # @option options
   # @param flags [Array<Symbol>] The flag bits. Currently supported
   #   values are :more_to_come and :checksum_present.
-  # @param options [Hash] The options.
   # @param main_document [BSON::Document, Hash] The document that will
   #   become the payload type 0 section. Can contain global args as they
   #   are defined in the OP_MSG specification.
+  # @param options [Hash] The options.
   # @param sequences [Protocol::Msg::Section1] Zero or more payload type 1
   #   sections.
   # @return [Msg] a new instance of Msg
@@ -25486,23 +25498,23 @@ class Mongo::Protocol::Query < ::Mongo::Protocol::Message
   # Creates a new Query message
   #
   # @api semipublic
-  # @example Find all users named Tyler.
-  #   Query.new('xgen', 'users', {:name => 'Tyler'})
+  # @example Find all user ids.
+  #   Query.new('xgen', 'users', {}, :fields => {:id => 1})
   # @example Find all users named Tyler skipping 5 and returning 10.
   #   Query.new('xgen', 'users', {:name => 'Tyler'}, :skip => 5,
   #   :limit => 10)
+  # @example Find all users named Tyler.
+  #   Query.new('xgen', 'users', {:name => 'Tyler'})
   # @example Find all users with secondaryOk bit set
   #   Query.new('xgen', 'users', {:name => 'Tyler'}, :flags => [:secondary_ok])
-  # @example Find all user ids.
-  #   Query.new('xgen', 'users', {}, :fields => {:id => 1})
   # @option options
   # @option options
   # @option options
   # @option options
-  # @param database [String, Symbol] The database to query.
   # @param collection [String, Symbol] The collection to query.
-  # @param selector [Hash] The query selector.
+  # @param database [String, Symbol] The database to query.
   # @param options [Hash] The additional query options.
+  # @param selector [Hash] The query selector.
   # @return [Query] a new instance of Query
   #
   # source://mongo//lib/mongo/protocol/query.rb#64
@@ -25640,8 +25652,8 @@ class Mongo::Protocol::Query::Upconverter
   #   Upconverter.new('users', { name: 'test' }, { skip: 10 })
   # @param collection [String] The name of the collection.
   # @param filter [BSON::Document, Hash] The filter or command.
-  # @param options [BSON::Document, Hash] The options.
   # @param flags [Array<Symbol>] The flags.
+  # @param options [BSON::Document, Hash] The options.
   # @return [Upconverter] a new instance of Upconverter
   # @since 2.1.0
   #
@@ -25912,8 +25924,8 @@ class Mongo::Protocol::Reply::Upconverter
   # @api semipublic
   # @example Create the upconverter.
   #   Upconverter.new(docs, 1, 3)
-  # @param documents [Array<BSON::Document>] The documents.
   # @param cursor_id [Integer] The cursor id.
+  # @param documents [Array<BSON::Document>] The documents.
   # @param starting_from [Integer] The starting position.
   # @return [Upconverter] a new instance of Upconverter
   # @since 2.1.0
@@ -26060,9 +26072,9 @@ class Mongo::Protocol::Serializers::BitVector
   #
   # @api private
   # @param buffer [String] Buffer to receive the serialized vector
-  # @param value [Array<Symbol>] Array of flags to encode
   # @param validating_keys [true, false] Whether keys should be validated when serializing.
   #   This option is deprecated and will not be used. It will removed in version 3.0.
+  # @param value [Array<Symbol>] Array of flags to encode
   # @return [String] Buffer that received the serialized vector
   #
   # source://mongo//lib/mongo/protocol/bit_vector.rb#46
@@ -26093,9 +26105,9 @@ module Mongo::Protocol::Serializers::Byte
     #
     # @api private
     # @param buffer [BSON::ByteBuffer] Buffer to receive the single byte.
-    # @param value [String] The byte to write to the buffer.
     # @param validating_keys [true, false] Whether to validate keys.
     #   This option is deprecated and will not be used. It will removed in version 3.0.
+    # @param value [String] The byte to write to the buffer.
     # @return [BSON::ByteBuffer] Buffer with serialized value.
     # @since 2.5.0
     #
@@ -26129,9 +26141,9 @@ module Mongo::Protocol::Serializers::Bytes
     #
     # @api private
     # @param buffer [BSON::ByteBuffer] Buffer to receive the bytes.
-    # @param value [String] The bytes to write to the buffer.
     # @param validating_keys [true, false] Whether to validate keys.
     #   This option is deprecated and will not be used. It will removed in version 3.0.
+    # @param value [String] The bytes to write to the buffer.
     # @return [BSON::ByteBuffer] Buffer with serialized value.
     # @since 2.5.0
     #
@@ -26233,9 +26245,9 @@ module Mongo::Protocol::Serializers::Header
     #
     # @api private
     # @param buffer [String] Buffer to receive the serialized value.
-    # @param value [String] Header value to be serialized.
     # @param validating_keys [true, false] Whether keys should be validated when serializing.
     #   This option is deprecated and will not be used. It will removed in version 3.0.
+    # @param value [String] Header value to be serialized.
     # @return [String] Buffer with serialized value.
     #
     # source://mongo//lib/mongo/protocol/serializers.rb#58
@@ -26346,10 +26358,10 @@ module Mongo::Protocol::Serializers::Sections
     #
     # @api private
     # @param buffer [BSON::ByteBuffer] Buffer to receive the serialized Sections.
-    # @param value [Array<Hash, BSON::Document>] The sections to be serialized.
     # @param max_bson_size [Fixnum] The max bson size of documents in the sections.
     # @param validating_keys [true, false] Whether to validate document keys.
     #   This option is deprecated and will not be used. It will removed in version 3.0.
+    # @param value [Array<Hash, BSON::Document>] The sections to be serialized.
     # @return [BSON::ByteBuffer] Buffer with serialized value.
     # @since 2.5.0
     #
@@ -26390,10 +26402,10 @@ module Mongo::Protocol::Serializers::Sections::PayloadOne
     #
     # @api private
     # @param buffer [BSON::ByteBuffer] Buffer to receive the serialized Sections.
-    # @param value [BSON::Document, Hash] The object to serialize.
     # @param max_bson_size [Fixnum] The max bson size of documents in the section.
     # @param validating_keys [true, false] Whether to validate document keys.
     #   This option is deprecated and will not be used. It will removed in version 3.0.
+    # @param value [BSON::Document, Hash] The object to serialize.
     # @return [BSON::ByteBuffer] Buffer with serialized value.
     # @since 2.5.0
     #
@@ -26442,10 +26454,10 @@ module Mongo::Protocol::Serializers::Sections::PayloadZero
     #
     # @api private
     # @param buffer [BSON::ByteBuffer] Buffer to receive the serialized Sections.
-    # @param value [BSON::Document, Hash] The object to serialize.
     # @param max_bson_size [Fixnum] The max bson size of documents in the section.
     # @param validating_keys [true, false] Whether to validate document keys.
     #   This option is deprecated and will not be used. It will removed in version 3.0.
+    # @param value [BSON::Document, Hash] The object to serialize.
     # @return [BSON::ByteBuffer] Buffer with serialized value.
     # @since 2.5.0
     #
@@ -26857,12 +26869,12 @@ class Mongo::Retryable::ReadWorker < ::Mongo::Retryable::BaseWorker
   #   read_with_retry(session, server_selector) do |server|
   #   ...
   #   end
-  # @param session [Mongo::Session | nil] The session that the operation
-  #   is being run on.
-  # @param server_selector [Mongo::ServerSelector::Selectable | nil] Server selector for the operation.
+  # @param block [Proc] The block to execute.
   # @param context [Mongo::Operation::Context | nil] Context for the
   #   read operation.
-  # @param block [Proc] The block to execute.
+  # @param server_selector [Mongo::ServerSelector::Selectable | nil] Server selector for the operation.
+  # @param session [Mongo::Session | nil] The session that the operation
+  #   is being run on.
   # @return [Result] The result of the operation.
   # @since 2.19.0
   #
@@ -26896,14 +26908,14 @@ class Mongo::Retryable::ReadWorker < ::Mongo::Retryable::BaseWorker
   #   # return a Mongo::Operation::Result
   #   ...
   #   end
-  # @param session [Mongo::Session] The session that the operation is being
-  #   run on.
-  # @param server_selector [Mongo::ServerSelector::Selectable] Server
-  #   selector for the operation.
-  # @param view [CollectionView] The +CollectionView+ defining the query.
+  # @param block [Proc] The block to execute.
   # @param context [Operation::Context | nil] the operation context to use
   #   with the cursor.
-  # @param block [Proc] The block to execute.
+  # @param server_selector [Mongo::ServerSelector::Selectable] Server
+  #   selector for the operation.
+  # @param session [Mongo::Session] The session that the operation is being
+  #   run on.
+  # @param view [CollectionView] The +CollectionView+ defining the query.
   # @return [Cursor] The cursor for the result set.
   # @since 2.19.0
   #
@@ -26929,13 +26941,13 @@ class Mongo::Retryable::ReadWorker < ::Mongo::Retryable::BaseWorker
   # setting.
   #
   # @api private
-  # @param session [Mongo::Session] The session that the operation is
-  #   being run on.
-  # @param server_selector [Mongo::ServerSelector::Selectable] Server
-  #   selector for the operation.
+  # @param block [Proc] The block to execute.
   # @param context [Mongo::Operation::Context | nil] Context for the
   #   read operation.
-  # @param block [Proc] The block to execute.
+  # @param server_selector [Mongo::ServerSelector::Selectable] Server
+  #   selector for the operation.
+  # @param session [Mongo::Session] The session that the operation is
+  #   being run on.
   # @return [Result] The result of the operation.
   # @since 2.19.0
   #
@@ -26946,13 +26958,13 @@ class Mongo::Retryable::ReadWorker < ::Mongo::Retryable::BaseWorker
   # be attempted.
   #
   # @api private
-  # @param session [Mongo::Session] The session that the operation is
-  #   being run on.
-  # @param server_selector [Mongo::ServerSelector::Selectable] Server
-  #   selector for the operation.
+  # @param block [Proc] The block to execute.
   # @param context [Mongo::Operation::Context] Context for the
   #   read operation.
-  # @param block [Proc] The block to execute.
+  # @param server_selector [Mongo::ServerSelector::Selectable] Server
+  #   selector for the operation.
+  # @param session [Mongo::Session] The session that the operation is
+  #   being run on.
   # @return [Result] The result of the operation.
   # @since 2.19.0
   #
@@ -26963,11 +26975,11 @@ class Mongo::Retryable::ReadWorker < ::Mongo::Retryable::BaseWorker
   # been explicitly disabled.
   #
   # @api private
-  # @param session [Mongo::Session] The session that the operation is
-  #   being run on.
+  # @param block [Proc] The block to execute.
   # @param server_selector [Mongo::ServerSelector::Selectable] Server
   #   selector for the operation.
-  # @param block [Proc] The block to execute.
+  # @param session [Mongo::Session] The session that the operation is
+  #   being run on.
   # @return [Result] The result of the operation.
   # @since 2.19.0
   #
@@ -26977,17 +26989,17 @@ class Mongo::Retryable::ReadWorker < ::Mongo::Retryable::BaseWorker
   # The retry logic of the "modern" read_with_retry implementation.
   #
   # @api private
-  # @param original_error [Exception] The original error that triggered
-  #   the retry.
-  # @param session [Mongo::Session] The session that the operation is
-  #   being run on.
-  # @param server_selector [Mongo::ServerSelector::Selectable] Server
-  #   selector for the operation.
   # @param :context [Mongo::Operation::Context | nil] Context for the
   #   read operation.
   # @param :failed_server [Mongo::Server | nil] The server on which the original
   #   operation failed.
   # @param block [Proc] The block to execute.
+  # @param original_error [Exception] The original error that triggered
+  #   the retry.
+  # @param server_selector [Mongo::ServerSelector::Selectable] Server
+  #   selector for the operation.
+  # @param session [Mongo::Session] The session that the operation is
+  #   being run on.
   # @return [Result] The result of the operation.
   # @since 2.19.0
   #
@@ -27019,13 +27031,13 @@ class Mongo::Retryable::WriteWorker < ::Mongo::Retryable::BaseWorker
   # legacy logic.
   #
   # @api private
-  # @param write_concern [nil | Hash | WriteConcern::Base] The write concern.
   # @param context [Context] The context for the operation.
+  # @param write_concern [nil | Hash | WriteConcern::Base] The write concern.
   # @since 2.19.0
   # @yieldparam connection [Connection] The connection through which the
   #   write should be sent.
-  # @yieldparam txn_num [nil] nil as transaction number.
   # @yieldparam context [Operation::Context] The operation context.
+  # @yieldparam txn_num [nil] nil as transaction number.
   #
   # source://mongo//lib/mongo/retryable/write_worker.rb#107
   def nro_write_with_retry(write_concern, context:, &block); end
@@ -27062,17 +27074,17 @@ class Mongo::Retryable::WriteWorker < ::Mongo::Retryable::BaseWorker
   #   end
   # @note This only retries operations on not master failures, since it is
   #   the only case we can be sure a partial write did not already occur.
-  # @param write_concern [nil | Hash | WriteConcern::Base] The write concern.
+  # @param block [Proc] The block to execute.
+  # @param context [Context] The context for the operation.
   # @param ending_transaction [true | false] True if the write operation is
   #   abortTransaction or commitTransaction, false otherwise.
-  # @param context [Context] The context for the operation.
-  # @param block [Proc] The block to execute.
+  # @param write_concern [nil | Hash | WriteConcern::Base] The write concern.
   # @return [Result] The result of the operation.
   # @since 2.1.0
   # @yieldparam connection [Connection] The connection through which the
   #   write should be sent.
-  # @yieldparam txn_num [Integer] Transaction number (NOT the ACID kind).
   # @yieldparam context [Operation::Context] The operation context.
+  # @yieldparam txn_num [Integer] Transaction number (NOT the ACID kind).
   #
   # source://mongo//lib/mongo/retryable/write_worker.rb#65
   def write_with_retry(write_concern, context:, ending_transaction: T.unsafe(nil), &block); end
@@ -27125,15 +27137,15 @@ class Mongo::Retryable::WriteWorker < ::Mongo::Retryable::BaseWorker
   # retryable writes, such as delete_many and update_many.
   #
   # @api private
+  # @param context [Context] The context for the operation.
   # @param server [Server] The server which should be used for the
   #   operation. If not provided, the current primary will be retrieved from
   #   the cluster.
-  # @param context [Context] The context for the operation.
   # @since 2.19.0
   # @yieldparam connection [Connection] The connection through which the
   #   write should be sent.
-  # @yieldparam txn_num [nil] nil as transaction number.
   # @yieldparam context [Operation::Context] The operation context.
+  # @yieldparam txn_num [nil] nil as transaction number.
   #
   # source://mongo//lib/mongo/retryable/write_worker.rb#175
   def legacy_write_with_retry(server = T.unsafe(nil), context:); end
@@ -27160,17 +27172,17 @@ class Mongo::Retryable::WriteWorker < ::Mongo::Retryable::BaseWorker
   # block no more than twice.
   #
   # @api private
-  # @param session [Mongo::Session] The session that the operation is
-  #   being run on.
+  # @param context [Operation::Context] The context for the operation.
   # @param server [Server] The server which should be used for the
   #   operation.
-  # @param context [Operation::Context] The context for the operation.
+  # @param session [Mongo::Session] The session that the operation is
+  #   being run on.
   # @return [Result] The result of the operation.
   # @since 2.19.0
   # @yieldparam connection [Connection] The connection through which the
   #   write should be sent.
-  # @yieldparam txn_num [Integer] Transaction number (NOT the ACID kind).
   # @yieldparam context [Operation::Context] The operation context.
+  # @yieldparam txn_num [Integer] Transaction number (NOT the ACID kind).
   #
   # source://mongo//lib/mongo/retryable/write_worker.rb#232
   def modern_write_with_retry(session, server, context, &block); end
@@ -27188,12 +27200,12 @@ class Mongo::Retryable::WriteWorker < ::Mongo::Retryable::BaseWorker
   # once.
   #
   # @api private
-  # @param original_error [Exception] The exception that triggered the
-  #   retry.
-  # @param txn_num [Number] The transaction number.
   # @param context [Operation::Context] The context for the operation.
   # @param failed_server [Mongo::Server] The server on which the original
   #   operation failed.
+  # @param original_error [Exception] The exception that triggered the
+  #   retry.
+  # @param txn_num [Number] The transaction number.
   # @return [Result] The result of the operation.
   # @since 2.19.0
   #
@@ -27436,8 +27448,8 @@ class Mongo::Server
   # @option options
   # @param address [Address] The host:port address to connect to.
   # @param cluster [Cluster] The cluster the server belongs to.
-  # @param monitoring [Monitoring] The monitoring.
   # @param event_listeners [Event::Listeners] The event listeners.
+  # @param monitoring [Monitoring] The monitoring.
   # @param options [Hash] The server options.
   # @return [Server] a new instance of Server
   # @since 2.0.0
@@ -27475,13 +27487,13 @@ class Mongo::Server
   def check_driver_support!(*args, **_arg1, &block); end
 
   # @api private
-  # @param :service_id [Object] Close connections with the specified
-  #   service id only.
   # @param :interrupt_in_use_connections [true | false] Whether or not the
   #   cleared connections should be interrupted as well.
+  # @param :service_id [Object] Close connections with the specified
+  #   service id only.
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/server.rb#672
+  # source://mongo//lib/mongo/server.rb#674
   def clear_connection_pool(service_id: T.unsafe(nil), interrupt_in_use_connections: T.unsafe(nil)); end
 
   # Clear the servers description so that it is considered unknown and can be
@@ -27490,7 +27502,7 @@ class Mongo::Server
   # @api private
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/server.rb#662
+  # source://mongo//lib/mongo/server.rb#664
   def clear_description; end
 
   # @since 2.0.0
@@ -27694,7 +27706,7 @@ class Mongo::Server
   # @api private
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/server.rb#685
+  # source://mongo//lib/mongo/server.rb#687
   def next_connection_id; end
 
   # @return [Hash] The options hash.
@@ -27860,13 +27872,13 @@ class Mongo::Server
   # @api private
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/server.rb#650
+  # source://mongo//lib/mongo/server.rb#652
   def update_description(description); end
 
   # @api private
   # @since 2.0.0
   #
-  # source://mongo//lib/mongo/server.rb#690
+  # source://mongo//lib/mongo/server.rb#692
   def update_last_scan; end
 
   # Execute a block of code with a connection, that is checked out of the
@@ -28238,10 +28250,10 @@ class Mongo::Server::AppMetadata::Environment
   # against its declared definition.
   #
   # @api private
-  # @param var [String] The name of the environment variable to look
-  #   for.
   # @param definition [Hash] The definition of the field that applies
   #   to the named variable.
+  # @param var [String] The name of the environment variable to look
+  #   for.
   # @raise [MissingVariable] if the environment does not include a
   #   variable required by the current FaaS provider.
   # @raise [ValueTooLong] if a required variable is too long.
@@ -28600,8 +28612,8 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   # @option options
   # @option options
   # @option options
-  # @param server [Mongo::Server] The server the connection is for.
   # @param options [Hash] The connection options.
+  # @param server [Mongo::Server] The server the connection is for.
   # @return [Connection] a new instance of Connection
   # @since 2.0.0
   #
@@ -28928,9 +28940,9 @@ class Mongo::Server::ConnectionBase < ::Mongo::Server::ConnectionCommon
   # @note For backwards compatibility, this method accepts the messages
   #   as an array. However, exactly one message must be given per invocation.
   # @option options
+  # @param context [Operation::Context] The operation context.
   # @param messages [Array<Message>] A one-element array containing
   #   the message to dispatch.
-  # @param context [Operation::Context] The operation context.
   # @param options [Hash]
   # @raise [Error::SocketError | Error::SocketTimeoutError] When there is a network error.
   # @return [Protocol::Message | nil] The reply if needed.
@@ -29081,11 +29093,11 @@ class Mongo::Server::ConnectionCommon
   #
   # @api private
   # @param app_metadata [Server::AppMetadata] Application metadata
-  # @param speculative_auth_doc [BSON::Document] The speculative
-  #   authentication document, if any.
   # @param load_balancer [true | false] Whether the connection is to
   #   a load balancer.
   # @param server_api [Hash | nil] server_api Server API version.
+  # @param speculative_auth_doc [BSON::Document] The speculative
+  #   authentication document, if any.
   # @return [BSON::Document] Document that should be sent to a server
   #   for handshake purposes.
   #
@@ -29167,8 +29179,8 @@ class Mongo::Server::ConnectionPool
   # @option options
   # @option options
   # @option options
-  # @param server [Server] The server which this connection pool is for.
   # @param options [Hash] The connection pool options.
+  # @param server [Server] The server which this connection pool is for.
   # @return [ConnectionPool] a new instance of ConnectionPool
   # @since 2.0.0, API changed in 2.9.0
   #
@@ -29574,9 +29586,9 @@ class Mongo::Server::ConnectionPool
   # one. If no connection exists and the pool is at max size, wait until
   # a connection is checked back into the pool.
   #
-  # @param pid [Integer] The current process id.
   # @param connection_global_id [Integer] The global id for the
   #   connection to check out.
+  # @param pid [Integer] The current process id.
   # @raise [Error::PoolClosedError] If the pool has been closed.
   # @raise [Timeout::Error] If the connection pool is at maximum size
   #   and remains so for longer than the wait timeout.
@@ -29851,8 +29863,8 @@ class Mongo::Server::ConnectionPool::Populator
 
   # @api private
   # @option options
-  # @param pool [Server::ConnectionPool] The connection pool.
   # @param options [Hash] The options.
+  # @param pool [Server::ConnectionPool] The connection pool.
   # @return [Populator] a new instance of Populator
   #
   # source://mongo//lib/mongo/server/connection_pool/populator.rb#32
@@ -29898,15 +29910,15 @@ class Mongo::Server::Description
   # @example Instantiate the new description.
   #   Description.new(address, { 'isWritablePrimary' => true }, 0.5)
   # @param address [Address] The server address.
-  # @param config [Hash] The result of the hello command.
   # @param average_round_trip_time [Float] The moving average time (sec) the hello
   #   command took to complete.
-  # @param minimum_round_trip_time [Float] The minimum round trip time
-  #   of ten last hello commands.
-  # @param load_balancer [true | false] Whether the server is treated as
-  #   a load balancer.
+  # @param config [Hash] The result of the hello command.
   # @param force_load_balancer [true | false] Whether the server is
   #   forced to be a load balancer.
+  # @param load_balancer [true | false] Whether the server is treated as
+  #   a load balancer.
+  # @param minimum_round_trip_time [Float] The minimum round trip time
+  #   of ten last hello commands.
   # @return [Description] a new instance of Description
   # @since 2.0.0
   #
@@ -30837,10 +30849,10 @@ class Mongo::Server::Monitor
   # @option options
   # @option options
   # @option options
-  # @param server [Server] The server to monitor.
   # @param event_listeners [Event::Listeners] The event listeners.
   # @param monitoring [Monitoring] The monitoring..
   # @param options [Hash] The options.
+  # @param server [Server] The server to monitor.
   # @return [Monitor] a new instance of Monitor
   # @since 2.0.0
   #
@@ -31505,10 +31517,10 @@ class Mongo::ServerSelector::Base
   # Initialize the server selector.
   #
   # @api private
-  # @example Initialize the selector.
-  #   Mongo::ServerSelector::Secondary.new(:tag_sets => [{'dc' => 'nyc'}])
   # @example Initialize the preference with no options.
   #   Mongo::ServerSelector::Secondary.new
+  # @example Initialize the selector.
+  #   Mongo::ServerSelector::Secondary.new(:tag_sets => [{'dc' => 'nyc'}])
   # @option options
   # @option options
   # @option options
@@ -31606,20 +31618,20 @@ class Mongo::ServerSelector::Base
   # If a suitable server is not found within the server selection timeout,
   # this method raises Error::NoServerAvailable.
   #
+  # @param :timeout [Float | nil] Timeout in seconds for the operation,
+  #   if any.
   # @param cluster [Mongo::Cluster] The cluster from which to select
   #   an eligible server.
+  # @param deprioritized [Array<Server>] A list of servers that should
+  #   be selected from only if no other servers are available. This is
+  #   used to avoid selecting the same server twice in a row when
+  #   retrying a command.
   # @param ping [true, false] Whether to ping the server before selection.
   #   Deprecated and ignored.
   # @param session [Session | nil] Optional session to take into account
   #   for mongos pinning. Added in version 2.10.0.
   # @param write_aggregation [true | false] Whether we need a server that
   #   supports writing aggregations (e.g. with $merge/$out) on secondaries.
-  # @param deprioritized [Array<Server>] A list of servers that should
-  #   be selected from only if no other servers are available. This is
-  #   used to avoid selecting the same server twice in a row when
-  #   retrying a command.
-  # @param :timeout [Float | nil] Timeout in seconds for the operation,
-  #   if any.
   # @raise [Error::NoServerAvailable] No server was found matching the
   #   specified preference / pinning requirement in the server selection
   #   timeout.
@@ -31663,12 +31675,12 @@ class Mongo::ServerSelector::Base
   # @api private
   # @param cluster [Mongo::Cluster] The cluster from which to select
   #   an eligible server.
-  # @param write_aggregation [true | false] Whether we need a server that
-  #   supports writing aggregations (e.g. with $merge/$out) on secondaries.
   # @param deprioritized [Array<Server>] A list of servers that should
   #   be selected from only if no other servers are available. This is
   #   used to avoid selecting the same server twice in a row when
   #   retrying a command.
+  # @param write_aggregation [true | false] Whether we need a server that
+  #   supports writing aggregations (e.g. with $merge/$out) on secondaries.
   # @return [Server | nil] A suitable server, if one exists.
   #
   # source://mongo//lib/mongo/server_selector/base.rb#352
@@ -31757,9 +31769,9 @@ class Mongo::ServerSelector::Base
   # Returns a server from the list of servers that is suitable for
   # executing the operation.
   #
-  # @param servers [Array<Server>] The candidate servers.
   # @param deprioritized [Array<Server>] A list of servers that should
   #   be selected from only if no other servers are available.
+  # @param servers [Array<Server>] The candidate servers.
   # @return [Server | nil] The suitable server or nil if no suitable
   #   server is available.
   #
@@ -32336,10 +32348,10 @@ class Mongo::Session
   # @option options
   # @option options
   # @option options
-  # @param server_session [ServerSession | nil] The server session this session is associated with.
-  #   If the :implicit option is true, this must be nil.
   # @param client [Client] The client through which this session is created.
   # @param options [Hash] The options for this session.
+  # @param server_session [ServerSession | nil] The server session this session is associated with.
+  #   If the :implicit option is true, this must be nil.
   # @return [Session] a new instance of Session
   # @since 2.5.0
   #
@@ -32795,8 +32807,8 @@ class Mongo::Session
   # (both client- and server-side generated ones).
   #
   # @api private
-  # @param error [Error] The exception instance to process.
   # @param connection [Connection | nil] Connection to unpin from.
+  # @param error [Error] The exception instance to process.
   # @since 2.5.0
   #
   # source://mongo//lib/mongo/session.rb#876
@@ -33287,8 +33299,8 @@ class Mongo::Socket
   # @option options
   # @option options
   # @option options
-  # @param timeout [Float] The socket timeout value.
   # @param options [Hash] The options.
+  # @param timeout [Float] The socket timeout value.
   # @return [Socket] a new instance of Socket
   # @since 2.0.0
   #
@@ -33473,8 +33485,8 @@ class Mongo::Socket
   # sholud map exceptions.
   #
   # @api private
-  # @param args [Array<Object>] The data to be written.
   # @param :timeout [Numeric] The total timeout to the whole write operation.
+  # @param args [Array<Object>] The data to be written.
   # @return [Integer] The length of bytes written to the socket.
   # @since 2.0.0
   #
@@ -33511,9 +33523,9 @@ class Mongo::Socket
   # if the parameter is provided.
   #
   # @api private
-  # @param length [Integer] The number of bytes to read.
-  # @param :socket_timeout [Numeric] The timeout to use for each chunk read.
   # @param :csot [true | false] Whether the CSOT timeout is set for the operation.
+  # @param :socket_timeout [Numeric] The timeout to use for each chunk read.
+  # @param length [Integer] The number of bytes to read.
   # @return [Object] The data from the socket.
   # @since 2.0.0
   #
@@ -33585,8 +33597,8 @@ class Mongo::Socket
   # Writes data to to the socket, the write duration is limited to +timeout+.
   #
   # @api private
-  # @param args [Array<Object>] The data to be written.
   # @param :timeout [Numeric] The total timeout to the whole write operation.
+  # @param args [Array<Object>] The data to be written.
   # @raise [ArgumentError]
   # @return [Integer] The length of bytes written to the socket.
   # @since 2.0.0
@@ -33743,19 +33755,19 @@ class Mongo::Socket::OcspVerifier
   include ::Mongo::Loggable
 
   # @api private
-  # @param host_name [String] The host name being verified, for
-  #   diagnostic output.
-  # @param cert [OpenSSL::X509::Certificate] The certificate presented by
-  #   the server at host_name.
   # @param ca_cert [OpenSSL::X509::Certificate] The CA certificate
   #   presented by the server or resolved locally from the server
   #   certificate.
+  # @param cert [OpenSSL::X509::Certificate] The certificate presented by
+  #   the server at host_name.
   # @param cert_store [OpenSSL::X509::Store] The certificate store to
   #   use for verifying OCSP response. This should be the same store as
   #   used in SSLContext used with the SSLSocket that we are verifying the
   #   certificate for. This must NOT be the CA certificate provided by
   #   the server (i.e. anything taken out of peer_cert) - otherwise the
   #   server would dictate which CA authorities the client trusts.
+  # @param host_name [String] The host name being verified, for
+  #   diagnostic output.
   # @return [OcspVerifier] a new instance of OcspVerifier
   #
   # source://mongo//lib/mongo/socket/ocsp_verifier.rb#51
@@ -33885,11 +33897,11 @@ class Mongo::Socket::SSL < ::Mongo::Socket
   # @option options
   # @option options
   # @option options
+  # @param family [Integer] The socket family.
   # @param host [String] The hostname or IP address.
+  # @param options [Hash] The options.
   # @param port [Integer] The port number.
   # @param timeout [Float] The socket timeout value.
-  # @param family [Integer] The socket family.
-  # @param options [Hash] The options.
   # @return [SSL] a new instance of SSL
   # @since 2.0.0
   #
@@ -34099,11 +34111,11 @@ class Mongo::Socket::TCP < ::Mongo::Socket
   # @option options
   # @option options
   # @option options
+  # @param family [Integer] The socket family.
   # @param host [String] The hostname or IP address.
+  # @param options [Hash] The options.
   # @param port [Integer] The port number.
   # @param timeout [Float] The socket timeout value.
-  # @param family [Integer] The socket family.
-  # @param options [Hash] The options.
   # @return [TCP] a new instance of TCP
   # @since 2.0.0
   #
@@ -34187,9 +34199,9 @@ class Mongo::Socket::Unix < ::Mongo::Socket
   # @option options
   # @option options
   # @option options
+  # @param options [Hash] The options.
   # @param path [String] The path.
   # @param timeout [Float] The socket timeout value.
-  # @param options [Hash] The options.
   # @return [Unix] a new instance of Unix
   # @since 2.0.0
   #
@@ -34329,10 +34341,10 @@ class Mongo::Srv::Resolver
   #
   # @api private
   # @param hostname [String] The hostname whose records should be obtained.
-  # @param srv_service_name [String | nil] The SRV service name for the DNS query.
-  #   If nil, 'mongodb' is used.
   # @param srv_max_hosts [Integer | nil] The maximum number of records to return.
   #   If this value is nil, return all of the records.
+  # @param srv_service_name [String | nil] The SRV service name for the DNS query.
+  #   If nil, 'mongodb' is used.
   # @raise [Mongo::Error::MismatchedDomain] If the :raise_in_invalid
   #   Resolver option is true and a record with a domain name that does
   #   not match the hostname's is found.
@@ -34509,12 +34521,12 @@ module Mongo::Timeout
   # which is when the third argument was introduced.
   #
   # @api private
-  # @param sec [Numeric] The number of seconds before timeout.
   # @param klass [Class] The exception class to raise on timeout, optional.
   #   When no error exception is provided, Timeout::Error is raised.
   # @param message [String] The error message passed to the exception raised
   #   on timeout, optional. When no error message is provided, the default
   #   error message for the exception class is used.
+  # @param sec [Numeric] The number of seconds before timeout.
   #
   # source://mongo//lib/mongo/timeout.rb#33
   def timeout(sec, klass = T.unsafe(nil), message = T.unsafe(nil)); end
@@ -34525,12 +34537,12 @@ module Mongo::Timeout
     # which is when the third argument was introduced.
     #
     # @api private
-    # @param sec [Numeric] The number of seconds before timeout.
     # @param klass [Class] The exception class to raise on timeout, optional.
     #   When no error exception is provided, Timeout::Error is raised.
     # @param message [String] The error message passed to the exception raised
     #   on timeout, optional. When no error message is provided, the default
     #   error message for the exception class is used.
+    # @param sec [Numeric] The number of seconds before timeout.
     #
     # source://mongo//lib/mongo/timeout.rb#52
     def timeout(sec, klass = T.unsafe(nil), message = T.unsafe(nil)); end
@@ -34619,8 +34631,8 @@ class Mongo::URI
   # @example Create the new URI.
   #   URI.new('mongodb://localhost:27017')
   # @option options
-  # @param string [String] The URI to parse.
   # @param options [Hash] The options.
+  # @param string [String] The URI to parse.
   # @raise [Error::InvalidURI] If the uri does not match the spec.
   # @return [URI] a new instance of URI
   # @since 2.0.0
@@ -34777,9 +34789,9 @@ class Mongo::URI
     # @example Get the uri object.
     #   URI.get(string)
     # @option options
-    # @param string [String] The URI to parse.
-    # @param opts [Hash] The options.
     # @param options [Hash] a customizable set of options
+    # @param opts [Hash] The options.
+    # @param string [String] The URI to parse.
     # @return [URI, URI::SRVProtocol] The uri object.
     # @since 2.5.0
     #
@@ -34943,8 +34955,8 @@ class Mongo::URI::OptionsMapper
   #
   # @api private
   # @param key [String] URI option name.
-  # @param value [String] The value of the option.
   # @param uri_options [Hash] The base option target.
+  # @param value [String] The value of the option.
   #
   # source://mongo//lib/mongo/uri/options_mapper.rb#62
   def add_uri_option(key, value, uri_options); end
@@ -34985,8 +34997,8 @@ class Mongo::URI::OptionsMapper
   #
   # @api private
   # @param key [String] URI option name.
-  # @param value [String] The value to be transformed.
   # @param type [Symbol] The transform method.
+  # @param value [String] The value to be transformed.
   #
   # source://mongo//lib/mongo/uri/options_mapper.rb#215
   def apply_transform(key, value, type); end
@@ -35176,9 +35188,9 @@ class Mongo::URI::OptionsMapper
   # to the array of tag sets without overwriting the original.
   #
   # @api private
+  # @param name [Symbol] The name of the option.
   # @param target [Hash] The destination.
   # @param value [Object] The value to be merged.
-  # @param name [Symbol] The name of the option.
   #
   # source://mongo//lib/mongo/uri/options_mapper.rb#234
   def merge_uri_option(target, value, name); end
@@ -35440,11 +35452,11 @@ class Mongo::URI::OptionsMapper
     # Simple internal dsl to register a MongoDB URI option in the URI_OPTION_MAP.
     #
     # @api private
-    # @param uri_key [String] The MongoDB URI option to register.
-    # @param name [Symbol] The name of the option in the driver.
     # @param extra [Hash] Extra options.
     #   * :group [ Symbol ] Nested hash where option will go.
     #   * :type [ Symbol ] Name of function to transform value.
+    # @param name [Symbol] The name of the option in the driver.
+    # @param uri_key [String] The MongoDB URI option to register.
     #
     # source://mongo//lib/mongo/uri/options_mapper.rb#260
     def uri_option(uri_key, name, **extra); end

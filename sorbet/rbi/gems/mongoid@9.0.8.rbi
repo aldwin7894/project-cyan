@@ -619,9 +619,9 @@ module Mongoid::Association::Accessors
   #
   # @example Build the association.
   #   person.__build__(:addresses, { :_id => 1 }, association)
+  # @param association [Mongoid::Association::Relatable] The association metadata.
   # @param name [String | Symbol] The name of the association.
   # @param object [Hash | BSON::ObjectId] The id or attributes to use.
-  # @param association [Mongoid::Association::Relatable] The association metadata.
   # @param selected_fields [Hash] Fields which were retrieved via #only.
   #   If selected_fields is specified, fields not listed in it will not be
   #   accessible in the built document.
@@ -634,8 +634,8 @@ module Mongoid::Association::Accessors
   #
   # @example Create the association.
   #   person.create_relation(document, association)
-  # @param object [Document | Array<Document>] The association target.
   # @param association [Mongoid::Association::Relatable] The association metadata.
+  # @param object [Document | Array<Document>] The association target.
   # @param selected_fields [Hash] Fields which were retrieved via #only.
   #   If selected_fields is specified, fields not listed in it will not be
   #   accessible in the created association document.
@@ -691,8 +691,8 @@ module Mongoid::Association::Accessors
   # @api private
   # @example Get the association.
   #   document.get_relation(:name, association)
-  # @param name [Symbol] The name of the association.
   # @param association [Mongoid::Association::Relatable] The association metadata.
+  # @param name [Symbol] The name of the association.
   # @param object [Object] The object used to build the association.
   # @param reload [true | false] If the association is to be reloaded.
   # @return [Proxy] The association.
@@ -839,9 +839,9 @@ module Mongoid::Association::Bindable
   #
   # @example Initialize a binding.
   #   Binding.new(base, target, association)
+  # @param association [Mongoid::Association::Relatable] The association metadata.
   # @param base [Document] The base of the binding.
   # @param target [Document | Array<Document>] The target of the binding.
-  # @param association [Mongoid::Association::Relatable] The association metadata.
   #
   # source://mongoid//lib/mongoid/association/bindable.rb#21
   def initialize(base, target, association); end
@@ -880,8 +880,8 @@ module Mongoid::Association::Bindable
   # @api private
   # @example Bind the foreign key.
   #   binding.bind_foreign_key(post, person._id)
-  # @param keyed [Document] The document that stores the foreign key.
   # @param id [Object] The id of the bound document.
+  # @param keyed [Document] The document that stores the foreign key.
   #
   # source://mongoid//lib/mongoid/association/bindable.rb#121
   def bind_foreign_key(keyed, id); end
@@ -914,8 +914,8 @@ module Mongoid::Association::Bindable
   # @api private
   # @example Bind the polymorphic type.
   #   binding.bind_polymorphic_inverse_type(post, "Person")
-  # @param typed [Document] The document that stores the type field.
   # @param name [String] The name of the model.
+  # @param typed [Document] The document that stores the type field.
   #
   # source://mongoid//lib/mongoid/association/bindable.rb#153
   def bind_polymorphic_inverse_type(typed, name); end
@@ -926,8 +926,8 @@ module Mongoid::Association::Bindable
   # @api private
   # @example Bind the polymorphic type.
   #   binding.bind_polymorphic_type(post, "Person")
-  # @param typed [Document] The document that stores the type field.
   # @param name [String] The name of the model.
+  # @param typed [Document] The document that stores the type field.
   #
   # source://mongoid//lib/mongoid/association/bindable.rb#137
   def bind_polymorphic_type(typed, name); end
@@ -993,8 +993,8 @@ module Mongoid::Association::Bindable
   #   object.try_method(:use, "The Force")
   # @example Return nil if method argument is nil.
   #   object.try_method(nil, "The Force") #=> nil
-  # @param method_name [String | Symbol] The method name.
   # @param *args [Object...] The arguments.
+  # @param method_name [String | Symbol] The method name.
   # @return [Object | nil] The result of the try or nil if the
   #   method does not exist.
   #
@@ -1263,8 +1263,8 @@ class Mongoid::Association::Eager
   #
   # @example Set docs into parent with pk = "foo"
   #   loader.set_on_parent("foo", docs)
-  # @param id [ObjectId] parent`s id
   # @param element [Document | Array] to push into the parent
+  # @param id [ObjectId] parent`s id
   #
   # source://mongoid//lib/mongoid/association/eager.rb#88
   def set_on_parent(id, element); end
@@ -1819,10 +1819,10 @@ module Mongoid::Association::Embedded::EmbeddedIn::Buildable
   #   Builder.new(meta, attrs).build
   # @param base [Document] The object.
   # @param object [Document | Hash] The parent hash or document.
-  # @param type [String] Not used in this context.
   # @param selected_fields [Hash] Fields which were retrieved via
   #   #only. If selected_fields are specified, fields not listed in it
   #   will not be accessible in the built document.
+  # @param type [String] Not used in this context.
   # @return [Document] A single document.
   #
   # source://mongoid//lib/mongoid/association/embedded/embedded_in/buildable.rb#27
@@ -1842,9 +1842,9 @@ class Mongoid::Association::Embedded::EmbeddedIn::Proxy < ::Mongoid::Association
   #
   # @example Create the new association.
   #   Association::Embedded::EmbeddedIn.new(person, address, association)
+  # @param association [Mongoid::Association::Relatable] The association metadata.
   # @param base [Document] The document the association hangs off of.
   # @param target [Document] The target (parent) of the association.
-  # @param association [Mongoid::Association::Relatable] The association metadata.
   # @return [In] The proxy.
   #
   # source://mongoid//lib/mongoid/association/embedded/embedded_in/proxy.rb#24
@@ -2114,10 +2114,10 @@ module Mongoid::Association::Embedded::EmbedsMany::Buildable
   # @param base [Document] The base object.
   # @param object [Array<Document> | Array<Hash>] The object to use
   #   to build the association.
-  # @param type [String] Not used in this context.
   # @param selected_fields [Hash] Fields which were retrieved via
   #   #only. If selected_fields are specified, fields not listed in it
   #   will not be accessible in the built documents.
+  # @param type [String] Not used in this context.
   # @return [Array<Document ] The documents.] Array<Document ] The documents.
   #
   # source://mongoid//lib/mongoid/association/embedded/embeds_many/buildable.rb#30
@@ -2141,9 +2141,9 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #
   # @example Create the new association.
   #   Many.new(person, addresses, association)
+  # @param association [Mongoid::Association::Relatable] The association metadata.
   # @param base [Document] The document this association hangs off of.
   # @param target [Array<Document>] The child documents of the association.
-  # @param association [Mongoid::Association::Relatable] The association metadata.
   # @return [Many] The proxy.
   #
   # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#67
@@ -2228,10 +2228,10 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # #count method on +target+ and will include both persisted
   # and non-persisted documents.
   #
-  # @example Get the count of persisted documents.
-  #   person.addresses.count
   # @example Get the count of all documents matching a block.
   #   person.addresses.count { |a| a.country == "FR" }
+  # @example Get the count of persisted documents.
+  #   person.addresses.count
   # @example Use #persisted? inside block to count persisted documents.
   #   person.addresses.count { |a| a.persisted? && a.country == "FR" }
   # @param *args [Object...] Args to delegate to the target.
@@ -2254,10 +2254,10 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
 
   # Delete all the documents in the association without running callbacks.
   #
-  # @example Delete all documents from the association.
-  #   person.addresses.delete_all
   # @example Conditionally delete documents from the association.
   #   person.addresses.delete_all({ :street => "Bond" })
+  # @example Delete all documents from the association.
+  #   person.addresses.delete_all
   # @param conditions [Hash] Conditions on which documents to delete.
   # @return [Integer] The number of documents deleted.
   #
@@ -2291,10 +2291,10 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
 
   # Destroy all the documents in the association whilst running callbacks.
   #
-  # @example Destroy all documents from the association.
-  #   person.addresses.destroy_all
   # @example Conditionally destroy documents from the association.
   #   person.addresses.destroy_all({ :street => "Bond" })
+  # @example Destroy all documents from the association.
+  #   person.addresses.destroy_all
   # @param conditions [Hash] Conditions on which documents to destroy.
   # @return [Integer] The number of documents destroyed.
   #
@@ -2335,8 +2335,8 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   person.addresses.find([ BSON::ObjectId.new, BSON::ObjectId.new ])
   # @example Finds the first matching document using a block.
   #   person.addresses.find { |addr| addr.state == 'CA' }
-  # @param *args [Object...] Various arguments.
   # @param &block Optional block to pass.
+  # @param *args [Object...] Various arguments.
   # @return [Document | Array<Document> | nil] A document or matching documents.
   # @yield [Object] Yields each enumerable element to the block.
   #
@@ -2506,9 +2506,9 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # TODO: make sure we are consistingly using respond_to_missing
   #   anywhere we define method_missing.
   #
-  # @param name [Symbol | String] The name of the method.
-  # @param *args [Object...] The method args.
   # @param &block Optional block to pass.
+  # @param *args [Object...] The method args.
+  # @param name [Symbol | String] The name of the method.
   # @return [Criteria | Object] A Criteria or return value from the target.
   #
   # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#551
@@ -2790,9 +2790,9 @@ module Mongoid::Association::Embedded::EmbedsOne::Buildable
   #
   # @example Build the document.
   #   Builder.new(meta, attrs).build
+  # @param _type [String] Not used in this context.
   # @param base [Document] The document this association hangs off of.
   # @param object [Document | Hash] The related document.
-  # @param _type [String] Not used in this context.
   # @param selected_fields [Hash] Fields which were retrieved via
   #   #only. If selected_fields are specified, fields not listed in it
   #   will not be accessible in the built document.
@@ -2820,9 +2820,9 @@ class Mongoid::Association::Embedded::EmbedsOne::Proxy < ::Mongoid::Association:
   #
   # @example Create the new proxy.
   #   One.new(person, name, association)
+  # @param association [Mongoid::Association::Relatable] The association metadata.
   # @param base [Document] The document this association hangs off of.
   # @param target [Document] The child document in the association.
-  # @param association [Mongoid::Association::Relatable] The association metadata.
   # @return [Proxy] a new instance of Proxy
   #
   # source://mongoid//lib/mongoid/association/embedded/embeds_one/proxy.rb#33
@@ -3028,9 +3028,9 @@ module Mongoid::Association::Macros::ClassMethods
   #   include Mongoid::Document
   #   has_one :game
   #   end
+  # @param &block Optional block for defining extensions.
   # @param name [Symbol] The name of the association.
   # @param options [Hash] The association options.
-  # @param &block Optional block for defining extensions.
   #
   # source://mongoid//lib/mongoid/association/macros.rb#148
   def belongs_to(name, options = T.unsafe(nil), &block); end
@@ -3051,9 +3051,9 @@ module Mongoid::Association::Macros::ClassMethods
   #   include Mongoid::Document
   #   embedded_in :person
   #   end
+  # @param &block Optional block for defining extensions.
   # @param name [Symbol] The name of the association.
   # @param options [Hash] The association options.
-  # @param &block Optional block for defining extensions.
   #
   # source://mongoid//lib/mongoid/association/macros.rb#80
   def embedded_in(name, options = T.unsafe(nil), &block); end
@@ -3073,9 +3073,9 @@ module Mongoid::Association::Macros::ClassMethods
   #   include Mongoid::Document
   #   embedded_in :person
   #   end
+  # @param &block Optional block for defining extensions.
   # @param name [Symbol] The name of the association.
   # @param options [Hash] The association options.
-  # @param &block Optional block for defining extensions.
   #
   # source://mongoid//lib/mongoid/association/macros.rb#103
   def embeds_many(name, options = T.unsafe(nil), &block); end
@@ -3095,9 +3095,9 @@ module Mongoid::Association::Macros::ClassMethods
   #   include Mongoid::Document
   #   embedded_in :person
   #   end
+  # @param &block Optional block for defining extensions.
   # @param name [Symbol] The name of the association.
   # @param options [Hash] The association options.
-  # @param &block Optional block for defining extensions.
   #
   # source://mongoid//lib/mongoid/association/macros.rb#126
   def embeds_one(name, options = T.unsafe(nil), &block); end
@@ -3116,9 +3116,9 @@ module Mongoid::Association::Macros::ClassMethods
   #   include Mongoid::Document
   #   has_and_belongs_to_many :people
   #   end
+  # @param &block Optional block for defining extensions.
   # @param name [Symbol] The name of the association.
   # @param options [Hash] The association options.
-  # @param &block Optional block for defining extensions.
   #
   # source://mongoid//lib/mongoid/association/macros.rb#194
   def has_and_belongs_to_many(name, options = T.unsafe(nil), &block); end
@@ -3137,9 +3137,9 @@ module Mongoid::Association::Macros::ClassMethods
   #   include Mongoid::Document
   #   belongs_to :person
   #   end
+  # @param &block Optional block for defining extensions.
   # @param name [Symbol] The name of the association.
   # @param options [Hash] The association options.
-  # @param &block Optional block for defining extensions.
   #
   # source://mongoid//lib/mongoid/association/macros.rb#172
   def has_many(name, options = T.unsafe(nil), &block); end
@@ -3158,9 +3158,9 @@ module Mongoid::Association::Macros::ClassMethods
   #   include Mongoid::Document
   #   has_one :game
   #   end
+  # @param &block Optional block for defining extensions.
   # @param name [Symbol] The name of the association.
   # @param options [Hash] The association options.
-  # @param &block Optional block for defining extensions.
   #
   # source://mongoid//lib/mongoid/association/macros.rb#216
   def has_one(name, options = T.unsafe(nil), &block); end
@@ -3279,8 +3279,8 @@ class Mongoid::Association::Many < ::Mongoid::Association::Proxy
   #
   # @example Does the proxy respond to the method?
   #   relation.respond_to?(:name)
-  # @param name [Symbol] The method name.
   # @param include_private [true | false] Whether to include private methods.
+  # @param name [Symbol] The method name.
   # @return [true | false] If the proxy responds to the method.
   #
   # source://mongoid//lib/mongoid/association/many.rb#137
@@ -3416,8 +3416,8 @@ module Mongoid::Association::Nested::Buildable
   #
   # @example Convert the id.
   #   builder.convert_id(Person, "4d371b444835d98b8b000010")
-  # @param klass [Class] The class we're trying to convert for.
   # @param id [String] The id, usually coming from the form.
+  # @param klass [Class] The class we're trying to convert for.
   # @return [BSON::ObjectId | String | Object] The converted id.
   #
   # source://mongoid//lib/mongoid/association/nested/nested_buildable.rb#65
@@ -3451,8 +3451,8 @@ module Mongoid::Association::Nested::Buildable
   #
   # @example Is there a reject proc?
   #   builder.reject?
-  # @param document [Document] The parent document of the association
   # @param attrs [Hash] The attributes to check for rejection.
+  # @param document [Document] The parent document of the association
   # @return [true | false] True and call proc or method if rejectable, false if not.
   #
   # source://mongoid//lib/mongoid/association/nested/nested_buildable.rb#34
@@ -3526,8 +3526,8 @@ class Mongoid::Association::Nested::Many
   #
   # @example Build the nested attrs.
   #   many.build(person)
-  # @param parent [Document] The parent document of the association.
   # @param options [Hash] The options.
+  # @param parent [Document] The parent document of the association.
   # @return [Array] The attributes.
   #
   # source://mongoid//lib/mongoid/association/nested/many.rb#27
@@ -3541,9 +3541,9 @@ class Mongoid::Association::Nested::Many
   # @api private
   # @example Destroy the child.
   #   builder.destroy(parent, relation, doc)
+  # @param doc [Document] The doc to destroy.
   # @param parent [Document] The parent document.
   # @param relation [Proxy] The association proxy.
-  # @param doc [Document] The doc to destroy.
   #
   # source://mongoid//lib/mongoid/association/nested/many.rb#123
   def destroy(parent, relation, doc); end
@@ -3553,8 +3553,8 @@ class Mongoid::Association::Nested::Many
   # @api private
   # @example Destroy the document.
   #   builder.destroy_document(relation, doc)
-  # @param relation [Proxy] The association proxy.
   # @param doc [Document] The document to delete.
+  # @param relation [Proxy] The association proxy.
   #
   # source://mongoid//lib/mongoid/association/nested/many.rb#141
   def destroy_document(relation, doc); end
@@ -3586,8 +3586,8 @@ class Mongoid::Association::Nested::Many
   # @api private
   # @example Process the attributes
   #   builder.process_attributes({ "id" => 1, "street" => "Bond" })
-  # @param parent [Document] The parent document.
   # @param attrs [Hash] The single document attributes to process.
+  # @param parent [Document] The parent document.
   #
   # source://mongoid//lib/mongoid/association/nested/many.rb#102
   def process_attributes(parent, attrs); end
@@ -3597,8 +3597,8 @@ class Mongoid::Association::Nested::Many
   # @api private
   # @example Update the document.
   #   builder.update_document(doc, {}, options)
-  # @param doc [Document] The document to update.
   # @param attrs [Hash] The attributes.
+  # @param doc [Document] The document to update.
   #
   # source://mongoid//lib/mongoid/association/nested/many.rb#156
   def update_document(doc, attrs); end
@@ -3608,9 +3608,9 @@ class Mongoid::Association::Nested::Many
   # @api private
   # @example Update nested association.
   #   builder.update_nested_relation(parent, id, attrs)
-  # @param parent [Document] The parent document.
-  # @param id [String | BSON::ObjectId] of the related document.
   # @param attrs [Hash] The single document attributes to process.
+  # @param id [String | BSON::ObjectId] of the related document.
+  # @param parent [Document] The parent document.
   #
   # source://mongoid//lib/mongoid/association/nested/many.rb#175
   def update_nested_relation(parent, id, attrs); end
@@ -3933,9 +3933,9 @@ class Mongoid::Association::Proxy
 
   # Sets the target and the association metadata properties.
   #
+  # @param association [Mongoid::Association::Relatable] The association metadata.
   # @param base [Document] The base document on the proxy.
   # @param target [Document | Array<Document>] The target of the proxy.
-  # @param association [Mongoid::Association::Relatable] The association metadata.
   # @return [Proxy] a new instance of Proxy
   # @yield [_self]
   # @yieldparam _self [Mongoid::Association::Proxy] the object that the method was called on
@@ -4111,8 +4111,8 @@ class Mongoid::Association::Proxy
     #
     # @example Apply the ordering.
     #   Proxy.apply_ordering(criteria, association)
-    # @param criteria [Criteria] The criteria to modify.
     # @param association [Mongoid::Association::Relatable] The association metadata.
+    # @param criteria [Criteria] The criteria to modify.
     # @return [Criteria] The ordered criteria.
     #
     # source://mongoid//lib/mongoid/association/proxy.rb#206
@@ -4386,8 +4386,8 @@ module Mongoid::Association::Referenced::BelongsTo::Buildable
   #   relation.build(meta, attrs)
   # @param base [Object] The base object.
   # @param object [Object] The object to use to build the association.
-  # @param type [String] The type of the association.
   # @param selected_fields [nil] Must be nil.
+  # @param type [String] The type of the association.
   # @return [Document] A single document.
   #
   # source://mongoid//lib/mongoid/association/referenced/belongs_to/buildable.rb#24
@@ -4469,10 +4469,10 @@ class Mongoid::Association::Referenced::BelongsTo::Proxy < ::Mongoid::Associatio
   #
   # @example Create the new proxy.
   #   Association::BelongsTo::Proxy.new(game, person, association)
+  # @param association [Mongoid::Association::Relatable] The association object.
   # @param base [Document] The document this association hangs off of.
   # @param target [Document | Array<Document>] The target (parent) of the
   #   association.
-  # @param association [Mongoid::Association::Relatable] The association object.
   # @return [Proxy] a new instance of Proxy
   #
   # source://mongoid//lib/mongoid/association/referenced/belongs_to/proxy.rb#26
@@ -4628,8 +4628,8 @@ module Mongoid::Association::Referenced::CounterCache::ClassMethods
   #
   # @example Reset the given counter cache
   #   Post.reset_counters('50e0edd97c71c17ea9000001', :comments)
-  # @param id [String] The id of the object that will be reset.
   # @param *counters [Symbol...] One or more counter caches to reset.
+  # @param id [String] The id of the object that will be reset.
   #
   # source://mongoid//lib/mongoid/association/referenced/counter_cache.rb#39
   def reset_counters(id, *counters); end
@@ -4641,8 +4641,8 @@ module Mongoid::Association::Referenced::CounterCache::ClassMethods
   #   counter.
   #   Post.update_counters('50e0edd97c71c17ea9000001',
   #   :comments_count => 5, :likes_count => -2)
-  # @param id [String] The id of the object to update.
   # @param counters [Hash]
+  # @param id [String] The id of the object to update.
   #
   # source://mongoid//lib/mongoid/association/referenced/counter_cache.rb#58
   def update_counters(id, counters); end
@@ -4870,8 +4870,8 @@ module Mongoid::Association::Referenced::HasAndBelongsToMany::Buildable
   #   relation.build(association, attrs)
   # @param base [Object] The base object.
   # @param object [Object] The object to use to build the association.
-  # @param type [String] Not used in this context.
   # @param selected_fields [nil] Must be nil.
+  # @param type [String] Not used in this context.
   # @return [Array<Document>] The documents.
   #
   # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/buildable.rb#24
@@ -4939,10 +4939,10 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   #
   # @example Append a document.
   #   person.posts << post
-  # @example Push a document.
-  #   person.posts.push(post)
   # @example Concat with other documents.
   #   person.posts.concat([ post_one, post_two ])
+  # @example Push a document.
+  #   person.posts.push(post)
   # @param *args [Document...] Any number of documents.
   # @return [Array<Document>] The loaded docs.
   #
@@ -5062,10 +5062,10 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   #
   # @example Append a document.
   #   person.posts << post
-  # @example Push a document.
-  #   person.posts.push(post)
   # @example Concat with other documents.
   #   person.posts.concat([ post_one, post_two ])
+  # @example Push a document.
+  #   person.posts.push(post)
   # @param *args [Document...] Any number of documents.
   # @return [Array<Document>] The loaded docs.
   #
@@ -5111,10 +5111,10 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   #
   #
   # @param doc [Mongoid::Document] the document to append
-  # @param ids [Hash] the mapping of primary keys that have been
-  #   visited
   # @param docs [Array] the list of new docs to be inserted later,
   #   in bulk
+  # @param ids [Hash] the mapping of primary keys that have been
+  #   visited
   # @param inserts [Array] the list of Hashes of attributes that will
   #   be inserted (corresponding to the ``docs`` list)
   #
@@ -5448,8 +5448,8 @@ module Mongoid::Association::Referenced::HasMany::Buildable
   #   relation.build(meta, attrs)
   # @param base [Object] The base object.
   # @param object [Object] The object to use to build the association.
-  # @param type [String] The type of document to query for.
   # @param selected_fields [nil] Must be nil.
+  # @param type [String] The type of document to query for.
   # @return [Document] A single document.
   #
   # source://mongoid//lib/mongoid/association/referenced/has_many/buildable.rb#24
@@ -5614,12 +5614,12 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # Clears out all the documents in this enumerable. If passed a block it
   # will yield to each document that is in memory.
   #
-  # @example Clear out the enumerable.
-  #   enumerable.clear
   # @example Clear out the enumerable with a block.
   #   enumerable.clear do |doc|
   #   doc.unbind
   #   end
+  # @example Clear out the enumerable.
+  #   enumerable.clear
   # @return [Array<Document>] The cleared out _added docs.
   #
   # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#79
@@ -5833,9 +5833,9 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @example Does the enumerable respond to the method?
   #   enumerable.respond_to?(:sum)
-  # @param name [String | Symbol] The name of the method.
   # @param include_private [true | false] Whether to include private
   #   methods.
+  # @param name [String | Symbol] The name of the method.
   # @return [true | false] Whether the enumerable responds.
   #
   # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#410
@@ -5891,15 +5891,15 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # always produces an empty document set. Note however that return value false
   # is not a guarantee that the condition won't produce an empty document set.
   #
-  # @example Unsatisfiable conditions
-  #   unsatisfiable_criteria?({'_id' => {'$in' => []}})
-  #   # => true
-  # @example Conditions which may be satisfiable
-  #   unsatisfiable_criteria?({'_id' => '123'})
-  #   # => false
   # @example Conditions which are unsatisfiable that this method does not handle
   #   unsatisfiable_criteria?({'foo' => {'$in' => []}})
   #   # => false
+  # @example Conditions which may be satisfiable
+  #   unsatisfiable_criteria?({'_id' => '123'})
+  #   # => false
+  # @example Unsatisfiable conditions
+  #   unsatisfiable_criteria?({'_id' => {'$in' => []}})
+  #   # => true
   # @param selector [Hash] The conditions to check.
   # @return [true | false] Whether hash contains known unsatisfiable
   #   conditions.
@@ -5931,9 +5931,9 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #
   # @example Create the new association.
   #   Referenced::Many.new(base, target, association)
+  # @param association [Mongoid::Association::Relatable] The association metadata.
   # @param base [Document] The document this association hangs off of.
   # @param target [Array<Document>] The target of the association.
-  # @param association [Mongoid::Association::Relatable] The association metadata.
   # @return [Proxy] a new instance of Proxy
   #
   # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#48
@@ -5944,10 +5944,10 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #
   # @example Append a document.
   #   person.posts << post
-  # @example Push a document.
-  #   person.posts.push(post)
   # @example Concat with other documents.
   #   person.posts.concat([ post_one, post_two ])
+  # @example Push a document.
+  #   person.posts.push(post)
   # @param *args [Document...] Any number of documents.
   # @return [Array<Document>] The loaded docs.
   #
@@ -6005,10 +6005,10 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # Deletes all related documents from the database given the supplied
   # conditions.
   #
-  # @example Delete all documents in the association.
-  #   person.posts.delete_all
   # @example Conditonally delete all documents in the association.
   #   person.posts.delete_all({ :title => "Testing" })
+  # @example Delete all documents in the association.
+  #   person.posts.delete_all
   # @param conditions [Hash] Optional conditions to delete with.
   # @return [Integer] The number of documents deleted.
   #
@@ -6032,10 +6032,10 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # Destroys all related documents from the database given the supplied
   # conditions.
   #
-  # @example Destroy all documents in the association.
-  #   person.posts.destroy_all
   # @example Conditionally destroy all documents in the association.
   #   person.posts.destroy_all({ :title => "Testing" })
+  # @example Destroy all documents in the association.
+  #   person.posts.destroy_all
   # @param conditions [Hash] Optional conditions to destroy with.
   # @return [Integer] The number of documents destroyed.
   #
@@ -6099,8 +6099,8 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   a nested array. Each array will be flattened.
   # @note This will keep matching documents in memory for iteration
   #   later.
-  # @param *args [[ Object | Array<Object> ]...] The ids.
   # @param &block Optional block to pass.
+  # @param *args [[ Object | Array<Object> ]...] The ids.
   # @return [Document | Array<Document> | nil] A document or matching documents.
   # @yield [Object] Yields each enumerable element to the block.
   #
@@ -6163,10 +6163,10 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #
   # @example Append a document.
   #   person.posts << post
-  # @example Push a document.
-  #   person.posts.push(post)
   # @example Concat with other documents.
   #   person.posts.concat([ post_one, post_two ])
+  # @example Push a document.
+  #   person.posts.push(post)
   # @param *args [Document...] Any number of documents.
   # @return [Array<Document>] The loaded docs.
   #
@@ -6271,9 +6271,9 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # TODO: make sure we are consistingly using respond_to_missing
   #   anywhere we define method_missing.
   #
-  # @param name [Symbol | String] The name of the method.
-  # @param *args [Object...] The method args
   # @param &block Optional block to pass.
+  # @param *args [Object...] The method args
+  # @param name [Symbol | String] The name of the method.
   # @return [Criteria | Object] A Criteria or return value from the target.
   #
   # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#465
@@ -6302,10 +6302,10 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # Deletes all related documents from the database given the supplied
   # conditions.
   #
-  # @example Delete all documents in the association.
-  #   person.posts.delete_all
   # @example Conditonally delete all documents in the association.
   #   person.posts.delete_all({ :title => "Testing" })
+  # @example Delete all documents in the association.
+  #   person.posts.delete_all
   # @param conditions [Hash] Optional conditions to delete with.
   # @param method [Symbol] The deletion method to call.
   # @return [Integer] The number of documents deleted.
@@ -6349,9 +6349,9 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #
   # @example Execute before/after add callbacks around the block.
   #   relation.with_add_callbacks(document, false)
-  # @param document [Document] The document to append to the target.
   # @param already_related [true | false] Whether the document is already related
   #   to the target.
+  # @param document [Document] The document to append to the target.
   #
   # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#376
   def with_add_callbacks(document, already_related); end
@@ -6566,8 +6566,8 @@ module Mongoid::Association::Referenced::HasOne::Buildable
   #
   # @param base [Object] The base object.
   # @param object [Object] The object to use to build the association.
-  # @param type [String] The type of the association.
   # @param selected_fields [nil] Must be nil.
+  # @param type [String] The type of the association.
   # @return [Document] A single document.
   #
   # source://mongoid//lib/mongoid/association/referenced/has_one/buildable.rb#25
@@ -6629,9 +6629,9 @@ class Mongoid::Association::Referenced::HasOne::Proxy < ::Mongoid::Association::
   #
   # @example Create the new association.
   #   Referenced::One.new(base, target, association)
+  # @param association [Mongoid::Association::Relatable] The association metadata.
   # @param base [Document] The document this association hangs off of.
   # @param target [Document] The target (child) of the association.
-  # @param association [Mongoid::Association::Relatable] The association metadata.
   # @return [Proxy] a new instance of Proxy
   #
   # source://mongoid//lib/mongoid/association/referenced/has_one/proxy.rb#43
@@ -6816,10 +6816,10 @@ module Mongoid::Association::Referenced::WithPolymorphicCriteria
   # the polymorphic search criteria to the given `criteria` object.
   #
   # @api private
-  # @param criteria [Mongoid::Criteria] the criteria to append to
-  #   if receiver is polymorphic.
   # @param base [Mongoid::Document] the document to use when resolving
   #   the polymorphic type keys.
+  # @param criteria [Mongoid::Criteria] the criteria to append to
+  #   if receiver is polymorphic.
   # @return [Mongoid::Criteria] the resulting criteria, which may be
   #   the same as the input.
   #
@@ -6890,9 +6890,9 @@ module Mongoid::Association::Relatable
   # Initialize the Association.
   #
   # @param _class [Class] The class of the model who owns this association.
+  # @param block [Block] The optional block.
   # @param name [Symbol] The name of the association.
   # @param opts [Hash] The association options.
-  # @param block [Block] The optional block.
   #
   # source://mongoid//lib/mongoid/association/relatable.rb#46
   def initialize(_class, name, opts = T.unsafe(nil), &block); end
@@ -7555,8 +7555,8 @@ module Mongoid::Atomic
   #
   # @example Generate the updates.
   #   model.generate_atomic_updates(mods, doc)
-  # @param mods [Modifiers] The atomic modifications.
   # @param doc [Document] The document to update for.
+  # @param mods [Modifiers] The atomic modifications.
   #
   # source://mongoid//lib/mongoid/atomic.rb#337
   def generate_atomic_updates(mods, doc); end
@@ -7633,8 +7633,8 @@ class Mongoid::Atomic::Modifiers < ::Hash
   #
   # @example Add the operation.
   #   modifications.add_operation(mods, field, value)
-  # @param mods [Hash] The modifications.
   # @param field [String] The field.
+  # @param mods [Hash] The modifications.
   # @param value [Hash] The atomic op.
   #
   # source://mongoid//lib/mongoid/atomic/modifiers.rb#130
@@ -7645,8 +7645,8 @@ class Mongoid::Atomic::Modifiers < ::Hash
   #
   # @example Add the operation.
   #   modifications.add_operation(mods, field, value)
-  # @param mods [Hash] The modifications.
   # @param field [String] The field.
+  # @param mods [Hash] The modifications.
   # @param value [Hash] The atomic op.
   #
   # source://mongoid//lib/mongoid/atomic/modifiers.rb#107
@@ -7863,8 +7863,8 @@ class Mongoid::Atomic::Paths::Embedded::Many
     # require passing in a document to store, which we don't have when
     # trying to store the empty list.
     #
-    # @param parent [Document] The parent document to store in.
     # @param association [Mongoid::Association::Relatable] The association metadata.
+    # @param parent [Document] The parent document to store in.
     # @return [String] The position string.
     #
     # source://mongoid//lib/mongoid/atomic/paths/embedded/many.rb#52
@@ -7961,8 +7961,8 @@ class Mongoid::AtomicUpdatePreparer
     # Non-operator keys are assumed to use $set operation.
     #
     # @api private
-    # @param klass [Class] The model class.
     # @param attributes [Hash] The attributes to convert.
+    # @param klass [Class] The model class.
     # @return [Hash] The prepared atomic updates.
     #
     # source://mongoid//lib/mongoid/atomic_update_preparer.rb#21
@@ -7973,9 +7973,9 @@ class Mongoid::AtomicUpdatePreparer
     # Mongoize for the klass, key and value.
     #
     # @api private
-    # @param operator [String] The operator.
-    # @param klass [Class] The model class.
     # @param key [String | Symbol] The field key.
+    # @param klass [Class] The model class.
+    # @param operator [String] The operator.
     # @param value [Object] The value to mongoize.
     # @return [Object] The mongoized value.
     #
@@ -7986,8 +7986,8 @@ class Mongoid::AtomicUpdatePreparer
     # the value accordingly.
     #
     # @api private
-    # @param klass [Class] the model class
     # @param key [String | Symbol] the operator
+    # @param klass [Class] the model class
     # @param value [Hash] the operand
     # @return [Hash] the prepared value.
     #
@@ -7999,9 +7999,9 @@ class Mongoid::AtomicUpdatePreparer
     # This is necessary for special cases like $rename, $addToSet, $push, $pull and $pop.
     #
     # @api private
-    # @param operator [String] The operator.
-    # @param klass [Class] The model class.
     # @param key [String | Symbol] The field key.
+    # @param klass [Class] The model class.
+    # @param operator [String] The operator.
     # @param value [Object] The original value.
     # @return [Object] Value prepared for the provided operator.
     #
@@ -8029,10 +8029,10 @@ module Mongoid::Attributes
   # Read a value from the document attributes. If the value does not exist
   # it will return nil.
   #
-  # @example Read an attribute.
-  #   person.read_attribute(:title)
   # @example Read an attribute (alternate syntax.)
   #   person[:title]
+  # @example Read an attribute.
+  #   person.read_attribute(:title)
   # @param name [String | Symbol] The name of the attribute to get.
   # @return [Object] The value of the attribute.
   #
@@ -8043,10 +8043,10 @@ module Mongoid::Attributes
   # also fire the before and after update callbacks, and perform any
   # necessary typecasting.
   #
-  # @example Write the attribute.
-  #   person.write_attribute(:title, "Mr.")
   # @example Write the attribute (alternate syntax.)
   #   person[:title] = "Mr."
+  # @example Write the attribute.
+  #   person.write_attribute(:title, "Mr.")
   # @param name [String | Symbol] The name of the attribute to update.
   # @param value [Object] The value to set for the attribute.
   #
@@ -8058,10 +8058,10 @@ module Mongoid::Attributes
   # (which again matches the column names)  and the role name using the :as option.
   # To bypass mass-assignment security you can use the :without_protection => true option.
   #
-  # @example Assign the attributes.
-  #   person.assign_attributes(:title => "Mr.")
   # @example Assign the attributes (with a role).
   #   person.assign_attributes({ :title => "Mr." }, :as => :admin)
+  # @example Assign the attributes.
+  #   person.assign_attributes(:title => "Mr.")
   # @param attrs [Hash] The new attributes to set.
   #
   # source://mongoid//lib/mongoid/attributes.rb#218
@@ -8097,10 +8097,10 @@ module Mongoid::Attributes
   # overwrite existing attributes if they are present in the new +Hash+, all
   # others will be preserved.
   #
-  # @example Write the attributes.
-  #   person.write_attributes(:title => "Mr.")
   # @example Write the attributes (alternate syntax.)
   #   person.attributes = { :title => "Mr." }
+  # @example Write the attributes.
+  #   person.write_attributes(:title => "Mr.")
   # @param attrs [Hash] The new attributes to set.
   #
   # source://mongoid//lib/mongoid/attributes.rb#238
@@ -8140,9 +8140,9 @@ module Mongoid::Attributes
   # Process the raw attribute values just read from the documents attributes.
   #
   # @api private
+  # @param field [Field | nil] The field to use for demongoization or nil.
   # @param name [String] The name of the attribute to get.
   # @param raw [Object] The raw attribute value.
-  # @param field [Field | nil] The field to use for demongoization or nil.
   # @return [Object] The value of the attribute.
   #
   # source://mongoid//lib/mongoid/attributes.rb#105
@@ -8156,10 +8156,10 @@ module Mongoid::Attributes
   # Read a value from the document attributes. If the value does not exist
   # it will return nil.
   #
-  # @example Read an attribute.
-  #   person.read_attribute(:title)
   # @example Read an attribute (alternate syntax.)
   #   person[:title]
+  # @example Read an attribute.
+  #   person.read_attribute(:title)
   # @param name [String | Symbol] The name of the attribute to get.
   # @return [Object] The value of the attribute.
   #
@@ -8204,10 +8204,10 @@ module Mongoid::Attributes
   # also fire the before and after update callbacks, and perform any
   # necessary typecasting.
   #
-  # @example Write the attribute.
-  #   person.write_attribute(:title, "Mr.")
   # @example Write the attribute (alternate syntax.)
   #   person[:title] = "Mr."
+  # @example Write the attribute.
+  #   person.write_attribute(:title, "Mr.")
   # @param name [String | Symbol] The name of the attribute to update.
   # @param value [Object] The value to set for the attribute.
   #
@@ -8218,10 +8218,10 @@ module Mongoid::Attributes
   # overwrite existing attributes if they are present in the new +Hash+, all
   # others will be preserved.
   #
-  # @example Write the attributes.
-  #   person.write_attributes(:title => "Mr.")
   # @example Write the attributes (alternate syntax.)
   #   person.attributes = { :title => "Mr." }
+  # @example Write the attributes.
+  #   person.write_attributes(:title => "Mr.")
   # @param attrs [Hash] The new attributes to set.
   #
   # source://mongoid//lib/mongoid/attributes.rb#235
@@ -8351,8 +8351,8 @@ module Mongoid::Attributes::Dynamic
   # @api private
   # @example Call through method_missing.
   #   document.method_missing(:test)
-  # @param name [String | Symbol] The name of the method.
   # @param *args [Object...] The arguments to the method.
+  # @param name [String | Symbol] The name of the method.
   # @return [Object] The result of the method call.
   #
   # source://mongoid//lib/mongoid/attributes/dynamic.rb#122
@@ -8373,8 +8373,8 @@ module Mongoid::Attributes::Dynamic
   #
   # @example Does this object respond to the method?
   #   person.respond_to?(:title)
-  # @param name [Array] The name of the method.
   # @param include_private [true | false]
+  # @param name [Array] The name of the method.
   # @return [true | false] True if it does, false if not.
   #
   # source://mongoid//lib/mongoid/attributes/dynamic.rb#20
@@ -8558,8 +8558,8 @@ module Mongoid::Attributes::Processing
 
   # Set value of the pending nested attribute.
   #
-  # @param name [Symbol] The name of the nested attribute.
   # @param aliased [Symbol] The aliased name of the nested attribute.
+  # @param name [Symbol] The name of the nested attribute.
   # @param value [Object] The value of the nested attribute.
   #
   # source://mongoid//lib/mongoid/attributes/processing.rb#79
@@ -8567,8 +8567,8 @@ module Mongoid::Attributes::Processing
 
   # Set value of the pending relation.
   #
-  # @param name [Symbol] The name of the relation.
   # @param aliased [Symbol] The aliased name of the relation.
+  # @param name [Symbol] The name of the relation.
   # @param value [Object] The value of the relation.
   #
   # source://mongoid//lib/mongoid/attributes/processing.rb#66
@@ -8918,8 +8918,8 @@ module Mongoid::Changeable
   #
   # @option **kwargs
   # @option **kwargs
-  # @param attr [String] The name of the attribute.
   # @param **kwargs The optional keyword arguments.
+  # @param attr [String] The name of the attribute.
   # @return [true | false] Whether the attribute change the next time we save.
   #
   # source://mongoid//lib/mongoid/changeable.rb#199
@@ -9058,8 +9058,8 @@ module Mongoid::Changeable::ClassMethods
   #
   # @example Create the accessor.
   #   Model.create_dirty_change_accessor("name", "alias")
-  # @param name [String] The attribute name.
   # @param meth [String] The name of the accessor.
+  # @param name [String] The attribute name.
   #
   # source://mongoid//lib/mongoid/changeable.rb#392
   def create_dirty_change_accessor(name, meth); end
@@ -9068,8 +9068,8 @@ module Mongoid::Changeable::ClassMethods
   #
   # @example Create the check.
   #   Model.create_dirty_change_check("name", "alias")
-  # @param name [String] The attribute name.
   # @param meth [String] The name of the accessor.
+  # @param name [String] The attribute name.
   #
   # source://mongoid//lib/mongoid/changeable.rb#407
   def create_dirty_change_check(name, meth); end
@@ -9078,8 +9078,8 @@ module Mongoid::Changeable::ClassMethods
   #
   # @example Create the flag.
   #   Model.create_dirty_change_flag("name", "alias")
-  # @param name [String] The attribute name.
   # @param meth [String] The name of the accessor.
+  # @param name [String] The attribute name.
   #
   # source://mongoid//lib/mongoid/changeable.rb#467
   def create_dirty_change_flag(name, meth); end
@@ -9088,8 +9088,8 @@ module Mongoid::Changeable::ClassMethods
   #
   # @example Create the check.
   #   Model.create_dirty_default_change_check("name", "alias")
-  # @param name [String] The attribute name.
   # @param meth [String] The name of the accessor.
+  # @param name [String] The attribute name.
   #
   # source://mongoid//lib/mongoid/changeable.rb#425
   def create_dirty_default_change_check(name, meth); end
@@ -9098,8 +9098,8 @@ module Mongoid::Changeable::ClassMethods
   #
   # @example Generate the dirty methods.
   #   Model.create_dirty_methods("name", "name")
-  # @param name [String] The name of the field.
   # @param meth [String] The name of the accessor.
+  # @param name [String] The name of the field.
   # @return [Module] The fields module.
   #
   # source://mongoid//lib/mongoid/changeable.rb#373
@@ -9109,8 +9109,8 @@ module Mongoid::Changeable::ClassMethods
   #
   # @example Create the dirty change accessor.
   #   Model.create_dirty_previous_change("name", "alias")
-  # @param name [String] The attribute name.
   # @param meth [String] The name of the accessor.
+  # @param name [String] The attribute name.
   #
   # source://mongoid//lib/mongoid/changeable.rb#527
   def create_dirty_previous_change(name, meth); end
@@ -9119,8 +9119,8 @@ module Mongoid::Changeable::ClassMethods
   #
   # @example Create the accessor.
   #   Model.create_dirty_previous_value_accessor("name", "alias")
-  # @param name [String] The attribute name.
   # @param meth [String] The name of the accessor.
+  # @param name [String] The attribute name.
   #
   # source://mongoid//lib/mongoid/changeable.rb#440
   def create_dirty_previous_value_accessor(name, meth); end
@@ -9129,8 +9129,8 @@ module Mongoid::Changeable::ClassMethods
   #
   # @example Create the dirty change check.
   #   Model.create_dirty_previously_changed?("name", "alias")
-  # @param name [String] The attribute name.
   # @param meth [String] The name of the accessor.
+  # @param name [String] The attribute name.
   # @return [Boolean]
   #
   # source://mongoid//lib/mongoid/changeable.rb#512
@@ -9140,8 +9140,8 @@ module Mongoid::Changeable::ClassMethods
   #
   # @example Create the reset.
   #   Model.create_dirty_reset("name", "alias")
-  # @param name [String] The attribute name.
   # @param meth [String] The name of the accessor.
+  # @param name [String] The attribute name.
   #
   # source://mongoid//lib/mongoid/changeable.rb#482
   def create_dirty_reset(name, meth); end
@@ -9150,8 +9150,8 @@ module Mongoid::Changeable::ClassMethods
   #
   # @example Create the reset.
   #   Model.create_dirty_reset_to_default("name", "alias")
-  # @param name [String] The attribute name.
   # @param meth [String] The name of the accessor.
+  # @param name [String] The attribute name.
   #
   # source://mongoid//lib/mongoid/changeable.rb#497
   def create_dirty_reset_to_default(name, meth); end
@@ -9223,8 +9223,8 @@ module Mongoid::Clients
     #
     # @example Set a client.
     #   Mongoid::Clients.set(:analytics, my_client)
-    # @param name [String | Symbol] The name of the client to set.
     # @param client [Mongo::Client] The client to set.
+    # @param name [String | Symbol] The name of the client to set.
     # @return [Mongo::Client] The set client.
     #
     # source://mongoid//lib/mongoid/clients.rb#95
@@ -9291,8 +9291,8 @@ module Mongoid::Clients::Factory
   # schema map for the database.
   #
   # @api private
-  # @param opts [Hash] Options from the Mongoid client configuration.
   # @param database [String] Database name to use for encryption schema map.
+  # @param opts [Hash] Options from the Mongoid client configuration.
   # @return [Hash | nil] Auto encryption options for the client.
   #
   # source://mongoid//lib/mongoid/clients/factory.rb#90
@@ -9403,8 +9403,8 @@ module Mongoid::Clients::Options
   # @option options
   # @option options
   # @option options
-  # @param options_or_context [Hash | Mongoid::PersistenceContext] The storage options or a persistence context.
   # @param options [Hash] a customizable set of options
+  # @param options_or_context [Hash | Mongoid::PersistenceContext] The storage options or a persistence context.
   #
   # source://mongoid//lib/mongoid/clients/options.rb#28
   def with(options_or_context, &block); end
@@ -9780,15 +9780,15 @@ module Mongoid::Clients::StorageOptions::ClassMethods
   #   include Mongoid::Document
   #   store_in collection: "artists"
   #   end
-  # @example Store this model by default in the sharded db.
-  #   class Band
-  #   include Mongoid::Document
-  #   store_in database: "echo_shard"
-  #   end
   # @example Store this model by default in a different client.
   #   class Band
   #   include Mongoid::Document
   #   store_in client: "analytics"
+  #   end
+  # @example Store this model by default in the sharded db.
+  #   class Band
+  #   include Mongoid::Document
+  #   store_in database: "echo_shard"
   #   end
   # @example Store this model with a combination of options.
   #   class Band
@@ -10368,8 +10368,8 @@ module Mongoid::Config
   #
   # @example Configure Mongoid.
   #   Mongoid.load!("/path/to/mongoid.yml")
-  # @param path [String] The path to the file.
   # @param environment [String | Symbol] The environment to load.
+  # @param path [String] The path to the file.
   #
   # source://mongoid//lib/mongoid/config.rb#238
   def load!(path, environment = T.unsafe(nil)); end
@@ -10727,9 +10727,9 @@ module Mongoid::Config::Environment
   # @api private
   # @example Load the yaml.
   #   Environment.load_yaml("/work/mongoid.yml")
-  # @param path [String] The location of the file.
   # @param environment [String | Symbol] Optional environment name to
   #   override the current Mongoid environment.
+  # @param path [String] The location of the file.
   # @return [Hash] The settings.
   #
   # source://mongoid//lib/mongoid/config/environment.rb#50
@@ -10797,11 +10797,11 @@ class Mongoid::Config::Introspection::Option
   # and comment.
   #
   # @api private
-  # @param name [String] The option's name.
-  # @param default [String] The option's default value, as a String
-  #   representing the actual Ruby value.
   # @param comment [String] The multi-line comment describing the
   #   option.
+  # @param default [String] The option's default value, as a String
+  #   representing the actual Ruby value.
+  # @param name [String] The option's name.
   # @return [Option] a new instance of Option
   #
   # source://mongoid//lib/mongoid/config/introspection.rb#58
@@ -11029,8 +11029,8 @@ module Mongoid::Config::Validators::Client
   # @api private
   # @example Validate the client has database.
   #   validator.validate_client_database(:default, {})
-  # @param name [String | Symbol] The config key.
   # @param config [Hash] The configuration.
+  # @param name [String | Symbol] The config key.
   #
   # source://mongoid//lib/mongoid/config/validators/client.rb#43
   def validate_client_database(name, config); end
@@ -11040,8 +11040,8 @@ module Mongoid::Config::Validators::Client
   # @api private
   # @example Validate the client has hosts.
   #   validator.validate_client_hosts(:default, {})
-  # @param name [String | Symbol] The config key.
   # @param config [Hash] The configuration.
+  # @param name [String | Symbol] The config key.
   #
   # source://mongoid//lib/mongoid/config/validators/client.rb#58
   def validate_client_hosts(name, config); end
@@ -11052,8 +11052,8 @@ module Mongoid::Config::Validators::Client
   # @api private
   # @example Validate the uri and options.
   #   validator.validate_client_uri(:default, {})
-  # @param name [String | Symbol] The config key.
   # @param config [Hash] The configuration.
+  # @param name [String | Symbol] The config key.
   #
   # source://mongoid//lib/mongoid/config/validators/client.rb#74
   def validate_client_uri(name, config); end
@@ -11374,12 +11374,12 @@ module Mongoid::Contextual::Aggregable::Memory
   # return the Document with the greatest value for the field, in
   # accordance with Ruby's enumerable API.
   #
-  # @example Get the max of a single field.
-  #   aggregable.max(:likes)
   # @example Get the document with the max value.
   #   aggregable.max do |a, b|
   #   a.likes <=> b.likes
   #   end
+  # @example Get the max of a single field.
+  #   aggregable.max(:likes)
   # @param field [Symbol] The field to max.
   # @return [Numeric | Document] The max value or document with the max
   #   value.
@@ -11391,12 +11391,12 @@ module Mongoid::Contextual::Aggregable::Memory
   # return the Document with the smallest value for the field, in
   # accordance with Ruby's enumerable API.
   #
-  # @example Get the min of a single field.
-  #   aggregable.min(:likes)
   # @example Get the document with the min value.
   #   aggregable.min do |a, b|
   #   a.likes <=> b.likes
   #   end
+  # @example Get the min of a single field.
+  #   aggregable.min(:likes)
   # @param field [Symbol] The field to min.
   # @return [Numeric | Document] The min value or document with the min
   #   value.
@@ -11407,10 +11407,10 @@ module Mongoid::Contextual::Aggregable::Memory
   # Get the sum value of the provided field. If provided a block, will
   # return the sum in accordance with Ruby's enumerable API.
   #
-  # @example Get the sum of a single field.
-  #   aggregable.sum(:likes)
   # @example Get the sum for the provided block.
   #   aggregable.sum(&:likes)
+  # @example Get the sum of a single field.
+  #   aggregable.sum(:likes)
   # @param field [Symbol | Numeric] The field to sum, or the intial
   #   value of the sum when a block is given.
   # @return [Numeric] The sum value.
@@ -11470,12 +11470,12 @@ module Mongoid::Contextual::Aggregable::Mongo
   # return the Document with the greatest value for the field, in
   # accordance with Ruby's enumerable API.
   #
-  # @example Get the max of a single field.
-  #   aggregable.max(:likes)
   # @example Get the document with the max value.
   #   aggregable.max do |a, b|
   #   a.likes <=> b.likes
   #   end
+  # @example Get the max of a single field.
+  #   aggregable.max(:likes)
   # @param field [Symbol] The field to max.
   # @return [Float | Document] The max value or document with the max
   #   value.
@@ -11487,12 +11487,12 @@ module Mongoid::Contextual::Aggregable::Mongo
   # return the Document with the smallest value for the field, in
   # accordance with Ruby's enumerable API.
   #
-  # @example Get the min of a single field.
-  #   aggregable.min(:likes)
   # @example Get the document with the min value.
   #   aggregable.min do |a, b|
   #   a.likes <=> b.likes
   #   end
+  # @example Get the min of a single field.
+  #   aggregable.min(:likes)
   # @param field [Symbol] The field to min.
   # @return [Float | Document] The min value or document with the min
   #   value.
@@ -11503,10 +11503,10 @@ module Mongoid::Contextual::Aggregable::Mongo
   # Get the sum value of the provided field. If provided a block, will
   # return the sum in accordance with Ruby's enumerable API.
   #
-  # @example Get the sum of a single field.
-  #   aggregable.sum(:likes)
   # @example Get the sum for the provided block.
   #   aggregable.sum(&:likes)
+  # @example Get the sum of a single field.
+  #   aggregable.sum(:likes)
   # @param field [Symbol | Numeric] The field to sum, or the initial
   #   value of the sum when a block is given.
   # @return [Float] The sum value.
@@ -11553,8 +11553,8 @@ module Mongoid::Contextual::Aggregable::None
   # Always returns nil.
   # Always returns nil.
   #
-  # @example Get the min of null context.
   # @example Get the max of null context.
+  # @example Get the min of null context.
   # @param _field [Symbol] The field to min.
   # @param _field [Symbol] The field to max.
   # @return [nil] Always nil.
@@ -11808,8 +11808,8 @@ module Mongoid::Contextual::Atomic
 
   # Collects and aggregates operations by field.
   #
-  # @param ops [Array | Hash] The operations to collect.
   # @param aggregator [Hash] The hash to use to aggregate the operations.
+  # @param ops [Array | Hash] The operations to collect.
   # @return [Hash] The aggregated operations, by field.
   #
   # source://mongoid//lib/mongoid/contextual/atomic.rb#236
@@ -11984,15 +11984,15 @@ class Mongoid::Contextual::MapReduce
   # Specifies where the map/reduce output is to be stored.
   # Please see MongoDB documentation for supported map reduce options.
   #
-  # @example Store output in memory.
+  # @example Return results from map reduce.
   #   map_reduce.out(inline: 1)
-  # @example Store output in a collection, replacing existing documents.
-  #   map_reduce.out(replace: "collection_name")
   # @example Store output in a collection, merging existing documents.
   #   map_reduce.out(merge: "collection_name")
   # @example Store output in a collection, reducing existing documents.
   #   map_reduce.out(reduce: "collection_name")
-  # @example Return results from map reduce.
+  # @example Store output in a collection, replacing existing documents.
+  #   map_reduce.out(replace: "collection_name")
+  # @example Store output in memory.
   #   map_reduce.out(inline: 1)
   # @param location [Hash] The place to store the results.
   # @return [MapReduce] The map/reduce object.
@@ -12164,12 +12164,12 @@ class Mongoid::Contextual::Memory
 
   # Do any documents exist for the context.
   #
-  # @example Do any documents exist for the context.
-  #   context.exists?
   # @example Do any documents exist for given _id.
   #   context.exists?(BSON::ObjectId(...))
   # @example Do any documents exist for given conditions.
   #   context.exists?(name: "...")
+  # @example Do any documents exist for the context.
+  #   context.exists?
   # @param id_or_conditions [Hash | Object | false] an _id to
   #   search for, a hash of conditions, nil or false.
   # @return [true | false] If the count is more than zero.
@@ -12602,8 +12602,8 @@ class Mongoid::Contextual::Memory
 
   # Pluck the field values from the given document.
   #
-  # @param doc [Document] The document to pluck from.
   # @param *fields [[ String | Symbol ]...] Field(s) to pluck.
+  # @param doc [Document] The document to pluck from.
   # @return [Object | Array<Object>] The plucked values.
   #
   # source://mongoid//lib/mongoid/contextual/memory.rb#766
@@ -12704,14 +12704,14 @@ class Mongoid::Contextual::Mongo
 
   # Get the number of documents matching the query.
   #
-  # @example Get the number of matching documents.
-  #   context.count
-  # @example Get the count of documents with the provided options.
-  #   context.count(limit: 1)
   # @example Get the count for where the provided block is true.
   #   context.count do |doc|
   #   doc.likes > 1
   #   end
+  # @example Get the count of documents with the provided options.
+  #   context.count(limit: 1)
+  # @example Get the number of matching documents.
+  #   context.count
   # @param options [Hash] The options, such as skip and limit to be factored
   #   into the count.
   # @return [Integer] The number of matches.
@@ -12801,12 +12801,12 @@ class Mongoid::Contextual::Mongo
 
   # Do any documents exist for the context.
   #
-  # @example Do any documents exist for the context.
-  #   context.exists?
   # @example Do any documents exist for given _id.
   #   context.exists?(BSON::ObjectId(...))
   # @example Do any documents exist for given conditions.
   #   context.exists?(name: "...")
+  # @example Do any documents exist for the context.
+  #   context.exists?
   # @note We don't use count here since Mongo does not use counted
   #   b-tree indexes.
   # @param id_or_conditions [Hash | Object | false] an _id to
@@ -12865,8 +12865,8 @@ class Mongoid::Contextual::Mongo
   #   context.find_one_and_update({ likes: 1 })
   # @option options
   # @option options
-  # @param replacement [Hash] The replacement.
   # @param options [Hash] The command options.
+  # @param replacement [Hash] The replacement.
   # @return [Document] The result of the command.
   #
   # source://mongoid//lib/mongoid/contextual/mongo.rb#234
@@ -12879,8 +12879,8 @@ class Mongoid::Contextual::Mongo
   #   context.find_one_and_update({ "$inc" => { likes: 1 }})
   # @option options
   # @option options
-  # @param update [Hash] The updates.
   # @param options [Hash] The command options.
+  # @param update [Hash] The updates.
   # @return [Document] The result of the command.
   #
   # source://mongoid//lib/mongoid/contextual/mongo.rb#214
@@ -13315,9 +13315,9 @@ class Mongoid::Contextual::Mongo
   #
   # @api private
   # @param field [Field] The field to use to demongoize.
-  # @param value [Object] The value to demongoize.
   # @param is_translation [true | false] The field we are retrieving is an
   #   _translations field.
+  # @param value [Object] The value to demongoize.
   # @return [Object] The demongoized value.
   #
   # source://mongoid//lib/mongoid/contextual/mongo.rb#993
@@ -13337,9 +13337,9 @@ class Mongoid::Contextual::Mongo
   # Extracts the value for the given field name from the given attribute
   # hash.
   #
+  # @param The [Object] value for the given field name
   # @param attrs [Hash] The attributes hash.
   # @param field_name [String] The name of the field to extract.
-  # @param The [Object] value for the given field name
   #
   # source://mongoid//lib/mongoid/contextual/mongo.rb#923
   def extract_value(attrs, field_name); end
@@ -13349,9 +13349,9 @@ class Mongoid::Contextual::Mongo
   # on all of its elements.
   #
   # @api private
-  # @param obj [Hash | Array<Hash>] The hash or array of hashes to fetch from.
-  # @param meth [String] The key to fetch from the hash.
   # @param field [Field] The field to use for demongoization.
+  # @param meth [String] The key to fetch from the hash.
+  # @param obj [Hash | Array<Hash>] The hash or array of hashes to fetch from.
   # @return [Object] The demongoized value.
   #
   # source://mongoid//lib/mongoid/contextual/mongo.rb#907
@@ -13381,9 +13381,9 @@ class Mongoid::Contextual::Mongo
   # the class tree to find the correct field to use to demongoize the value.
   #
   # @param field_name [String] The name of the field to demongoize.
-  # @param value [Object] The value to demongoize.
   # @param is_translation [true | false] The field we are retrieving is an
   #   _translations field.
+  # @param value [Object] The value to demongoize.
   # @return [Object] The demongoized value.
   #
   # source://mongoid//lib/mongoid/contextual/mongo.rb#977
@@ -13453,15 +13453,15 @@ class Mongoid::Contextual::Mongo::DocumentsLoader
   # its execution using the provided executor.
   #
   # @api private
-  # @param view [Mongo::Collection::View] The collection view to get
-  #   records from the database.
-  # @param klass [Class] Mongoid model class to instantiate documents.
-  #   All records obtained from the database will be converted to an
-  #   instance of this class, if possible.
   # @param criteria [Mongoid::Criteria] Criteria that specifies which
   #   documents should be loaded.
   # @param executor [Concurrent::AbstractExecutorService] Executor that
   #   is capable of running `Concurrent::Promises::Future` instances.
+  # @param klass [Class] Mongoid model class to instantiate documents.
+  #   All records obtained from the database will be converted to an
+  #   instance of this class, if possible.
+  # @param view [Mongo::Collection::View] The collection view to get
+  #   records from the database.
   # @return [DocumentsLoader] a new instance of DocumentsLoader
   #
   # source://mongoid//lib/mongoid/contextual/mongo/documents_loader.rb#89
@@ -13662,12 +13662,12 @@ class Mongoid::Contextual::None
 
   # Do any documents exist for the context.
   #
-  # @example Do any documents exist in the null context.
-  #   context.exists?
   # @example Do any documents exist for given _id.
   #   context.exists?(BSON::ObjectId(...))
   # @example Do any documents exist for given conditions.
   #   context.exists?(name: "...")
+  # @example Do any documents exist in the null context.
+  #   context.exists?
   # @param id_or_conditions [Hash | Object | false] an _id to
   #   search for, a hash of conditions, nil or false.
   # @return [false] Always false.
@@ -14027,8 +14027,8 @@ module Mongoid::Copyable
     # hash. This is used recursively so that embedded associations are cloned
     # safely.
     #
-    # @param klass [Class] The class of the document to create.
     # @param attrs [Hash] The hash of the attributes.
+    # @param klass [Class] The class of the document to create.
     # @return [Document] The new document.
     #
     # source://mongoid//lib/mongoid/copyable.rb#44
@@ -14214,16 +14214,16 @@ class Mongoid::Criteria
   #
   # @example Finds a document by its _id, invokes Findable#find.
   #   critera.find("1234")
-  # @example Finds the first matching document using a block, invokes Enumerable#find.
-  #   criteria.find { |item| item.name == "Depeche Mode" }
   # @example Finds the first matching document using a block using the default Proc, invokes Enumerable#find.
   #   criteria.find(-> { "Default Band" }) { |item| item.name == "Milwaukee Mode" }
+  # @example Finds the first matching document using a block, invokes Enumerable#find.
+  #   criteria.find { |item| item.name == "Depeche Mode" }
   # @example Tries to find a document whose _id is the stringification of the provided Proc, typically failing.
   #   enumerator = criteria.find(-> { "Default Band" })
   # @note Each argument can be an individual id, an array of ids or
   #   a nested array. Each array will be flattened.
-  # @param *args [[ Object | Array<Object> ]...] The id(s).
   # @param &block Optional block to pass.
+  # @param *args [[ Object | Array<Object> ]...] The id(s).
   # @raise Errors::DocumentNotFound If the parameters were _id values and
   #   not all documents are found and the +raise_not_found_error+
   #   Mongoid configuration option is truthy.
@@ -14277,8 +14277,6 @@ class Mongoid::Criteria
   # combine multiple scopes together, where a chained scope situation
   # may be desired.
   #
-  # @example Merge the criteria with another criteria.
-  #   criteria.merge(other_criteria)
   # @example Merge the criteria with a hash. The hash must contain a klass
   #   key and the key/value pairs correspond to method names/args.
   #
@@ -14287,6 +14285,8 @@ class Mongoid::Criteria
   #   where: { name: "Depeche Mode" },
   #   order_by: { name: 1 }
   #   })
+  # @example Merge the criteria with another criteria.
+  #   criteria.merge(other_criteria)
   # @param other [Criteria] The other criterion to merge with.
   # @return [Criteria] A cloned self.
   #
@@ -14349,8 +14349,8 @@ class Mongoid::Criteria
   #
   # @example Does the criteria respond to the method?
   #   crtiteria.respond_to?(:each)
-  # @param name [Symbol] The name of the class method on the +Document+.
   # @param include_private [true | false] Whether to include privates.
+  # @param name [Symbol] The name of the class method on the +Document+.
   # @return [true | false] If the criteria responds to the method.
   #
   # source://mongoid//lib/mongoid/criteria.rb#361
@@ -14394,10 +14394,10 @@ class Mongoid::Criteria
   # creates a standard field: value selection, and expanded selection with
   # the use of hash methods, or a $where selection if a string is provided.
   #
-  # @example Add a standard selection.
-  #   criteria.where(name: "syd")
   # @example Add a javascript selection.
   #   criteria.where("this.name == 'syd'")
+  # @example Add a standard selection.
+  #   criteria.where(name: "syd")
   # @param *args [[ Hash | String ]...] The standard selection
   #   or javascript string.
   # @raise [UnsupportedJavascript] If provided a string and the criteria
@@ -14434,8 +14434,8 @@ class Mongoid::Criteria
   # @api private
   # @example Check for missing documents.
   #   criteria.check_for_missing_documents!([], [ 1 ])
-  # @param result [Array<Document>] The result.
   # @param ids [Array<Object>] The ids.
+  # @param result [Array<Document>] The result.
   # @raise [Errors::DocumentNotFound] If none are found and raising an
   #   error.
   #
@@ -14471,8 +14471,8 @@ class Mongoid::Criteria
   #
   # @example Handle method missing.
   #   criteria.method_missing(:name)
-  # @param name [Symbol] The method name.
   # @param *args [Object...] The arguments.
+  # @param name [Symbol] The method name.
   # @return [Object] The result of the method call.
   #
   # source://mongoid//lib/mongoid/criteria.rb#530
@@ -14704,11 +14704,11 @@ module Mongoid::Criteria::Includable
 
   # Iterate through the list of relations and create the inclusions list.
   #
+  # @param *relations_list [[ Symbol | Hash | Array<Symbol | Hash> ]...] The names of the association(s) to eager load.
   # @param _parent_class [Class | String | Symbol] The class from which the
   #   association originates.
   # @param parent [String] The name of the association above this one in
   #   the inclusion tree, if it is a nested inclusion.
-  # @param *relations_list [[ Symbol | Hash | Array<Symbol | Hash> ]...] The names of the association(s) to eager load.
   #
   # source://mongoid//lib/mongoid/criteria/includable.rb#76
   def extract_includes_list(_parent_class, parent, *relations_list); end
@@ -14774,10 +14774,10 @@ module Mongoid::Criteria::Modifiable
   # Build a document given the selector and return it.
   # Complex criteria, such as $in and $or operations will get ignored.
   #
-  # @example build the document.
-  #   Person.where(:title => "Sir").build
   # @example Build with selectors getting ignored.
   #   Person.where(:age.gt => 5).build
+  # @example build the document.
+  #   Person.where(:title => "Sir").build
   # @return [Document] A non-persisted document.
   #
   # source://mongoid//lib/mongoid/criteria/modifiable.rb#26
@@ -14898,10 +14898,10 @@ module Mongoid::Criteria::Modifiable
   # Build a document given the selector and return it.
   # Complex criteria, such as $in and $or operations will get ignored.
   #
-  # @example build the document.
-  #   Person.where(:title => "Sir").build
   # @example Build with selectors getting ignored.
   #   Person.where(:age.gt => 5).build
+  # @example build the document.
+  #   Person.where(:title => "Sir").build
   # @return [Document] A non-persisted document.
   #
   # source://mongoid//lib/mongoid/criteria/modifiable.rb#29
@@ -14915,8 +14915,8 @@ module Mongoid::Criteria::Modifiable
   # @api private
   # @example Create a new document.
   #   criteria.create_document(:new, {})
-  # @param method [Symbol] Either :new or :create.
   # @param attrs [Hash] Additional attributes to use.
+  # @param method [Symbol] Either :new or :create.
   # @return [Document] The new or saved document.
   #
   # source://mongoid//lib/mongoid/criteria/modifiable.rb#174
@@ -14927,8 +14927,8 @@ module Mongoid::Criteria::Modifiable
   # @api private
   # @example Find or perform an action.
   #   Person.find_or(:create, :name => "Dev")
-  # @param method [Symbol] The method to invoke.
   # @param attrs [Hash] The attributes to query or set.
+  # @param method [Symbol] The method to invoke.
   # @return [Document] The first or new document.
   #
   # source://mongoid//lib/mongoid/criteria/modifiable.rb#204
@@ -14939,8 +14939,8 @@ module Mongoid::Criteria::Modifiable
   # @api private
   # @example First or perform an action.
   #   Person.first_or(:create, :name => "Dev")
-  # @param method [Symbol] The method to invoke.
   # @param attrs [Hash] The attributes to query or set.
+  # @param method [Symbol] The method to invoke.
   # @return [Document] The first or new document.
   #
   # source://mongoid//lib/mongoid/criteria/modifiable.rb#219
@@ -14996,11 +14996,11 @@ module Mongoid::Criteria::Queryable
   # @api private
   # @example Initialize the queryable.
   #   Queryable.new
-  # @param aliases [Hash] The optional field aliases.
-  # @param serializers [Hash] The optional field serializers.
-  # @param associations [Hash] The optional associations.
   # @param aliased_associations [Hash] The optional aliased associations.
+  # @param aliases [Hash] The optional field aliases.
+  # @param associations [Hash] The optional associations.
   # @param driver [Symbol] The driver being used.
+  # @param serializers [Hash] The optional field serializers.
   # @yield [_self]
   # @yieldparam _self [Mongoid::Criteria::Queryable] the object that the method was called on
   #
@@ -15350,12 +15350,12 @@ end
 module Mongoid::Criteria::Queryable::Extensions::Date::ClassMethods
   # Evolve the object to an date.
   #
+  # @example Evolve date ranges.
+  #   Date.evolve(Date.new(1990, 1, 1)..Date.new(1990, 1, 4))
   # @example Evolve dates.
   #   Date.evolve(Date.new(1990, 1, 1))
   # @example Evolve string dates.
   #   Date.evolve("1990-1-1")
-  # @example Evolve date ranges.
-  #   Date.evolve(Date.new(1990, 1, 1)..Date.new(1990, 1, 4))
   # @param object [Object] The object to evolve.
   # @return [Time] The evolved date.
   #
@@ -15381,9 +15381,9 @@ end
 module Mongoid::Criteria::Queryable::Extensions::DateTime::ClassMethods
   # Evolve the object to an date.
   #
+  # @example Evolve date ranges.
   # @example Evolve dates.
   # @example Evolve string dates.
-  # @example Evolve date ranges.
   # @param object [Object] The object to evolve.
   # @return [Time] The evolved date time.
   #
@@ -15499,8 +15499,8 @@ module Mongoid::Criteria::Queryable::Extensions::Hash
   # @api private
   # @example Apply the strategy.
   #   { field: value }.apply_strategy(:__add__, 1)
-  # @param strategy [Symbol] The strategy to apply.
   # @param object [Object] The object to merge.
+  # @param strategy [Symbol] The strategy to apply.
   # @return [Hash] The merged hash.
   #
   # source://mongoid//lib/mongoid/criteria/queryable/extensions/hash.rb#151
@@ -15937,8 +15937,8 @@ module Mongoid::Criteria::Queryable::Extensions::String
   #
   # @example Get the string as a criteria.
   #   "field".__expr_part__(value)
-  # @param value [Object] The value of the criteria.
   # @param negating [true | false] If the selection should be negated.
+  # @param value [Object] The value of the criteria.
   # @return [Hash] The selection.
   #
   # source://mongoid//lib/mongoid/criteria/queryable/extensions/string.rb#67
@@ -15970,8 +15970,8 @@ module Mongoid::Criteria::Queryable::Extensions::String::ClassMethods
   # @example Get the value as an expression.
   #   String.__expr_part__("field", value)
   # @param key [String | Symbol] The field key.
-  # @param value [Object] The value of the criteria.
   # @param negating [true | false] If the selection should be negated.
+  # @param value [Object] The value of the criteria.
   # @return [Hash] The selection.
   #
   # source://mongoid//lib/mongoid/criteria/queryable/extensions/string.rb#83
@@ -16007,8 +16007,8 @@ module Mongoid::Criteria::Queryable::Extensions::Symbol
   #
   # @example Get the symbol as a criteria.
   #   :field.__expr_part__(value)
-  # @param value [Object] The value of the criteria.
   # @param negating [true | false] If the selection should be negated.
+  # @param value [Object] The value of the criteria.
   # @return [Hash] The selection.
   #
   # source://mongoid//lib/mongoid/criteria/queryable/extensions/symbol.rb#21
@@ -16021,10 +16021,10 @@ module Mongoid::Criteria::Queryable::Extensions::Symbol::ClassMethods
   #
   # @example Add the $in method.
   #   Symbol.add_key(:in, "$in")
-  # @param name [Symbol] The name of the method.
-  # @param strategy [Symbol] The name of the merge strategy.
-  # @param operator [String] The MongoDB operator.
   # @param additional [String] The additional MongoDB operator.
+  # @param name [Symbol] The name of the method.
+  # @param operator [String] The MongoDB operator.
+  # @param strategy [Symbol] The name of the merge strategy.
   #
   # source://mongoid//lib/mongoid/criteria/queryable/extensions/symbol.rb#36
   def add_key(name, strategy, operator, additional = T.unsafe(nil), &block); end
@@ -16068,9 +16068,9 @@ end
 module Mongoid::Criteria::Queryable::Extensions::Time::ClassMethods
   # Evolve the object to an date.
   #
+  # @example Evolve date ranges.
   # @example Evolve dates.
   # @example Evolve string dates.
-  # @example Evolve date ranges.
   # @param object [Object] The object to evolve.
   # @return [Time] The evolved date time.
   #
@@ -16106,9 +16106,9 @@ end
 module Mongoid::Criteria::Queryable::Extensions::TimeWithZone::ClassMethods
   # Evolve the object to an date.
   #
+  # @example Evolve date ranges.
   # @example Evolve dates.
   # @example Evolve string dates.
-  # @example Evolve date ranges.
   # @param object [Object] The object to evolve.
   # @return [Time] The evolved date time.
   #
@@ -16174,15 +16174,15 @@ end
 class Mongoid::Criteria::Queryable::Key
   # Instantiate the new key.
   #
-  # @example Instantiate a key.
-  #   Key.new("age", :__override__, "$gt")
   # @example Instantiate a key for sorting.
   #   Key.new(:field, :__override__, 1)
+  # @example Instantiate a key.
+  #   Key.new("age", :__override__, "$gt")
+  # @param expanded [String] The Mongo expanded operator.
   # @param name [String | Symbol] The field name.
-  # @param strategy [Symbol] The name of the merge strategy.
   # @param operator [String | Integer] The MongoDB operator,
   #   or sort direction (1 or -1).
-  # @param expanded [String] The Mongo expanded operator.
+  # @param strategy [Symbol] The name of the merge strategy.
   # @return [Key] a new instance of Key
   #
   # source://mongoid//lib/mongoid/criteria/queryable/key.rb#113
@@ -16203,8 +16203,8 @@ class Mongoid::Criteria::Queryable::Key
   #
   # @example Specify the raw selector.
   #   key.__expr_part__(50)
-  # @param object [Object] The value to be included.
   # @param negating [true | false] If the selection should be negated.
+  # @param object [Object] The value to be included.
   # @return [Hash] The raw MongoDB selector.
   #
   # source://mongoid//lib/mongoid/criteria/queryable/key.rb#131
@@ -16284,8 +16284,8 @@ class Mongoid::Criteria::Queryable::Key
   #
   # @example Gets the raw selector condition.
   #   key.transform_value(50)
-  # @param value [Object] The value to be included.
   # @param negating [true | false] If the selection should be negated.
+  # @param value [Object] The value to be included.
   # @return [Hash] The raw MongoDB selector.
   #
   # source://mongoid//lib/mongoid/criteria/queryable/key.rb#144
@@ -16301,10 +16301,10 @@ module Mongoid::Criteria::Queryable::Macroable
   #
   # @example Add a symbol key.
   #   key :all, "$all
-  # @param name [Symbol] The name of the method.
-  # @param strategy [Symbol] The merge strategy.
-  # @param operator [String] The MongoDB operator.
   # @param additional [String] The additional MongoDB operator.
+  # @param name [Symbol] The name of the method.
+  # @param operator [String] The MongoDB operator.
+  # @param strategy [Symbol] The merge strategy.
   #
   # source://mongoid//lib/mongoid/criteria/queryable/macroable.rb#21
   def key(name, strategy, operator, additional = T.unsafe(nil), &block); end
@@ -16391,8 +16391,8 @@ module Mongoid::Criteria::Queryable::Mergeable
   # @example Add the criterion.
   #   mergeable.__expanded__([ 1, 10 ], "$within", "$center")
   # @param criterion [Hash] The criteria.
-  # @param outer [String] The outer MongoDB operator.
   # @param inner [String] The inner MongoDB operator.
+  # @param outer [String] The outer MongoDB operator.
   # @return [Mergeable] The new mergeable.
   #
   # source://mongoid//lib/mongoid/criteria/queryable/mergeable.rb#106
@@ -16542,9 +16542,9 @@ module Mongoid::Criteria::Queryable::Mergeable
   # @api private
   # @example Add criterion with a strategy.
   #   mergeable.with_strategy(:__union__, {field_name: [ 1, 2, 3 ]}, "$in")
-  # @param strategy [Symbol] The name of the strategy method.
   # @param criterion [Object] The criterion to add.
   # @param operator [String] The MongoDB operator.
+  # @param strategy [Symbol] The name of the strategy method.
   # @return [Mergeable] The cloned query.
   #
   # source://mongoid//lib/mongoid/criteria/queryable/mergeable.rb#401
@@ -16729,20 +16729,20 @@ module Mongoid::Criteria::Queryable::Optional
   #
   # @example Add sorting options via a hash with integer directions.
   #   optional.order_by(name: 1, dob: -1)
-  # @example Add sorting options via a hash with symbol directions.
-  #   optional.order_by(name: :asc, dob: :desc)
   # @example Add sorting options via a hash with string directions.
   #   optional.order_by(name: "asc", dob: "desc")
-  # @example Add sorting options via an array with integer directions.
-  #   optional.order_by([[ name, 1 ], [ dob, -1 ]])
-  # @example Add sorting options via an array with symbol directions.
-  #   optional.order_by([[ :name, :asc ], [ :dob, :desc ]])
-  # @example Add sorting options via an array with string directions.
-  #   optional.order_by([[ "name", "asc" ], [ "dob", "desc" ]])
-  # @example Add sorting options with keys.
-  #   optional.order_by(:name.asc, :dob.desc)
+  # @example Add sorting options via a hash with symbol directions.
+  #   optional.order_by(name: :asc, dob: :desc)
   # @example Add sorting options via a string.
   #   optional.order_by("name ASC, dob DESC")
+  # @example Add sorting options via an array with integer directions.
+  #   optional.order_by([[ name, 1 ], [ dob, -1 ]])
+  # @example Add sorting options via an array with string directions.
+  #   optional.order_by([[ "name", "asc" ], [ "dob", "desc" ]])
+  # @example Add sorting options via an array with symbol directions.
+  #   optional.order_by([[ :name, :asc ], [ :dob, :desc ]])
+  # @example Add sorting options with keys.
+  #   optional.order_by(:name.asc, :dob.desc)
   # @param *spec [[ Array | Hash | String ]...] The sorting specification.
   # @return [Optional] The cloned optional.
   #
@@ -16753,20 +16753,20 @@ module Mongoid::Criteria::Queryable::Optional
   #
   # @example Add sorting options via a hash with integer directions.
   #   optional.order_by(name: 1, dob: -1)
-  # @example Add sorting options via a hash with symbol directions.
-  #   optional.order_by(name: :asc, dob: :desc)
   # @example Add sorting options via a hash with string directions.
   #   optional.order_by(name: "asc", dob: "desc")
-  # @example Add sorting options via an array with integer directions.
-  #   optional.order_by([[ name, 1 ], [ dob, -1 ]])
-  # @example Add sorting options via an array with symbol directions.
-  #   optional.order_by([[ :name, :asc ], [ :dob, :desc ]])
-  # @example Add sorting options via an array with string directions.
-  #   optional.order_by([[ "name", "asc" ], [ "dob", "desc" ]])
-  # @example Add sorting options with keys.
-  #   optional.order_by(:name.asc, :dob.desc)
+  # @example Add sorting options via a hash with symbol directions.
+  #   optional.order_by(name: :asc, dob: :desc)
   # @example Add sorting options via a string.
   #   optional.order_by("name ASC, dob DESC")
+  # @example Add sorting options via an array with integer directions.
+  #   optional.order_by([[ name, 1 ], [ dob, -1 ]])
+  # @example Add sorting options via an array with string directions.
+  #   optional.order_by([[ "name", "asc" ], [ "dob", "desc" ]])
+  # @example Add sorting options via an array with symbol directions.
+  #   optional.order_by([[ :name, :asc ], [ :dob, :desc ]])
+  # @example Add sorting options with keys.
+  #   optional.order_by(:name.asc, :dob.desc)
   # @param *spec [[ Array | Hash | String ]...] The sorting specification.
   # @return [Optional] The cloned optional.
   #
@@ -16830,9 +16830,9 @@ module Mongoid::Criteria::Queryable::Optional
   # @api private
   # @example Add a single sort option.
   #   optional.add_sort_option({}, :name, 1)
-  # @param options [Hash] The options.
-  # @param field [String] The field name.
   # @param direction [Integer] The sort direction.
+  # @param field [String] The field name.
+  # @param options [Hash] The options.
   # @return [Optional] The cloned optional.
   #
   # source://mongoid//lib/mongoid/criteria/queryable/optional.rb#321
@@ -17116,10 +17116,10 @@ module Mongoid::Criteria::Queryable::Selectable
 
   # Adds the $in selection to the selectable.
   #
-  # @example Add $in selection on an array.
-  #   selectable.in(age: [ 1, 2, 3 ])
   # @example Add $in selection on a range.
   #   selectable.in(age: 18..24)
+  # @example Add $in selection on an array.
+  #   selectable.in(age: [ 1, 2, 3 ])
   # @example Execute an $in in a where query.
   #   selectable.where(:field.in => [ 1, 2, 3 ])
   # @param condition [Hash] The field/value criterion pairs.
@@ -17154,10 +17154,10 @@ module Mongoid::Criteria::Queryable::Selectable
 
   # Add the range selection.
   #
-  # @example Match on results within a single range.
-  #   selectable.between(field: 1..2)
   # @example Match on results between multiple ranges.
   #   selectable.between(field: 1..2, other: 5..7)
+  # @example Match on results within a single range.
+  #   selectable.between(field: 1..2)
   # @param criterion [Hash] Multiple key/range pairs.
   # @return [Selectable] The cloned selectable.
   #
@@ -17195,10 +17195,10 @@ module Mongoid::Criteria::Queryable::Selectable
 
   # Adds $ne selection to the selectable.
   #
-  # @example Query for a value $ne to something.
-  #   selectable.ne(field: 10)
   # @example Execute an $ne in a where query.
   #   selectable.where(:field.ne => "value")
+  # @example Query for a value $ne to something.
+  #   selectable.ne(field: 10)
   # @param criterion [Hash] The field/ne selections.
   # @return [Selectable] The cloned selectable.
   #
@@ -17228,10 +17228,10 @@ module Mongoid::Criteria::Queryable::Selectable
   #   query.geo_spatial(:location.intersects_point => [[ 1, 10 ]])
   # @example Add a geo intersect criterion for a polygon.
   #   query.geo_spatial(:location.intersects_polygon => [[ 1, 10 ], [ 2, 10 ], [ 1, 10 ]])
-  # @example Add a geo within criterion for a polygon.
-  #   query.geo_spatial(:location.within_polygon => [[ 1, 10 ], [ 2, 10 ], [ 1, 10 ]])
   # @example Add a geo within criterion for a box.
   #   query.geo_spatial(:location.within_box => [[ 1, 10 ], [ 2, 10 ])
+  # @example Add a geo within criterion for a polygon.
+  #   query.geo_spatial(:location.within_polygon => [[ 1, 10 ], [ 2, 10 ], [ 1, 10 ]])
   # @note The only valid geometry shapes for a $geoIntersects are:
   #   :intersects_line, :intersects_point, and :intersects_polygon.
   # @note The only valid options for a $geoWithin query are the geometry
@@ -17274,10 +17274,10 @@ module Mongoid::Criteria::Queryable::Selectable
 
   # Adds the $in selection to the selectable.
   #
-  # @example Add $in selection on an array.
-  #   selectable.in(age: [ 1, 2, 3 ])
   # @example Add $in selection on a range.
   #   selectable.in(age: 18..24)
+  # @example Add $in selection on an array.
+  #   selectable.in(age: [ 1, 2, 3 ])
   # @example Execute an $in in a where query.
   #   selectable.where(:field.in => [ 1, 2, 3 ])
   # @param condition [Hash] The field/value criterion pairs.
@@ -17334,10 +17334,10 @@ module Mongoid::Criteria::Queryable::Selectable
 
   # Adds $ne selection to the selectable.
   #
-  # @example Query for a value $ne to something.
-  #   selectable.ne(field: 10)
   # @example Execute an $ne in a where query.
   #   selectable.where(:field.ne => "value")
+  # @example Query for a value $ne to something.
+  #   selectable.ne(field: 10)
   # @param criterion [Hash] The field/ne selections.
   # @return [Selectable] The cloned selectable.
   #
@@ -17391,10 +17391,10 @@ module Mongoid::Criteria::Queryable::Selectable
 
   # Adds the $nin selection to the selectable.
   #
-  # @example Add $nin selection on an array.
-  #   selectable.nin(age: [ 1, 2, 3 ])
   # @example Add $nin selection on a range.
   #   selectable.nin(age: 18..24)
+  # @example Add $nin selection on an array.
+  #   selectable.nin(age: [ 1, 2, 3 ])
   # @example Execute an $nin in a where query.
   #   selectable.where(:field.nin => [ 1, 2, 3 ])
   # @param condition [Hash] The field/value criterion pairs.
@@ -17408,10 +17408,10 @@ module Mongoid::Criteria::Queryable::Selectable
   #
   # @example Exclude a single criterion.
   #   selectable.none_of(name: /Bob/)
-  # @example Exclude multiple criteria.
-  #   selectable.none_of(name: /Bob/, country: "USA")
   # @example Exclude multiple criteria as an array.
   #   selectable.none_of([{ name: /Bob/ }, { country: "USA" }])
+  # @example Exclude multiple criteria.
+  #   selectable.none_of(name: /Bob/, country: "USA")
   # @param *criteria [[ Hash | Criteria ]...] The key/value pair
   #   matches or Criteria objects to negate.
   # @return [Selectable] The new selectable.
@@ -17431,12 +17431,12 @@ module Mongoid::Criteria::Queryable::Selectable
 
   # Negate the arguments, or the next selection if no arguments are given.
   #
-  # @example Negate the next selection.
-  #   selectable.not.in(field: [ 1, 2 ])
   # @example Add the $not criterion.
   #   selectable.not(name: /Bob/)
   # @example Execute a $not in a where query.
   #   selectable.where(:field.not => /Bob/)
+  # @example Negate the next selection.
+  #   selectable.not.in(field: [ 1, 2 ])
   # @param *criteria [[ Hash | Criteria ]...] The key/value pair
   #   matches or Criteria objects to negate.
   # @return [Selectable] The new selectable.
@@ -17446,10 +17446,10 @@ module Mongoid::Criteria::Queryable::Selectable
 
   # Adds the $nin selection to the selectable.
   #
-  # @example Add $nin selection on an array.
-  #   selectable.nin(age: [ 1, 2, 3 ])
   # @example Add $nin selection on a range.
   #   selectable.nin(age: 18..24)
+  # @example Add $nin selection on an array.
+  #   selectable.nin(age: [ 1, 2, 3 ])
   # @example Execute an $nin in a where query.
   #   selectable.where(:field.nin => [ 1, 2, 3 ])
   # @param condition [Hash] The field/value criterion pairs.
@@ -17500,18 +17500,18 @@ module Mongoid::Criteria::Queryable::Selectable
 
   # Construct a text search selector.
   #
-  # @example Construct a text search selector.
-  #   selectable.text_search("testing")
   # @example Construct a text search selector with options.
   #   selectable.text_search("testing", :$language => "fr")
+  # @example Construct a text search selector.
+  #   selectable.text_search("testing")
   # @note Per https://www.mongodb.com/docs/manual/reference/operator/query/text/
   #   it is not currently possible to supply multiple text search
   #   conditions in a query. Mongoid will build such a query but the
   #   server will return an error when trying to execute it.
-  # @param terms [String | Symbol] A string of terms that MongoDB parses
-  #   and uses to query the text index.
   # @param opts [Hash] Text search options. See MongoDB documentation
   #   for options.
+  # @param terms [String | Symbol] A string of terms that MongoDB parses
+  #   and uses to query the text index.
   # @return [Selectable] The cloned selectable.
   #
   # source://mongoid//lib/mongoid/criteria/queryable/selectable.rb#776
@@ -17521,10 +17521,10 @@ module Mongoid::Criteria::Queryable::Selectable
   # creates a standard field: value selection, and expanded selection with
   # the use of hash methods, or a $where selection if a string is provided.
   #
-  # @example Add a standard selection.
-  #   selectable.where(name: "syd")
   # @example Add a javascript selection.
   #   selectable.where("this.name == 'syd'")
+  # @example Add a standard selection.
+  #   selectable.where(name: "syd")
   # @param *criterion [[ Hash | String ]...] The standard selection
   #   or javascript string.
   # @return [Selectable] The cloned selectable.
@@ -17808,16 +17808,16 @@ class Mongoid::Criteria::Queryable::Smash < ::Hash
   #
   # @example Initialize the new selector.
   #   Queryable::Smash.new(aliases, serializers)
+  # @param aliased_associations [Hash] An optional hash of mappings from
+  #   aliases for associations to their actual field names in the database.
   # @param aliases [Hash] A hash of mappings from aliases to the actual
   #   field names in the database.
+  # @param associations [Hash] An optional hash of names to association
+  #   objects.
   # @param serializers [Hash] An optional hash of objects that are
   #   responsible for serializing values. The keys of the hash must be
   #   strings that match the field name, and the values must respond to
   #   #localized? and #evolve(object).
-  # @param associations [Hash] An optional hash of names to association
-  #   objects.
-  # @param aliased_associations [Hash] An optional hash of mappings from
-  #   aliases for associations to their actual field names in the database.
   # @return [Smash] a new instance of Smash
   # @yield [_self]
   # @yieldparam _self [Mongoid::Criteria::Queryable::Smash] the object that the method was called on
@@ -17976,8 +17976,8 @@ module Mongoid::Criteria::Queryable::Storable
   # This method mutates the receiver.
   #
   # @api private
-  # @param operator [String] The operator to add.
   # @param op_expr [Array<Hash>] Operator value to add.
+  # @param operator [String] The operator to add.
   # @return [Storable] self.
   #
   # source://mongoid//lib/mongoid/criteria/queryable/storable.rb#108
@@ -18037,8 +18037,8 @@ module Mongoid::Criteria::Queryable::Storable
   # This method mutates the receiver.
   #
   # @api private
-  # @param operator [String] The operator to add.
   # @param op_expr [Object] Operator value to add.
+  # @param operator [String] The operator to add.
   # @return [Storable] self.
   #
   # source://mongoid//lib/mongoid/criteria/queryable/storable.rb#188
@@ -18196,17 +18196,17 @@ module Mongoid::Deprecable
   # Declares method(s) as deprecated.
   #
   # @api private
-  # @example Deprecate a method.
-  #   Mongoid.deprecate(Cat, :meow); Cat.new.meow
-  #   #=> Mongoid.logger.warn("meow is deprecated and will be removed from Mongoid 8.0")
   # @example Deprecate a method and declare the replacement method.
   #   Mongoid.deprecate(Cat, meow: :speak); Cat.new.meow
   #   #=> Mongoid.logger.warn("meow is deprecated and will be removed from Mongoid 8.0 (use speak instead)")
   # @example Deprecate a method and give replacement instructions.
   #   Mongoid.deprecate(Cat, meow: 'eat :catnip instead'); Cat.new.meow
   #   #=> Mongoid.logger.warn("meow is deprecated and will be removed from Mongoid 8.0 (eat :catnip instead)")
-  # @param target_module [Module] The parent which contains the method.
+  # @example Deprecate a method.
+  #   Mongoid.deprecate(Cat, :meow); Cat.new.meow
+  #   #=> Mongoid.logger.warn("meow is deprecated and will be removed from Mongoid 8.0")
   # @param *method_descriptors [[ Symbol | Hash<Symbol, [ Symbol | String ]> ]...] The methods to deprecate, with optional replacement instructions.
+  # @param target_module [Module] The parent which contains the method.
   #
   # source://mongoid//lib/mongoid/deprecable.rb#30
   def deprecate(target_module, *method_descriptors); end
@@ -18481,8 +18481,8 @@ module Mongoid::Document
 
   # Adds the attributes for the given relation to the document's attributes.
   #
-  # @param name [String | Symbol] the name of the relation to add
   # @param meta [Mongoid::Assocation::Relatable] the relation object
+  # @param name [String | Symbol] the name of the relation to add
   #
   # source://mongoid//lib/mongoid/document.rb#283
   def add_attributes_for_relation(name, meta); end
@@ -18785,9 +18785,9 @@ module Mongoid::Document::ClassMethods
   #   the options hash as keyword arguments.
   # @option options
   # @param attrs [Hash] The hash of attributes to instantiate with.
+  # @param options [Hash] The options to use.
   # @param selected_fields [Integer] The selected fields from the
   #   criteria.
-  # @param options [Hash] The options to use.
   # @return [Document] A new document.
   # @yield [Mongoid::Document] If a block is given, yields the newly
   #   instantiated document to it.
@@ -18967,10 +18967,10 @@ class Mongoid::Errors::AmbiguousRelationship < ::Mongoid::Errors::MongoidError
   #   AmbiguousRelationship.new(
   #   Person, Drug, :person, [ :drugs, :evil_drugs ]
   #   )
-  # @param klass [Class] The base class.
-  # @param inverse [Class] The inverse class.
-  # @param name [Symbol] The relation name.
   # @param candidates [Array<Symbol>] The potential inverses.
+  # @param inverse [Class] The inverse class.
+  # @param klass [Class] The base class.
+  # @param name [Symbol] The relation name.
   # @return [AmbiguousRelationship] a new instance of AmbiguousRelationship
   #
   # source://mongoid//lib/mongoid/errors/ambiguous_relationship.rb#36
@@ -19058,10 +19058,10 @@ end
 class Mongoid::Errors::DeleteRestriction < ::Mongoid::Errors::MongoidError
   # Create the new callbacks error.
   #
-  # @param document [Document] The document that was attempted to be
-  #   destroyed.
   # @param association_name [Symbol] The name of the dependent
   #   association that prevents the document from being deleted.
+  # @param document [Document] The document that was attempted to be
+  #   destroyed.
   # @return [DeleteRestriction] a new instance of DeleteRestriction
   #
   # source://mongoid//lib/mongoid/errors/delete_restriction.rb#17
@@ -19093,10 +19093,10 @@ end
 class Mongoid::Errors::DocumentNotFound < ::Mongoid::Errors::MongoidError
   # Create the new error.
   #
-  # @example Create the error.
-  #   DocumentNotFound.new(Person, ["1", "2"])
   # @example Create the error with attributes instead of ids
   #   DocumentNotFound.new(Person, :ssn => "1234", :name => "Helen")
+  # @example Create the error.
+  #   DocumentNotFound.new(Person, ["1", "2"])
   # @param klass [Class] The model class.
   # @param params [Hash | Array | Object] The attributes or ids.
   # @param unmatched [Array | Hash] The unmatched ids, if appropriate. If
@@ -19329,8 +19329,8 @@ class Mongoid::Errors::InvalidDotDollarAssignment < ::Mongoid::Errors::MongoidEr
   # Create the new error.
   #
   # @api private
-  # @param klass [Class] The class of the document.
   # @param attr [Class] The attribute attempted to be written.
+  # @param klass [Class] The class of the document.
   # @return [InvalidDotDollarAssignment] a new instance of InvalidDotDollarAssignment
   #
   # source://mongoid//lib/mongoid/errors/invalid_dot_dollar_assignment.rb#17
@@ -19424,8 +19424,8 @@ class Mongoid::Errors::InvalidField < ::Mongoid::Errors::MongoidError
   # @api private
   # @example Create the error.
   #   InvalidField.new(person, :crazy_method_name)
-  # @param klass [Class] The document class.
   # @param field [Symbol] The field name.
+  # @param klass [Class] The document class.
   # @param name [Symbol] The method name.
   # @return [InvalidField] a new instance of InvalidField
   #
@@ -19510,8 +19510,8 @@ class Mongoid::Errors::InvalidFieldType < ::Mongoid::Errors::MongoidError
   #
   # @example Instantiate the error.
   #   InvalidFieldType.new('Person', 'first_name', 'stringgy')
-  # @param klass [String] The model class.
   # @param field [String] The field on which the invalid type is used.
+  # @param klass [String] The model class.
   # @param type [Symbol | String] The value of the field :type option.
   # @return [InvalidFieldType] a new instance of InvalidFieldType
   #
@@ -19556,8 +19556,8 @@ class Mongoid::Errors::InvalidIncludes < ::Mongoid::Errors::MongoidError
   #
   # @example Initialize the error.
   #   InvalidIncludes.new(Band, [ :members ])
-  # @param klass [Class] The model class.
   # @param args [Array<Object>] The arguments passed to the includes.
+  # @param klass [Class] The model class.
   # @return [InvalidIncludes] a new instance of InvalidIncludes
   #
   # source://mongoid//lib/mongoid/errors/invalid_includes.rb#18
@@ -19573,8 +19573,8 @@ class Mongoid::Errors::InvalidIndex < ::Mongoid::Errors::MongoidError
   # @example Create the error.
   #   InvalidIndex.new(Band, name: 1)
   # @param klass [Class] The model class.
-  # @param spec [Hash] The invalid specification.
   # @param options [Hash] The invalid options.
+  # @param spec [Hash] The invalid specification.
   # @return [InvalidIndex] a new instance of InvalidIndex
   #
   # source://mongoid//lib/mongoid/errors/invalid_index.rb#18
@@ -19589,8 +19589,8 @@ class Mongoid::Errors::InvalidOptions < ::Mongoid::Errors::MongoidError
   #
   # @example Create the error.
   #   InvalidOptions.new(:name, :polymorphic, [ :as ])
-  # @param name [Symbol] The name of the association.
   # @param invalid [Symbol] The invalid option.
+  # @param name [Symbol] The name of the association.
   # @param valid [Array<Symbol>] The allowed options.
   # @return [InvalidOptions] a new instance of InvalidOptions
   #
@@ -19845,9 +19845,9 @@ class Mongoid::Errors::InverseNotFound < ::Mongoid::Errors::MongoidError
   # @example Create the new error.
   #   InverseNotFound.new(Town, :citizens, Person, :town_id)
   # @param base [Class] The base class.
-  # @param name [Symbol] The name of the association.
-  # @param klass [Class] The child class.
   # @param inverse [Symbol] The attempted inverse key.
+  # @param klass [Class] The child class.
+  # @param name [Symbol] The name of the association.
   # @return [InverseNotFound] a new instance of InverseNotFound
   #
   # source://mongoid//lib/mongoid/errors/inverse_not_found.rb#19
@@ -19863,8 +19863,8 @@ class Mongoid::Errors::MixedClientConfiguration < ::Mongoid::Errors::MongoidErro
   #
   # @example Initialize the error.
   #   MixedClientConfiguration.new(:name, {})
-  # @param name [Symbol] The name of the client config.
   # @param config [Hash] The configuration options.
+  # @param name [Symbol] The name of the client config.
   # @return [MixedClientConfiguration] a new instance of MixedClientConfiguration
   #
   # source://mongoid//lib/mongoid/errors/mixed_client_configuration.rb#18
@@ -19942,8 +19942,8 @@ class Mongoid::Errors::MongoidError < ::StandardError
   #
   # @example Create the problem.
   #   error.problem("error", {})
-  # @param key [String | Symbol] The error key.
   # @param attributes [Hash] The attributes to interpolate.
+  # @param key [String | Symbol] The error key.
   # @return [String] The problem.
   #
   # source://mongoid//lib/mongoid/errors/mongoid_error.rb#61
@@ -19953,8 +19953,8 @@ class Mongoid::Errors::MongoidError < ::StandardError
   #
   # @example Create the resolution.
   #   error.resolution("error", {})
-  # @param key [String | Symbol] The error key.
   # @param attributes [Hash] The attributes to interpolate.
+  # @param key [String | Symbol] The error key.
   # @return [String] The resolution.
   #
   # source://mongoid//lib/mongoid/errors/mongoid_error.rb#87
@@ -19964,8 +19964,8 @@ class Mongoid::Errors::MongoidError < ::StandardError
   #
   # @example Create the summary.
   #   error.summary("error", {})
-  # @param key [String | Symbol] The error key.
   # @param attributes [Hash] The attributes to interpolate.
+  # @param key [String | Symbol] The error key.
   # @return [String] The summary.
   #
   # source://mongoid//lib/mongoid/errors/mongoid_error.rb#74
@@ -20016,8 +20016,8 @@ class Mongoid::Errors::NoClientDatabase < ::Mongoid::Errors::MongoidError
   #
   # @example Create the new error.
   #   NoClientDatabase.new(:default, {}})
-  # @param name [Symbol | String] The db config key.
   # @param config [Hash] The hash configuration options.
+  # @param name [Symbol | String] The db config key.
   # @return [NoClientDatabase] a new instance of NoClientDatabase
   #
   # source://mongoid//lib/mongoid/errors/no_client_database.rb#17
@@ -20032,8 +20032,8 @@ class Mongoid::Errors::NoClientHosts < ::Mongoid::Errors::MongoidError
   #
   # @example Create the new error.
   #   NoClientHosts.new(:default, {}})
-  # @param name [Symbol | String] The db config key.
   # @param config [Hash] The hash configuration options.
+  # @param name [Symbol | String] The db config key.
   # @return [NoClientHosts] a new instance of NoClientHosts
   #
   # source://mongoid//lib/mongoid/errors/no_client_hosts.rb#17
@@ -20401,8 +20401,8 @@ class Mongoid::Errors::UnsupportedJavascript < ::Mongoid::Errors::MongoidError
   #
   # @example Create the error.
   #   UnsupportedJavascriptSelector.new(Album, "this.name == '101'")
-  # @param klass [Class] The embedded document class.
   # @param javascript [String] The javascript expression.
+  # @param klass [Class] The embedded document class.
   # @return [UnsupportedJavascript] a new instance of UnsupportedJavascript
   #
   # source://mongoid//lib/mongoid/errors/unsupported_javascript.rb#17
@@ -21056,8 +21056,8 @@ module Mongoid::Extensions::Module
   #   Object.re_define_method("exists?") do
   #   self
   #   end
-  # @param name [String | Symbol] The name of the method.
   # @param &block The method body.
+  # @param name [String | Symbol] The name of the method.
   # @return [Method] The new method.
   #
   # source://mongoid//lib/mongoid/extensions/module.rb#22
@@ -21155,8 +21155,8 @@ module Mongoid::Extensions::Object
   # @deprecated
   # @example Do or do not.
   #   object.do_or_do_not(:use, "The Force")
-  # @param name [String | Symbol] The method name.
   # @param *args [Object...] The arguments.
+  # @param name [String | Symbol] The method name.
   # @return [Object | nil] The result of the method call or nil if the
   #   method does not exist.
   #
@@ -21236,8 +21236,8 @@ module Mongoid::Extensions::Object
   # @deprecated
   # @example You must perform this execution.
   #   object.you_must(:use, "The Force")
-  # @param name [String | Symbol] The method name.
   # @param *args [Object...] The arguments.
+  # @param name [String | Symbol] The method name.
   # @return [Object | nil] The result of the method call or nil if the
   #   method does not exist. Nil if the object is frozen.
   #
@@ -21834,8 +21834,8 @@ module Mongoid::Factory
   # @example Build the document.
   #   Mongoid::Factory.build(Person, { "name" => "Durran" })
   # @option options
-  # @param klass [Class] The class to instantiate from if _type is not present.
   # @param attributes [Hash] The document attributes.
+  # @param klass [Class] The class to instantiate from if _type is not present.
   # @param options [Hash] a customizable set of options
   # @return [Document] The instantiated document.
   #
@@ -21850,8 +21850,8 @@ module Mongoid::Factory
   #   the options hash as keyword arguments.
   #   See https://bugs.ruby-lang.org/issues/15753
   # @option options
-  # @param klass [Class] The class to instantiate from if _type is not present.
   # @param attributes [Hash] The document attributes.
+  # @param klass [Class] The class to instantiate from if _type is not present.
   # @param options [Hash] The options to use.
   # @return [Document] The instantiated document.
   #
@@ -21861,18 +21861,18 @@ module Mongoid::Factory
   # Execute from_db.
   #
   # @api private
-  # @param klass [Class] The class to instantiate from if _type is not present.
   # @param attributes [Hash] The document attributes.
   # @param criteria [Criteria] Optional criteria object.
-  # @param selected_fields [Hash] Fields which were retrieved via
-  #   #only. If selected_fields are specified, fields not listed in it
-  #   will not be accessible in the returned document.
   # @param execute_callbacks [true | false] Whether this method should
   #   invoke the callbacks. If true, the callbacks will be invoked normally.
   #   If false, the callbacks will be stored in the +pending_callbacks+ list
   #   and caller is responsible for invoking +run_pending_callbacks+ at a
   #   later time. Use this option to defer callback execution until the
   #   entire object graph containing embedded associations is constructed.
+  # @param klass [Class] The class to instantiate from if _type is not present.
+  # @param selected_fields [Hash] Fields which were retrieved via
+  #   #only. If selected_fields are specified, fields not listed in it
+  #   will not be accessible in the returned document.
   # @return [Document] The instantiated document.
   #
   # source://mongoid//lib/mongoid/factory.rb#234
@@ -21895,9 +21895,9 @@ module Mongoid::Factory
   #
   # @example Build the document.
   #   Mongoid::Factory.from_db(Person, { "name" => "Durran" })
-  # @param klass [Class] The class to instantiate from if _type is not present.
   # @param attributes [Hash] The document attributes.
   # @param criteria [Criteria] Optional criteria object.
+  # @param klass [Class] The class to instantiate from if _type is not present.
   # @param selected_fields [Hash] Fields which were retrieved via
   #   #only. If selected_fields are specified, fields not listed in it
   #   will not be accessible in the returned document.
@@ -21918,13 +21918,13 @@ class Mongoid::Factory::Instantiator
   # Creates a new Factory::Initiator.
   #
   # @api private
-  # @param klass [Mongoid::Document] The primary class to reference when
-  #   instantiating the model.
   # @param attributes [Hash | nil] (Optional) The hash of attributes to
   #   use when instantiating the model.
   # @param criteria [Mongoid::Criteria | nil] (Optional) The criteria
   #   object to use as a secondary source for the selected fields; also
   #   used when setting the inverse association.
+  # @param klass [Mongoid::Document] The primary class to reference when
+  #   instantiating the model.
   # @param selected_fields [Array | nil] The list of field names that
   #   should be explicitly (and exclusively) included in the new record.
   # @return [Instantiator] a new instance of Instantiator
@@ -22169,10 +22169,10 @@ module Mongoid::Fields
     # pass back the _id field.
     #
     # @api private
+    # @param aliased_associations [Hash] The aliased associations.
+    # @param aliased_fields [Hash] The aliased fields.
     # @param name [String | Symbol] The name to get.
     # @param relations [Hash] The associations.
-    # @param aliased_fields [Hash] The aliased fields.
-    # @param aliased_associations [Hash] The aliased associations.
     # @return [String] The name of the field as stored in the database.
     #
     # source://mongoid//lib/mongoid/fields.rb#415
@@ -22189,8 +22189,8 @@ module Mongoid::Fields
     #   Mongoid::Fields.option :required do |model, field, value|
     #   model.validates_presence_of field if value
     #   end
-    # @param option_name [Symbol] the option name to match against
     # @param &block the handler to execute when the option is provided.
+    # @param option_name [Symbol] the option name to match against
     #
     # source://mongoid//lib/mongoid/fields.rb#298
     def option(option_name, &block); end
@@ -22217,12 +22217,12 @@ module Mongoid::Fields
     # traversing the tree.
     #
     # @api private
-    # @param key [String] The key used to search the association tree.
-    # @param fields [Hash] The fields to begin the search with.
-    # @param associations [Hash] The associations to begin the search with.
+    # @param &block The block.
     # @param aliased_associations [Hash] The alaised associations to begin
     #   the search with.
-    # @param &block The block.
+    # @param associations [Hash] The associations to begin the search with.
+    # @param fields [Hash] The fields to begin the search with.
+    # @param key [String] The key used to search the association tree.
     # @return [Field] The field found for the given key at the end of the
     #   search. This will return nil if the last thing found is an association
     #   or no field was found for the given key.
@@ -22359,8 +22359,8 @@ module Mongoid::Fields::ClassMethods
   # given key.
   #
   # @api private
-  # @param key [String] The key used to search the association tree.
   # @param &block The block.
+  # @param key [String] The key used to search the association tree.
   # @return [Field] The field found for the given key at the end of the
   #   search. This will return nil if the last thing found is an association
   #   or no field was found for the given key.
@@ -22415,8 +22415,8 @@ module Mongoid::Fields::ClassMethods
   #   person.name = "" #=> sets the field
   #   person.name? #=> Is the field present?
   #   person.name_before_type_cast #=> returns the field before type cast
-  # @param name [Symbol] The name of the field.
   # @param meth [Symbol] The name of the accessor.
+  # @param name [Symbol] The name of the field.
   # @param options [Hash] The options.
   #
   # source://mongoid//lib/mongoid/fields.rb#622
@@ -22427,8 +22427,8 @@ module Mongoid::Fields::ClassMethods
   # @api private
   # @example Create the check.
   #   Model.create_field_check("name", "name")
-  # @param name [String] The name of the attribute.
   # @param meth [String] The name of the method.
+  # @param name [String] The name of the attribute.
   #
   # source://mongoid//lib/mongoid/fields.rb#714
   def create_field_check(name, meth); end
@@ -22438,9 +22438,9 @@ module Mongoid::Fields::ClassMethods
   # @api private
   # @example Create the getter.
   #   Model.create_field_getter("name", "name", field)
-  # @param name [String] The name of the attribute.
-  # @param meth [String] The name of the method.
   # @param field [Field] The field.
+  # @param meth [String] The name of the method.
+  # @param name [String] The name of the attribute.
   #
   # source://mongoid//lib/mongoid/fields.rb#647
   def create_field_getter(name, meth, field); end
@@ -22452,8 +22452,8 @@ module Mongoid::Fields::ClassMethods
   # @api private
   # @example Create the getter_before_type_cast.
   #   Model.create_field_getter_before_type_cast("name", "name")
-  # @param name [String] The name of the attribute.
   # @param meth [String] The name of the method.
+  # @param name [String] The name of the attribute.
   #
   # source://mongoid//lib/mongoid/fields.rb#671
   def create_field_getter_before_type_cast(name, meth); end
@@ -22463,9 +22463,9 @@ module Mongoid::Fields::ClassMethods
   # @api private
   # @example Create the setter.
   #   Model.create_field_setter("name", "name")
-  # @param name [String] The name of the attribute.
-  # @param meth [String] The name of the method.
   # @param field [Field] The field.
+  # @param meth [String] The name of the method.
+  # @param name [String] The name of the attribute.
   #
   # source://mongoid//lib/mongoid/fields.rb#693
   def create_field_setter(name, meth, field); end
@@ -22475,8 +22475,8 @@ module Mongoid::Fields::ClassMethods
   # @api private
   # @example Create the translation getter.
   #   Model.create_translations_getter("name", "name")
-  # @param name [String] The name of the attribute.
   # @param meth [String] The name of the method.
+  # @param name [String] The name of the attribute.
   #
   # source://mongoid//lib/mongoid/fields.rb#732
   def create_translations_getter(name, meth); end
@@ -22486,9 +22486,9 @@ module Mongoid::Fields::ClassMethods
   # @api private
   # @example Create the translation setter.
   #   Model.create_translations_setter("name", "name")
-  # @param name [String] The name of the attribute.
-  # @param meth [String] The name of the method.
   # @param field [Field] The field.
+  # @param meth [String] The name of the method.
+  # @param name [String] The name of the attribute.
   #
   # source://mongoid//lib/mongoid/fields.rb#752
   def create_translations_setter(name, meth, field); end
@@ -22626,9 +22626,9 @@ class Mongoid::Fields::ForeignKey < ::Mongoid::Fields::Standard
   # @example Add the atomic changes.
   #   field.add_atomic_changes(doc, "key", {}, [], [])
   # @param document [Document] The document to add to.
-  # @param name [String] The name of the field.
   # @param key [String] The atomic location of the field.
   # @param mods [Hash] The current modifications.
+  # @param name [String] The name of the field.
   # @param new_elements [Array] The new elements to add.
   # @param old_elements [Array] The old elements getting removed.
   #
@@ -22853,9 +22853,9 @@ class Mongoid::Fields::Standard
   #
   # @example Add the atomic changes.
   # @param document [Document] The document to add to.
-  # @param name [String] The name of the field.
   # @param key [String] The atomic location of the field.
   # @param mods [Hash] The current modifications.
+  # @param name [String] The name of the field.
   # @param new [Array] The new elements to add.
   # @param old [Array] The old elements getting removed.
   #
@@ -23269,12 +23269,12 @@ module Mongoid::Findable
   # Returns true if there are on document in database based on the
   # provided arguments.
   #
-  # @example Do any documents exist for the conditions?
-  #   Person.exists?
   # @example Do any documents exist for given _id.
   #   Person.exists?(BSON::ObjectId(...))
   # @example Do any documents exist for given conditions.
   #   Person.exists?(name: "...")
+  # @example Do any documents exist for the conditions?
+  #   Person.exists?
   # @param id_or_conditions [Hash | Object | false] an _id to
   #   search for, a hash of conditions, nil or false.
   # @return [true | false] If any documents exist for the conditions.
@@ -24727,8 +24727,8 @@ module Mongoid::Indexable::ClassMethods
   #   field :name, type: String
   #   index({ name: 1 }, { background: true })
   #   end
-  # @param spec [Hash] The index spec.
   # @param options [Hash] The index options.
+  # @param spec [Hash] The index spec.
   # @return [Hash] The index options.
   #
   # source://mongoid//lib/mongoid/indexable.rb#96
@@ -24787,8 +24787,8 @@ class Mongoid::Indexable::Specification
   #
   # @example Create the new specification.
   #   Specification.new(Band, { name: 1 }, background: true)
-  # @param klass [Class] The class the index is defined on.
   # @param key [Hash] The hash of name/direction pairs.
+  # @param klass [Class] The class the index is defined on.
   # @param opts [Hash] the index options.
   # @return [Specification] a new instance of Specification
   #
@@ -24895,8 +24895,8 @@ module Mongoid::Indexable::Validators::Options
   # @example Validate the index spec.
   #   Options.validate(Band, name: 1)
   # @param klass [Class] The model class.
-  # @param spec [Hash] The index specification.
   # @param options [Hash] The index options.
+  # @param spec [Hash] The index specification.
   # @raise [Errors::InvalidIndex] If validation failed.
   #
   # source://mongoid//lib/mongoid/indexable/validators/options.rb#56
@@ -24910,8 +24910,8 @@ module Mongoid::Indexable::Validators::Options
   # @example Validate the options.
   #   Options.validate_options(Band, name: 1)
   # @param klass [Class] The model class.
-  # @param spec [Hash] The index specification.
   # @param options [Hash] The index options.
+  # @param spec [Hash] The index specification.
   # @raise [Errors::InvalidIndex] If validation failed.
   #
   # source://mongoid//lib/mongoid/indexable/validators/options.rb#75
@@ -24923,8 +24923,8 @@ module Mongoid::Indexable::Validators::Options
   # @example Validate the spec.
   #   Options.validate_spec(Band, name: 1)
   # @param klass [Class] The model class.
-  # @param spec [Hash] The index specification.
   # @param options [Hash] The index options.
+  # @param spec [Hash] The index specification.
   # @raise [Errors::InvalidIndex] If validation failed.
   #
   # source://mongoid//lib/mongoid/indexable/validators/options.rb#95
@@ -25011,11 +25011,11 @@ module Mongoid::Interceptable
   # Execute the before callbacks of given kind for embedded documents.
   #
   # @api private
-  # @param kind [Symbol] The type of callback to execute.
-  # @param children [Array<Document>] Children to execute callbacks on.
   # @param callback_list [Array<ActiveSupport::Callbacks::CallbackSequence, ActiveSupport::Callbacks::Filters::Environment>] List of
   #   pairs of callback sequence and environment. This list will be later used
   #   to execute after callbacks in reverse order.
+  # @param children [Array<Document>] Children to execute callbacks on.
+  # @param kind [Symbol] The type of callback to execute.
   #
   # source://mongoid//lib/mongoid/interceptable.rb#229
   def _mongoid_run_child_before_callbacks(kind, children: T.unsafe(nil), callback_list: T.unsafe(nil)); end
@@ -25023,10 +25023,10 @@ module Mongoid::Interceptable
   # Run the callbacks for embedded documents.
   #
   # @api private
-  # @param kind [Symbol] The type of callback to execute.
   # @param children [Array<Document>] Children to execute callbacks on. If
   #   nil, callbacks will be executed on all cascadable children of
   #   the document.
+  # @param kind [Symbol] The type of callback to execute.
   #
   # source://mongoid//lib/mongoid/interceptable.rb#153
   def _mongoid_run_child_callbacks(kind, children: T.unsafe(nil), &block); end
@@ -25034,12 +25034,12 @@ module Mongoid::Interceptable
   # Execute the callbacks of given kind for embedded documents including
   # around callbacks.
   #
-  # @param kind [Symbol] The type of callback to execute.
   # @param children [Array<Document>] Children to execute callbacks on. If
   #   nil, callbacks will be executed on all cascadable children of
   #   the document.
   #
   #   @api private
+  # @param kind [Symbol] The type of callback to execute.
   #
   # source://mongoid//lib/mongoid/interceptable.rb#174
   def _mongoid_run_child_callbacks_with_around(kind, children: T.unsafe(nil), &block); end
@@ -25048,10 +25048,10 @@ module Mongoid::Interceptable
   # around callbacks.
   #
   # @api private
-  # @param kind [Symbol] The type of callback to execute.
   # @param children [Array<Document>] Children to execute callbacks on. If
   #   nil, callbacks will be executed on all cascadable children of
   #   the document.
+  # @param kind [Symbol] The type of callback to execute.
   #
   # source://mongoid//lib/mongoid/interceptable.rb#207
   def _mongoid_run_child_callbacks_without_around(kind, children: T.unsafe(nil), &block); end
@@ -25130,10 +25130,10 @@ module Mongoid::Interceptable
   #   save!
   #   end
   # @param kind [Symbol] The type of callback to execute.
-  # @param with_children [true | false] Flag specifies whether callbacks
-  #   of embedded document should be run.
   # @param skip_if [Proc | nil] If this proc returns true, the callbacks
   #   will not be triggered, while the given block will be still called.
+  # @param with_children [true | false] Flag specifies whether callbacks
+  #   of embedded document should be run.
   #
   # source://mongoid//lib/mongoid/interceptable.rb#127
   def run_callbacks(kind, with_children: T.unsafe(nil), skip_if: T.unsafe(nil), &block); end
@@ -25164,8 +25164,8 @@ module Mongoid::Interceptable
   #
   # @example Should the child fire the callback?
   #   document.cascadable_child?(:update, doc)
-  # @param kind [Symbol] The type of callback.
   # @param child [Document] The child document.
+  # @param kind [Symbol] The type of callback.
   # @return [true | false] If the child should fire the callback.
   #
   # source://mongoid//lib/mongoid/interceptable.rb#347
@@ -25188,8 +25188,8 @@ module Mongoid::Interceptable
   #
   # @example Get the callback type.
   #   document.child_callback_type(:update, doc)
-  # @param kind [Symbol] The type of callback.
   # @param child [Document] The child document
+  # @param kind [Symbol] The type of callback.
   # @return [Symbol] The name of the callback.
   #
   # source://mongoid//lib/mongoid/interceptable.rb#365
@@ -25225,8 +25225,8 @@ module Mongoid::Interceptable
   #
   # @example Run the targeted callbacks.
   #   model.run_targeted_callbacks(:before, :save)
-  # @param place [Symbol] The time to run, :before, :after, :around.
   # @param kind [Symbol] The type of callback, :save, :create, :update.
+  # @param place [Symbol] The time to run, :before, :after, :around.
   # @return [Object] The result of the chain execution.
   #
   # source://mongoid//lib/mongoid/interceptable.rb#400
@@ -25313,10 +25313,10 @@ module Mongoid::Loadable
   # that indexing and inheritance work in both development and production
   # with the same results.
   #
-  # @example Load all the application models from default model paths.
-  #   Mongoid.load_models
   # @example Load all application models from a non-standard set of paths.
   #   Mongoid.load_models(%w( ./models ./admin/models ))
+  # @example Load all the application models from default model paths.
+  #   Mongoid.load_models
   # @param paths [Array] The list of paths that should be looked in
   #   for model files. These must either be absolute paths, or relative to
   #   the current working directory.
@@ -25562,9 +25562,9 @@ module Mongoid::Matcher::All
   #
   # @api private
   # @api private
+  # @param condition [Array<Object>] The $all condition predicate.
   # @param exists [true | false] Not used.
   # @param value [Object] The value to check.
-  # @param condition [Array<Object>] The $all condition predicate.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -25576,9 +25576,9 @@ module Mongoid::Matcher::All
     #
     # @api private
     # @api private
+    # @param condition [Array<Object>] The $all condition predicate.
     # @param exists [true | false] Not used.
     # @param value [Object] The value to check.
-    # @param condition [Array<Object>] The $all condition predicate.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -25632,10 +25632,10 @@ module Mongoid::Matcher::Bits
   # Returns whether a value satisfies a bitwise expression.
   #
   # @api private
-  # @param exists [true | false] Not used.
-  # @param value [Object] The value to check.
   # @param condition [Numeric | Array<Numeric>] The expression
   #   predicate as a bitmask or position list.
+  # @param exists [true | false] Not used.
+  # @param value [Object] The value to check.
   # @return [true | false] Whether the value matches.
   #
   # source://mongoid//lib/mongoid/matcher/bits.rb#20
@@ -25678,8 +25678,8 @@ module Mongoid::Matcher::BitsAllClear
   # Returns whether a position list condition matches a value.
   #
   # @api private
-  # @param value [Object] The value to check.
   # @param condition [Array<Numeric>] The position list condition.
+  # @param value [Object] The value to check.
   # @return [true | false] Whether the value matches.
   #
   # source://mongoid//lib/mongoid/matcher/bits_all_clear.rb#22
@@ -25688,8 +25688,8 @@ module Mongoid::Matcher::BitsAllClear
   # Returns whether a bitmask condition matches a value.
   #
   # @api private
-  # @param value [Object] The value to check.
   # @param condition [Numeric] The bitmask condition.
+  # @param value [Object] The value to check.
   # @return [true | false] Whether the value matches.
   #
   # source://mongoid//lib/mongoid/matcher/bits_all_clear.rb#36
@@ -25710,8 +25710,8 @@ module Mongoid::Matcher::BitsAllSet
   # Returns whether a position list condition matches a value.
   #
   # @api private
-  # @param value [Object] The value to check.
   # @param condition [Array<Numeric>] The position list condition.
+  # @param value [Object] The value to check.
   # @return [true | false] Whether the value matches.
   #
   # source://mongoid//lib/mongoid/matcher/bits_all_set.rb#22
@@ -25720,8 +25720,8 @@ module Mongoid::Matcher::BitsAllSet
   # Returns whether a bitmask condition matches a value.
   #
   # @api private
-  # @param value [Object] The value to check.
   # @param condition [Numeric] The bitmask condition.
+  # @param value [Object] The value to check.
   # @return [true | false] Whether the value matches.
   #
   # source://mongoid//lib/mongoid/matcher/bits_all_set.rb#36
@@ -25742,8 +25742,8 @@ module Mongoid::Matcher::BitsAnyClear
   # Returns whether a position list condition matches a value.
   #
   # @api private
-  # @param value [Object] The value to check.
   # @param condition [Array<Numeric>] The position list condition.
+  # @param value [Object] The value to check.
   # @return [true | false] Whether the value matches.
   #
   # source://mongoid//lib/mongoid/matcher/bits_any_clear.rb#22
@@ -25752,8 +25752,8 @@ module Mongoid::Matcher::BitsAnyClear
   # Returns whether a bitmask condition matches a value.
   #
   # @api private
-  # @param value [Object] The value to check.
   # @param condition [Numeric] The bitmask condition.
+  # @param value [Object] The value to check.
   # @return [true | false] Whether the value matches.
   #
   # source://mongoid//lib/mongoid/matcher/bits_any_clear.rb#36
@@ -25774,8 +25774,8 @@ module Mongoid::Matcher::BitsAnySet
   # Returns whether a position list condition matches a value.
   #
   # @api private
-  # @param value [Object] The value to check.
   # @param condition [Array<Numeric>] The position list condition.
+  # @param value [Object] The value to check.
   # @return [true | false] Whether the value matches.
   #
   # source://mongoid//lib/mongoid/matcher/bits_any_set.rb#22
@@ -25784,8 +25784,8 @@ module Mongoid::Matcher::BitsAnySet
   # Returns whether a bitmask condition matches a value.
   #
   # @api private
-  # @param value [Object] The value to check.
   # @param condition [Numeric] The bitmask condition.
+  # @param value [Object] The value to check.
   # @return [true | false] Whether the value matches.
   #
   # source://mongoid//lib/mongoid/matcher/bits_any_set.rb#36
@@ -25806,8 +25806,8 @@ module Mongoid::Matcher::ElemMatch
   # @api private
   # @api private
   # @param exists [true | false] Not used.
-  # @param value [Object | Array<Object>] The value to check.
   # @param expr [Hash] The $elemMatch condition predicate.
+  # @param value [Object | Array<Object>] The value to check.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -25820,8 +25820,8 @@ module Mongoid::Matcher::ElemMatch
     # @api private
     # @api private
     # @param exists [true | false] Not used.
-    # @param value [Object | Array<Object>] The value to check.
     # @param expr [Hash] The $elemMatch condition predicate.
+    # @param value [Object | Array<Object>] The value to check.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -25882,8 +25882,8 @@ module Mongoid::Matcher::Eq
   # @api private
   # @api private
   # @param exists [true | false] Whether the value exists.
-  # @param value [Object] The value to check.
   # @param expr [Hash] The $eq condition predicate.
+  # @param value [Object] The value to check.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -25896,8 +25896,8 @@ module Mongoid::Matcher::Eq
     # @api private
     # @api private
     # @param exists [true | false] Whether the value exists.
-    # @param value [Object] The value to check.
     # @param expr [Hash] The $eq condition predicate.
+    # @param value [Object] The value to check.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -25922,10 +25922,10 @@ module Mongoid::Matcher::EqImpl
   #
   # @api private
   # @api private
-  # @param exists [true | false] Not used.
-  # @param value [Object] The value to check.
   # @param condition [Object | Range] The equality condition predicate.
+  # @param exists [true | false] Not used.
   # @param original_operator [String] Operator to use in exception messages.
+  # @param value [Object] The value to check.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -25965,10 +25965,10 @@ module Mongoid::Matcher::EqImpl
     #
     # @api private
     # @api private
-    # @param exists [true | false] Not used.
-    # @param value [Object] The value to check.
     # @param condition [Object | Range] The equality condition predicate.
+    # @param exists [true | false] Not used.
     # @param original_operator [String] Operator to use in exception messages.
+    # @param value [Object] The value to check.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -26020,9 +26020,9 @@ module Mongoid::Matcher::EqImplWithRegexp
   #
   # @api private
   # @api private
+  # @param condition [Object] The equality condition predicate.
   # @param original_operator [String] Not used.
   # @param value [Object] The value to check.
-  # @param condition [Object] The equality condition predicate.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -26036,9 +26036,9 @@ module Mongoid::Matcher::EqImplWithRegexp
     #
     # @api private
     # @api private
+    # @param condition [Object] The equality condition predicate.
     # @param original_operator [String] Not used.
     # @param value [Object] The value to check.
-    # @param condition [Object] The equality condition predicate.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -26060,9 +26060,9 @@ module Mongoid::Matcher::Exists
   #
   # @api private
   # @api private
+  # @param condition [true | false] The $exists condition predicate.
   # @param exists [true | false] Whether the value exists.
   # @param value [Object] Not used.
-  # @param condition [true | false] The $exists condition predicate.
   # @return [true | false] Whether the existence condition is met.
   # @return [Boolean]
   #
@@ -26074,9 +26074,9 @@ module Mongoid::Matcher::Exists
     #
     # @api private
     # @api private
+    # @param condition [true | false] The $exists condition predicate.
     # @param exists [true | false] Whether the value exists.
     # @param value [Object] Not used.
-    # @param condition [true | false] The $exists condition predicate.
     # @return [true | false] Whether the existence condition is met.
     # @return [Boolean]
     #
@@ -26172,9 +26172,9 @@ module Mongoid::Matcher::FieldExpression
   #
   # @api private
   # @api private
+  # @param condition [Hash | Object] The condition predicate.
   # @param exists [true | false] Whether the value exists.
   # @param value [Object] The value to check.
-  # @param condition [Hash | Object] The condition predicate.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -26186,9 +26186,9 @@ module Mongoid::Matcher::FieldExpression
     #
     # @api private
     # @api private
+    # @param condition [Hash | Object] The condition predicate.
     # @param exists [true | false] Whether the value exists.
     # @param value [Object] The value to check.
-    # @param condition [Hash | Object] The condition predicate.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -26283,9 +26283,9 @@ module Mongoid::Matcher::Gt
   #
   # @api private
   # @api private
+  # @param condition [Object] The $gt condition predicate.
   # @param exists [true | false] Whether the value exists.
   # @param value [Object] The value to check.
-  # @param condition [Object] The $gt condition predicate.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -26297,9 +26297,9 @@ module Mongoid::Matcher::Gt
     #
     # @api private
     # @api private
+    # @param condition [Object] The $gt condition predicate.
     # @param exists [true | false] Whether the value exists.
     # @param value [Object] The value to check.
-    # @param condition [Object] The $gt condition predicate.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -26321,9 +26321,9 @@ module Mongoid::Matcher::Gte
   #
   # @api private
   # @api private
+  # @param condition [Object] The $gte condition predicate.
   # @param exists [true | false] Whether the value exists.
   # @param value [Object] The value to check.
-  # @param condition [Object] The $gte condition predicate.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -26335,9 +26335,9 @@ module Mongoid::Matcher::Gte
     #
     # @api private
     # @api private
+    # @param condition [Object] The $gte condition predicate.
     # @param exists [true | false] Whether the value exists.
     # @param value [Object] The value to check.
-    # @param condition [Object] The $gte condition predicate.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -26359,9 +26359,9 @@ module Mongoid::Matcher::In
   #
   # @api private
   # @api private
+  # @param condition [Array<Object>] The $in condition predicate.
   # @param exists [true | false] Not used.
   # @param value [Object] The value to check.
-  # @param condition [Array<Object>] The $in condition predicate.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -26373,9 +26373,9 @@ module Mongoid::Matcher::In
     #
     # @api private
     # @api private
+    # @param condition [Array<Object>] The $in condition predicate.
     # @param exists [true | false] Not used.
     # @param value [Object] The value to check.
-    # @param condition [Array<Object>] The $in condition predicate.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -26397,9 +26397,9 @@ module Mongoid::Matcher::Lt
   #
   # @api private
   # @api private
+  # @param condition [Object] The $lt condition predicate.
   # @param exists [true | false] Whether the value exists.
   # @param value [Object] The value to check.
-  # @param condition [Object] The $lt condition predicate.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -26411,9 +26411,9 @@ module Mongoid::Matcher::Lt
     #
     # @api private
     # @api private
+    # @param condition [Object] The $lt condition predicate.
     # @param exists [true | false] Whether the value exists.
     # @param value [Object] The value to check.
-    # @param condition [Object] The $lt condition predicate.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -26435,9 +26435,9 @@ module Mongoid::Matcher::Lte
   #
   # @api private
   # @api private
+  # @param condition [Object] The $lte condition predicate.
   # @param exists [true | false] Whether the value exists.
   # @param value [Object] The value to check.
-  # @param condition [Object] The $lte condition predicate.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -26449,9 +26449,9 @@ module Mongoid::Matcher::Lte
     #
     # @api private
     # @api private
+    # @param condition [Object] The $lte condition predicate.
     # @param exists [true | false] Whether the value exists.
     # @param value [Object] The value to check.
-    # @param condition [Object] The $lte condition predicate.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -26473,10 +26473,10 @@ module Mongoid::Matcher::Mod
   #
   # @api private
   # @api private
-  # @param exists [true | false] Not used.
-  # @param value [Numeric] The value to check.
   # @param condition [Array<Numeric>] The $mod condition predicate,
   #   which is a 2-tuple containing the divisor and remainder.
+  # @param exists [true | false] Not used.
+  # @param value [Numeric] The value to check.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -26488,10 +26488,10 @@ module Mongoid::Matcher::Mod
     #
     # @api private
     # @api private
-    # @param exists [true | false] Not used.
-    # @param value [Numeric] The value to check.
     # @param condition [Array<Numeric>] The $mod condition predicate,
     #   which is a 2-tuple containing the divisor and remainder.
+    # @param exists [true | false] Not used.
+    # @param value [Numeric] The value to check.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -26513,9 +26513,9 @@ module Mongoid::Matcher::Ne
   #
   # @api private
   # @api private
+  # @param condition [Object] The $ne condition predicate.
   # @param exists [true | false] Whether the value exists.
   # @param value [Object] The value to check.
-  # @param condition [Object] The $ne condition predicate.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -26527,9 +26527,9 @@ module Mongoid::Matcher::Ne
     #
     # @api private
     # @api private
+    # @param condition [Object] The $ne condition predicate.
     # @param exists [true | false] Whether the value exists.
     # @param value [Object] The value to check.
-    # @param condition [Object] The $ne condition predicate.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -26551,9 +26551,9 @@ module Mongoid::Matcher::Nin
   #
   # @api private
   # @api private
+  # @param condition [Array<Object>] The $nin condition predicate.
   # @param exists [true | false] Whether the value exists.
   # @param value [Object] The value to check.
-  # @param condition [Array<Object>] The $nin condition predicate.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -26565,9 +26565,9 @@ module Mongoid::Matcher::Nin
     #
     # @api private
     # @api private
+    # @param condition [Array<Object>] The $nin condition predicate.
     # @param exists [true | false] Whether the value exists.
     # @param value [Object] The value to check.
-    # @param condition [Array<Object>] The $nin condition predicate.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -26625,9 +26625,9 @@ module Mongoid::Matcher::Not
   #
   # @api private
   # @api private
+  # @param condition [Hash | Regexp | BSON::Regexp::Raw] The $not condition predicate.
   # @param exists [true | false] Whether the value exists.
   # @param value [Object] The value to check.
-  # @param condition [Hash | Regexp | BSON::Regexp::Raw] The $not condition predicate.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -26639,9 +26639,9 @@ module Mongoid::Matcher::Not
     #
     # @api private
     # @api private
+    # @param condition [Hash | Regexp | BSON::Regexp::Raw] The $not condition predicate.
     # @param exists [true | false] Whether the value exists.
     # @param value [Object] The value to check.
-    # @param condition [Hash | Regexp | BSON::Regexp::Raw] The $not condition predicate.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -26699,9 +26699,9 @@ module Mongoid::Matcher::Regex
   #
   # @api private
   # @api private
+  # @param condition [Regexp | BSON::Regexp::Raw] The $regex condition.
   # @param exists [true | false] Not used.
   # @param value [String | Array<String>] The value to check.
-  # @param condition [Regexp | BSON::Regexp::Raw] The $regex condition.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -26712,9 +26712,9 @@ module Mongoid::Matcher::Regex
   #
   # @api private
   # @api private
+  # @param condition [Regexp] The Regexp condition.
   # @param exists [true | false] Not used.
   # @param value [String | Array<String>] The value to check.
-  # @param condition [Regexp] The Regexp condition.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -26726,9 +26726,9 @@ module Mongoid::Matcher::Regex
     #
     # @api private
     # @api private
+    # @param condition [Regexp | BSON::Regexp::Raw] The $regex condition.
     # @param exists [true | false] Not used.
     # @param value [String | Array<String>] The value to check.
-    # @param condition [Regexp | BSON::Regexp::Raw] The $regex condition.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -26739,9 +26739,9 @@ module Mongoid::Matcher::Regex
     #
     # @api private
     # @api private
+    # @param condition [Regexp] The Regexp condition.
     # @param exists [true | false] Not used.
     # @param value [String | Array<String>] The value to check.
-    # @param condition [Regexp] The Regexp condition.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -26763,10 +26763,10 @@ module Mongoid::Matcher::Size
   #
   # @api private
   # @api private
-  # @param exists [true | false] Not used.
-  # @param value [Numeric] The value to check.
   # @param condition [Integer | Array<Object>] The $size condition
   #   predicate, either a non-negative Integer or an Array to match size.
+  # @param exists [true | false] Not used.
+  # @param value [Numeric] The value to check.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -26778,10 +26778,10 @@ module Mongoid::Matcher::Size
     #
     # @api private
     # @api private
-    # @param exists [true | false] Not used.
-    # @param value [Numeric] The value to check.
     # @param condition [Integer | Array<Object>] The $size condition
     #   predicate, either a non-negative Integer or an Array to match size.
+    # @param exists [true | false] Not used.
+    # @param value [Numeric] The value to check.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -26803,10 +26803,10 @@ module Mongoid::Matcher::Type
   #
   # @api private
   # @api private
-  # @param exists [true | false] Whether the value exists.
-  # @param value [Object] The value to check.
   # @param condition [Integer | Array<Integer>] The $type condition
   #   predicate which corresponds to the BSON type enumeration.
+  # @param exists [true | false] Whether the value exists.
+  # @param value [Object] The value to check.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -26818,10 +26818,10 @@ module Mongoid::Matcher::Type
   #
   # @api private
   # @api private
-  # @param exists [true | false] Whether the value exists.
-  # @param value [Object] The value to check.
   # @param condition [Integer] The $type condition predicate
   #   which corresponds to the BSON type enumeration.
+  # @param exists [true | false] Whether the value exists.
+  # @param value [Object] The value to check.
   # @return [true | false] Whether the value matches.
   # @return [Boolean]
   #
@@ -26833,10 +26833,10 @@ module Mongoid::Matcher::Type
     #
     # @api private
     # @api private
-    # @param exists [true | false] Whether the value exists.
-    # @param value [Object] The value to check.
     # @param condition [Integer | Array<Integer>] The $type condition
     #   predicate which corresponds to the BSON type enumeration.
+    # @param exists [true | false] Whether the value exists.
+    # @param value [Object] The value to check.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -26848,10 +26848,10 @@ module Mongoid::Matcher::Type
     #
     # @api private
     # @api private
-    # @param exists [true | false] Whether the value exists.
-    # @param value [Object] The value to check.
     # @param condition [Integer] The $type condition predicate
     #   which corresponds to the BSON type enumeration.
+    # @param exists [true | false] Whether the value exists.
+    # @param value [Object] The value to check.
     # @return [true | false] Whether the value matches.
     # @return [Boolean]
     #
@@ -26888,8 +26888,8 @@ class Mongoid::ModelResolver
   # If called more than once, newer keys have higher priority than older keys. All duplicate keys will
   # be removed.
   #
-  # @param klass [Mongoid::Document] the document class to register
   # @param *keys [Array<String>] the list of keys to use as an alias (optional)
+  # @param klass [Mongoid::Document] the document class to register
   #
   # source://mongoid//lib/mongoid/model_resolver.rb#90
   def register(klass, *keys); end
@@ -26907,8 +26907,8 @@ class Mongoid::ModelResolver
 
     # Register the given resolver under the given name.
     #
-    # @param resolver [Mongoid::ModelResolver::Interface] the resolver to register.
     # @param name [String | Symbol] the identifier to use to register the resolver.
+    # @param resolver [Mongoid::ModelResolver::Interface] the resolver to register.
     #
     # source://mongoid//lib/mongoid/model_resolver.rb#68
     def register_resolver(resolver, name); end
@@ -27011,10 +27011,6 @@ module Mongoid::Persistable
   # The default value of join_context is set by the global configuration
   # option join_contexts, whose own default is false.
   #
-  # @example Execute the operations atomically.
-  #   document.atomically do
-  #   document.set(name: "Tool").inc(likes: 10)
-  #   end
   # @example Execute some inner operations atomically, but independently from the outer operations.
   #
   #   document.atomically do
@@ -27028,6 +27024,10 @@ module Mongoid::Persistable
   #   document.inc member_count: 3
   #   end
   #   document.set name: "Tool"
+  #   end
+  # @example Execute the operations atomically.
+  #   document.atomically do
+  #   document.set(name: "Tool").inc(likes: 10)
   #   end
   # @param join_context [true | false] Join the context (i.e. merge
   #   declared atomic operations) of the atomically block wrapping this one
@@ -27143,8 +27143,8 @@ module Mongoid::Persistable
   # @example Post process the persistence operation.
   #   document.post_process_persist(true)
   # @option options
-  # @param result [Object] The result of the operation.
   # @param options [Hash] The options.
+  # @param result [Object] The result of the operation.
   # @return [true] true.
   #
   # source://mongoid//lib/mongoid/persistable.rb#174
@@ -27390,10 +27390,10 @@ module Mongoid::Persistable::Deletable::ClassMethods
   # are passed, the entire collection will be dropped for performance
   # benefits. Does not fire any callbacks.
   #
-  # @example Delete matching documents from the collection.
-  #   Person.delete_all({ :title => "Sir" })
   # @example Delete all documents from the collection.
   #   Person.delete_all
+  # @example Delete matching documents from the collection.
+  #   Person.delete_all({ :title => "Sir" })
   # @param conditions [Hash] Optional conditions to delete by.
   # @return [Integer] The number of documents deleted.
   #
@@ -27442,10 +27442,10 @@ module Mongoid::Persistable::Destroyable::ClassMethods
   # are passed, the entire collection will be dropped for performance
   # benefits. Fires the destroy callbacks if conditions were passed.
   #
-  # @example Destroy matching documents from the collection.
-  #   Person.destroy_all({ :title => "Sir" })
   # @example Destroy all documents from the collection.
   #   Person.destroy_all
+  # @example Destroy matching documents from the collection.
+  #   Person.destroy_all({ :title => "Sir" })
   # @param conditions [Hash] Optional conditions to destroy by.
   # @return [Integer] The number of documents destroyed.
   #
@@ -27586,12 +27586,12 @@ module Mongoid::Persistable::Poppable
 
   # Pop or shift items from arrays using the $pop operator.
   #
+  # @example Multiple pops in one call.
+  #   document.pop(names: 1, aliases: 1)
   # @example Pop items from an array.
   #   document.pop(aliases: 1)
   # @example Shift items in the array.
   #   document.pop(aliases: -1)
-  # @example Multiple pops in one call.
-  #   document.pop(names: 1, aliases: 1)
   # @param pops [Hash] The field/value pop operations.
   # @return [Document] The document.
   #
@@ -27729,19 +27729,19 @@ module Mongoid::Persistable::Settable
   # semantics. This means performing a $set with nested hash semantics
   # can overwrite other hash keys within the top level field in the database.
   #
-  # @example Set the values.
-  #   document.set(title: "sir", dob: Date.new(1970, 1, 1))
-  # @example Set the values using nested hash semantics.
+  # @example Nested hash overwriting a non-hash value.
+  #   document.set('author' => 'John Doe')
   #   document.set('author.title' => 'Sir')
   #   # => document.author == {'title' => 'Sir'}
   # @example Nested hash value merging.
   #   document.set('author.title' => 'Sir')
   #   document.set('author.name' => 'Linus Torvalds')
   #   # => document.author == {'title' => 'Sir', 'name' => 'Linus Torvalds'}
-  # @example Nested hash overwriting a non-hash value.
-  #   document.set('author' => 'John Doe')
+  # @example Set the values using nested hash semantics.
   #   document.set('author.title' => 'Sir')
   #   # => document.author == {'title' => 'Sir'}
+  # @example Set the values.
+  #   document.set(title: "sir", dob: Date.new(1970, 1, 1))
   # @param setters [Hash] The field/value pairs to set.
   # @return [Document] The document.
   #
@@ -27878,9 +27878,9 @@ module Mongoid::Persistable::Updatable
   # well. Note that timeless is cleared in the before_update callback.
   #
   # @option options
-  # @param options [Hash] The options.
   # @param children [Array<Document>] The children that the :update
   #   callbacks will be executed on.
+  # @param options [Hash] The options.
   #
   # source://mongoid//lib/mongoid/persistable/updatable.rb#176
   def process_touch_option(options, children); end
@@ -27918,10 +27918,10 @@ module Mongoid::Persistable::Upsertable
   # and if it is false, unspecified attributes will be maintained. The
   # replace option defaults to false in Mongoid 9.
   #
-  # @example Upsert the document.
-  #   document.upsert
   # @example Upsert the document with replace.
   #   document.upsert(replace: true)
+  # @example Upsert the document.
+  #   document.upsert
   # @example Upsert with extra attributes to use when inserting.
   #   document.upsert(set_on_insert: { created_at: DateTime.now })
   # @option options
@@ -28098,8 +28098,8 @@ class Mongoid::PersistenceContext
     #
     # @example Clear the persistence context for a class or model instance.
     #   PersistenceContext.clear(model)
-    # @param object [Class | Object] The class or model instance.
     # @param cluster [Mongo::Cluster] The original cluster before this context was used.
+    # @param object [Class | Object] The class or model instance.
     # @param original_context [Mongoid::PersistenceContext] The original persistence
     #   context that was set before this context was used.
     #
@@ -28151,8 +28151,8 @@ class Mongoid::PersistenceContext
     #   storage.
     #
     # @api private
-    # @param object [Object] Object to store the persistance context for.
     # @param context [Mongoid::PersistenceContext] Context to store
+    # @param object [Object] Object to store the persistance context for.
     #
     # source://mongoid//lib/mongoid/persistence_context.rb#312
     def store_context(object, context); end
@@ -28198,9 +28198,9 @@ module Mongoid::Positional
   #   operator for updating embedded documents since there would never be a
   #   match - we base whether we can based on the number of levels deep the
   #   selector goes, and if the id values are not nil.
-  # @param selector [Hash] The selector.
   # @param operations [Hash] The update operations.
   # @param processed [Hash] The processed update operations.
+  # @param selector [Hash] The selector.
   # @return [Hash] The new operations.
   #
   # source://mongoid//lib/mongoid/positional.rb#34
@@ -28578,8 +28578,8 @@ module Mongoid::SearchIndexable::ClassMethods
   # Removes the search index specified by the given name or id. Either
   # name OR id must be given, but not both.
   #
-  # @param name [String | nil] the name of the index to remove
   # @param id [String | nil] the id of the index to remove
+  # @param name [String | nil] the name of the index to remove
   #
   # source://mongoid//lib/mongoid/search_indexable.rb#107
   def remove_search_index(name: T.unsafe(nil), id: T.unsafe(nil)); end
@@ -28610,9 +28610,9 @@ module Mongoid::SearchIndexable::ClassMethods
   #   search_index({ ... })
   #   search_index :name_of_index, { ... }
   #   end
+  # @param defn [Hash] The search index definition.
   # @param name_or_defn [Symbol | String | Hash] Either the name of the index to
   #   define, or the index definition.
-  # @param defn [Hash] The search index definition.
   #
   # source://mongoid//lib/mongoid/search_indexable.rb#147
   def search_index(name_or_defn, defn = T.unsafe(nil)); end
@@ -28631,9 +28631,9 @@ module Mongoid::SearchIndexable::ClassMethods
 
   # Waits for the named search indexes to be created.
   #
-  # @param names [Array<String>] the list of index names to wait for
   # @param interval [Integer] the number of seconds to wait before
   #   polling again (only used when a progress callback is given).
+  # @param names [Array<String>] the list of index names to wait for
   # @yield [SearchIndexable::Status] the status object
   #
   # source://mongoid//lib/mongoid/search_indexable.rb#78
@@ -28754,10 +28754,10 @@ module Mongoid::Serializable
   # Gets the document as a serializable hash, used by ActiveModel's JSON
   # serializer.
   #
-  # @example Get the serializable hash.
-  #   document.serializable_hash
   # @example Get the serializable hash with options.
   #   document.serializable_hash(:include => :addresses)
+  # @example Get the serializable hash.
+  #   document.serializable_hash
   # @option options
   # @option options
   # @option options
@@ -28797,8 +28797,8 @@ module Mongoid::Serializable
   # @example Get the association options.
   #   document.relation_names(:include => [ :addresses ])
   # @param inclusions [Hash | Symbol | Array<Symbol>] The inclusions.
-  # @param options [Hash] The options.
   # @param name [Symbol] The name of the association.
+  # @param options [Hash] The options.
   # @return [Hash] The options for the association.
   #
   # source://mongoid//lib/mongoid/serializable.rb#163
@@ -29136,12 +29136,12 @@ module Mongoid::Tasks::Database
   # Create collections for each model given the provided globs and the class is
   # not embedded.
   #
-  # @param models. [Array<Mongoid::Document>] Array of document classes for
-  #   which collections should be created. Defaulted to all document classes
-  #   in the application.
   # @param force [true | false] If true, the method will drop existing
   #   collections before creating new ones. If false, the method will create
   #   only new collection (that do not exist in the database).
+  # @param models. [Array<Mongoid::Document>] Array of document classes for
+  #   which collections should be created. Defaulted to all document classes
+  #   in the application.
   #
   # source://mongoid//lib/mongoid/tasks/database.rb#21
   def create_collections(models = T.unsafe(nil), force: T.unsafe(nil)); end
@@ -29239,13 +29239,13 @@ module Mongoid::Tasks::Encryption
   # Create a data encryption key for the given kms provider using the
   # auto_encryption_options from the client's configuration.
   #
-  # @param kms_provider_name [String | nil] The name of the kms provider
-  #   to use. If not provided, the first provider in the client's
-  #   auto_encryption_options will be used.
   # @param client_name [String | nil] The name of the client to take
   #   auto_encryption_options from. If not provided, the default client
   #   will be used.
   # @param key_alt_name [String | nil] The alternate name of the key.
+  # @param kms_provider_name [String | nil] The name of the kms provider
+  #   to use. If not provided, the first provider in the client's
+  #   auto_encryption_options will be used.
   # @return [Hash] A hash containing the key id as :key_id,
   #   kms provider name as :kms_provider, and key vault namespace as
   #   :key_vault_namespace.
@@ -29274,8 +29274,8 @@ module Mongoid::Tasks::Encryption
   # Prepare arguments needed to create a data key from the client's
   # auto_encryption_options.
   #
-  # @param kms_provider_name [String | nil] The name of the kms provider.
   # @param client_name [String | nil] The name of the client.
+  # @param kms_provider_name [String | nil] The name of the kms provider.
   # @return [Array<String, Hash, String>] An array containing the
   #   normalized kms provider name, the kms providers hash, and the key
   #   vault namespace.
@@ -29294,9 +29294,9 @@ module Mongoid::Threaded
   # Store a reference to the document that was modified inside a transaction
   # associated with the session.
   #
+  # @param document [Mongoid::Document] Mongoid document that was modified.
   # @param session [Mongo::Session] Session in scope of which the document
   #   was modified.
-  # @param document [Mongoid::Document] Mongoid document that was modified.
   #
   # source://mongoid//lib/mongoid/threaded.rb#435
   def add_modified_document(session, document); end
@@ -29539,9 +29539,9 @@ module Mongoid::Threaded
   #
   # Affected callbacks are cascading callbacks on embedded children.
   #
-  # @param key [String | Symbol] the name of the variable to query
   # @param default [Proc] an optional block that must return the default
   #   (initial) value of this variable.
+  # @param key [String | Symbol] the name of the variable to query
   # @return [Object | nil] the value of the queried variable, or nil if
   #   it is not set and no default was given.
   #
@@ -29599,8 +29599,8 @@ module Mongoid::Threaded
   #
   # @example Set the scope.
   #   Threaded.current_scope(scope, klass)
-  # @param scope [Criteria] The current scope.
   # @param klass [Class] The current model class.
+  # @param scope [Criteria] The current scope.
   # @return [Criteria] The scope.
   #
   # source://mongoid//lib/mongoid/threaded.rb#305
@@ -29611,8 +29611,8 @@ module Mongoid::Threaded
   # specifying `client` parameter.
   #
   # @note For backward compatibility it is allowed to call this method without
-  # @param session [Mongo::Session] The session to save.
   # @param client [Mongo::Client | nil] The client to cache the session for.
+  # @param session [Mongo::Session] The session to save.
   #
   # source://mongoid//lib/mongoid/threaded.rb#401
   def set_session(session, client: T.unsafe(nil)); end
@@ -30094,8 +30094,8 @@ module Mongoid::Touchable
   # @example Define the touch association.
   #   Model.define_relation_touch_method(:band)
   #   Model.define_relation_touch_method(:band, :band_updated_at)
-  # @param name [Symbol] The name of the association.
   # @param association [Mongoid::Association::Relatable] The association metadata.
+  # @param name [Symbol] The name of the association.
   # @return [Symbol] The method name.
   #
   # source://mongoid//lib/mongoid/touchable.rb#214
@@ -30130,8 +30130,8 @@ module Mongoid::Touchable::InstanceMethods
   # operations to be performed on the root document.
   #
   # @api private
-  # @param now [Time] The timestamp used for synchronizing the touched time.
   # @param field [Symbol] The name of an additional field to update.
+  # @param now [Time] The timestamp used for synchronizing the touched time.
   # @return [Hash<String, Time>] The touch operations to perform as an atomic $set.
   #
   # source://mongoid//lib/mongoid/touchable.rb#75
@@ -30168,10 +30168,10 @@ module Mongoid::Touchable::InstanceMethods
   # optionally the provided field to the current time. If any belongs_to
   # associations exist with a touch option, they will be updated as well.
   #
-  # @example Update the updated_at timestamp.
-  #   document.touch
   # @example Update the updated_at and provided timestamps.
   #   document.touch(:audited)
+  # @example Update the updated_at timestamp.
+  #   document.touch
   # @note This will not autobuild associations if those options are set.
   # @param field [Symbol] The name of an additional field to update.
   # @return [true/false] false if document is new_record otherwise true.
@@ -30556,10 +30556,10 @@ module Mongoid::Validatable
 
   # Determine if the document is valid.
   #
-  # @example Is the document valid?
-  #   person.valid?
   # @example Is the document valid in a context?
   #   person.valid?(:create)
+  # @example Is the document valid?
+  #   person.valid?
   # @param context [Symbol] The optional validation context.
   # @return [true | false] True if valid, false if not.
   #
@@ -30660,8 +30660,8 @@ class Mongoid::Validatable::AssociatedValidator < ::ActiveModel::Validator
   # persisted and unchanged, or invalid. Otherwise, the appropriate errors
   # will be added to the parent document.
   #
-  # @param document [Document] The document to validate.
   # @param attribute [Symbol] The association to validate.
+  # @param document [Document] The document to validate.
   #
   # source://mongoid//lib/mongoid/validatable/associated.rb#50
   def validate_association(document, attribute); end
@@ -30745,8 +30745,8 @@ module Mongoid::Validatable::Localizable
   #
   # @example Validate localized fields.
   #   validator.validate_each(model, :name, "value")
-  # @param document [Document] The document.
   # @param attribute [Symbol | String] The attribute to validate.
+  # @param document [Document] The document.
   # @param value [Object] The attribute value.
   #
   # source://mongoid//lib/mongoid/validatable/localizable.rb#18
@@ -30883,8 +30883,8 @@ class Mongoid::Validatable::PresenceValidator < ::ActiveModel::EachValidator
   #
   # @example Validate the document.
   #   validator.validate_each(doc, :title, "")
-  # @param document [Document] The document to validate.
   # @param attribute [Symbol] The attribute name.
+  # @param document [Document] The document to validate.
   # @param value [Object] The current value of the field.
   #
   # source://mongoid//lib/mongoid/validatable/presence.rb#28
@@ -30908,8 +30908,8 @@ class Mongoid::Validatable::PresenceValidator < ::ActiveModel::EachValidator
   # @api private
   # @example Check is the association or fk is blank.
   #   validator.relation_or_fk_missing(doc, :name, "")
-  # @param doc [Document] The document.
   # @param attr [Symbol] The attribute.
+  # @param doc [Document] The document.
   # @param value [Object] The value.
   # @return [true | false] If the doc is missing.
   #
@@ -30971,8 +30971,8 @@ class Mongoid::Validatable::UniquenessValidator < ::ActiveModel::EachValidator
   #
   # @example Validate the document.
   #   validate_each(person, :title, "Sir")
-  # @param document [Document] The document to validate.
   # @param attribute [Symbol] The field to validate on.
+  # @param document [Document] The document to validate.
   # @param value [Object] The value of the field.
   # @return [Errors] The errors.
   #
@@ -30986,8 +30986,8 @@ class Mongoid::Validatable::UniquenessValidator < ::ActiveModel::EachValidator
   # @api private
   # @example Add the error.
   #   validator.add_error(doc, :name, "test")
-  # @param document [Document] The document to validate.
   # @param attribute [Symbol] The name of the attribute.
+  # @param document [Document] The document to validate.
   # @param value [Object] The value of the object.
   #
   # source://mongoid//lib/mongoid/validatable/uniqueness.rb#65
@@ -31008,9 +31008,9 @@ class Mongoid::Validatable::UniquenessValidator < ::ActiveModel::EachValidator
   # @api private
   # @example Create the criteria.
   #   validator.create_criteria(User, user, :name, "syd")
+  # @param attribute [Symbol] The name of the attribute.
   # @param base [Class | Proxy] The base to execute the criteria from.
   # @param document [Document] The document to validate.
-  # @param attribute [Symbol] The name of the attribute.
   # @param value [Object] The value of the object.
   # @return [Criteria] The criteria.
   #
@@ -31022,8 +31022,8 @@ class Mongoid::Validatable::UniquenessValidator < ::ActiveModel::EachValidator
   # @api private
   # @example Get the criteria.
   #   validator.criterion(person, :title, "Sir")
-  # @param document [Document] The document to validate.
   # @param attribute [Symbol] The name of the attribute.
+  # @param document [Document] The document to validate.
   # @param value [Object] The value of the object.
   # @return [Criteria] The uniqueness criteria.
   #
@@ -31046,8 +31046,8 @@ class Mongoid::Validatable::UniquenessValidator < ::ActiveModel::EachValidator
   # @api private
   # @example Is the attribute localized?
   #   validator.localized?(doc, :field)
-  # @param document [Document] The document getting validated.
   # @param attribute [Symbol] The attribute to validate.
+  # @param document [Document] The document getting validated.
   # @return [true | false] If the attribute is localized.
   #
   # source://mongoid//lib/mongoid/validatable/uniqueness.rb#300
@@ -31095,8 +31095,8 @@ class Mongoid::Validatable::UniquenessValidator < ::ActiveModel::EachValidator
   # @api private
   # @example Get the name and key to validate.
   #   validator.to_validate(doc, :parent, Parent.new)
-  # @param document [Document] The doc getting validated.
   # @param attribute [Symbol] The attribute getting validated.
+  # @param document [Document] The doc getting validated.
   # @param value [Object] The value of the attribute.
   # @return [Array<Object, Object>] The field and value.
   #
@@ -31108,8 +31108,8 @@ class Mongoid::Validatable::UniquenessValidator < ::ActiveModel::EachValidator
   # @api private
   # @example Validate the embedded document.
   #   validator.validate_embedded(doc, :name, "test")
-  # @param document [Document] The document.
   # @param attribute [Symbol] The attribute name.
+  # @param document [Document] The document.
   # @param value [Object] The value.
   #
   # source://mongoid//lib/mongoid/validatable/uniqueness.rb#241
@@ -31120,8 +31120,8 @@ class Mongoid::Validatable::UniquenessValidator < ::ActiveModel::EachValidator
   # @api private
   # @example Validate the root document.
   #   validator.validate_root(doc, :name, "test")
-  # @param document [Document] The document.
   # @param attribute [Symbol] The attribute name.
+  # @param document [Document] The document.
   # @param value [Object] The value.
   #
   # source://mongoid//lib/mongoid/validatable/uniqueness.rb#260
@@ -31131,8 +31131,8 @@ class Mongoid::Validatable::UniquenessValidator < ::ActiveModel::EachValidator
   #
   # @example Is validation needed?
   #   validator.validation_required?(doc, :field)
-  # @param document [Document] The document getting validated.
   # @param attribute [Symbol] The attribute to validate.
+  # @param document [Document] The document getting validated.
   # @return [true | false] If we need to validate.
   #
   # source://mongoid//lib/mongoid/validatable/uniqueness.rb#283

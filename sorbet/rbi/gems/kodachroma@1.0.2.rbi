@@ -23,8 +23,8 @@ module Kodachroma
     #   end
     #
     #   'red'.paint.palette.respond_to? :my_palette #=> true
-    # @param name [Symbol, String] the name of the custom palette
     # @param block [Proc] the palette definition block
+    # @param name [Symbol, String] the name of the custom palette
     # @raise [Errors::PaletteDefinedError] if the palette is already defined
     # @return [Symbol, String] the name of the custom palette
     #
@@ -86,8 +86,8 @@ class Kodachroma::Color
   include ::Kodachroma::Color::Modifiers
   include ::Kodachroma::Helpers::Bounders
 
-  # @param input [String, ColorModes::Rgb, ColorModes::Hsl, ColorModes::Hsv]
   # @param format [Symbol] the color mode format
+  # @param input [String, ColorModes::Rgb, ColorModes::Hsl, ColorModes::Hsv]
   # @return [Color] a new instance of Color
   #
   # source://kodachroma//lib/kodachroma/color.rb#12
@@ -285,7 +285,7 @@ module Kodachroma::Color::Modifiers
   #   'green'.paint.grayscale #=> #404040
   # @return [Color]
   #
-  # source://kodachroma//lib/kodachroma/color/modifiers.rb#88
+  # source://kodachroma//lib/kodachroma/color/modifiers.rb#92
   def greyscale; end
 
   # Lightens the color by the given `amount`.
@@ -362,7 +362,7 @@ module Kodachroma::Color::Serializers
   # @param format [Symbol] the color format
   # @return [String]
   #
-  # source://kodachroma//lib/kodachroma/color/serializers.rb#104
+  # source://kodachroma//lib/kodachroma/color/serializers.rb#121
   def inspect(format = T.unsafe(nil)); end
 
   # Converts to an instance of {ColorModes::Rgb}
@@ -477,8 +477,8 @@ module Kodachroma::ColorModes
 
     # Builds a new color mode class.
     #
-    # @param name [String] the class name
     # @param attrs [Array<Symbol>] the instance attribute names
+    # @param name [String] the class name
     #
     # source://kodachroma//lib/kodachroma/color_modes.rb#32
     def build(name, *attrs); end
@@ -487,223 +487,223 @@ end
 
 # source://kodachroma//lib/kodachroma/color_modes.rb#34
 class Kodachroma::ColorModes::Hsl
-  # @param h [Numeric]
-  # @param s [Numeric]
-  # @param l [Numeric]
   # @param a [Numeric]
+  # @param h [Numeric]
+  # @param l [Numeric]
+  # @param s [Numeric]
   # @return [Hsl] a new instance of Hsl
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#37
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def initialize(h, s, l, a = T.unsafe(nil)); end
 
   # Returns the value of attribute a.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def a; end
 
   # Sets the attribute a
   #
   # @param value the value to set the attribute a to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def a=(_arg0); end
 
   # Returns the value of attribute h.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def h; end
 
   # Sets the attribute h
   #
   # @param value the value to set the attribute h to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def h=(_arg0); end
 
   # Returns the value of attribute l.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def l; end
 
   # Sets the attribute l
   #
   # @param value the value to set the attribute l to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def l=(_arg0); end
 
   # Returns the value of attribute s.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def s; end
 
   # Sets the attribute s
   #
   # @param value the value to set the attribute s to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def s=(_arg0); end
 
   # Returns the values `h`, `s`, `l`, and `a` as an array.
   #
   # @return [Array<Numeric>]
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#41
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def to_a; end
 
   # Returns the values `h`, `s`, `l`, and `a` as an array.
   #
   # @return [Array<Numeric>]
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#41
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def to_ary; end
 end
 
 # source://kodachroma//lib/kodachroma/color_modes.rb#34
 class Kodachroma::ColorModes::Hsv
+  # @param a [Numeric]
   # @param h [Numeric]
   # @param s [Numeric]
   # @param v [Numeric]
-  # @param a [Numeric]
   # @return [Hsv] a new instance of Hsv
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#37
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def initialize(h, s, v, a = T.unsafe(nil)); end
 
   # Returns the value of attribute a.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def a; end
 
   # Sets the attribute a
   #
   # @param value the value to set the attribute a to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def a=(_arg0); end
 
   # Returns the value of attribute h.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def h; end
 
   # Sets the attribute h
   #
   # @param value the value to set the attribute h to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def h=(_arg0); end
 
   # Returns the value of attribute s.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def s; end
 
   # Sets the attribute s
   #
   # @param value the value to set the attribute s to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def s=(_arg0); end
 
   # Returns the values `h`, `s`, `v`, and `a` as an array.
   #
   # @return [Array<Numeric>]
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#41
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def to_a; end
 
   # Returns the values `h`, `s`, `v`, and `a` as an array.
   #
   # @return [Array<Numeric>]
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#41
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def to_ary; end
 
   # Returns the value of attribute v.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def v; end
 
   # Sets the attribute v
   #
   # @param value the value to set the attribute v to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def v=(_arg0); end
 end
 
 # source://kodachroma//lib/kodachroma/color_modes.rb#34
 class Kodachroma::ColorModes::Rgb
-  # @param r [Numeric]
-  # @param g [Numeric]
-  # @param b [Numeric]
   # @param a [Numeric]
+  # @param b [Numeric]
+  # @param g [Numeric]
+  # @param r [Numeric]
   # @return [Rgb] a new instance of Rgb
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#37
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def initialize(r, g, b, a = T.unsafe(nil)); end
 
   # Returns the value of attribute a.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def a; end
 
   # Sets the attribute a
   #
   # @param value the value to set the attribute a to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def a=(_arg0); end
 
   # Returns the value of attribute b.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def b; end
 
   # Sets the attribute b
   #
   # @param value the value to set the attribute b to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def b=(_arg0); end
 
   # Returns the value of attribute g.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def g; end
 
   # Sets the attribute g
   #
   # @param value the value to set the attribute g to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def g=(_arg0); end
 
   # Returns the value of attribute r.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def r; end
 
   # Sets the attribute r
   #
   # @param value the value to set the attribute r to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#35
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def r=(_arg0); end
 
   # Returns the values `r`, `g`, `b`, and `a` as an array.
   #
   # @return [Array<Numeric>]
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#41
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def to_a; end
 
   # Returns the values `r`, `g`, `b`, and `a` as an array.
   #
   # @return [Array<Numeric>]
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#41
+  # source://kodachroma//lib/kodachroma/color_modes.rb#33
   def to_ary; end
 end
 
@@ -945,8 +945,8 @@ module Kodachroma::Helpers; end
 module Kodachroma::Helpers::Bounders
   # Bounds a value `n` that is from `0` to `max` to `0` to `1`.
   #
-  # @param n [Numeric, String]
   # @param max [Fixnum]
+  # @param n [Numeric, String]
   # @return [Float]
   #
   # source://kodachroma//lib/kodachroma/helpers/bounders.rb#10
@@ -1111,11 +1111,11 @@ end
 
 # source://kodachroma//lib/kodachroma/rgb_generator/from_hex_string_values.rb#4
 class Kodachroma::RgbGenerator::FromHexStringValues < ::Kodachroma::RgbGenerator::Base
-  # @param format [Symbol] color format
-  # @param r [String] red value
-  # @param g [String] green value
-  # @param b [String] blue value
   # @param a [String] alpha value
+  # @param b [String] blue value
+  # @param format [Symbol] color format
+  # @param g [String] green value
+  # @param r [String] red value
   # @return [FromHexStringValues] a new instance of FromHexStringValues
   #
   # source://kodachroma//lib/kodachroma/rgb_generator/from_hex_string_values.rb#10
@@ -1131,10 +1131,10 @@ class Kodachroma::RgbGenerator::FromHexStringValues < ::Kodachroma::RgbGenerator
   class << self
     # Generates a {ColorModes::Rgb} from 3-character hexadecimal.
     #
-    # @param format [Symbol] color format
-    # @param r [String] red value
-    # @param g [String] green value
     # @param b [String] blue value
+    # @param format [Symbol] color format
+    # @param g [String] green value
+    # @param r [String] red value
     # @return [ColorModes::Rgb]
     #
     # source://kodachroma//lib/kodachroma/rgb_generator/from_hex_string_values.rb#34
@@ -1142,10 +1142,10 @@ class Kodachroma::RgbGenerator::FromHexStringValues < ::Kodachroma::RgbGenerator
 
     # Generates a {ColorModes::Rgb} from 6-character hexadecimal.
     #
-    # @param format [Symbol] color format
-    # @param r [String] red value
-    # @param g [String] green value
     # @param b [String] blue value
+    # @param format [Symbol] color format
+    # @param g [String] green value
+    # @param r [String] red value
     # @return [ColorModes::Rgb]
     #
     # source://kodachroma//lib/kodachroma/rgb_generator/from_hex_string_values.rb#45
@@ -1153,11 +1153,11 @@ class Kodachroma::RgbGenerator::FromHexStringValues < ::Kodachroma::RgbGenerator
 
     # Generates a {ColorModes::Rgb} from 8-character hexadecimal.
     #
-    # @param format [Symbol] color format
-    # @param r [String] red value
-    # @param g [String] green value
-    # @param b [String] blue value
     # @param a [String] alpha value
+    # @param b [String] blue value
+    # @param format [Symbol] color format
+    # @param g [String] green value
+    # @param r [String] red value
     # @return [ColorModes::Rgb]
     #
     # source://kodachroma//lib/kodachroma/rgb_generator/from_hex_string_values.rb#57
@@ -1184,11 +1184,11 @@ end
 
 # source://kodachroma//lib/kodachroma/rgb_generator/from_hsl_values.rb#4
 class Kodachroma::RgbGenerator::FromHslValues < ::Kodachroma::RgbGenerator::Base
+  # @param a [String, Numeric] alpha value
   # @param format [Symbol] color format
   # @param h [String, Numeric] hue value
-  # @param s [String, Numeric] saturation value
   # @param l [String, Numeric] lightness value
-  # @param a [String, Numeric] alpha value
+  # @param s [String, Numeric] saturation value
   # @return [FromHslValues] a new instance of FromHslValues
   #
   # source://kodachroma//lib/kodachroma/rgb_generator/from_hsl_values.rb#10
@@ -1221,11 +1221,11 @@ end
 
 # source://kodachroma//lib/kodachroma/rgb_generator/from_hsv_values.rb#4
 class Kodachroma::RgbGenerator::FromHsvValues < ::Kodachroma::RgbGenerator::Base
+  # @param a [String, Numeric] alpha value
   # @param format [Symbol] color format
   # @param h [String, Numeric] hue value
   # @param s [String, Numeric] saturation value
   # @param v [String, Numeric] value value
-  # @param a [String, Numeric] alpha value
   # @return [FromHsvValues] a new instance of FromHsvValues
   #
   # source://kodachroma//lib/kodachroma/rgb_generator/from_hsv_values.rb#10
@@ -1258,11 +1258,11 @@ end
 
 # source://kodachroma//lib/kodachroma/rgb_generator/from_rgb_values.rb#4
 class Kodachroma::RgbGenerator::FromRgbValues < ::Kodachroma::RgbGenerator::Base
-  # @param format [Symbol] color format
-  # @param r [String, Numeric] red value
-  # @param g [String, Numeric] green value
-  # @param b [String, Numeric] blue value
   # @param a [String, Numeric] alpha value
+  # @param b [String, Numeric] blue value
+  # @param format [Symbol] color format
+  # @param g [String, Numeric] green value
+  # @param r [String, Numeric] red value
   # @return [FromRgbValues] a new instance of FromRgbValues
   #
   # source://kodachroma//lib/kodachroma/rgb_generator/from_rgb_values.rb#10

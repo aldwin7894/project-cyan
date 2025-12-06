@@ -10,87 +10,11 @@ module ActionDispatch::Routing; end
 
 # source://health_check//lib/health_check/health_check_routes.rb#2
 class ActionDispatch::Routing::Mapper
-  # source://actionpack/8.0.2/lib/action_dispatch/routing/mapper.rb#2378
-  def initialize(set); end
-
   # source://health_check//lib/health_check/health_check_routes.rb#9
   def add_health_check_routes(prefix = T.unsafe(nil)); end
 
-  # source://devise/4.9.4/lib/devise/rails/routes.rb#363
-  def as(scope); end
-
-  # source://devise/4.9.4/lib/devise/rails/routes.rb#290
-  def authenticate(scope = T.unsafe(nil), block = T.unsafe(nil)); end
-
-  # source://devise/4.9.4/lib/devise/rails/routes.rb#314
-  def authenticated(scope = T.unsafe(nil), block = T.unsafe(nil)); end
-
-  # source://devise/4.9.4/lib/devise/rails/routes.rb#226
-  def devise_for(*resources); end
-
-  # source://devise/4.9.4/lib/devise/rails/routes.rb#363
-  def devise_scope(scope); end
-
   # source://health_check//lib/health_check/health_check_routes.rb#4
   def health_check_routes(prefix = T.unsafe(nil)); end
-
-  # source://devise/4.9.4/lib/devise/rails/routes.rb#331
-  def unauthenticated(scope = T.unsafe(nil)); end
-
-  protected
-
-  # source://devise/4.9.4/lib/devise/rails/routes.rb#477
-  def constraints_for(method_to_apply, scope = T.unsafe(nil), block = T.unsafe(nil)); end
-
-  # source://devise/4.9.4/lib/devise/rails/routes.rb#390
-  def devise_confirmation(mapping, controllers); end
-
-  # source://devise/4.9.4/lib/devise/rails/routes.rb#421
-  def devise_omniauth_callback(mapping, controllers); end
-
-  # source://devise/4.9.4/lib/devise/rails/routes.rb#385
-  def devise_password(mapping, controllers); end
-
-  # source://devise/4.9.4/lib/devise/rails/routes.rb#402
-  def devise_registration(mapping, controllers); end
-
-  # source://devise/4.9.4/lib/devise/rails/routes.rb#377
-  def devise_session(mapping, controllers); end
-
-  # source://devise/4.9.4/lib/devise/rails/routes.rb#395
-  def devise_unlock(mapping, controllers); end
-
-  # source://devise/4.9.4/lib/devise/rails/routes.rb#509
-  def raise_no_devise_method_error!(klass); end
-
-  # source://devise/4.9.4/lib/devise/rails/routes.rb#499
-  def raise_no_secret_key; end
-
-  # source://devise/4.9.4/lib/devise/rails/routes.rb#488
-  def set_omniauth_path_prefix!(path_prefix); end
-
-  # source://devise/4.9.4/lib/devise/rails/routes.rb#461
-  def with_devise_exclusive_scope(new_path, new_as, options); end
-
-  class << self
-    # source://actionpack/8.0.2/lib/action_dispatch/routing/mapper.rb#27
-    def backtrace_cleaner; end
-
-    # source://actionpack/8.0.2/lib/action_dispatch/routing/mapper.rb#27
-    def backtrace_cleaner=(val); end
-
-    # source://actionpack/8.0.2/lib/action_dispatch/routing/mapper.rb#412
-    def normalize_name(name); end
-
-    # source://actionpack/8.0.2/lib/action_dispatch/routing/mapper.rb#397
-    def normalize_path(path); end
-
-    # source://actionpack/8.0.2/lib/action_dispatch/routing/mapper.rb#26
-    def route_source_locations; end
-
-    # source://actionpack/8.0.2/lib/action_dispatch/routing/mapper.rb#26
-    def route_source_locations=(val); end
-  end
 end
 
 # source://health_check//lib/health_check/base_health_check.rb#1
@@ -443,14 +367,6 @@ class HealthCheck::Engine < ::Rails::Engine
 
     # source://health_check//lib/health_check.rb#7
     def routes_explicitly_defined=(val); end
-
-    private
-
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
-    def __class_attr___callbacks; end
-
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
-    def __class_attr___callbacks=(new_value); end
   end
 end
 
@@ -479,34 +395,34 @@ class HealthCheck::HealthCheckController < ::ActionController::Base
 
   private
 
-  # source://actionview/8.0.2/lib/action_view/layouts.rb#328
+  # source://health_check//lib/health_check/health_check_controller.rb#6
   def _layout(lookup_context, formats, keys); end
 
   class << self
     private
 
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
+    # source://health_check//lib/health_check/health_check_controller.rb#9
     def __class_attr___callbacks; end
 
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
+    # source://health_check//lib/health_check/health_check_controller.rb#9
     def __class_attr___callbacks=(new_value); end
 
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
+    # source://health_check//lib/health_check/health_check_controller.rb#8
     def __class_attr__layout; end
 
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
+    # source://health_check//lib/health_check/health_check_controller.rb#8
     def __class_attr__layout=(new_value); end
 
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
+    # source://health_check//lib/health_check/health_check_controller.rb#8
     def __class_attr__layout_conditions; end
 
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
+    # source://health_check//lib/health_check/health_check_controller.rb#8
     def __class_attr__layout_conditions=(new_value); end
 
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#15
+    # source://health_check//lib/health_check/health_check_controller.rb#6
     def __class_attr_middleware_stack; end
 
-    # source://activesupport/8.0.2/lib/active_support/class_attribute.rb#17
+    # source://health_check//lib/health_check/health_check_controller.rb#6
     def __class_attr_middleware_stack=(new_value); end
   end
 end

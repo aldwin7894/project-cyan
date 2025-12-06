@@ -170,7 +170,7 @@ class Discordrb::Webhooks::Client
   # @param reason [String, nil] The reason this webhook was deleted.
   # @return [RestClient::Response] the response returned by Discord.
   #
-  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#72
+  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#73
   def delete(reason: T.unsafe(nil)); end
 
   # Delete a message created by this webhook.
@@ -178,7 +178,7 @@ class Discordrb::Webhooks::Client
   # @param message_id [String, Integer] The ID of the message to delete.
   # @return [RestClient::Response] the response returned by Discord.
   #
-  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#104
+  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#110
   def delete_message(message_id); end
 
   # Edit a message from this webhook.
@@ -197,11 +197,12 @@ class Discordrb::Webhooks::Client
   # @param content [String] The message content.
   # @param embeds [Array<Embed, Hash>]
   # @param message_id [String, Integer] The ID of the message to edit.
+  # @param thread_id [String, Integer, nil] The id of the thread in which the message resides
   # @return [RestClient::Response] the response returned by Discord.
   # @yield [builder]
   #
-  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#92
-  def edit_message(message_id, builder: T.unsafe(nil), content: T.unsafe(nil), embeds: T.unsafe(nil), allowed_mentions: T.unsafe(nil)); end
+  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#94
+  def edit_message(message_id, builder: T.unsafe(nil), content: T.unsafe(nil), embeds: T.unsafe(nil), allowed_mentions: T.unsafe(nil), thread_id: T.unsafe(nil)); end
 
   # Executes the webhook this client points to with the given data.
   #
@@ -219,6 +220,7 @@ class Discordrb::Webhooks::Client
   #   builder = Discordrb::Webhooks::Builder.new # ...
   #   client.execute(builder)
   # @param builder [Builder, nil] The builder to start out with, or nil if one should be created anew.
+  # @param thread_id [String, Integer, nil] The thread_id of the thread if a thread should be targeted for the webhook execution
   # @param wait [true, false] Whether Discord should wait for the message to be successfully received by clients, or
   #   whether it should return immediately after sending the message.
   # @raise [TypeError]
@@ -226,8 +228,8 @@ class Discordrb::Webhooks::Client
   # @yield [builder] Gives the builder to the block to add additional steps, or to do the entire building process.
   # @yieldparam builder [Builder] The builder given as a parameter which is used as the initial step to start from.
   #
-  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#41
-  def execute(builder = T.unsafe(nil), wait = T.unsafe(nil), components = T.unsafe(nil)); end
+  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#42
+  def execute(builder = T.unsafe(nil), wait = T.unsafe(nil), components = T.unsafe(nil), thread_id: T.unsafe(nil)); end
 
   # Modify this webhook's properties.
   #
@@ -236,7 +238,7 @@ class Discordrb::Webhooks::Client
   # @param name [String, nil] The default name.
   # @return [RestClient::Response] the response returned by Discord.
   #
-  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#64
+  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#65
   def modify(name: T.unsafe(nil), avatar: T.unsafe(nil), channel_id: T.unsafe(nil)); end
 
   private
@@ -245,17 +247,17 @@ class Discordrb::Webhooks::Client
   #
   # @param avatar [String, #read] Avatar data.
   #
-  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#112
+  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#118
   def avatarise(avatar); end
 
-  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#130
+  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#139
   def generate_url(id, token); end
 
-  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#120
-  def post_json(builder, components, wait); end
+  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#126
+  def post_json(builder, components, wait, thread_id); end
 
-  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#125
-  def post_multipart(builder, components, wait); end
+  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#132
+  def post_multipart(builder, components, wait, thread_id); end
 end
 
 # An embed is a multipart-style attachment to a webhook message that can have a variety of different purposes and

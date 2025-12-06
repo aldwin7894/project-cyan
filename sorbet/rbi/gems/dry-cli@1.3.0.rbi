@@ -14,8 +14,8 @@ module Dry
   class << self
     # Create a new instance
     #
-    # @param registry_or_command [Dry::CLI::Registry, Dry::CLI::Command] a registry or singular command
     # @param &block [Block] a configuration block for registry
+    # @param registry_or_command [Dry::CLI::Registry, Dry::CLI::Command] a registry or singular command
     # @return [Dry::CLI] the new instance
     # @since 0.4.0
     #
@@ -32,8 +32,8 @@ end
 class Dry::CLI
   # Create a new instance
   #
-  # @param command_or_registry [Dry::CLI::Registry, Dry::CLI::Command] a registry or singular command
   # @param &block [Block] a configuration block for registry
+  # @param command_or_registry [Dry::CLI::Registry, Dry::CLI::Command] a registry or singular command
   # @return [Dry::CLI] the new instance
   # @since 0.1.0
   #
@@ -43,8 +43,8 @@ class Dry::CLI
   # Invoke the CLI
   #
   # @param arguments [Array<string>] the command line arguments (defaults to `ARGV`)
-  # @param out [IO] the standard output (defaults to `$stdout`)
   # @param err [IO] the error output (defaults to `$stderr`)
+  # @param out [IO] the standard output (defaults to `$stdout`)
   # @since 0.1.0
   #
   # source://dry-cli//lib/dry/cli.rb#64
@@ -114,8 +114,8 @@ class Dry::CLI
   # It may exit in case of error, or in case of help.
   #
   # @api private
-  # @param result [Dry::CLI::CommandRegistry::LookupResult]
   # @param out [IO] sta output
+  # @param result [Dry::CLI::CommandRegistry::LookupResult]
   # @return [Array<Dry:CLI::Command, Array>] returns an array where the
   #   first element is a command and the second one is the list of arguments
   # @since 0.6.0
@@ -315,6 +315,49 @@ class Dry::CLI::Command
   class << self
     # Specify an argument
     #
+    # @example Description
+    #   require "dry/cli"
+    #
+    #   class Hello < Dry::CLI::Command
+    #   argument :name, desc: "The name of the person to greet"
+    #
+    #   def call(name: nil, **)
+    #   # ...
+    #   end
+    #   end
+    #
+    #   # $ foo hello --help
+    #   #   Command:
+    #   #     foo hello
+    #   #
+    #   #   Usage:
+    #   #     foo hello [NAME]
+    #   #
+    #   #   Arguments:
+    #   #     NAME                # The name of the person to greet
+    #   #
+    #   #   Options:
+    #   #     --help, -h          # Print this help
+    # @example Multiple arguments
+    #   require "dry/cli"
+    #
+    #   module Generate
+    #   class Action < Dry::CLI::Command
+    #   argument :app,    required: true
+    #   argument :action, required: true
+    #
+    #   def call(app:, action:, **)
+    #   puts "Generating action: #{action} for app: #{app}"
+    #   end
+    #   end
+    #   end
+    #
+    #   # $ foo generate action web home
+    #   #   Generating action: home for app: web
+    #
+    #   # $ foo generate action
+    #   #   ERROR: "foo generate action" was called with no arguments
+    #   #   Usage: "foo generate action APP ACTION"
     # @example Optional argument
     #   require "dry/cli"
     #
@@ -352,49 +395,6 @@ class Dry::CLI::Command
     #   # $ foo hello
     #   #   ERROR: "foo hello" was called with no arguments
     #   #   Usage: "foo hello NAME"
-    # @example Multiple arguments
-    #   require "dry/cli"
-    #
-    #   module Generate
-    #   class Action < Dry::CLI::Command
-    #   argument :app,    required: true
-    #   argument :action, required: true
-    #
-    #   def call(app:, action:, **)
-    #   puts "Generating action: #{action} for app: #{app}"
-    #   end
-    #   end
-    #   end
-    #
-    #   # $ foo generate action web home
-    #   #   Generating action: home for app: web
-    #
-    #   # $ foo generate action
-    #   #   ERROR: "foo generate action" was called with no arguments
-    #   #   Usage: "foo generate action APP ACTION"
-    # @example Description
-    #   require "dry/cli"
-    #
-    #   class Hello < Dry::CLI::Command
-    #   argument :name, desc: "The name of the person to greet"
-    #
-    #   def call(name: nil, **)
-    #   # ...
-    #   end
-    #   end
-    #
-    #   # $ foo hello --help
-    #   #   Command:
-    #   #     foo hello
-    #   #
-    #   #   Usage:
-    #   #     foo hello [NAME]
-    #   #
-    #   #   Arguments:
-    #   #     NAME                # The name of the person to greet
-    #   #
-    #   #   Options:
-    #   #     --help, -h          # Print this help
     # @param name [Symbol] the argument name
     # @param options [Hash] a set of options
     # @since 0.1.0
@@ -468,80 +468,6 @@ class Dry::CLI::Command
 
     # Command line option (aka optional argument)
     #
-    # @example Basic usage
-    #   require "dry/cli"
-    #
-    #   class Console < Dry::CLI::Command
-    #   option :engine
-    #
-    #   def call(engine: nil, **)
-    #   puts "starting console (engine: #{engine || :irb})"
-    #   end
-    #   end
-    #
-    #   # $ foo console
-    #   # starting console (engine: irb)
-    #
-    #   # $ foo console --engine=pry
-    #   # starting console (engine: pry)
-    # @example List values
-    #   require "dry/cli"
-    #
-    #   class Console < Dry::CLI::Command
-    #   option :engine, values: %w(irb pry ripl)
-    #
-    #   def call(engine: nil, **)
-    #   puts "starting console (engine: #{engine || :irb})"
-    #   end
-    #   end
-    #
-    #   # $ foo console
-    #   # starting console (engine: irb)
-    #
-    #   # $ foo console --engine=pry
-    #   # starting console (engine: pry)
-    #
-    #   # $ foo console --engine=foo
-    #   # ERROR: Invalid param provided
-    # @example Description
-    #   require "dry/cli"
-    #
-    #   class Console < Dry::CLI::Command
-    #   option :engine, desc: "Force a console engine"
-    #
-    #   def call(engine: nil, **)
-    #   # ...
-    #   end
-    #   end
-    #
-    #   # $ foo console --help
-    #   # # ...
-    #   #
-    #   # Options:
-    #   #   --engine=VALUE                  # Force a console engine: (irb/pry/ripl)
-    #   #   --help, -h                      # Print this help
-    # @example Boolean
-    #   require "dry/cli"
-    #
-    #   class Server < Dry::CLI::Command
-    #   option :code_reloading, type: :boolean, default: true
-    #
-    #   def call(code_reloading:, **)
-    #   puts "staring server (code reloading: #{code_reloading})"
-    #   end
-    #   end
-    #
-    #   # $ foo server
-    #   # starting server (code reloading: true)
-    #
-    #   # $ foo server --no-code-reloading
-    #   # starting server (code reloading: false)
-    #
-    #   # $ foo server --help
-    #   # # ...
-    #   #
-    #   # Options:
-    #   #   --[no]-code-reloading
     # @example Aliases
     #   require "dry/cli"
     #
@@ -567,6 +493,80 @@ class Dry::CLI::Command
     #   #
     #   # Options:
     #   #   --port=VALUE, -p VALUE
+    # @example Basic usage
+    #   require "dry/cli"
+    #
+    #   class Console < Dry::CLI::Command
+    #   option :engine
+    #
+    #   def call(engine: nil, **)
+    #   puts "starting console (engine: #{engine || :irb})"
+    #   end
+    #   end
+    #
+    #   # $ foo console
+    #   # starting console (engine: irb)
+    #
+    #   # $ foo console --engine=pry
+    #   # starting console (engine: pry)
+    # @example Boolean
+    #   require "dry/cli"
+    #
+    #   class Server < Dry::CLI::Command
+    #   option :code_reloading, type: :boolean, default: true
+    #
+    #   def call(code_reloading:, **)
+    #   puts "staring server (code reloading: #{code_reloading})"
+    #   end
+    #   end
+    #
+    #   # $ foo server
+    #   # starting server (code reloading: true)
+    #
+    #   # $ foo server --no-code-reloading
+    #   # starting server (code reloading: false)
+    #
+    #   # $ foo server --help
+    #   # # ...
+    #   #
+    #   # Options:
+    #   #   --[no]-code-reloading
+    # @example Description
+    #   require "dry/cli"
+    #
+    #   class Console < Dry::CLI::Command
+    #   option :engine, desc: "Force a console engine"
+    #
+    #   def call(engine: nil, **)
+    #   # ...
+    #   end
+    #   end
+    #
+    #   # $ foo console --help
+    #   # # ...
+    #   #
+    #   # Options:
+    #   #   --engine=VALUE                  # Force a console engine: (irb/pry/ripl)
+    #   #   --help, -h                      # Print this help
+    # @example List values
+    #   require "dry/cli"
+    #
+    #   class Console < Dry::CLI::Command
+    #   option :engine, values: %w(irb pry ripl)
+    #
+    #   def call(engine: nil, **)
+    #   puts "starting console (engine: #{engine || :irb})"
+    #   end
+    #   end
+    #
+    #   # $ foo console
+    #   # starting console (engine: irb)
+    #
+    #   # $ foo console --engine=pry
+    #   # starting console (engine: pry)
+    #
+    #   # $ foo console --engine=foo
+    #   # ERROR: Invalid param provided
     # @param name [Symbol] the param name
     # @param options [Hash] a set of options
     # @since 0.1.0
@@ -1166,31 +1166,6 @@ module Dry::CLI::Registry
   #   after "hello", -> { puts "world" }
   #   end
   #   end
-  # @example Register an object as callback
-  #   require "dry/cli"
-  #
-  #   module Callbacks
-  #   class World
-  #   def call(*)
-  #   puts "world"
-  #   end
-  #   end
-  #   end
-  #
-  #   module Foo
-  #   module Commands
-  #   extend Dry::CLI::Registry
-  #
-  #   class Hello < Dry::CLI::Command
-  #   def call(*)
-  #   puts "hello"
-  #   end
-  #   end
-  #
-  #   register "hello", Hello
-  #   after "hello", Callbacks::World.new
-  #   end
-  #   end
   # @example Register a class as callback
   #   require "dry/cli"
   #
@@ -1216,10 +1191,35 @@ module Dry::CLI::Registry
   #   after "hello", Callbacks::World
   #   end
   #   end
-  # @param command_name [String] the name used for command registration
+  # @example Register an object as callback
+  #   require "dry/cli"
+  #
+  #   module Callbacks
+  #   class World
+  #   def call(*)
+  #   puts "world"
+  #   end
+  #   end
+  #   end
+  #
+  #   module Foo
+  #   module Commands
+  #   extend Dry::CLI::Registry
+  #
+  #   class Hello < Dry::CLI::Command
+  #   def call(*)
+  #   puts "hello"
+  #   end
+  #   end
+  #
+  #   register "hello", Hello
+  #   after "hello", Callbacks::World.new
+  #   end
+  #   end
+  # @param blk [Proc] the callback espressed as a block
   # @param callback [Class, #call] the callback object. If a class is given,
   #   it MUST respond to `#call`.
-  # @param blk [Proc] the callback espressed as a block
+  # @param command_name [String] the name used for command registration
   # @raise [Dry::CLI::UnknownCommandError] if the command isn't registered
   # @raise [Dry::CLI::InvalidCallbackError] if the given callback doesn't
   #   implement the required interface
@@ -1247,31 +1247,6 @@ module Dry::CLI::Registry
   #   before "hello", -> { puts "I'm about to say.." }
   #   end
   #   end
-  # @example Register an object as callback
-  #   require "dry/cli"
-  #
-  #   module Callbacks
-  #   class Hello
-  #   def call(*)
-  #   puts "world"
-  #   end
-  #   end
-  #   end
-  #
-  #   module Foo
-  #   module Commands
-  #   extend Dry::CLI::Registry
-  #
-  #   class Hello < Dry::CLI::Command
-  #   def call(*)
-  #   puts "I'm about to say.."
-  #   end
-  #   end
-  #
-  #   register "hello", Hello
-  #   before "hello", Callbacks::Hello.new
-  #   end
-  #   end
   # @example Register a class as callback
   #   require "dry/cli"
   #
@@ -1297,10 +1272,35 @@ module Dry::CLI::Registry
   #   before "hello", Callbacks::Hello
   #   end
   #   end
-  # @param command_name [String] the name used for command registration
+  # @example Register an object as callback
+  #   require "dry/cli"
+  #
+  #   module Callbacks
+  #   class Hello
+  #   def call(*)
+  #   puts "world"
+  #   end
+  #   end
+  #   end
+  #
+  #   module Foo
+  #   module Commands
+  #   extend Dry::CLI::Registry
+  #
+  #   class Hello < Dry::CLI::Command
+  #   def call(*)
+  #   puts "I'm about to say.."
+  #   end
+  #   end
+  #
+  #   register "hello", Hello
+  #   before "hello", Callbacks::Hello.new
+  #   end
+  #   end
+  # @param blk [Proc] the callback espressed as a block
   # @param callback [Class, #call] the callback object. If a class is given,
   #   it MUST respond to `#call`.
-  # @param blk [Proc] the callback espressed as a block
+  # @param command_name [String] the name used for command registration
   # @raise [Dry::CLI::UnknownCommandError] if the command isn't registered
   # @raise [Dry::CLI::InvalidCallbackError] if the given callback doesn't
   #   implement the required interface
@@ -1364,9 +1364,9 @@ module Dry::CLI::Registry
   #   end
   #   end
   #   end
-  # @param name [String] the command name
-  # @param command [NilClass, Dry::CLI::Command] the optional command
   # @param aliases [Array<String>] an optional list of aliases
+  # @param command [NilClass, Dry::CLI::Command] the optional command
+  # @param name [String] the command name
   # @param options [Hash] a set of options
   # @since 0.1.0
   #

@@ -6,12 +6,7 @@
 
 
 # source://rack-brotli//lib/rack/brotli/version.rb#1
-module Rack
-  class << self
-    # source://rack/3.1.12/lib/rack/version.rb#18
-    def release; end
-  end
-end
+module Rack; end
 
 # source://rack-brotli//lib/rack/brotli/deflater.rb#8
 module Rack::Brotli

@@ -265,8 +265,8 @@ module Sidekiq::ScheduledSet::UniqueExtension
   # Wraps the original method to ensure locks for the job are deleted
   #
   # @api private
-  # @param score [Integer, Float] the score in the scheduled set
   # @param job_id [String] the Sidekiq JID
+  # @param score [Integer, Float] the score in the scheduled set
   #
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb#61
   def delete(score, job_id); end
@@ -727,8 +727,8 @@ class SidekiqUniqueJobs::BatchDelete
 
   # Initialize a new batch delete instance
   #
-  # @param digests [Array<String>] the digests to delete
   # @param conn [Redis] the connection to use for deletion
+  # @param digests [Array<String>] the digests to delete
   # @return [BatchDelete] a new instance of BatchDelete
   #
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/batch_delete.rb#57
@@ -772,8 +772,8 @@ class SidekiqUniqueJobs::BatchDelete
   class << self
     # Executes a batch deletion of the provided digests
     #
-    # @param digests [Array<String>] the digests to delete
     # @param conn [Redis] the connection to use for deletion
+    # @param digests [Array<String>] the digests to delete
     # @return [void]
     #
     # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/batch_delete.rb#47
@@ -813,9 +813,9 @@ class SidekiqUniqueJobs::Changelog < ::SidekiqUniqueJobs::Redis::SortedSet
 
   # Adds a new changelog entry
   #
-  # @param message [String] a descriptive message about the entry
   # @param digest [String] a unique digest
   # @param job_id [String] a Sidekiq JID
+  # @param message [String] a descriptive message about the entry
   # @param script [String] the name of the script adding the entry
   # @return [void]
   #
@@ -824,8 +824,8 @@ class SidekiqUniqueJobs::Changelog < ::SidekiqUniqueJobs::Redis::SortedSet
 
   # The change log entries
   #
-  # @param pattern [String] the pattern to match
   # @param count [Integer] the number of matches to return
+  # @param pattern [String] the pattern to match
   # @return [Array<Hash>] an array of entries
   #
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/changelog.rb#37
@@ -834,8 +834,8 @@ class SidekiqUniqueJobs::Changelog < ::SidekiqUniqueJobs::Redis::SortedSet
   # Paginate the changelog entries
   #
   # @param cursor [Integer] the cursor for this iteration
-  # @param pattern [String] "*" the pattern to match
   # @param page_size [Integer] 100 the number of matches to return
+  # @param pattern [String] "*" the pattern to match
   # @return [Array<Integer, Integer, Array<Hash>] the total size, next cursor and changelog entries] Array<Integer, Integer, Array<Hash>] the total size, next cursor and changelog entries
   #
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/changelog.rb#52
@@ -891,8 +891,8 @@ class SidekiqUniqueJobs::Config < ::Concurrent::MutableStruct::ThreadSafeConfig
   #
   # @example Add a custom lock
   #   add_lock(:my_lock, CustomLocks::MyLock)
-  # @param name [String, Symbol] the name of the lock
   # @param klass [Class] the class describing the lock
+  # @param name [String, Symbol] the name of the lock
   # @raise DuplicateLock when the name already exists
   # @return [void]
   #
@@ -903,8 +903,8 @@ class SidekiqUniqueJobs::Config < ::Concurrent::MutableStruct::ThreadSafeConfig
   #
   # @example Add a custom strategy
   #   add_lock(:my_strategy, CustomStrategies::MyStrategy)
-  # @param name [String] the name of the custom strategy
   # @param klass [Class] the class describing the strategy
+  # @param name [String] the name of the custom strategy
   # @raise [DuplicateStrategy] when the name already exists
   #
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/config.rb#303
@@ -1237,8 +1237,8 @@ class SidekiqUniqueJobs::Digests < ::SidekiqUniqueJobs::Redis::SortedSet
 
   # Deletes unique digests by pattern
   #
-  # @param pattern [String] a key pattern to match with
   # @param count [Integer] the maximum number
+  # @param pattern [String] a key pattern to match with
   # @return [Hash<String,Float>] Hash mapping of digest matching the given pattern and score
   #
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/digests.rb#39
@@ -1246,8 +1246,8 @@ class SidekiqUniqueJobs::Digests < ::SidekiqUniqueJobs::Redis::SortedSet
 
   # The entries in this sorted set
   #
-  # @param pattern [String] SCAN_PATTERN the match pattern to search for
   # @param count [Integer] DEFAULT_COUNT the number of entries to return
+  # @param pattern [String] SCAN_PATTERN the match pattern to search for
   # @return [Array<String>] an array of digests matching the given pattern
   #
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/digests.rb#77
@@ -1256,8 +1256,8 @@ class SidekiqUniqueJobs::Digests < ::SidekiqUniqueJobs::Redis::SortedSet
   # Returns a paginated
   #
   # @param cursor [Integer] the cursor for this iteration
-  # @param pattern [String] SCAN_PATTERN the match pattern to search for
   # @param page_size [Integer] 100 the size per page
+  # @param pattern [String] SCAN_PATTERN the match pattern to search for
   # @return [Array<Integer, Integer, Array<Lock>>] total_size, next_cursor, locks
   #
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/digests.rb#90
@@ -1766,8 +1766,8 @@ class SidekiqUniqueJobs::Lock
 
   # Add the digest to the correct sorted set
   #
-  # @param pipeline [Object] a redis pipeline object for issue commands
   # @param lock_info [Hash] the lock info relevant to the digest
+  # @param pipeline [Object] a redis pipeline object for issue commands
   # @return [nil]
   #
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/lock.rb#337
@@ -1776,8 +1776,8 @@ class SidekiqUniqueJobs::Lock
   # Generate a changelog entry for the given arguments
   #
   # @param job_id [String] a sidekiq JID
-  # @param script [String] the name of the script generating this entry
   # @param message [String] a descriptive message for later review
+  # @param script [String] the name of the script generating this entry
   # @return [String] a JSON string matching the Lua script structure
   #
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/lock.rb#319
@@ -1816,8 +1816,8 @@ class SidekiqUniqueJobs::Lock::BaseLock
   extend ::Forwardable
   extend ::SidekiqUniqueJobs::Logging
 
-  # @param item [Hash] the Sidekiq job hash
   # @param callback [Proc] the callback to use after unlock
+  # @param item [Hash] the Sidekiq job hash
   # @param redis_pool [Sidekiq::RedisConnection, ConnectionPool] the redis connection
   # @return [BaseLock] a new instance of BaseLock
   #
@@ -2050,8 +2050,8 @@ class SidekiqUniqueJobs::Lock::WhileExecuting < ::SidekiqUniqueJobs::Lock::BaseL
   include ::SidekiqUniqueJobs::Logging::Middleware
   extend ::SidekiqUniqueJobs::Logging::Middleware
 
-  # @param item [Hash] the Sidekiq job hash
   # @param callback [Proc] callback to call after unlock
+  # @param item [Hash] the Sidekiq job hash
   # @param redis_pool [Sidekiq::RedisConnection, ConnectionPool] the redis connection
   # @return [WhileExecuting] a new instance of WhileExecuting
   #
@@ -2751,8 +2751,8 @@ class SidekiqUniqueJobs::Locksmith
   # @param conn [Sidekiq::RedisConnection, ConnectionPool] the redis connection
   # @param primed_method [Method] reference to the method to use for getting a primed token
   # @param wait [nil, Integer, Float] time to wait before timeout
-  # @see lock
   # @see execute
+  # @see lock
   # @yieldparam job_id [string] the sidekiq JID
   # @yieldreturn [void] whatever the calling block returns
   #
@@ -2840,8 +2840,8 @@ SidekiqUniqueJobs::Locksmith::NETWORK_FACTOR = T.let(T.unsafe(nil), Float)
 module SidekiqUniqueJobs::Logging
   # Build a log message
   #
-  # @param message_or_exception [String, Exception] an entry to log
   # @param item [Hash] the sidekiq job hash
+  # @param message_or_exception [String, Exception] an entry to log
   # @return [String] a complete log entry
   #
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/logging.rb#117
@@ -3019,10 +3019,10 @@ module SidekiqUniqueJobs::Middleware
   # This method runs before (prepended) the actual middleware implementation.
   #   This is done to reduce duplication
   #
-  # @param worker_class [Sidekiq::Job]
   # @param item [Hash] a sidekiq job hash
   # @param queue [String] name of the queue
   # @param redis_pool [ConnectionPool] only used for compatility reasons
+  # @param worker_class [Sidekiq::Job]
   # @return [yield<super>] call the rest of the middleware stack
   # @yieldparam if [void] uniquejobs is disable
   # @yieldreturn [void] delegate back to other sidekiq middleware
@@ -3797,9 +3797,9 @@ class SidekiqUniqueJobs::Orphans::Observer
   # Runs every time the {Manager} executes the TimerTask
   #   used for logging information about the reaping
   #
-  # @param time [Time] the time of the execution
-  # @param result [Object] the result of the execution
   # @param ex [Exception] any error raised from the TimerTask
+  # @param result [Object] the result of the execution
+  # @param time [Time] the time of the execution
   # @return [<type>] <description>
   #
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/orphans/observer.rb#30
@@ -4182,8 +4182,8 @@ class SidekiqUniqueJobs::Orphans::RubyReaper < ::SidekiqUniqueJobs::Orphans::Rea
 
   # Checks a sorted set for the existance of this digest
   #
-  # @param key [String] the key for the sorted set
   # @param digest [String] the digest to scan for
+  # @param key [String] the key for the sorted set
   # @return [true] when found
   # @return [false] when missing
   #
@@ -4568,8 +4568,8 @@ end
 module SidekiqUniqueJobs::Reflectable
   # Reflects on specific event
   #
-  # @param reflection [Symbol] the reflected event
   # @param args [Array] arguments to provide to reflector
+  # @param reflection [Symbol] the reflected event
   # @return [void]
   #
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/reflectable.rb#18
@@ -4600,8 +4600,8 @@ class SidekiqUniqueJobs::Reflections
 
   # Dispatch a reflected event
   #
-  # @param reflection [reflection] the reflected event
   # @param args [Array] the arguments to provide to the block
+  # @param reflection [reflection] the reflected event
   # @return [void] <description>
   #
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/reflections.rb#53
@@ -4820,10 +4820,10 @@ class SidekiqUniqueJobs::Script::Client
   #
   # @note this method is recursive if we need to load a lua script
   #   that wasn't previously loaded.
-  # @param script_name [Symbol] the name of the script to execute
+  # @param argv [Array<Object>] script arguments
   # @param conn [Redis] the redis connection to use for execution
   # @param keys [Array<String>] script keys
-  # @param argv [Array<Object>] script arguments
+  # @param script_name [Symbol] the name of the script to execute
   # @return value from script
   #
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/script/client.rb#43
@@ -5191,10 +5191,10 @@ class SidekiqUniqueJobs::Script::Scripts
   #
   # @note this method is recursive if we need to load a lua script
   #   that wasn't previously loaded.
-  # @param name [Symbol] the name of the script to execute
+  # @param argv [Array<Object>] script arguments
   # @param conn [Redis] the redis connection to use for execution
   # @param keys [Array<String>] script keys
-  # @param argv [Array<Object>] script arguments
+  # @param name [Symbol] the name of the script to execute
   # @return value from script
   #
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/script/scripts.rb#113
@@ -5491,21 +5491,6 @@ SidekiqUniqueJobs::ThreadSafeConfig = Concurrent::MutableStruct::ThreadSafeConfi
 #   end
 #
 #   task.execution_interval #=> 5
-# @example Immediate execution with `:run_now`
-#   task = Concurrent::TimerTask.new(run_now: true){ puts 'Boom!' }
-#   task.execute
-#
-#   #=> 'Boom!'
-# @example Last `#value` and `Dereferenceable` mixin
-#   task = Concurrent::TimerTask.new(
-#   dup_on_deref: true,
-#   execution_interval: 5
-#   ){ Time.now }
-#
-#   task.execute
-#   Time.now   #=> 2013-11-07 18:06:50 -0500
-#   sleep(10)
-#   task.value #=> 2013-11-07 18:06:55 -0500
 # @example Controlling execution from within the block
 #   timer_task = Concurrent::TimerTask.new(execution_interval: 1) do |task|
 #   task.execution_interval.times{ print 'Boom! ' }
@@ -5524,6 +5509,21 @@ SidekiqUniqueJobs::ThreadSafeConfig = Concurrent::MutableStruct::ThreadSafeConfi
 #   #=> Boom! Boom! Boom! Boom!
 #   #=> Boom! Boom! Boom! Boom! Boom!
 #   #=> Stopping...
+# @example Immediate execution with `:run_now`
+#   task = Concurrent::TimerTask.new(run_now: true){ puts 'Boom!' }
+#   task.execute
+#
+#   #=> 'Boom!'
+# @example Last `#value` and `Dereferenceable` mixin
+#   task = Concurrent::TimerTask.new(
+#   dup_on_deref: true,
+#   execution_interval: 5
+#   ){ Time.now }
+#
+#   task.execute
+#   Time.now   #=> 2013-11-07 18:06:50 -0500
+#   sleep(10)
+#   task.value #=> 2013-11-07 18:06:55 -0500
 # @example Observation
 #   class TaskObserver
 #   def update(time, result, ex)
@@ -5562,8 +5562,8 @@ SidekiqUniqueJobs::ThreadSafeConfig = Concurrent::MutableStruct::ThreadSafeConfi
 #   #=> (2013-10-13 19:09:38 -0400) Execution failed with error StandardError
 #   #=> (2013-10-13 19:09:39 -0400) Execution failed with error StandardError
 #   task.shutdown
-# @see http://ruby-doc.org/stdlib-2.0/libdoc/observer/rdoc/Observable.html
 # @see http://docs.oracle.com/javase/7/docs/api/java/util/TimerTask.html
+# @see http://ruby-doc.org/stdlib-2.0/libdoc/observer/rdoc/Observable.html
 #
 # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/timer_task.rb#149
 class SidekiqUniqueJobs::TimerTask < ::Concurrent::RubyExecutorService
@@ -5589,13 +5589,13 @@ class SidekiqUniqueJobs::TimerTask < ::Concurrent::RubyExecutorService
 
   # Execute a previously created `TimerTask`.
   #
+  # @example Instance and execute in one line
+  #   task = Concurrent::TimerTask.new(execution_interval: 10){ print "Hello World\n" }.execute
+  #   task.running? #=> true
   # @example Instance and execute in separate steps
   #   task = Concurrent::TimerTask.new(execution_interval: 10){ print "Hello World\n" }
   #   task.running? #=> false
   #   task.execute
-  #   task.running? #=> true
-  # @example Instance and execute in one line
-  #   task = Concurrent::TimerTask.new(execution_interval: 10){ print "Hello World\n" }.execute
   #   task.running? #=> true
   # @return [TimerTask] a reference to `self`
   #
@@ -5979,8 +5979,8 @@ SidekiqUniqueJobs::VERSION = T.let(T.unsafe(nil), String)
 class SidekiqUniqueJobs::VersionCheck
   # Initialize a new VersionCheck instance
   #
-  # @param version [String] a version string `5.0.0`
   # @param constraint [String] a version constraint `>= 5.0.0 <= 5.1.1`
+  # @param version [String] a version string `5.0.0`
   # @raise [ArgumentError]
   # @return [VersionCheck] a new instance of VersionCheck
   #
@@ -6031,8 +6031,8 @@ class SidekiqUniqueJobs::VersionCheck
     #   VersionCheck.satisfied?("5.0.0", ">= 4.0.0") #=> true
     # @example An unsatisfied constraint
     #   VersionCheck.satisfied?("5.0.0", "<= 4.0.0") #=> false
-    # @param version [String] a version string `5.0.0`
     # @param constraint [String] a version constraint `>= 5.0.0 <= 5.1.1`
+    # @param version [String] a version string `5.0.0`
     # @return [true, false] <description>
     #
     # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/version_check.rb#27
@@ -6044,8 +6044,8 @@ class SidekiqUniqueJobs::VersionCheck
     #   VersionCheck.unfulfilled?("5.0.0", ">= 4.0.0") #=> false
     # @example An unfulfilled constraint
     #   VersionCheck.unfulfilled?("5.0.0", "<= 4.0.0") #=> true
-    # @param version [String] a version string `5.0.0`
     # @param constraint [String] a version constraint `>= 5.0.0 <= 5.1.1`
+    # @param version [String] a version string `5.0.0`
     # @return [true, false] <description>
     #
     # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/version_check.rb#46

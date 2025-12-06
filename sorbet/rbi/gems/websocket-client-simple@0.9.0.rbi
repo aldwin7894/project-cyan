@@ -6,21 +6,7 @@
 
 
 # source://websocket-client-simple//lib/websocket-client-simple/version.rb#1
-module WebSocket
-  class << self
-    # source://websocket/1.2.11/lib/websocket.rb#20
-    def max_frame_size; end
-
-    # source://websocket/1.2.11/lib/websocket.rb#25
-    def max_frame_size=(val); end
-
-    # source://websocket/1.2.11/lib/websocket.rb#31
-    def should_raise; end
-
-    # source://websocket/1.2.11/lib/websocket.rb#36
-    def should_raise=(val); end
-  end
-end
+module WebSocket; end
 
 # source://websocket-client-simple//lib/websocket-client-simple/version.rb#2
 module WebSocket::Client; end
@@ -66,7 +52,7 @@ class WebSocket::Client::Simple::Client
 
   # Returns the value of attribute thread.
   #
-  # source://discordrb/3.5.0/lib/discordrb/websocket.rb#11
+  # source://websocket-client-simple//lib/websocket-client-simple/client.rb#14
   def thread; end
 
   # Returns the value of attribute url.
@@ -78,8 +64,4 @@ end
 # source://websocket-client-simple//lib/websocket-client-simple/version.rb#4
 WebSocket::Client::Simple::VERSION = T.let(T.unsafe(nil), String)
 
-module WebSocket::Mask
-  class << self
-    def mask(_arg0, _arg1); end
-  end
-end
+module WebSocket::Mask; end

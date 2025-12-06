@@ -9,47 +9,89 @@
 module Opus
   extend ::FFI::Library
 
+  # source://opus-ruby//lib/opus-ruby.rb#41
   def opus_decode(*_arg0); end
+
+  # source://opus-ruby//lib/opus-ruby.rb#42
   def opus_decode_float(*_arg0); end
+
+  # source://opus-ruby//lib/opus-ruby.rb#39
   def opus_decoder_create(*_arg0); end
 
-  # source://ffi/1.17.1/lib/ffi/variadic.rb#61
+  # source://opus-ruby//lib/opus-ruby.rb#43
   def opus_decoder_ctl(*args); end
 
+  # source://opus-ruby//lib/opus-ruby.rb#44
   def opus_decoder_destroy(*_arg0); end
+
+  # source://opus-ruby//lib/opus-ruby.rb#38
   def opus_decoder_get_size(*_arg0); end
+
+  # source://opus-ruby//lib/opus-ruby.rb#40
   def opus_decoder_init(*_arg0); end
+
+  # source://opus-ruby//lib/opus-ruby.rb#33
   def opus_encode(*_arg0); end
+
+  # source://opus-ruby//lib/opus-ruby.rb#34
   def opus_encode_float(*_arg0); end
+
+  # source://opus-ruby//lib/opus-ruby.rb#31
   def opus_encoder_create(*_arg0); end
 
-  # source://ffi/1.17.1/lib/ffi/variadic.rb#61
+  # source://opus-ruby//lib/opus-ruby.rb#36
   def opus_encoder_ctl(*args); end
 
+  # source://opus-ruby//lib/opus-ruby.rb#35
   def opus_encoder_destroy(*_arg0); end
+
+  # source://opus-ruby//lib/opus-ruby.rb#30
   def opus_encoder_get_size(*_arg0); end
+
+  # source://opus-ruby//lib/opus-ruby.rb#32
   def opus_encoder_init(*_arg0); end
 
   class << self
+    # source://opus-ruby//lib/opus-ruby.rb#41
     def opus_decode(*_arg0); end
+
+    # source://opus-ruby//lib/opus-ruby.rb#42
     def opus_decode_float(*_arg0); end
+
+    # source://opus-ruby//lib/opus-ruby.rb#39
     def opus_decoder_create(*_arg0); end
 
-    # source://ffi/1.17.1/lib/ffi/variadic.rb#61
+    # source://opus-ruby//lib/opus-ruby.rb#43
     def opus_decoder_ctl(*args); end
 
+    # source://opus-ruby//lib/opus-ruby.rb#44
     def opus_decoder_destroy(*_arg0); end
+
+    # source://opus-ruby//lib/opus-ruby.rb#38
     def opus_decoder_get_size(*_arg0); end
+
+    # source://opus-ruby//lib/opus-ruby.rb#40
     def opus_decoder_init(*_arg0); end
+
+    # source://opus-ruby//lib/opus-ruby.rb#33
     def opus_encode(*_arg0); end
+
+    # source://opus-ruby//lib/opus-ruby.rb#34
     def opus_encode_float(*_arg0); end
+
+    # source://opus-ruby//lib/opus-ruby.rb#31
     def opus_encoder_create(*_arg0); end
 
-    # source://ffi/1.17.1/lib/ffi/variadic.rb#61
+    # source://opus-ruby//lib/opus-ruby.rb#36
     def opus_encoder_ctl(*args); end
 
+    # source://opus-ruby//lib/opus-ruby.rb#35
     def opus_encoder_destroy(*_arg0); end
+
+    # source://opus-ruby//lib/opus-ruby.rb#30
     def opus_encoder_get_size(*_arg0); end
+
+    # source://opus-ruby//lib/opus-ruby.rb#32
     def opus_encoder_init(*_arg0); end
   end
 end

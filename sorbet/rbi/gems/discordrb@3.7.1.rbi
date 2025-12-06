@@ -5,7 +5,7 @@
 # Please instead update this file by running `bin/tapioca gem discordrb`.
 
 
-# source://discordrb//lib/discordrb/voice/network.rb#10
+# source://discordrb//lib/discordrb/voice/network.rb#11
 ::LIBSODIUM_AVAILABLE = T.let(T.unsafe(nil), TrueClass)
 
 # source://discordrb//lib/discordrb/voice/encoder.rb#6
@@ -22,7 +22,7 @@ module Discordrb
     # @raise [ArgumentError]
     # @return [String] The file object encoded as base64 image data.
     #
-    # source://discordrb//lib/discordrb.rb#127
+    # source://discordrb//lib/discordrb.rb#129
     def encode64(file); end
 
     # source://discordrb//lib/discordrb.rb#54
@@ -40,7 +40,7 @@ module Discordrb
     # @param msg [String] The message to split.
     # @return [Array<String>] the message split into chunks
     #
-    # source://discordrb//lib/discordrb.rb#74
+    # source://discordrb//lib/discordrb.rb#76
     def split_message(msg); end
 
     # @example
@@ -50,7 +50,7 @@ module Discordrb
     # @param time [Time, Integer] The time to create the timestamp from, or a unix timestamp integer.
     # @return [String]
     #
-    # source://discordrb//lib/discordrb.rb#116
+    # source://discordrb//lib/discordrb.rb#118
     def timestamp(time, style = T.unsafe(nil)); end
   end
 end
@@ -75,7 +75,7 @@ module Discordrb::API
   # The last acknowledged message will be sent in the ready packet,
   # so this is an easy way to catch up on messages
   #
-  # source://discordrb//lib/discordrb/api.rb#294
+  # source://discordrb//lib/discordrb/api.rb#299
   def acknowledge_message(token, channel_id, message_id); end
 
   # @return [String] the currently used API base URL.
@@ -125,7 +125,7 @@ module Discordrb::API
 
   # Create an OAuth application
   #
-  # source://discordrb//lib/discordrb/api.rb#255
+  # source://discordrb//lib/discordrb/api.rb#260
   def create_oauth_application(token, name, redirect_uris); end
 
   # Make a discovery splash URL from server and splash IDs
@@ -140,13 +140,13 @@ module Discordrb::API
 
   # Get the gateway to be used
   #
-  # source://discordrb//lib/discordrb/api.rb#306
+  # source://discordrb//lib/discordrb/api.rb#311
   def gateway(token); end
 
   # Get the gateway to be used, with additional information for sharding and
   # session start limits
   #
-  # source://discordrb//lib/discordrb/api.rb#318
+  # source://discordrb//lib/discordrb/api.rb#323
   def gateway_bot(token); end
 
   # Handles pre-emptive rate limiting by waiting the given mutex by the difference of the Date header to the
@@ -167,12 +167,12 @@ module Discordrb::API
 
   # make a nameplate URL from the nameplate asset.
   #
-  # source://discordrb//lib/discordrb/api.rb#245
+  # source://discordrb//lib/discordrb/api.rb#250
   def nameplate_url(nameplate_asset, format = T.unsafe(nil)); end
 
   # Get the bot's OAuth application's information
   #
-  # source://discordrb//lib/discordrb/api.rb#281
+  # source://discordrb//lib/discordrb/api.rb#286
   def oauth_application(token); end
 
   # Performs a RestClient request.
@@ -203,13 +203,18 @@ module Discordrb::API
 
   # make a server tag badge URL from a server ID and badge ID.
   #
-  # source://discordrb//lib/discordrb/api.rb#250
+  # source://discordrb//lib/discordrb/api.rb#255
   def server_tag_badge_url(server_id, badge_id, format = T.unsafe(nil)); end
 
   # Make a splash URL from server and splash IDs
   #
   # source://discordrb//lib/discordrb/api.rb#202
   def splash_url(server_id, splash_id, format = T.unsafe(nil)); end
+
+  # make a static nameplate URL from the nameplate asset.
+  #
+  # source://discordrb//lib/discordrb/api.rb#245
+  def static_nameplate_url(nameplate_asset, format = T.unsafe(nil)); end
 
   # Wait a specified amount of time synchronised with the specified mutex.
   #
@@ -234,7 +239,7 @@ module Discordrb::API
 
   # Change an OAuth application's properties
   #
-  # source://discordrb//lib/discordrb/api.rb#268
+  # source://discordrb//lib/discordrb/api.rb#273
   def update_oauth_application(token, name, redirect_uris, description = T.unsafe(nil), icon = T.unsafe(nil)); end
 
   # Generate a user agent identifying this requester as discordrb.
@@ -244,12 +249,12 @@ module Discordrb::API
 
   # Validate a token (this request will fail if the token is invalid)
   #
-  # source://discordrb//lib/discordrb/api.rb#329
+  # source://discordrb//lib/discordrb/api.rb#334
   def validate_token(token); end
 
   # Get a list of available voice regions
   #
-  # source://discordrb//lib/discordrb/api.rb#342
+  # source://discordrb//lib/discordrb/api.rb#347
   def voice_regions(token); end
 
   # Make a widget picture URL from server ID
@@ -267,7 +272,7 @@ module Discordrb::API
     # The last acknowledged message will be sent in the ready packet,
     # so this is an easy way to catch up on messages
     #
-    # source://discordrb//lib/discordrb/api.rb#294
+    # source://discordrb//lib/discordrb/api.rb#299
     def acknowledge_message(token, channel_id, message_id); end
 
     # @return [String] the currently used API base URL.
@@ -317,7 +322,7 @@ module Discordrb::API
 
     # Create an OAuth application
     #
-    # source://discordrb//lib/discordrb/api.rb#255
+    # source://discordrb//lib/discordrb/api.rb#260
     def create_oauth_application(token, name, redirect_uris); end
 
     # Make a discovery splash URL from server and splash IDs
@@ -332,13 +337,13 @@ module Discordrb::API
 
     # Get the gateway to be used
     #
-    # source://discordrb//lib/discordrb/api.rb#306
+    # source://discordrb//lib/discordrb/api.rb#311
     def gateway(token); end
 
     # Get the gateway to be used, with additional information for sharding and
     # session start limits
     #
-    # source://discordrb//lib/discordrb/api.rb#318
+    # source://discordrb//lib/discordrb/api.rb#323
     def gateway_bot(token); end
 
     # Handles pre-emptive rate limiting by waiting the given mutex by the difference of the Date header to the
@@ -359,12 +364,12 @@ module Discordrb::API
 
     # make a nameplate URL from the nameplate asset.
     #
-    # source://discordrb//lib/discordrb/api.rb#245
+    # source://discordrb//lib/discordrb/api.rb#250
     def nameplate_url(nameplate_asset, format = T.unsafe(nil)); end
 
     # Get the bot's OAuth application's information
     #
-    # source://discordrb//lib/discordrb/api.rb#281
+    # source://discordrb//lib/discordrb/api.rb#286
     def oauth_application(token); end
 
     # Performs a RestClient request.
@@ -395,13 +400,18 @@ module Discordrb::API
 
     # make a server tag badge URL from a server ID and badge ID.
     #
-    # source://discordrb//lib/discordrb/api.rb#250
+    # source://discordrb//lib/discordrb/api.rb#255
     def server_tag_badge_url(server_id, badge_id, format = T.unsafe(nil)); end
 
     # Make a splash URL from server and splash IDs
     #
     # source://discordrb//lib/discordrb/api.rb#202
     def splash_url(server_id, splash_id, format = T.unsafe(nil)); end
+
+    # make a static nameplate URL from the nameplate asset.
+    #
+    # source://discordrb//lib/discordrb/api.rb#245
+    def static_nameplate_url(nameplate_asset, format = T.unsafe(nil)); end
 
     # Wait a specified amount of time synchronised with the specified mutex.
     #
@@ -426,7 +436,7 @@ module Discordrb::API
 
     # Change an OAuth application's properties
     #
-    # source://discordrb//lib/discordrb/api.rb#268
+    # source://discordrb//lib/discordrb/api.rb#273
     def update_oauth_application(token, name, redirect_uris, description = T.unsafe(nil), icon = T.unsafe(nil)); end
 
     # Generate a user agent identifying this requester as discordrb.
@@ -436,12 +446,12 @@ module Discordrb::API
 
     # Validate a token (this request will fail if the token is invalid)
     #
-    # source://discordrb//lib/discordrb/api.rb#329
+    # source://discordrb//lib/discordrb/api.rb#334
     def validate_token(token); end
 
     # Get a list of available voice regions
     #
-    # source://discordrb//lib/discordrb/api.rb#342
+    # source://discordrb//lib/discordrb/api.rb#347
     def voice_regions(token); end
 
     # Make a widget picture URL from server ID
@@ -849,7 +859,7 @@ module Discordrb::API::Channel
   # https://discord.com/developers/docs/resources/channel#get-reactions
   #
   # source://discordrb//lib/discordrb/api/channel.rb#215
-  def get_reactions(token, channel_id, message_id, emoji, before_id, after_id, limit = T.unsafe(nil)); end
+  def get_reactions(token, channel_id, message_id, emoji, before_id, after_id, limit = T.unsafe(nil), type = T.unsafe(nil)); end
 
   # Get a channel's invite list
   # https://discord.com/developers/docs/resources/channel#get-channel-invites
@@ -1127,7 +1137,7 @@ module Discordrb::API::Channel
     # https://discord.com/developers/docs/resources/channel#get-reactions
     #
     # source://discordrb//lib/discordrb/api/channel.rb#215
-    def get_reactions(token, channel_id, message_id, emoji, before_id, after_id, limit = T.unsafe(nil)); end
+    def get_reactions(token, channel_id, message_id, emoji, before_id, after_id, limit = T.unsafe(nil), type = T.unsafe(nil)); end
 
     # Get a channel's invite list
     # https://discord.com/developers/docs/resources/channel#get-channel-invites
@@ -1633,7 +1643,7 @@ module Discordrb::API::Server
   # https://discord.com/developers/docs/resources/guild#modify-current-member
   #
   # source://discordrb//lib/discordrb/api/server.rb#150
-  def update_current_member(token, server_id, nick = T.unsafe(nil), reason = T.unsafe(nil)); end
+  def update_current_member(token, server_id, nick = T.unsafe(nil), reason = T.unsafe(nil), bio = T.unsafe(nil), banner = T.unsafe(nil), avatar = T.unsafe(nil)); end
 
   # Update integration from server
   # https://discord.com/developers/docs/resources/guild#modify-guild-integration
@@ -1899,7 +1909,7 @@ module Discordrb::API::Server
     # https://discord.com/developers/docs/resources/guild#modify-current-member
     #
     # source://discordrb//lib/discordrb/api/server.rb#150
-    def update_current_member(token, server_id, nick = T.unsafe(nil), reason = T.unsafe(nil)); end
+    def update_current_member(token, server_id, nick = T.unsafe(nil), reason = T.unsafe(nil), bio = T.unsafe(nil), banner = T.unsafe(nil), avatar = T.unsafe(nil)); end
 
     # Update integration from server
     # https://discord.com/developers/docs/resources/guild#modify-guild-integration
@@ -1952,12 +1962,12 @@ module Discordrb::API::User
 
   # Make an avatar URL from the user and avatar IDs
   #
-  # source://discordrb//lib/discordrb/api/user.rb#147
+  # source://discordrb//lib/discordrb/api/user.rb#140
   def avatar_url(user_id, avatar_id, format = T.unsafe(nil)); end
 
   # Make a banner URL from the user and banner IDs
   #
-  # source://discordrb//lib/discordrb/api/user.rb#157
+  # source://discordrb//lib/discordrb/api/user.rb#150
   def banner_url(user_id, banner_id, format = T.unsafe(nil)); end
 
   # https://discord.com/developers/docs/resources/user#modify-current-user-nick
@@ -1967,33 +1977,28 @@ module Discordrb::API::User
   # source://discordrb//lib/discordrb/api/user.rb#33
   def change_own_nickname(token, server_id, nick, reason = T.unsafe(nil)); end
 
-  # Change user status setting
-  #
-  # source://discordrb//lib/discordrb/api/user.rb#123
-  def change_status_setting(token, status); end
-
   # Get information about a user's connections
   # https://discord.com/developers/docs/resources/user#get-users-connections
   #
-  # source://discordrb//lib/discordrb/api/user.rb#112
+  # source://discordrb//lib/discordrb/api/user.rb#118
   def connections(token); end
 
   # Create a DM to another user
   # https://discord.com/developers/docs/resources/user#create-dm
   #
-  # source://discordrb//lib/discordrb/api/user.rb#98
+  # source://discordrb//lib/discordrb/api/user.rb#104
   def create_pm(token, recipient_id); end
 
   # Returns one of the "default" discord avatars from the CDN given a discriminator or id since new usernames
   # TODO: Maybe change this method again after discriminator removal ?
   #
-  # source://discordrb//lib/discordrb/api/user.rb#137
+  # source://discordrb//lib/discordrb/api/user.rb#130
   def default_avatar(discrim_id = T.unsafe(nil), legacy: T.unsafe(nil)); end
 
   # Leave a server
   # https://discord.com/developers/docs/resources/user#leave-guild
   #
-  # source://discordrb//lib/discordrb/api/user.rb#74
+  # source://discordrb//lib/discordrb/api/user.rb#80
   def leave_server(token, server_id); end
 
   # Get profile data
@@ -2011,30 +2016,37 @@ module Discordrb::API::User
   # Get the servers a user is connected to
   # https://discord.com/developers/docs/resources/user#get-current-user-guilds
   #
-  # source://discordrb//lib/discordrb/api/user.rb#62
+  # source://discordrb//lib/discordrb/api/user.rb#68
   def servers(token); end
 
-  # Update user data
+  # Update the properties of the user for the current bot.
   # https://discord.com/developers/docs/resources/user#modify-current-user
   #
+  # source://discordrb//lib/discordrb/api/user.rb#54
+  def update_current_user(token, username = T.unsafe(nil), avatar = T.unsafe(nil), banner = T.unsafe(nil)); end
+
+  # https://discord.com/developers/docs/resources/user#modify-current-user
+  #
+  # @deprecated Please use {update_current_user} instead.
+  #
   # source://discordrb//lib/discordrb/api/user.rb#48
-  def update_profile(token, email, password, new_username, avatar, new_password = T.unsafe(nil)); end
+  def update_profile(token, _email, _password, new_username, avatar, _new_password = T.unsafe(nil)); end
 
   # Get the DMs for the current user
   # https://discord.com/developers/docs/resources/user#get-user-dms
   #
-  # source://discordrb//lib/discordrb/api/user.rb#86
+  # source://discordrb//lib/discordrb/api/user.rb#92
   def user_dms(token); end
 
   class << self
     # Make an avatar URL from the user and avatar IDs
     #
-    # source://discordrb//lib/discordrb/api/user.rb#147
+    # source://discordrb//lib/discordrb/api/user.rb#140
     def avatar_url(user_id, avatar_id, format = T.unsafe(nil)); end
 
     # Make a banner URL from the user and banner IDs
     #
-    # source://discordrb//lib/discordrb/api/user.rb#157
+    # source://discordrb//lib/discordrb/api/user.rb#150
     def banner_url(user_id, banner_id, format = T.unsafe(nil)); end
 
     # https://discord.com/developers/docs/resources/user#modify-current-user-nick
@@ -2044,33 +2056,28 @@ module Discordrb::API::User
     # source://discordrb//lib/discordrb/api/user.rb#33
     def change_own_nickname(token, server_id, nick, reason = T.unsafe(nil)); end
 
-    # Change user status setting
-    #
-    # source://discordrb//lib/discordrb/api/user.rb#123
-    def change_status_setting(token, status); end
-
     # Get information about a user's connections
     # https://discord.com/developers/docs/resources/user#get-users-connections
     #
-    # source://discordrb//lib/discordrb/api/user.rb#112
+    # source://discordrb//lib/discordrb/api/user.rb#118
     def connections(token); end
 
     # Create a DM to another user
     # https://discord.com/developers/docs/resources/user#create-dm
     #
-    # source://discordrb//lib/discordrb/api/user.rb#98
+    # source://discordrb//lib/discordrb/api/user.rb#104
     def create_pm(token, recipient_id); end
 
     # Returns one of the "default" discord avatars from the CDN given a discriminator or id since new usernames
     # TODO: Maybe change this method again after discriminator removal ?
     #
-    # source://discordrb//lib/discordrb/api/user.rb#137
+    # source://discordrb//lib/discordrb/api/user.rb#130
     def default_avatar(discrim_id = T.unsafe(nil), legacy: T.unsafe(nil)); end
 
     # Leave a server
     # https://discord.com/developers/docs/resources/user#leave-guild
     #
-    # source://discordrb//lib/discordrb/api/user.rb#74
+    # source://discordrb//lib/discordrb/api/user.rb#80
     def leave_server(token, server_id); end
 
     # Get profile data
@@ -2088,19 +2095,26 @@ module Discordrb::API::User
     # Get the servers a user is connected to
     # https://discord.com/developers/docs/resources/user#get-current-user-guilds
     #
-    # source://discordrb//lib/discordrb/api/user.rb#62
+    # source://discordrb//lib/discordrb/api/user.rb#68
     def servers(token); end
 
-    # Update user data
+    # Update the properties of the user for the current bot.
     # https://discord.com/developers/docs/resources/user#modify-current-user
     #
+    # source://discordrb//lib/discordrb/api/user.rb#54
+    def update_current_user(token, username = T.unsafe(nil), avatar = T.unsafe(nil), banner = T.unsafe(nil)); end
+
+    # https://discord.com/developers/docs/resources/user#modify-current-user
+    #
+    # @deprecated Please use {update_current_user} instead.
+    #
     # source://discordrb//lib/discordrb/api/user.rb#48
-    def update_profile(token, email, password, new_username, avatar, new_password = T.unsafe(nil)); end
+    def update_profile(token, _email, _password, new_username, avatar, _new_password = T.unsafe(nil)); end
 
     # Get the DMs for the current user
     # https://discord.com/developers/docs/resources/user#get-user-dms
     #
-    # source://discordrb//lib/discordrb/api/user.rb#86
+    # source://discordrb//lib/discordrb/api/user.rb#92
     def user_dms(token); end
   end
 end
@@ -2660,31 +2674,31 @@ end
 
 # An ApplicationCommand for slash commands.
 #
-# source://discordrb//lib/discordrb/data/interaction.rb#327
+# source://discordrb//lib/discordrb/data/interaction.rb#359
 class Discordrb::ApplicationCommand
   # @return [ApplicationCommand] a new instance of ApplicationCommand
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#361
+  # source://discordrb//lib/discordrb/data/interaction.rb#393
   def initialize(data, bot, server_id = T.unsafe(nil)); end
 
   # @return [Integer]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#337
+  # source://discordrb//lib/discordrb/data/interaction.rb#369
   def application_id; end
 
   # @return [true, false]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#349
+  # source://discordrb//lib/discordrb/data/interaction.rb#381
   def default_permission; end
 
   # Delete this application command.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#403
+  # source://discordrb//lib/discordrb/data/interaction.rb#435
   def delete; end
 
   # @return [String]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#346
+  # source://discordrb//lib/discordrb/data/interaction.rb#378
   def description; end
 
   # @param default_permission [true, false] Whether this command is available with default permissions.
@@ -2694,34 +2708,34 @@ class Discordrb::ApplicationCommand
   # @yieldparam [OptionBuilder]
   # @yieldparam [PermissionBuilder]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#397
+  # source://discordrb//lib/discordrb/data/interaction.rb#429
   def edit(name: T.unsafe(nil), description: T.unsafe(nil), default_permission: T.unsafe(nil), nsfw: T.unsafe(nil), &block); end
 
   # @return [Integer]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#355
+  # source://discordrb//lib/discordrb/data/interaction.rb#387
   def id; end
 
   # @param subcommand [String, nil] The subcommand to mention.
   # @param subcommand_group [String, nil] The subcommand group to mention.
   # @return [String] the layout to mention it in a message
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#377
+  # source://discordrb//lib/discordrb/data/interaction.rb#409
   def mention(subcommand_group: T.unsafe(nil), subcommand: T.unsafe(nil)); end
 
   # @return [String]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#343
+  # source://discordrb//lib/discordrb/data/interaction.rb#375
   def name; end
 
   # @return [true, false]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#358
+  # source://discordrb//lib/discordrb/data/interaction.rb#390
   def nsfw; end
 
   # @return [Hash]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#352
+  # source://discordrb//lib/discordrb/data/interaction.rb#384
   def options; end
 
   # Get the permission configuration for the this application command on a specific server.
@@ -2729,48 +2743,48 @@ class Discordrb::ApplicationCommand
   # @param server_id [Integer, String, nil] The ID of the server to fetch command permissions for.
   # @return [Array<Permission>] the permissions for this application command in the given server.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#410
+  # source://discordrb//lib/discordrb/data/interaction.rb#442
   def permissions(server_id: T.unsafe(nil)); end
 
   # @return [Integer, nil]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#340
+  # source://discordrb//lib/discordrb/data/interaction.rb#372
   def server_id; end
 
   # @param subcommand [String, nil] The subcommand to mention.
   # @param subcommand_group [String, nil] The subcommand group to mention.
   # @return [String] the layout to mention it in a message
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#389
+  # source://discordrb//lib/discordrb/data/interaction.rb#421
   def to_s(subcommand_group: T.unsafe(nil), subcommand: T.unsafe(nil)); end
 end
 
 # An application command permission for a channel, member, or a role.
 #
-# source://discordrb//lib/discordrb/data/interaction.rb#421
+# source://discordrb//lib/discordrb/data/interaction.rb#453
 class Discordrb::ApplicationCommand::Permission
   # @return [Permission] a new instance of Permission
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#440
+  # source://discordrb//lib/discordrb/data/interaction.rb#472
   def initialize(data, command, bot); end
 
   # Whether this permission is applied to every channel in the server.
   #
   # @return [true, false]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#477
+  # source://discordrb//lib/discordrb/data/interaction.rb#509
   def all_channels?; end
 
   # Whether this permission has been allowed, e.g has a green check in the UI.
   #
   # @return [true, false]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#452
+  # source://discordrb//lib/discordrb/data/interaction.rb#484
   def allowed?; end
 
   # @return [true, false] whether this permission is for a channel.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#503
+  # source://discordrb//lib/discordrb/data/interaction.rb#535
   def channel?; end
 
   # Whether this permission is the default for all commands that don't
@@ -2778,73 +2792,73 @@ class Discordrb::ApplicationCommand::Permission
   #
   # @return [true, false]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#471
+  # source://discordrb//lib/discordrb/data/interaction.rb#503
   def default?; end
 
   # Whether this permission has been denied, e.g has a red check in the UI.
   #
   # @return [true, false]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#458
+  # source://discordrb//lib/discordrb/data/interaction.rb#490
   def denied?; end
 
   # Whether this permission is applied to the everyone role in the server.
   #
   # @return [true, false]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#464
+  # source://discordrb//lib/discordrb/data/interaction.rb#496
   def everyone?; end
 
   # @return [true, false] whether this permission is for a member.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#503
+  # source://discordrb//lib/discordrb/data/interaction.rb#535
   def member?; end
 
   # @return [true, false] whether this permission is for a role.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#503
+  # source://discordrb//lib/discordrb/data/interaction.rb#535
   def role?; end
 
   # @return [Integer] the ID of the server this permission is for.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#437
+  # source://discordrb//lib/discordrb/data/interaction.rb#469
   def server_id; end
 
   # Get the user, role, or channel(s) that this permission targets.
   #
   # @return [Array<Channel>, Role, Member]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#483
+  # source://discordrb//lib/discordrb/data/interaction.rb#515
   def target; end
 
   # @return [Integer] the ID of the thing this permission is for.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#434
+  # source://discordrb//lib/discordrb/data/interaction.rb#466
   def target_id; end
 
   # Get the user, role, or channel(s) that this permission targets.
   #
   # @return [Array<Channel>, Role, Member]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#494
+  # source://discordrb//lib/discordrb/data/interaction.rb#526
   def targets; end
 
   # @return [Integer] the type of this permission.
   # @see TYPES
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#431
+  # source://discordrb//lib/discordrb/data/interaction.rb#463
   def type; end
 end
 
 # Map of permission types.
 #
-# source://discordrb//lib/discordrb/data/interaction.rb#423
+# source://discordrb//lib/discordrb/data/interaction.rb#455
 Discordrb::ApplicationCommand::Permission::TYPES = T.let(T.unsafe(nil), Hash)
 
 # Command types. `chat_input` is a command that appears in the text input field. `user` and `message` types appear as context menus
 # for the respective resource.
 #
-# source://discordrb//lib/discordrb/data/interaction.rb#330
+# source://discordrb//lib/discordrb/data/interaction.rb#362
 Discordrb::ApplicationCommand::TYPES = T.let(T.unsafe(nil), Hash)
 
 # An attachment to a message
@@ -3406,14 +3420,14 @@ class Discordrb::Bot
   # @param emoji_id [Integer, String] ID of the application emoji.
   # @return [Emoji] The application emoji.
   #
-  # source://discordrb//lib/discordrb/bot.rb#908
+  # source://discordrb//lib/discordrb/bot.rb#912
   def application_emoji(emoji_id); end
 
   # Fetches all the application emojis that the bot can use.
   #
   # @return [Array<Emoji>] Returns an array of emoji objects.
   #
-  # source://discordrb//lib/discordrb/bot.rb#900
+  # source://discordrb//lib/discordrb/bot.rb#904
   def application_emojis; end
 
   # @return [Hash<Symbol => Await>] the list of registered {Await}s.
@@ -3467,7 +3481,7 @@ class Discordrb::Bot
   # @param name [String] The name of emoji to create.
   # @return [Emoji] The emoji that has been created.
   #
-  # source://discordrb//lib/discordrb/bot.rb#917
+  # source://discordrb//lib/discordrb/bot.rb#921
   def create_application_emoji(name:, image:); end
 
   # Creates a new application to do OAuth authorization with. This allows you to use OAuth to authorize users using
@@ -3502,7 +3516,7 @@ class Discordrb::Bot
   #
   # @param emoji_id [Integer, String, Emoji] ID of the application emoji to delete.
   #
-  # source://discordrb//lib/discordrb/bot.rb#934
+  # source://discordrb//lib/discordrb/bot.rb#938
   def delete_application_emoji(emoji_id); end
 
   # Revokes an invite to a server. Will fail unless you have the *Manage Server* permission.
@@ -3529,13 +3543,15 @@ class Discordrb::Bot
   # source://discordrb//lib/discordrb/bot.rb#852
   def edit_application_command(command_id, server_id: T.unsafe(nil), name: T.unsafe(nil), description: T.unsafe(nil), default_permission: T.unsafe(nil), type: T.unsafe(nil), default_member_permissions: T.unsafe(nil), contexts: T.unsafe(nil), nsfw: T.unsafe(nil)); end
 
+  # @param bearer_token [String] A valid bearer token that has permission to manage the server and its roles.
   # @param command_id [Integer, String]
   # @param permissions [Array<Hash>] An array of objects formatted as `{ id: ENTITY_ID, type: 1 or 2, permission: true or false }`
   # @param server_id [Integer, String]
+  # @raise [ArgumentError]
   # @yield [builder]
   #
-  # source://discordrb//lib/discordrb/bot.rb#890
-  def edit_application_command_permissions(command_id, server_id, permissions = T.unsafe(nil)); end
+  # source://discordrb//lib/discordrb/bot.rb#891
+  def edit_application_command_permissions(command_id, server_id, permissions = T.unsafe(nil), bearer_token = T.unsafe(nil)); end
 
   # Edits an existing application emoji.
   #
@@ -3543,7 +3559,7 @@ class Discordrb::Bot
   # @param name [String] The new name of the emoji.
   # @return [Emoji] Returns the updated emoji object on success.
   #
-  # source://discordrb//lib/discordrb/bot.rb#927
+  # source://discordrb//lib/discordrb/bot.rb#931
   def edit_application_emoji(emoji_id, name:); end
 
   # @overload emoji
@@ -4014,89 +4030,89 @@ class Discordrb::Bot
 
   # Internal handler for GUILD_MEMBER_ADD
   #
-  # source://discordrb//lib/discordrb/bot.rb#1121
+  # source://discordrb//lib/discordrb/bot.rb#1128
   def add_guild_member(data); end
 
   # Internal handler for MESSAGE_REACTION_ADD
   #
-  # source://discordrb//lib/discordrb/bot.rb#1223
+  # source://discordrb//lib/discordrb/bot.rb#1230
   def add_message_reaction(data); end
 
   # Internal handler for CHANNEL_RECIPIENT_ADD
   #
-  # source://discordrb//lib/discordrb/bot.rb#1101
+  # source://discordrb//lib/discordrb/bot.rb#1108
   def add_recipient(data); end
 
   # Internal handler for GUILD_BAN_ADD
   #
-  # source://discordrb//lib/discordrb/bot.rb#1232
+  # source://discordrb//lib/discordrb/bot.rb#1239
   def add_user_ban(data); end
 
-  # source://discordrb//lib/discordrb/bot.rb#1791
+  # source://discordrb//lib/discordrb/bot.rb#1811
   def calculate_intents(intents); end
 
-  # source://discordrb//lib/discordrb/bot.rb#1759
+  # source://discordrb//lib/discordrb/bot.rb#1779
   def call_event(handler, event); end
 
   # Internal handler for CHANNEL_CREATE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1058
+  # source://discordrb//lib/discordrb/bot.rb#1062
   def create_channel(data); end
 
   # Internal handler for GUILD_CREATE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1155
+  # source://discordrb//lib/discordrb/bot.rb#1162
   def create_guild(data); end
 
   # Internal handler for GUILD_ROLE_CREATE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1182
+  # source://discordrb//lib/discordrb/bot.rb#1189
   def create_guild_role(data); end
 
   # Internal handler for MESSAGE_CREATE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1211
+  # source://discordrb//lib/discordrb/bot.rb#1218
   def create_message(data); end
 
   # Internal handler for CHANNEL_DELETE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1083
+  # source://discordrb//lib/discordrb/bot.rb#1090
   def delete_channel(data); end
 
   # Internal handler for GUILD_DELETE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1165
+  # source://discordrb//lib/discordrb/bot.rb#1172
   def delete_guild(data); end
 
   # Internal handler for GUILD_MEMBER_DELETE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1143
+  # source://discordrb//lib/discordrb/bot.rb#1150
   def delete_guild_member(data); end
 
   # Internal handler for GUILD_ROLE_DELETE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1196
+  # source://discordrb//lib/discordrb/bot.rb#1203
   def delete_guild_role(data); end
 
   # Internal handler for MESSAGE_DELETE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1220
+  # source://discordrb//lib/discordrb/bot.rb#1227
   def delete_message(data); end
 
   # Throws a useful exception if there's currently no gateway connection.
   #
-  # source://discordrb//lib/discordrb/bot.rb#941
+  # source://discordrb//lib/discordrb/bot.rb#945
   def gateway_check; end
 
-  # source://discordrb//lib/discordrb/bot.rb#1777
+  # source://discordrb//lib/discordrb/bot.rb#1797
   def handle_awaits(event); end
 
-  # source://discordrb//lib/discordrb/bot.rb#1253
+  # source://discordrb//lib/discordrb/bot.rb#1260
   def handle_dispatch(type, data); end
 
   # Notifies everything there is to be notified that the connection is now ready
   #
-  # source://discordrb//lib/discordrb/bot.rb#1738
+  # source://discordrb//lib/discordrb/bot.rb#1758
   def notify_ready; end
 
   # #######   ######   #### ##    ##
@@ -4107,116 +4123,116 @@ class Discordrb::Bot
   #       ##     ## ##    ##   ##  ##   ###
   #  #######   ######   #### ##    ##
   #
-  # source://discordrb//lib/discordrb/bot.rb#1245
+  # source://discordrb//lib/discordrb/bot.rb#1252
   def process_token(type, token); end
 
-  # source://discordrb//lib/discordrb/bot.rb#1746
+  # source://discordrb//lib/discordrb/bot.rb#1766
   def raise_event(event); end
 
   # Internal handler for MESSAGE_REACTION_REMOVE_ALL
   #
-  # source://discordrb//lib/discordrb/bot.rb#1229
+  # source://discordrb//lib/discordrb/bot.rb#1236
   def remove_all_message_reactions(data); end
 
   # Internal handler for MESSAGE_REACTION_REMOVE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1226
+  # source://discordrb//lib/discordrb/bot.rb#1233
   def remove_message_reaction(data); end
 
   # Internal handler for CHANNEL_RECIPIENT_REMOVE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1111
+  # source://discordrb//lib/discordrb/bot.rb#1118
   def remove_recipient(data); end
 
   # Internal handler for GUILD_BAN_REMOVE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1235
+  # source://discordrb//lib/discordrb/bot.rb#1242
   def remove_user_ban(data); end
 
   # Internal handler for TYPING_START
   #
-  # source://discordrb//lib/discordrb/bot.rb#1214
+  # source://discordrb//lib/discordrb/bot.rb#1221
   def start_typing(data); end
 
   # Logs a warning if there are servers which are still unavailable.
   # e.g. due to a Discord outage or because the servers are large and taking a while to load.
   #
-  # source://discordrb//lib/discordrb/bot.rb#947
+  # source://discordrb//lib/discordrb/bot.rb#951
   def unavailable_servers_check; end
 
   # Internal handler for CHANNEL_UPDATE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1074
+  # source://discordrb//lib/discordrb/bot.rb#1081
   def update_channel(data); end
 
   # Internal handler for GUILD_UPDATE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1160
+  # source://discordrb//lib/discordrb/bot.rb#1167
   def update_guild(data); end
 
   # Internal handler for GUILD_EMOJIS_UPDATE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1204
+  # source://discordrb//lib/discordrb/bot.rb#1211
   def update_guild_emoji(data); end
 
   # Internal handler for GUILD_MEMBER_UPDATE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1130
+  # source://discordrb//lib/discordrb/bot.rb#1137
   def update_guild_member(data); end
 
   # Internal handler for GUILD_ROLE_UPDATE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1171
+  # source://discordrb//lib/discordrb/bot.rb#1178
   def update_guild_role(data); end
 
   # Internal handler for MESSAGE_UPDATE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1217
+  # source://discordrb//lib/discordrb/bot.rb#1224
   def update_message(data); end
 
   # Internal handler for PRESENCE_UPDATE
   #
-  # source://discordrb//lib/discordrb/bot.rb#964
+  # source://discordrb//lib/discordrb/bot.rb#968
   def update_presence(data); end
 
   # Internal handler for VOICE_SERVER_UPDATE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1035
+  # source://discordrb//lib/discordrb/bot.rb#1039
   def update_voice_server(data); end
 
   # Internal handler for VOICE_STATE_UPDATE
   #
-  # source://discordrb//lib/discordrb/bot.rb#1007
+  # source://discordrb//lib/discordrb/bot.rb#1011
   def update_voice_state(data); end
 end
 
 # A bulk ban entry on a server
 #
-# source://discordrb//lib/discordrb/data/server.rb#1057
+# source://discordrb//lib/discordrb/data/server.rb#1059
 class Discordrb::BulkBan
   # @return [BulkBan] a new instance of BulkBan
   #
-  # source://discordrb//lib/discordrb/data/server.rb#1071
+  # source://discordrb//lib/discordrb/data/server.rb#1073
   def initialize(data, server, reason); end
 
   # @return [Array<Integer>] Array of user IDs that were banned.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#1065
+  # source://discordrb//lib/discordrb/data/server.rb#1067
   def banned_users; end
 
   # @return [Array<Integer>] Array of user IDs that couldn't be banned.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#1068
+  # source://discordrb//lib/discordrb/data/server.rb#1070
   def failed_users; end
 
   # @return [String, nil] The reason these users were banned.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#1062
+  # source://discordrb//lib/discordrb/data/server.rb#1064
   def reason; end
 
   # @return [Server] The server this bulk ban belongs to.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#1059
+  # source://discordrb//lib/discordrb/data/server.rb#1061
   def server; end
 end
 
@@ -4439,7 +4455,7 @@ class Discordrb::Channel
 
   # @return [Channel] a new instance of Channel
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#117
+  # source://discordrb//lib/discordrb/data/channel.rb#135
   def initialize(data, bot, server = T.unsafe(nil)); end
 
   # Adds a user to a group channel.
@@ -4447,7 +4463,7 @@ class Discordrb::Channel
   # @param user_ids [Array<String, Integer>, String, Integer] User ID or array of user IDs to add to the group channel.
   # @return [Channel] the group channel.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#859
+  # source://discordrb//lib/discordrb/data/channel.rb#908
   def add_group_user(user_ids); end
 
   # Adds a user to a group channel.
@@ -4455,14 +4471,14 @@ class Discordrb::Channel
   # @param user_ids [Array<String, Integer>, String, Integer] User ID or array of user IDs to add to the group channel.
   # @return [Channel] the group channel.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#849
+  # source://discordrb//lib/discordrb/data/channel.rb#898
   def add_group_users(user_ids); end
 
   # Add a member to the thread
   #
   # @param member [Member, Integer, String] The member, or ID of the member, to add to this thread.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#993
+  # source://discordrb//lib/discordrb/data/channel.rb#1055
   def add_member(member); end
 
   # Adds a recipient to a group channel.
@@ -4471,27 +4487,27 @@ class Discordrb::Channel
   # @param recipient [Recipient] the recipient to add to the group
   # @raise [ArgumentError] if tried to add a non-recipient
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#1014
+  # source://discordrb//lib/discordrb/data/channel.rb#1076
   def add_recipient(recipient); end
 
   # @return [Time, nil] The timestamp of when this threads status last changed.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#81
+  # source://discordrb//lib/discordrb/data/channel.rb#82
   def archive_timestamp; end
 
   # @return [true, false, nil] Whether or not this thread is archived.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#74
+  # source://discordrb//lib/discordrb/data/channel.rb#75
   def archived; end
 
   # @return [true, false, nil] Whether or not this thread is archived.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#75
+  # source://discordrb//lib/discordrb/data/channel.rb#76
   def archived?; end
 
   # @return [Integer, nil] How long after the last message before a thread is automatically archived.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#78
+  # source://discordrb//lib/discordrb/data/channel.rb#79
   def auto_archive_duration; end
 
   # Add an {Await} for a message in this channel. This is identical in functionality to adding a
@@ -4500,7 +4516,7 @@ class Discordrb::Channel
   # @deprecated Will be changed to blocking behavior in v4.0. Use {#await!} instead.
   # @see Bot#add_await
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#800
+  # source://discordrb//lib/discordrb/data/channel.rb#849
   def await(key, attributes = T.unsafe(nil), &block); end
 
   # Add a blocking {Await} for a message in this channel. This is identical in functionality to adding a
@@ -4508,24 +4524,24 @@ class Discordrb::Channel
   #
   # @see Bot#add_await!
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#807
+  # source://discordrb//lib/discordrb/data/channel.rb#856
   def await!(attributes = T.unsafe(nil), &block); end
 
   # @return [Integer] the bitrate (in bps) of the channel
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#50
+  # source://discordrb//lib/discordrb/data/channel.rb#51
   def bitrate; end
 
   # Sets this channel's bitrate.
   #
   # @param bitrate [Integer] The new bitrate (in bps). Number has to be between 8000-96000 (128000 for VIP servers)
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#583
+  # source://discordrb//lib/discordrb/data/channel.rb#627
   def bitrate=(bitrate); end
 
   # @return [Channel, nil] the category channel, if this channel is in a category
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#239
+  # source://discordrb//lib/discordrb/data/channel.rb#283
   def category; end
 
   # Sets this channels parent category
@@ -4533,26 +4549,26 @@ class Discordrb::Channel
   # @param channel [Channel, String, Integer] the target category channel, or its ID
   # @raise [ArgumentError] if the target channel isn't a category
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#248
+  # source://discordrb//lib/discordrb/data/channel.rb#292
   def category=(channel); end
 
   # @return [true, false] whether or not this channel is a category channel.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#204
+  # source://discordrb//lib/discordrb/data/channel.rb#228
   def category?; end
 
   # Returns the children of this channel, if it is a category. Otherwise returns an empty array.
   #
   # @return [Array<Channel>]
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#393
+  # source://discordrb//lib/discordrb/data/channel.rb#437
   def channels; end
 
   # Returns the children of this channel, if it is a category. Otherwise returns an empty array.
   #
   # @return [Array<Channel>]
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#387
+  # source://discordrb//lib/discordrb/data/channel.rb#431
   def children; end
 
   # Creates a Group channel
@@ -4561,7 +4577,7 @@ class Discordrb::Channel
   #   the recipient of the PM channel).
   # @return [Channel] the created channel.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#838
+  # source://discordrb//lib/discordrb/data/channel.rb#887
   def create_group(user_ids); end
 
   # Creates a webhook in this channel
@@ -4572,17 +4588,17 @@ class Discordrb::Channel
   # @raise [ArgumentError] if the channel isn't a text channel in a server.
   # @return [Webhook] the created webhook.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#891
+  # source://discordrb//lib/discordrb/data/channel.rb#940
   def create_webhook(name, avatar = T.unsafe(nil), reason = T.unsafe(nil)); end
 
   # @return [true, false] whether or not this channel is the default channel
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#422
+  # source://discordrb//lib/discordrb/data/channel.rb#466
   def default?; end
 
   # @return [true, false] whether or not this channel is the default channel
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#418
+  # source://discordrb//lib/discordrb/data/channel.rb#462
   def default_channel?; end
 
   # Defines a permission overwrite for this channel that sets the specified thing to the specified allow and deny
@@ -4591,21 +4607,21 @@ class Discordrb::Channel
   # @overload define_overwrite
   # @overload define_overwrite
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#626
+  # source://discordrb//lib/discordrb/data/channel.rb#670
   def define_overwrite(thing, allow = T.unsafe(nil), deny = T.unsafe(nil), reason: T.unsafe(nil)); end
 
   # Permanently deletes this channel
   #
   # @param reason [String] The reason the for the channel deletion.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#563
+  # source://discordrb//lib/discordrb/data/channel.rb#607
   def delete(reason = T.unsafe(nil)); end
 
   # Deletes a message on this channel. Mostly useful in case a message needs to be deleted when only the ID is known
   #
   # @param message [Message, String, Integer, String, Integer] The message, or its ID, that should be deleted.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#557
+  # source://discordrb//lib/discordrb/data/channel.rb#601
   def delete_message(message); end
 
   # Deletes a collection of messages
@@ -4617,7 +4633,7 @@ class Discordrb::Channel
   # @raise [ArgumentError] if the amount of messages is not a value between 2 and 100
   # @return [Integer] The amount of messages that were successfully deleted
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#782
+  # source://discordrb//lib/discordrb/data/channel.rb#831
   def delete_messages(messages, strict = T.unsafe(nil), reason = T.unsafe(nil)); end
 
   # Deletes a permission overwrite for this channel
@@ -4625,12 +4641,27 @@ class Discordrb::Channel
   # @param target [Member, User, Role, Profile, Recipient, String, Integer] What permission overwrite to delete
   #   @param reason [String] The reason the for the overwrite deletion.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#640
+  # source://discordrb//lib/discordrb/data/channel.rb#684
   def delete_overwrite(target, reason = T.unsafe(nil)); end
+
+  # @return [true, false] whether or not this channel is a directory channel.
+  #
+  # source://discordrb//lib/discordrb/data/channel.rb#268
+  def directory?; end
+
+  # @return [Integer] The flags set on this channel combined as a bitfield.
+  #
+  # source://discordrb//lib/discordrb/data/channel.rb#110
+  def flags; end
+
+  # @return [true, false] whether or not this channel is a forum channel.
+  #
+  # source://discordrb//lib/discordrb/data/channel.rb#273
+  def forum?; end
 
   # @return [true, false] whether or not this channel is a group channel.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#199
+  # source://discordrb//lib/discordrb/data/channel.rb#223
   def group?; end
 
   # Retrieves some of this channel's message history.
@@ -4648,31 +4679,31 @@ class Discordrb::Channel
   #   start at the current message.
   # @return [Array<Message>] the retrieved messages.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#694
+  # source://discordrb//lib/discordrb/data/channel.rb#743
   def history(amount, before_id = T.unsafe(nil), after_id = T.unsafe(nil), around_id = T.unsafe(nil)); end
 
   # Retrieves message history, but only message IDs for use with prune.
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#702
+  # source://discordrb//lib/discordrb/data/channel.rb#751
   def history_ids(amount, before_id = T.unsafe(nil), after_id = T.unsafe(nil), around_id = T.unsafe(nil)); end
 
   # The default `inspect` method is overwritten to give more useful output.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#1005
+  # source://discordrb//lib/discordrb/data/channel.rb#1067
   def inspect; end
 
   # @return [true, false, nil] For private threads, determines whether non-moderators can add other non-moderators to
   #   a thread.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#95
+  # source://discordrb//lib/discordrb/data/channel.rb#96
   def invitable; end
 
   # @return [true, false, nil] For private threads, determines whether non-moderators can add other non-moderators to
   #   a thread.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#96
+  # source://discordrb//lib/discordrb/data/channel.rb#97
   def invitable?; end
 
   # Creates a new invite to this channel.
@@ -4684,66 +4715,79 @@ class Discordrb::Channel
   # @param unique [true, false] If true, Discord will always send a unique invite instead of possibly re-using a similar one
   # @return [Invite] the created invite.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#823
+  # source://discordrb//lib/discordrb/data/channel.rb#872
   def invite(max_age = T.unsafe(nil), max_uses = T.unsafe(nil), temporary = T.unsafe(nil), unique = T.unsafe(nil), reason = T.unsafe(nil)); end
 
   # Requests a list of Invites to the channel.
   #
   # @return [Array<Invite>] invites to the channel.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#910
+  # source://discordrb//lib/discordrb/data/channel.rb#959
   def invites; end
 
   # Join this thread.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#977
+  # source://discordrb//lib/discordrb/data/channel.rb#1039
   def join_thread; end
 
   # @return [Time, nil] When the current user joined this thread.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#88
+  # source://discordrb//lib/discordrb/data/channel.rb#89
   def join_timestamp; end
 
   # @return [String] a URL that a user can use to navigate to this channel in the client
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#1063
+  # source://discordrb//lib/discordrb/data/channel.rb#1133
   def jump_link; end
+
+  # Returns the last message or forum post created in this channel.
+  #
+  # @return [Message, Channel, nil] the last message sent in this channel,
+  #   the most recent forum post if this is a forum or media channel, or `nil`.
+  #
+  # source://discordrb//lib/discordrb/data/channel.rb#969
+  def last_message; end
+
+  # @return [Integer, nil] The ID of the last message sent in this channel. This may not point to a valid message.
+  #
+  # source://discordrb//lib/discordrb/data/channel.rb#103
+  def last_message_id; end
 
   # @return [Time, nil] The time at when the last pinned message was pinned in this channel.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#99
+  # source://discordrb//lib/discordrb/data/channel.rb#100
   def last_pin_timestamp; end
 
   # Leaves the group.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#883
+  # source://discordrb//lib/discordrb/data/channel.rb#932
   def leave; end
 
   # Leaves the group.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#877
+  # source://discordrb//lib/discordrb/data/channel.rb#926
   def leave_group; end
 
   # Leave this thread
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#982
+  # source://discordrb//lib/discordrb/data/channel.rb#1044
   def leave_thread; end
 
   # @return [Integer] the amount of users that can be in the channel. `0` means it is unlimited.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#54
+  # source://discordrb//lib/discordrb/data/channel.rb#55
   def limit; end
 
   # Sets this channel's user limit.
   #
   # @param limit [Integer] The new user limit. `0` for unlimited, has to be a number between 0-99
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#597
+  # source://discordrb//lib/discordrb/data/channel.rb#641
   def limit=(limit); end
 
   # @return [String] a URL that a user can use to navigate to this channel in the client
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#1059
+  # source://discordrb//lib/discordrb/data/channel.rb#1129
   def link; end
 
   # Returns a single message from this channel's history by ID.
@@ -4751,17 +4795,17 @@ class Discordrb::Channel
   # @param message_id [Integer] The ID of the message to retrieve.
   # @return [Message, nil] the retrieved message, or `nil` if it couldn't be found.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#710
+  # source://discordrb//lib/discordrb/data/channel.rb#759
   def load_message(message_id); end
 
   # @return [true, false, nil] Whether this thread is locked or not.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#84
+  # source://discordrb//lib/discordrb/data/channel.rb#85
   def locked; end
 
   # @return [true, false, nil] Whether this thread is locked or not.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#85
+  # source://discordrb//lib/discordrb/data/channel.rb#86
   def locked?; end
 
   # Creates a new invite to this channel.
@@ -4773,32 +4817,37 @@ class Discordrb::Channel
   # @param unique [true, false] If true, Discord will always send a unique invite instead of possibly re-using a similar one
   # @return [Invite] the created invite.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#818
+  # source://discordrb//lib/discordrb/data/channel.rb#867
   def make_invite(max_age = T.unsafe(nil), max_uses = T.unsafe(nil), temporary = T.unsafe(nil), unique = T.unsafe(nil), reason = T.unsafe(nil)); end
+
+  # @return [true, false] whether or not this channel is a media channel.
+  #
+  # source://discordrb//lib/discordrb/data/channel.rb#278
+  def media?; end
 
   # @return [Integer, nil] An approximate count of members in a thread. Stops counting at 50.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#71
+  # source://discordrb//lib/discordrb/data/channel.rb#72
   def member_count; end
 
   # @return [Integer, nil] Member flags for this thread, used for notifications.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#91
+  # source://discordrb//lib/discordrb/data/channel.rb#92
   def member_flags; end
 
   # @return [Overwrite] any member-type permission overwrites on this channel
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#408
+  # source://discordrb//lib/discordrb/data/channel.rb#452
   def member_overwrites; end
 
   # Members in the thread.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#987
+  # source://discordrb//lib/discordrb/data/channel.rb#1049
   def members; end
 
   # @return [String] a string that will mention the channel as a clickable link on Discord.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#107
+  # source://discordrb//lib/discordrb/data/channel.rb#125
   def mention; end
 
   # Returns a single message from this channel's history by ID.
@@ -4806,39 +4855,39 @@ class Discordrb::Channel
   # @param message_id [Integer] The ID of the message to retrieve.
   # @return [Message, nil] the retrieved message, or `nil` if it couldn't be found.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#719
+  # source://discordrb//lib/discordrb/data/channel.rb#768
   def message(message_id); end
 
   # @return [Integer, nil] An approximate count of messages sent in a thread, excluding deleted messages.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#68
+  # source://discordrb//lib/discordrb/data/channel.rb#69
   def message_count; end
 
   # @return [String] this channel's name.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#29
+  # source://discordrb//lib/discordrb/data/channel.rb#30
   def name; end
 
   # Sets this channel's name. The name must be alphanumeric with dashes, unless this is a voice channel (then there are no limitations)
   #
   # @param name [String] The new name.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#569
+  # source://discordrb//lib/discordrb/data/channel.rb#613
   def name=(name); end
 
   # @return [true, false] whether or not this channel is a news channel.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#209
+  # source://discordrb//lib/discordrb/data/channel.rb#233
   def news?; end
 
   # @return [true, false] whether or not this channel is a news thread.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#219
+  # source://discordrb//lib/discordrb/data/channel.rb#243
   def news_thread?; end
 
   # @return [true, false] if this channel is marked as nsfw
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#60
+  # source://discordrb//lib/discordrb/data/channel.rb#61
   def nsfw; end
 
   # Sets whether this channel is NSFW
@@ -4846,12 +4895,12 @@ class Discordrb::Channel
   # @param nsfw [true, false]
   # @raise [ArgumentError] if value isn't one of true, false
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#326
+  # source://discordrb//lib/discordrb/data/channel.rb#370
   def nsfw=(nsfw); end
 
   # @return [true, false] if this channel is marked as nsfw
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#61
+  # source://discordrb//lib/discordrb/data/channel.rb#62
   def nsfw?; end
 
   # This channel's permission overwrites
@@ -4859,18 +4908,18 @@ class Discordrb::Channel
   # @overload permission_overwrites
   # @overload permission_overwrites
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#347
+  # source://discordrb//lib/discordrb/data/channel.rb#391
   def overwrites(type = T.unsafe(nil)); end
 
   # @return [Integer, nil] the ID of the owner of the group channel or nil if this is not a group channel. If this
   #   channel is a thread, this is the member that started the thread.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#41
+  # source://discordrb//lib/discordrb/data/channel.rb#42
   def owner_id; end
 
   # @return [Channel, nil] the category channel, if this channel is in a category
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#243
+  # source://discordrb//lib/discordrb/data/channel.rb#287
   def parent; end
 
   # Sets this channels parent category
@@ -4878,13 +4927,13 @@ class Discordrb::Channel
   # @param channel [Channel, String, Integer] the target category channel, or its ID
   # @raise [ArgumentError] if the target channel isn't a category
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#255
+  # source://discordrb//lib/discordrb/data/channel.rb#299
   def parent=(channel); end
 
   # @return [Integer, nil] the ID of the parent channel, if this channel is inside a category. If this channel is a
   #   thread, this is the text channel it is a child to.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#33
+  # source://discordrb//lib/discordrb/data/channel.rb#34
   def parent_id; end
 
   # This channel's permission overwrites
@@ -4892,14 +4941,14 @@ class Discordrb::Channel
   # @overload permission_overwrites
   # @overload permission_overwrites
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#341
+  # source://discordrb//lib/discordrb/data/channel.rb#385
   def permission_overwrites(type = T.unsafe(nil)); end
 
   # Bulk sets this channels permission overwrites
   #
   # @param overwrites [Array<Overwrite>]
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#351
+  # source://discordrb//lib/discordrb/data/channel.rb#395
   def permission_overwrites=(overwrites); end
 
   # Requests the pinned messages in a channel.
@@ -4907,42 +4956,50 @@ class Discordrb::Channel
   # @param limit [Integer, nil] the limit of how many pinned messages to retrieve. `nil` will return all the pinned messages.
   # @return [Array<Message>] the messages pinned in the channel.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#724
+  # source://discordrb//lib/discordrb/data/channel.rb#773
   def pins(limit: T.unsafe(nil)); end
 
   # @return [true, false] whether or not this channel is a PM channel.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#189
+  # source://discordrb//lib/discordrb/data/channel.rb#213
   def pm?; end
 
   # @return [Integer] the channel's position on the channel list
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#57
+  # source://discordrb//lib/discordrb/data/channel.rb#58
   def position; end
 
   # Sets this channel's position in the list.
   #
   # @param position [Integer] The new position.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#601
+  # source://discordrb//lib/discordrb/data/channel.rb#645
   def position=(position); end
 
   # @return [true, false] whether or not this channel is a PM or group channel.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#102
+  # source://discordrb//lib/discordrb/data/channel.rb#120
   def private?; end
 
   # @return [true, false] whether or not this channel is a private thread.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#229
+  # source://discordrb//lib/discordrb/data/channel.rb#253
   def private_thread?; end
+
+  # Set the last message ID of a channel.
+  #
+  # @note For internal use only
+  # @param id [Integer, nil] the ID of the last message in a channel
+  #
+  # source://discordrb//lib/discordrb/data/channel.rb#1107
+  def process_last_message_id(id); end
 
   # Set the last pin timestamp of a channel.
   #
   # @note For internal use only
   # @param time [String, nil] the time of the last pinned message in the channel
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#1037
+  # source://discordrb//lib/discordrb/data/channel.rb#1099
   def process_last_pin_timestamp(time); end
 
   # Delete the last N messages on this channel.
@@ -4957,17 +5014,17 @@ class Discordrb::Channel
   # @return [Integer] The amount of messages that were successfully deleted
   # @yield [message] Yields each message in this channels history for filtering the messages to delete
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#754
+  # source://discordrb//lib/discordrb/data/channel.rb#803
   def prune(amount, strict = T.unsafe(nil), reason = T.unsafe(nil), &block); end
 
   # @return [true, false] whether or not this channel is a public thread.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#224
+  # source://discordrb//lib/discordrb/data/channel.rb#248
   def public_thread?; end
 
   # @return [Integer] the amount of time (in seconds) users need to wait to send in between messages.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#64
+  # source://discordrb//lib/discordrb/data/channel.rb#65
   def rate_limit_per_user; end
 
   # Sets the amount of time (in seconds) users have to wait in between sending messages.
@@ -4975,17 +5032,17 @@ class Discordrb::Channel
   # @param rate [Integer]
   # @raise [ArgumentError] if value isn't between 0 and 21600
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#358
+  # source://discordrb//lib/discordrb/data/channel.rb#402
   def rate_limit_per_user=(rate); end
 
   # @return [Recipient, nil] the recipient of the private messages, or nil if this is not a PM channel
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#112
+  # source://discordrb//lib/discordrb/data/channel.rb#130
   def recipient; end
 
   # @return [Array<Recipient>, nil] the array of recipients of the private messages, or nil if this is not a Private channel
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#44
+  # source://discordrb//lib/discordrb/data/channel.rb#45
   def recipients; end
 
   # Removes a user from a group channel.
@@ -4993,7 +5050,7 @@ class Discordrb::Channel
   # @param user_ids [Array<String, Integer>, String, Integer] User ID or array of user IDs to remove from the group channel.
   # @return [Channel] the group channel.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#874
+  # source://discordrb//lib/discordrb/data/channel.rb#923
   def remove_group_user(user_ids); end
 
   # Removes a user from a group channel.
@@ -5001,12 +5058,12 @@ class Discordrb::Channel
   # @param user_ids [Array<String, Integer>, String, Integer] User ID or array of user IDs to remove from the group channel.
   # @return [Channel] the group channel.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#864
+  # source://discordrb//lib/discordrb/data/channel.rb#913
   def remove_group_users(user_ids); end
 
   # @param member [Member, Integer, String] The member, or ID of the member, to remove from a thread.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#998
+  # source://discordrb//lib/discordrb/data/channel.rb#1060
   def remove_member(member); end
 
   # Removes a recipient from a group channel.
@@ -5015,12 +5072,12 @@ class Discordrb::Channel
   # @param recipient [Recipient] the recipient to remove from the group
   # @raise [ArgumentError] if tried to remove a non-recipient
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#1026
+  # source://discordrb//lib/discordrb/data/channel.rb#1088
   def remove_recipient(recipient); end
 
   # @return [Overwrite] any role-type permission overwrites on this channel
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#413
+  # source://discordrb//lib/discordrb/data/channel.rb#457
   def role_overwrites; end
 
   # Sends a message to this channel.
@@ -5035,7 +5092,7 @@ class Discordrb::Channel
   # @param tts [true, false] Whether or not this message should be sent using Discord text-to-speech.
   # @return [Message] the message that was sent.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#443
+  # source://discordrb//lib/discordrb/data/channel.rb#487
   def send(content, tts = T.unsafe(nil), embed = T.unsafe(nil), attachments = T.unsafe(nil), allowed_mentions = T.unsafe(nil), message_reference = T.unsafe(nil), components = T.unsafe(nil), flags = T.unsafe(nil)); end
 
   # Convenience method to send a message with an embed.
@@ -5057,7 +5114,7 @@ class Discordrb::Channel
   # @yield [embed] Yields the embed to allow for easy building inside a block.
   # @yieldparam embed [Discordrb::Webhooks::Embed] The embed from the parameters, or a new one.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#476
+  # source://discordrb//lib/discordrb/data/channel.rb#520
   def send_embed(message = T.unsafe(nil), embed = T.unsafe(nil), attachments = T.unsafe(nil), tts = T.unsafe(nil), allowed_mentions = T.unsafe(nil), message_reference = T.unsafe(nil), components = T.unsafe(nil), flags = T.unsafe(nil)); end
 
   # Sends a file to this channel. If it is an image, it will be embedded.
@@ -5070,7 +5127,7 @@ class Discordrb::Channel
   # @param spoiler [true, false] Whether or not this file should appear as a spoiler.
   # @param tts [true, false] Whether or not this file's caption should be sent using Discord text-to-speech.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#551
+  # source://discordrb//lib/discordrb/data/channel.rb#595
   def send_file(file, caption: T.unsafe(nil), tts: T.unsafe(nil), filename: T.unsafe(nil), spoiler: T.unsafe(nil)); end
 
   # Sends a message to this channel.
@@ -5085,7 +5142,7 @@ class Discordrb::Channel
   # @param tts [true, false] Whether or not this message should be sent using Discord text-to-speech.
   # @return [Message] the message that was sent.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#439
+  # source://discordrb//lib/discordrb/data/channel.rb#483
   def send_message(content, tts = T.unsafe(nil), embed = T.unsafe(nil), attachments = T.unsafe(nil), allowed_mentions = T.unsafe(nil), message_reference = T.unsafe(nil), components = T.unsafe(nil), flags = T.unsafe(nil)); end
 
   # Send a message to this channel.
@@ -5113,14 +5170,14 @@ class Discordrb::Channel
   # @yieldparam builder [Webhooks::Builder] An optional message builder. Arguments passed to the builder overwrite method data.
   # @yieldparam view [Webhooks::View] An optional component builder. Arguments passed to the builder overwrite method data.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#508
+  # source://discordrb//lib/discordrb/data/channel.rb#552
   def send_message!(content: T.unsafe(nil), timeout: T.unsafe(nil), tts: T.unsafe(nil), embeds: T.unsafe(nil), attachments: T.unsafe(nil), allowed_mentions: T.unsafe(nil), reference: T.unsafe(nil), components: T.unsafe(nil), flags: T.unsafe(nil), has_components: T.unsafe(nil), nonce: T.unsafe(nil), enforce_nonce: T.unsafe(nil)); end
 
   # Sends multiple messages to a channel
   #
   # @param content [Array<String>] The messages to send.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#532
+  # source://discordrb//lib/discordrb/data/channel.rb#576
   def send_multiple(content); end
 
   # Sends a temporary message to this channel.
@@ -5135,24 +5192,24 @@ class Discordrb::Channel
   # @param timeout [Float] The amount of time in seconds after which the message sent will be deleted.
   # @param tts [true, false] Whether or not this message should be sent using Discord text-to-speech.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#455
+  # source://discordrb//lib/discordrb/data/channel.rb#499
   def send_temporary_message(content, timeout, tts = T.unsafe(nil), embed = T.unsafe(nil), attachments = T.unsafe(nil), allowed_mentions = T.unsafe(nil), message_reference = T.unsafe(nil), components = T.unsafe(nil), flags = T.unsafe(nil)); end
 
   # @raise [Discordrb::Errors::NoPermission] This can happen when receiving interactions for servers in which the bot is not
   #   authorized with the `bot` scope.
   # @return [Server, nil] the server this channel is on. If this channel is a PM channel, it will be nil.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#173
+  # source://discordrb//lib/discordrb/data/channel.rb#197
   def server; end
 
   # @return [true, false] whether or not this channel has slowmode enabled
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#425
+  # source://discordrb//lib/discordrb/data/channel.rb#469
   def slowmode?; end
 
   # @return [Integer] the amount of time (in seconds) users need to wait to send in between messages.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#65
+  # source://discordrb//lib/discordrb/data/channel.rb#66
   def slowmode_rate; end
 
   # Sets the amount of time (in seconds) users have to wait in between sending messages.
@@ -5160,7 +5217,7 @@ class Discordrb::Channel
   # @param rate [Integer]
   # @raise [ArgumentError] if value isn't between 0 and 21600
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#364
+  # source://discordrb//lib/discordrb/data/channel.rb#408
   def slowmode_rate=(rate); end
 
   # Sorts this channel's position to follow another channel.
@@ -5171,14 +5228,19 @@ class Discordrb::Channel
   #   be sorted at the top of the channel list.
   # @raise [TypeError]
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#262
+  # source://discordrb//lib/discordrb/data/channel.rb#306
   def sort_after(other = T.unsafe(nil), lock_permissions = T.unsafe(nil)); end
 
   # Splits a message into chunks whose length is at most the Discord character limit, then sends them individually.
   # Useful for sending long messages, but be wary of rate limits!
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#538
+  # source://discordrb//lib/discordrb/data/channel.rb#582
   def split_send(content); end
+
+  # @return [true, false] whether or not this channel is a stage channel.
+  #
+  # source://discordrb//lib/discordrb/data/channel.rb#263
+  def stage?; end
 
   # Start a thread in a forum or media channel.
   #
@@ -5199,7 +5261,7 @@ class Discordrb::Channel
   # @yieldparam builder [Webhooks::Builder] An optional message builder. Arguments passed to the builder overwrite method data.
   # @yieldparam view [Webhooks::View] An optional component builder. Arguments passed to the builder overwrite method data.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#954
+  # source://discordrb//lib/discordrb/data/channel.rb#1016
   def start_forum_thread(name:, auto_archive_duration: T.unsafe(nil), rate_limit_per_user: T.unsafe(nil), tags: T.unsafe(nil), content: T.unsafe(nil), embeds: T.unsafe(nil), allowed_mentions: T.unsafe(nil), components: T.unsafe(nil), stickers: T.unsafe(nil), attachments: T.unsafe(nil), flags: T.unsafe(nil), has_components: T.unsafe(nil), reason: T.unsafe(nil)); end
 
   # Start a thread.
@@ -5211,7 +5273,7 @@ class Discordrb::Channel
   # @param type [Symbol, Integer] The type of thread to create. Can be a key from {TYPES} or the value.
   # @return [Channel]
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#924
+  # source://discordrb//lib/discordrb/data/channel.rb#986
   def start_thread(name, auto_archive_duration, message: T.unsafe(nil), type: T.unsafe(nil)); end
 
   # Starts typing, which displays the typing indicator on the client for five seconds.
@@ -5221,104 +5283,114 @@ class Discordrb::Channel
   # @example Send a typing indicator for the bot in a given channel.
   #   channel.start_typing()
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#830
+  # source://discordrb//lib/discordrb/data/channel.rb#879
   def start_typing; end
 
   # @return [true, false] whether or not this channel is a store channel.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#214
+  # source://discordrb//lib/discordrb/data/channel.rb#238
   def store?; end
 
   # Syncs this channels overwrites with its parent category
   #
   # @raise [RuntimeError] if this channel is not in a category
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#374
+  # source://discordrb//lib/discordrb/data/channel.rb#418
   def sync; end
 
   # Syncs this channels overwrites with its parent category
   #
   # @raise [RuntimeError] if this channel is not in a category
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#368
+  # source://discordrb//lib/discordrb/data/channel.rb#412
   def sync_overwrites; end
 
   # @return [true, false, nil] whether this channels permissions match the permission overwrites of the category that it's in, or nil if it is not in a category
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#383
+  # source://discordrb//lib/discordrb/data/channel.rb#427
   def synced?; end
 
   # @return [true, false, nil] whether this channels permissions match the permission overwrites of the category that it's in, or nil if it is not in a category
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#377
+  # source://discordrb//lib/discordrb/data/channel.rb#421
   def synchronized?; end
 
   # @return [true, false] whether or not this channel is a text channel
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#184
+  # source://discordrb//lib/discordrb/data/channel.rb#208
   def text?; end
 
   # Returns the text channels in this category, if it is a category channel. Otherwise returns an empty array.
   #
   # @return [Array<Channel>]
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#397
+  # source://discordrb//lib/discordrb/data/channel.rb#441
   def text_channels; end
 
   # @return [true, false] whether or not this channel is a thread.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#234
+  # source://discordrb//lib/discordrb/data/channel.rb#258
   def thread?; end
 
   # @return [String] the channel's topic
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#47
+  # source://discordrb//lib/discordrb/data/channel.rb#48
   def topic; end
 
   # Sets this channel's topic.
   #
   # @param topic [String] The new topic.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#575
+  # source://discordrb//lib/discordrb/data/channel.rb#619
   def topic=(topic); end
+
+  # @return [Integer] An approximate count of messages sent in this thread, including deleted messages.
+  #
+  # source://discordrb//lib/discordrb/data/channel.rb#106
+  def total_message_sent; end
+
+  # @return [Integer] An approximate count of messages sent in this thread, including deleted messages.
+  #
+  # source://discordrb//lib/discordrb/data/channel.rb#107
+  def total_messages_sent; end
 
   # @return [Integer] the type of this channel
   # @see TYPES
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#37
+  # source://discordrb//lib/discordrb/data/channel.rb#38
   def type; end
 
   # Updates the cached data with new data
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#1044
+  # source://discordrb//lib/discordrb/data/channel.rb#1114
   def update_data(new_data = T.unsafe(nil)); end
 
   # Updates the cached data from another channel.
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#649
+  # source://discordrb//lib/discordrb/data/channel.rb#693
   def update_from(other); end
 
   # Updates the cached permission overwrites
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#792
+  # source://discordrb//lib/discordrb/data/channel.rb#841
   def update_overwrites(overwrites); end
 
   # @return [Integer] the amount of users that can be in the channel. `0` means it is unlimited.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#53
+  # source://discordrb//lib/discordrb/data/channel.rb#54
   def user_limit; end
 
   # Sets this channel's user limit.
   #
   # @param limit [Integer] The new user limit. `0` for unlimited, has to be a number between 0-99
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#591
+  # source://discordrb//lib/discordrb/data/channel.rb#635
   def user_limit=(limit); end
 
   # The list of users currently in this channel. For a voice channel, it will return all the members currently
@@ -5326,45 +5398,56 @@ class Discordrb::Channel
   #
   # @return [Array<Member>] the users in this channel
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#673
+  # source://discordrb//lib/discordrb/data/channel.rb#722
   def users; end
+
+  # @return [Integer, nil] The video quality mode of this voice or stage channel.
+  #
+  # source://discordrb//lib/discordrb/data/channel.rb#117
+  def video_quality_mode; end
 
   # @return [true, false] whether or not this channel is a voice channel.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#194
+  # source://discordrb//lib/discordrb/data/channel.rb#218
   def voice?; end
 
   # Returns the voice channels in this category, if it is a category channel. Otherwise returns an empty array.
   #
   # @return [Array<Channel>]
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#403
+  # source://discordrb//lib/discordrb/data/channel.rb#447
   def voice_channels; end
+
+  # @return [String, nil] The ID of the RTC voice region for this voice or stage channel. A region of `nil` means the
+  #   the voice region will automatically be determined by Discord.
+  #
+  # source://discordrb//lib/discordrb/data/channel.rb#114
+  def voice_region; end
 
   # Requests a list of Webhooks on the channel.
   #
   # @return [Array<Webhook>] webhooks on the channel.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#901
+  # source://discordrb//lib/discordrb/data/channel.rb#950
   def webhooks; end
 
   private
 
   # Deletes a list of messages on this channel using bulk delete.
   #
-  # source://discordrb//lib/discordrb/data/channel.rb#1073
+  # source://discordrb//lib/discordrb/data/channel.rb#1143
   def bulk_delete(ids, strict = T.unsafe(nil), reason = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/data/channel.rb#1107
+  # source://discordrb//lib/discordrb/data/channel.rb#1177
   def process_permission_overwrites(overwrites); end
 
-  # source://discordrb//lib/discordrb/data/channel.rb#1090
+  # source://discordrb//lib/discordrb/data/channel.rb#1160
   def update_channel_data(new_data); end
 end
 
 # For bulk_delete checking
 #
-# source://discordrb//lib/discordrb/data/channel.rb#1069
+# source://discordrb//lib/discordrb/data/channel.rb#1139
 Discordrb::Channel::TWO_WEEKS = T.let(T.unsafe(nil), Integer)
 
 # Map of channel types
@@ -5418,10 +5501,12 @@ class Discordrb::Collectibles::Nameplate
 
   # Utility method to get the URL of this nameplate.
   #
-  # @return [String] CDN url of this nameplate.
+  # @param static [true, false] Whether to return the static URL of this
+  #   nameplate instead of the animated URL.
+  # @return [String] The CDN url of this nameplate.
   #
-  # source://discordrb//lib/discordrb/data/collectibles.rb#40
-  def url; end
+  # source://discordrb//lib/discordrb/data/collectibles.rb#42
+  def url(static: T.unsafe(nil)); end
 end
 
 # Alias for the class {ColourRGB}
@@ -6998,7 +7083,7 @@ module Discordrb::EventContainer
   #
   # @param handler [Discordrb::Events::EventHandler] The handler to add.
   #
-  # source://discordrb//lib/discordrb/container.rb#755
+  # source://discordrb//lib/discordrb/container.rb#770
   def <<(handler); end
 
   # Adds an event handler to this container. Usually, it's more expressive to just use one of the shorthand adder
@@ -7006,7 +7091,7 @@ module Discordrb::EventContainer
   #
   # @param handler [Discordrb::Events::EventHandler] The handler to add.
   #
-  # source://discordrb//lib/discordrb/container.rb#729
+  # source://discordrb//lib/discordrb/container.rb#744
   def add_handler(handler); end
 
   # This **event** is raised whenever an application command (slash command) is executed.
@@ -7017,7 +7102,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ApplicationCommandEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#554
+  # source://discordrb//lib/discordrb/container.rb#569
   def application_command(name, attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised whenever an application command's permissions are updated.
@@ -7030,7 +7115,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ApplicationCommandPermissionsUpdateEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#680
+  # source://discordrb//lib/discordrb/container.rb#695
   def application_command_permissions_update(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised whenever an autocomplete interaction is created.
@@ -7046,7 +7131,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [AutocompleteEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#668
+  # source://discordrb//lib/discordrb/container.rb#683
   def autocomplete(name = T.unsafe(nil), attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when an {Await} is triggered. It provides an easy way to execute code
@@ -7059,7 +7144,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [AwaitEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#484
+  # source://discordrb//lib/discordrb/container.rb#499
   def await(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised whenever an button interaction is created.
@@ -7071,7 +7156,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ButtonEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#572
+  # source://discordrb//lib/discordrb/container.rb#587
   def button(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a channel is created.
@@ -7083,7 +7168,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ChannelCreateEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#225
+  # source://discordrb//lib/discordrb/container.rb#240
   def channel_create(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a channel is deleted.
@@ -7095,7 +7180,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ChannelDeleteEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#247
+  # source://discordrb//lib/discordrb/container.rb#262
   def channel_delete(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised whenever a message is pinned or unpinned.
@@ -7107,7 +7192,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ChannelPinsUpdateEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#653
+  # source://discordrb//lib/discordrb/container.rb#668
   def channel_pins_update(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a recipient is added to a group channel.
@@ -7120,7 +7205,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ChannelRecipientAddEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#259
+  # source://discordrb//lib/discordrb/container.rb#274
   def channel_recipient_add(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a recipient is removed from a group channel.
@@ -7133,7 +7218,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ChannelRecipientRemoveEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#271
+  # source://discordrb//lib/discordrb/container.rb#286
   def channel_recipient_remove(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised whenever an select channel interaction is created.
@@ -7145,7 +7230,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ChannelSelectEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#642
+  # source://discordrb//lib/discordrb/container.rb#657
   def channel_select(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a channel is updated.
@@ -7157,12 +7242,12 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ChannelUpdateEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#236
+  # source://discordrb//lib/discordrb/container.rb#251
   def channel_update(attributes = T.unsafe(nil), &block); end
 
   # Removes all events from this event handler.
   #
-  # source://discordrb//lib/discordrb/container.rb#721
+  # source://discordrb//lib/discordrb/container.rb#736
   def clear!; end
 
   # This **event** is raised when a private message is sent to the bot.
@@ -7181,7 +7266,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [PrivateMessageEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#507
+  # source://discordrb//lib/discordrb/container.rb#522
   def direct_message(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when the bot has disconnected from the WebSocket, due to the {Bot#stop} method or
@@ -7211,7 +7296,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [PrivateMessageEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#508
+  # source://discordrb//lib/discordrb/container.rb#523
   def dm(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised every time the bot sends a heartbeat over the galaxy. This happens roughly every 40
@@ -7234,14 +7319,14 @@ module Discordrb::EventContainer
   #
   # @param container [Module] A module that `extend`s {EventContainer} from which the handlers will be added.
   #
-  # source://discordrb//lib/discordrb/container.rb#754
+  # source://discordrb//lib/discordrb/container.rb#769
   def include!(container); end
 
   # Adds all event handlers from another container into this one. Existing event handlers will be overwritten.
   #
   # @param container [Module] A module that `extend`s {EventContainer} from which the handlers will be added.
   #
-  # source://discordrb//lib/discordrb/container.rb#738
+  # source://discordrb//lib/discordrb/container.rb#753
   def include_events(container); end
 
   # This **event** is raised whenever an interaction event is received.
@@ -7255,7 +7340,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [InteractionCreateEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#544
+  # source://discordrb//lib/discordrb/container.rb#559
   def interaction_create(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when an invite is created.
@@ -7269,7 +7354,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [InviteCreateEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#519
+  # source://discordrb//lib/discordrb/container.rb#534
   def invite_create(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when an invite is deleted.
@@ -7281,7 +7366,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised
   # @yieldparam event [InviteDeleteEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#530
+  # source://discordrb//lib/discordrb/container.rb#545
   def invite_delete(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a new user joins a server.
@@ -7292,7 +7377,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ServerMemberAddEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#308
+  # source://discordrb//lib/discordrb/container.rb#323
   def member_join(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a member leaves a server.
@@ -7303,7 +7388,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ServerMemberDeleteEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#329
+  # source://discordrb//lib/discordrb/container.rb#344
   def member_leave(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a member update happens. This includes when a members nickname
@@ -7315,11 +7400,12 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ServerMemberUpdateEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#319
+  # source://discordrb//lib/discordrb/container.rb#334
   def member_update(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when the bot is mentioned in a message.
   #
+  # @option attributes
   # @option attributes
   # @option attributes
   # @option attributes
@@ -7335,7 +7421,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [MentionEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#214
+  # source://discordrb//lib/discordrb/container.rb#229
   def mention(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised whenever an select mentionable interaction is created.
@@ -7347,7 +7433,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [MentionableSelectEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#631
+  # source://discordrb//lib/discordrb/container.rb#646
   def mentionable_select(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a message is sent to a text channel the bot is currently in.
@@ -7426,7 +7512,7 @@ module Discordrb::EventContainer
   # @return [ModalSubmitEventHandler] The event handler that was registered.
   # @yieldparam event [ModalSubmitEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#598
+  # source://discordrb//lib/discordrb/container.rb#613
   def modal_submit(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when the game a user is playing changes.
@@ -7439,7 +7525,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [PlayingEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#195
+  # source://discordrb//lib/discordrb/container.rb#209
   def playing(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a private message is sent to the bot.
@@ -7458,7 +7544,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [PrivateMessageEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#502
+  # source://discordrb//lib/discordrb/container.rb#517
   def pm(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a user's status (online/offline/idle) changes.
@@ -7471,7 +7557,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [PresenceEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#183
+  # source://discordrb//lib/discordrb/container.rb#197
   def presence(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a private message is sent to the bot.
@@ -7490,7 +7576,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [PrivateMessageEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#506
+  # source://discordrb//lib/discordrb/container.rb#521
   def private_message(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised for every dispatch received over the gateway, whether supported by discordrb or not.
@@ -7501,11 +7587,12 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [RawEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#690
+  # source://discordrb//lib/discordrb/container.rb#705
   def raw(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when somebody reacts to a message.
   #
+  # @option attributes
   # @option attributes
   # @option attributes
   # @option attributes
@@ -7515,11 +7602,12 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ReactionAddEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#144
+  # source://discordrb//lib/discordrb/container.rb#145
   def reaction_add(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when somebody removes a reaction from a message.
   #
+  # @option attributes
   # @option attributes
   # @option attributes
   # @option attributes
@@ -7529,7 +7617,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ReactionRemoveEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#158
+  # source://discordrb//lib/discordrb/container.rb#160
   def reaction_remove(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when somebody removes all reactions from a message.
@@ -7542,8 +7630,21 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ReactionRemoveAllEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#170
+  # source://discordrb//lib/discordrb/container.rb#172
   def reaction_remove_all(attributes = T.unsafe(nil), &block); end
+
+  # This **event** is raised when somebody removes all instances of a single reaction from a message.
+  #
+  # @option attributes
+  # @option attributes
+  # @option attributes
+  # @param attributes [Hash] The event's attributes.
+  # @return [ReactionRemoveEmojiEventHandler] The event handler that was registered.
+  # @yield The block is executed when the event is raised.
+  # @yieldparam event [ReactionRemoveEmojiEvent] The event that was raised.
+  #
+  # source://discordrb//lib/discordrb/container.rb#184
+  def reaction_remove_emoji(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when the READY packet is received, i.e. servers and channels have finished
   # initialization. It's the recommended way to do things when the bot has finished starting up.
@@ -7560,7 +7661,7 @@ module Discordrb::EventContainer
   #
   # @param name [String, Symbol] The name of the command handler to remove.
   #
-  # source://discordrb//lib/discordrb/container.rb#716
+  # source://discordrb//lib/discordrb/container.rb#731
   def remove_application_command_handler(name); end
 
   # Removes an event handler from this container. If you're looking for a way to do temporary events, I recommend
@@ -7568,7 +7669,7 @@ module Discordrb::EventContainer
   #
   # @param handler [Discordrb::Events::EventHandler] The handler to remove.
   #
-  # source://discordrb//lib/discordrb/container.rb#708
+  # source://discordrb//lib/discordrb/container.rb#723
   def remove_handler(handler); end
 
   # This **event** is raised whenever an select role interaction is created.
@@ -7580,7 +7681,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [RoleSelectEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#620
+  # source://discordrb//lib/discordrb/container.rb#635
   def role_select(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised whenever an select string interaction is created.
@@ -7592,7 +7693,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [StringSelectEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#587
+  # source://discordrb//lib/discordrb/container.rb#602
   def select_menu(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a server is created respective to the bot, i.e. the bot joins a server or creates
@@ -7604,7 +7705,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ServerCreateEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#362
+  # source://discordrb//lib/discordrb/container.rb#377
   def server_create(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a server is deleted, or when the bot leaves a server. (These two cases are identical
@@ -7616,7 +7717,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ServerDeleteEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#383
+  # source://discordrb//lib/discordrb/container.rb#398
   def server_delete(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when an emoji or collection of emojis is created/deleted/updated.
@@ -7627,7 +7728,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ServerEmojiChangeEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#393
+  # source://discordrb//lib/discordrb/container.rb#408
   def server_emoji(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when an emoji is created.
@@ -7640,7 +7741,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ServerEmojiCreateEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#405
+  # source://discordrb//lib/discordrb/container.rb#420
   def server_emoji_create(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when an emoji is deleted.
@@ -7653,7 +7754,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ServerEmojiDeleteEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#417
+  # source://discordrb//lib/discordrb/container.rb#432
   def server_emoji_delete(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when an emoji is updated.
@@ -7667,7 +7768,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ServerEmojiUpdateEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#430
+  # source://discordrb//lib/discordrb/container.rb#445
   def server_emoji_update(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a role is created.
@@ -7678,7 +7779,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ServerRoleCreateEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#440
+  # source://discordrb//lib/discordrb/container.rb#455
   def server_role_create(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a role is deleted.
@@ -7689,7 +7790,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ServerRoleDeleteEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#450
+  # source://discordrb//lib/discordrb/container.rb#465
   def server_role_delete(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a role is updated.
@@ -7700,7 +7801,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ServerRoleUpdateEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#460
+  # source://discordrb//lib/discordrb/container.rb#475
   def server_role_update(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a server is updated, for example if the name or region has changed.
@@ -7711,7 +7812,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [ServerUpdateEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#372
+  # source://discordrb//lib/discordrb/container.rb#387
   def server_update(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised whenever an select string interaction is created.
@@ -7723,7 +7824,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [StringSelectEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#583
+  # source://discordrb//lib/discordrb/container.rb#598
   def string_select(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when somebody starts typing in a channel the bot is also in. The official Discord
@@ -7751,7 +7852,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [UnknownEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#701
+  # source://discordrb//lib/discordrb/container.rb#716
   def unknown(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a user is banned from a server.
@@ -7763,7 +7864,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [UserBanEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#340
+  # source://discordrb//lib/discordrb/container.rb#355
   def user_ban(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised whenever an select user interaction is created.
@@ -7775,7 +7876,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [UserSelectEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#609
+  # source://discordrb//lib/discordrb/container.rb#624
   def user_select(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a user is unbanned from a server.
@@ -7787,7 +7888,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [UserUnbanEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#351
+  # source://discordrb//lib/discordrb/container.rb#366
   def user_unban(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when first connecting to a server's voice channel.
@@ -7798,7 +7899,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [VoiceServerUpdateEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#298
+  # source://discordrb//lib/discordrb/container.rb#313
   def voice_server_update(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a user's voice state changes. This includes when a user joins, leaves, or
@@ -7816,7 +7917,7 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [VoiceStateUpdateEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#288
+  # source://discordrb//lib/discordrb/container.rb#303
   def voice_state_update(attributes = T.unsafe(nil), &block); end
 
   # This **event** is raised when a webhook is updated.
@@ -7830,14 +7931,14 @@ module Discordrb::EventContainer
   # @yield The block is executed when the event is raised.
   # @yieldparam event [WebhookUpdateEvent] The event that was raised.
   #
-  # source://discordrb//lib/discordrb/container.rb#472
+  # source://discordrb//lib/discordrb/container.rb#487
   def webhook_update(attributes = T.unsafe(nil), &block); end
 
   private
 
   # @return [EventHandler]
   #
-  # source://discordrb//lib/discordrb/container.rb#790
+  # source://discordrb//lib/discordrb/container.rb#805
   def register_event(clazz, attributes, block); end
 
   class << self
@@ -7846,7 +7947,7 @@ module Discordrb::EventContainer
     # @param str [String] The name of the class
     # @return [Class] the class
     #
-    # source://discordrb//lib/discordrb/container.rb#779
+    # source://discordrb//lib/discordrb/container.rb#794
     def class_from_string(str); end
 
     # Returns the event class for a handler class type
@@ -7855,7 +7956,7 @@ module Discordrb::EventContainer
     # @return [Class, nil] the event type, or nil if the handler_class isn't a handler class (i.e. ends with Handler)
     # @see #handler_class
     #
-    # source://discordrb//lib/discordrb/container.rb#769
+    # source://discordrb//lib/discordrb/container.rb#784
     def event_class(handler_class); end
 
     # Returns the handler class for an event class type
@@ -7864,7 +7965,7 @@ module Discordrb::EventContainer
     # @return [Class] the handler type
     # @see #event_class
     #
-    # source://discordrb//lib/discordrb/container.rb#761
+    # source://discordrb//lib/discordrb/container.rb#776
     def handler_class(event_class); end
   end
 end
@@ -7906,79 +8007,79 @@ end
 
 # Event for ApplicationCommand interactions.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#126
+# source://discordrb//lib/discordrb/events/interactions.rb#132
 class Discordrb::Events::ApplicationCommandEvent < ::Discordrb::Events::InteractionCreateEvent
   # @return [ApplicationCommandEvent] a new instance of ApplicationCommandEvent
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#152
+  # source://discordrb//lib/discordrb/events/interactions.rb#158
   def initialize(data, bot); end
 
   # @return [Integer] The ID of the command.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#134
+  # source://discordrb//lib/discordrb/events/interactions.rb#140
   def command_id; end
 
   # @return [Symbol] The name of the command.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#131
+  # source://discordrb//lib/discordrb/events/interactions.rb#137
   def command_name; end
 
   # @return [Hash<Symbol, Object>] Arguments provided to the command, mapped as `Name => Value`.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#146
+  # source://discordrb//lib/discordrb/events/interactions.rb#152
   def options; end
 
   # @return [Resolved]
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#143
+  # source://discordrb//lib/discordrb/events/interactions.rb#149
   def resolved; end
 
   # @return [Symbol, nil] The name of the subcommand relevant to this event.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#140
+  # source://discordrb//lib/discordrb/events/interactions.rb#146
   def subcommand; end
 
   # @return [Symbol, nil] The name of the subcommand group relevant to this event.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#137
+  # source://discordrb//lib/discordrb/events/interactions.rb#143
   def subcommand_group; end
 
   # @return [Message, User, nil] The target of this command, for context commands.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#187
+  # source://discordrb//lib/discordrb/events/interactions.rb#193
   def target; end
 
   # @return [Integer, nil] The target of this command when it is a context command.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#149
+  # source://discordrb//lib/discordrb/events/interactions.rb#155
   def target_id; end
 
   private
 
-  # source://discordrb//lib/discordrb/events/interactions.rb#195
+  # source://discordrb//lib/discordrb/events/interactions.rb#201
   def process_resolved(resolved_data); end
 
-  # source://discordrb//lib/discordrb/events/interactions.rb#224
+  # source://discordrb//lib/discordrb/events/interactions.rb#230
   def transform_options_hash(hash); end
 end
 
 # Struct to allow accessing data via [] or methods.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#128
+# source://discordrb//lib/discordrb/events/interactions.rb#134
 Discordrb::Events::ApplicationCommandEvent::Resolved = Struct
 
 # Event handler for ApplicationCommandEvents.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#230
+# source://discordrb//lib/discordrb/events/interactions.rb#236
 class Discordrb::Events::ApplicationCommandEventHandler < ::Discordrb::Events::EventHandler
   # @return [ApplicationCommandEventHandler] a new instance of ApplicationCommandEventHandler
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#235
+  # source://discordrb//lib/discordrb/events/interactions.rb#241
   def initialize(attributes, block); end
 
   # @param event [Event]
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#267
+  # source://discordrb//lib/discordrb/events/interactions.rb#273
   def call(event); end
 
   # @param name [Symbol, String]
@@ -7986,12 +8087,12 @@ class Discordrb::Events::ApplicationCommandEventHandler < ::Discordrb::Events::E
   # @return [ApplicationCommandEventHandler]
   # @yieldparam [SubcommandBuilder]
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#244
+  # source://discordrb//lib/discordrb/events/interactions.rb#250
   def group(name); end
 
   # @return [Boolean]
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#290
+  # source://discordrb//lib/discordrb/events/interactions.rb#296
   def matches?(event); end
 
   # @param name [String, Symbol]
@@ -7999,94 +8100,94 @@ class Discordrb::Events::ApplicationCommandEventHandler < ::Discordrb::Events::E
   # @return [ApplicationCommandEventHandler]
   # @yieldparam [SubcommandBuilder]
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#257
+  # source://discordrb//lib/discordrb/events/interactions.rb#263
   def subcommand(name, &block); end
 
   # @return [Hash]
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#232
+  # source://discordrb//lib/discordrb/events/interactions.rb#238
   def subcommands; end
 end
 
 # An event for whenever an application command's permissions are updated.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#532
+# source://discordrb//lib/discordrb/events/interactions.rb#538
 class Discordrb::Events::ApplicationCommandPermissionsUpdateEvent < ::Discordrb::Events::Event
   # @return [ApplicationCommandPermissionsUpdateEvent] a new instance of ApplicationCommandPermissionsUpdateEvent
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#546
+  # source://discordrb//lib/discordrb/events/interactions.rb#552
   def initialize(data, bot); end
 
   # @return [Integer] the ID of the application whose commands were updated.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#543
+  # source://discordrb//lib/discordrb/events/interactions.rb#549
   def application_id; end
 
   # @return [Integer, nil] the ID of the application command that was updated.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#537
+  # source://discordrb//lib/discordrb/events/interactions.rb#543
   def command_id; end
 
   # @return [Array<ApplicationCommand::Permission>] the permissions that were updated.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#540
+  # source://discordrb//lib/discordrb/events/interactions.rb#546
   def permissions; end
 
   # @return [Server] the server where the command's permissions were updated.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#557
+  # source://discordrb//lib/discordrb/events/interactions.rb#563
   def server; end
 
   # @return [Integer] the ID of the server where the command permissions were updated.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#534
+  # source://discordrb//lib/discordrb/events/interactions.rb#540
   def server_id; end
 end
 
 # Event handler for the APPLICATION_COMMAND_PERMISSIONS_UPDATE event.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#563
+# source://discordrb//lib/discordrb/events/interactions.rb#569
 class Discordrb::Events::ApplicationCommandPermissionsUpdateEventHandler < ::Discordrb::Events::EventHandler
   # @return [Boolean]
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#565
+  # source://discordrb//lib/discordrb/events/interactions.rb#571
   def matches?(event); end
 end
 
 # An event for an autocomplete option choice.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#497
+# source://discordrb//lib/discordrb/events/interactions.rb#503
 class Discordrb::Events::AutocompleteEvent < ::Discordrb::Events::ApplicationCommandEvent
   # @return [AutocompleteEvent] a new instance of AutocompleteEvent
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#505
+  # source://discordrb//lib/discordrb/events/interactions.rb#511
   def initialize(data, bot); end
 
   # @return [Hash] An empty hash that can be used to return choices by adding K/V pairs.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#502
+  # source://discordrb//lib/discordrb/events/interactions.rb#508
   def choices; end
 
   # @return [String] Name of the currently focused option.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#499
+  # source://discordrb//lib/discordrb/events/interactions.rb#505
   def focused; end
 
   # Respond to this interaction with autocomplete choices.
   #
   # @param choices [Array<Hash>, Hash, nil] Autocomplete choices to return.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#526
+  # source://discordrb//lib/discordrb/events/interactions.rb#532
   def respond(choices:); end
 end
 
 # Event handler for an autocomplete option choices.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#480
+# source://discordrb//lib/discordrb/events/interactions.rb#486
 class Discordrb::Events::AutocompleteEventHandler < ::Discordrb::Events::InteractionCreateEventHandler
   # @return [Boolean]
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#481
+  # source://discordrb//lib/discordrb/events/interactions.rb#487
   def matches?(event); end
 end
 
@@ -8144,12 +8245,12 @@ end
 
 # An event for when a user interacts with a button component.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#368
+# source://discordrb//lib/discordrb/events/interactions.rb#374
 class Discordrb::Events::ButtonEvent < ::Discordrb::Events::ComponentEvent; end
 
 # Event handler for a Button interaction event.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#372
+# source://discordrb//lib/discordrb/events/interactions.rb#378
 class Discordrb::Events::ButtonEventHandler < ::Discordrb::Events::ComponentEventHandler; end
 
 # Raised when a channel is created
@@ -8391,22 +8492,22 @@ class Discordrb::Events::ChannelRecipientRemoveEventHandler < ::Discordrb::Event
 
 # Event for when a user interacts with a select channel component.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#463
+# source://discordrb//lib/discordrb/events/interactions.rb#469
 class Discordrb::Events::ChannelSelectEvent < ::Discordrb::Events::ComponentEvent
   # @return [ChannelSelectEvent] a new instance of ChannelSelectEvent
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#468
+  # source://discordrb//lib/discordrb/events/interactions.rb#474
   def initialize(data, bot); end
 
   # @return [Array<Channel>] Selected values.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#465
+  # source://discordrb//lib/discordrb/events/interactions.rb#471
   def values; end
 end
 
 # Event handler for a select channel component.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#476
+# source://discordrb//lib/discordrb/events/interactions.rb#482
 class Discordrb::Events::ChannelSelectEventHandler < ::Discordrb::Events::ComponentEventHandler; end
 
 # Raised when a channel is updated (e.g. topic changes)
@@ -8421,31 +8522,31 @@ class Discordrb::Events::ChannelUpdateEventHandler < ::Discordrb::Events::Channe
 
 # An event for when a user interacts with a component.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#323
+# source://discordrb//lib/discordrb/events/interactions.rb#329
 class Discordrb::Events::ComponentEvent < ::Discordrb::Events::InteractionCreateEvent
   # @return [ComponentEvent] a new instance of ComponentEvent
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#331
+  # source://discordrb//lib/discordrb/events/interactions.rb#337
   def initialize(data, bot); end
 
   # @return [String] User provided data for this button.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#325
+  # source://discordrb//lib/discordrb/events/interactions.rb#331
   def custom_id; end
 
   # @return [Interactions::Message, nil] The message the button originates from.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#328
+  # source://discordrb//lib/discordrb/events/interactions.rb#334
   def message; end
 end
 
 # Generic handler for component events.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#340
+# source://discordrb//lib/discordrb/events/interactions.rb#346
 class Discordrb::Events::ComponentEventHandler < ::Discordrb::Events::InteractionCreateEventHandler
   # @return [Boolean]
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#341
+  # source://discordrb//lib/discordrb/events/interactions.rb#347
   def matches?(event); end
 end
 
@@ -8541,54 +8642,60 @@ class Discordrb::Events::HeartbeatEventHandler < ::Discordrb::Events::TrueEventH
 class Discordrb::Events::InteractionCreateEvent < ::Discordrb::Events::Event
   # @return [InteractionCreateEvent] a new instance of InteractionCreateEvent
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#33
+  # source://discordrb//lib/discordrb/events/interactions.rb#39
   def initialize(data, bot); end
 
   # @return [Channel]
   # @see Interaction#channel
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#30
+  # source://discordrb//lib/discordrb/events/interactions.rb#36
   def channel; end
 
   # @return [Integer]
   # @see Interaction#channel_id
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#30
+  # source://discordrb//lib/discordrb/events/interactions.rb#36
   def channel_id; end
+
+  # @return [Integer]
+  # @see Interaction#context
+  #
+  # source://discordrb//lib/discordrb/events/interactions.rb#36
+  def context; end
 
   # @see Interaction#defer
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#44
+  # source://discordrb//lib/discordrb/events/interactions.rb#50
   def defer(*_arg0, **_arg1, &_arg2); end
 
   # @see Interaction#defer_update
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#84
+  # source://discordrb//lib/discordrb/events/interactions.rb#90
   def defer_update; end
 
   # @see Interaction#delete_message
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#79
+  # source://discordrb//lib/discordrb/events/interactions.rb#85
   def delete_message(*_arg0, **_arg1, &_arg2); end
 
   # @see Interaction#delete_response
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#64
+  # source://discordrb//lib/discordrb/events/interactions.rb#70
   def delete_response; end
 
   # @see Interaction#edit_message
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#74
+  # source://discordrb//lib/discordrb/events/interactions.rb#80
   def edit_message(*_arg0, **_arg1, &_arg2); end
 
   # @see Interaction#edit_response
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#59
+  # source://discordrb//lib/discordrb/events/interactions.rb#65
   def edit_response(*_arg0, **_arg1, &_arg2); end
 
   # @see Interaction#get_component
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#89
+  # source://discordrb//lib/discordrb/events/interactions.rb#95
   def get_component(*_arg0, **_arg1, &_arg2); end
 
   # @return [Interaction] The interaction for this event.
@@ -8598,56 +8705,62 @@ class Discordrb::Events::InteractionCreateEvent < ::Discordrb::Events::Event
 
   # @see Interaction#respond
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#39
+  # source://discordrb//lib/discordrb/events/interactions.rb#45
   def respond(*_arg0, **_arg1, &_arg2); end
 
   # @see Interaction#send_message
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#69
+  # source://discordrb//lib/discordrb/events/interactions.rb#75
   def send_message(*_arg0, **_arg1, &_arg2); end
 
   # @return [Server, nil]
   # @see Interaction#server
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#30
+  # source://discordrb//lib/discordrb/events/interactions.rb#36
   def server; end
 
   # @return [Integer]
   # @see Interaction#server_id
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#30
+  # source://discordrb//lib/discordrb/events/interactions.rb#36
   def server_id; end
 
   # @see Interaction#show_modal
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#54
+  # source://discordrb//lib/discordrb/events/interactions.rb#60
   def show_modal(*_arg0, **_arg1, &_arg2); end
 
   # @return [Integer]
   # @see Interaction#type
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#30
+  # source://discordrb//lib/discordrb/events/interactions.rb#36
   def type; end
 
   # @see Interaction#update_message
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#49
+  # source://discordrb//lib/discordrb/events/interactions.rb#55
   def update_message(*_arg0, **_arg1, &_arg2); end
 
   # @return [User]
   # @see Interaction#user
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#30
+  # source://discordrb//lib/discordrb/events/interactions.rb#36
   def user; end
+
+  # @return [String]
+  # @see Interaction#user_locale
+  #
+  # source://discordrb//lib/discordrb/events/interactions.rb#36
+  def user_locale; end
 end
 
 # Event handler for INTERACTION_CREATE events.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#95
+# source://discordrb//lib/discordrb/events/interactions.rb#101
 class Discordrb::Events::InteractionCreateEventHandler < ::Discordrb::Events::EventHandler
   # @return [Boolean]
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#97
+  # source://discordrb//lib/discordrb/events/interactions.rb#103
   def matches?(event); end
 end
 
@@ -8773,58 +8886,80 @@ class Discordrb::Events::LifetimeEvent < ::Discordrb::Events::Event
   def initialize(bot); end
 end
 
-# @see Discordrb::EventContainer#mention
+# Event raised when the current bot is mentioned in a message.
 #
 # source://discordrb//lib/discordrb/events/message.rb#291
-class Discordrb::Events::MentionEvent < ::Discordrb::Events::MessageEvent; end
+class Discordrb::Events::MentionEvent < ::Discordrb::Events::MessageEvent
+  # @return [MentionEvent] a new instance of MentionEvent
+  #
+  # source://discordrb//lib/discordrb/events/message.rb#298
+  def initialize(message, bot, role_mention); end
+
+  # @return [true, false] whether this mention event was raised
+  #   due to a mention of the bot's auto-generated server role.
+  #
+  # source://discordrb//lib/discordrb/events/message.rb#294
+  def role_mention; end
+
+  # @return [true, false] whether this mention event was raised
+  #   due to a mention of the bot's auto-generated server role.
+  #
+  # source://discordrb//lib/discordrb/events/message.rb#295
+  def role_mention?; end
+end
 
 # Event handler for {MentionEvent}
 #
-# source://discordrb//lib/discordrb/events/message.rb#294
-class Discordrb::Events::MentionEventHandler < ::Discordrb::Events::MessageEventHandler; end
+# source://discordrb//lib/discordrb/events/message.rb#306
+class Discordrb::Events::MentionEventHandler < ::Discordrb::Events::MessageEventHandler
+  # @return [Boolean]
+  #
+  # source://discordrb//lib/discordrb/events/message.rb#308
+  def matches?(event); end
+end
 
 # Event for when a user interacts with a select mentionable component.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#444
+# source://discordrb//lib/discordrb/events/interactions.rb#450
 class Discordrb::Events::MentionableSelectEvent < ::Discordrb::Events::ComponentEvent
   # @return [MentionableSelectEvent] a new instance of MentionableSelectEvent
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#449
+  # source://discordrb//lib/discordrb/events/interactions.rb#455
   def initialize(data, bot); end
 
   # @return [Hash<Symbol => Array<User>, Symbol => Array<Role>>] Selected values.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#446
+  # source://discordrb//lib/discordrb/events/interactions.rb#452
   def values; end
 end
 
 # Event handler for a select mentionable component.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#459
+# source://discordrb//lib/discordrb/events/interactions.rb#465
 class Discordrb::Events::MentionableSelectEventHandler < ::Discordrb::Events::ComponentEventHandler; end
 
 # Raised when a message is deleted
 #
 # @see Discordrb::EventContainer#message_delete
 #
-# source://discordrb//lib/discordrb/events/message.rb#359
+# source://discordrb//lib/discordrb/events/message.rb#388
 class Discordrb::Events::MessageDeleteEvent < ::Discordrb::Events::MessageIDEvent; end
 
 # Event handler for {MessageDeleteEvent}
 #
-# source://discordrb//lib/discordrb/events/message.rb#362
+# source://discordrb//lib/discordrb/events/message.rb#391
 class Discordrb::Events::MessageDeleteEventHandler < ::Discordrb::Events::MessageIDEventHandler; end
 
 # Raised when a message is edited
 #
 # @see Discordrb::EventContainer#message_edit
 #
-# source://discordrb//lib/discordrb/events/message.rb#352
+# source://discordrb//lib/discordrb/events/message.rb#381
 class Discordrb::Events::MessageEditEvent < ::Discordrb::Events::MessageEvent; end
 
 # Event handler for {MessageEditEvent}
 #
-# source://discordrb//lib/discordrb/events/message.rb#355
+# source://discordrb//lib/discordrb/events/message.rb#384
 class Discordrb::Events::MessageEditEventHandler < ::Discordrb::Events::MessageEventHandler; end
 
 # Event raised when a text message is sent to a channel
@@ -8966,33 +9101,33 @@ end
 
 # A subset of MessageEvent that only contains a message ID and a channel
 #
-# source://discordrb//lib/discordrb/events/message.rb#303
+# source://discordrb//lib/discordrb/events/message.rb#332
 class Discordrb::Events::MessageIDEvent < ::Discordrb::Events::Event
   include ::Discordrb::Events::Respondable
 
   # @return [MessageIDEvent] a new instance of MessageIDEvent
   #
-  # source://discordrb//lib/discordrb/events/message.rb#313
+  # source://discordrb//lib/discordrb/events/message.rb#342
   def initialize(data, bot); end
 
   # @return [Integer] the ID associated with this event
   #
-  # source://discordrb//lib/discordrb/events/message.rb#307
+  # source://discordrb//lib/discordrb/events/message.rb#336
   def id; end
 
   # @return [Server, nil] the server associated with this event
   #
-  # source://discordrb//lib/discordrb/events/message.rb#310
+  # source://discordrb//lib/discordrb/events/message.rb#339
   def server; end
 end
 
 # Event handler for {MessageIDEvent}
 #
-# source://discordrb//lib/discordrb/events/message.rb#323
+# source://discordrb//lib/discordrb/events/message.rb#352
 class Discordrb::Events::MessageIDEventHandler < ::Discordrb::Events::EventHandler
   # @return [Boolean]
   #
-  # source://discordrb//lib/discordrb/events/message.rb#324
+  # source://discordrb//lib/discordrb/events/message.rb#353
   def matches?(event); end
 end
 
@@ -9000,21 +9135,21 @@ end
 #
 # @see Discordrb::EventContainer#message_update
 #
-# source://discordrb//lib/discordrb/events/message.rb#366
+# source://discordrb//lib/discordrb/events/message.rb#395
 class Discordrb::Events::MessageUpdateEvent < ::Discordrb::Events::MessageEvent; end
 
 # Event handler for {MessageUpdateEvent}
 #
-# source://discordrb//lib/discordrb/events/message.rb#369
+# source://discordrb//lib/discordrb/events/message.rb#398
 class Discordrb::Events::MessageUpdateEventHandler < ::Discordrb::Events::MessageEventHandler; end
 
 # An event for when a user submits a modal.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#393
+# source://discordrb//lib/discordrb/events/interactions.rb#399
 class Discordrb::Events::ModalSubmitEvent < ::Discordrb::Events::ComponentEvent
   # @return [Array<TextInputComponent>]
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#395
+  # source://discordrb//lib/discordrb/events/interactions.rb#401
   def components; end
 
   # Get the value of an input passed to the modal.
@@ -9022,13 +9157,13 @@ class Discordrb::Events::ModalSubmitEvent < ::Discordrb::Events::ComponentEvent
   # @param custom_id [String] The custom ID of the component to look for.
   # @return [String, nil]
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#400
+  # source://discordrb//lib/discordrb/events/interactions.rb#406
   def value(custom_id); end
 end
 
 # Event handler for a modal submission.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#406
+# source://discordrb//lib/discordrb/events/interactions.rb#412
 class Discordrb::Events::ModalSubmitEventHandler < ::Discordrb::Events::ComponentEventHandler; end
 
 # A negated object, used to not match something in event parameters.
@@ -9152,12 +9287,12 @@ end
 
 # @see Discordrb::EventContainer#pm
 #
-# source://discordrb//lib/discordrb/events/message.rb#297
+# source://discordrb//lib/discordrb/events/message.rb#326
 class Discordrb::Events::PrivateMessageEvent < ::Discordrb::Events::MessageEvent; end
 
 # Event handler for {PrivateMessageEvent}
 #
-# source://discordrb//lib/discordrb/events/message.rb#300
+# source://discordrb//lib/discordrb/events/message.rb#329
 class Discordrb::Events::PrivateMessageEventHandler < ::Discordrb::Events::MessageEventHandler; end
 
 # Event raised when any dispatch is received
@@ -9202,12 +9337,12 @@ end
 
 # Event raised when somebody reacts to a message
 #
-# source://discordrb//lib/discordrb/events/reactions.rb#99
+# source://discordrb//lib/discordrb/events/reactions.rb#121
 class Discordrb::Events::ReactionAddEvent < ::Discordrb::Events::ReactionEvent; end
 
 # Event handler for {ReactionAddEvent}
 #
-# source://discordrb//lib/discordrb/events/reactions.rb#102
+# source://discordrb//lib/discordrb/events/reactions.rb#124
 class Discordrb::Events::ReactionAddEventHandler < ::Discordrb::Events::ReactionEventHandler; end
 
 # Generic superclass for events about adding and removing reactions
@@ -9218,12 +9353,32 @@ class Discordrb::Events::ReactionEvent < ::Discordrb::Events::Event
 
   # @return [ReactionEvent] a new instance of ReactionEvent
   #
-  # source://discordrb//lib/discordrb/events/reactions.rb#18
+  # source://discordrb//lib/discordrb/events/reactions.rb#29
   def initialize(data, bot); end
+
+  # @return [true, false] whether the reaction is a burst reaction.
+  #
+  # source://discordrb//lib/discordrb/events/reactions.rb#18
+  def burst; end
+
+  # @return [true, false] whether the reaction is a burst reaction.
+  #
+  # source://discordrb//lib/discordrb/events/reactions.rb#19
+  def burst?; end
+
+  # @return [Array<ColourRGB>] an array of colors used for animations in burst reactions.
+  #
+  # source://discordrb//lib/discordrb/events/reactions.rb#26
+  def burst_colors; end
+
+  # @return [Array<ColourRGB>] an array of colors used for animations in burst reactions.
+  #
+  # source://discordrb//lib/discordrb/events/reactions.rb#25
+  def burst_colours; end
 
   # @return [Channel] the channel that was reacted in.
   #
-  # source://discordrb//lib/discordrb/events/reactions.rb#43
+  # source://discordrb//lib/discordrb/events/reactions.rb#57
   def channel; end
 
   # @return [Emoji] the emoji that was reacted with.
@@ -9233,7 +9388,7 @@ class Discordrb::Events::ReactionEvent < ::Discordrb::Events::Event
 
   # @return [Message] the message that was reacted to.
   #
-  # source://discordrb//lib/discordrb/events/reactions.rb#38
+  # source://discordrb//lib/discordrb/events/reactions.rb#52
   def message; end
 
   # Returns the value of attribute message_id.
@@ -9243,70 +9398,100 @@ class Discordrb::Events::ReactionEvent < ::Discordrb::Events::Event
 
   # @return [Server, nil] the server that was reacted in. If reacted in a PM channel, it will be nil.
   #
-  # source://discordrb//lib/discordrb/events/reactions.rb#48
+  # source://discordrb//lib/discordrb/events/reactions.rb#62
   def server; end
+
+  # @return [Integer] the type of the reaction. 0 for normal, 1 for burst.
+  #
+  # source://discordrb//lib/discordrb/events/reactions.rb#22
+  def type; end
 
   # @return [User, Member] the user that reacted to this message, or member if a server exists.
   #
-  # source://discordrb//lib/discordrb/events/reactions.rb#28
+  # source://discordrb//lib/discordrb/events/reactions.rb#42
   def user; end
 end
 
 # Generic superclass for event handlers pertaining to adding and removing reactions
 #
-# source://discordrb//lib/discordrb/events/reactions.rb#54
+# source://discordrb//lib/discordrb/events/reactions.rb#68
 class Discordrb::Events::ReactionEventHandler < ::Discordrb::Events::EventHandler
   # @return [Boolean]
   #
-  # source://discordrb//lib/discordrb/events/reactions.rb#55
+  # source://discordrb//lib/discordrb/events/reactions.rb#69
   def matches?(event); end
 end
 
 # Event raised when somebody removes all reactions from a message
 #
-# source://discordrb//lib/discordrb/events/reactions.rb#111
+# source://discordrb//lib/discordrb/events/reactions.rb#133
 class Discordrb::Events::ReactionRemoveAllEvent < ::Discordrb::Events::Event
   include ::Discordrb::Events::Respondable
 
   # @return [ReactionRemoveAllEvent] a new instance of ReactionRemoveAllEvent
   #
-  # source://discordrb//lib/discordrb/events/reactions.rb#118
+  # source://discordrb//lib/discordrb/events/reactions.rb#140
   def initialize(data, bot); end
 
   # @return [Channel] the channel where the removal occurred.
   #
-  # source://discordrb//lib/discordrb/events/reactions.rb#126
+  # source://discordrb//lib/discordrb/events/reactions.rb#148
   def channel; end
 
   # @return [Message] the message all reactions were removed from.
   #
-  # source://discordrb//lib/discordrb/events/reactions.rb#131
+  # source://discordrb//lib/discordrb/events/reactions.rb#153
   def message; end
 
   # Returns the value of attribute message_id.
   #
-  # source://discordrb//lib/discordrb/events/reactions.rb#115
+  # source://discordrb//lib/discordrb/events/reactions.rb#137
   def message_id; end
 end
 
 # Event handler for {ReactionRemoveAllEvent}
 #
-# source://discordrb//lib/discordrb/events/reactions.rb#137
+# source://discordrb//lib/discordrb/events/reactions.rb#159
 class Discordrb::Events::ReactionRemoveAllEventHandler < ::Discordrb::Events::EventHandler
   # @return [Boolean]
   #
-  # source://discordrb//lib/discordrb/events/reactions.rb#138
+  # source://discordrb//lib/discordrb/events/reactions.rb#160
+  def matches?(event); end
+end
+
+# Event raised when all instances of a single reaction are removed from a message.
+#
+# source://discordrb//lib/discordrb/events/reactions.rb#184
+class Discordrb::Events::ReactionRemoveEmojiEvent < ::Discordrb::Events::ReactionRemoveAllEvent
+  # @return [ReactionRemoveEmojiEvent] a new instance of ReactionRemoveEmojiEvent
+  #
+  # source://discordrb//lib/discordrb/events/reactions.rb#189
+  def initialize(data, bot); end
+
+  # @return [Emoji] the emoji that was removed.
+  #
+  # source://discordrb//lib/discordrb/events/reactions.rb#186
+  def emoji; end
+end
+
+# Event handler for {ReactionRemoveEmojiEvent}.
+#
+# source://discordrb//lib/discordrb/events/reactions.rb#197
+class Discordrb::Events::ReactionRemoveEmojiEventHandler < ::Discordrb::Events::ReactionRemoveAllEventHandler
+  # @return [Boolean]
+  #
+  # source://discordrb//lib/discordrb/events/reactions.rb#199
   def matches?(event); end
 end
 
 # Event raised when somebody removes a reaction to a message
 #
-# source://discordrb//lib/discordrb/events/reactions.rb#105
+# source://discordrb//lib/discordrb/events/reactions.rb#127
 class Discordrb::Events::ReactionRemoveEvent < ::Discordrb::Events::ReactionEvent; end
 
 # Event handler for {ReactionRemoveEvent}
 #
-# source://discordrb//lib/discordrb/events/reactions.rb#108
+# source://discordrb//lib/discordrb/events/reactions.rb#130
 class Discordrb::Events::ReactionRemoveEventHandler < ::Discordrb::Events::ReactionEventHandler; end
 
 # @see Discordrb::EventContainer#ready
@@ -9472,22 +9657,22 @@ end
 
 # Event for when a user interacts with a select role component.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#427
+# source://discordrb//lib/discordrb/events/interactions.rb#433
 class Discordrb::Events::RoleSelectEvent < ::Discordrb::Events::ComponentEvent
   # @return [RoleSelectEvent] a new instance of RoleSelectEvent
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#432
+  # source://discordrb//lib/discordrb/events/interactions.rb#438
   def initialize(data, bot); end
 
   # @return [Array<Role>] Selected values.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#429
+  # source://discordrb//lib/discordrb/events/interactions.rb#435
   def values; end
 end
 
 # Event handler for a select role component.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#440
+# source://discordrb//lib/discordrb/events/interactions.rb#446
 class Discordrb::Events::RoleSelectEventHandler < ::Discordrb::Events::ComponentEventHandler; end
 
 # Server is created
@@ -9868,41 +10053,41 @@ class Discordrb::Events::ServerUpdateEventHandler < ::Discordrb::Events::ServerE
 
 # Event for when a user interacts with a select string component.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#376
+# source://discordrb//lib/discordrb/events/interactions.rb#382
 class Discordrb::Events::StringSelectEvent < ::Discordrb::Events::ComponentEvent
   # @return [StringSelectEvent] a new instance of StringSelectEvent
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#381
+  # source://discordrb//lib/discordrb/events/interactions.rb#387
   def initialize(data, bot); end
 
   # @return [Array<String>] Selected values.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#378
+  # source://discordrb//lib/discordrb/events/interactions.rb#384
   def values; end
 end
 
 # Event handler for a select string component.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#389
+# source://discordrb//lib/discordrb/events/interactions.rb#395
 class Discordrb::Events::StringSelectEventHandler < ::Discordrb::Events::ComponentEventHandler; end
 
 # Builder for adding subcommands to an ApplicationCommandHandler
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#302
+# source://discordrb//lib/discordrb/events/interactions.rb#308
 class Discordrb::Events::SubcommandBuilder
   # @param group [String, Symbol, nil]
   # @return [SubcommandBuilder] a new instance of SubcommandBuilder
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#305
+  # source://discordrb//lib/discordrb/events/interactions.rb#311
   def initialize(group = T.unsafe(nil)); end
 
   # @param name [Symbol, String]
   # @yieldparam [ApplicationCommandEvent]
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#312
+  # source://discordrb//lib/discordrb/events/interactions.rb#318
   def subcommand(name, &block); end
 
-  # source://discordrb//lib/discordrb/events/interactions.rb#317
+  # source://discordrb//lib/discordrb/events/interactions.rb#323
   def to_h; end
 end
 
@@ -10107,22 +10292,22 @@ end
 
 # Event for when a user interacts with a select user component.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#410
+# source://discordrb//lib/discordrb/events/interactions.rb#416
 class Discordrb::Events::UserSelectEvent < ::Discordrb::Events::ComponentEvent
   # @return [UserSelectEvent] a new instance of UserSelectEvent
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#415
+  # source://discordrb//lib/discordrb/events/interactions.rb#421
   def initialize(data, bot); end
 
   # @return [Array<User>] Selected values.
   #
-  # source://discordrb//lib/discordrb/events/interactions.rb#412
+  # source://discordrb//lib/discordrb/events/interactions.rb#418
   def values; end
 end
 
 # Event handler for a select user component.
 #
-# source://discordrb//lib/discordrb/events/interactions.rb#423
+# source://discordrb//lib/discordrb/events/interactions.rb#429
 class Discordrb::Events::UserSelectEventHandler < ::Discordrb::Events::ComponentEventHandler; end
 
 # Raised when a user is unbanned from a server
@@ -10375,14 +10560,14 @@ class Discordrb::Gateway
   #
   # @param attempt_resume [true, false] Whether a resume should be attempted after the reconnection.
   #
-  # source://discordrb//lib/discordrb/gateway.rb#385
+  # source://discordrb//lib/discordrb/gateway.rb#383
   def reconnect(attempt_resume = T.unsafe(nil)); end
 
   # Resumes the session from the last recorded point.
   #
   # @see #send_resume
   #
-  # source://discordrb//lib/discordrb/gateway.rb#379
+  # source://discordrb//lib/discordrb/gateway.rb#377
   def resume; end
 
   # Connect to the gateway server in a separate thread
@@ -10417,7 +10602,7 @@ class Discordrb::Gateway
   # @param token [String] The token with which to authorise the session. If it belongs to a bot account, it must be
   #   prefixed with "Bot ".
   #
-  # source://discordrb//lib/discordrb/gateway.rb#325
+  # source://discordrb//lib/discordrb/gateway.rb#323
   def send_identify(token, properties, compress, large_threshold, shard_key = T.unsafe(nil), intents = T.unsafe(nil)); end
 
   # Sends a custom packet over the connection. This can be useful to implement future yet unimplemented functionality
@@ -10427,7 +10612,7 @@ class Discordrb::Gateway
   #   necessary.
   # @param packet [Object] Some arbitrary JSON-serializable data that should be sent as the `d` field.
   #
-  # source://discordrb//lib/discordrb/gateway.rb#436
+  # source://discordrb//lib/discordrb/gateway.rb#434
   def send_packet(opcode, packet); end
 
   # Sends custom raw data over the connection. Only useful for testing; even if you know what you're doing you
@@ -10437,7 +10622,7 @@ class Discordrb::Gateway
   # @param type [Symbol] The type the WebSocket frame should have; either `:text`, `:binary`, `:ping`, `:pong`, or
   #   `:close`.
   #
-  # source://discordrb//lib/discordrb/gateway.rb#450
+  # source://discordrb//lib/discordrb/gateway.rb#448
   def send_raw(data, type = T.unsafe(nil)); end
 
   # Sends a request members packet (op 8). This will order Discord to gradually sent all requested members as dispatch
@@ -10449,7 +10634,7 @@ class Discordrb::Gateway
   #   returned.
   # @param server_id [Integer] The ID of the server whose members to query.
   #
-  # source://discordrb//lib/discordrb/gateway.rb#421
+  # source://discordrb//lib/discordrb/gateway.rb#419
   def send_request_members(server_id, query, limit); end
 
   # Sends a resume packet (op 6). This replays all events from a previous point specified by its packet sequence. This
@@ -10464,7 +10649,7 @@ class Discordrb::Gateway
   # @param session_id [String] The session ID of the session to resume.
   # @param token [String] The token that was used to identify the session to resume.
   #
-  # source://discordrb//lib/discordrb/gateway.rb#404
+  # source://discordrb//lib/discordrb/gateway.rb#402
   def send_resume(token, session_id, seq); end
 
   # Sends a status update packet (op 3). This sets the bot user's status (online/idle/...) and game playing/streaming.
@@ -10476,7 +10661,7 @@ class Discordrb::Gateway
   #   `afk` is true.
   # @param status [String] The status that should be set (`online`, `idle`, `dnd`, `invisible`).
   #
-  # source://discordrb//lib/discordrb/gateway.rb#348
+  # source://discordrb//lib/discordrb/gateway.rb#346
   def send_status_update(status, since, game, afk); end
 
   # Sends a voice state update packet (op 4). This packet can connect a user to a voice channel, update self mute/deaf
@@ -10488,7 +10673,7 @@ class Discordrb::Gateway
   # @param self_mute [true, false] Whether the user should itself be muted to everyone else.
   # @param server_id [Integer] The ID of the server on which this action should occur.
   #
-  # source://discordrb//lib/discordrb/gateway.rb#366
+  # source://discordrb//lib/discordrb/gateway.rb#364
   def send_voice_state_update(server_id, channel_id, self_mute, self_deaf); end
 
   # Stops the bot gracefully, disconnecting the websocket without immediately killing the thread. This means that
@@ -10506,101 +10691,101 @@ class Discordrb::Gateway
 
   private
 
-  # source://discordrb//lib/discordrb/gateway.rb#863
+  # source://discordrb//lib/discordrb/gateway.rb#860
   def close(code = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/gateway.rb#576
+  # source://discordrb//lib/discordrb/gateway.rb#574
   def connect; end
 
-  # source://discordrb//lib/discordrb/gateway.rb#488
+  # source://discordrb//lib/discordrb/gateway.rb#486
   def connect_loop; end
 
-  # source://discordrb//lib/discordrb/gateway.rb#556
+  # source://discordrb//lib/discordrb/gateway.rb#554
   def find_gateway; end
 
-  # source://discordrb//lib/discordrb/gateway.rb#815
+  # source://discordrb//lib/discordrb/gateway.rb#812
   def handle_close(e); end
 
   # Op 0
   #
-  # source://discordrb//lib/discordrb/gateway.rb#734
+  # source://discordrb//lib/discordrb/gateway.rb#731
   def handle_dispatch(packet); end
 
-  # source://discordrb//lib/discordrb/gateway.rb#675
+  # source://discordrb//lib/discordrb/gateway.rb#673
   def handle_error(e); end
 
-  # source://discordrb//lib/discordrb/gateway.rb#665
+  # source://discordrb//lib/discordrb/gateway.rb#663
   def handle_handshake_data(recv_data); end
 
   # Op 1
   #
-  # source://discordrb//lib/discordrb/gateway.rb#757
+  # source://discordrb//lib/discordrb/gateway.rb#754
   def handle_heartbeat(packet); end
 
   # Op 11
   #
-  # source://discordrb//lib/discordrb/gateway.rb#804
+  # source://discordrb//lib/discordrb/gateway.rb#801
   def handle_heartbeat_ack(packet); end
 
   # Op 10
   #
-  # source://discordrb//lib/discordrb/gateway.rb#782
+  # source://discordrb//lib/discordrb/gateway.rb#779
   def handle_hello(packet); end
 
   # Called when the websocket has been disconnected in some way - say due to a pipe error while sending
   #
-  # source://discordrb//lib/discordrb/gateway.rb#810
+  # source://discordrb//lib/discordrb/gateway.rb#807
   def handle_internal_close(e); end
 
   # Op 9
   #
-  # source://discordrb//lib/discordrb/gateway.rb#769
+  # source://discordrb//lib/discordrb/gateway.rb#766
   def handle_invalidate_session; end
 
-  # source://discordrb//lib/discordrb/gateway.rb#684
+  # source://discordrb//lib/discordrb/gateway.rb#681
   def handle_message(msg); end
 
-  # source://discordrb//lib/discordrb/gateway.rb#673
+  # source://discordrb//lib/discordrb/gateway.rb#671
   def handle_open; end
 
   # Op 7
   #
-  # source://discordrb//lib/discordrb/gateway.rb#763
+  # source://discordrb//lib/discordrb/gateway.rb#760
   def handle_reconnect; end
 
   # Create and connect a socket using a URI
   #
-  # source://discordrb//lib/discordrb/gateway.rb#522
+  # source://discordrb//lib/discordrb/gateway.rb#520
   def obtain_socket(uri); end
 
-  # source://discordrb//lib/discordrb/gateway.rb#561
+  # source://discordrb//lib/discordrb/gateway.rb#559
   def process_gateway; end
 
   # Whether the URI is secure (connection should be encrypted)
   #
   # @return [Boolean]
   #
-  # source://discordrb//lib/discordrb/gateway.rb#547
+  # source://discordrb//lib/discordrb/gateway.rb#545
   def secure_uri?(uri); end
 
-  # source://discordrb//lib/discordrb/gateway.rb#842
+  # source://discordrb//lib/discordrb/gateway.rb#839
   def send(data, type = T.unsafe(nil), code = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/gateway.rb#456
+  # source://discordrb//lib/discordrb/gateway.rb#454
   def setup_heartbeats(interval); end
 
   # The port we should connect to, if the URI doesn't have one set.
   #
-  # source://discordrb//lib/discordrb/gateway.rb#552
+  # source://discordrb//lib/discordrb/gateway.rb#550
   def socket_port(uri); end
 
   # Separate method to wait an ever-increasing amount of time before reconnecting after being disconnected in an
   # unexpected way
   #
-  # source://discordrb//lib/discordrb/gateway.rb#511
+  # source://discordrb//lib/discordrb/gateway.rb#509
   def wait_for_reconnect; end
 
-  # source://discordrb//lib/discordrb/gateway.rb#606
+  # source://discordrb//lib/discordrb/gateway.rb#604
   def websocket_loop; end
 end
 
@@ -10623,7 +10808,7 @@ Discordrb::Gateway::GATEWAY_VERSION = T.let(T.unsafe(nil), Integer)
 # source://discordrb//lib/discordrb/gateway.rb#143
 Discordrb::Gateway::LARGE_THRESHOLD = T.let(T.unsafe(nil), Integer)
 
-# source://discordrb//lib/discordrb/gateway.rb#681
+# source://discordrb//lib/discordrb/gateway.rb#678
 Discordrb::Gateway::ZLIB_SUFFIX = T.let(T.unsafe(nil), String)
 
 # Mixin for objects that have IDs
@@ -10850,40 +11035,51 @@ end
 #
 # source://discordrb//lib/discordrb/data/interaction.rb#7
 class Discordrb::Interaction
+  include ::Discordrb::IDObject
+
   # @return [Interaction] a new instance of Interaction
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#63
+  # source://discordrb//lib/discordrb/data/interaction.rb#83
   def initialize(data, bot); end
 
   # @return [Integer] The ID of the application associated with this interaction.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#43
+  # source://discordrb//lib/discordrb/data/interaction.rb#45
   def application_id; end
+
+  # @return [Permissions] The permissions the application has where this interaction originates from.
+  #
+  # source://discordrb//lib/discordrb/data/interaction.rb#65
+  def application_permissions; end
 
   # @return [Hash, nil] Returns the button that triggered this interaction if applicable, otherwise nil
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#289
+  # source://discordrb//lib/discordrb/data/interaction.rb#311
   def button; end
 
-  # @raise [Errors::NoPermission] When the bot is not in the server associated with this interaction.
-  # @return [Channel, nil]
+  # @return [Channel] The channel where this interaction originates from.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#284
+  # source://discordrb//lib/discordrb/data/interaction.rb#42
   def channel; end
 
   # @return [Integer] The ID of the channel this interaction originates from.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#37
+  # source://discordrb//lib/discordrb/data/interaction.rb#39
   def channel_id; end
 
-  # @return [Array<ActionRow>]
+  # @return [Array<ActionRow>] The modal components associated with this interaction.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#60
+  # source://discordrb//lib/discordrb/data/interaction.rb#62
   def components; end
+
+  # @return [Integer] The context of where this interaction was initiated from.
+  #
+  # source://discordrb//lib/discordrb/data/interaction.rb#74
+  def context; end
 
   # @return [Hash] The interaction data.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#57
+  # source://discordrb//lib/discordrb/data/interaction.rb#59
   def data; end
 
   # Defer an interaction, setting a temporary response that can be later overriden by {Interaction#send_message}.
@@ -10893,22 +11089,22 @@ class Discordrb::Interaction
   # @param ephemeral [true, false] Whether this message should only be visible to the interaction initiator.
   # @param flags [Integer] Message flags.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#124
+  # source://discordrb//lib/discordrb/data/interaction.rb#152
   def defer(flags: T.unsafe(nil), ephemeral: T.unsafe(nil)); end
 
   # Defer an update to an interaction. This is can only currently used by Button interactions.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#132
+  # source://discordrb//lib/discordrb/data/interaction.rb#160
   def defer_update; end
 
   # @param message [Integer, String, InteractionMessage, Message] The message created by this interaction to be deleted.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#263
+  # source://discordrb//lib/discordrb/data/interaction.rb#291
   def delete_message(message); end
 
   # Delete the original interaction response.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#210
+  # source://discordrb//lib/discordrb/data/interaction.rb#238
   def delete_response; end
 
   # @param allowed_mentions [Hash, AllowedMentions] Mentions that can ping on this message.
@@ -10918,7 +11114,7 @@ class Discordrb::Interaction
   # @param message [String, Integer, InteractionMessage, Message] The message created by this interaction to be edited.
   # @yieldparam builder [Webhooks::Builder] An optional message builder. Arguments passed to the method overwrite builder data.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#246
+  # source://discordrb//lib/discordrb/data/interaction.rb#274
   def edit_message(message, content: T.unsafe(nil), embeds: T.unsafe(nil), allowed_mentions: T.unsafe(nil), components: T.unsafe(nil), attachments: T.unsafe(nil)); end
 
   # Edit the original response to this interaction.
@@ -10931,18 +11127,18 @@ class Discordrb::Interaction
   # @return [InteractionMessage] The updated response message.
   # @yieldparam builder [Webhooks::Builder] An optional message builder. Arguments passed to the method overwrite builder data.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#195
+  # source://discordrb//lib/discordrb/data/interaction.rb#223
   def edit_response(content: T.unsafe(nil), embeds: T.unsafe(nil), allowed_mentions: T.unsafe(nil), components: T.unsafe(nil), attachments: T.unsafe(nil)); end
 
   # @return [TextInput, Button, SelectMenu]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#305
+  # source://discordrb//lib/discordrb/data/interaction.rb#327
   def get_component(custom_id); end
 
-  # @return [Integer] The ID of this interaction.
+  # @return [Integer] The maximum number of bytes an attachment can have when responding to this interaction.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#40
-  def id; end
+  # source://discordrb//lib/discordrb/data/interaction.rb#77
+  def max_attachment_size; end
 
   # Respond to the creation of this interaction. An interaction must be responded to or deferred,
   # The response may be modified with {Interaction#edit_response} or deleted with {Interaction#delete_response}.
@@ -10960,7 +11156,7 @@ class Discordrb::Interaction
   # @yieldparam builder [Webhooks::Builder] An optional message builder. Arguments passed to the method overwrite builder data.
   # @yieldparam view [Webhooks::View] A builder for creating interaction components.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#98
+  # source://discordrb//lib/discordrb/data/interaction.rb#126
   def respond(content: T.unsafe(nil), tts: T.unsafe(nil), embeds: T.unsafe(nil), allowed_mentions: T.unsafe(nil), flags: T.unsafe(nil), ephemeral: T.unsafe(nil), wait: T.unsafe(nil), components: T.unsafe(nil), attachments: T.unsafe(nil)); end
 
   # @param allowed_mentions [Hash, AllowedMentions] Mentions that can ping on this message.
@@ -10972,25 +11168,40 @@ class Discordrb::Interaction
   # @param tts [true, false]
   # @yieldparam builder [Webhooks::Builder] An optional message builder. Arguments passed to the method overwrite builder data.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#222
+  # source://discordrb//lib/discordrb/data/interaction.rb#250
   def send_message(content: T.unsafe(nil), embeds: T.unsafe(nil), tts: T.unsafe(nil), allowed_mentions: T.unsafe(nil), flags: T.unsafe(nil), ephemeral: T.unsafe(nil), components: T.unsafe(nil), attachments: T.unsafe(nil)); end
 
   # @return [Server, nil] This will be nil for interactions that occur in DM channels or servers where the bot
   #   does not have the `bot` scope.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#278
+  # source://discordrb//lib/discordrb/data/interaction.rb#306
   def server; end
+
+  # @return [Array<Symbol>] the features of the server where the interaction was initiated from.
+  #
+  # source://discordrb//lib/discordrb/data/interaction.rb#80
+  def server_features; end
 
   # @return [Integer, nil] The ID of the server this interaction originates from.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#34
+  # source://discordrb//lib/discordrb/data/interaction.rb#36
   def server_id; end
+
+  # @return [true, false] whether the application was installed by the server where this interaction originates from.
+  #
+  # source://discordrb//lib/discordrb/data/interaction.rb#340
+  def server_integration?; end
+
+  # @return [String, nil] The selected language of the server this interaction originates from.
+  #
+  # source://discordrb//lib/discordrb/data/interaction.rb#71
+  def server_locale; end
 
   # Show autocomplete choices as a response.
   #
   # @param choices [Array<Hash>, Hash] Array of autocomplete choices to show the user.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#270
+  # source://discordrb//lib/discordrb/data/interaction.rb#298
   def show_autocomplete_choices(choices); end
 
   # Create a modal as a response.
@@ -11000,23 +11211,23 @@ class Discordrb::Interaction
   # @param title [String] The title of the modal being shown.
   # @yieldparam A [Discordrb::Webhooks::Modal] builder for the modal's components.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#141
+  # source://discordrb//lib/discordrb/data/interaction.rb#169
   def show_modal(title:, custom_id:, components: T.unsafe(nil)); end
 
   # @return [Array<TextInput>]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#300
+  # source://discordrb//lib/discordrb/data/interaction.rb#322
   def text_inputs; end
 
   # @return [String] The interaction token.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#46
+  # source://discordrb//lib/discordrb/data/interaction.rb#48
   def token; end
 
   # @return [Integer] The type of this interaction.
   # @see TYPES
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#54
+  # source://discordrb//lib/discordrb/data/interaction.rb#56
   def type; end
 
   # Respond to the creation of this interaction. An interaction must be responded to or deferred,
@@ -11035,17 +11246,27 @@ class Discordrb::Interaction
   # @yieldparam builder [Webhooks::Builder] An optional message builder. Arguments passed to the method overwrite builder data.
   # @yieldparam view [Webhooks::View] A builder for creating interaction components.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#167
+  # source://discordrb//lib/discordrb/data/interaction.rb#195
   def update_message(content: T.unsafe(nil), tts: T.unsafe(nil), embeds: T.unsafe(nil), allowed_mentions: T.unsafe(nil), flags: T.unsafe(nil), ephemeral: T.unsafe(nil), wait: T.unsafe(nil), components: T.unsafe(nil), attachments: T.unsafe(nil)); end
 
   # @return [User, Member] The user that initiated the interaction.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#31
+  # source://discordrb//lib/discordrb/data/interaction.rb#33
   def user; end
+
+  # @return [true, false] whether the application was installed by the user who initiated this interaction.
+  #
+  # source://discordrb//lib/discordrb/data/interaction.rb#335
+  def user_integration?; end
+
+  # @return [String] The selected language of the user that initiated this interaction.
+  #
+  # source://discordrb//lib/discordrb/data/interaction.rb#68
+  def user_locale; end
 
   # @return [Integer] Currently pointless
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#50
+  # source://discordrb//lib/discordrb/data/interaction.rb#52
   def version; end
 
   private
@@ -11057,7 +11278,7 @@ class Discordrb::Interaction
   # @param content [String, nil]
   # @param embeds [Array<Hash, Discordrb::Webhooks::Embed>, nil]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#319
+  # source://discordrb//lib/discordrb/data/interaction.rb#351
   def prepare_builder(builder, content, embeds, allowed_mentions); end
 end
 
@@ -11065,66 +11286,66 @@ end
 #
 # @see https://discord.com/developers/docs/interactions/slash-commands#interaction-response-interactioncallbacktype
 #
-# source://discordrb//lib/discordrb/data/interaction.rb#20
+# source://discordrb//lib/discordrb/data/interaction.rb#22
 Discordrb::Interaction::CALLBACK_TYPES = T.let(T.unsafe(nil), Hash)
 
 # Interaction types.
 #
 # @see https://discord.com/developers/docs/interactions/slash-commands#interaction-interactiontype
 #
-# source://discordrb//lib/discordrb/data/interaction.rb#10
+# source://discordrb//lib/discordrb/data/interaction.rb#12
 Discordrb::Interaction::TYPES = T.let(T.unsafe(nil), Hash)
 
 # Objects specific to Interactions.
 #
-# source://discordrb//lib/discordrb/data/interaction.rb#511
+# source://discordrb//lib/discordrb/data/interaction.rb#543
 module Discordrb::Interactions; end
 
 # A message partial for interactions.
 #
-# source://discordrb//lib/discordrb/data/interaction.rb#793
+# source://discordrb//lib/discordrb/data/interaction.rb#825
 class Discordrb::Interactions::Message
   include ::Discordrb::IDObject
 
   # @return [Message] a new instance of Message
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#845
+  # source://discordrb//lib/discordrb/data/interaction.rb#877
   def initialize(data, bot, interaction); end
 
   # @return [Attachment]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#824
+  # source://discordrb//lib/discordrb/data/interaction.rb#856
   def attachments; end
 
   # @return [User] The user of the application.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#821
+  # source://discordrb//lib/discordrb/data/interaction.rb#853
   def author; end
 
   # @raise [Errors::NoPermission] When the bot is not in the server associated with this interaction.
   # @return [Channel] The channel the interaction originates from.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#899
+  # source://discordrb//lib/discordrb/data/interaction.rb#931
   def channel; end
 
   # @return [Integer]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#836
+  # source://discordrb//lib/discordrb/data/interaction.rb#868
   def channel_id; end
 
   # @return [Array<Component>]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#842
+  # source://discordrb//lib/discordrb/data/interaction.rb#874
   def components; end
 
   # @return [String, nil] The content of the message.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#800
+  # source://discordrb//lib/discordrb/data/interaction.rb#832
   def content; end
 
   # Delete this message.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#911
+  # source://discordrb//lib/discordrb/data/interaction.rb#943
   def delete; end
 
   # Edit this message's data.
@@ -11134,66 +11355,66 @@ class Discordrb::Interactions::Message
   # @param embeds [Array<Hash, Webhooks::Embed>] The embeds for the message.
   # @yieldparam builder [Webhooks::Builder] An optional message builder. Arguments passed to the method overwrite builder data.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#920
+  # source://discordrb//lib/discordrb/data/interaction.rb#952
   def edit(content: T.unsafe(nil), embeds: T.unsafe(nil), allowed_mentions: T.unsafe(nil), components: T.unsafe(nil), attachments: T.unsafe(nil), &block); end
 
   # @return [true, false]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#815
+  # source://discordrb//lib/discordrb/data/interaction.rb#847
   def edited; end
 
   # @return [Time, nil]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#812
+  # source://discordrb//lib/discordrb/data/interaction.rb#844
   def edited_timestamp; end
 
   # @return [Array<Embed>]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#827
+  # source://discordrb//lib/discordrb/data/interaction.rb#859
   def embeds; end
 
   # @return [Integer]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#833
+  # source://discordrb//lib/discordrb/data/interaction.rb#865
   def flags; end
 
   # @return [Integer]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#818
+  # source://discordrb//lib/discordrb/data/interaction.rb#850
   def id; end
 
-  # source://discordrb//lib/discordrb/data/interaction.rb#932
+  # source://discordrb//lib/discordrb/data/interaction.rb#964
   def inspect; end
 
   # @return [Interaction] The interaction that created this message.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#797
+  # source://discordrb//lib/discordrb/data/interaction.rb#829
   def interaction; end
 
   # @return [Member, nil] This will return nil if the bot does not have access to the
   #   server the interaction originated in.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#887
+  # source://discordrb//lib/discordrb/data/interaction.rb#919
   def member; end
 
   # @return [Array<User>]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#830
+  # source://discordrb//lib/discordrb/data/interaction.rb#862
   def mentions; end
 
   # @return [Discordrb::Message]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#929
+  # source://discordrb//lib/discordrb/data/interaction.rb#961
   def message; end
 
   # @return [Hash, nil]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#839
+  # source://discordrb//lib/discordrb/data/interaction.rb#871
   def message_reference; end
 
   # @return [true, false] Whether this message is pinned in the channel it belongs to.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#803
+  # source://discordrb//lib/discordrb/data/interaction.rb#835
   def pinned; end
 
   # Respond to this message.
@@ -11207,38 +11428,38 @@ class Discordrb::Interactions::Message
   # @param tts [true, false]
   # @yieldparam builder [Webhooks::Builder] An optional message builder. Arguments passed to the method overwrite builder data.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#906
+  # source://discordrb//lib/discordrb/data/interaction.rb#938
   def respond(content: T.unsafe(nil), embeds: T.unsafe(nil), allowed_mentions: T.unsafe(nil), flags: T.unsafe(nil), ephemeral: T.unsafe(nil), components: T.unsafe(nil), attachments: T.unsafe(nil), &block); end
 
   # @return [Server, nil] This will return nil if the bot does not have access to the
   #   server the interaction originated in.
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#893
+  # source://discordrb//lib/discordrb/data/interaction.rb#925
   def server; end
 
   # @return [Time]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#809
+  # source://discordrb//lib/discordrb/data/interaction.rb#841
   def timestamp; end
 
   # @return [Discordrb::Message]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#925
+  # source://discordrb//lib/discordrb/data/interaction.rb#957
   def to_message; end
 
   # @return [true, false]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#806
+  # source://discordrb//lib/discordrb/data/interaction.rb#838
   def tts; end
 end
 
 # A builder for defining slash commands options.
 #
-# source://discordrb//lib/discordrb/data/interaction.rb#513
+# source://discordrb//lib/discordrb/data/interaction.rb#545
 class Discordrb::Interactions::OptionBuilder
   # @return [OptionBuilder] a new instance of OptionBuilder
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#548
+  # source://discordrb//lib/discordrb/data/interaction.rb#580
   def initialize; end
 
   # @param description [String] A description of the argument.
@@ -11246,7 +11467,7 @@ class Discordrb::Interactions::OptionBuilder
   # @param required [true, false] Whether this option must be provided.
   # @return Hash
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#672
+  # source://discordrb//lib/discordrb/data/interaction.rb#704
   def attachment(name, description, required: T.unsafe(nil)); end
 
   # @param description [String] A description of the argument.
@@ -11254,7 +11475,7 @@ class Discordrb::Interactions::OptionBuilder
   # @param required [true, false] Whether this option must be provided.
   # @return Hash
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#618
+  # source://discordrb//lib/discordrb/data/interaction.rb#650
   def boolean(name, description, required: T.unsafe(nil)); end
 
   # @param description [String] A description of the argument.
@@ -11263,7 +11484,7 @@ class Discordrb::Interactions::OptionBuilder
   # @param types [Array<Symbol, Integer>] See {CHANNEL_TYPES}
   # @return Hash
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#635
+  # source://discordrb//lib/discordrb/data/interaction.rb#667
   def channel(name, description, required: T.unsafe(nil), types: T.unsafe(nil)); end
 
   # @param autocomplete [true, false] Whether this option can dynamically show choices.
@@ -11275,7 +11496,7 @@ class Discordrb::Interactions::OptionBuilder
   # @param required [true, false] Whether this option must be provided.
   # @return Hash
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#609
+  # source://discordrb//lib/discordrb/data/interaction.rb#641
   def integer(name, description, required: T.unsafe(nil), min_value: T.unsafe(nil), max_value: T.unsafe(nil), choices: T.unsafe(nil), autocomplete: T.unsafe(nil)); end
 
   # @param description [String] A description of the argument.
@@ -11283,7 +11504,7 @@ class Discordrb::Interactions::OptionBuilder
   # @param required [true, false] Whether this option must be provided.
   # @return Hash
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#652
+  # source://discordrb//lib/discordrb/data/interaction.rb#684
   def mentionable(name, description, required: T.unsafe(nil)); end
 
   # @param autocomplete [true, false] Whether this option can dynamically show choices.
@@ -11294,7 +11515,7 @@ class Discordrb::Interactions::OptionBuilder
   # @param required [true, false] Whether this option must be provided.
   # @return Hash
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#663
+  # source://discordrb//lib/discordrb/data/interaction.rb#695
   def number(name, description, required: T.unsafe(nil), min_value: T.unsafe(nil), max_value: T.unsafe(nil), choices: T.unsafe(nil), autocomplete: T.unsafe(nil)); end
 
   # @param autocomplete [true, false] Whether this option can dynamically show options.
@@ -11309,12 +11530,12 @@ class Discordrb::Interactions::OptionBuilder
   # @param type [Integer] The argument type.
   # @return Hash
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#688
+  # source://discordrb//lib/discordrb/data/interaction.rb#720
   def option(type, name, description, required: T.unsafe(nil), choices: T.unsafe(nil), options: T.unsafe(nil), min_value: T.unsafe(nil), max_value: T.unsafe(nil), min_length: T.unsafe(nil), max_length: T.unsafe(nil), channel_types: T.unsafe(nil), autocomplete: T.unsafe(nil)); end
 
   # @return [Array<Hash>]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#545
+  # source://discordrb//lib/discordrb/data/interaction.rb#577
   def options; end
 
   # @param description [String] A description of the argument.
@@ -11322,7 +11543,7 @@ class Discordrb::Interactions::OptionBuilder
   # @param required [true, false] Whether this option must be provided.
   # @return Hash
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#644
+  # source://discordrb//lib/discordrb/data/interaction.rb#676
   def role(name, description, required: T.unsafe(nil)); end
 
   # @param autocomplete [true, false] Whether this option can dynamically show choices.
@@ -11334,7 +11555,7 @@ class Discordrb::Interactions::OptionBuilder
   # @param required [true, false] Whether this option must be provided.
   # @return Hash
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#596
+  # source://discordrb//lib/discordrb/data/interaction.rb#628
   def string(name, description, required: T.unsafe(nil), min_length: T.unsafe(nil), max_length: T.unsafe(nil), choices: T.unsafe(nil), autocomplete: T.unsafe(nil)); end
 
   # @example
@@ -11348,7 +11569,7 @@ class Discordrb::Interactions::OptionBuilder
   # @return Hash
   # @yieldparam [OptionBuilder]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#562
+  # source://discordrb//lib/discordrb/data/interaction.rb#594
   def subcommand(name, description); end
 
   # @example
@@ -11364,12 +11585,12 @@ class Discordrb::Interactions::OptionBuilder
   # @return Hash
   # @yieldparam [OptionBuilder]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#581
+  # source://discordrb//lib/discordrb/data/interaction.rb#613
   def subcommand_group(name, description); end
 
   # @return [Array<Hash>]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#702
+  # source://discordrb//lib/discordrb/data/interaction.rb#734
   def to_a; end
 
   # @param description [String] A description of the argument.
@@ -11377,27 +11598,27 @@ class Discordrb::Interactions::OptionBuilder
   # @param required [true, false] Whether this option must be provided.
   # @return Hash
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#626
+  # source://discordrb//lib/discordrb/data/interaction.rb#658
   def user(name, description, required: T.unsafe(nil)); end
 end
 
 # Channel types that can be provided to #channel
 #
-# source://discordrb//lib/discordrb/data/interaction.rb#530
+# source://discordrb//lib/discordrb/data/interaction.rb#562
 Discordrb::Interactions::OptionBuilder::CHANNEL_TYPES = T.let(T.unsafe(nil), Hash)
 
-# source://discordrb//lib/discordrb/data/interaction.rb#515
+# source://discordrb//lib/discordrb/data/interaction.rb#547
 Discordrb::Interactions::OptionBuilder::TYPES = T.let(T.unsafe(nil), Hash)
 
 # Builder for creating server application command permissions.
 #
 # @deprecated This system is being replaced in the near future.
 #
-# source://discordrb//lib/discordrb/data/interaction.rb#709
+# source://discordrb//lib/discordrb/data/interaction.rb#741
 class Discordrb::Interactions::PermissionBuilder
   # @return [PermissionBuilder] a new instance of PermissionBuilder
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#716
+  # source://discordrb//lib/discordrb/data/interaction.rb#748
   def initialize; end
 
   # Allow an entity to use this command.
@@ -11406,7 +11627,7 @@ class Discordrb::Interactions::PermissionBuilder
   # @raise [ArgumentError]
   # @return [PermissionBuilder]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#752
+  # source://discordrb//lib/discordrb/data/interaction.rb#784
   def allow(object); end
 
   # Allow a role to use this command.
@@ -11414,7 +11635,7 @@ class Discordrb::Interactions::PermissionBuilder
   # @param role_id [Integer]
   # @return [PermissionBuilder]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#723
+  # source://discordrb//lib/discordrb/data/interaction.rb#755
   def allow_role(role_id); end
 
   # Allow a user to use this command.
@@ -11422,7 +11643,7 @@ class Discordrb::Interactions::PermissionBuilder
   # @param user_id [Integer]
   # @return [PermissionBuilder]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#737
+  # source://discordrb//lib/discordrb/data/interaction.rb#769
   def allow_user(user_id); end
 
   # Deny an entity usage of this command.
@@ -11431,7 +11652,7 @@ class Discordrb::Interactions::PermissionBuilder
   # @raise [ArgumentError]
   # @return [PermissionBuilder]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#767
+  # source://discordrb//lib/discordrb/data/interaction.rb#799
   def deny(object); end
 
   # Deny a role usage of this command.
@@ -11439,7 +11660,7 @@ class Discordrb::Interactions::PermissionBuilder
   # @param role_id [Integer]
   # @return [PermissionBuilder]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#730
+  # source://discordrb//lib/discordrb/data/interaction.rb#762
   def deny_role(role_id); end
 
   # Deny a user usage of this command.
@@ -11447,28 +11668,28 @@ class Discordrb::Interactions::PermissionBuilder
   # @param user_id [Integer]
   # @return [PermissionBuilder]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#744
+  # source://discordrb//lib/discordrb/data/interaction.rb#776
   def deny_user(user_id); end
 
   # @return [Array<Hash>]
   #
-  # source://discordrb//lib/discordrb/data/interaction.rb#780
+  # source://discordrb//lib/discordrb/data/interaction.rb#812
   def to_a; end
 
   private
 
-  # source://discordrb//lib/discordrb/data/interaction.rb#786
+  # source://discordrb//lib/discordrb/data/interaction.rb#818
   def create_entry(id, type, permission); end
 end
 
 # Role permission type
 #
-# source://discordrb//lib/discordrb/data/interaction.rb#711
+# source://discordrb//lib/discordrb/data/interaction.rb#743
 Discordrb::Interactions::PermissionBuilder::ROLE = T.let(T.unsafe(nil), Integer)
 
 # User permission type
 #
-# source://discordrb//lib/discordrb/data/interaction.rb#713
+# source://discordrb//lib/discordrb/data/interaction.rb#745
 Discordrb::Interactions::PermissionBuilder::USER = T.let(T.unsafe(nil), Integer)
 
 # A Discord invite to a channel
@@ -11764,14 +11985,14 @@ Discordrb::Logger::MODES = T.let(T.unsafe(nil), Hash)
 # A member is a user on a server. It differs from regular users in that it has roles, voice statuses and things like
 # that.
 #
-# source://discordrb//lib/discordrb/data/member.rb#80
+# source://discordrb//lib/discordrb/data/member.rb#81
 class Discordrb::Member
   include ::Discordrb::MemberAttributes
   include ::Discordrb::PermissionCalculator
 
   # @return [Member] a new instance of Member
   #
-  # source://discordrb//lib/discordrb/data/member.rb#114
+  # source://discordrb//lib/discordrb/data/member.rb#115
   def initialize(data, server, bot); end
 
   # Adds one or more roles to this member.
@@ -11779,7 +12000,7 @@ class Discordrb::Member
   # @param reason [String] The reason the user's roles are being changed.
   # @param role [Role, Array<Role, String, Integer>, String, Integer] The role(s), or their ID(s), to add.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#228
+  # source://discordrb//lib/discordrb/data/member.rb#229
   def add_role(role, reason = T.unsafe(nil)); end
 
   # Bans this member from the server.
@@ -11788,39 +12009,39 @@ class Discordrb::Member
   # @param message_seconds [Integer] How many seconds worth of messages sent by the member should be deleted.
   # @param reason [String] The reason this member is being banned.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#315
+  # source://discordrb//lib/discordrb/data/member.rb#322
   def ban(message_days = T.unsafe(nil), message_seconds: T.unsafe(nil), reason: T.unsafe(nil)); end
 
   # @return [true, false] if this user is a Nitro Booster of this server.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#161
+  # source://discordrb//lib/discordrb/data/member.rb#162
   def boosting?; end
 
   # @return [ColourRGB, nil] the colour this member has.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#285
+  # source://discordrb//lib/discordrb/data/member.rb#286
   def color; end
 
   # @return [Role, nil] the role this member is basing their colour on.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#276
+  # source://discordrb//lib/discordrb/data/member.rb#277
   def color_role; end
 
   # @return [ColourRGB, nil] the colour this member has.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#279
+  # source://discordrb//lib/discordrb/data/member.rb#280
   def colour; end
 
   # @return [Role, nil] the role this member is basing their colour on.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#269
+  # source://discordrb//lib/discordrb/data/member.rb#270
   def colour_role; end
 
   # Check if the current user has communication disabled.
   #
   # @return [true, false]
   #
-  # source://discordrb//lib/discordrb/data/member.rb#184
+  # source://discordrb//lib/discordrb/data/member.rb#185
   def communication_disabled?; end
 
   # Set a user's timeout duration, or remove it by setting the timeout to `nil`.
@@ -11828,68 +12049,68 @@ class Discordrb::Member
   # @param timeout_until [Time, nil] When the timeout will end.
   # @raise [ArgumentError]
   #
-  # source://discordrb//lib/discordrb/data/member.rb#192
+  # source://discordrb//lib/discordrb/data/member.rb#193
   def communication_disabled_until=(timeout_until); end
 
   # @return [true, false] whether this member is deafened server-wide.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#87
+  # source://discordrb//lib/discordrb/data/member.rb#88
   def deaf; end
 
   # @return [true, false] whether this member is deafened server-wide.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#107
+  # source://discordrb//lib/discordrb/data/member.rb#108
   def deafened?; end
 
   # @return [AvatarDecoration, nil] the avatar decoration that the user displays (server avatar decoration if they have one, user avatar decoration if they have one, nil otherwise)
   #
-  # source://discordrb//lib/discordrb/data/member.rb#370
+  # source://discordrb//lib/discordrb/data/member.rb#377
   def display_avatar_decoration; end
 
   # @param format [String, nil] If `nil`, the URL will default to `webp` for static avatars, and will detect if the member has a `gif` avatar. You can otherwise specify one of `webp`, `jpg`, `png`, or `gif` to override this.
   # @return [String, nil] the avatar that the user has displayed (server avatar if they have one, user avatar if they have one, nil otherwise)
   #
-  # source://discordrb//lib/discordrb/data/member.rb#359
+  # source://discordrb//lib/discordrb/data/member.rb#366
   def display_avatar_url(format = T.unsafe(nil)); end
 
   # @param format [String, nil] If `nil`, the URL will default to `webp` for static banners, and will detect if the member has a `gif` banner. You can otherwise specify one of `webp`, `jpg`, `png`, or `gif` to override this.
   # @return [String, nil] the banner that the user has displayed (server banner if they have one, user banner if they have one, nil otherwise)
   #
-  # source://discordrb//lib/discordrb/data/member.rb#365
+  # source://discordrb//lib/discordrb/data/member.rb#372
   def display_banner_url(format = T.unsafe(nil)); end
 
   # @return [String] the name the user displays as (nickname if they have one, global_name if they have one, username otherwise)
   #
-  # source://discordrb//lib/discordrb/data/member.rb#353
+  # source://discordrb//lib/discordrb/data/member.rb#360
   def display_name; end
 
   # Set the flags for this member.
   #
   # @param flags [Integer, nil] The new bitwise value of flags for this member, or nil.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#376
+  # source://discordrb//lib/discordrb/data/member.rb#383
   def flags=(flags); end
 
   # @return [Role] the highest role this member has.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#256
+  # source://discordrb//lib/discordrb/data/member.rb#257
   def highest_role; end
 
   # @return [Role, nil] the role this member is being hoisted with.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#261
+  # source://discordrb//lib/discordrb/data/member.rb#262
   def hoist_role; end
 
   # Overwriting inspect for debug purposes
   #
-  # source://discordrb//lib/discordrb/data/member.rb#451
+  # source://discordrb//lib/discordrb/data/member.rb#482
   def inspect; end
 
   # Kicks this member from the server.
   #
   # @param reason [String] The reason this member is being kicked.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#327
+  # source://discordrb//lib/discordrb/data/member.rb#334
   def kick(reason = T.unsafe(nil)); end
 
   # Adds and removes roles from a member.
@@ -11902,32 +12123,32 @@ class Discordrb::Member
   # @param reason [String] The reason the user's roles are being changed.
   # @param remove [Role, Array<Role>] The role(s) to remove.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#216
+  # source://discordrb//lib/discordrb/data/member.rb#217
   def modify_roles(add, remove, reason = T.unsafe(nil)); end
 
   # @return [true, false] whether this member is muted server-wide.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#82
+  # source://discordrb//lib/discordrb/data/member.rb#83
   def mute; end
 
   # @return [true, false] whether this member is muted server-wide.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#106
+  # source://discordrb//lib/discordrb/data/member.rb#107
   def muted?; end
 
   # @see Member#set_nick
   #
-  # source://discordrb//lib/discordrb/data/member.rb#332
+  # source://discordrb//lib/discordrb/data/member.rb#339
   def nick=(nick); end
 
   # @see Member#set_nick
   #
-  # source://discordrb//lib/discordrb/data/member.rb#336
+  # source://discordrb//lib/discordrb/data/member.rb#343
   def nickname=(nick); end
 
   # @return [true, false] whether this member is the server owner.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#166
+  # source://discordrb//lib/discordrb/data/member.rb#167
   def owner?; end
 
   # Removes one or more roles from this member.
@@ -11935,80 +12156,101 @@ class Discordrb::Member
   # @param reason [String] The reason the user's roles are being changed.
   # @param role [Role, Array<Role>] The role(s) to remove.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#243
+  # source://discordrb//lib/discordrb/data/member.rb#244
   def remove_role(role, reason = T.unsafe(nil)); end
 
   # @param role [Role, String, Integer] the role to check or its ID.
   # @return [true, false] whether this member has the specified role.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#172
+  # source://discordrb//lib/discordrb/data/member.rb#173
   def role?(role); end
 
   # @raise [Discordrb::Errors::NoPermission] This can happen when receiving interactions for servers in which the bot is not
   #   authorized with the `bot` scope.
   # @return [Array<Role>] the roles this member has.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#153
+  # source://discordrb//lib/discordrb/data/member.rb#154
   def roles; end
 
   # @see Member#set_roles
   #
-  # source://discordrb//lib/discordrb/data/member.rb#178
+  # source://discordrb//lib/discordrb/data/member.rb#179
   def roles=(role); end
 
   # @return [true, false] whether this member has deafened themselves.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#97
+  # source://discordrb//lib/discordrb/data/member.rb#98
   def self_deaf; end
 
   # @return [true, false] whether this member has deafened themselves.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#109
+  # source://discordrb//lib/discordrb/data/member.rb#110
   def self_deafened?; end
 
   # @return [true, false] whether this member has muted themselves.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#92
+  # source://discordrb//lib/discordrb/data/member.rb#93
   def self_mute; end
 
   # @return [true, false] whether this member has muted themselves.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#108
+  # source://discordrb//lib/discordrb/data/member.rb#109
   def self_muted?; end
 
   # @raise [Discordrb::Errors::NoPermission] This can happen when receiving interactions for servers in which the bot is not
   #   authorized with the `bot` scope.
   # @return [Server] the server this member is on.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#141
+  # source://discordrb//lib/discordrb/data/member.rb#142
   def server; end
+
+  # Set the server avatar for the current bot.
+  #
+  # @param avatar [File, nil] A file like object that responds to read, or `nil`.
+  #
+  # source://discordrb//lib/discordrb/data/member.rb#397
+  def server_avatar=(avatar); end
+
+  # Set the server banner for the current bot.
+  #
+  # @param banner [File, nil] A file like object that responds to read, or `nil`.
+  #
+  # source://discordrb//lib/discordrb/data/member.rb#389
+  def server_banner=(banner); end
+
+  # Set the server bio for the current bot.
+  #
+  # @param bio [String, nil] The new server bio for the bot, or nil.
+  #
+  # source://discordrb//lib/discordrb/data/member.rb#405
+  def server_bio=(bio); end
 
   # Server deafens this member.
   #
   # @param reason [String, nil] The reason for defeaning this member.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#289
+  # source://discordrb//lib/discordrb/data/member.rb#296
   def server_deafen(reason: T.unsafe(nil)); end
 
   # Server mutes this member.
   #
   # @param reason [String, nil] The reason for muting this member.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#301
+  # source://discordrb//lib/discordrb/data/member.rb#308
   def server_mute(reason: T.unsafe(nil)); end
 
   # Server undeafens this member.
   #
   # @param reason [String, nil] The reason for un-defeaning this member.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#295
+  # source://discordrb//lib/discordrb/data/member.rb#302
   def server_undeafen(reason: T.unsafe(nil)); end
 
   # Server unmutes this member.
   #
   # @param reason [String, nil] The reason for un-muting this member.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#307
+  # source://discordrb//lib/discordrb/data/member.rb#314
   def server_unmute(reason: T.unsafe(nil)); end
 
   # Sets or resets this member's nickname. Requires the Change Nickname permission for the bot itself and Manage
@@ -12017,7 +12259,7 @@ class Discordrb::Member
   # @param nick [String, nil] The string to set the nickname to, or nil if it should be reset.
   # @param reason [String] The reason the user's nickname is being changed.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#342
+  # source://discordrb//lib/discordrb/data/member.rb#349
   def set_nick(nick, reason = T.unsafe(nil)); end
 
   # Sets or resets this member's nickname. Requires the Change Nickname permission for the bot itself and Manage
@@ -12026,7 +12268,7 @@ class Discordrb::Member
   # @param nick [String, nil] The string to set the nickname to, or nil if it should be reset.
   # @param reason [String] The reason the user's nickname is being changed.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#350
+  # source://discordrb//lib/discordrb/data/member.rb#357
   def set_nickname(nick, reason = T.unsafe(nil)); end
 
   # Bulk sets a member's roles.
@@ -12034,86 +12276,93 @@ class Discordrb::Member
   # @param reason [String] The reason the user's roles are being changed.
   # @param role [Role, Array<Role>] The role(s) to set.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#203
+  # source://discordrb//lib/discordrb/data/member.rb#204
   def set_roles(role, reason = T.unsafe(nil)); end
+
+  # Get the member's roles sorted by their order in the hierarchy.
+  #
+  # @return [Array<Role>] the roles the member has, ordered by hierarchy.
+  #
+  # source://discordrb//lib/discordrb/data/member.rb#290
+  def sort_roles; end
 
   # Set a user's timeout duration, or remove it by setting the timeout to `nil`.
   #
   # @param timeout_until [Time, nil] When the timeout will end.
   # @raise [ArgumentError]
   #
-  # source://discordrb//lib/discordrb/data/member.rb#198
+  # source://discordrb//lib/discordrb/data/member.rb#199
   def timeout=(timeout_until); end
 
   # Check if the current user has communication disabled.
   #
   # @return [true, false]
   #
-  # source://discordrb//lib/discordrb/data/member.rb#188
+  # source://discordrb//lib/discordrb/data/member.rb#189
   def timeout?; end
 
   # Unbans this member from the server.
   #
   # @param reason [String] The reason this member is being unbanned.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#321
+  # source://discordrb//lib/discordrb/data/member.rb#328
   def unban(reason = T.unsafe(nil)); end
 
   # Update this member's boosting timestamp
   #
   # @note For internal user only.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#403
+  # source://discordrb//lib/discordrb/data/member.rb#434
   def update_boosting_since(time); end
 
-  # source://discordrb//lib/discordrb/data/member.rb#408
+  # source://discordrb//lib/discordrb/data/member.rb#439
   def update_communication_disabled_until(time); end
 
   # Update this member
   #
   # @note For internal use only.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#416
+  # source://discordrb//lib/discordrb/data/member.rb#447
   def update_data(data); end
 
   # Update this member's nick
   #
   # @note For internal use only.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#396
+  # source://discordrb//lib/discordrb/data/member.rb#427
   def update_nick(nick); end
 
   # Update this member's roles
   #
   # @note For internal use only.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#383
+  # source://discordrb//lib/discordrb/data/member.rb#414
   def update_roles(role_ids); end
 
   # @return [Channel] the voice channel this member is in.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#102
+  # source://discordrb//lib/discordrb/data/member.rb#103
   def voice_channel; end
 
   private
 
-  # source://discordrb//lib/discordrb/data/member.rb#473
+  # source://discordrb//lib/discordrb/data/member.rb#504
   def resolve_role_ids; end
 
   # Utility method to get a list of role IDs from one role or an array of roles
   #
-  # source://discordrb//lib/discordrb/data/member.rb#458
+  # source://discordrb//lib/discordrb/data/member.rb#489
   def role_id_array(role); end
 
-  # source://discordrb//lib/discordrb/data/member.rb#483
+  # source://discordrb//lib/discordrb/data/member.rb#514
   def update_current_member_data(new_data); end
 
-  # source://discordrb//lib/discordrb/data/member.rb#478
+  # source://discordrb//lib/discordrb/data/member.rb#509
   def update_member_data(new_data); end
 
   # Utility method to get data out of this member's voice state
   #
-  # source://discordrb//lib/discordrb/data/member.rb#467
+  # source://discordrb//lib/discordrb/data/member.rb#498
   def voice_state_attribute(name); end
 end
 
@@ -12121,86 +12370,89 @@ end
 #
 # source://discordrb//lib/discordrb/data/member.rb#5
 module Discordrb::MemberAttributes
-  # source://discordrb//lib/discordrb/data/member.rb#72
+  # source://discordrb//lib/discordrb/data/member.rb#73
+  def automod_quarantined_server_tag?; end
+
+  # source://discordrb//lib/discordrb/data/member.rb#73
   def automod_quarantined_username?; end
 
   # @return [Time, nil] when this member boosted this server, `nil` if they haven't.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#23
+  # source://discordrb//lib/discordrb/data/member.rb#24
   def boosting_since; end
 
-  # source://discordrb//lib/discordrb/data/member.rb#72
+  # source://discordrb//lib/discordrb/data/member.rb#73
   def bypassed_verification?; end
 
   # @return [Time] When the user's timeout will expire.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#36
+  # source://discordrb//lib/discordrb/data/member.rb#37
   def communication_disabled_until; end
 
-  # source://discordrb//lib/discordrb/data/member.rb#72
+  # source://discordrb//lib/discordrb/data/member.rb#73
   def completed_home_actions?; end
 
-  # source://discordrb//lib/discordrb/data/member.rb#72
+  # source://discordrb//lib/discordrb/data/member.rb#73
   def completed_onboarding?; end
 
-  # source://discordrb//lib/discordrb/data/member.rb#72
+  # source://discordrb//lib/discordrb/data/member.rb#73
   def dm_settings_upsell_acknowledged?; end
 
   # @return [Integer] the flags set on this member.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#40
+  # source://discordrb//lib/discordrb/data/member.rb#41
   def flags; end
 
-  # source://discordrb//lib/discordrb/data/member.rb#72
+  # source://discordrb//lib/discordrb/data/member.rb#73
   def guest?; end
 
   # @return [Time] when this member joined the server.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#20
+  # source://discordrb//lib/discordrb/data/member.rb#21
   def joined_at; end
 
   # @return [String, nil] the nickname this member has, or `nil` if it has none.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#26
+  # source://discordrb//lib/discordrb/data/member.rb#27
   def nick; end
 
   # @return [String, nil] the nickname this member has, or `nil` if it has none.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#27
+  # source://discordrb//lib/discordrb/data/member.rb#28
   def nickname; end
 
   # @return [true, false] whether the member has not yet passed the server's membership screening requirements.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#43
+  # source://discordrb//lib/discordrb/data/member.rb#44
   def pending; end
 
   # @return [true, false] whether the member has not yet passed the server's membership screening requirements.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#44
+  # source://discordrb//lib/discordrb/data/member.rb#45
   def pending?; end
 
-  # source://discordrb//lib/discordrb/data/member.rb#72
+  # source://discordrb//lib/discordrb/data/member.rb#73
   def rejoined?; end
 
   # @return [Array<Role>] the roles this member has.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#30
+  # source://discordrb//lib/discordrb/data/member.rb#31
   def roles; end
 
   # @return [Server] the server this member is on.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#33
+  # source://discordrb//lib/discordrb/data/member.rb#34
   def server; end
 
   # @return [AvatarDecoration, nil] the user's current server avatar decoration, or nil for no server avatar decoration.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#55
+  # source://discordrb//lib/discordrb/data/member.rb#56
   def server_avatar_decoration; end
 
   # @return [String, nil] the ID of this user's current avatar, can be used to generate a server avatar URL.
   # @see #server_avatar_url
   #
-  # source://discordrb//lib/discordrb/data/member.rb#48
+  # source://discordrb//lib/discordrb/data/member.rb#49
   def server_avatar_id; end
 
   # Utility method to get a member's server avatar URL.
@@ -12208,13 +12460,13 @@ module Discordrb::MemberAttributes
   # @param format [String, nil] If `nil`, the URL will default to `webp` for static avatars, and will detect if the member has a `gif` avatar. You can otherwise specify one of `webp`, `jpg`, `png`, or `gif` to override this.
   # @return [String, nil] the URL to the avatar image, or nil if the member doesn't have one.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#60
+  # source://discordrb//lib/discordrb/data/member.rb#61
   def server_avatar_url(format = T.unsafe(nil)); end
 
   # @return [String, nil] the ID of this user's current server banner, can be used to generate a banner URL.
   # @see #server_banner_url
   #
-  # source://discordrb//lib/discordrb/data/member.rb#52
+  # source://discordrb//lib/discordrb/data/member.rb#53
   def server_banner_id; end
 
   # Utility method to get a member's server banner URL.
@@ -12222,18 +12474,18 @@ module Discordrb::MemberAttributes
   # @param format [String, nil] If `nil`, the URL will default to `webp` for static banners, and will detect if the member has a `gif` banner. You can otherwise specify one of `webp`, `jpg`, `png`, or `gif` to override this.
   # @return [String, nil] the URL to the banner image, or nil if the member doesn't have one.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#67
+  # source://discordrb//lib/discordrb/data/member.rb#68
   def server_banner_url(format = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/data/member.rb#72
+  # source://discordrb//lib/discordrb/data/member.rb#73
   def started_home_actions?; end
 
-  # source://discordrb//lib/discordrb/data/member.rb#72
+  # source://discordrb//lib/discordrb/data/member.rb#73
   def started_onboarding?; end
 
   # @return [Time] When the user's timeout will expire.
   #
-  # source://discordrb//lib/discordrb/data/member.rb#37
+  # source://discordrb//lib/discordrb/data/member.rb#38
   def timeout; end
 end
 
@@ -12261,21 +12513,21 @@ class Discordrb::Message
   # @return [Hash<String => Array<User>>] A hash mapping the string representation of a
   #   reaction to an array of users.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#451
+  # source://discordrb//lib/discordrb/data/message.rb#471
   def all_reaction_users(limit: T.unsafe(nil)); end
 
   # @return [Array<Attachment>] the files attached to this message.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#99
+  # source://discordrb//lib/discordrb/data/message.rb#96
   def attachments; end
 
   # @return [Member, User] the user that sent this message. (Will be a {Member} most of the time, it should only be a
   #   {User} for old messages when the author has left the server since then)
   #
-  # source://discordrb//lib/discordrb/data/message.rb#238
+  # source://discordrb//lib/discordrb/data/message.rb#232
   def author; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def automod_action?; end
 
   # Add an {Await} for a message with the same user and channel.
@@ -12283,14 +12535,14 @@ class Discordrb::Message
   # @deprecated Will be changed to blocking behavior in v4.0. Use {#await!} instead.
   # @see Bot#add_await
   #
-  # source://discordrb//lib/discordrb/data/message.rb#328
+  # source://discordrb//lib/discordrb/data/message.rb#345
   def await(key, attributes = T.unsafe(nil), &block); end
 
   # Add a blocking {Await} for a message with the same user and channel.
   #
   # @see Bot#add_await!
   #
-  # source://discordrb//lib/discordrb/data/message.rb#334
+  # source://discordrb//lib/discordrb/data/message.rb#351
   def await!(attributes = T.unsafe(nil), &block); end
 
   # Add an {Await} for a reaction to be added on this message.
@@ -12298,30 +12550,30 @@ class Discordrb::Message
   # @deprecated Will be changed to blocking behavior in v4.0. Use {#await_reaction!} instead.
   # @see Bot#add_await
   #
-  # source://discordrb//lib/discordrb/data/message.rb#341
+  # source://discordrb//lib/discordrb/data/message.rb#358
   def await_reaction(key, attributes = T.unsafe(nil), &block); end
 
   # Add a blocking {Await} for a reaction to be added on this message.
   #
   # @see Bot#add_await!
   #
-  # source://discordrb//lib/discordrb/data/message.rb#347
+  # source://discordrb//lib/discordrb/data/message.rb#364
   def await_reaction!(attributes = T.unsafe(nil), &block); end
 
   # @return [Array<Components::Button>]
   #
-  # source://discordrb//lib/discordrb/data/message.rb#504
+  # source://discordrb//lib/discordrb/data/message.rb#531
   def buttons; end
 
   # @return [Call, nil] the call in a private channel that prompted this message.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#149
+  # source://discordrb//lib/discordrb/data/message.rb#143
   def call; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def call?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def changelog?; end
 
   # @return [Channel] the channel in which this message was sent.
@@ -12329,24 +12581,24 @@ class Discordrb::Message
   # source://discordrb//lib/discordrb/data/message.rb#83
   def channel; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def channel_follow_add?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def channel_icon_change?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def channel_name_change?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def channel_pinned_message?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def chat_input_command?; end
 
   # @return [Array<Component>] Interaction components for this message.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#137
+  # source://discordrb//lib/discordrb/data/message.rb#131
   def components; end
 
   # @return [String] the content of this message.
@@ -12354,45 +12606,57 @@ class Discordrb::Message
   # source://discordrb//lib/discordrb/data/message.rb#78
   def content; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def context_menu_command?; end
 
   # Reacts to a message.
   #
   # @param reaction [String, #to_reaction] the unicode emoji or {Emoji}
+  # @return [nil]
   #
-  # source://discordrb//lib/discordrb/data/message.rb#408
+  # source://discordrb//lib/discordrb/data/message.rb#426
   def create_reaction(reaction); end
 
   # Crossposts a message in a news channel.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#320
+  # @return [Message] the updated message object.
+  #
+  # source://discordrb//lib/discordrb/data/message.rb#337
   def crosspost; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#526
+  # source://discordrb//lib/discordrb/data/message.rb#553
   def crosspost?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#526
+  # source://discordrb//lib/discordrb/data/message.rb#553
   def crossposted?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def default?; end
 
   # Deletes this message.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#300
+  # @return [nil]
+  #
+  # source://discordrb//lib/discordrb/data/message.rb#314
   def delete(reason = T.unsafe(nil)); end
 
   # Removes all reactions from this message.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#472
+  # source://discordrb//lib/discordrb/data/message.rb#492
   def delete_all_reactions; end
+
+  # Removes all reactions for a single emoji.
+  #
+  # @param reaction [String, #to_reaction] the reaction to remove.
+  #
+  # source://discordrb//lib/discordrb/data/message.rb#498
+  def delete_all_reactions_for_emoji(reaction); end
 
   # Deletes this client's reaction on this message.
   #
   # @param reaction [String, #to_reaction] the reaction to remove
   #
-  # source://discordrb//lib/discordrb/data/message.rb#466
+  # source://discordrb//lib/discordrb/data/message.rb#486
   def delete_own_reaction(reaction); end
 
   # Deletes a reaction made by a user on this message.
@@ -12400,7 +12664,7 @@ class Discordrb::Message
   # @param reaction [String, #to_reaction] the reaction to remove
   # @param user [User, String, Integer] the user or user ID who used this reaction
   #
-  # source://discordrb//lib/discordrb/data/message.rb#459
+  # source://discordrb//lib/discordrb/data/message.rb#479
   def delete_reaction(user, reaction); end
 
   # Edits this message to have the specified content instead.
@@ -12412,7 +12676,7 @@ class Discordrb::Message
   # @param new_embeds [Hash, Discordrb::Webhooks::Embed, Array<Hash>, Array<Discordrb::Webhooks::Embed>, nil] The new embeds the message should have. If `nil` the message will be changed to have no embeds.
   # @return [Message] the resulting message.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#291
+  # source://discordrb//lib/discordrb/data/message.rb#304
   def edit(new_content, new_embeds = T.unsafe(nil), new_components = T.unsafe(nil), flags = T.unsafe(nil)); end
 
   # @return [Time] the timestamp at which this message was edited. `nil` if the message was never edited.
@@ -12422,12 +12686,12 @@ class Discordrb::Message
 
   # @return [true, false] whether the message was edited or not.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#115
+  # source://discordrb//lib/discordrb/data/message.rb#112
   def edited; end
 
   # @return [true, false] whether the message was edited or not.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#116
+  # source://discordrb//lib/discordrb/data/message.rb#113
   def edited?; end
 
   # @return [Time] the timestamp at which this message was edited. `nil` if the message was never edited.
@@ -12437,30 +12701,30 @@ class Discordrb::Message
 
   # @return [Array<Embed>] the embed objects contained in this message.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#102
+  # source://discordrb//lib/discordrb/data/message.rb#99
   def embeds; end
 
   # @return [Array<Emoji>] the emotes that were used/mentioned in this message.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#362
+  # source://discordrb//lib/discordrb/data/message.rb#379
   def emoji; end
 
   # Check if any emoji were used in this message.
   #
   # @return [true, false] whether or not any emoji were used
   #
-  # source://discordrb//lib/discordrb/data/message.rb#371
+  # source://discordrb//lib/discordrb/data/message.rb#388
   def emoji?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#526
+  # source://discordrb//lib/discordrb/data/message.rb#553
   def ephemeral?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#526
+  # source://discordrb//lib/discordrb/data/message.rb#553
   def failed_to_mention_roles?; end
 
   # @return [Integer] flags set on the message.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#140
+  # source://discordrb//lib/discordrb/data/message.rb#134
   def flags; end
 
   # Forward this message to another channel.
@@ -12473,43 +12737,43 @@ class Discordrb::Message
   # @param timeout [Float, nil] The amount of time in seconds after which the message sent will be deleted.
   # @return [Message, nil] the message that was created from forwarding this one, or `nil` if this is a temporary message.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#555
+  # source://discordrb//lib/discordrb/data/message.rb#582
   def forward(channel, must_exist: T.unsafe(nil), timeout: T.unsafe(nil), flags: T.unsafe(nil), nonce: T.unsafe(nil), enforce_nonce: T.unsafe(nil)); end
 
   # @return [true, false] whether this message was sent by the current {Bot}.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#352
+  # source://discordrb//lib/discordrb/data/message.rb#369
   def from_bot?; end
 
   # The inspect method is overwritten to give more useful output
   #
-  # source://discordrb//lib/discordrb/data/message.rb#477
+  # source://discordrb//lib/discordrb/data/message.rb#504
   def inspect; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def interaction_premium_upsell?; end
 
   # @return [String] a URL that a user can use to navigate to this message in the client
   #
-  # source://discordrb//lib/discordrb/data/message.rb#486
+  # source://discordrb//lib/discordrb/data/message.rb#513
   def jump_link; end
 
   # @return [String] a URL that a user can use to navigate to this message in the client
   #
-  # source://discordrb//lib/discordrb/data/message.rb#482
+  # source://discordrb//lib/discordrb/data/message.rb#509
   def link; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#526
+  # source://discordrb//lib/discordrb/data/message.rb#553
   def loading?; end
 
   # @return [true, false] whether the message mentioned everyone or not.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#119
+  # source://discordrb//lib/discordrb/data/message.rb#116
   def mention_everyone; end
 
   # @return [true, false] whether the message mentioned everyone or not.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#120
+  # source://discordrb//lib/discordrb/data/message.rb#117
   def mention_everyone?; end
 
   # @return [Array<User>] the users that were mentioned in this message.
@@ -12522,64 +12786,72 @@ class Discordrb::Message
   # @param target [Role, User, Member, Integer, String] The mention to match against.
   # @return [true, false] whether or not this message mentions the target.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#398
+  # source://discordrb//lib/discordrb/data/message.rb#415
   def mentions?(target); end
 
   # @return [true, false] whether the message mentioned everyone or not.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#121
+  # source://discordrb//lib/discordrb/data/message.rb#118
   def mentions_everyone?; end
 
   # to_message -> self or message
   #
   # @return [Discordrb::Message]
   #
-  # source://discordrb//lib/discordrb/data/message.rb#523
+  # source://discordrb//lib/discordrb/data/message.rb#550
   def message; end
 
   # Returns the reactions made by the current bot or user.
   #
   # @return [Array<Reaction>] the reactions
   #
-  # source://discordrb//lib/discordrb/data/message.rb#383
+  # source://discordrb//lib/discordrb/data/message.rb#400
   def my_reactions; end
 
   # @return [String] used for validating a message was sent.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#112
+  # source://discordrb//lib/discordrb/data/message.rb#109
   def nonce; end
 
   # Pins this message
   #
-  # source://discordrb//lib/discordrb/data/message.rb#306
+  # @return [nil]
+  #
+  # source://discordrb//lib/discordrb/data/message.rb#321
   def pin(reason = T.unsafe(nil)); end
 
   # @return [true, false] whether the message is pinned or not.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#124
+  # source://discordrb//lib/discordrb/data/message.rb#121
   def pinned; end
 
   # @return [true, false] whether the message is pinned or not.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#125
+  # source://discordrb//lib/discordrb/data/message.rb#122
   def pinned?; end
 
   # @return [Time, nil] the time at when this message was pinned. Only present on messages fetched via {Channel#pins}.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#146
+  # source://discordrb//lib/discordrb/data/message.rb#140
   def pinned_at; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def poll_result?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # @return [Integer] a generally increasing integer that can be used to determine this message's position in a thread.
+  #
+  # source://discordrb//lib/discordrb/data/message.rb#152
+  def position; end
+
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def purchase_notification?; end
 
   # Reacts to a message.
   #
   # @param reaction [String, #to_reaction] the unicode emoji or {Emoji}
+  # @return [nil]
   #
-  # source://discordrb//lib/discordrb/data/message.rb#414
+  # source://discordrb//lib/discordrb/data/message.rb#432
   def react(reaction); end
 
   # Returns the list of users who reacted with a certain reaction.
@@ -12588,32 +12860,33 @@ class Discordrb::Message
   #   thumbs_up_reactions = message.reacted_with("\u{1F44D}")
   # @param limit [Integer] the limit of how many users to retrieve. `nil` will return all users
   # @param reaction [String, #to_reaction] the unicode emoji or {Emoji}
+  # @param type [Integer, Symbol] the type of reaction to get. See {Reaction::TYPES}
   # @return [Array<User>] the users who used this reaction
   #
-  # source://discordrb//lib/discordrb/data/message.rb#422
-  def reacted_with(reaction, limit: T.unsafe(nil)); end
+  # source://discordrb//lib/discordrb/data/message.rb#441
+  def reacted_with(reaction, limit: T.unsafe(nil), type: T.unsafe(nil)); end
 
   # @return [Array<Reaction>] the reaction objects contained in this message.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#105
+  # source://discordrb//lib/discordrb/data/message.rb#102
   def reactions; end
 
   # Check if any reactions were used in this message.
   #
   # @return [true, false] whether or not this message has reactions
   #
-  # source://discordrb//lib/discordrb/data/message.rb#377
+  # source://discordrb//lib/discordrb/data/message.rb#394
   def reactions?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def recipient_add?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def recipient_remove?; end
 
   # @return [Message, nil] the Message this Message was sent in reply to.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#495
+  # source://discordrb//lib/discordrb/data/message.rb#522
   def referenced_message; end
 
   # Replies to this message with the specified content.
@@ -12623,7 +12896,7 @@ class Discordrb::Message
   # @return [Message] the message that was sent.
   # @see Channel#send_message
   #
-  # source://discordrb//lib/discordrb/data/message.rb#257
+  # source://discordrb//lib/discordrb/data/message.rb#270
   def reply(content); end
 
   # Responds to this message as an inline reply.
@@ -12638,29 +12911,29 @@ class Discordrb::Message
   # @param tts [true, false] Whether or not this message should be sent using Discord text-to-speech.
   # @return [Message] the message that was sent.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#271
+  # source://discordrb//lib/discordrb/data/message.rb#284
   def reply!(content, tts: T.unsafe(nil), embed: T.unsafe(nil), attachments: T.unsafe(nil), allowed_mentions: T.unsafe(nil), mention_user: T.unsafe(nil), components: T.unsafe(nil), flags: T.unsafe(nil)); end
 
   # Whether or not this message was sent in reply to another message
   #
   # @return [true, false]
   #
-  # source://discordrb//lib/discordrb/data/message.rb#490
+  # source://discordrb//lib/discordrb/data/message.rb#517
   def reply?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def report_to_mod_ban_user?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def report_to_mod_closed_report?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def report_to_mod_deleted_message?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def report_to_mod_kick_user?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def report_to_mod_timeout_user?; end
 
   # Sends a message to this channel.
@@ -12675,116 +12948,127 @@ class Discordrb::Message
   # @param tts [true, false] Whether or not this message should be sent using Discord text-to-speech.
   # @return [Message] the message that was sent.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#280
+  # source://discordrb//lib/discordrb/data/message.rb#293
   def respond(content, tts = T.unsafe(nil), embed = T.unsafe(nil), attachments = T.unsafe(nil), allowed_mentions = T.unsafe(nil), message_reference = T.unsafe(nil), components = T.unsafe(nil), flags = T.unsafe(nil)); end
 
+  # Get the roles that were mentioned in this message.
+  #
+  # @raise [Discordrb::Errors::NoPermission] This can happen when receiving interactions for servers in which the bot is not
+  #   authorized with the `bot` scope.
   # @return [Array<Role>] the roles that were mentioned in this message.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#96
+  # source://discordrb//lib/discordrb/data/message.rb#259
   def role_mentions; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # @return [RoleSubscriptionData, nil] the role subscription purchase or renewal that prompted this message.
+  #
+  # source://discordrb//lib/discordrb/data/message.rb#149
+  def role_subscription; end
+
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def role_subscription_purchase?; end
 
-  # @return [Server, nil] the server in which this message was sent.
+  # @raise [Discordrb::Errors::NoPermission] This can happen when receiving interactions for servers in which the bot is not
+  #   authorized with the `bot` scope.
+  # @return [Server, nil] the server this message was sent in. If this message was sent in a PM channel, it will be nil.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#131
+  # source://discordrb//lib/discordrb/data/message.rb#249
   def server; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_application_premium_subscription?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_boost?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_boost_tier_one?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_boost_tier_three?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_boost_tier_two?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_discovery_disqualified?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_discovery_grace_period_final_warning?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_discovery_grace_period_initial_warning?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_discovery_requalified?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_emoji_added?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_incident_alert_mode_disabled?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_incident_alert_mode_enabled?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_incident_report_false_alarm?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_incident_report_raid?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_invite_reminder?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_join_request_accepted?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_join_request_rejected?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_join_request_withdrawn?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def server_member_join?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#526
+  # source://discordrb//lib/discordrb/data/message.rb#553
   def snapshot?; end
 
   # @return [Array<Snapshot>] the message snapshots included in this message.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#152
+  # source://discordrb//lib/discordrb/data/message.rb#146
   def snapshots; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#526
+  # source://discordrb//lib/discordrb/data/message.rb#553
   def source_message_deleted?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def stage_end?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def stage_raise_hand?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def stage_speaker?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def stage_start?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def stage_topic?; end
 
   # Removes embeds from the message
   #
   # @return [Message] the resulting message.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#389
+  # source://discordrb//lib/discordrb/data/message.rb#406
   def suppress_embeds; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#526
+  # source://discordrb//lib/discordrb/data/message.rb#553
   def suppress_embeds?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#526
+  # source://discordrb//lib/discordrb/data/message.rb#553
   def suppress_notifications?; end
 
   # @return [String] the content of this message.
@@ -12794,16 +13078,16 @@ class Discordrb::Message
 
   # @return [Channel, nil] The thread that was started from this message, or nil.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#143
+  # source://discordrb//lib/discordrb/data/message.rb#137
   def thread; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#526
+  # source://discordrb//lib/discordrb/data/message.rb#553
   def thread?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def thread_created?; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#532
+  # source://discordrb//lib/discordrb/data/message.rb#559
   def thread_starter_message?; end
 
   # @return [Time] the timestamp at which this message was sent.
@@ -12815,7 +13099,7 @@ class Discordrb::Message
   #
   # @return [Discordrb::Message]
   #
-  # source://discordrb//lib/discordrb/data/message.rb#519
+  # source://discordrb//lib/discordrb/data/message.rb#546
   def to_message; end
 
   # Convert this message to a hash that can be used to reference this message in a forward or a reply.
@@ -12824,7 +13108,7 @@ class Discordrb::Message
   # @param type [Integer, Symbol] The reference type to set. Can either be one of `:reply` or `:forward`.
   # @return [Hash] the message as a hash representation that can be used in a forwarded message or a reply.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#541
+  # source://discordrb//lib/discordrb/data/message.rb#568
   def to_reference(type: T.unsafe(nil), must_exist: T.unsafe(nil)); end
 
   # @return [String] the content of this message.
@@ -12834,53 +13118,55 @@ class Discordrb::Message
 
   # @return [true, false] whether the message used Text-To-Speech (TTS) or not.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#108
+  # source://discordrb//lib/discordrb/data/message.rb#105
   def tts; end
 
   # @return [true, false] whether the message used Text-To-Speech (TTS) or not.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#109
+  # source://discordrb//lib/discordrb/data/message.rb#106
   def tts?; end
 
   # @return [Integer] what the type of the message is
   #
-  # source://discordrb//lib/discordrb/data/message.rb#128
+  # source://discordrb//lib/discordrb/data/message.rb#125
   def type; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#526
+  # source://discordrb//lib/discordrb/data/message.rb#553
   def uikit_components?; end
 
   # Unpins this message
   #
-  # source://discordrb//lib/discordrb/data/message.rb#313
+  # @return [nil]
+  #
+  # source://discordrb//lib/discordrb/data/message.rb#329
   def unpin(reason = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/data/message.rb#526
+  # source://discordrb//lib/discordrb/data/message.rb#553
   def urgent?; end
 
   # @return [Member, User] the user that sent this message. (Will be a {Member} most of the time, it should only be a
   #   {User} for old messages when the author has left the server since then)
   #
-  # source://discordrb//lib/discordrb/data/message.rb#249
+  # source://discordrb//lib/discordrb/data/message.rb#243
   def user; end
 
-  # source://discordrb//lib/discordrb/data/message.rb#526
+  # source://discordrb//lib/discordrb/data/message.rb#553
   def voice_message?; end
 
   # @return [true, false] whether this message has been sent over a webhook.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#357
+  # source://discordrb//lib/discordrb/data/message.rb#374
   def webhook?; end
 
   # @return [Integer, nil] the webhook ID that sent this message, or `nil` if it wasn't sent through a webhook.
   #
-  # source://discordrb//lib/discordrb/data/message.rb#134
+  # source://discordrb//lib/discordrb/data/message.rb#128
   def webhook_id; end
 
   # @return [Member, User] the user that sent this message. (Will be a {Member} most of the time, it should only be a
   #   {User} for old messages when the author has left the server since then)
   #
-  # source://discordrb//lib/discordrb/data/message.rb#250
+  # source://discordrb//lib/discordrb/data/message.rb#244
   def writer; end
 end
 
@@ -13054,7 +13340,7 @@ class Discordrb::Overwrite
 
   # @return [Hash] hash representation of an overwrite
   #
-  # source://discordrb//lib/discordrb/data/overwrite.rb#101
+  # source://discordrb//lib/discordrb/data/overwrite.rb#100
   def to_hash; end
 
   # @return [Symbol] either :role or :member
@@ -13070,12 +13356,12 @@ class Discordrb::Overwrite
   class << self
     # @return [Overwrite] create an overwrite from a hash payload
     #
-    # source://discordrb//lib/discordrb/data/overwrite.rb#79
+    # source://discordrb//lib/discordrb/data/overwrite.rb#78
     def from_hash(data); end
 
     # @return [Overwrite] copies an overwrite from another Overwrite
     #
-    # source://discordrb//lib/discordrb/data/overwrite.rb#90
+    # source://discordrb//lib/discordrb/data/overwrite.rb#89
     def from_other(other); end
   end
 end
@@ -13123,159 +13409,159 @@ end
 
 # Mixin to calculate resulting permissions from overrides etc.
 #
-# source://discordrb//lib/discordrb/permissions.rb#156
+# source://discordrb//lib/discordrb/permissions.rb#155
 module Discordrb::PermissionCalculator
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_add_reactions?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#213
+  # source://discordrb//lib/discordrb/permissions.rb#212
   def can_administrate?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_administrator?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_attach_files?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_ban_members?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_change_nickname?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_connect?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_create_instant_invite?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_create_scheduled_events?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_create_server_expressions?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_deafen_members?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_embed_links?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_kick_members?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_manage_channels?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_manage_emojis?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_manage_events?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_manage_messages?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_manage_nicknames?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_manage_roles?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_manage_server?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_manage_threads?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_manage_webhooks?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_mention_everyone?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_moderate_members?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_move_members?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_mute_members?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_pin_messages?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_priority_speaker?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_read_message_history?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_read_messages?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_request_to_speak?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_send_messages?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_send_messages_in_threads?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_send_polls?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_send_tts_messages?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_send_voice_messages?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_speak?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_stream?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_use_embedded_activities?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_use_external_apps?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_use_external_emoji?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_use_external_sounds?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_use_external_stickers?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_use_private_threads?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_use_public_threads?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_use_slash_commands?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_use_soundboard?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_use_voice_activity?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_view_audit_log?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_view_monetization_analytics?(channel = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#208
+  # source://discordrb//lib/discordrb/permissions.rb#207
   def can_view_server_insights?(channel = T.unsafe(nil)); end
 
   # Checks whether this user has a particular permission defined (i.e. not implicit, through for example
@@ -13287,7 +13573,7 @@ module Discordrb::PermissionCalculator
   # @param channel [Channel, nil] If channel overrides should be checked too, this channel specifies where the overrides should be checked.
   # @return [true, false] whether or not this user has the permission defined.
   #
-  # source://discordrb//lib/discordrb/permissions.rb#186
+  # source://discordrb//lib/discordrb/permissions.rb#185
   def defined_permission?(action, channel = T.unsafe(nil)); end
 
   # Checks whether this user can do the particular action, regardless of whether it has the permission defined,
@@ -13300,17 +13586,17 @@ module Discordrb::PermissionCalculator
   # @param channel [Channel, nil] If channel overrides should be checked too, this channel specifies where the overrides should be checked.
   # @return [true, false] whether or not this user has the permission.
   #
-  # source://discordrb//lib/discordrb/permissions.rb#165
+  # source://discordrb//lib/discordrb/permissions.rb#164
   def permission?(action, channel = T.unsafe(nil)); end
 
   private
 
   # @return [Boolean]
   #
-  # source://discordrb//lib/discordrb/permissions.rb#217
+  # source://discordrb//lib/discordrb/permissions.rb#216
   def defined_role_permission?(action, channel); end
 
-  # source://discordrb//lib/discordrb/permissions.rb#239
+  # source://discordrb//lib/discordrb/permissions.rb#238
   def permission_overwrite(action, channel, id); end
 end
 
@@ -13778,18 +14064,19 @@ end
 class Discordrb::Profile < ::Discordrb::User
   # Changes the bot's avatar.
   #
-  # @param avatar [String, #read] A JPG file to be used as the avatar, either
-  #   something readable (e.g. File Object) or as a data URL.
+  # @param avatar [String, File, #read, nil] A file to be used as the avatar, either
+  #   something readable (e.g. File Object) or a data URI.
   #
   # source://discordrb//lib/discordrb/data/profile.rb#24
   def avatar=(avatar); end
 
-  # Sets the user status setting to Do Not Disturb.
+  # Changes the bot's banner.
   #
-  # @note Only usable on User accounts.
+  # @param banner [String, File, #read, nil] A file to be used as the banner, either
+  #   something readable (e.g. File Object) or a data URI.
   #
-  # source://discordrb//lib/discordrb/data/profile.rb#58
-  def busy; end
+  # source://discordrb//lib/discordrb/data/profile.rb#35
+  def banner=(banner); end
 
   # Whether or not the user is the bot. The Profile can only ever be the bot user, so this always returns true.
   #
@@ -13798,31 +14085,10 @@ class Discordrb::Profile < ::Discordrb::User
   # source://discordrb//lib/discordrb/data/profile.rb#9
   def current_bot?; end
 
-  # Sets the user status setting to Do Not Disturb.
-  #
-  # @note Only usable on User accounts.
-  #
-  # source://discordrb//lib/discordrb/data/profile.rb#54
-  def dnd; end
-
-  # Sets the user status setting to Idle.
-  #
-  # @note Only usable on User accounts.
-  #
-  # source://discordrb//lib/discordrb/data/profile.rb#48
-  def idle; end
-
   # The inspect method is overwritten to give more useful output
   #
-  # source://discordrb//lib/discordrb/data/profile.rb#67
+  # source://discordrb//lib/discordrb/data/profile.rb#53
   def inspect; end
-
-  # Sets the user status setting to Invisible.
-  #
-  # @note Only usable on User accounts.
-  #
-  # source://discordrb//lib/discordrb/data/profile.rb#62
-  def invisible; end
 
   # Sets the bot's username.
   #
@@ -13831,18 +14097,11 @@ class Discordrb::Profile < ::Discordrb::User
   # source://discordrb//lib/discordrb/data/profile.rb#19
   def name=(username); end
 
-  # Sets the user status setting to Online.
-  #
-  # @note Only usable on User accounts.
-  #
-  # source://discordrb//lib/discordrb/data/profile.rb#42
-  def online; end
-
   # Updates the cached profile data with the new one.
   #
   # @note For internal use only.
   #
-  # source://discordrb//lib/discordrb/data/profile.rb#35
+  # source://discordrb//lib/discordrb/data/profile.rb#46
   def update_data(new_data); end
 
   # Sets the bot's username.
@@ -13854,13 +14113,8 @@ class Discordrb::Profile < ::Discordrb::User
 
   private
 
-  # source://discordrb//lib/discordrb/data/profile.rb#78
+  # source://discordrb//lib/discordrb/data/profile.rb#60
   def update_profile_data(new_data); end
-
-  # Internal handler for updating the user's status setting
-  #
-  # source://discordrb//lib/discordrb/data/profile.rb#74
-  def update_profile_status_setting(status); end
 end
 
 # A reaction to a message.
@@ -13869,42 +14123,77 @@ end
 class Discordrb::Reaction
   # @return [Reaction] a new instance of Reaction
   #
-  # source://discordrb//lib/discordrb/data/reaction.rb#20
+  # source://discordrb//lib/discordrb/data/reaction.rb#40
   def initialize(data); end
 
-  # @return [Integer] the amount of users who have reacted with this reaction
+  # @return [Array<ColourRGB>] an array of colors used for animations in burst reactions
   #
-  # source://discordrb//lib/discordrb/data/reaction.rb#7
+  # source://discordrb//lib/discordrb/data/reaction.rb#31
+  def burst_colors; end
+
+  # @return [Array<ColourRGB>] an array of colors used for animations in burst reactions
+  #
+  # source://discordrb//lib/discordrb/data/reaction.rb#30
+  def burst_colours; end
+
+  # @return [Integer] the total amount of users who have reacted with this reaction as a burst reaction
+  #
+  # source://discordrb//lib/discordrb/data/reaction.rb#34
+  def burst_count; end
+
+  # @return [Integer] the total amount of users who have reacted with this reaction (including burst reactions)
+  #
+  # source://discordrb//lib/discordrb/data/reaction.rb#13
   def count; end
 
   # @return [Integer] the ID of the emoji, if it was custom
   #
-  # source://discordrb//lib/discordrb/data/reaction.rb#14
+  # source://discordrb//lib/discordrb/data/reaction.rb#20
   def id; end
 
   # @return [true, false] whether the current bot or user used this reaction
   #
-  # source://discordrb//lib/discordrb/data/reaction.rb#10
+  # source://discordrb//lib/discordrb/data/reaction.rb#16
   def me; end
 
   # @return [true, false] whether the current bot or user used this reaction
   #
-  # source://discordrb//lib/discordrb/data/reaction.rb#11
+  # source://discordrb//lib/discordrb/data/reaction.rb#17
   def me?; end
+
+  # @return [true, false] whether the current bot or user used this reaction as a burst reaction
+  #
+  # source://discordrb//lib/discordrb/data/reaction.rb#26
+  def me_burst; end
+
+  # @return [true, false] whether the current bot or user used this reaction as a burst reaction
+  #
+  # source://discordrb//lib/discordrb/data/reaction.rb#27
+  def me_burst?; end
 
   # @return [String] the name or unicode representation of the emoji
   #
-  # source://discordrb//lib/discordrb/data/reaction.rb#17
+  # source://discordrb//lib/discordrb/data/reaction.rb#23
   def name; end
+
+  # @return [Integer] the total amount of users who have reacted with this reaction as a normal reaction
+  #
+  # source://discordrb//lib/discordrb/data/reaction.rb#37
+  def normal_count; end
 
   # Converts this Reaction into a string that can be sent back to Discord in other reaction endpoints.
   # If ID is present, it will be rendered into the form of `name:id`.
   #
   # @return [String] the name of this reaction, including the ID if it is a custom emoji
   #
-  # source://discordrb//lib/discordrb/data/reaction.rb#30
+  # source://discordrb//lib/discordrb/data/reaction.rb#54
   def to_s; end
 end
+
+# Map of reaction types.
+#
+# source://discordrb//lib/discordrb/data/reaction.rb#7
+Discordrb::Reaction::TYPES = T.let(T.unsafe(nil), Hash)
 
 # Recipients are members on private channels - they exist for completeness purposes, but all
 # the attributes will be empty.
@@ -14347,6 +14636,55 @@ class Discordrb::Role::Tags
   def subscription_listing_id; end
 end
 
+# Metadata about a purchase or renewal for a role subscription.
+#
+# source://discordrb//lib/discordrb/data/role_subscription.rb#5
+class Discordrb::RoleSubscriptionData
+  # @return [RoleSubscriptionData] a new instance of RoleSubscriptionData
+  #
+  # source://discordrb//lib/discordrb/data/role_subscription.rb#20
+  def initialize(data, message, bot); end
+
+  # @return [Integer] the ID of the SKU and listing the user is subscribed to.
+  #
+  # source://discordrb//lib/discordrb/data/role_subscription.rb#10
+  def listing_id; end
+
+  # Check if this role subscription is a new purchase.
+  #
+  # @return [true, false] if this role subscription is a new purchase.
+  #
+  # source://discordrb//lib/discordrb/data/role_subscription.rb#31
+  def new?; end
+
+  # @return [true, false] whether the subscription notification is for a renewal.
+  #
+  # source://discordrb//lib/discordrb/data/role_subscription.rb#13
+  def renewal; end
+
+  # @return [true, false] whether the subscription notification is for a renewal.
+  #
+  # source://discordrb//lib/discordrb/data/role_subscription.rb#14
+  def renewal?; end
+
+  # Get the role associated with the notification for this subscription.
+  #
+  # @return [Role, nil] the role that's associated with this subscription.
+  #
+  # source://discordrb//lib/discordrb/data/role_subscription.rb#37
+  def role; end
+
+  # @return [String] the name of the tier the user is subscribed to.
+  #
+  # source://discordrb//lib/discordrb/data/role_subscription.rb#7
+  def tier_name; end
+
+  # @return [Integer] the total number of months the user has been subscribed for.
+  #
+  # source://discordrb//lib/discordrb/data/role_subscription.rb#17
+  def total_months_subscribed; end
+end
+
 # A server on Discord
 #
 # source://discordrb//lib/discordrb/data/server.rb#22
@@ -14363,7 +14701,7 @@ class Discordrb::Server
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/server.rb#901
+  # source://discordrb//lib/discordrb/data/server.rb#903
   def add_channel(channel); end
 
   # Adds a new custom emoji on this server.
@@ -14374,14 +14712,14 @@ class Discordrb::Server
   # @param roles [Array<Role, String, Integer>] An array of roles, or role IDs to be whitelisted for this emoji.
   # @return [Emoji] The emoji that has been added.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#560
+  # source://discordrb//lib/discordrb/data/server.rb#562
   def add_emoji(name, image, roles = T.unsafe(nil), reason: T.unsafe(nil)); end
 
   # Adds a member to the member cache.
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/server.rb#424
+  # source://discordrb//lib/discordrb/data/server.rb#426
   def add_member(member); end
 
   # Adds a member to this guild that has granted this bot's application an OAuth2 access token
@@ -14397,26 +14735,26 @@ class Discordrb::Server
   # @param user [User, String, Integer] the user, or ID of the user to add to this server
   # @return [Member, nil] the created member, or `nil` if the user is already a member of this server.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#269
+  # source://discordrb//lib/discordrb/data/server.rb#271
   def add_member_using_token(user, access_token, nick: T.unsafe(nil), roles: T.unsafe(nil), deaf: T.unsafe(nil), mute: T.unsafe(nil)); end
 
   # Adds a role to the role cache
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/server.rb#391
+  # source://discordrb//lib/discordrb/data/server.rb#393
   def add_role(role); end
 
   # @return [Channel, nil] the AFK voice channel of this server, or `nil` if none is set.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#847
+  # source://discordrb//lib/discordrb/data/server.rb#849
   def afk_channel; end
 
   # Sets the server's AFK channel.
   #
   # @param afk_channel [Channel, nil] The new AFK channel, or `nil` if there should be none set.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#722
+  # source://discordrb//lib/discordrb/data/server.rb#724
   def afk_channel=(afk_channel); end
 
   # @return [Integer] the amount of time after which a voice user gets moved into the AFK channel, in seconds.
@@ -14428,12 +14766,12 @@ class Discordrb::Server
   #
   # @param afk_timeout [Integer] The AFK timeout, in seconds.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#734
+  # source://discordrb//lib/discordrb/data/server.rb#736
   def afk_timeout=(afk_timeout); end
 
   # @return [true, false] whether this server has any emoji or not.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#810
+  # source://discordrb//lib/discordrb/data/server.rb#812
   def any_emoji?; end
 
   # @param action [Symbol] The action to only include.
@@ -14442,12 +14780,12 @@ class Discordrb::Server
   # @param user [User, String, Integer] The user, or their ID, to filter entries to.
   # @return [AuditLogs] The server's audit logs.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#170
+  # source://discordrb//lib/discordrb/data/server.rb#172
   def audit_logs(action: T.unsafe(nil), user: T.unsafe(nil), limit: T.unsafe(nil), before: T.unsafe(nil)); end
 
   # @return [Array<VoiceRegion>] collection of available voice regions to this guild
   #
-  # source://discordrb//lib/discordrb/data/server.rb#689
+  # source://discordrb//lib/discordrb/data/server.rb#691
   def available_voice_regions; end
 
   # Bans a user from this server.
@@ -14457,18 +14795,18 @@ class Discordrb::Server
   # @param reason [String] The reason the user is being banned.
   # @param user [User, String, Integer] The user to ban.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#631
+  # source://discordrb//lib/discordrb/data/server.rb#633
   def ban(user, message_days = T.unsafe(nil), message_seconds: T.unsafe(nil), reason: T.unsafe(nil)); end
 
   # @return [String] the hexadecimal ID used to identify this server's banner image, shown by the server name.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#368
+  # source://discordrb//lib/discordrb/data/server.rb#370
   def banner_id; end
 
   # @return [String, nil] the banner image URL for the server's banner image, or
   #   `nil` if there is no banner image.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#374
+  # source://discordrb//lib/discordrb/data/server.rb#376
   def banner_url; end
 
   # Retrieve banned users from this server.
@@ -14478,7 +14816,7 @@ class Discordrb::Server
   # @param limit [Integer] Number of users to return (up to maximum 1000, default 1000).
   # @return [Array<ServerBan>] a list of banned users on this server and the reason they were banned.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#619
+  # source://discordrb//lib/discordrb/data/server.rb#621
   def bans(limit: T.unsafe(nil), before_id: T.unsafe(nil), after_id: T.unsafe(nil)); end
 
   # Prunes (kicks) an amount of members for inactivity
@@ -14488,7 +14826,7 @@ class Discordrb::Server
   # @raise [ArgumentError] if days is not between 1 and 30 (inclusive)
   # @return [Integer] the number of members removed at the end of the operation
   #
-  # source://discordrb//lib/discordrb/data/server.rb#294
+  # source://discordrb//lib/discordrb/data/server.rb#296
   def begin_prune(days, reason = T.unsafe(nil)); end
 
   # The server's Nitro boost level.
@@ -14507,12 +14845,12 @@ class Discordrb::Server
 
   # @return [Member] the bot's own `Member` on this server
   #
-  # source://discordrb//lib/discordrb/data/server.rb#155
+  # source://discordrb//lib/discordrb/data/server.rb#157
   def bot; end
 
   # @return [Array<Member>] an array of all the bot members on this server.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#145
+  # source://discordrb//lib/discordrb/data/server.rb#147
   def bot_members; end
 
   # Ban up to 200 users from this server in one go.
@@ -14523,26 +14861,26 @@ class Discordrb::Server
   # @raise [ArgumentError]
   # @return [BulkBan]
   #
-  # source://discordrb//lib/discordrb/data/server.rb#653
+  # source://discordrb//lib/discordrb/data/server.rb#655
   def bulk_ban(users:, message_seconds: T.unsafe(nil), reason: T.unsafe(nil)); end
 
   # Adds a member to the cache
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/server.rb#447
+  # source://discordrb//lib/discordrb/data/server.rb#449
   def cache_member(member); end
 
   # Cache @widget
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/server.rb#182
+  # source://discordrb//lib/discordrb/data/server.rb#184
   def cache_widget_data; end
 
   # @return [Array<Channel>] an array of category channels on this server
   #
-  # source://discordrb//lib/discordrb/data/server.rb#314
+  # source://discordrb//lib/discordrb/data/server.rb#316
   def categories; end
 
   # @return [Array<Channel>] an array of all the channels (text and voice) on this server.
@@ -14552,7 +14890,7 @@ class Discordrb::Server
 
   # @return [Symbol] the explicit content filter level of the server (:none = 'Don't scan any messages.', :exclude_roles = 'Scan messages for members without a role.', :all = 'Scan messages sent by all members.').
   #
-  # source://discordrb//lib/discordrb/data/server.rb#799
+  # source://discordrb//lib/discordrb/data/server.rb#801
   def content_filter_level; end
 
   # Creates a channel on this server with the given name.
@@ -14575,7 +14913,7 @@ class Discordrb::Server
   # @raise [ArgumentError] if type is not 0 (text), 2 (voice), 4 (category), 5 (news), or 6 (store)
   # @return [Channel] the created channel.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#497
+  # source://discordrb//lib/discordrb/data/server.rb#499
   def create_channel(name, type = T.unsafe(nil), topic: T.unsafe(nil), bitrate: T.unsafe(nil), user_limit: T.unsafe(nil), permission_overwrites: T.unsafe(nil), parent: T.unsafe(nil), nsfw: T.unsafe(nil), rate_limit_per_user: T.unsafe(nil), position: T.unsafe(nil), reason: T.unsafe(nil)); end
 
   # Creates a role on this server which can then be modified. It will be initialized
@@ -14595,7 +14933,7 @@ class Discordrb::Server
   # @param unicode_emoji [String, nil] The unicode emoji of the role to create, or nil.
   # @return [Role] the created role.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#522
+  # source://discordrb//lib/discordrb/data/server.rb#524
   def create_role(name: T.unsafe(nil), colour: T.unsafe(nil), hoist: T.unsafe(nil), mentionable: T.unsafe(nil), permissions: T.unsafe(nil), secondary_colour: T.unsafe(nil), tertiary_colour: T.unsafe(nil), icon: T.unsafe(nil), unicode_emoji: T.unsafe(nil), display_icon: T.unsafe(nil), reason: T.unsafe(nil)); end
 
   # The default channel is the text channel on this server with the highest position
@@ -14604,26 +14942,26 @@ class Discordrb::Server
   # @param send_messages [true, false] whether to additionally consider if the bot has Send Messages permission
   # @return [Channel, nil] The default channel on this server, or `nil` if there are no channels that the bot can read.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#87
+  # source://discordrb//lib/discordrb/data/server.rb#89
   def default_channel(send_messages = T.unsafe(nil)); end
 
   # @return [Symbol] the default message notifications settings of the server (:all = 'All messages', :mentions = 'Only @mentions').
   #
-  # source://discordrb//lib/discordrb/data/server.rb#767
+  # source://discordrb//lib/discordrb/data/server.rb#769
   def default_message_notifications; end
 
   # Sets the default message notification level
   #
   # @param notification_level [Integer, Symbol] The default message notification 0-1 or Symbol (see {NOTIFICATION_LEVELS})
   #
-  # source://discordrb//lib/discordrb/data/server.rb#773
+  # source://discordrb//lib/discordrb/data/server.rb#775
   def default_message_notifications=(notification_level); end
 
   # Deletes a channel from this server's cache
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/server.rb#909
+  # source://discordrb//lib/discordrb/data/server.rb#911
   def delete_channel(id); end
 
   # Delete a custom emoji on this server
@@ -14631,21 +14969,21 @@ class Discordrb::Server
   # @param emoji [Emoji, String, Integer] The emoji or emoji ID to be deleted.
   # @param reason [String] The reason the for the deletion of this emoji.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#571
+  # source://discordrb//lib/discordrb/data/server.rb#573
   def delete_emoji(emoji, reason: T.unsafe(nil)); end
 
   # Removes a member from the member cache.
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/server.rb#432
+  # source://discordrb//lib/discordrb/data/server.rb#434
   def delete_member(user_id); end
 
   # Removes a role from the role cache
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/server.rb#398
+  # source://discordrb//lib/discordrb/data/server.rb#400
   def delete_role(role_id); end
 
   # Changes the name and/or role whitelist of an emoji on this server.
@@ -14656,36 +14994,36 @@ class Discordrb::Server
   # @param roles [Array<Role, String, Integer>] A new array of roles, or role IDs, to whitelist.
   # @return [Emoji] The edited emoji.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#581
+  # source://discordrb//lib/discordrb/data/server.rb#583
   def edit_emoji(emoji, name: T.unsafe(nil), roles: T.unsafe(nil), reason: T.unsafe(nil)); end
 
   # @return [true, false] whether or not the server has widget enabled
   #
-  # source://discordrb//lib/discordrb/data/server.rb#195
+  # source://discordrb//lib/discordrb/data/server.rb#197
   def embed?; end
 
   # @return [Channel, nil] the channel the server widget will make an invite for.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#202
+  # source://discordrb//lib/discordrb/data/server.rb#204
   def embed_channel; end
 
   # Changes the channel on the server's widget
   #
   # @param channel [Channel, String, Integer] the channel, or its ID, to be referenced by the widget
   #
-  # source://discordrb//lib/discordrb/data/server.rb#224
+  # source://discordrb//lib/discordrb/data/server.rb#226
   def embed_channel=(channel); end
 
   # @return [true, false] whether or not the server has widget enabled
   #
-  # source://discordrb//lib/discordrb/data/server.rb#194
+  # source://discordrb//lib/discordrb/data/server.rb#196
   def embed_enabled; end
 
   # Sets whether this server's widget is enabled
   #
   # @param value [true, false]
   #
-  # source://discordrb//lib/discordrb/data/server.rb#209
+  # source://discordrb//lib/discordrb/data/server.rb#211
   def embed_enabled=(value); end
 
   # @return [Hash<Integer => Emoji>] a hash of all the emoji available on this server.
@@ -14695,7 +15033,7 @@ class Discordrb::Server
 
   # @return [true, false] whether this server has any emoji or not.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#815
+  # source://discordrb//lib/discordrb/data/server.rb#817
   def emoji?; end
 
   # @return [Hash<Integer => Emoji>] a hash of all the emoji available on this server.
@@ -14705,19 +15043,19 @@ class Discordrb::Server
 
   # @return [Role] The @everyone role on this server
   #
-  # source://discordrb//lib/discordrb/data/server.rb#101
+  # source://discordrb//lib/discordrb/data/server.rb#103
   def everyone_role; end
 
   # @return [Symbol] the explicit content filter level of the server (:none = 'Don't scan any messages.', :exclude_roles = 'Scan messages for members without a role.', :all = 'Scan messages sent by all members.').
   #
-  # source://discordrb//lib/discordrb/data/server.rb#795
+  # source://discordrb//lib/discordrb/data/server.rb#797
   def explicit_content_filter; end
 
   # Sets the server content filter.
   #
   # @param filter_level [Integer, Symbol] The content filter from 0-2 or Symbol (see {FILTER_LEVELS})
   #
-  # source://discordrb//lib/discordrb/data/server.rb#803
+  # source://discordrb//lib/discordrb/data/server.rb#805
   def explicit_content_filter=(filter_level); end
 
   # @return [Array<Symbol>] the features of the server (eg. "INVITE_SPLASH")
@@ -14731,41 +15069,41 @@ class Discordrb::Server
   # @param send_messages [true, false] whether to additionally consider if the bot has Send Messages permission
   # @return [Channel, nil] The default channel on this server, or `nil` if there are no channels that the bot can read.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#98
+  # source://discordrb//lib/discordrb/data/server.rb#100
   def general_channel(send_messages = T.unsafe(nil)); end
 
   # @return [true, false] whether this server has any emoji or not.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#814
+  # source://discordrb//lib/discordrb/data/server.rb#816
   def has_emoji?; end
 
   # Sets the server's icon.
   #
   # @param icon [String, #read] The new icon, in base64-encoded JPG format.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#712
+  # source://discordrb//lib/discordrb/data/server.rb#714
   def icon=(icon); end
 
   # The inspect method is overwritten to give more useful output
   #
-  # source://discordrb//lib/discordrb/data/server.rb#923
+  # source://discordrb//lib/discordrb/data/server.rb#925
   def inspect; end
 
   # @return [Array<Integration>] an array of all the integrations connected to this server.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#160
+  # source://discordrb//lib/discordrb/data/server.rb#162
   def integrations; end
 
   # Requests a list of Invites to the server.
   #
   # @return [Array<Invite>] invites to the server.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#826
+  # source://discordrb//lib/discordrb/data/server.rb#828
   def invites; end
 
   # @return [String] a URL that a user can use to navigate to this server in the client
   #
-  # source://discordrb//lib/discordrb/data/server.rb#386
+  # source://discordrb//lib/discordrb/data/server.rb#388
   def jump_link; end
 
   # Kicks a user from this server.
@@ -14773,7 +15111,7 @@ class Discordrb::Server
   # @param reason [String] The reason the user is being kicked.
   # @param user [User, String, Integer] The user to kick.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#665
+  # source://discordrb//lib/discordrb/data/server.rb#667
   def kick(user, reason = T.unsafe(nil)); end
 
   # it means the members list may be inaccurate for a couple seconds after starting up the bot.
@@ -14792,19 +15130,19 @@ class Discordrb::Server
 
   # Leave the server.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#678
+  # source://discordrb//lib/discordrb/data/server.rb#680
   def leave; end
 
   # @return [String] a URL that a user can use to navigate to this server in the client
   #
-  # source://discordrb//lib/discordrb/data/server.rb#382
+  # source://discordrb//lib/discordrb/data/server.rb#384
   def link; end
 
   # The amount of emoji the server can have, based on its current Nitro Boost Level.
   #
   # @return [Integer] the max amount of emoji
   #
-  # source://discordrb//lib/discordrb/data/server.rb#590
+  # source://discordrb//lib/discordrb/data/server.rb#592
   def max_emoji; end
 
   # Gets a member on this server based on user ID
@@ -14812,7 +15150,7 @@ class Discordrb::Server
   # @param id [Integer] The user ID to look for
   # @param request [true, false] Whether the member should be requested from Discord if it's not cached
   #
-  # source://discordrb//lib/discordrb/data/server.rb#116
+  # source://discordrb//lib/discordrb/data/server.rb#118
   def member(id, request = T.unsafe(nil)); end
 
   # Checks whether a member is cached
@@ -14820,7 +15158,7 @@ class Discordrb::Server
   # @note For internal use only
   # @return [Boolean]
   #
-  # source://discordrb//lib/discordrb/data/server.rb#440
+  # source://discordrb//lib/discordrb/data/server.rb#442
   def member_cached?(user_id); end
 
   # @return [Integer] the absolute number of members on this server, offline or not.
@@ -14831,7 +15169,7 @@ class Discordrb::Server
   # @raise [RuntimeError] if the bot was not started with the :server_member intent
   # @return [Array<Member>] an array of all the members on this server.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#129
+  # source://discordrb//lib/discordrb/data/server.rb#131
   def members; end
 
   # Changes the channel on the server's widget, and sets whether it is enabled.
@@ -14840,7 +15178,7 @@ class Discordrb::Server
   # @param enabled [true, false] whether the widget is enabled
   # @param reason [String, nil] the reason to be shown in the audit log for this action
   #
-  # source://discordrb//lib/discordrb/data/server.rb#245
+  # source://discordrb//lib/discordrb/data/server.rb#247
   def modify_embed(enabled, channel, reason = T.unsafe(nil)); end
 
   # Changes the channel on the server's widget, and sets whether it is enabled.
@@ -14849,7 +15187,7 @@ class Discordrb::Server
   # @param enabled [true, false] whether the widget is enabled
   # @param reason [String, nil] the reason to be shown in the audit log for this action
   #
-  # source://discordrb//lib/discordrb/data/server.rb#238
+  # source://discordrb//lib/discordrb/data/server.rb#240
   def modify_widget(enabled, channel, reason = T.unsafe(nil)); end
 
   # Forcibly moves a user into a different voice channel.
@@ -14858,62 +15196,62 @@ class Discordrb::Server
   # @param channel [Channel, String, Integer, nil] The voice channel to move into. (If nil, the user is disconnected from the voice channel)
   # @param user [User, String, Integer] The user to move.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#673
+  # source://discordrb//lib/discordrb/data/server.rb#675
   def move(user, channel); end
 
   # Sets the server's name.
   #
   # @param name [String] The new server name.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#684
+  # source://discordrb//lib/discordrb/data/server.rb#686
   def name=(name); end
 
   # @return [Array<Member>] an array of all the non bot members on this server.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#150
+  # source://discordrb//lib/discordrb/data/server.rb#152
   def non_bot_members; end
 
   # Sets the default message notification level
   #
   # @param notification_level [Integer, Symbol] The default message notification 0-1 or Symbol (see {NOTIFICATION_LEVELS})
   #
-  # source://discordrb//lib/discordrb/data/server.rb#779
+  # source://discordrb//lib/discordrb/data/server.rb#781
   def notification_level=(notification_level); end
 
   # @param include_bots [true, false] Whether to include bot accounts in the count.
   # @param include_idle [true, false] Whether to count idle members as online.
   # @return [Array<Member>] an array of online members on this server.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#250
+  # source://discordrb//lib/discordrb/data/server.rb#252
   def online_members(include_idle: T.unsafe(nil), include_bots: T.unsafe(nil)); end
 
   # @param include_bots [true, false] Whether to include bot accounts in the count.
   # @param include_idle [true, false] Whether to count idle members as online.
   # @return [Array<Member>] an array of online members on this server.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#256
+  # source://discordrb//lib/discordrb/data/server.rb#258
   def online_users(include_idle: T.unsafe(nil), include_bots: T.unsafe(nil)); end
 
   # @return [Array<Channel>] an array of channels on this server that are not in a category
   #
-  # source://discordrb//lib/discordrb/data/server.rb#319
+  # source://discordrb//lib/discordrb/data/server.rb#321
   def orphan_channels; end
 
   # @return [Member] The server owner.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#79
+  # source://discordrb//lib/discordrb/data/server.rb#81
   def owner; end
 
   # @return [ServerPreview] the preview of this server shown in the discovery page.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#324
+  # source://discordrb//lib/discordrb/data/server.rb#326
   def preview; end
 
   # Processes a GUILD_MEMBERS_CHUNK packet, specifically the members field
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/server.rb#834
+  # source://discordrb//lib/discordrb/data/server.rb#836
   def process_chunk(members, chunk_index, chunk_count); end
 
   # Prunes (kicks) an amount of members for inactivity
@@ -14923,7 +15261,7 @@ class Discordrb::Server
   # @raise [ArgumentError] if days is not between 1 and 30 (inclusive)
   # @return [Integer] the number of members removed at the end of the operation
   #
-  # source://discordrb//lib/discordrb/data/server.rb#301
+  # source://discordrb//lib/discordrb/data/server.rb#303
   def prune(days, reason = T.unsafe(nil)); end
 
   # Returns the amount of members that are candidates for pruning
@@ -14932,20 +15270,20 @@ class Discordrb::Server
   # @raise [ArgumentError] if days is not between 1 and 30 (inclusive)
   # @return [Integer] number of members to be removed
   #
-  # source://discordrb//lib/discordrb/data/server.rb#282
+  # source://discordrb//lib/discordrb/data/server.rb#284
   def prune_count(days); end
 
   # @note This may return `nil` if this server's voice region is deprecated.
   # @return [VoiceRegion, nil] voice region data for this server's region
   #
-  # source://discordrb//lib/discordrb/data/server.rb#700
+  # source://discordrb//lib/discordrb/data/server.rb#702
   def region; end
 
   # Moves the server to another region. This will cause a voice interruption of at most a second.
   #
   # @param region [String] The new region the server should be in.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#706
+  # source://discordrb//lib/discordrb/data/server.rb#708
   def region=(region); end
 
   # @return [String] the ID of the region the server is on (e.g. `amsterdam`).
@@ -14958,7 +15296,7 @@ class Discordrb::Server
   # @param id [String, Integer] The role ID to look for.
   # @return [Role, nil] The role identified by the ID, or `nil` if it couldn't be found.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#108
+  # source://discordrb//lib/discordrb/data/server.rb#110
   def role(id); end
 
   # @return [Array<Role>] an array of all the roles created on this server.
@@ -14972,7 +15310,7 @@ class Discordrb::Server
   # @param name [String] The username or nickname to search for.
   # @return [Array<Member>, nil] An array of member objects that match the given parameters, or nil for no members.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#607
+  # source://discordrb//lib/discordrb/data/server.rb#609
   def search_members(name:, limit: T.unsafe(nil)); end
 
   # Changes the channel on the server's widget
@@ -14980,7 +15318,7 @@ class Discordrb::Server
   # @param channel [Channel, String, Integer] the channel, or its ID, to be referenced by the widget
   # @param reason [String, nil] the reason to be shown in the audit log for this action
   #
-  # source://discordrb//lib/discordrb/data/server.rb#232
+  # source://discordrb//lib/discordrb/data/server.rb#234
   def set_embed_channel(channel, reason = T.unsafe(nil)); end
 
   # Sets whether this server's widget is enabled
@@ -14988,7 +15326,7 @@ class Discordrb::Server
   # @param reason [String, nil] the reason to be shown in the audit log for this action
   # @param value [true, false]
   #
-  # source://discordrb//lib/discordrb/data/server.rb#217
+  # source://discordrb//lib/discordrb/data/server.rb#219
   def set_embed_enabled(value, reason = T.unsafe(nil)); end
 
   # Changes the channel on the server's widget
@@ -14996,7 +15334,7 @@ class Discordrb::Server
   # @param channel [Channel, String, Integer] the channel, or its ID, to be referenced by the widget
   # @param reason [String, nil] the reason to be shown in the audit log for this action
   #
-  # source://discordrb//lib/discordrb/data/server.rb#229
+  # source://discordrb//lib/discordrb/data/server.rb#231
   def set_widget_channel(channel, reason = T.unsafe(nil)); end
 
   # Sets whether this server's widget is enabled
@@ -15004,47 +15342,47 @@ class Discordrb::Server
   # @param reason [String, nil] the reason to be shown in the audit log for this action
   # @param value [true, false]
   #
-  # source://discordrb//lib/discordrb/data/server.rb#214
+  # source://discordrb//lib/discordrb/data/server.rb#216
   def set_widget_enabled(value, reason = T.unsafe(nil)); end
 
   # Sets the server splash
   #
   # @param splash_hash [String] The splash hash
   #
-  # source://discordrb//lib/discordrb/data/server.rb#783
+  # source://discordrb//lib/discordrb/data/server.rb#785
   def splash=(splash_hash); end
 
   # @return [String] the hexadecimal ID used to identify this server's splash image for their VIP invite page.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#356
+  # source://discordrb//lib/discordrb/data/server.rb#358
   def splash_hash; end
 
   # @return [String] the hexadecimal ID used to identify this server's splash image for their VIP invite page.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#353
+  # source://discordrb//lib/discordrb/data/server.rb#355
   def splash_id; end
 
   # @return [String, nil] the splash image URL for the server's VIP invite page.
   #   `nil` if there is no splash image.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#360
+  # source://discordrb//lib/discordrb/data/server.rb#362
   def splash_url; end
 
   # @return [Channel, nil] the system channel (used for automatic welcome messages) of a server, or `nil` if none is set.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#852
+  # source://discordrb//lib/discordrb/data/server.rb#854
   def system_channel; end
 
   # Sets the server's system channel.
   #
   # @param system_channel [Channel, String, Integer, nil] The new system channel, or `nil` should it be disabled.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#728
+  # source://discordrb//lib/discordrb/data/server.rb#730
   def system_channel=(system_channel); end
 
   # @return [Array<Channel>] an array of text channels on this server
   #
-  # source://discordrb//lib/discordrb/data/server.rb#304
+  # source://discordrb//lib/discordrb/data/server.rb#306
   def text_channels; end
 
   # Unbans a previously banned user from this server.
@@ -15052,58 +15390,58 @@ class Discordrb::Server
   # @param reason [String] The reason the user is being unbanned.
   # @param user [User, String, Integer] The user to unban.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#644
+  # source://discordrb//lib/discordrb/data/server.rb#646
   def unban(user, reason = T.unsafe(nil)); end
 
   # Updates the cached data with new data
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/server.rb#859
+  # source://discordrb//lib/discordrb/data/server.rb#861
   def update_data(new_data = T.unsafe(nil)); end
 
   # Updates the cached emoji data with new data
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/server.rb#917
+  # source://discordrb//lib/discordrb/data/server.rb#919
   def update_emoji_data(new_data); end
 
   # Updates the positions of all roles on the server
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/server.rb#413
+  # source://discordrb//lib/discordrb/data/server.rb#415
   def update_role_positions(role_positions); end
 
   # Updates a member's voice state
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/server.rb#454
+  # source://discordrb//lib/discordrb/data/server.rb#456
   def update_voice_state(data); end
 
   # @raise [RuntimeError] if the bot was not started with the :server_member intent
   # @return [Array<Member>] an array of all the members on this server.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#142
+  # source://discordrb//lib/discordrb/data/server.rb#144
   def users; end
 
   # @return [Symbol] the verification level of the server (:none = none, :low = 'Must have a verified email on their Discord account', :medium = 'Has to be registered with Discord for at least 5 minutes', :high = 'Has to be a member of this server for at least 10 minutes', :very_high = 'Must have a verified phone on their Discord account').
   #
-  # source://discordrb//lib/discordrb/data/server.rb#748
+  # source://discordrb//lib/discordrb/data/server.rb#750
   def verification_level; end
 
   # Sets the verification level of the server
   #
   # @param level [Integer, Symbol] The verification level from 0-4 or Symbol (see {VERIFICATION_LEVELS})
   #
-  # source://discordrb//lib/discordrb/data/server.rb#754
+  # source://discordrb//lib/discordrb/data/server.rb#756
   def verification_level=(level); end
 
   # @return [Array<Channel>] an array of voice channels on this server
   #
-  # source://discordrb//lib/discordrb/data/server.rb#309
+  # source://discordrb//lib/discordrb/data/server.rb#311
   def voice_channels; end
 
   # @return [Hash<Integer => VoiceState>] the hash (user ID => voice state) of voice states of members on this server
@@ -15115,12 +15453,12 @@ class Discordrb::Server
   #
   # @return [Array<Webhook>] webhooks on the server.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#819
+  # source://discordrb//lib/discordrb/data/server.rb#821
   def webhooks; end
 
   # @return [true, false] whether or not the server has widget enabled
   #
-  # source://discordrb//lib/discordrb/data/server.rb#193
+  # source://discordrb//lib/discordrb/data/server.rb#195
   def widget?; end
 
   # @param style [Symbol] The style the picture should have. Possible styles are:
@@ -15132,79 +15470,79 @@ class Discordrb::Server
   # @return [String, nil] the widget banner URL to the server that displays the amount of online members,
   #   server icon and server name in a stylish way. `nil` if the widget is not enabled.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#345
+  # source://discordrb//lib/discordrb/data/server.rb#347
   def widget_banner_url(style); end
 
   # @return [Channel, nil] the channel the server widget will make an invite for.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#198
+  # source://discordrb//lib/discordrb/data/server.rb#200
   def widget_channel; end
 
   # Changes the channel on the server's widget
   #
   # @param channel [Channel, String, Integer] the channel, or its ID, to be referenced by the widget
   #
-  # source://discordrb//lib/discordrb/data/server.rb#221
+  # source://discordrb//lib/discordrb/data/server.rb#223
   def widget_channel=(channel); end
 
   # Sets whether this server's widget is enabled
   #
   # @param value [true, false]
   #
-  # source://discordrb//lib/discordrb/data/server.rb#206
+  # source://discordrb//lib/discordrb/data/server.rb#208
   def widget_enabled=(value); end
 
   # @return [true, false] whether or not the server has widget enabled
   #
-  # source://discordrb//lib/discordrb/data/server.rb#189
+  # source://discordrb//lib/discordrb/data/server.rb#191
   def widget_enabled?; end
 
   # @return [String, nil] the widget URL to the server that displays the amount of online members in a
   #   stylish way. `nil` if the widget is not enabled.
   #
-  # source://discordrb//lib/discordrb/data/server.rb#330
+  # source://discordrb//lib/discordrb/data/server.rb#332
   def widget_url; end
 
   private
 
-  # source://discordrb//lib/discordrb/data/server.rb#1014
+  # source://discordrb//lib/discordrb/data/server.rb#1016
   def process_active_threads(threads); end
 
-  # source://discordrb//lib/discordrb/data/server.rb#993
+  # source://discordrb//lib/discordrb/data/server.rb#995
   def process_channels(channels); end
 
-  # source://discordrb//lib/discordrb/data/server.rb#958
+  # source://discordrb//lib/discordrb/data/server.rb#960
   def process_emoji(emoji); end
 
-  # source://discordrb//lib/discordrb/data/server.rb#967
+  # source://discordrb//lib/discordrb/data/server.rb#969
   def process_members(members); end
 
-  # source://discordrb//lib/discordrb/data/server.rb#976
+  # source://discordrb//lib/discordrb/data/server.rb#978
   def process_presences(presences); end
 
-  # source://discordrb//lib/discordrb/data/server.rb#944
+  # source://discordrb//lib/discordrb/data/server.rb#946
   def process_roles(roles); end
 
-  # source://discordrb//lib/discordrb/data/server.rb#1006
+  # source://discordrb//lib/discordrb/data/server.rb#1008
   def process_voice_states(voice_states); end
 
-  # source://discordrb//lib/discordrb/data/server.rb#929
+  # source://discordrb//lib/discordrb/data/server.rb#931
   def update_server_data(new_data); end
 end
 
 # A map of possible content filter levels to symbol names
 #
-# source://discordrb//lib/discordrb/data/server.rb#788
+# source://discordrb//lib/discordrb/data/server.rb#790
 Discordrb::Server::FILTER_LEVELS = T.let(T.unsafe(nil), Hash)
 
 # A map of possible message notification levels to symbol names
 #
-# source://discordrb//lib/discordrb/data/server.rb#761
+# source://discordrb//lib/discordrb/data/server.rb#763
 Discordrb::Server::NOTIFICATION_LEVELS = T.let(T.unsafe(nil), Hash)
 
 # A map of possible server verification levels to symbol names
 #
-# source://discordrb//lib/discordrb/data/server.rb#739
+# source://discordrb//lib/discordrb/data/server.rb#741
 Discordrb::Server::VERIFICATION_LEVELS = T.let(T.unsafe(nil), Hash)
 
 # Basic attributes a server should have
@@ -15231,47 +15569,47 @@ end
 
 # A ban entry on a server
 #
-# source://discordrb//lib/discordrb/data/server.rb#1029
+# source://discordrb//lib/discordrb/data/server.rb#1031
 class Discordrb::ServerBan
   # @return [ServerBan] a new instance of ServerBan
   #
-  # source://discordrb//lib/discordrb/data/server.rb#1040
+  # source://discordrb//lib/discordrb/data/server.rb#1042
   def initialize(server, user, reason); end
 
   # Removes this ban on the associated user in the server
   #
   # @param reason [String] the reason for removing the ban
   #
-  # source://discordrb//lib/discordrb/data/server.rb#1053
+  # source://discordrb//lib/discordrb/data/server.rb#1055
   def lift(reason = T.unsafe(nil)); end
 
   # @return [String, nil] the reason the user was banned, if provided
   #
-  # source://discordrb//lib/discordrb/data/server.rb#1031
+  # source://discordrb//lib/discordrb/data/server.rb#1033
   def reason; end
 
   # Removes this ban on the associated user in the server
   #
   # @param reason [String] the reason for removing the ban
   #
-  # source://discordrb//lib/discordrb/data/server.rb#1048
+  # source://discordrb//lib/discordrb/data/server.rb#1050
   def remove(reason = T.unsafe(nil)); end
 
   # @return [Server] the server this ban belongs to
   #
-  # source://discordrb//lib/discordrb/data/server.rb#1037
+  # source://discordrb//lib/discordrb/data/server.rb#1039
   def server; end
 
   # Removes this ban on the associated user in the server
   #
   # @param reason [String] the reason for removing the ban
   #
-  # source://discordrb//lib/discordrb/data/server.rb#1052
+  # source://discordrb//lib/discordrb/data/server.rb#1054
   def unban(reason = T.unsafe(nil)); end
 
   # @return [User] the user that was banned
   #
-  # source://discordrb//lib/discordrb/data/server.rb#1034
+  # source://discordrb//lib/discordrb/data/server.rb#1036
   def user; end
 end
 
@@ -16099,7 +16437,7 @@ module Discordrb::Voice; end
 
 # How many bytes of data to read (1920 bytes * 2 channels) from audio PCM data
 #
-# source://discordrb//lib/discordrb/voice/voice_bot.rb#13
+# source://discordrb//lib/discordrb/voice/voice_bot.rb#15
 Discordrb::Voice::DATA_LENGTH = T.let(T.unsafe(nil), Integer)
 
 # Signifies to Discord that encryption should be used
@@ -16107,12 +16445,12 @@ Discordrb::Voice::DATA_LENGTH = T.let(T.unsafe(nil), Integer)
 #
 # @deprecated Discord now supports multiple encryption options.
 #
-# source://discordrb//lib/discordrb/voice/network.rb#25
+# source://discordrb//lib/discordrb/voice/network.rb#26
 Discordrb::Voice::ENCRYPTED_MODE = T.let(T.unsafe(nil), String)
 
 # Encryption modes supported by Discord
 #
-# source://discordrb//lib/discordrb/voice/network.rb#32
+# source://discordrb//lib/discordrb/voice/network.rb#33
 Discordrb::Voice::ENCRYPTION_MODES = T.let(T.unsafe(nil), Array)
 
 # This class conveniently abstracts opus and ffmpeg/avconv, for easy implementation of voice sending. It's not very
@@ -16217,127 +16555,146 @@ Discordrb::Voice::Encoder::OPUS_SILENCE = T.let(T.unsafe(nil), String)
 
 # How long one voice packet should ideally be (20ms as defined by Discord)
 #
-# source://discordrb//lib/discordrb/voice/voice_bot.rb#10
+# source://discordrb//lib/discordrb/voice/voice_bot.rb#12
 Discordrb::Voice::IDEAL_LENGTH = T.let(T.unsafe(nil), Float)
+
+# Voice websocket opcodes
+#
+# source://discordrb//lib/discordrb/voice/opcodes.rb#5
+module Discordrb::Voice::Opcodes; end
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#16
+Discordrb::Voice::Opcodes::CLIENT_CONNECT = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#17
+Discordrb::Voice::Opcodes::CLIENT_DISCONNECT = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#19
+Discordrb::Voice::Opcodes::DAVE_EXECUTE_TRANSITION = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#26
+Discordrb::Voice::Opcodes::DAVE_MLS_ANNOUNCE_COMMIT_TRANSITION = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#25
+Discordrb::Voice::Opcodes::DAVE_MLS_COMMIT_WELCOME = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#22
+Discordrb::Voice::Opcodes::DAVE_MLS_EXTERNAL_SENDER = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#28
+Discordrb::Voice::Opcodes::DAVE_MLS_INVALID_COMMIT_WELCOME = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#23
+Discordrb::Voice::Opcodes::DAVE_MLS_KEY_PACKAGE = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#24
+Discordrb::Voice::Opcodes::DAVE_MLS_PROPOSALS = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#27
+Discordrb::Voice::Opcodes::DAVE_MLS_WELCOME = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#21
+Discordrb::Voice::Opcodes::DAVE_PREPARE_EPOCH = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#18
+Discordrb::Voice::Opcodes::DAVE_PREPARE_TRANSITION = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#20
+Discordrb::Voice::Opcodes::DAVE_TRANSITION_READY = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#9
+Discordrb::Voice::Opcodes::HEARTBEAT = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#12
+Discordrb::Voice::Opcodes::HEARTBEAT_ACK = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#14
+Discordrb::Voice::Opcodes::HELLO = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#6
+Discordrb::Voice::Opcodes::IDENTIFY = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#8
+Discordrb::Voice::Opcodes::READY = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#13
+Discordrb::Voice::Opcodes::RESUME = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#15
+Discordrb::Voice::Opcodes::RESUMED = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#7
+Discordrb::Voice::Opcodes::SELECT_PROTOCOL = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#10
+Discordrb::Voice::Opcodes::SESSION_DESCRIPTION = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/opcodes.rb#11
+Discordrb::Voice::Opcodes::SPEAKING = T.let(T.unsafe(nil), Integer)
 
 # Signifies to Discord that no encryption should be used
 #
 # @deprecated Discord no longer supports unencrypted voice communication.
 #
-# source://discordrb//lib/discordrb/voice/network.rb#29
+# source://discordrb//lib/discordrb/voice/network.rb#30
 Discordrb::Voice::PLAIN_MODE = T.let(T.unsafe(nil), String)
 
-# Utility class for interacting with required `xsalsa20poly1305` functions for voice transmission
-#
-# source://discordrb//lib/discordrb/voice/sodium.rb#25
-class Discordrb::Voice::SecretBox
-  # @param key [String] Crypto key of length {KEY_LENGTH}
-  # @raise [LengthError]
-  # @return [SecretBox] a new instance of SecretBox
-  #
-  # source://discordrb//lib/discordrb/voice/sodium.rb#47
-  def initialize(key); end
-
-  # Encrypts a message using this box's key
-  #
-  # @param message [String] message to be encrypted
-  # @param nonce [String] encryption nonce for this message
-  # @raise [LengthError]
-  #
-  # source://discordrb//lib/discordrb/voice/sodium.rb#56
-  def box(nonce, message); end
-
-  # Decrypts the given ciphertext using this box's key
-  #
-  # @param ciphertext [String] ciphertext to decrypt
-  # @param nonce [String] encryption nonce for this ciphertext
-  # @raise [LengthError]
-  #
-  # source://discordrb//lib/discordrb/voice/sodium.rb#71
-  def open(nonce, ciphertext); end
-
-  private
-
-  # source://discordrb//lib/discordrb/voice/sodium.rb#90
-  def prepend_zeroes(size, string); end
-
-  # source://discordrb//lib/discordrb/voice/sodium.rb#94
-  def remove_zeroes(size, string); end
-
-  # source://discordrb//lib/discordrb/voice/sodium.rb#85
-  def zero_string(size); end
-end
-
-# Zero byte padding for decryption
-#
-# source://discordrb//lib/discordrb/voice/sodium.rb#44
-Discordrb::Voice::SecretBox::BOX_ZERO_BYTES = T.let(T.unsafe(nil), Integer)
-
-# Exception raised when encryption or decryption fails
-#
-# source://discordrb//lib/discordrb/voice/sodium.rb#31
-class Discordrb::Voice::SecretBox::CryptoError < ::RuntimeError; end
-
-# Required key length
-#
-# source://discordrb//lib/discordrb/voice/sodium.rb#35
-Discordrb::Voice::SecretBox::KEY_LENGTH = T.let(T.unsafe(nil), Integer)
-
-# Exception raised when a key or nonce with invalid length is used
-#
-# source://discordrb//lib/discordrb/voice/sodium.rb#27
-class Discordrb::Voice::SecretBox::LengthError < ::RuntimeError; end
-
-# Required nonce length
-#
-# source://discordrb//lib/discordrb/voice/sodium.rb#38
-Discordrb::Voice::SecretBox::NONCE_BYTES = T.let(T.unsafe(nil), Integer)
-
-# Zero byte padding for encryption
-#
-# source://discordrb//lib/discordrb/voice/sodium.rb#41
-Discordrb::Voice::SecretBox::ZERO_BYTES = T.let(T.unsafe(nil), Integer)
-
-# source://discordrb//lib/discordrb/voice/sodium.rb#7
+# source://discordrb//lib/discordrb/voice/sodium.rb#9
 module Discordrb::Voice::Sodium
   extend ::FFI::Library
 
-  # source://discordrb//lib/discordrb/voice/sodium.rb#13
-  def crypto_secretbox_xsalsa20poly1305(*_arg0); end
+  # Returns the authentication tag size (in bytes)
+  #
+  # @return [Integer]
+  #
+  # source://discordrb//lib/discordrb/voice/sodium.rb#29
+  def crypto_aead_xchacha20poly1305_ietf_abytes(*_arg0); end
 
-  # source://discordrb//lib/discordrb/voice/sodium.rb#20
-  def crypto_secretbox_xsalsa20poly1305_boxzerobytes(*_arg0); end
+  # source://discordrb//lib/discordrb/voice/sodium.rb#66
+  def crypto_aead_xchacha20poly1305_ietf_decrypt(*_arg0); end
 
+  # source://discordrb//lib/discordrb/voice/sodium.rb#48
+  def crypto_aead_xchacha20poly1305_ietf_encrypt(*_arg0); end
+
+  # Returns the key size (in bytes)
+  #
+  # @return [Integer]
+  #
+  # source://discordrb//lib/discordrb/voice/sodium.rb#21
+  def crypto_aead_xchacha20poly1305_ietf_keybytes(*_arg0); end
+
+  # Returns the nonce size (in bytes)
+  #
+  # @return [Integer]
+  #
+  # source://discordrb//lib/discordrb/voice/sodium.rb#25
+  def crypto_aead_xchacha20poly1305_ietf_npubbytes(*_arg0); end
+
+  # Initializes libsodium
+  #
+  # @return [Integer] 0 on success
+  #
   # source://discordrb//lib/discordrb/voice/sodium.rb#17
-  def crypto_secretbox_xsalsa20poly1305_keybytes(*_arg0); end
-
-  # source://discordrb//lib/discordrb/voice/sodium.rb#18
-  def crypto_secretbox_xsalsa20poly1305_noncebytes(*_arg0); end
-
-  # source://discordrb//lib/discordrb/voice/sodium.rb#14
-  def crypto_secretbox_xsalsa20poly1305_open(*_arg0); end
-
-  # source://discordrb//lib/discordrb/voice/sodium.rb#19
-  def crypto_secretbox_xsalsa20poly1305_zerobytes(*_arg0); end
+  def sodium_init(*_arg0); end
 
   class << self
-    # source://discordrb//lib/discordrb/voice/sodium.rb#13
-    def crypto_secretbox_xsalsa20poly1305(*_arg0); end
+    # source://discordrb//lib/discordrb/voice/sodium.rb#29
+    def crypto_aead_xchacha20poly1305_ietf_abytes(*_arg0); end
 
-    # source://discordrb//lib/discordrb/voice/sodium.rb#20
-    def crypto_secretbox_xsalsa20poly1305_boxzerobytes(*_arg0); end
+    # source://discordrb//lib/discordrb/voice/sodium.rb#66
+    def crypto_aead_xchacha20poly1305_ietf_decrypt(*_arg0); end
+
+    # source://discordrb//lib/discordrb/voice/sodium.rb#48
+    def crypto_aead_xchacha20poly1305_ietf_encrypt(*_arg0); end
+
+    # source://discordrb//lib/discordrb/voice/sodium.rb#21
+    def crypto_aead_xchacha20poly1305_ietf_keybytes(*_arg0); end
+
+    # source://discordrb//lib/discordrb/voice/sodium.rb#25
+    def crypto_aead_xchacha20poly1305_ietf_npubbytes(*_arg0); end
 
     # source://discordrb//lib/discordrb/voice/sodium.rb#17
-    def crypto_secretbox_xsalsa20poly1305_keybytes(*_arg0); end
-
-    # source://discordrb//lib/discordrb/voice/sodium.rb#18
-    def crypto_secretbox_xsalsa20poly1305_noncebytes(*_arg0); end
-
-    # source://discordrb//lib/discordrb/voice/sodium.rb#14
-    def crypto_secretbox_xsalsa20poly1305_open(*_arg0); end
-
-    # source://discordrb//lib/discordrb/voice/sodium.rb#19
-    def crypto_secretbox_xsalsa20poly1305_zerobytes(*_arg0); end
+    def sodium_init(*_arg0); end
   end
 end
 
@@ -16350,11 +16707,11 @@ end
 # should check the parameters and adjust them to your connection: {VoiceBot#adjust_interval},
 # {VoiceBot#adjust_offset}, and {VoiceBot#adjust_average}.
 #
-# source://discordrb//lib/discordrb/voice/voice_bot.rb#23
+# source://discordrb//lib/discordrb/voice/voice_bot.rb#25
 class Discordrb::Voice::VoiceBot
   # @return [VoiceBot] a new instance of VoiceBot
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#80
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#82
   def initialize(channel, bot, token, session, endpoint); end
 
   # This value determines whether or not the adjustment length should be averaged with the previous value. This may
@@ -16364,7 +16721,7 @@ class Discordrb::Voice::VoiceBot
   # @return [true, false] whether adjustment lengths should be averaged with the respective previous value.
   # @see #adjust_interval
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#58
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#60
   def adjust_average; end
 
   # This value determines whether or not the adjustment length should be averaged with the previous value. This may
@@ -16374,7 +16731,7 @@ class Discordrb::Voice::VoiceBot
   # @return [true, false] whether adjustment lengths should be averaged with the respective previous value.
   # @see #adjust_interval
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#58
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#60
   def adjust_average=(_arg0); end
 
   # Disable the debug message for length adjustment specifically, as it can get quite spammy with very low intervals
@@ -16382,7 +16739,7 @@ class Discordrb::Voice::VoiceBot
   # @return [true, false] whether length adjustment debug messages should be printed
   # @see #adjust_interval
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#63
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#65
   def adjust_debug; end
 
   # Disable the debug message for length adjustment specifically, as it can get quite spammy with very low intervals
@@ -16390,7 +16747,7 @@ class Discordrb::Voice::VoiceBot
   # @return [true, false] whether length adjustment debug messages should be printed
   # @see #adjust_interval
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#63
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#65
   def adjust_debug=(_arg0); end
 
   # discordrb will occasionally measure the time it takes to send a packet, and adjust future delay times based
@@ -16402,7 +16759,7 @@ class Discordrb::Voice::VoiceBot
   #
   # @return [Integer] how frequently audio length adjustments should be done, in ideal packets (20ms).
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#43
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#45
   def adjust_interval; end
 
   # discordrb will occasionally measure the time it takes to send a packet, and adjust future delay times based
@@ -16414,7 +16771,7 @@ class Discordrb::Voice::VoiceBot
   #
   # @return [Integer] how frequently audio length adjustments should be done, in ideal packets (20ms).
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#43
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#45
   def adjust_interval=(_arg0); end
 
   # This particular value is also important because ffmpeg may take longer to process the first few packets. It is
@@ -16425,7 +16782,7 @@ class Discordrb::Voice::VoiceBot
   # @return [Integer] the packet number (1 packet = 20ms) at which length adjustments should start.
   # @see #adjust_interval
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#51
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#53
   def adjust_offset; end
 
   # This particular value is also important because ffmpeg may take longer to process the first few packets. It is
@@ -16436,46 +16793,46 @@ class Discordrb::Voice::VoiceBot
   # @return [Integer] the packet number (1 packet = 20ms) at which length adjustments should start.
   # @see #adjust_interval
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#51
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#53
   def adjust_offset=(_arg0); end
 
   # @return [Channel] the current voice channel
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#25
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#27
   def channel; end
 
   # Sets the attribute channel
   #
   # @param value the value to set the attribute channel to.
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#28
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#30
   def channel=(_arg0); end
 
   # Continue playback. This change may take up to 100ms to take effect, which is usually negligible.
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#139
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#141
   def continue; end
 
   # Permanently disconnects from the voice channel; to reconnect you will have to call {Bot#voice_connect} again.
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#175
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#177
   def destroy; end
 
   # @return [Encoder] the encoder used to encode audio files into the format required by Discord.
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#34
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#36
   def encoder; end
 
   # @deprecated Discord no longer supports unencrypted voice communication.
   # @return [true, false] whether audio data sent will be encrypted.
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#107
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#109
   def encrypted?; end
 
   # @return [Integer] the volume used as a filter for ffmpeg/avconv.
   # @see #filter_volume=
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#120
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#122
   def filter_volume; end
 
   # Set the filter volume. This volume is applied as a filter for decoded audio data. It has the advantage that using
@@ -16483,13 +16840,13 @@ class Discordrb::Voice::VoiceBot
   #
   # @param value [Integer] The value to set the volume to. For possible values, see {#volume}
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#114
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#116
   def filter_volume=(value); end
 
   # @return [true, false] Whether it is playing sound or not.
   # @see #play
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#136
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#138
   def isplaying?; end
 
   # If this value is set, no length adjustments will ever be done and this value will always be used as the length
@@ -16501,7 +16858,7 @@ class Discordrb::Voice::VoiceBot
   #
   # @return [Float] the packet length that should be used instead of calculating it during the adjustments, in ms.
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#72
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#74
   def length_override; end
 
   # If this value is set, no length adjustments will ever be done and this value will always be used as the length
@@ -16513,13 +16870,13 @@ class Discordrb::Voice::VoiceBot
   #
   # @return [Float] the packet length that should be used instead of calculating it during the adjustments, in ms.
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#72
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#74
   def length_override=(_arg0); end
 
   # Pause playback. This is not instant; it may take up to 20 ms for this change to take effect. (This is usually
   # negligible.)
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#126
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#128
   def pause; end
 
   # Plays a stream of raw data to the channel. All playback methods are blocking, i.e. they wait for the playback to
@@ -16529,7 +16886,7 @@ class Discordrb::Voice::VoiceBot
   #
   # @param encoded_io [IO] A stream of raw PCM data (s16le)
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#186
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#188
   def play(encoded_io); end
 
   # Plays a stream of audio data in the DCA format. This format has the advantage that no recoding has to be
@@ -16542,7 +16899,7 @@ class Discordrb::Voice::VoiceBot
   # @see #play
   # @see https://github.com/bwmarrin/dca
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#262
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#264
   def play_dca(file); end
 
   # Plays an encoded audio file of arbitrary format to the channel.
@@ -16550,7 +16907,7 @@ class Discordrb::Voice::VoiceBot
   # @see #play
   # @see Encoder#encode_file
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#244
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#246
   def play_file(file, options = T.unsafe(nil)); end
 
   # Plays a stream of encoded audio data of arbitrary format to the channel.
@@ -16558,7 +16915,7 @@ class Discordrb::Voice::VoiceBot
   # @see #play
   # @see Encoder#encode_io
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#251
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#253
   def play_io(io, options = T.unsafe(nil)); end
 
   # Plays a stream of encoded audio data of arbitrary format to the channel.
@@ -16566,13 +16923,13 @@ class Discordrb::Voice::VoiceBot
   # @see #play
   # @see Encoder#encode_io
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#299
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#301
   def play_stream(io, options = T.unsafe(nil)); end
 
   # @return [true, false] Whether it is playing sound or not.
   # @see #play
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#132
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#134
   def playing?; end
 
   # Skips to a later time in the song. It's impossible to go back without replaying the song.
@@ -16580,7 +16937,7 @@ class Discordrb::Voice::VoiceBot
   # @param secs [Float] How many seconds to skip forwards. Skipping will always be done in discrete intervals of
   #   0.05 seconds, so if the given amount is smaller than that, it will be rounded up.
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#146
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#148
   def skip(secs); end
 
   # Sets whether or not the bot is speaking (green circle around user).
@@ -16588,7 +16945,7 @@ class Discordrb::Voice::VoiceBot
   # @note https://discord.com/developers/docs/topics/voice-connections#speaking for information on the speaking bitmask
   # @param value [true, false, Integer] whether or not the bot should be speaking, or a bitmask denoting the audio type
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#153
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#155
   def speaking=(value); end
 
   # Stops the current playback entirely.
@@ -16596,12 +16953,12 @@ class Discordrb::Voice::VoiceBot
   # @param wait_for_confirmation [true, false] Whether the method should wait for confirmation from the playback
   #   method that the playback has actually stopped.
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#161
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#163
   def stop_playing(wait_for_confirmation = T.unsafe(nil)); end
 
   # @return [Integer, nil] the amount of time the stream has been playing, or `nil` if nothing has been played yet.
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#31
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#33
   def stream_time; end
 
   # The factor the audio's volume should be multiplied with. `1` is no change in volume, `0` is completely silent,
@@ -16609,7 +16966,7 @@ class Discordrb::Voice::VoiceBot
   #
   # @return [Float] the volume for audio playback, `1.0` by default.
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#77
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#79
   def volume; end
 
   # The factor the audio's volume should be multiplied with. `1` is no change in volume, `0` is completely silent,
@@ -16617,32 +16974,32 @@ class Discordrb::Voice::VoiceBot
   #
   # @return [Float] the volume for audio playback, `1.0` by default.
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#77
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#79
   def volume=(_arg0); end
 
   private
 
   # Increment sequence and time
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#403
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#381
   def increment_packet_headers; end
 
   # Plays the data from the IO stream as Discord requires it
   #
-  # source://discordrb//lib/discordrb/voice/voice_bot.rb#304
+  # source://discordrb//lib/discordrb/voice/voice_bot.rb#306
   def play_internal; end
 end
 
 # Represents a UDP connection to a voice server. This connection is used to send the actual audio data.
 #
-# source://discordrb//lib/discordrb/voice/network.rb#35
+# source://discordrb//lib/discordrb/voice/network.rb#36
 class Discordrb::Voice::VoiceUDP
   # Creates a new UDP connection. Only creates a socket as the discovery reply may come before the data is
   # initialized.
   #
   # @return [VoiceUDP] a new instance of VoiceUDP
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#52
+  # source://discordrb//lib/discordrb/voice/network.rb#53
   def initialize; end
 
   # Initializes the UDP socket with data obtained from opcode 2.
@@ -16652,49 +17009,49 @@ class Discordrb::Voice::VoiceUDP
   # @param ssrc [Integer] The Super Secret Relay Code (SSRC). Discord uses this to identify different voice users
   #   on the same endpoint.
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#62
+  # source://discordrb//lib/discordrb/voice/network.rb#63
   def connect(ip, port, ssrc); end
 
   # @deprecated Discord no longer supports unencrypted voice communication.
   # @return [true, false] whether or not UDP communications are encrypted.
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#38
+  # source://discordrb//lib/discordrb/voice/network.rb#39
   def encrypted; end
 
   # @deprecated Discord no longer supports unencrypted voice communication.
   # @return [true, false] whether or not UDP communications are encrypted.
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#38
+  # source://discordrb//lib/discordrb/voice/network.rb#39
   def encrypted=(_arg0); end
 
   # @deprecated Discord no longer supports unencrypted voice communication.
   # @return [true, false] whether or not UDP communications are encrypted.
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#39
+  # source://discordrb//lib/discordrb/voice/network.rb#40
   def encrypted?; end
 
   # The UDP encryption mode
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#45
+  # source://discordrb//lib/discordrb/voice/network.rb#46
   def mode; end
 
   # Sets the attribute mode
   #
   # @param value the value to set the attribute mode to.
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#48
+  # source://discordrb//lib/discordrb/voice/network.rb#49
   def mode=(_arg0); end
 
   # Waits for a UDP discovery reply, and returns the sent data.
   #
   # @return [Array(String, Integer)] the IP and port received from the discovery reply.
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#70
+  # source://discordrb//lib/discordrb/voice/network.rb#71
   def receive_discovery_reply; end
 
   # Sets the secret key used for encryption
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#42
+  # source://discordrb//lib/discordrb/voice/network.rb#43
   def secret_key=(_arg0); end
 
   # Makes an audio packet from a buffer and sends it to Discord.
@@ -16704,13 +17061,13 @@ class Discordrb::Voice::VoiceUDP
   # @param time [Integer] When this packet should be played back, in no particular unit (essentially just the
   #   sequence number multiplied by 960)
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#83
+  # source://discordrb//lib/discordrb/voice/network.rb#84
   def send_audio(buf, sequence, time); end
 
   # Sends the UDP discovery packet with the internally stored SSRC. Discord will send a reply afterwards which can
   # be received using {#receive_discovery_reply}
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#100
+  # source://discordrb//lib/discordrb/voice/network.rb#97
   def send_discovery; end
 
   private
@@ -16718,21 +17075,22 @@ class Discordrb::Voice::VoiceUDP
   # Encrypts audio data using libsodium
   #
   # @param buf [String] The encoded audio data to be encrypted
+  # @param header [String] The RTP header of the packet, used as associated data
   # @param nonce [String] The nonce to be used to encrypt the data
   # @return [String] the audio data, encrypted
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#125
-  def encrypt_audio(buf, nonce); end
+  # source://discordrb//lib/discordrb/voice/network.rb#123
+  def encrypt_audio(buf, header, nonce); end
 
-  # @note The nonce generated depends on the encryption mode.
-  #   In xsalsa20_poly1305 the nonce is the header plus twelve null bytes for padding.
-  #   In xsalsa20_poly1305_suffix, the nonce is 24 random bytes
-  #   In xsalsa20_poly1305_lite, the nonce is an incremental 4 byte int.
-  # @param header [String] The header of the packet, to be used as the nonce
   # @return [String]
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#145
-  def generate_nonce(header); end
+  # source://discordrb//lib/discordrb/voice/network.rb#155
+  def generate_header(sequence, time); end
+
+  # @return [String]
+  #
+  # source://discordrb//lib/discordrb/voice/network.rb#139
+  def generate_nonce; end
 
   # source://discordrb//lib/discordrb/voice/network.rb#134
   def send_packet(packet); end
@@ -16742,7 +17100,7 @@ end
 # used to manage general data about the connection, such as sending the speaking packet, which determines the green
 # circle around users on Discord, and obtaining UDP connection info.
 #
-# source://discordrb//lib/discordrb/voice/network.rb#168
+# source://discordrb//lib/discordrb/voice/network.rb#163
 class Discordrb::Voice::VoiceWS
   # Makes a new voice websocket client, but doesn't connect it (see {#connect} for that)
   #
@@ -16753,7 +17111,7 @@ class Discordrb::Voice::VoiceWS
   # @param token [String] The authentication token which is also used for REST requests
   # @return [VoiceWS] a new instance of VoiceWS
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#181
+  # source://discordrb//lib/discordrb/voice/network.rb#176
   def initialize(channel, bot, token, session, endpoint); end
 
   # Communication goes like this:
@@ -16771,17 +17129,17 @@ class Discordrb::Voice::VoiceWS
   #   |                      |
   # ...
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#307
+  # source://discordrb//lib/discordrb/voice/network.rb#319
   def connect; end
 
   # Disconnects the websocket and kills the thread
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#330
+  # source://discordrb//lib/discordrb/voice/network.rb#342
   def destroy; end
 
   # Send a heartbeat (op 3), has to be done every @heartbeat_interval seconds or the connection will terminate
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#230
+  # source://discordrb//lib/discordrb/voice/network.rb#225
   def send_heartbeat; end
 
   # Send a connection init packet (op 0)
@@ -16791,14 +17149,17 @@ class Discordrb::Voice::VoiceWS
   # @param session_id [String] The voice session ID
   # @param token [String] The Discord authentication token
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#199
+  # source://discordrb//lib/discordrb/voice/network.rb#194
   def send_init(server_id, bot_user_id, session_id, token); end
+
+  # source://discordrb//lib/discordrb/voice/network.rb#251
+  def send_opcode(opcode, data); end
 
   # Send a speaking packet (op 5). This determines the green circle around the avatar in the voice channel
   #
   # @param value [true, false, Integer] Whether or not the bot should be speaking, can also be a bitmask denoting audio type.
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#242
+  # source://discordrb//lib/discordrb/voice/network.rb#240
   def send_speaking(value); end
 
   # Sends the UDP connection packet (op 1)
@@ -16807,35 +17168,89 @@ class Discordrb::Voice::VoiceWS
   # @param mode [Object] Which mode to use for the voice connection
   # @param port [Integer] The port to bind UDP to
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#215
+  # source://discordrb//lib/discordrb/voice/network.rb#210
   def send_udp_connection(ip, port, mode); end
 
   # @return [VoiceUDP] the UDP voice connection over which the actual audio data is sent.
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#173
+  # source://discordrb//lib/discordrb/voice/network.rb#168
   def udp; end
 
-  # source://discordrb//lib/discordrb/voice/network.rb#264
+  # source://discordrb//lib/discordrb/voice/network.rb#270
   def websocket_message(msg); end
 
   # Event handlers; public for websocket-simple to work correctly
   #
-  # source://discordrb//lib/discordrb/voice/network.rb#255
+  # source://discordrb//lib/discordrb/voice/network.rb#261
   def websocket_open; end
 
   private
 
-  # source://discordrb//lib/discordrb/voice/network.rb#336
+  # source://discordrb//lib/discordrb/voice/network.rb#348
   def heartbeat_loop; end
 
-  # source://discordrb//lib/discordrb/voice/network.rb#349
+  # source://discordrb//lib/discordrb/voice/network.rb#361
   def init_ws; end
 end
 
 # The version of the voice gateway that's supposed to be used.
 #
-# source://discordrb//lib/discordrb/voice/network.rb#170
+# source://discordrb//lib/discordrb/voice/network.rb#165
 Discordrb::Voice::VoiceWS::VOICE_GATEWAY_VERSION = T.let(T.unsafe(nil), Integer)
+
+# High-level wrapper class
+#
+# source://discordrb//lib/discordrb/voice/sodium.rb#77
+class Discordrb::Voice::XChaCha20AEAD
+  class << self
+    # Decrypts a ciphertext using XChaCha20-Poly1305
+    #
+    # @param add [String] optional associated data
+    # @param ciphertext [String] the encrypted data (with tag)
+    # @param key [String] 32-byte decryption key
+    # @param nonce [String] 24-byte nonce
+    # @raise [ArgumentError]
+    # @return [String] decrypted plaintext
+    #
+    # source://discordrb//lib/discordrb/voice/sodium.rb#133
+    def decrypt(ciphertext, add, nonce, key); end
+
+    # Encrypts a message using XChaCha20-Poly1305
+    #
+    # @param add [String] optional associated data
+    # @param key [String] 32-byte encryption key
+    # @param message [String] plaintext to encrypt
+    # @param nonce [String] 24-byte nonce
+    # @raise [ArgumentError]
+    # @return [String] ciphertext (includes the auth tag)
+    #
+    # source://discordrb//lib/discordrb/voice/sodium.rb#101
+    def encrypt(message, add, nonce, key); end
+
+    # Generates a random key
+    #
+    # @return [String] binary key
+    #
+    # source://discordrb//lib/discordrb/voice/sodium.rb#84
+    def generate_key; end
+
+    # Generates a random nonce
+    #
+    # @return [String] binary nonce
+    #
+    # source://discordrb//lib/discordrb/voice/sodium.rb#90
+    def generate_nonce; end
+  end
+end
+
+# source://discordrb//lib/discordrb/voice/sodium.rb#78
+Discordrb::Voice::XChaCha20AEAD::KEY_BYTES = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/sodium.rb#79
+Discordrb::Voice::XChaCha20AEAD::NONCE_BYTES = T.let(T.unsafe(nil), Integer)
+
+# source://discordrb//lib/discordrb/voice/sodium.rb#80
+Discordrb::Voice::XChaCha20AEAD::TAG_BYTES = T.let(T.unsafe(nil), Integer)
 
 # Voice regions are the locations of servers that handle voice communication in Discord
 #
@@ -17197,17 +17612,17 @@ module Discordrb::Webhooks; end
 
 # In discordrb, Integer and {String} are monkey-patched to allow for easy resolution of IDs
 #
-# source://discordrb//lib/discordrb.rb#139
+# source://discordrb//lib/discordrb.rb#141
 class Integer < ::Numeric
   # @return [Integer] The Discord ID represented by this integer, i.e. the integer itself
   #
-  # source://discordrb//lib/discordrb.rb#141
+  # source://discordrb//lib/discordrb.rb#143
   def resolve_id; end
 end
 
 Integer::GMP_VERSION = T.let(T.unsafe(nil), String)
 
-# source://discordrb//lib/discordrb/voice/network.rb#10
+# source://discordrb//lib/discordrb/voice/network.rb#11
 LIBSODIUM_AVAILABLE = T.let(T.unsafe(nil), TrueClass)
 
 # source://discordrb//lib/discordrb/voice/encoder.rb#6
@@ -17225,12 +17640,12 @@ end
 
 # In discordrb, {Integer} and String are monkey-patched to allow for easy resolution of IDs
 #
-# source://discordrb//lib/discordrb.rb#147
+# source://discordrb//lib/discordrb.rb#149
 class String
   include ::Comparable
 
   # @return [Integer] The Discord ID represented by this string, i.e. the string converted to an integer
   #
-  # source://discordrb//lib/discordrb.rb#149
+  # source://discordrb//lib/discordrb.rb#151
   def resolve_id; end
 end

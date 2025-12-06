@@ -715,7 +715,7 @@ class RestClient::Payload::Base
   # source://rest-client//lib/restclient/payload.rb#79
   def headers; end
 
-  # source://rest-client//lib/restclient/payload.rb#83
+  # source://rest-client//lib/restclient/payload.rb#87
   def length; end
 
   # source://rest-client//lib/restclient/payload.rb#69
@@ -779,7 +779,7 @@ class RestClient::Payload::Streamed < ::RestClient::Payload::Base
   # TODO (breaks compatibility): ought to use mime_for() to autodetect the
   # Content-Type for stream objects that have a filename.
   #
-  # source://rest-client//lib/restclient/payload.rb#116
+  # source://rest-client//lib/restclient/payload.rb#127
   def length; end
 
   # source://rest-client//lib/restclient/payload.rb#116
@@ -894,10 +894,10 @@ end
 class RestClient::RawResponse
   include ::RestClient::AbstractResponse
 
-  # @param tempfile [Tempfile] The temporary file containing the body
   # @param net_http_res [Net::HTTPResponse]
   # @param request [RestClient::Request]
   # @param start_time [Time]
+  # @param tempfile [Tempfile] The temporary file containing the body
   # @return [RawResponse] a new instance of RawResponse
   #
   # source://rest-client//lib/restclient/raw_response.rb#26
@@ -1146,13 +1146,13 @@ class RestClient::Request
   # this implicit behavior, pass a full cookie jar or use HTTP::Cookie hash
   # values.
   #
-  # @param uri [URI::HTTP] The URI for the request. This will be used to
-  # @param headers [Hash] The headers hash from which to pull the :cookies
-  #   option. MUTATION NOTE: This key will be deleted from the hash if
-  #   present.
   # @param args [Hash] The options passed to Request#initialize. This hash
   #   will be used as another potential source for the :cookies key.
   #   These args will not be mutated.
+  # @param headers [Hash] The headers hash from which to pull the :cookies
+  #   option. MUTATION NOTE: This key will be deleted from the hash if
+  #   present.
+  # @param uri [URI::HTTP] The URI for the request. This will be used to
   # @return [HTTP::CookieJar] A cookie jar containing the parsed cookies.
   #
   # source://rest-client//lib/restclient/request.rb#319
@@ -1166,9 +1166,9 @@ class RestClient::Request
   # hash and encode the value into a query string. Append this query string
   # to the URL and return the resulting URL.
   #
-  # @param url [String]
   # @param headers [Hash] An options/headers hash to process. Mutation
   #   warning: the params key may be removed if present!
+  # @param url [String]
   # @return [String] resulting url with query string
   #
   # source://rest-client//lib/restclient/request.rb#200
@@ -1794,24 +1794,9 @@ module RestClient::Utils
     # also use a ParamsArray if you want to be able to pass the same key with
     # multiple values and not use the rack/rails array convention.
     #
-    # @example Simple hashes
-    #   >> encode_query_string({foo: 123, bar: 456})
-    #   => 'foo=123&bar=456'
-    # @example Simple arrays
-    #   >> encode_query_string({foo: [1,2,3]})
-    #   => 'foo[]=1&foo[]=2&foo[]=3'
-    # @example Nested hashes
-    #   >> encode_query_string({outer: {foo: 123, bar: 456}})
-    #   => 'outer[foo]=123&outer[bar]=456'
     # @example Deeply nesting
     #   >> encode_query_string({coords: [{x: 1, y: 0}, {x: 2}, {x: 3}]})
     #   => 'coords[][x]=1&coords[][y]=0&coords[][x]=2&coords[][x]=3'
-    # @example Null and empty values
-    #   >> encode_query_string({string: '', empty: nil, list: [], hash: {}})
-    #   => 'string=&empty&list&hash'
-    # @example Nested nulls
-    #   >> encode_query_string({foo: {string: '', empty: nil}})
-    #   => 'foo[string]=&foo[empty]'
     # @example Multiple fields with the same name using ParamsArray
     #   >> encode_query_string(RestClient::ParamsArray.new([[:foo, 1], [:foo, 2], [:foo, 3]]))
     #   => 'foo=1&foo=2&foo=3'
@@ -1821,13 +1806,28 @@ module RestClient::Utils
     #
     #   >> encode_query_string(RestClient::ParamsArray.new([[:foo, {a: 1}], [:foo, {a: 2}]]))
     #   => 'foo[a]=1&foo[a]=2'
+    # @example Nested hashes
+    #   >> encode_query_string({outer: {foo: 123, bar: 456}})
+    #   => 'outer[foo]=123&outer[bar]=456'
+    # @example Nested nulls
+    #   >> encode_query_string({foo: {string: '', empty: nil}})
+    #   => 'foo[string]=&foo[empty]'
+    # @example Null and empty values
+    #   >> encode_query_string({string: '', empty: nil, list: [], hash: {}})
+    #   => 'string=&empty&list&hash'
+    # @example Simple arrays
+    #   >> encode_query_string({foo: [1,2,3]})
+    #   => 'foo[]=1&foo[]=2&foo[]=3'
+    # @example Simple hashes
+    #   >> encode_query_string({foo: 123, bar: 456})
+    #   => 'foo=123&bar=456'
     # @param object [Hash, ParamsArray] The object to serialize
     # @return [String] A string appropriate for use as an HTTP query string
-    # @see {flatten_params}
-    # @see URI.encode_www_form
     # @see See also Object#to_query in ActiveSupport
-    # @see http://php.net/manual/en/function.http-build-query.php http_build_query in PHP
     # @see See also Rack::Utils.build_nested_query in Rack
+    # @see URI.encode_www_form
+    # @see http://php.net/manual/en/function.http-build-query.php http_build_query in PHP
+    # @see {flatten_params}
     # @since 2.0.0
     #
     # source://rest-client//lib/restclient/utils.rb#206
@@ -1856,8 +1856,8 @@ module RestClient::Utils
     #   >> flatten_params({key1: {key2: 123, arr: [1,2,3]}})
     #   => [["key1[key2]", 123], ["key1[arr][]", 1], ["key1[arr][]", 2], ["key1[arr][]", 3]]
     # @param object [Hash, ParamsArray] The container to flatten
-    # @param uri_escape [Boolean] Whether to URI escape keys and values
     # @param parent_key [String] Should not be passed (used for recursion)
+    # @param uri_escape [Boolean] Whether to URI escape keys and values
     #
     # source://rest-client//lib/restclient/utils.rb#225
     def flatten_params(object, uri_escape = T.unsafe(nil), parent_key = T.unsafe(nil)); end
