@@ -110,7 +110,7 @@ gem "sorbet-runtime"
 
 gem "brotli", "~> 0.7.0"
 
-gem "sidekiq", "~> 8.0"
+gem "sidekiq", "~> 8.1"
 
 gem "sidekiq-cron", "~> 2.3"
 
