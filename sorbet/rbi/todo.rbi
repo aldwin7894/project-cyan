@@ -4,6 +4,7 @@
 
 # typed: false
 
+module ::RequireHooks::LoadIseq; end
 module ::Tapioca::SourceURI; end
 module ActiveRecord::ConnectionAdapters::DatabaseStatements; end
 module ActiveRecord::ConnectionAdapters::SchemaStatements; end

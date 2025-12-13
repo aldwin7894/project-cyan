@@ -29,6 +29,8 @@ gem "bootsnap", ">= 1.4.4", require: false
 
 gem "dotenv", "~> 3.2.0"
 
+gem "connection_pool", "< 3"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug"
@@ -110,7 +112,7 @@ gem "sorbet-runtime"
 
 gem "brotli", "~> 0.7.0"
 
-gem "sidekiq", "~> 8.1"
+gem "sidekiq", "~> 8.0"
 
 gem "sidekiq-cron", "~> 2.3"
 

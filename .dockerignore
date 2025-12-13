@@ -314,3 +314,4 @@ dump.rdb
 Dockerfile
 docker-compose.yml
 /public/vite*
+/bin/sorbet
