@@ -2146,7 +2146,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param target [Array<Document>] The child documents of the association.
   # @return [Many] The proxy.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#67
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#70
   def initialize(base, target, association); end
 
   # Appends a document or array of documents to the association. Will set
@@ -2158,7 +2158,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   person.addresses.push(address)
   # @param *args [Document...] Any number of documents.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#89
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#92
   def <<(*args); end
 
   # Removes a single document from the collection *in memory only*.
@@ -2167,7 +2167,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @api private
   # @param document [Document] The document to delete.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#236
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#239
   def _remove(document); end
 
   # Get this association as as its representation in the database.
@@ -2176,7 +2176,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   person.addresses.as_document
   # @return [Array<Hash>] The association as stored in the db.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#110
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#113
   def as_document; end
 
   # Builds a new document in the association and appends it to the target.
@@ -2188,7 +2188,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param type [Class] Optional class to build the document with.
   # @return [Document] The new document.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#138
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#141
   def build(attributes = T.unsafe(nil), type = T.unsafe(nil)); end
 
   # Clear the association. Will delete the documents from the db
@@ -2205,7 +2205,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   person.addresses.clear
   # @return [self] The empty association.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#165
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#168
   def clear; end
 
   # Appends an array of documents to the association. Performs a batch
@@ -2216,7 +2216,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param docs [Array<Document>] The docs to add.
   # @return [Array<Document>] The documents.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#123
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#126
   def concat(docs); end
 
   # Returns a count of the number of documents in the association that have
@@ -2238,7 +2238,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @return [Integer] The total number of persisted embedded docs, as
   #   flagged by the #persisted? method.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#193
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#196
   def count(*args, &block); end
 
   # Delete the supplied document from the target. This method is proxied
@@ -2249,7 +2249,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param document [Document] The document to be deleted.
   # @return [Document | nil] The deleted document or nil if nothing deleted.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#208
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#211
   def delete(document); end
 
   # Delete all the documents in the association without running callbacks.
@@ -2261,7 +2261,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param conditions [Hash] Conditions on which documents to delete.
   # @return [Integer] The number of documents deleted.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#254
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#257
   def delete_all(conditions = T.unsafe(nil)); end
 
   # Delete all the documents for which the provided block returns true.
@@ -2273,7 +2273,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @return [EmbedsMany::Proxy | Enumerator] The proxy or an
   #   enumerator if no block was provided.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#267
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#270
   def delete_if; end
 
   # Delete the supplied document from the target. This method is proxied
@@ -2286,7 +2286,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param document [Document] The document to be deleted.
   # @return [Document | nil] The deleted document or nil if nothing deleted.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#228
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#231
   def delete_one(document); end
 
   # Destroy all the documents in the association whilst running callbacks.
@@ -2298,7 +2298,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param conditions [Hash] Conditions on which documents to destroy.
   # @return [Integer] The number of documents destroyed.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#286
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#289
   def destroy_all(conditions = T.unsafe(nil)); end
 
   # Determine if any documents in this association exist in the database.
@@ -2315,33 +2315,11 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   association with a matching _id.
   # @return [true | false] True if persisted documents exist, false if not.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#306
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#309
   def exists?(id_or_conditions = T.unsafe(nil)); end
 
-  # Finds a document in this association through several different
-  # methods.
-  #
-  # This method delegates to +Mongoid::Criteria#find+. If this method is
-  # not given a block, it returns one or many documents for the provided
-  # _id values.
-  #
-  # If this method is given a block, it returns the first document
-  # of those found by the current Criteria object for which the block
-  # returns a truthy value.
-  #
-  # @example Find a document by its id.
-  #   person.addresses.find(BSON::ObjectId.new)
-  # @example Find documents for multiple ids.
-  #   person.addresses.find([ BSON::ObjectId.new, BSON::ObjectId.new ])
-  # @example Finds the first matching document using a block.
-  #   person.addresses.find { |addr| addr.state == 'CA' }
-  # @param &block Optional block to pass.
-  # @param *args [Object...] Various arguments.
-  # @return [Document | Array<Document> | nil] A document or matching documents.
-  # @yield [Object] Yields each enumerable element to the block.
-  #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#340
-  def find(*_arg0, **_arg1, &_arg2); end
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#58
+  def find(*args, **_arg1, &block); end
 
   # Get all the documents in the association that are loaded into memory.
   #
@@ -2349,7 +2327,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   relation.in_memory
   # @return [Array<Document>] The documents in memory.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#350
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#324
   def in_memory; end
 
   # Builds a new document in the association and appends it to the target.
@@ -2361,8 +2339,11 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param type [Class] Optional class to build the document with.
   # @return [Document] The new document.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#149
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#152
   def new(attributes = T.unsafe(nil), type = T.unsafe(nil)); end
+
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#58
+  def pluck(*args, **_arg1, &block); end
 
   # Pop documents off the association. This can be a single document or
   # multiples, and will automatically persist the changes.
@@ -2375,7 +2356,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   provided.
   # @return [Document | Array<Document> | nil] The popped document(s).
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#365
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#339
   def pop(count = T.unsafe(nil)); end
 
   # Appends a document or array of documents to the association. Will set
@@ -2387,7 +2368,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   person.addresses.push(address)
   # @param *args [Document...] Any number of documents.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#102
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#105
   def push(*args); end
 
   # Shift documents off the association. This can be a single document or
@@ -2401,7 +2382,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   provided.
   # @return [Document | Array<Document> | nil] The shifted document(s).
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#385
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#359
   def shift(count = T.unsafe(nil)); end
 
   # Substitutes the supplied target documents for the existing documents
@@ -2412,7 +2393,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param docs [Array<Document> | Array<Hash>] The replacement docs.
   # @return [Many] The proxied association.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#401
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#375
   def substitute(docs); end
 
   # Return the association with all previous scoping removed. This is the
@@ -2422,21 +2403,21 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   person.addresses.unscoped
   # @return [Criteria] The unscoped association.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#414
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#388
   def unscoped; end
 
   private
 
   # Returns the value of attribute _unscoped.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#423
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#397
   def _unscoped; end
 
   # Sets the attribute _unscoped
   #
   # @param value the value to set the attribute _unscoped to.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#423
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#397
   def _unscoped=(_arg0); end
 
   # Appends the document to the target array, updating the index on the
@@ -2446,7 +2427,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   relation.append(document)
   # @param document [Document] The document to append to the target.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#436
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#410
   def append(document); end
 
   # Optimized version of #append that handles multiple documents
@@ -2455,14 +2436,14 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param documents [Array<Document>] The documents to append.
   # @return [EmbedsMany::Proxy] This proxy instance.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#458
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#432
   def append_many(documents, &block); end
 
   # Returns a list of attributes hashes for each document.
   #
   # @return [Array<Hash>] The list of attributes hashes
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#621
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#595
   def as_attributes; end
 
   # Instantiate the binding associated with this association.
@@ -2471,7 +2452,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   relation.binding([ address ])
   # @return [Binding] The many binding.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#513
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#487
   def binding; end
 
   # Returns the +Criteria+ object for the target class with its
@@ -2479,13 +2460,13 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #
   # @return [Criteria] A new criteria.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#521
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#495
   def criteria; end
 
   # Returns a unique id for the document, which is either
   # its _id or its object_id.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#448
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#422
   def id_of(doc); end
 
   # Integrate the document into the association. will set its metadata and
@@ -2495,7 +2476,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   relation.integrate(document)
   # @param document [Document] The document to integrate.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#532
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#506
   def integrate(document); end
 
   # If the target array does not respond to the supplied method then try to
@@ -2511,12 +2492,12 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param name [Symbol | String] The name of the method.
   # @return [Criteria | Object] A Criteria or return value from the target.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#551
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#525
   def method_missing(name, *args, **_arg2, &block); end
 
   # @return [Boolean]
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#425
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#399
   def object_already_related?(document); end
 
   # Are we able to persist this association?
@@ -2525,7 +2506,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   #   relation.persistable?
   # @return [true | false] If the association is persistable.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#566
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#540
   def persistable?; end
 
   # Processes the list of documents, building a list of those
@@ -2542,7 +2523,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @yield [Document] Optional block to call for each unique
   #   document.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#485
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#459
   def process_incoming_docs(documents, &block); end
 
   # Reindex all the target elements. This is useful when performing
@@ -2552,7 +2533,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @example Reindex the association.
   #   person.addresses.reindex
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#576
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#550
   def reindex; end
 
   # Remove all documents from the association, either with a delete or a
@@ -2564,7 +2545,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param method [true | false] :delete or :destroy.
   # @return [Integer] The number of documents removed.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#610
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#584
   def remove_all(conditions = T.unsafe(nil), method = T.unsafe(nil)); end
 
   # Apply the association ordering and default scoping (defined on
@@ -2575,20 +2556,20 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   # @param docs [Array<Document>] The documents to scope.
   # @return [Array<Document>] The scoped docs.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#591
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#565
   def scope(docs); end
 
   # Update the _base's attributes hash with the _target's attributes
   #
   # @api private
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#628
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#602
   def update_attributes_hash; end
 end
 
 # Class-level methods for the Proxy class.
 #
-# source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#19
+# source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#20
 module Mongoid::Association::Embedded::EmbedsMany::Proxy::ClassMethods
   # Returns the eager loader for this association.
   #
@@ -2599,7 +2580,7 @@ module Mongoid::Association::Embedded::EmbedsMany::Proxy::ClassMethods
   #   populated by the eager-loaded documents.
   # @return [Mongoid::Association::Embedded::Eager]
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#29
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#30
   def eager_loader(associations, docs); end
 
   # Returns true if the association is an embedded one. In this case
@@ -2609,7 +2590,7 @@ module Mongoid::Association::Embedded::EmbedsMany::Proxy::ClassMethods
   #   Association::Embedded::EmbedsMany.embedded?
   # @return [true] true.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#40
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#41
   def embedded?; end
 
   # Returns the suffix of the foreign key field, either "_id" or "_ids".
@@ -2618,7 +2599,7 @@ module Mongoid::Association::Embedded::EmbedsMany::Proxy::ClassMethods
   #   Association::Embedded::EmbedsMany.foreign_key_suffix
   # @return [nil] nil.
   #
-  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#50
+  # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#51
   def foreign_key_suffix; end
 end
 
@@ -4936,7 +4917,6 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   # Appends a document or array of documents to the association. Will set
   # the parent and update the index in the process.
   #
-  #
   # @example Append a document.
   #   person.posts << post
   # @example Concat with other documents.
@@ -4946,7 +4926,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   # @param *args [Document...] Any number of documents.
   # @return [Array<Document>] The loaded docs.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#58
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#56
   def <<(*args); end
 
   # Build a new document from the attributes and append it to this
@@ -4959,7 +4939,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   # @return [Document] The new document.
   # @yield [doc]
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#123
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#120
   def build(attributes = T.unsafe(nil), type = T.unsafe(nil)); end
 
   # Removes all associations between the base document and the target
@@ -4970,7 +4950,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   #   person.preferences.nullify
   # @param replacement [Array<Document>] The replacement documents.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#176
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#173
   def clear(replacement = T.unsafe(nil)); end
 
   # Appends an array of documents to the association. Performs a batch
@@ -4981,7 +4961,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   # @param documents [Array<Document>] The docs to add.
   # @return [Array<Document>] The documents.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#105
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#102
   def concat(documents); end
 
   # Delete the document from the association. This will set the foreign key
@@ -4993,7 +4973,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   # @param document [Document] The document to remove.
   # @return [Document] The matching document.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#146
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#143
   def delete(document); end
 
   # Delete the document from the association. This will set the foreign key
@@ -5007,7 +4987,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   # @param document [Document] The document to remove.
   # @return [Document] The matching document.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#158
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#155
   def delete_one(document); end
 
   # Build a new document from the attributes and append it to this
@@ -5020,7 +5000,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   # @return [Document] The new document.
   # @yield [doc]
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#134
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#131
   def new(attributes = T.unsafe(nil), type = T.unsafe(nil)); end
 
   # Removes all associations between the base document and the target
@@ -5031,7 +5011,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   #   person.preferences.nullify
   # @param replacement [Array<Document>] The replacement documents.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#168
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#165
   def nullify(replacement = T.unsafe(nil)); end
 
   # Removes all associations between the base document and the target
@@ -5042,7 +5022,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   #   person.preferences.nullify
   # @param replacement [Array<Document>] The replacement documents.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#175
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#172
   def nullify_all(replacement = T.unsafe(nil)); end
 
   # Removes all associations between the base document and the target
@@ -5053,12 +5033,11 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   #   person.preferences.nullify
   # @param replacement [Array<Document>] The replacement documents.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#177
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#174
   def purge(replacement = T.unsafe(nil)); end
 
   # Appends a document or array of documents to the association. Will set
   # the parent and update the index in the process.
-  #
   #
   # @example Append a document.
   #   person.posts << post
@@ -5069,7 +5048,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   # @param *args [Document...] Any number of documents.
   # @return [Array<Document>] The loaded docs.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#94
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#91
   def push(*args); end
 
   # Substitutes the supplied target documents for the existing documents
@@ -5082,7 +5061,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   # @param replacement [Array<Document>] The replacement target.
   # @return [Many] The association.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#189
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#186
   def substitute(replacement); end
 
   # Get a criteria for the documents without the default scoping
@@ -5092,7 +5071,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   #   person.preferences.unscoped
   # @return [Criteria] The unscoped criteria.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#207
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#204
   def unscoped; end
 
   private
@@ -5104,11 +5083,10 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   #   relation.append(document)
   # @param document [Document] The document to append to the target.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#243
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#240
   def append(document); end
 
   # Processes a single document as part of a ``concat`` command.
-  #
   #
   # @param doc [Mongoid::Document] the document to append
   # @param docs [Array] the list of new docs to be inserted later,
@@ -5118,7 +5096,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   # @param inserts [Array] the list of Hashes of attributes that will
   #   be inserted (corresponding to the ``docs`` list)
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#365
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#360
   def append_document(doc, ids, docs, inserts); end
 
   # Instantiate the binding associated with this association.
@@ -5127,7 +5105,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   #   relation.binding([ address ])
   # @return [Binding] The binding.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#258
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#255
   def binding; end
 
   # Determine if the child document should be persisted.
@@ -5138,7 +5116,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   # @param doc [Document] The document.
   # @return [true | false] If the document can be persisted.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#272
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#269
   def child_persistable?(doc); end
 
   # Does the cleanup for the inverse of the association when
@@ -5147,7 +5125,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   # @param replacement [Array<Document> | nil] the list of documents
   #   that will replace the current list.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#309
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#306
   def cleanup_inverse_for(replacement); end
 
   # Clears the foreign key from the changed_attributes hash.
@@ -5158,7 +5136,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   #
   # @api private
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#220
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#217
   def clear_foreign_key_changes; end
 
   # Clears the _target list and executes callbacks for each document.
@@ -5168,7 +5146,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   #
   # @return [Array<Document>] the replacement documents
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#336
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#333
   def clear_target_for_nullify; end
 
   # Returns the criteria object for the target class with its documents set
@@ -5178,14 +5156,14 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   #   relation.criteria
   # @return [Criteria] A new criteria.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#284
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#281
   def criteria(id_list = T.unsafe(nil)); end
 
   # The inverse primary key
   #
   # @return [Object] the inverse primary key
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#322
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#319
   def inverse_primary_key; end
 
   # Reset the value in the changed_attributes hash for the foreign key
@@ -5193,7 +5171,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   #
   # @api private
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#228
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#225
   def reset_foreign_key_changes; end
 
   # Flag the base as unsynced with respect to the foreign key.
@@ -5205,7 +5183,7 @@ class Mongoid::Association::Referenced::HasAndBelongsToMany::Proxy < ::Mongoid::
   # @param key [Symbol] The key to flag on the document.
   # @return [true] true.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#299
+  # source://mongoid//lib/mongoid/association/referenced/has_and_belongs_to_many/proxy.rb#296
   def unsynced(doc, key); end
 end
 
@@ -5486,9 +5464,10 @@ end
 # target that can be a criteria or array of _loaded documents. This
 # handles both cases or a combination of the two.
 #
-# source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#12
+# source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#14
 class Mongoid::Association::Referenced::HasMany::Enumerable
   include ::Enumerable
+  include ::Mongoid::Pluckable
   extend ::Forwardable
 
   # Initialize the new enumerable either with a criteria or an array.
@@ -5500,7 +5479,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @param target [Criteria | Array<Document>] The wrapped object.
   # @return [Enumerable] a new instance of Enumerable
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#262
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#265
   def initialize(target, base = T.unsafe(nil), association = T.unsafe(nil)); end
 
   # Append a document to the enumerable.
@@ -5510,7 +5489,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @param document [Document] The document to append.
   # @return [Document] The document.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#60
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#63
   def <<(document); end
 
   # Check if the enumerable is equal to the other object.
@@ -5520,7 +5499,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @param other [Enumerable] The other enumerable.
   # @return [true | false] If the objects are equal.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#33
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#36
   def ==(other); end
 
   # Check equality of the enumerable against the provided object for
@@ -5531,27 +5510,27 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @param other [Object] The object to check.
   # @return [true | false] If the objects are equal in a case.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#47
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#50
   def ===(other); end
 
   # The three main instance variables are collections of documents.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#21
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#24
   def _added; end
 
   # The three main instance variables are collections of documents.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#21
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#24
   def _added=(_arg0); end
 
   # The three main instance variables are collections of documents.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#21
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#24
   def _loaded; end
 
   # The three main instance variables are collections of documents.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#21
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#24
   def _loaded=(_arg0); end
 
   # Has the enumerable been _loaded? This will be true if the criteria has
@@ -5561,17 +5540,17 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #   enumerable._loaded?
   # @return [true | false] If the enumerable has been _loaded.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#353
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#356
   def _loaded?; end
 
   # The three main instance variables are collections of documents.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#21
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#24
   def _unloaded; end
 
   # The three main instance variables are collections of documents.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#21
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#24
   def _unloaded=(_arg0); end
 
   # Returns whether the association has any documents, optionally
@@ -5598,7 +5577,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #   must satisfy. See Enumerable documentation for details.
   # @return [true | false] If the association has any documents.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#225
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#228
   def any?(*args); end
 
   # Send #as_json to the entries, without encoding.
@@ -5608,7 +5587,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @param options [Hash] Optional parameters.
   # @return [Hash] The entries all _loaded as a hash.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#469
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#509
   def as_json(options = T.unsafe(nil)); end
 
   # Clears out all the documents in this enumerable. If passed a block it
@@ -5622,7 +5601,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #   enumerable.clear
   # @return [Array<Document>] The cleared out _added docs.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#79
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#82
   def clear; end
 
   # Clones each document in the enumerable.
@@ -5632,7 +5611,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @note This loads all documents into memory.
   # @return [Array<Document>] An array clone of the enumerable.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#94
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#97
   def clone; end
 
   # Delete the supplied document from the enumerable.
@@ -5643,7 +5622,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @return [Document] The deleted document.
   # @yield [doc]
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#106
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#109
   def delete(document); end
 
   # Deletes every document in the enumerable for where the block returns
@@ -5656,7 +5635,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @note This operation loads all documents from the database.
   # @return [Array<Document>] The remaining docs.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#129
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#132
   def delete_if(&block); end
 
   # Iterating over this enumerable has to handle a few different
@@ -5681,7 +5660,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #   a = enumerable.each
   # @return [true] That the enumerable is now _loaded.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#162
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#165
   def each; end
 
   # Is the enumerable empty? Will determine if the count is zero based on
@@ -5691,7 +5670,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #   enumerable.empty?
   # @return [true | false] If the enumerable is empty.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#193
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#196
   def empty?; end
 
   # Get the first document in the enumerable. Will check the persisted
@@ -5707,7 +5686,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @param limit [Integer] The number of documents to return.
   # @return [Document] The first document found.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#246
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#249
   def first(limit = T.unsafe(nil)); end
 
   # Return all the documents in the enumerable that have been _loaded or
@@ -5718,7 +5697,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @note When passed a block it yields to each document.
   # @return [Array<Document>] The in memory docs.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#309
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#312
   def in_memory; end
 
   # Does the target include the provided document?
@@ -5728,7 +5707,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @param doc [Document] The document to check.
   # @return [true | false] If the document is in the target.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#284
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#287
   def include?(doc); end
 
   # Inspection will just inspect the entries for nice array-style
@@ -5738,13 +5717,13 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #   enumerable.inspect
   # @return [String] The inspected enum.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#296
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#299
   def inspect; end
 
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#23
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#26
   def is_a?(*args, **_arg1, &block); end
 
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#23
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#26
   def kind_of?(*args, **_arg1, &block); end
 
   # Get the last document in the enumerable. Will check the new
@@ -5760,7 +5739,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @param limit [Integer] The number of documents to return.
   # @return [Document] The last document found.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#331
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#334
   def last(limit = T.unsafe(nil)); end
 
   # Gets the total size of this enumerable. This is a combination of all
@@ -5770,7 +5749,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #   enumerable.size
   # @return [Integer] The size of the enumerable.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#447
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#487
   def length; end
 
   # Loads all the documents in the enumerable from the database.
@@ -5779,7 +5758,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #   enumerable.load_all!
   # @return [true] That the enumerable is _loaded.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#344
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#347
   def load_all!(*_arg0); end
 
   # Provides the data needed to Marshal.dump an enumerable proxy.
@@ -5788,7 +5767,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #   Marshal.dump(proxy)
   # @return [Array<Object>] The dumped data.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#363
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#366
   def marshal_dump; end
 
   # Loads the data needed to Marshal.load an enumerable proxy.
@@ -5797,8 +5776,20 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #   Marshal.load(proxy)
   # @return [Array<Object>] The dumped data.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#373
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#376
   def marshal_load(data); end
+
+  # Plucks the given field names from the documents in the target.
+  # If the collection has been loaded, it plucks from the loaded
+  # documents; otherwise, it plucks from the unloaded criteria.
+  # Regardless, it also plucks from any added documents.
+  #
+  # @param *fields [Symbol...] The field names to pluck.
+  # @return [Array | Array<Array>] The array of field values. If
+  #   multiple fields are given, an array of arrays is returned.
+  #
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#389
+  def pluck(*keys); end
 
   # Append a document to the enumerable.
   #
@@ -5807,7 +5798,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @param document [Document] The document to append.
   # @return [Document] The document.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#65
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#68
   def push(document); end
 
   # Reset the enumerable back to its persisted state.
@@ -5816,7 +5807,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #   enumerable.reset
   # @return [false] Always false.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#383
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#423
   def reset; end
 
   # Resets the underlying unloaded criteria object with a new one. Used
@@ -5826,7 +5817,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #   enumerable.reset_unloaded(criteria)
   # @param criteria [Criteria] The criteria to replace with.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#396
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#436
   def reset_unloaded(criteria); end
 
   # Does this enumerable respond to the provided method?
@@ -5838,7 +5829,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @param name [String | Symbol] The name of the method.
   # @return [true | false] Whether the enumerable responds.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#410
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#450
   def respond_to?(name, include_private = T.unsafe(nil)); end
 
   # Gets the total size of this enumerable. This is a combination of all
@@ -5848,7 +5839,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #   enumerable.size
   # @return [Integer] The size of the enumerable.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#421
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#461
   def size; end
 
   # Send #to_json to the entries.
@@ -5858,7 +5849,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @param options [Hash] Optional parameters.
   # @return [String] The entries all _loaded as a string.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#457
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#497
   def to_json(options = T.unsafe(nil)); end
 
   # Return all the unique documents in the enumerable.
@@ -5868,18 +5859,18 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @note This operation loads all documents from the database.
   # @return [Array<Document>] The unique documents.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#481
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#521
   def uniq; end
 
   private
 
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#493
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#533
   def method_missing(name, *args, **_arg2, &block); end
 
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#487
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#527
   def set_base(document); end
 
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#497
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#537
   def unloaded_documents; end
 
   # Checks whether conditions in the given hash are known to be
@@ -5904,7 +5895,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @return [true | false] Whether hash contains known unsatisfiable
   #   conditions.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#530
+  # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#570
   def unsatisfiable_criteria?(selector); end
 end
 
@@ -5973,7 +5964,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   person.posts.clear
   # @return [Many] The association emptied.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#312
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#328
   def clear; end
 
   # Appends an array of documents to the association. Performs a batch
@@ -6148,6 +6139,20 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#282
   def nullify_all; end
 
+  # Plucks the given field names from the documents in the
+  # association. It is safe to use whether the association is
+  # loaded or not, and whether there are unsaved documents in the
+  # association or not.
+  #
+  # @example Pluck the titles of all posts.
+  #   person.posts.pluck(:title)
+  # @param *fields [Symbol...] The field names to pluck.
+  # @return [Array | Array<Array>] The array of field values. If
+  #   multiple fields are given, an array of arrays is returned.
+  #
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#296
+  def pluck(*fields); end
+
   # Clear the association. Will delete the documents from the db if they are
   # already persisted.
   #
@@ -6155,7 +6160,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   person.posts.clear
   # @return [Many] The association emptied.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#291
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#307
   def purge; end
 
   # Appends a document or array of documents to the association. Will set
@@ -6185,7 +6190,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param replacement [Array<Document>] The replacement target.
   # @return [Many] The association.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#324
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#340
   def substitute(replacement); end
 
   # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#37
@@ -6198,7 +6203,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   person.posts.unscoped
   # @return [Criteria] The unscoped criteria.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#346
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#362
   def unscoped; end
 
   private
@@ -6211,7 +6216,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @return [true | false] Whether the document is already related to the base and the
   #   association is persisted.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#391
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#407
   def already_related?(document); end
 
   # Appends the document to the target array, updating the index on the
@@ -6221,7 +6226,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   relation.append(document)
   # @param document [Document] The document to append to the target.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#359
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#375
   def append(document); end
 
   # Instantiate the binding associated with this association.
@@ -6230,7 +6235,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   relation.binding([ address ])
   # @return [Binding] The binding.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#404
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#420
   def binding; end
 
   # Perform the necessary cascade operations for documents that just got
@@ -6241,7 +6246,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param document [Document] The document to cascade on.
   # @return [true | false] If the association is destructive.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#438
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#454
   def cascade!(document); end
 
   # Get the collection of the association in question.
@@ -6250,7 +6255,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   relation.collection
   # @return [Collection] The collection of the association.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#414
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#430
   def collection; end
 
   # Returns the criteria object for the target class with its documents set
@@ -6260,7 +6265,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   relation.criteria
   # @return [Criteria] A new criteria.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#425
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#441
   def criteria; end
 
   # If the target array does not respond to the supplied method then try to
@@ -6276,7 +6281,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param name [Symbol | String] The name of the method.
   # @return [Criteria | Object] A Criteria or return value from the target.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#465
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#481
   def method_missing(name, *args, **_arg2, &block); end
 
   # Persist all the delayed batch inserts.
@@ -6287,7 +6292,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param docs [Array<Document>] The delayed inserts.
   # @param inserts [Array<Hash>] The raw insert document.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#485
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#501
   def persist_delayed(docs, inserts); end
 
   # Are we able to persist this association?
@@ -6296,7 +6301,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   relation.persistable?
   # @return [true | false] If the association is persistable.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#502
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#518
   def persistable?; end
 
   # Deletes all related documents from the database given the supplied
@@ -6310,7 +6315,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param method [Symbol] The deletion method to call.
   # @return [Integer] The number of documents deleted.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#519
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#535
   def remove_all(conditions = T.unsafe(nil), method = T.unsafe(nil)); end
 
   # Remove all the documents in the proxy that do not have the provided
@@ -6320,7 +6325,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   proxy.remove_not_in([ id ])
   # @param ids [Array<Object>] The ids.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#537
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#553
   def remove_not_in(ids); end
 
   # Save a persisted document immediately or delay a new document for
@@ -6332,7 +6337,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param doc [Document] The document.
   # @param inserts [Array<Document>] The inserts.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#574
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#590
   def save_or_delay(doc, docs, inserts); end
 
   # If the association is destructive, the matching documents will
@@ -6341,7 +6346,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param removed [Criteria] The criteria for the documents to
   #   remove.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#556
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#572
   def update_or_delete_all(removed); end
 
   # Execute before/after add callbacks around the block unless the objects
@@ -6353,7 +6358,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #   to the target.
   # @param document [Document] The document to append to the target.
   #
-  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#376
+  # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#392
   def with_add_callbacks(document, already_related); end
 end
 
@@ -8229,6 +8234,16 @@ module Mongoid::Attributes
 
   private
 
+  # Determine if the attribute will not change, by comparing the current
+  # value with the new value. The values are normalized to account for
+  # types that do not implement `#==` in a way that is compatible with
+  # each other, such as `BSON::Decimal128` and `BigDecimal`.
+  #
+  # @return [Boolean]
+  #
+  # source://mongoid//lib/mongoid/attributes.rb#381
+  def attribute_will_not_change?(field_name, typed_value); end
+
   # Does the string contain dot syntax for accessing hashes?
   #
   # @api private
@@ -8241,6 +8256,13 @@ module Mongoid::Attributes
 
   # source://mongoid//lib/mongoid/attributes.rb#363
   def lookup_attribute_presence(name, value); end
+
+  # If `value` is a `BSON::Decimal128`, convert it to a `BigDecimal` for
+  # comparison purposes. This is necessary because `BSON::Decimal128` does
+  # not implement `#==` in a way that is compatible with `BigDecimal`.
+  #
+  # source://mongoid//lib/mongoid/attributes.rb#373
+  def normalize_value(value); end
 
   # source://mongoid//lib/mongoid/attributes.rb#292
   def read_raw_attribute(name); end
@@ -12689,6 +12711,7 @@ class Mongoid::Contextual::Mongo
   include ::Mongoid::Contextual::Atomic
   include ::Mongoid::Association::EagerLoadable
   include ::Mongoid::Contextual::Queryable
+  include ::Mongoid::Pluckable
   extend ::Forwardable
 
   # Create the new Mongo context. This delegates operations to the
@@ -12699,7 +12722,7 @@ class Mongoid::Contextual::Mongo
   # @param criteria [Criteria] The criteria.
   # @return [Mongo] a new instance of Mongo
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#270
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#272
   def initialize(criteria); end
 
   # Get the number of documents matching the query.
@@ -12716,10 +12739,10 @@ class Mongoid::Contextual::Mongo
   #   into the count.
   # @return [Integer] The number of matches.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#73
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#75
   def count(options = T.unsafe(nil), &block); end
 
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#278
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#280
   def database_field_name(*args, **_arg1, &block); end
 
   # Delete all documents in the database that match the selector.
@@ -12728,7 +12751,7 @@ class Mongoid::Contextual::Mongo
   #   context.delete
   # @return [nil] Nil.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#114
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#116
   def delete; end
 
   # Delete all documents in the database that match the selector.
@@ -12737,7 +12760,7 @@ class Mongoid::Contextual::Mongo
   #   context.delete
   # @return [nil] Nil.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#117
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#119
   def delete_all; end
 
   # Destroy all documents in the database that match the selector.
@@ -12746,7 +12769,7 @@ class Mongoid::Contextual::Mongo
   #   context.destroy
   # @return [nil] Nil.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#125
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#127
   def destroy; end
 
   # Destroy all documents in the database that match the selector.
@@ -12755,7 +12778,7 @@ class Mongoid::Contextual::Mongo
   #   context.destroy
   # @return [nil] Nil.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#132
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#134
   def destroy_all; end
 
   # Get the distinct values in the db for the provided field.
@@ -12765,12 +12788,12 @@ class Mongoid::Contextual::Mongo
   # @param field [String | Symbol] The name of the field.
   # @return [Array<Object>] The distinct values for the field.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#142
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#144
   def distinct(field); end
 
   # Returns the value of attribute documents_loader.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#54
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#56
   def documents_loader; end
 
   # Iterate over the context. If provided a block, yield to a Mongoid
@@ -12782,7 +12805,7 @@ class Mongoid::Contextual::Mongo
   #   end
   # @return [Enumerator] The enumerator.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#160
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#162
   def each(&block); end
 
   # Get the estimated number of documents matching the query.
@@ -12796,7 +12819,7 @@ class Mongoid::Contextual::Mongo
   #   into the count.
   # @return [Integer] The number of matches.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#97
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#99
   def estimated_count(options = T.unsafe(nil)); end
 
   # Do any documents exist for the context.
@@ -12814,10 +12837,10 @@ class Mongoid::Contextual::Mongo
   # @return [true | false] If the count is more than zero.
   #   Always false if passed nil or false.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#190
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#192
   def exists?(id_or_conditions = T.unsafe(nil)); end
 
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#52
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#54
   def explain(*args, **_arg1, &block); end
 
   # Get the fifth document in the database for the criteria's selector.
@@ -12826,7 +12849,7 @@ class Mongoid::Contextual::Mongo
   #   context.fifth
   # @return [Document | nil] The fifth document or nil if none is found.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#699
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#690
   def fifth; end
 
   # Get the fifth document in the database for the criteria's selector or
@@ -12838,14 +12861,14 @@ class Mongoid::Contextual::Mongo
   #   documents available.
   # @return [Document] The fifth document.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#713
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#704
   def fifth!; end
 
   # Return the first result without applying sort
   #
   # @api private
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#256
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#258
   def find_first; end
 
   # Execute the find and modify command, used for MongoDB's
@@ -12855,7 +12878,7 @@ class Mongoid::Contextual::Mongo
   #   context.find_one_and_delete
   # @return [Document] The result of the command.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#247
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#249
   def find_one_and_delete; end
 
   # Execute the find and modify command, used for MongoDB's
@@ -12869,7 +12892,7 @@ class Mongoid::Contextual::Mongo
   # @param replacement [Hash] The replacement.
   # @return [Document] The result of the command.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#234
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#236
   def find_one_and_replace(replacement, options = T.unsafe(nil)); end
 
   # Execute the find and modify command, used for MongoDB's
@@ -12883,7 +12906,7 @@ class Mongoid::Contextual::Mongo
   # @param update [Hash] The updates.
   # @return [Document] The result of the command.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#214
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#216
   def find_one_and_update(update, options = T.unsafe(nil)); end
 
   # Get the first document in the database for the criteria's selector.
@@ -12898,7 +12921,7 @@ class Mongoid::Contextual::Mongo
   # @param limit [Integer] The number of documents to return.
   # @return [Document | nil] The first document or nil if none is found.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#550
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#541
   def first(limit = T.unsafe(nil)); end
 
   # Get the first document in the database for the criteria's selector or
@@ -12915,7 +12938,7 @@ class Mongoid::Contextual::Mongo
   #   documents available.
   # @return [Document] The first document.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#575
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#566
   def first!; end
 
   # Get the fourth document in the database for the criteria's selector.
@@ -12924,7 +12947,7 @@ class Mongoid::Contextual::Mongo
   #   context.fourth
   # @return [Document | nil] The fourth document or nil if none is found.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#675
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#666
   def fourth; end
 
   # Get the fourth document in the database for the criteria's selector or
@@ -12936,7 +12959,7 @@ class Mongoid::Contextual::Mongo
   #   documents available.
   # @return [Document] The fourth document.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#689
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#680
   def fourth!; end
 
   # Get the last document in the database for the criteria's selector.
@@ -12951,7 +12974,7 @@ class Mongoid::Contextual::Mongo
   # @param limit [Integer] The number of documents to return.
   # @return [Document | nil] The last document or nil if none is found.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#593
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#584
   def last(limit = T.unsafe(nil)); end
 
   # Get the last document in the database for the criteria's selector or
@@ -12968,7 +12991,7 @@ class Mongoid::Contextual::Mongo
   #   documents available.
   # @return [Document] The last document.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#617
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#608
   def last!; end
 
   # Returns the number of documents in the database matching
@@ -12978,7 +13001,7 @@ class Mongoid::Contextual::Mongo
   #   context.length
   # @return [Integer] The number of documents.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#287
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#289
   def length; end
 
   # Limits the number of documents that are returned from the database.
@@ -12988,7 +13011,7 @@ class Mongoid::Contextual::Mongo
   # @param value [Integer] The number of documents to return.
   # @return [Mongo] The context.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#300
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#302
   def limit(value); end
 
   # Schedule a task to load documents for the context.
@@ -12999,7 +13022,7 @@ class Mongoid::Contextual::Mongo
   #
   # @api private
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#776
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#767
   def load_async; end
 
   # Initiate a map/reduce operation from the context.
@@ -13010,7 +13033,7 @@ class Mongoid::Contextual::Mongo
   # @param reduce [String] The reduce js function.
   # @return [MapReduce] The map/reduce lazy wrapper.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#313
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#315
   def map_reduce(map, reduce); end
 
   # Get the first document in the database for the criteria's selector.
@@ -13025,7 +13048,7 @@ class Mongoid::Contextual::Mongo
   # @param limit [Integer] The number of documents to return.
   # @return [Document | nil] The first document or nil if none is found.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#557
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#548
   def one(limit = T.unsafe(nil)); end
 
   # Pick the single field values from the database.
@@ -13035,7 +13058,7 @@ class Mongoid::Contextual::Mongo
   # @param *fields [[ String | Symbol ]...] Field(s) to pick.
   # @return [Object | Array<Object>] The picked values.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#361
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#352
   def pick(*fields); end
 
   # Pluck the field value(s) from the database. Returns one
@@ -13053,7 +13076,7 @@ class Mongoid::Contextual::Mongo
   #   in the array will be a single value. Otherwise, each
   #   result in the array will be an array of values.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#333
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#335
   def pluck(*fields); end
 
   # Get the second document in the database for the criteria's selector.
@@ -13062,7 +13085,7 @@ class Mongoid::Contextual::Mongo
   #   context.second
   # @return [Document | nil] The second document or nil if none is found.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#627
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#618
   def second; end
 
   # Get the second document in the database for the criteria's selector or
@@ -13074,7 +13097,7 @@ class Mongoid::Contextual::Mongo
   #   documents available.
   # @return [Document] The second document.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#641
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#632
   def second!; end
 
   # Get the second to last document in the database for the criteria's
@@ -13086,7 +13109,7 @@ class Mongoid::Contextual::Mongo
   #   context.second_to_last
   # @return [Document | nil] The second to last document or nil if none
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#725
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#716
   def second_to_last; end
 
   # Get the second to last document in the database for the criteria's
@@ -13098,7 +13121,7 @@ class Mongoid::Contextual::Mongo
   #   documents available.
   # @return [Document] The second to last document.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#739
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#730
   def second_to_last!; end
 
   # Returns the number of documents in the database matching
@@ -13108,7 +13131,7 @@ class Mongoid::Contextual::Mongo
   #   context.length
   # @return [Integer] The number of documents.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#290
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#292
   def size; end
 
   # Skips the provided number of documents.
@@ -13118,7 +13141,7 @@ class Mongoid::Contextual::Mongo
   # @param value [Integer] The number of documents to skip.
   # @return [Mongo] The context.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#480
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#471
   def skip(value); end
 
   # Sorts the documents by the provided spec.
@@ -13129,7 +13152,7 @@ class Mongoid::Contextual::Mongo
   #   pairs.
   # @return [Mongo] The context.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#493
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#484
   def sort(values = T.unsafe(nil), &block); end
 
   # Take the given number of documents from the database.
@@ -13140,7 +13163,7 @@ class Mongoid::Contextual::Mongo
   # @return [Document | Array<Document>] The list of documents, or one
   #   document if no value was given.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#374
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#365
   def take(limit = T.unsafe(nil)); end
 
   # Take one document from the database and raise an error if there are none.
@@ -13151,7 +13174,7 @@ class Mongoid::Contextual::Mongo
   #   documents to take.
   # @return [Document] The document.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#393
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#384
   def take!; end
 
   # Get a hash of counts for the values of a single field. For example,
@@ -13191,7 +13214,7 @@ class Mongoid::Contextual::Mongo
   # @param field [String | Symbol] The field name.
   # @return [Hash] The hash of counts.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#440
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#431
   def tally(field); end
 
   # Get the third document in the database for the criteria's selector.
@@ -13200,7 +13223,7 @@ class Mongoid::Contextual::Mongo
   #   context.third
   # @return [Document | nil] The third document or nil if none is found.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#651
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#642
   def third; end
 
   # Get the third document in the database for the criteria's selector or
@@ -13212,7 +13235,7 @@ class Mongoid::Contextual::Mongo
   #   documents available.
   # @return [Document] The third document.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#665
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#656
   def third!; end
 
   # Get the third to last document in the database for the criteria's
@@ -13224,7 +13247,7 @@ class Mongoid::Contextual::Mongo
   #   context.third_to_last
   # @return [Document | nil] The third to last document or nil if none
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#751
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#742
   def third_to_last; end
 
   # Get the third to last document in the database for the criteria's
@@ -13236,7 +13259,7 @@ class Mongoid::Contextual::Mongo
   #   documents available.
   # @return [Document] The third to last document.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#765
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#756
   def third_to_last!; end
 
   # Update the first matching document atomically.
@@ -13248,7 +13271,7 @@ class Mongoid::Contextual::Mongo
   # @param opts [Hash] The update operation options.
   # @return [nil | false] False if no attributes were provided.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#516
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#507
   def update(attributes = T.unsafe(nil), opts = T.unsafe(nil)); end
 
   # Update all the matching documents atomically.
@@ -13260,7 +13283,7 @@ class Mongoid::Contextual::Mongo
   # @param opts [Hash] The update operation options.
   # @return [nil | false] False if no attributes were provided.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#532
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#523
   def update_all(attributes = T.unsafe(nil), opts = T.unsafe(nil)); end
 
   # Run an explain on the criteria.
@@ -13270,17 +13293,17 @@ class Mongoid::Contextual::Mongo
   # @param options [Hash] customizable options (See Mongo::Collection::View::Explainable)
   # @return [Hash] The explain result.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#42
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#44
   def view; end
 
   private
 
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#888
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#879
   def _session; end
 
   # @return [Boolean]
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#892
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#883
   def acknowledged_write?; end
 
   # Apply the field limitations.
@@ -13289,7 +13312,7 @@ class Mongoid::Contextual::Mongo
   # @example Apply the field limitations.
   #   context.apply_fields
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#805
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#796
   def apply_fields; end
 
   # Apply an option.
@@ -13298,7 +13321,7 @@ class Mongoid::Contextual::Mongo
   # @example Apply the skip option.
   #   context.apply_option(:skip)
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#833
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#824
   def apply_option(name); end
 
   # Apply the options.
@@ -13307,7 +13330,7 @@ class Mongoid::Contextual::Mongo
   # @example Apply all options.
   #   context.apply_options
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#817
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#808
   def apply_options; end
 
   # Demongoize the value for the given field. If the field is nil or the
@@ -13320,7 +13343,7 @@ class Mongoid::Contextual::Mongo
   # @param value [Object] The value to demongoize.
   # @return [Object] The demongoized value.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#993
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#912
   def demongoize_with_field(field, value, is_translation); end
 
   # Get the documents the context should iterate.
@@ -13331,37 +13354,14 @@ class Mongoid::Contextual::Mongo
   # @api private
   # @return [Array<Document> | Mongo::Collection::View] The docs to iterate.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#855
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#846
   def documents_for_iteration; end
-
-  # Extracts the value for the given field name from the given attribute
-  # hash.
-  #
-  # @param The [Object] value for the given field name
-  # @param attrs [Hash] The attributes hash.
-  # @param field_name [String] The name of the field to extract.
-  #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#923
-  def extract_value(attrs, field_name); end
-
-  # Fetch the element from the given hash and demongoize it using the
-  # given field. If the obj is an array, map over it and call this method
-  # on all of its elements.
-  #
-  # @api private
-  # @param field [Field] The field to use for demongoization.
-  # @param meth [String] The key to fetch from the hash.
-  # @param obj [Hash | Array<Hash>] The hash or array of hashes to fetch from.
-  # @return [Object] The demongoized value.
-  #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#907
-  def fetch_and_demongoize(obj, meth, field); end
 
   # Map the inverse sort symbols to the correct MongoDB values.
   #
   # @api private
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#842
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#833
   def inverse_sorting; end
 
   # Process the raw documents retrieved for #first/#last.
@@ -13369,12 +13369,12 @@ class Mongoid::Contextual::Mongo
   # @return [Array<Document> | Document] The list of documents or a
   #   single document.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#1015
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#934
   def process_raw_docs(raw_docs, limit); end
 
   # @raise [Errors::DocumentNotFound]
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#1044
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#963
   def raise_document_not_found_error; end
 
   # Recursively demongoize the given value. This method recursively traverses
@@ -13386,19 +13386,19 @@ class Mongoid::Contextual::Mongo
   # @param value [Object] The value to demongoize.
   # @return [Object] The demongoized value.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#977
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#896
   def recursive_demongoize(field_name, value, is_translation); end
 
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#1048
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#967
   def retrieve_nth(n); end
 
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#1061
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#980
   def retrieve_nth_to_last(n); end
 
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#1065
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#984
   def retrieve_nth_to_last_with_limit(n, limit); end
 
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#1052
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#971
   def retrieve_nth_with_limit(n, limit); end
 
   # Update the documents for the provided method.
@@ -13410,7 +13410,7 @@ class Mongoid::Contextual::Mongo
   # @param method [Symbol] The method to use.
   # @return [true | false] If the update succeeded.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#793
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#784
   def update_documents(attributes, method = T.unsafe(nil), opts = T.unsafe(nil)); end
 
   # Queries whether the current context is valid for use with
@@ -13423,7 +13423,7 @@ class Mongoid::Contextual::Mongo
   # @return [true | false] whether or not the current context
   #   excludes a `$where` operator.
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#1032
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#951
   def valid_for_count_documents?(hash = T.unsafe(nil)); end
 
   # Yield to the document.
@@ -13436,7 +13436,7 @@ class Mongoid::Contextual::Mongo
   # @param document [Document] The document to yield to.
   # @yield [doc]
   #
-  # source://mongoid//lib/mongoid/contextual/mongo.rb#882
+  # source://mongoid//lib/mongoid/contextual/mongo.rb#873
   def yield_document(document, &block); end
 end
 
@@ -13600,7 +13600,7 @@ end
 
 # Options constant.
 #
-# source://mongoid//lib/mongoid/contextual/mongo.rb#27
+# source://mongoid//lib/mongoid/contextual/mongo.rb#29
 Mongoid::Contextual::Mongo::OPTIONS = T.let(T.unsafe(nil), Array)
 
 # Context object used for performing bulk query and persistence
@@ -28176,6 +28176,71 @@ Mongoid::PersistenceContext::EXTRA_OPTIONS = T.let(T.unsafe(nil), Array)
 # source://mongoid//lib/mongoid/persistence_context.rb#36
 Mongoid::PersistenceContext::VALID_OPTIONS = T.let(T.unsafe(nil), Array)
 
+# Provides shared behavior for any document with "pluck" functionality.
+#
+# @api private
+#
+# source://mongoid//lib/mongoid/pluckable.rb#7
+module Mongoid::Pluckable
+  extend ::ActiveSupport::Concern
+
+  private
+
+  # Descend one level in the attribute hash.
+  #
+  #
+  # @api private
+  # @param current [Hash | Array<Hash>] The current level in the attribute hash.
+  # @param field [Field|nil] The field to use for demongoization.
+  # @param is_translation [Boolean] Whether the method is an _translations field.
+  # @param method_name [String] The method name to descend to.
+  # @param part [Integer] The current part index.
+  # @param part_count [Integer] The total number of parts in the field name.
+  # @return [Object] The value at the next level.
+  #
+  # source://mongoid//lib/mongoid/pluckable.rb#104
+  def descend(part, current, method_name, field, part_count, is_translation); end
+
+  # Extracts the value for the given field name from the given attribute
+  # hash.
+  #
+  # @api private
+  # @param attrs [Hash] The attributes hash.
+  # @param field_name [String] The name of the field to extract.
+  # @return [Object] The value for the given field name
+  #
+  # source://mongoid//lib/mongoid/pluckable.rb#65
+  def extract_value(attrs, field_name, document_class); end
+
+  # Fetch the element from the given hash and demongoize it using the
+  # given field. If the obj is an array, map over it and call this method
+  # on all of its elements.
+  #
+  # @api private
+  # @param field [Field] The field to use for demongoization.
+  # @param key [String] The key to fetch from the hash.
+  # @param obj [Hash | Array<Hash>] The hash or array of hashes to fetch from.
+  # @return [Object] The demongoized value.
+  #
+  # source://mongoid//lib/mongoid/pluckable.rb#49
+  def fetch_and_demongoize(obj, key, field); end
+
+  # Plucks the given field names from the given documents.
+  #
+  # @api private
+  #
+  # source://mongoid//lib/mongoid/pluckable.rb#33
+  def pluck_from_documents(documents, field_names, document_class: T.unsafe(nil)); end
+
+  # Prepares the field names for plucking by normalizing them to their
+  # database field names. Also prepares a projection hash if requested.
+  #
+  # @api private
+  #
+  # source://mongoid//lib/mongoid/pluckable.rb#14
+  def prepare_pluck(field_names, document_class: T.unsafe(nil), prepare_projection: T.unsafe(nil)); end
+end
+
 # This module is responsible for taking update selectors and switching out
 # the indexes for the $ positional operator where appropriate.
 #
@@ -30224,7 +30289,7 @@ module Mongoid::Traversable
   # @api private
   # @return [Array<Document>] All child documents in the hierarchy.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#238
+  # source://mongoid//lib/mongoid/traversable.rb#236
   def _children(reset: T.unsafe(nil)); end
 
   # Get all descendant +Documents+ of this +Document+ recursively.
@@ -30237,7 +30302,7 @@ module Mongoid::Traversable
   # @api private
   # @return [Array<Document>] All descendant documents in the hierarchy.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#261
+  # source://mongoid//lib/mongoid/traversable.rb#259
   def _descendants(reset: T.unsafe(nil)); end
 
   # Retrieves the parent document of this document.
@@ -30263,7 +30328,7 @@ module Mongoid::Traversable
   # @api private
   # @return [nil] nil.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#388
+  # source://mongoid//lib/mongoid/traversable.rb#386
   def _reset_memoized_descendants!; end
 
   # Return the root document in the object graph. If the current document
@@ -30273,7 +30338,7 @@ module Mongoid::Traversable
   #   document._root
   # @return [Document] The root document in the hierarchy.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#401
+  # source://mongoid//lib/mongoid/traversable.rb#399
   def _root; end
 
   # Is this document the root document of the hierarchy?
@@ -30282,7 +30347,7 @@ module Mongoid::Traversable
   #   document._root?
   # @return [true | false] If the document is the root.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#413
+  # source://mongoid//lib/mongoid/traversable.rb#411
   def _root?; end
 
   # Collect all the children of this document.
@@ -30290,7 +30355,7 @@ module Mongoid::Traversable
   # @api private
   # @return [Array<Document>] The children.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#279
+  # source://mongoid//lib/mongoid/traversable.rb#277
   def collect_children; end
 
   # Collect all the descendants of this document.
@@ -30298,14 +30363,14 @@ module Mongoid::Traversable
   # @api private
   # @return [Array<Document>] The descendants.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#295
+  # source://mongoid//lib/mongoid/traversable.rb#293
   def collect_descendants; end
 
   # Marks all descendants as being persisted.
   #
   # @return [Array<Document>] The flagged descendants.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#321
+  # source://mongoid//lib/mongoid/traversable.rb#319
   def flag_descendants_persisted; end
 
   # Determines if the document is a subclass of another document.
@@ -30314,7 +30379,7 @@ module Mongoid::Traversable
   #   Square.new.hereditary?
   # @return [true | false] True if hereditary, false if not.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#333
+  # source://mongoid//lib/mongoid/traversable.rb#331
   def hereditary?; end
 
   # Sets up a child/parent association. This is used for newly created
@@ -30325,7 +30390,7 @@ module Mongoid::Traversable
   # @param document [Document] The parent document.
   # @return [Document] The parent document.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#346
+  # source://mongoid//lib/mongoid/traversable.rb#344
   def parentize(document); end
 
   # Remove a child document from this parent. If an embeds one then set to
@@ -30337,7 +30402,7 @@ module Mongoid::Traversable
   #   document.remove_child(child)
   # @param child [Document] The child (embedded) document to remove.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#359
+  # source://mongoid//lib/mongoid/traversable.rb#357
   def remove_child(child); end
 
   # After descendants are persisted we can call this to move all their
@@ -30345,7 +30410,7 @@ module Mongoid::Traversable
   #
   # @return [Array<Document>] The descendants.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#374
+  # source://mongoid//lib/mongoid/traversable.rb#372
   def reset_persisted_descendants; end
 
   class << self
@@ -30407,12 +30472,11 @@ end
 module Mongoid::Traversable::DiscriminatorAssignment
   # Sets the discriminator key.
   #
-  #
   # @api private
   # @param value [String] The discriminator key to set.
   # @raise [Errors::InvalidDiscriminatorKeyTarget]
   #
-  # source://mongoid//lib/mongoid/traversable.rb#135
+  # source://mongoid//lib/mongoid/traversable.rb#134
   def discriminator_key=(value); end
 
   # Returns the discriminator key.
@@ -30420,7 +30484,7 @@ module Mongoid::Traversable::DiscriminatorAssignment
   # @api private
   # @return [String] The discriminator key.
   #
-  # source://mongoid//lib/mongoid/traversable.rb#169
+  # source://mongoid//lib/mongoid/traversable.rb#167
   def discriminator_value=(value); end
 end
 
@@ -30433,13 +30497,13 @@ end
 #
 # @api private
 #
-# source://mongoid//lib/mongoid/traversable.rb#185
+# source://mongoid//lib/mongoid/traversable.rb#183
 module Mongoid::Traversable::DiscriminatorRetrieval
   # Get the name on the reading side if the discriminator_value is nil
   #
   # @api private
   #
-  # source://mongoid//lib/mongoid/traversable.rb#187
+  # source://mongoid//lib/mongoid/traversable.rb#185
   def discriminator_value; end
 end
 
