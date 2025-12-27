@@ -3,10 +3,13 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.4.8"
+ruby "4.0.0"
+
+# Temporary fix
+gem "rails", "~> 8.2.0.alpha",  github: "rails/rails", branch: "main"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem "rails", "~> 8.0.4"
+# gem "rails", "~> 8.1.1"
 # use vite to build javascripts and assets
 gem "vite_rails", "~> 3.0"
 # Use mongodb
@@ -29,7 +32,9 @@ gem "bootsnap", ">= 1.4.4", require: false
 
 gem "dotenv", "~> 3.2.0"
 
-gem "connection_pool", "< 3"
+gem "benchmark", "~> 0.5.0", require: false
+
+gem "ostruct", "~> 0.6.2", require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -112,12 +117,10 @@ gem "sorbet-runtime"
 
 gem "brotli", "~> 0.7.0"
 
-gem "sidekiq", "~> 8.0"
+gem "sidekiq", "~> 8.1"
 
 gem "sidekiq-cron", "~> 2.3"
 
 gem "colorize", "~> 1.1"
 
 gem "sidekiq-unique-jobs", "~> 8.0"
-
-gem "ostruct", "~> 0.6.2"

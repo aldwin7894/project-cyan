@@ -250,13 +250,16 @@ class Discordrb::Webhooks::Client
   # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#118
   def avatarise(avatar); end
 
-  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#139
+  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#141
+  def encode_url(wait, thread_id); end
+
+  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#137
   def generate_url(id, token); end
 
   # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#126
   def post_json(builder, components, wait, thread_id); end
 
-  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#132
+  # source://discordrb-webhooks//lib/discordrb/webhooks/client.rb#131
   def post_multipart(builder, components, wait, thread_id); end
 end
 

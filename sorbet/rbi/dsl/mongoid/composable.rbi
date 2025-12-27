@@ -10,6 +10,7 @@ module Mongoid::Composable
 
   mixes_in_class_methods ::ActiveModel::Validations::ClassMethods
   mixes_in_class_methods ::ActiveModel::Conversion::ClassMethods
+  mixes_in_class_methods ::ActiveModel::SchematizedJson::ClassMethods
   mixes_in_class_methods ::Mongoid::Changeable::ClassMethods
   mixes_in_class_methods ::Mongoid::Clients::StorageOptions::ClassMethods
   mixes_in_class_methods ::Mongoid::Clients::Options::ClassMethods

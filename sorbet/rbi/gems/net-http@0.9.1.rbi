@@ -1368,7 +1368,7 @@ class Net::HTTP < ::Net::Protocol
   # source://net-http//lib/net/http.rb#1893
   def proxy_uri; end
 
-  # Sets wheter the proxy uses SSL;
+  # Sets whether the proxy uses SSL;
   # see {Proxy Server}[rdoc-ref:Net::HTTP@Proxy+Server].
   #
   # source://net-http//lib/net/http.rb#1328
@@ -1910,6 +1910,9 @@ class Net::HTTP < ::Net::Protocol
   # source://net-http//lib/net/http.rb#2539
   def sspi_auth?(res); end
 
+  # source://net-http//lib/net/http.rb#1787
+  def timeouted_connect(conn_addr, conn_port); end
+
   # source://net-http//lib/net/http.rb#2435
   def transport_request(req); end
 
@@ -2330,6 +2333,9 @@ module Net::HTTP::ProxyDelta
   # source://net-http//lib/net/http/proxy_delta.rb#13
   def edit_path(path); end
 end
+
+# source://net-http//lib/net/http.rb#1778
+Net::HTTP::TCP_SOCKET_NEW_HAS_OPEN_TIMEOUT = T.let(T.unsafe(nil), TrueClass)
 
 # :stopdoc:
 #

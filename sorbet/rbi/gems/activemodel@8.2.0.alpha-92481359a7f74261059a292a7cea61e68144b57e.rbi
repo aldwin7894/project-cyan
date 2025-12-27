@@ -15,7 +15,7 @@ module ActiveModel
     # source://activemodel//lib/active_model/deprecator.rb#4
     def deprecator; end
 
-    # source://activemodel//lib/active_model.rb#76
+    # source://activemodel//lib/active_model.rb#83
     def eager_load!; end
 
     # Returns the currently loaded version of \Active \Model as a +Gem::Version+.
@@ -96,6 +96,7 @@ module ActiveModel::API
   include ::ActiveModel::Validations::HelperMethods
   include ::ActiveModel::Validations
   include ::ActiveModel::Conversion
+  include ::ActiveModel::SchematizedJson
 
   mixes_in_class_methods GeneratedClassMethods
   mixes_in_class_methods ::ActiveModel::Validations::ClassMethods
@@ -105,6 +106,7 @@ module ActiveModel::API
   mixes_in_class_methods ::ActiveModel::Translation
   mixes_in_class_methods ::ActiveModel::Validations::HelperMethods
   mixes_in_class_methods ::ActiveModel::Conversion::ClassMethods
+  mixes_in_class_methods ::ActiveModel::SchematizedJson::ClassMethods
 
   # Initializes a new model with the given +params+.
   #
@@ -117,7 +119,7 @@ module ActiveModel::API
   #   person.name # => "bob"
   #   person.age  # => "18"
   #
-  # source://activemodel//lib/active_model/api.rb#80
+  # source://activemodel//lib/active_model/api.rb#81
   def initialize(attributes = T.unsafe(nil)); end
 
   # Indicates if the model is persisted. Default is +false+.
@@ -132,7 +134,7 @@ module ActiveModel::API
   #
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/api.rb#95
+  # source://activemodel//lib/active_model/api.rb#96
   def persisted?; end
 
   module GeneratedClassMethods
@@ -173,12 +175,12 @@ class ActiveModel::Attribute
   # source://activemodel//lib/active_model/attribute.rb#33
   def initialize(name, value_before_type_cast, type, original_attribute = T.unsafe(nil), value = T.unsafe(nil)); end
 
-  # source://activemodel//lib/active_model/attribute.rb#115
+  # source://activemodel//lib/active_model/attribute.rb#123
   def ==(other); end
 
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/attribute.rb#107
+  # source://activemodel//lib/active_model/attribute.rb#115
   def came_from_user?; end
 
   # @return [Boolean]
@@ -191,10 +193,13 @@ class ActiveModel::Attribute
   # source://activemodel//lib/active_model/attribute.rb#70
   def changed_in_place?; end
 
-  # source://activemodel//lib/active_model/attribute.rb#135
+  # source://activemodel//lib/active_model/attribute.rb#99
+  def dup_or_share; end
+
+  # source://activemodel//lib/active_model/attribute.rb#143
   def encode_with(coder); end
 
-  # source://activemodel//lib/active_model/attribute.rb#121
+  # source://activemodel//lib/active_model/attribute.rb#129
   def eql?(other); end
 
   # source://activemodel//lib/active_model/attribute.rb#74
@@ -202,18 +207,18 @@ class ActiveModel::Attribute
 
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/attribute.rb#111
+  # source://activemodel//lib/active_model/attribute.rb#119
   def has_been_read?; end
 
-  # source://activemodel//lib/active_model/attribute.rb#123
+  # source://activemodel//lib/active_model/attribute.rb#131
   def hash; end
 
-  # source://activemodel//lib/active_model/attribute.rb#127
+  # source://activemodel//lib/active_model/attribute.rb#135
   def init_with(coder); end
 
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/attribute.rb#103
+  # source://activemodel//lib/active_model/attribute.rb#111
   def initialized?; end
 
   # Returns the value of attribute name.
@@ -224,7 +229,7 @@ class ActiveModel::Attribute
   # source://activemodel//lib/active_model/attribute.rb#47
   def original_value; end
 
-  # source://activemodel//lib/active_model/attribute.rb#143
+  # source://activemodel//lib/active_model/attribute.rb#151
   def original_value_for_database; end
 
   # @return [Boolean]
@@ -239,11 +244,11 @@ class ActiveModel::Attribute
 
   # @raise [NotImplementedError]
   #
-  # source://activemodel//lib/active_model/attribute.rb#99
+  # source://activemodel//lib/active_model/attribute.rb#107
   def type_cast(*_arg0); end
 
   # source://activemodel//lib/active_model/attribute.rb#41
-  def value(&_); end
+  def value(&_arg0); end
 
   # Returns the value of attribute value_before_type_cast.
   #
@@ -270,28 +275,28 @@ class ActiveModel::Attribute
 
   private
 
-  # source://activemodel//lib/active_model/attribute.rb#169
+  # source://activemodel//lib/active_model/attribute.rb#177
   def _original_value_for_database; end
 
-  # source://activemodel//lib/active_model/attribute.rb#165
+  # source://activemodel//lib/active_model/attribute.rb#173
   def _value_for_database; end
 
   # Returns the value of attribute original_attribute.
   #
-  # source://activemodel//lib/active_model/attribute.rb#153
+  # source://activemodel//lib/active_model/attribute.rb#161
   def assigned?; end
 
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/attribute.rb#161
+  # source://activemodel//lib/active_model/attribute.rb#169
   def changed_from_assignment?; end
 
-  # source://activemodel//lib/active_model/attribute.rb#155
+  # source://activemodel//lib/active_model/attribute.rb#163
   def initialize_dup(other); end
 
   # Returns the value of attribute original_attribute.
   #
-  # source://activemodel//lib/active_model/attribute.rb#152
+  # source://activemodel//lib/active_model/attribute.rb#160
   def original_attribute; end
 
   class << self
@@ -312,94 +317,94 @@ class ActiveModel::Attribute
   end
 end
 
-# source://activemodel//lib/active_model/attribute.rb#173
+# source://activemodel//lib/active_model/attribute.rb#181
 class ActiveModel::Attribute::FromDatabase < ::ActiveModel::Attribute
-  # source://activemodel//lib/active_model/attribute.rb#178
+  # source://activemodel//lib/active_model/attribute.rb#186
   def forgetting_assignment; end
 
-  # source://activemodel//lib/active_model/attribute.rb#174
+  # source://activemodel//lib/active_model/attribute.rb#182
   def type_cast(value); end
 
   private
 
-  # source://activemodel//lib/active_model/attribute.rb#192
+  # source://activemodel//lib/active_model/attribute.rb#200
   def _original_value_for_database; end
 end
 
-# source://activemodel//lib/active_model/attribute.rb#197
+# source://activemodel//lib/active_model/attribute.rb#205
 class ActiveModel::Attribute::FromUser < ::ActiveModel::Attribute
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/attribute.rb#202
+  # source://activemodel//lib/active_model/attribute.rb#210
   def came_from_user?; end
 
-  # source://activemodel//lib/active_model/attribute.rb#198
+  # source://activemodel//lib/active_model/attribute.rb#206
   def type_cast(value); end
 
   private
 
-  # source://activemodel//lib/active_model/attribute.rb#207
+  # source://activemodel//lib/active_model/attribute.rb#215
   def _value_for_database; end
 end
 
-# source://activemodel//lib/active_model/attribute.rb#222
+# source://activemodel//lib/active_model/attribute.rb#230
 class ActiveModel::Attribute::Null < ::ActiveModel::Attribute
   # @return [Null] a new instance of Null
   #
-  # source://activemodel//lib/active_model/attribute.rb#223
+  # source://activemodel//lib/active_model/attribute.rb#231
   def initialize(name); end
 
-  # source://activemodel//lib/active_model/attribute.rb#227
+  # source://activemodel//lib/active_model/attribute.rb#235
   def type_cast(*_arg0); end
 
   # @raise [ActiveModel::MissingAttributeError]
   #
-  # source://activemodel//lib/active_model/attribute.rb#239
+  # source://activemodel//lib/active_model/attribute.rb#247
   def with_cast_value(value); end
 
-  # source://activemodel//lib/active_model/attribute.rb#231
+  # source://activemodel//lib/active_model/attribute.rb#239
   def with_type(type); end
 
   # @raise [ActiveModel::MissingAttributeError]
   #
-  # source://activemodel//lib/active_model/attribute.rb#235
+  # source://activemodel//lib/active_model/attribute.rb#243
   def with_value_from_database(value); end
 
   # @raise [ActiveModel::MissingAttributeError]
   #
-  # source://activemodel//lib/active_model/attribute.rb#238
+  # source://activemodel//lib/active_model/attribute.rb#246
   def with_value_from_user(value); end
 end
 
-# source://activemodel//lib/active_model/attribute.rb#242
+# source://activemodel//lib/active_model/attribute.rb#250
 class ActiveModel::Attribute::Uninitialized < ::ActiveModel::Attribute
   # @return [Uninitialized] a new instance of Uninitialized
   #
-  # source://activemodel//lib/active_model/attribute.rb#245
+  # source://activemodel//lib/active_model/attribute.rb#253
   def initialize(name, type); end
 
-  # source://activemodel//lib/active_model/attribute.rb#266
+  # source://activemodel//lib/active_model/attribute.rb#274
   def forgetting_assignment; end
 
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/attribute.rb#262
+  # source://activemodel//lib/active_model/attribute.rb#270
   def initialized?; end
 
-  # source://activemodel//lib/active_model/attribute.rb#255
+  # source://activemodel//lib/active_model/attribute.rb#263
   def original_value; end
 
-  # source://activemodel//lib/active_model/attribute.rb#249
+  # source://activemodel//lib/active_model/attribute.rb#257
   def value; end
 
-  # source://activemodel//lib/active_model/attribute.rb#259
+  # source://activemodel//lib/active_model/attribute.rb#267
   def value_for_database; end
 
-  # source://activemodel//lib/active_model/attribute.rb#270
+  # source://activemodel//lib/active_model/attribute.rb#278
   def with_type(type); end
 end
 
-# source://activemodel//lib/active_model/attribute.rb#243
+# source://activemodel//lib/active_model/attribute.rb#251
 ActiveModel::Attribute::Uninitialized::UNINITIALIZED_ORIGINAL_VALUE = T.let(T.unsafe(nil), Object)
 
 # source://activemodel//lib/active_model/attribute/user_provided_default.rb#11
@@ -410,9 +415,12 @@ class ActiveModel::Attribute::UserProvidedDefault < ::ActiveModel::Attribute::Fr
   def initialize(name, value, type, database_default); end
 
   # source://activemodel//lib/active_model/attribute/user_provided_default.rb#29
+  def dup_or_share; end
+
+  # source://activemodel//lib/active_model/attribute/user_provided_default.rb#39
   def marshal_dump; end
 
-  # source://activemodel//lib/active_model/attribute/user_provided_default.rb#40
+  # source://activemodel//lib/active_model/attribute/user_provided_default.rb#50
   def marshal_load(values); end
 
   # source://activemodel//lib/active_model/attribute/user_provided_default.rb#17
@@ -425,18 +433,18 @@ class ActiveModel::Attribute::UserProvidedDefault < ::ActiveModel::Attribute::Fr
 
   # Returns the value of attribute user_provided_value.
   #
-  # source://activemodel//lib/active_model/attribute/user_provided_default.rb#52
+  # source://activemodel//lib/active_model/attribute/user_provided_default.rb#62
   def user_provided_value; end
 end
 
-# source://activemodel//lib/active_model/attribute.rb#212
+# source://activemodel//lib/active_model/attribute.rb#220
 class ActiveModel::Attribute::WithCastValue < ::ActiveModel::Attribute
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/attribute.rb#217
+  # source://activemodel//lib/active_model/attribute.rb#225
   def changed_in_place?; end
 
-  # source://activemodel//lib/active_model/attribute.rb#213
+  # source://activemodel//lib/active_model/attribute.rb#221
   def type_cast(value); end
 end
 
@@ -1517,6 +1525,7 @@ end
 # source://activemodel//lib/active_model/attributes.rb#30
 module ActiveModel::Attributes
   extend ::ActiveSupport::Concern
+  extend ::ActiveSupport::Autoload
   include GeneratedInstanceMethods
   include ::ActiveModel::AttributeRegistration
   include ::ActiveModel::AttributeMethods
@@ -1641,19 +1650,241 @@ module ActiveModel::Attributes::ClassMethods
   def define_method_attribute=(canonical_name, owner:, as: T.unsafe(nil)); end
 end
 
+# source://activemodel//lib/active_model/attributes/normalization.rb#5
+module ActiveModel::Attributes::Normalization
+  extend ::ActiveSupport::Concern
+  include GeneratedInstanceMethods
+  include ::ActiveModel::AttributeMethods
+  include ::ActiveModel::Dirty
+  include ::ActiveSupport::Callbacks
+  include ::ActiveModel::Validations::Callbacks
+
+  mixes_in_class_methods GeneratedClassMethods
+  mixes_in_class_methods ::ActiveModel::Attributes::Normalization::ClassMethods
+  mixes_in_class_methods ::ActiveModel::AttributeMethods::ClassMethods
+  mixes_in_class_methods ::ActiveModel::Validations::Callbacks::ClassMethods
+  mixes_in_class_methods ::ActiveSupport::Callbacks::ClassMethods
+  mixes_in_class_methods ::ActiveSupport::DescendantsTracker
+
+  # Normalizes a specified attribute using its declared normalizations.
+  #
+  # ==== Examples
+  #
+  #   class User
+  #     include ActiveModel::Attributes
+  #     include ActiveModel::Attributes::Normalization
+  #
+  #     attribute :email, :string
+  #
+  #     normalizes :email, with: -> email { email.strip.downcase }
+  #   end
+  #
+  #   legacy_user = User.load_from_legacy_data(...)
+  #   legacy_user.email # => " CRUISE-CONTROL@EXAMPLE.COM\n"
+  #   legacy_user.normalize_attribute(:email)
+  #   legacy_user.email # => "cruise-control@example.com"
+  #
+  # ==== Behavior with Active Record
+  #
+  # To prevent confusion, normalization will not be applied
+  # when the attribute is fetched from the database. This means that if a
+  # record was persisted before the normalization was declared, the record's
+  # attribute will not be normalized until either it is assigned a new
+  # value, or it is explicitly migrated via Normalization#normalize_attribute.
+  #
+  # Be aware that if your app was created before Rails 7.1, and your app
+  # marshals instances of the targeted model (for example, when caching),
+  # then you should set ActiveRecord.marshalling_format_version to +7.1+ or
+  # higher via either <tt>config.load_defaults 7.1</tt> or
+  # <tt>config.active_record.marshalling_format_version = 7.1</tt>.
+  # Otherwise, +Marshal+ may attempt to serialize the normalization +Proc+
+  # and raise +TypeError+.
+  #
+  #   class User < ActiveRecord::Base
+  #     normalizes :email, with: -> email { email.strip.downcase }
+  #     normalizes :phone, with: -> phone { phone.delete("^0-9").delete_prefix("1") }
+  #   end
+  #
+  #   user = User.create(email: " CRUISE-CONTROL@EXAMPLE.COM\n")
+  #   user.email                  # => "cruise-control@example.com"
+  #
+  #   user = User.find_by(email: "\tCRUISE-CONTROL@EXAMPLE.COM ")
+  #   user.email                  # => "cruise-control@example.com"
+  #   user.email_before_type_cast # => "cruise-control@example.com"
+  #
+  #   User.where(email: "\tCRUISE-CONTROL@EXAMPLE.COM ").count         # => 1
+  #   User.where(["email = ?", "\tCRUISE-CONTROL@EXAMPLE.COM "]).count # => 0
+  #
+  #   User.exists?(email: "\tCRUISE-CONTROL@EXAMPLE.COM ")         # => true
+  #   User.exists?(["email = ?", "\tCRUISE-CONTROL@EXAMPLE.COM "]) # => false
+  #
+  #   User.normalize_value_for(:phone, "+1 (555) 867-5309") # => "5558675309"
+  #
+  # source://activemodel//lib/active_model/attributes/normalization.rb#70
+  def normalize_attribute(name); end
+
+  private
+
+  # source://activemodel//lib/active_model/attributes/normalization.rb#140
+  def normalize_changed_in_place_attributes; end
+
+  module GeneratedClassMethods
+    def __callbacks; end
+    def __callbacks=(value); end
+    def attribute_aliases; end
+    def attribute_aliases=(value); end
+    def attribute_aliases?; end
+    def attribute_method_patterns; end
+    def attribute_method_patterns=(value); end
+    def attribute_method_patterns?; end
+    def normalized_attributes; end
+    def normalized_attributes=(value); end
+    def normalized_attributes?; end
+  end
+
+  module GeneratedInstanceMethods
+    def __callbacks; end
+    def attribute_aliases; end
+    def attribute_aliases?; end
+    def attribute_method_patterns; end
+    def attribute_method_patterns?; end
+    def normalized_attributes; end
+    def normalized_attributes=(value); end
+    def normalized_attributes?; end
+  end
+end
+
+# source://activemodel//lib/active_model/attributes/normalization.rb#75
+module ActiveModel::Attributes::Normalization::ClassMethods
+  # Normalizes a given +value+ using normalizations declared for +name+.
+  #
+  # ==== Examples
+  #
+  #   class User
+  #     include ActiveModel::Attributes
+  #     include ActiveModel::Attributes::Normalization
+  #
+  #     attribute :email, :string
+  #
+  #     normalizes :email, with: -> email { email.strip.downcase }
+  #   end
+  #
+  #   User.normalize_value_for(:email, " CRUISE-CONTROL@EXAMPLE.COM\n")
+  #   # => "cruise-control@example.com"
+  #
+  # source://activemodel//lib/active_model/attributes/normalization.rb#134
+  def normalize_value_for(name, value); end
+
+  # Declares a normalization for one or more attributes. The normalization
+  # is applied when the attribute is assigned or validated.
+  #
+  # Because the normalization may be applied multiple times, it should be
+  # _idempotent_. In other words, applying the normalization more than once
+  # should have the same result as applying it only once.
+  #
+  # By default, the normalization will not be applied to +nil+ values. This
+  # behavior can be changed with the +:apply_to_nil+ option.
+  #
+  # ==== Options
+  #
+  # * +:with+ - Any callable object that accepts the attribute's value as
+  #   its sole argument, and returns it normalized.
+  # * +:apply_to_nil+ - Whether to apply the normalization to +nil+ values.
+  #   Defaults to +false+.
+  #
+  # ==== Examples
+  #
+  #   class User
+  #     include ActiveModel::Attributes
+  #     include ActiveModel::Attributes::Normalization
+  #
+  #     attribute :email, :string
+  #     attribute :phone, :string
+  #
+  #     normalizes :email, with: -> email { email.strip.downcase }
+  #     normalizes :phone, with: -> phone { phone.delete("^0-9").delete_prefix("1") }
+  #   end
+  #
+  #   user = User.new
+  #   user.email =    " CRUISE-CONTROL@EXAMPLE.COM\n"
+  #   user.email # => "cruise-control@example.com"
+  #
+  #   User.normalize_value_for(:phone, "+1 (555) 867-5309") # => "5558675309"
+  #
+  # source://activemodel//lib/active_model/attributes/normalization.rb#111
+  def normalizes(*names, with:, apply_to_nil: T.unsafe(nil)); end
+end
+
+# source://activemodel//lib/active_model/attributes/normalization.rb#146
+class ActiveModel::Attributes::Normalization::NormalizedValueType < ::ActiveSupport::Delegation::ClassDelegator
+  include ::ActiveModel::Type::SerializeCastValue
+  extend ::ActiveModel::Type::SerializeCastValue::ClassMethods
+
+  # @return [NormalizedValueType] a new instance of NormalizedValueType
+  #
+  # source://activemodel//lib/active_model/attributes/normalization.rb#152
+  def initialize(cast_type:, normalizer:, normalize_nil:); end
+
+  # source://activemodel//lib/active_model/attributes/normalization.rb#171
+  def ==(other); end
+
+  # source://activemodel//lib/active_model/attributes/normalization.rb#159
+  def cast(value); end
+
+  # Returns the value of attribute cast_type.
+  #
+  # source://activemodel//lib/active_model/attributes/normalization.rb#149
+  def cast_type; end
+
+  # source://activemodel//lib/active_model/attributes/normalization.rb#177
+  def eql?(other); end
+
+  # source://activemodel//lib/active_model/attributes/normalization.rb#179
+  def hash; end
+
+  # source://activemodel//lib/active_model/attributes/normalization.rb#183
+  def inspect; end
+
+  # Returns the value of attribute normalize_nil.
+  #
+  # source://activemodel//lib/active_model/attributes/normalization.rb#149
+  def normalize_nil; end
+
+  # Returns the value of attribute normalize_nil.
+  #
+  # source://activemodel//lib/active_model/attributes/normalization.rb#150
+  def normalize_nil?; end
+
+  # Returns the value of attribute normalizer.
+  #
+  # source://activemodel//lib/active_model/attributes/normalization.rb#149
+  def normalizer; end
+
+  # source://activemodel//lib/active_model/attributes/normalization.rb#163
+  def serialize(value); end
+
+  # source://activemodel//lib/active_model/attributes/normalization.rb#167
+  def serialize_cast_value(value); end
+
+  private
+
+  # source://activemodel//lib/active_model/attributes/normalization.rb#186
+  def normalize(value); end
+end
+
 # +BlockValidator+ is a special +EachValidator+ which receives a block on initialization
 # and call this block for each attribute being validated. +validates_each+ uses this validator.
 #
-# source://activemodel//lib/active_model/validator.rb#179
+# source://activemodel//lib/active_model/validator.rb#195
 class ActiveModel::BlockValidator < ::ActiveModel::EachValidator
   # @return [BlockValidator] a new instance of BlockValidator
   #
-  # source://activemodel//lib/active_model/validator.rb#180
+  # source://activemodel//lib/active_model/validator.rb#196
   def initialize(options, &block); end
 
   private
 
-  # source://activemodel//lib/active_model/validator.rb#186
+  # source://activemodel//lib/active_model/validator.rb#202
   def validate_each(record, attribute, value); end
 end
 
@@ -2232,6 +2463,16 @@ class ActiveModel::EachValidator < ::ActiveModel::Validator
 
   private
 
+  # @return [Boolean]
+  #
+  # source://activemodel//lib/active_model/validator.rb#184
+  def allow_blank?(record); end
+
+  # @return [Boolean]
+  #
+  # source://activemodel//lib/active_model/validator.rb#176
+  def allow_nil?(record); end
+
   # source://activemodel//lib/active_model/validator.rb#172
   def prepare_value_for_validation(value, record, attr_name); end
 end
@@ -2240,24 +2481,24 @@ end
 #
 # Represents one single error
 #
-# source://activemodel//lib/active_model/error.rb#9
+# source://activemodel//lib/active_model/error.rb#8
 class ActiveModel::Error
   # @return [Error] a new instance of Error
   #
-  # source://activemodel//lib/active_model/error.rb#103
+  # source://activemodel//lib/active_model/error.rb#102
   def initialize(base, attribute, type = T.unsafe(nil), **options); end
 
-  # source://activemodel//lib/active_model/error.rb#190
+  # source://activemodel//lib/active_model/error.rb#189
   def ==(other); end
 
   # The attribute of +base+ which the error belongs to
   #
-  # source://activemodel//lib/active_model/error.rb#121
+  # source://activemodel//lib/active_model/error.rb#120
   def attribute; end
 
   # The object which the error belongs to
   #
-  # source://activemodel//lib/active_model/error.rb#119
+  # source://activemodel//lib/active_model/error.rb#118
   def base; end
 
   # Returns the error details.
@@ -2266,7 +2507,7 @@ class ActiveModel::Error
   #   error.details
   #   # => { error: :too_short, count: 5 }
   #
-  # source://activemodel//lib/active_model/error.rb#152
+  # source://activemodel//lib/active_model/error.rb#151
   def detail; end
 
   # Returns the error details.
@@ -2275,10 +2516,10 @@ class ActiveModel::Error
   #   error.details
   #   # => { error: :too_short, count: 5 }
   #
-  # source://activemodel//lib/active_model/error.rb#149
+  # source://activemodel//lib/active_model/error.rb#148
   def details; end
 
-  # source://activemodel//lib/active_model/error.rb#193
+  # source://activemodel//lib/active_model/error.rb#192
   def eql?(other); end
 
   # Returns the full error message.
@@ -2287,22 +2528,22 @@ class ActiveModel::Error
   #   error.full_message
   #   # => "Name is too short (minimum is 5 characters)"
   #
-  # source://activemodel//lib/active_model/error.rb#159
+  # source://activemodel//lib/active_model/error.rb#158
   def full_message; end
 
-  # source://activemodel//lib/active_model/error.rb#195
+  # source://activemodel//lib/active_model/error.rb#194
   def hash; end
 
-  # source://activemodel//lib/active_model/error.rb#13
+  # source://activemodel//lib/active_model/error.rb#12
   def i18n_customize_full_message; end
 
-  # source://activemodel//lib/active_model/error.rb#13
+  # source://activemodel//lib/active_model/error.rb#12
   def i18n_customize_full_message=(_arg0); end
 
-  # source://activemodel//lib/active_model/error.rb#13
+  # source://activemodel//lib/active_model/error.rb#12
   def i18n_customize_full_message?; end
 
-  # source://activemodel//lib/active_model/error.rb#199
+  # source://activemodel//lib/active_model/error.rb#198
   def inspect; end
 
   # See if error matches provided +attribute+, +type+, and +options+.
@@ -2311,7 +2552,7 @@ class ActiveModel::Error
   #
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/error.rb#166
+  # source://activemodel//lib/active_model/error.rb#165
   def match?(attribute, type = T.unsafe(nil), **options); end
 
   # Returns the error message.
@@ -2320,18 +2561,18 @@ class ActiveModel::Error
   #   error.message
   #   # => "is too short (minimum is 5 characters)"
   #
-  # source://activemodel//lib/active_model/error.rb#135
+  # source://activemodel//lib/active_model/error.rb#134
   def message; end
 
   # The options provided when calling <tt>errors#add</tt>
   #
-  # source://activemodel//lib/active_model/error.rb#128
+  # source://activemodel//lib/active_model/error.rb#127
   def options; end
 
   # The raw value provided as the second parameter when calling
   # <tt>errors#add</tt>
   #
-  # source://activemodel//lib/active_model/error.rb#126
+  # source://activemodel//lib/active_model/error.rb#125
   def raw_type; end
 
   # See if error matches provided +attribute+, +type+, and +options+ exactly.
@@ -2341,54 +2582,54 @@ class ActiveModel::Error
   #
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/error.rb#184
+  # source://activemodel//lib/active_model/error.rb#183
   def strict_match?(attribute, type, **options); end
 
   # The type of error, defaults to +:invalid+ unless specified
   #
-  # source://activemodel//lib/active_model/error.rb#123
+  # source://activemodel//lib/active_model/error.rb#122
   def type; end
 
   protected
 
-  # source://activemodel//lib/active_model/error.rb#204
+  # source://activemodel//lib/active_model/error.rb#203
   def attributes_for_hash; end
 
   private
 
-  # source://activemodel//lib/active_model/error.rb#111
+  # source://activemodel//lib/active_model/error.rb#110
   def initialize_dup(other); end
 
   class << self
-    # source://activemodel//lib/active_model/error.rb#15
+    # source://activemodel//lib/active_model/error.rb#14
     def full_message(attribute, message, base); end
 
-    # source://activemodel//lib/active_model/error.rb#64
+    # source://activemodel//lib/active_model/error.rb#63
     def generate_message(attribute, type, base, options); end
 
-    # source://activemodel//lib/active_model/error.rb#13
+    # source://activemodel//lib/active_model/error.rb#12
     def i18n_customize_full_message; end
 
-    # source://activemodel//lib/active_model/error.rb#13
+    # source://activemodel//lib/active_model/error.rb#12
     def i18n_customize_full_message=(value); end
 
-    # source://activemodel//lib/active_model/error.rb#13
+    # source://activemodel//lib/active_model/error.rb#12
     def i18n_customize_full_message?; end
 
     private
 
-    # source://activemodel//lib/active_model/error.rb#13
+    # source://activemodel//lib/active_model/error.rb#12
     def __class_attr_i18n_customize_full_message; end
 
-    # source://activemodel//lib/active_model/error.rb#13
+    # source://activemodel//lib/active_model/error.rb#12
     def __class_attr_i18n_customize_full_message=(new_value); end
   end
 end
 
-# source://activemodel//lib/active_model/error.rb#10
+# source://activemodel//lib/active_model/error.rb#9
 ActiveModel::Error::CALLBACKS_OPTIONS = T.let(T.unsafe(nil), Array)
 
-# source://activemodel//lib/active_model/error.rb#11
+# source://activemodel//lib/active_model/error.rb#10
 ActiveModel::Error::MESSAGE_OPTIONS = T.let(T.unsafe(nil), Array)
 
 # = Active \Model \Errors
@@ -2442,10 +2683,9 @@ ActiveModel::Error::MESSAGE_OPTIONS = T.let(T.unsafe(nil), Array)
 #   person.errors.full_messages # => ["name cannot be nil"]
 #   # etc..
 #
-# source://activemodel//lib/active_model/errors.rb#61
+# source://activemodel//lib/active_model/errors.rb#60
 class ActiveModel::Errors
   include ::Enumerable
-  extend ::Forwardable
 
   # Pass in the instance of the object that is using the errors object.
   #
@@ -2457,7 +2697,7 @@ class ActiveModel::Errors
   #
   # @return [Errors] a new instance of Errors
   #
-  # source://activemodel//lib/active_model/errors.rb#117
+  # source://activemodel//lib/active_model/errors.rb#114
   def initialize(base); end
 
   # When passed a symbol or a name of a method, returns an array of errors
@@ -2466,7 +2706,7 @@ class ActiveModel::Errors
   #   person.errors[:name]  # => ["cannot be nil"]
   #   person.errors['name'] # => ["cannot be nil"]
   #
-  # source://activemodel//lib/active_model/errors.rb#229
+  # source://activemodel//lib/active_model/errors.rb#226
   def [](attribute); end
 
   # Adds a new error of +type+ on +attribute+.
@@ -2519,7 +2759,7 @@ class ActiveModel::Errors
   #   person.errors.details
   #   # => {:base=>[{error: :name_or_email_blank}]}
   #
-  # source://activemodel//lib/active_model/errors.rb#342
+  # source://activemodel//lib/active_model/errors.rb#339
   def add(attribute, type = T.unsafe(nil), **options); end
 
   # Returns +true+ if an error matches provided +attribute+ and +type+,
@@ -2541,7 +2781,7 @@ class ActiveModel::Errors
   #
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/errors.rb#372
+  # source://activemodel//lib/active_model/errors.rb#369
   def added?(attribute, type = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # Returns a Hash that can be used as the JSON representation for this
@@ -2551,7 +2791,7 @@ class ActiveModel::Errors
   #   person.errors.as_json                      # => {:name=>["cannot be nil"]}
   #   person.errors.as_json(full_messages: true) # => {:name=>["name cannot be nil"]}
   #
-  # source://activemodel//lib/active_model/errors.rb#247
+  # source://activemodel//lib/active_model/errors.rb#244
   def as_json(options = T.unsafe(nil)); end
 
   # Returns all error attribute names
@@ -2559,11 +2799,11 @@ class ActiveModel::Errors
   #   person.errors.messages        # => {:name=>["cannot be nil", "must be specified"]}
   #   person.errors.attribute_names # => [:name]
   #
-  # source://activemodel//lib/active_model/errors.rb#237
+  # source://activemodel//lib/active_model/errors.rb#234
   def attribute_names; end
 
-  # source://activemodel//lib/active_model/errors.rb#103
-  def clear(*args, **_arg1, &block); end
+  # source://activemodel//lib/active_model/errors.rb#100
+  def clear(*_arg0, **_arg1, &_arg2); end
 
   # Copies the errors from <tt>other</tt>.
   # For copying errors but keep <tt>@base</tt> as is.
@@ -2576,7 +2816,7 @@ class ActiveModel::Errors
   #
   #   person.errors.copy!(other)
   #
-  # source://activemodel//lib/active_model/errors.rb#138
+  # source://activemodel//lib/active_model/errors.rb#135
   def copy!(other); end
 
   # Delete messages for +key+. Returns the deleted messages.
@@ -2585,31 +2825,37 @@ class ActiveModel::Errors
   #   person.errors.delete(:name) # => ["cannot be nil"]
   #   person.errors[:name]        # => []
   #
-  # source://activemodel//lib/active_model/errors.rb#215
+  # source://activemodel//lib/active_model/errors.rb#212
   def delete(attribute, type = T.unsafe(nil), **options); end
 
   # Returns a Hash of attributes with an array of their error details.
   #
-  # source://activemodel//lib/active_model/errors.rb#276
+  # source://activemodel//lib/active_model/errors.rb#273
   def details; end
 
-  # source://activemodel//lib/active_model/errors.rb#103
-  def each(*args, **_arg1, &block); end
+  # :method: size
+  #
+  # :call-seq: size
+  #
+  # Returns number of errors.
+  #
+  # source://activemodel//lib/active_model/errors.rb#100
+  def each(*_arg0, **_arg1, &_arg2); end
 
-  # source://activemodel//lib/active_model/errors.rb#103
-  def empty?(*args, **_arg1, &block); end
+  # source://activemodel//lib/active_model/errors.rb#100
+  def empty?(*_arg0, **_arg1, &_arg2); end
 
   # The actual array of +Error+ objects
   # This method is aliased to <tt>objects</tt>.
   #
-  # source://activemodel//lib/active_model/errors.rb#107
+  # source://activemodel//lib/active_model/errors.rb#104
   def errors; end
 
   # Returns a full message for a given attribute.
   #
   #   person.errors.full_message(:name, 'is invalid') # => "Name is invalid"
   #
-  # source://activemodel//lib/active_model/errors.rb#451
+  # source://activemodel//lib/active_model/errors.rb#456
   def full_message(attribute, message); end
 
   # Returns all the full error messages in an array.
@@ -2623,10 +2869,11 @@ class ActiveModel::Errors
   #   person.errors.full_messages
   #   # => ["Name is too short (minimum is 5 characters)", "Name can't be blank", "Email can't be blank"]
   #
-  # source://activemodel//lib/active_model/errors.rb#415
+  # source://activemodel//lib/active_model/errors.rb#412
   def full_messages; end
 
-  # Returns all the full error messages for a given attribute in an array.
+  # Returns all the full error messages for a given attribute
+  # and type (optional) in an array.
   #
   #   class Person
   #     validates_presence_of :name, :email
@@ -2637,8 +2884,11 @@ class ActiveModel::Errors
   #   person.errors.full_messages_for(:name)
   #   # => ["Name is too short (minimum is 5 characters)", "Name can't be blank"]
   #
-  # source://activemodel//lib/active_model/errors.rb#430
-  def full_messages_for(attribute); end
+  #   person.errors.full_messages_for(:name, :invalid)
+  #   # => ["Name is invalid"]
+  #
+  # source://activemodel//lib/active_model/errors.rb#431
+  def full_messages_for(attribute, type = T.unsafe(nil)); end
 
   # Translates an error message in its default scope
   # (<tt>activemodel.errors.messages</tt>).
@@ -2665,7 +2915,7 @@ class ActiveModel::Errors
   # * <tt>errors.attributes.title.blank</tt>
   # * <tt>errors.messages.blank</tt>
   #
-  # source://activemodel//lib/active_model/errors.rb#479
+  # source://activemodel//lib/active_model/errors.rb#484
   def generate_message(attribute, type = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # Returns a Hash of attributes with an array of their Error objects.
@@ -2673,7 +2923,7 @@ class ActiveModel::Errors
   #   person.errors.group_by_attribute
   #   # => {:name=>[<#ActiveModel::Error>, <#ActiveModel::Error>]}
   #
-  # source://activemodel//lib/active_model/errors.rb#289
+  # source://activemodel//lib/active_model/errors.rb#286
   def group_by_attribute; end
 
   # Returns +true+ if the error messages include an error for the given key
@@ -2685,7 +2935,7 @@ class ActiveModel::Errors
   #
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/errors.rb#207
+  # source://activemodel//lib/active_model/errors.rb#204
   def has_key?(attribute); end
 
   # Imports one error.
@@ -2698,7 +2948,7 @@ class ActiveModel::Errors
   # * +:attribute+ - Override the attribute the error belongs to.
   # * +:type+ - Override type of the error.
   #
-  # source://activemodel//lib/active_model/errors.rb#154
+  # source://activemodel//lib/active_model/errors.rb#151
   def import(error, override_options = T.unsafe(nil)); end
 
   # Returns +true+ if the error messages include an error for the given key
@@ -2710,10 +2960,10 @@ class ActiveModel::Errors
   #
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/errors.rb#202
+  # source://activemodel//lib/active_model/errors.rb#199
   def include?(attribute); end
 
-  # source://activemodel//lib/active_model/errors.rb#483
+  # source://activemodel//lib/active_model/errors.rb#488
   def inspect; end
 
   # Returns +true+ if the error messages include an error for the given key
@@ -2725,7 +2975,7 @@ class ActiveModel::Errors
   #
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/errors.rb#208
+  # source://activemodel//lib/active_model/errors.rb#205
   def key?(attribute); end
 
   # Merges the errors from <tt>other</tt>,
@@ -2739,15 +2989,16 @@ class ActiveModel::Errors
   #
   #   person.errors.merge!(other)
   #
-  # source://activemodel//lib/active_model/errors.rb#174
+  # source://activemodel//lib/active_model/errors.rb#171
   def merge!(other); end
 
   # Returns a Hash of attributes with an array of their error messages.
   #
-  # source://activemodel//lib/active_model/errors.rb#268
+  # source://activemodel//lib/active_model/errors.rb#265
   def messages; end
 
-  # Returns all the error messages for a given attribute in an array.
+  # Returns all the error messages for a given attribute
+  # and type (optional) in an array.
   #
   #   class Person
   #     validates_presence_of :name, :email
@@ -2758,13 +3009,16 @@ class ActiveModel::Errors
   #   person.errors.messages_for(:name)
   #   # => ["is too short (minimum is 5 characters)", "can't be blank"]
   #
-  # source://activemodel//lib/active_model/errors.rb#444
-  def messages_for(attribute); end
+  #   person.errors.messages_for(:name, :invalid)
+  #   # => ["is invalid"]
+  #
+  # source://activemodel//lib/active_model/errors.rb#449
+  def messages_for(attribute, type = T.unsafe(nil)); end
 
   # The actual array of +Error+ objects
   # This method is aliased to <tt>objects</tt>.
   #
-  # source://activemodel//lib/active_model/errors.rb#108
+  # source://activemodel//lib/active_model/errors.rb#105
   def objects; end
 
   # Returns +true+ if an error on the attribute with the given type is
@@ -2781,11 +3035,11 @@ class ActiveModel::Errors
   #
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/errors.rb#395
+  # source://activemodel//lib/active_model/errors.rb#392
   def of_kind?(attribute, type = T.unsafe(nil)); end
 
-  # source://activemodel//lib/active_model/errors.rb#103
-  def size(*args, **_arg1, &block); end
+  # source://activemodel//lib/active_model/errors.rb#100
+  def size(*_arg0, **_arg1, &_arg2); end
 
   # Returns all the full error messages in an array.
   #
@@ -2798,7 +3052,7 @@ class ActiveModel::Errors
   #   person.errors.full_messages
   #   # => ["Name is too short (minimum is 5 characters)", "Name can't be blank", "Email can't be blank"]
   #
-  # source://activemodel//lib/active_model/errors.rb#418
+  # source://activemodel//lib/active_model/errors.rb#415
   def to_a; end
 
   # Returns a Hash of attributes with their error messages. If +full_messages+
@@ -2807,11 +3061,11 @@ class ActiveModel::Errors
   #   person.errors.to_hash       # => {:name=>["cannot be nil"]}
   #   person.errors.to_hash(true) # => {:name=>["name cannot be nil"]}
   #
-  # source://activemodel//lib/active_model/errors.rb#256
+  # source://activemodel//lib/active_model/errors.rb#253
   def to_hash(full_messages = T.unsafe(nil)); end
 
-  # source://activemodel//lib/active_model/errors.rb#103
-  def uniq!(*args, **_arg1, &block); end
+  # source://activemodel//lib/active_model/errors.rb#100
+  def uniq!(*_arg0, **_arg1, &_arg2); end
 
   # Search for errors matching +attribute+, +type+, or +options+.
   #
@@ -2821,19 +3075,19 @@ class ActiveModel::Errors
   #   person.errors.where(:name, :too_short) # => all name errors being too short
   #   person.errors.where(:name, :too_short, minimum: 2) # => all name errors being too short and minimum is 2
   #
-  # source://activemodel//lib/active_model/errors.rb#189
+  # source://activemodel//lib/active_model/errors.rb#186
   def where(attribute, type = T.unsafe(nil), **options); end
 
   private
 
-  # source://activemodel//lib/active_model/errors.rb#122
+  # source://activemodel//lib/active_model/errors.rb#119
   def initialize_dup(other); end
 
-  # source://activemodel//lib/active_model/errors.rb#490
+  # source://activemodel//lib/active_model/errors.rb#495
   def normalize_arguments(attribute, type, **options); end
 end
 
-# source://activemodel//lib/active_model/errors.rb#265
+# source://activemodel//lib/active_model/errors.rb#262
 ActiveModel::Errors::EMPTY_ARRAY = T.let(T.unsafe(nil), Array)
 
 # = Active \Model \ForbiddenAttributesError
@@ -3145,10 +3399,13 @@ module ActiveModel::Lint::Tests
 
   private
 
-  # source://activemodel//lib/active_model/lint.rb#113
+  # source://activemodel//lib/active_model/lint.rb#117
   def assert_boolean(result, name); end
 
   # source://activemodel//lib/active_model/lint.rb#108
+  def def_method(receiver, name, &block); end
+
+  # source://activemodel//lib/active_model/lint.rb#112
   def model; end
 end
 
@@ -3213,6 +3470,7 @@ module ActiveModel::Model
   include ::ActiveModel::Validations::HelperMethods
   include ::ActiveModel::Validations
   include ::ActiveModel::Conversion
+  include ::ActiveModel::SchematizedJson
   include ::ActiveModel::API
 
   mixes_in_class_methods GeneratedClassMethods
@@ -3223,6 +3481,7 @@ module ActiveModel::Model
   mixes_in_class_methods ::ActiveModel::Translation
   mixes_in_class_methods ::ActiveModel::Validations::HelperMethods
   mixes_in_class_methods ::ActiveModel::Conversion::ClassMethods
+  mixes_in_class_methods ::ActiveModel::SchematizedJson::ClassMethods
 
   module GeneratedClassMethods
     def __callbacks; end
@@ -3243,7 +3502,7 @@ module ActiveModel::Model
   end
 end
 
-# source://activemodel//lib/active_model/naming.rb#9
+# source://activemodel//lib/active_model/naming.rb#8
 class ActiveModel::Name
   include ::Comparable
 
@@ -3263,57 +3522,57 @@ class ActiveModel::Name
   # @raise [ArgumentError]
   # @return [Name] a new instance of Name
   #
-  # source://activemodel//lib/active_model/naming.rb#166
+  # source://activemodel//lib/active_model/naming.rb#165
   def initialize(klass, namespace = T.unsafe(nil), name = T.unsafe(nil), locale = T.unsafe(nil)); end
 
-  # source://activemodel//lib/active_model/naming.rb#151
+  # source://activemodel//lib/active_model/naming.rb#150
   def !~(*_arg0, **_arg1, &_arg2); end
 
-  # source://activemodel//lib/active_model/naming.rb#151
+  # source://activemodel//lib/active_model/naming.rb#150
   def <=>(*_arg0, **_arg1, &_arg2); end
 
-  # source://activemodel//lib/active_model/naming.rb#151
+  # source://activemodel//lib/active_model/naming.rb#150
   def ==(arg); end
 
-  # source://activemodel//lib/active_model/naming.rb#151
+  # source://activemodel//lib/active_model/naming.rb#150
   def ===(arg); end
 
-  # source://activemodel//lib/active_model/naming.rb#151
+  # source://activemodel//lib/active_model/naming.rb#150
   def =~(*_arg0, **_arg1, &_arg2); end
 
-  # source://activemodel//lib/active_model/naming.rb#151
+  # source://activemodel//lib/active_model/naming.rb#150
   def as_json(*_arg0, **_arg1, &_arg2); end
 
   # Returns the value of attribute collection.
   #
-  # source://activemodel//lib/active_model/naming.rb#16
+  # source://activemodel//lib/active_model/naming.rb#15
   def cache_key; end
 
   # Returns the value of attribute collection.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def collection; end
 
   # Sets the attribute collection
   #
   # @param value the value to set the attribute collection to.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def collection=(_arg0); end
 
   # Returns the value of attribute element.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def element; end
 
   # Sets the attribute element
   #
   # @param value the value to set the attribute element to.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def element=(_arg0); end
 
-  # source://activemodel//lib/active_model/naming.rb#151
+  # source://activemodel//lib/active_model/naming.rb#150
   def eql?(*_arg0, **_arg1, &_arg2); end
 
   # Transform the model name into a more human format, using I18n. By default,
@@ -3327,120 +3586,120 @@ class ActiveModel::Name
   #
   # Specify +options+ with additional translating options.
   #
-  # source://activemodel//lib/active_model/naming.rb#197
+  # source://activemodel//lib/active_model/naming.rb#196
   def human(options = T.unsafe(nil)); end
 
   # Returns the value of attribute i18n_key.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def i18n_key; end
 
   # Sets the attribute i18n_key
   #
   # @param value the value to set the attribute i18n_key to.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def i18n_key=(_arg0); end
 
-  # source://activemodel//lib/active_model/naming.rb#151
+  # source://activemodel//lib/active_model/naming.rb#150
   def match?(*_arg0, **_arg1, &_arg2); end
 
   # Returns the value of attribute name.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def name; end
 
   # Sets the attribute name
   #
   # @param value the value to set the attribute name to.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def name=(_arg0); end
 
   # Returns the value of attribute param_key.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def param_key; end
 
   # Sets the attribute param_key
   #
   # @param value the value to set the attribute param_key to.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def param_key=(_arg0); end
 
   # Returns the value of attribute plural.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def plural; end
 
   # Sets the attribute plural
   #
   # @param value the value to set the attribute plural to.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def plural=(_arg0); end
 
   # Returns the value of attribute route_key.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def route_key; end
 
   # Sets the attribute route_key
   #
   # @param value the value to set the attribute route_key to.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def route_key=(_arg0); end
 
   # Returns the value of attribute singular.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def singular; end
 
   # Sets the attribute singular
   #
   # @param value the value to set the attribute singular to.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def singular=(_arg0); end
 
   # Returns the value of attribute singular_route_key.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def singular_route_key; end
 
   # Sets the attribute singular_route_key
   #
   # @param value the value to set the attribute singular_route_key to.
   #
-  # source://activemodel//lib/active_model/naming.rb#12
+  # source://activemodel//lib/active_model/naming.rb#11
   def singular_route_key=(_arg0); end
 
-  # source://activemodel//lib/active_model/naming.rb#151
+  # source://activemodel//lib/active_model/naming.rb#150
   def to_s(*_arg0, **_arg1, &_arg2); end
 
-  # source://activemodel//lib/active_model/naming.rb#151
+  # source://activemodel//lib/active_model/naming.rb#150
   def to_str(*_arg0, **_arg1, &_arg2); end
 
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/naming.rb#209
+  # source://activemodel//lib/active_model/naming.rb#208
   def uncountable?; end
 
   private
 
-  # source://activemodel//lib/active_model/naming.rb#216
+  # source://activemodel//lib/active_model/naming.rb#215
   def _singularize(string); end
 
-  # source://activemodel//lib/active_model/naming.rb#220
+  # source://activemodel//lib/active_model/naming.rb#219
   def i18n_keys; end
 
-  # source://activemodel//lib/active_model/naming.rb#228
+  # source://activemodel//lib/active_model/naming.rb#227
   def i18n_scope; end
 end
 
-# source://activemodel//lib/active_model/naming.rb#214
+# source://activemodel//lib/active_model/naming.rb#213
 ActiveModel::Name::MISSING_TRANSLATION = T.let(T.unsafe(nil), Integer)
 
 # = Active \Model \Naming
@@ -3463,7 +3722,7 @@ ActiveModel::Name::MISSING_TRANSLATION = T.let(T.unsafe(nil), Integer)
 # is required to pass the \Active \Model Lint test. So either extending the
 # provided method below, or rolling your own is required.
 #
-# source://activemodel//lib/active_model/naming.rb#252
+# source://activemodel//lib/active_model/naming.rb#251
 module ActiveModel::Naming
   # Returns an ActiveModel::Name object for module. It can be
   # used to retrieve all kinds of naming-related information
@@ -3478,16 +3737,16 @@ module ActiveModel::Naming
   #   Person.model_name.singular # => "person"
   #   Person.model_name.plural   # => "people"
   #
-  # source://activemodel//lib/active_model/naming.rb#270
+  # source://activemodel//lib/active_model/naming.rb#269
   def model_name; end
 
   private
 
-  # source://activemodel//lib/active_model/naming.rb#352
+  # source://activemodel//lib/active_model/naming.rb#351
   def inherited(base); end
 
   class << self
-    # source://activemodel//lib/active_model/naming.rb#253
+    # source://activemodel//lib/active_model/naming.rb#252
     def extended(base); end
 
     # Returns string to use for params names. It differs for
@@ -3499,7 +3758,7 @@ module ActiveModel::Naming
     #   # For shared engine:
     #   ActiveModel::Naming.param_key(Blog::Post) # => "blog_post"
     #
-    # source://activemodel//lib/active_model/naming.rb#338
+    # source://activemodel//lib/active_model/naming.rb#337
     def param_key(record_or_class); end
 
     # Returns the plural class name of a record or class.
@@ -3507,7 +3766,7 @@ module ActiveModel::Naming
     #   ActiveModel::Naming.plural(post)             # => "posts"
     #   ActiveModel::Naming.plural(Highrise::Person) # => "highrise_people"
     #
-    # source://activemodel//lib/active_model/naming.rb#283
+    # source://activemodel//lib/active_model/naming.rb#282
     def plural(record_or_class); end
 
     # Returns string to use while generating route names. It differs for
@@ -3522,7 +3781,7 @@ module ActiveModel::Naming
     # The route key also considers if the noun is uncountable and, in
     # such cases, automatically appends _index.
     #
-    # source://activemodel//lib/active_model/naming.rb#326
+    # source://activemodel//lib/active_model/naming.rb#325
     def route_key(record_or_class); end
 
     # Returns the singular class name of a record or class.
@@ -3530,7 +3789,7 @@ module ActiveModel::Naming
     #   ActiveModel::Naming.singular(post)             # => "post"
     #   ActiveModel::Naming.singular(Highrise::Person) # => "highrise_person"
     #
-    # source://activemodel//lib/active_model/naming.rb#291
+    # source://activemodel//lib/active_model/naming.rb#290
     def singular(record_or_class); end
 
     # Returns string to use while generating route names. It differs for
@@ -3542,7 +3801,7 @@ module ActiveModel::Naming
     #   # For shared engine:
     #   ActiveModel::Naming.singular_route_key(Blog::Post) # => "blog_post"
     #
-    # source://activemodel//lib/active_model/naming.rb#311
+    # source://activemodel//lib/active_model/naming.rb#310
     def singular_route_key(record_or_class); end
 
     # Identifies whether the class name of a record or class is uncountable.
@@ -3552,32 +3811,30 @@ module ActiveModel::Naming
     #
     # @return [Boolean]
     #
-    # source://activemodel//lib/active_model/naming.rb#299
+    # source://activemodel//lib/active_model/naming.rb#298
     def uncountable?(record_or_class); end
 
     private
 
-    # source://activemodel//lib/active_model/naming.rb#342
+    # source://activemodel//lib/active_model/naming.rb#341
     def model_name_from_record_or_class(record_or_class); end
   end
 end
 
-# source://activemodel//lib/active_model/nested_error.rb#7
+# source://activemodel//lib/active_model/nested_error.rb#6
 class ActiveModel::NestedError < ::ActiveModel::Error
-  extend ::Forwardable
-
   # @return [NestedError] a new instance of NestedError
   #
-  # source://activemodel//lib/active_model/nested_error.rb#8
+  # source://activemodel//lib/active_model/nested_error.rb#7
   def initialize(base, inner_error, override_options = T.unsafe(nil)); end
 
   # Returns the value of attribute inner_error.
   #
-  # source://activemodel//lib/active_model/nested_error.rb#17
+  # source://activemodel//lib/active_model/nested_error.rb#16
   def inner_error; end
 
-  # source://activemodel//lib/active_model/nested_error.rb#20
-  def message(*args, **_arg1, &block); end
+  # source://activemodel//lib/active_model/nested_error.rb#18
+  def message(*_arg0, **_arg1, &_arg2); end
 end
 
 # source://activemodel//lib/active_model/attribute_mutation_tracker.rb#156
@@ -3631,25 +3888,203 @@ end
 #
 # Raised when attribute values are out of range.
 #
-# source://activemodel//lib/active_model/errors.rb#523
+# source://activemodel//lib/active_model/errors.rb#528
 class ActiveModel::RangeError < ::RangeError; end
 
-# source://activemodel//lib/active_model/secure_password.rb#4
+# source://activemodel//lib/active_model/schematized_json.rb#7
+module ActiveModel::SchematizedJson
+  extend ::ActiveSupport::Concern
+
+  mixes_in_class_methods ::ActiveModel::SchematizedJson::ClassMethods
+end
+
+# source://activemodel//lib/active_model/schematized_json.rb#10
+module ActiveModel::SchematizedJson::ClassMethods
+  # Like +has_json+ but each schema key also becomes its own set of accessor methods.
+  #
+  #   class Account < ApplicationRecord
+  #     has_delegated_json :flags, beta: false, staff: :boolean
+  #   end
+  #
+  #   a = Account.new
+  #   a.beta? # => false
+  #   a.beta = true
+  #   a.beta # => true
+  #
+  # source://activemodel//lib/active_model/schematized_json.rb#57
+  def has_delegated_json(attr, **schema); end
+
+  # Provides a schema-enforced access object for a JSON attribute. This allows you to assign values
+  # directly from the UI as strings, and still have them set with the correct JSON type in the database.
+  #
+  # Only the three basic JSON types are supported: boolean, integer, and string. No nesting either.
+  # These types can either be set by referring to them by their symbol or by setting a default value.
+  # Default values are set when a new model is instantiated and on +before_save+ (if defined).
+  #
+  # Examples:
+  #
+  #   class Account < ApplicationRecord
+  #     has_json :settings, restrict_creation_to_admins: true, max_invites: 10, greeting: "Hello!"
+  #     has_json :flags, beta: false, staff: :boolean
+  #   end
+  #
+  #   a = Account.new
+  #   a.settings.restrict_creation_to_admins? # => true
+  #   a.settings.max_invites = "100" # => Set to integer 100
+  #   a.settings = { "restrict_creation_to_admins" => "false", "max_invites" => "500", "greeting" => "goodbye" }
+  #   a.settings.greeting # => "goodbye"
+  #   a.flags.staff # => nil
+  #   a.flags.staff? # => false
+  #
+  # source://activemodel//lib/active_model/schematized_json.rb#32
+  def has_json(attr, **schema); end
+end
+
+# source://activemodel//lib/active_model/schematized_json.rb#69
+class ActiveModel::SchematizedJson::DataAccessor
+  # @return [DataAccessor] a new instance of DataAccessor
+  #
+  # source://activemodel//lib/active_model/schematized_json.rb#70
+  def initialize(schema, data:); end
+
+  # source://activemodel//lib/active_model/schematized_json.rb#75
+  def assign_data_with_type_casting(new_data); end
+
+  private
+
+  # source://activemodel//lib/active_model/schematized_json.rb#100
+  def lookup_schema_type_for(key); end
+
+  # source://activemodel//lib/active_model/schematized_json.rb#80
+  def method_missing(method_name, *args, **kwargs); end
+
+  # @return [Boolean]
+  #
+  # source://activemodel//lib/active_model/schematized_json.rb#96
+  def respond_to_missing?(method_name, include_private = T.unsafe(nil)); end
+
+  # Types that are declared using real values, like true/false, 5, or "hello", will be used as defaults.
+  # Types that are declared using symbols, like :boolean, :integer, :string, will be nulled out.
+  #
+  # source://activemodel//lib/active_model/schematized_json.rb#119
+  def update_data_with_schema_defaults; end
+end
+
+# source://activemodel//lib/active_model/secure_password/bcrypt_password.rb#4
 module ActiveModel::SecurePassword
   extend ::ActiveSupport::Concern
 
   mixes_in_class_methods ::ActiveModel::SecurePassword::ClassMethods
 
   class << self
-    # source://activemodel//lib/active_model/secure_password.rb#13
+    # Returns the registry of password algorithms
+    #
+    # source://activemodel//lib/active_model/secure_password.rb#17
+    def algorithm_registry; end
+
+    # Looks up a registered algorithm by name
+    #
+    # source://activemodel//lib/active_model/secure_password.rb#31
+    def lookup_algorithm(name); end
+
+    # source://activemodel//lib/active_model/secure_password.rb#14
     def min_cost; end
 
-    # source://activemodel//lib/active_model/secure_password.rb#13
+    # source://activemodel//lib/active_model/secure_password.rb#14
     def min_cost=(_arg0); end
+
+    # Registers a password algorithm for use with has_secure_password
+    #
+    #   ActiveModel::SecurePassword.register_algorithm :argon2, Argon2Password
+    #
+    # The algorithm class will be instantiated when used.
+    #
+    # source://activemodel//lib/active_model/secure_password.rb#26
+    def register_algorithm(name, algorithm_class); end
   end
 end
 
-# source://activemodel//lib/active_model/secure_password.rb#17
+# source://activemodel//lib/active_model/secure_password/argon2_password.rb#5
+class ActiveModel::SecurePassword::Argon2Password
+  # @return [Argon2Password] a new instance of Argon2Password
+  #
+  # source://activemodel//lib/active_model/secure_password/argon2_password.rb#6
+  def initialize; end
+
+  # Returns the algorithm name.
+  #
+  # source://activemodel//lib/active_model/secure_password/argon2_password.rb#41
+  def algorithm_name; end
+
+  # Hashes the unencrypted password using Argon2.
+  #
+  # source://activemodel//lib/active_model/secure_password/argon2_password.rb#17
+  def hash_password(unencrypted_password); end
+
+  # Generates the salt from the password digest.
+  #
+  # source://activemodel//lib/active_model/secure_password/argon2_password.rb#31
+  def password_salt(digest); end
+
+  # Validates the password and adds error to the record in the given attribute.
+  # Argon2 has no maximum input size, no validation needed.
+  #
+  # source://activemodel//lib/active_model/secure_password/argon2_password.rb#37
+  def validate(_record, _attribute); end
+
+  # Verifies if the password matches the digest.
+  #
+  # source://activemodel//lib/active_model/secure_password/argon2_password.rb#26
+  def verify_password(password, digest); end
+end
+
+# source://activemodel//lib/active_model/secure_password/bcrypt_password.rb#5
+class ActiveModel::SecurePassword::BCryptPassword
+  # @return [BCryptPassword] a new instance of BCryptPassword
+  #
+  # source://activemodel//lib/active_model/secure_password/bcrypt_password.rb#11
+  def initialize; end
+
+  # Returns the algorithm name.
+  #
+  # source://activemodel//lib/active_model/secure_password/bcrypt_password.rb#46
+  def algorithm_name; end
+
+  # Hashes the unencrypted password using BCrypt.
+  #
+  # source://activemodel//lib/active_model/secure_password/bcrypt_password.rb#22
+  def hash_password(unencrypted_password); end
+
+  # Generates the salt from the password digest.
+  #
+  # source://activemodel//lib/active_model/secure_password/bcrypt_password.rb#32
+  def password_salt(digest); end
+
+  # Validates the password and adds error to the record in the given attribute.
+  # BCrypt has a maximum input size, so we need to validate it.
+  #
+  # source://activemodel//lib/active_model/secure_password/bcrypt_password.rb#38
+  def validate(record, attribute); end
+
+  # Verifies if the password matches the digest.
+  #
+  # source://activemodel//lib/active_model/secure_password/bcrypt_password.rb#27
+  def verify_password(password, digest); end
+
+  private
+
+  # source://activemodel//lib/active_model/secure_password/bcrypt_password.rb#51
+  def cost; end
+end
+
+# BCrypt hash function can handle maximum 72 bytes, and if we pass
+# password of length more than 72 bytes it ignores extra characters.
+# Hence need to put a restriction on password length.
+#
+# source://activemodel//lib/active_model/secure_password/bcrypt_password.rb#9
+ActiveModel::SecurePassword::BCryptPassword::MAX_PASSWORD_LENGTH_ALLOWED = T.let(T.unsafe(nil), Integer)
+
+# source://activemodel//lib/active_model/secure_password.rb#37
 module ActiveModel::SecurePassword::ClassMethods
   # Adds methods to set and authenticate against a BCrypt password.
   # This mechanism requires you to have a +XXX_digest+ attribute,
@@ -3675,13 +4110,22 @@ module ActiveModel::SecurePassword::ClassMethods
   # <tt>validations: false</tt> as an argument. This allows complete
   # customizability of validation behavior.
   #
-  # Finally, a password reset token that's valid for 15 minutes after issue
-  # is automatically configured when +reset_token+ is set to true (which it is by default)
+  # A password reset token (valid for 15 minutes by default) is automatically
+  # configured when +reset_token+ is set to true (which it is by default)
   # and the object responds to +generates_token_for+ (which Active Records do).
+  #
+  # Finally, the reset token expiry can be customized by passing a hash to
+  # +has_secure_password+:
+  #
+  #   has_secure_password reset_token: { expires_in: 1.hour }
   #
   # To use +has_secure_password+, add bcrypt (~> 3.1.7) to your Gemfile:
   #
   #   gem "bcrypt", "~> 3.1.7"
+  #
+  # If you want to use a different password hashing algorithm, you can implement your own
+  # class that responds to +algorithm_name+, +hash_password+, +verify_password+, +password_salt+ and +validate+.
+  # For an example implementation, see +BCryptPassword+ in +bcrypt_password.rb+.
   #
   # ==== Examples
   #
@@ -3695,6 +4139,7 @@ module ActiveModel::SecurePassword::ClassMethods
   #
   #   user = User.new(name: "david", password: "", password_confirmation: "nomatch")
   #
+  #   user.password_algorithm                                        # => :bcrypt
   #   user.save                                                      # => false, password required
   #   user.password = "vr00m"
   #   user.save                                                      # => false, confirmation doesn't match
@@ -3750,24 +4195,67 @@ module ActiveModel::SecurePassword::ClassMethods
   #   # raises ActiveSupport::MessageVerifier::InvalidSignature since the token is expired
   #   User.find_by_password_reset_token!(token)
   #
-  # source://activemodel//lib/active_model/secure_password.rb#116
-  def has_secure_password(attribute = T.unsafe(nil), validations: T.unsafe(nil), reset_token: T.unsafe(nil)); end
+  # ===== Customizing the hashing algorithm
+  #
+  # +has_secure_password+ supports +:bcrypt+ (default) and +:argon2+ out of the box.
+  # To use +:argon2+, add +gem "argon2", "~> 2.3"+ to your Gemfile and set the +algorithm+ option:
+  #
+  #   class User < ActiveRecord::Base
+  #     has_secure_password algorithm: :argon2
+  #   end
+  #
+  # To add a custom algorithm, create a class that implements +hash_password+, +verify_password+, +password_salt+,
+  # +validate+ and +algorithm_name+ methods, then register it:
+  #
+  #   class ScryptPassword
+  #     def initialize
+  #       require "scrypt"
+  #     rescue LoadError
+  #       warn "You don't have scrypt installed in your application. Please add it to your Gemfile and run bundle install."
+  #       raise
+  #     end
+  #
+  #     def hash_password(unencrypted_password)
+  #       SCrypt::Password.create(unencrypted_password)
+  #     end
+  #
+  #     def verify_password(password, digest)
+  #       SCrypt::Password.new(digest) == password
+  #     end
+  #
+  #     def password_salt(digest)
+  #       SCrypt::Password.new(digest).salt
+  #     end
+  #
+  #     def validate(_record, _attribute)
+  #       # Scrypt has no maximum input size, no validation needed
+  #     end
+  #
+  #     def algorithm_name
+  #       :scrypt
+  #     end
+  #   end
+  #
+  #   ActiveModel::SecurePassword.register_algorithm :scrypt, ScryptPassword
+  #
+  #   class User < ActiveRecord::Base
+  #     has_secure_password algorithm: :scrypt
+  #   end
+  #
+  # source://activemodel//lib/active_model/secure_password.rb#194
+  def has_secure_password(attribute = T.unsafe(nil), validations: T.unsafe(nil), reset_token: T.unsafe(nil), algorithm: T.unsafe(nil)); end
 end
 
-# source://activemodel//lib/active_model/secure_password.rb#182
+# source://activemodel//lib/active_model/secure_password.rb#11
+ActiveModel::SecurePassword::DEFAULT_RESET_TOKEN_EXPIRES_IN = T.let(T.unsafe(nil), ActiveSupport::Duration)
+
+# source://activemodel//lib/active_model/secure_password.rb#264
 class ActiveModel::SecurePassword::InstanceMethodsOnActivation < ::Module
   # @return [InstanceMethodsOnActivation] a new instance of InstanceMethodsOnActivation
   #
-  # source://activemodel//lib/active_model/secure_password.rb#183
-  def initialize(attribute, reset_token:); end
+  # source://activemodel//lib/active_model/secure_password.rb#265
+  def initialize(attribute, reset_token:, algorithm:); end
 end
-
-# BCrypt hash function can handle maximum 72 bytes, and if we pass
-# password of length more than 72 bytes it ignores extra characters.
-# Hence need to put a restriction on password length.
-#
-# source://activemodel//lib/active_model/secure_password.rb#10
-ActiveModel::SecurePassword::MAX_PASSWORD_LENGTH_ALLOWED = T.let(T.unsafe(nil), Integer)
 
 # = Active \Model \Serialization
 #
@@ -3933,7 +4421,7 @@ module ActiveModel::Serialization
   def serializable_attributes(attribute_names); end
 end
 
-# source://activemodel//lib/active_model.rb#68
+# source://activemodel//lib/active_model.rb#75
 module ActiveModel::Serializers
   extend ::ActiveSupport::Autoload
 end
@@ -4099,7 +4587,7 @@ end
 #   person.valid?
 #   # => ActiveModel::StrictValidationFailed: Name can't be blank
 #
-# source://activemodel//lib/active_model/errors.rb#517
+# source://activemodel//lib/active_model/errors.rb#522
 class ActiveModel::StrictValidationFailed < ::StandardError; end
 
 # = Active \Model \Translation
@@ -4204,12 +4692,20 @@ end
 #
 # source://activemodel//lib/active_model/type/big_integer.rb#25
 class ActiveModel::Type::BigInteger < ::ActiveModel::Type::Integer
+  # @return [Boolean]
+  #
+  # source://activemodel//lib/active_model/type/big_integer.rb#47
+  def serializable?(value, &_arg1); end
+
   # source://activemodel//lib/active_model/type/big_integer.rb#26
+  def serialize(value); end
+
+  # source://activemodel//lib/active_model/type/big_integer.rb#43
   def serialize_cast_value(value); end
 
   private
 
-  # source://activemodel//lib/active_model/type/big_integer.rb#31
+  # source://activemodel//lib/active_model/type/big_integer.rb#52
   def max_value; end
 end
 
@@ -4274,22 +4770,24 @@ end
 #
 # source://activemodel//lib/active_model/type/boolean.rb#14
 class ActiveModel::Type::Boolean < ::ActiveModel::Type::Value
-  # source://activemodel//lib/active_model/type/boolean.rb#30
+  include ::ActiveModel::Type::Helpers::Immutable
+
+  # source://activemodel//lib/active_model/type/boolean.rb#31
   def serialize(value); end
 
-  # source://activemodel//lib/active_model/type/boolean.rb#34
+  # source://activemodel//lib/active_model/type/boolean.rb#35
   def serialize_cast_value(value); end
 
-  # source://activemodel//lib/active_model/type/boolean.rb#26
+  # source://activemodel//lib/active_model/type/boolean.rb#27
   def type; end
 
   private
 
-  # source://activemodel//lib/active_model/type/boolean.rb#39
+  # source://activemodel//lib/active_model/type/boolean.rb#40
   def cast_value(value); end
 end
 
-# source://activemodel//lib/active_model/type/boolean.rb#15
+# source://activemodel//lib/active_model/type/boolean.rb#16
 ActiveModel::Type::Boolean::FALSE_VALUES = T.let(T.unsafe(nil), Set)
 
 # = Active Model \Date \Type
@@ -4316,34 +4814,35 @@ ActiveModel::Type::Boolean::FALSE_VALUES = T.let(T.unsafe(nil), Set)
 #
 # source://activemodel//lib/active_model/type/date.rb#26
 class ActiveModel::Type::Date < ::ActiveModel::Type::Value
+  include ::ActiveModel::Type::Helpers::Immutable
   include ::ActiveModel::Type::Helpers::Timezone
   include ::ActiveModel::Type::Helpers::AcceptsMultiparameterTime::InstanceMethods
 
-  # source://activemodel//lib/active_model/type/date.rb#30
+  # source://activemodel//lib/active_model/type/date.rb#31
   def type; end
 
-  # source://activemodel//lib/active_model/type/date.rb#34
+  # source://activemodel//lib/active_model/type/date.rb#35
   def type_cast_for_schema(value); end
 
   private
 
-  # source://activemodel//lib/active_model/type/date.rb#39
+  # source://activemodel//lib/active_model/type/date.rb#40
   def cast_value(value); end
 
-  # source://activemodel//lib/active_model/type/date.rb#57
+  # source://activemodel//lib/active_model/type/date.rb#58
   def fallback_string_to_date(string); end
 
-  # source://activemodel//lib/active_model/type/date.rb#51
+  # source://activemodel//lib/active_model/type/date.rb#52
   def fast_string_to_date(string); end
 
-  # source://activemodel//lib/active_model/type/date.rb#66
+  # source://activemodel//lib/active_model/type/date.rb#67
   def new_date(year, mon, mday); end
 
-  # source://activemodel//lib/active_model/type/date.rb#72
+  # source://activemodel//lib/active_model/type/date.rb#73
   def value_from_multiparameter_assignment(*_arg0); end
 end
 
-# source://activemodel//lib/active_model/type/date.rb#50
+# source://activemodel//lib/active_model/type/date.rb#51
 ActiveModel::Type::Date::ISO_DATE = T.let(T.unsafe(nil), Regexp)
 
 # = Active Model \DateTime \Type
@@ -4390,24 +4889,29 @@ class ActiveModel::Type::DateTime < ::ActiveModel::Type::Value
   include ::ActiveModel::Type::Helpers::AcceptsMultiparameterTime::InstanceMethods
   include ::ActiveModel::Type::Helpers::TimeValue
 
+  # @return [Boolean]
+  #
+  # source://activemodel//lib/active_model/type/date_time.rb#53
+  def mutable?; end
+
   # source://activemodel//lib/active_model/type/date_time.rb#49
   def type; end
 
   private
 
-  # source://activemodel//lib/active_model/type/date_time.rb#54
+  # source://activemodel//lib/active_model/type/date_time.rb#62
   def cast_value(value); end
 
-  # source://activemodel//lib/active_model/type/date_time.rb#67
+  # source://activemodel//lib/active_model/type/date_time.rb#75
   def fallback_string_to_time(string); end
 
   # '0.123456' -> 123456
   # '1.123456' -> 123456
   #
-  # source://activemodel//lib/active_model/type/date_time.rb#63
+  # source://activemodel//lib/active_model/type/date_time.rb#71
   def microseconds(time); end
 
-  # source://activemodel//lib/active_model/type/date_time.rb#79
+  # source://activemodel//lib/active_model/type/date_time.rb#87
   def value_from_multiparameter_assignment(values_hash); end
 end
 
@@ -4452,30 +4956,31 @@ end
 #
 # source://activemodel//lib/active_model/type/decimal.rb#45
 class ActiveModel::Type::Decimal < ::ActiveModel::Type::Value
+  include ::ActiveModel::Type::Helpers::Immutable
   include ::ActiveModel::Type::Helpers::Numeric
 
-  # source://activemodel//lib/active_model/type/decimal.rb#49
+  # source://activemodel//lib/active_model/type/decimal.rb#50
   def type; end
 
-  # source://activemodel//lib/active_model/type/decimal.rb#53
+  # source://activemodel//lib/active_model/type/decimal.rb#54
   def type_cast_for_schema(value); end
 
   private
 
-  # source://activemodel//lib/active_model/type/decimal.rb#98
+  # source://activemodel//lib/active_model/type/decimal.rb#99
   def apply_scale(value); end
 
-  # source://activemodel//lib/active_model/type/decimal.rb#58
+  # source://activemodel//lib/active_model/type/decimal.rb#59
   def cast_value(value); end
 
-  # source://activemodel//lib/active_model/type/decimal.rb#82
+  # source://activemodel//lib/active_model/type/decimal.rb#83
   def convert_float_to_big_decimal(value); end
 
-  # source://activemodel//lib/active_model/type/decimal.rb#90
+  # source://activemodel//lib/active_model/type/decimal.rb#91
   def float_precision; end
 end
 
-# source://activemodel//lib/active_model/type/decimal.rb#47
+# source://activemodel//lib/active_model/type/decimal.rb#48
 ActiveModel::Type::Decimal::BIGDECIMAL_PRECISION = T.let(T.unsafe(nil), Integer)
 
 # = Active Model \Float \Type
@@ -4510,17 +5015,18 @@ ActiveModel::Type::Decimal::BIGDECIMAL_PRECISION = T.let(T.unsafe(nil), Integer)
 #
 # source://activemodel//lib/active_model/type/float.rb#36
 class ActiveModel::Type::Float < ::ActiveModel::Type::Value
+  include ::ActiveModel::Type::Helpers::Immutable
   include ::ActiveModel::Type::Helpers::Numeric
 
-  # source://activemodel//lib/active_model/type/float.rb#39
+  # source://activemodel//lib/active_model/type/float.rb#40
   def type; end
 
-  # source://activemodel//lib/active_model/type/float.rb#43
+  # source://activemodel//lib/active_model/type/float.rb#44
   def type_cast_for_schema(value); end
 
   private
 
-  # source://activemodel//lib/active_model/type/float.rb#53
+  # source://activemodel//lib/active_model/type/float.rb#54
   def cast_value(value); end
 end
 
@@ -4553,6 +5059,14 @@ module ActiveModel::Type::Helpers::AcceptsMultiparameterTime::InstanceMethods
   #
   # source://activemodel//lib/active_model/type/helpers/accepts_multiparameter_time.rb#32
   def value_constructed_by_mass_assignment?(value); end
+end
+
+# source://activemodel//lib/active_model/type/helpers/immutable.rb#6
+module ActiveModel::Type::Helpers::Immutable
+  # @return [Boolean]
+  #
+  # source://activemodel//lib/active_model/type/helpers/immutable.rb#7
+  def mutable?; end
 end
 
 # source://activemodel//lib/active_model/type/helpers/mutable.rb#6
@@ -4632,15 +5146,12 @@ module ActiveModel::Type::Helpers::TimeValue
   # used to return an invalid Time object
   # see: https://bugs.ruby-lang.org/issues/19292
   #
-  # source://activemodel//lib/active_model/type/helpers/time_value.rb#88
+  # source://activemodel//lib/active_model/type/helpers/time_value.rb#80
   def fast_string_to_time(string); end
 
   # source://activemodel//lib/active_model/type/helpers/time_value.rb#47
   def new_time(year, mon, mday, hour, min, sec, microsec, offset = T.unsafe(nil)); end
 end
-
-# source://activemodel//lib/active_model/type/helpers/time_value.rb#64
-ActiveModel::Type::Helpers::TimeValue::ISO_DATETIME = T.let(T.unsafe(nil), Regexp)
 
 # source://activemodel//lib/active_model/type/helpers/timezone.rb#8
 module ActiveModel::Type::Helpers::Timezone
@@ -4688,23 +5199,25 @@ end
 #
 # source://activemodel//lib/active_model/type/immutable_string.rb#37
 class ActiveModel::Type::ImmutableString < ::ActiveModel::Type::Value
+  include ::ActiveModel::Type::Helpers::Immutable
+
   # @return [ImmutableString] a new instance of ImmutableString
   #
-  # source://activemodel//lib/active_model/type/immutable_string.rb#38
+  # source://activemodel//lib/active_model/type/immutable_string.rb#40
   def initialize(**args); end
 
-  # source://activemodel//lib/active_model/type/immutable_string.rb#48
+  # source://activemodel//lib/active_model/type/immutable_string.rb#50
   def serialize(value); end
 
-  # source://activemodel//lib/active_model/type/immutable_string.rb#57
+  # source://activemodel//lib/active_model/type/immutable_string.rb#59
   def serialize_cast_value(value); end
 
-  # source://activemodel//lib/active_model/type/immutable_string.rb#44
+  # source://activemodel//lib/active_model/type/immutable_string.rb#46
   def type; end
 
   private
 
-  # source://activemodel//lib/active_model/type/immutable_string.rb#62
+  # source://activemodel//lib/active_model/type/immutable_string.rb#64
   def cast_value(value); end
 end
 
@@ -4750,62 +5263,56 @@ end
 #
 # source://activemodel//lib/active_model/type/integer.rb#44
 class ActiveModel::Type::Integer < ::ActiveModel::Type::Value
+  include ::ActiveModel::Type::Helpers::Immutable
   include ::ActiveModel::Type::Helpers::Numeric
 
   # @return [Integer] a new instance of Integer
   #
-  # source://activemodel//lib/active_model/type/integer.rb#51
+  # source://activemodel//lib/active_model/type/integer.rb#52
   def initialize(**_arg0); end
 
-  # source://activemodel//lib/active_model/type/integer.rb#60
+  # source://activemodel//lib/active_model/type/integer.rb#62
   def deserialize(value); end
 
   # @return [Boolean]
+  # @yield [cast_value]
   #
-  # source://activemodel//lib/active_model/type/integer.rb#74
+  # source://activemodel//lib/active_model/type/integer.rb#96
   def serializable?(value); end
 
-  # source://activemodel//lib/active_model/type/integer.rb#65
+  # source://activemodel//lib/active_model/type/integer.rb#67
   def serialize(value); end
 
-  # source://activemodel//lib/active_model/type/integer.rb#70
+  # source://activemodel//lib/active_model/type/integer.rb#88
   def serialize_cast_value(value); end
 
-  # source://activemodel//lib/active_model/type/integer.rb#56
+  # source://activemodel//lib/active_model/type/integer.rb#58
   def type; end
 
   private
 
-  # source://activemodel//lib/active_model/type/integer.rb#108
+  # source://activemodel//lib/active_model/type/integer.rb#120
   def _limit; end
 
-  # source://activemodel//lib/active_model/type/integer.rb#89
+  # source://activemodel//lib/active_model/type/integer.rb#108
   def cast_value(value); end
 
-  # source://activemodel//lib/active_model/type/integer.rb#93
-  def ensure_in_range(value); end
+  # source://activemodel//lib/active_model/type/integer.rb#112
+  def max_value; end
+
+  # source://activemodel//lib/active_model/type/integer.rb#116
+  def min_value; end
 
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/type/integer.rb#85
-  def in_range?(value); end
-
-  # source://activemodel//lib/active_model/type/integer.rb#100
-  def max_value; end
-
   # source://activemodel//lib/active_model/type/integer.rb#104
-  def min_value; end
-
-  # Returns the value of attribute range.
-  #
-  # source://activemodel//lib/active_model/type/integer.rb#83
-  def range; end
+  def out_of_range?(value); end
 end
 
 # Column storage size in bytes.
 # 4 bytes means an integer as opposed to smallint etc.
 #
-# source://activemodel//lib/active_model/type/integer.rb#49
+# source://activemodel//lib/active_model/type/integer.rb#50
 ActiveModel::Type::Integer::DEFAULT_LIMIT = T.let(T.unsafe(nil), Integer)
 
 # source://activemodel//lib/active_model/type/registry.rb#5
@@ -4886,12 +5393,17 @@ class ActiveModel::Type::String < ::ActiveModel::Type::ImmutableString
   # source://activemodel//lib/active_model/type/string.rb#16
   def changed_in_place?(raw_old_value, new_value); end
 
+  # @return [Boolean]
+  #
   # source://activemodel//lib/active_model/type/string.rb#22
+  def mutable?; end
+
+  # source://activemodel//lib/active_model/type/string.rb#26
   def to_immutable_string; end
 
   private
 
-  # source://activemodel//lib/active_model/type/string.rb#33
+  # source://activemodel//lib/active_model/type/string.rb#37
   def cast_value(value); end
 end
 
@@ -5085,7 +5597,7 @@ class ActiveModel::Type::Value
   # @return [Boolean]
   #
   # source://activemodel//lib/active_model/type/value.rb#28
-  def serializable?(value, &_); end
+  def serializable?(value, &_arg1); end
 
   # Casts a value from the ruby type to a type that the database knows how
   # to understand. The returned value from this method should be a
@@ -5140,21 +5652,21 @@ end
 #   person.assign_attributes(name: 'Gorby')
 #   # => ActiveModel::UnknownAttributeError: unknown attribute 'name' for Person.
 #
-# source://activemodel//lib/active_model/errors.rb#538
+# source://activemodel//lib/active_model/errors.rb#543
 class ActiveModel::UnknownAttributeError < ::NoMethodError
   # @return [UnknownAttributeError] a new instance of UnknownAttributeError
   #
-  # source://activemodel//lib/active_model/errors.rb#541
+  # source://activemodel//lib/active_model/errors.rb#546
   def initialize(record, attribute); end
 
   # Returns the value of attribute attribute.
   #
-  # source://activemodel//lib/active_model/errors.rb#539
+  # source://activemodel//lib/active_model/errors.rb#544
   def attribute; end
 
   # Returns the value of attribute record.
   #
-  # source://activemodel//lib/active_model/errors.rb#539
+  # source://activemodel//lib/active_model/errors.rb#544
   def record; end
 end
 
@@ -5168,7 +5680,7 @@ ActiveModel::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActiveModel::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://activemodel//lib/active_model/gem_version.rb#13
-ActiveModel::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
+ActiveModel::VERSION::PRE = T.let(T.unsafe(nil), String)
 
 # source://activemodel//lib/active_model/gem_version.rb#15
 ActiveModel::VERSION::STRING = T.let(T.unsafe(nil), String)
@@ -5176,18 +5688,18 @@ ActiveModel::VERSION::STRING = T.let(T.unsafe(nil), String)
 # source://activemodel//lib/active_model/gem_version.rb#12
 ActiveModel::VERSION::TINY = T.let(T.unsafe(nil), Integer)
 
-# source://activemodel//lib/active_model/validations.rb#505
+# source://activemodel//lib/active_model/validations.rb#497
 class ActiveModel::ValidationContext
   # Returns the value of attribute context.
   #
-  # source://activemodel//lib/active_model/validations.rb#506
+  # source://activemodel//lib/active_model/validations.rb#498
   def context; end
 
   # Sets the attribute context
   #
   # @param value the value to set the attribute context to.
   #
-  # source://activemodel//lib/active_model/validations.rb#506
+  # source://activemodel//lib/active_model/validations.rb#498
   def context=(_arg0); end
 end
 
@@ -5202,16 +5714,16 @@ end
 #     puts invalid.model.errors
 #   end
 #
-# source://activemodel//lib/active_model/validations.rb#495
+# source://activemodel//lib/active_model/validations.rb#487
 class ActiveModel::ValidationError < ::StandardError
   # @return [ValidationError] a new instance of ValidationError
   #
-  # source://activemodel//lib/active_model/validations.rb#498
+  # source://activemodel//lib/active_model/validations.rb#490
   def initialize(model); end
 
   # Returns the value of attribute model.
   #
-  # source://activemodel//lib/active_model/validations.rb#496
+  # source://activemodel//lib/active_model/validations.rb#488
   def model; end
 end
 
@@ -5276,10 +5788,10 @@ module ActiveModel::Validations
   #   person.valid? # => false
   #   person.errors # => #<ActiveModel::Errors:0x007fe603816640 @messages={name:["can't be blank"]}>
   #
-  # source://activemodel//lib/active_model/validations.rb#330
+  # source://activemodel//lib/active_model/validations.rb#334
   def errors; end
 
-  # source://activemodel//lib/active_model/validations.rb#374
+  # source://activemodel//lib/active_model/validations.rb#378
   def freeze; end
 
   # Performs the opposite of <tt>valid?</tt>. Returns +true+ if errors were
@@ -5314,13 +5826,13 @@ module ActiveModel::Validations
   #
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/validations.rb#410
+  # source://activemodel//lib/active_model/validations.rb#414
   def invalid?(context = T.unsafe(nil)); end
 
   # Hook method defining how an attribute value should be retrieved. By default
-  # this is assumed to be an instance named after the attribute. Override this
-  # method in subclasses should you need to retrieve the value for a given
-  # attribute differently:
+  # this is assumed to be an instance named after the attribute. If the attribute
+  # does not exist, nil is returned. Override this method in subclasses should you
+  # need to retrieve the value for a given attribute differently:
   #
   #   class MyClass
   #     include ActiveModel::Validations
@@ -5334,8 +5846,8 @@ module ActiveModel::Validations
   #     end
   #   end
   #
-  # source://activemodel//lib/active_model/validations.rb#439
-  def read_attribute_for_validation(*_arg0); end
+  # source://activemodel//lib/active_model/validations.rb#443
+  def read_attribute_for_validation(attribute); end
 
   # Runs all the specified validations and returns +true+ if no errors were
   # added otherwise +false+.
@@ -5369,7 +5881,7 @@ module ActiveModel::Validations
   #
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/validations.rb#363
+  # source://activemodel//lib/active_model/validations.rb#367
   def valid?(context = T.unsafe(nil)); end
 
   # Runs all the specified validations and returns +true+ if no errors were
@@ -5404,7 +5916,7 @@ module ActiveModel::Validations
   #
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/validations.rb#372
+  # source://activemodel//lib/active_model/validations.rb#376
   def validate(context = T.unsafe(nil)); end
 
   # Runs all the validations within the specified context. Returns +true+ if
@@ -5413,7 +5925,7 @@ module ActiveModel::Validations
   # Validations with no <tt>:on</tt> option will run no matter the context. Validations with
   # some <tt>:on</tt> option will only run in the specified context.
   #
-  # source://activemodel//lib/active_model/validations.rb#419
+  # source://activemodel//lib/active_model/validations.rb#423
   def validate!(context = T.unsafe(nil)); end
 
   # Passes the record off to the class or classes specified and allows them
@@ -5458,45 +5970,31 @@ module ActiveModel::Validations
 
   # Returns the context when running validations.
   #
-  # This is useful when running validations except a certain context (opposite to the +on+ option).
-  #
-  #   class Person
-  #     include ActiveModel::Validations
-  #
-  #     attr_accessor :name
-  #     validates :name, presence: true, if: -> { validation_context != :custom }
-  #   end
-  #
-  #   person = Person.new
-  #   person.valid?          #=> false
-  #   person.valid?(:new)    #=> false
-  #   person.valid?(:custom) #=> true
-  #
-  # source://activemodel//lib/active_model/validations.rb#456
+  # source://activemodel//lib/active_model/validations.rb#448
   def validation_context; end
 
   private
 
-  # source://activemodel//lib/active_model/validations.rb#465
+  # source://activemodel//lib/active_model/validations.rb#457
   def context_for_validation; end
 
-  # source://activemodel//lib/active_model/validations.rb#469
+  # source://activemodel//lib/active_model/validations.rb#461
   def init_internals; end
 
   # Clean the +Errors+ object if instance is duped.
   #
-  # source://activemodel//lib/active_model/validations.rb#312
+  # source://activemodel//lib/active_model/validations.rb#316
   def initialize_dup(other); end
 
   # @raise [ValidationError]
   #
-  # source://activemodel//lib/active_model/validations.rb#480
+  # source://activemodel//lib/active_model/validations.rb#472
   def raise_validation_error; end
 
-  # source://activemodel//lib/active_model/validations.rb#475
+  # source://activemodel//lib/active_model/validations.rb#467
   def run_validations!; end
 
-  # source://activemodel//lib/active_model/validations.rb#461
+  # source://activemodel//lib/active_model/validations.rb#453
   def validation_context=(context); end
 
   module GeneratedClassMethods
@@ -5605,7 +6103,7 @@ module ActiveModel::Validations::Callbacks
 
   # Override run_validations! to include callbacks.
   #
-  # source://activemodel//lib/active_model/validations/callbacks.rb#114
+  # source://activemodel//lib/active_model/validations/callbacks.rb#124
   def run_validations!; end
 
   module GeneratedClassMethods
@@ -5696,7 +6194,7 @@ module ActiveModel::Validations::ClassMethods
   #
   # @return [Boolean]
   #
-  # source://activemodel//lib/active_model/validations.rb#284
+  # source://activemodel//lib/active_model/validations.rb#288
   def attribute_method?(attribute); end
 
   # Clears all of the validators and validations.
@@ -5737,12 +6235,12 @@ module ActiveModel::Validations::ClassMethods
   #
   #   Person._validate_callbacks.empty?  # => true
   #
-  # source://activemodel//lib/active_model/validations.rb#248
+  # source://activemodel//lib/active_model/validations.rb#252
   def clear_validators!; end
 
   # Copy validators on inheritance.
   #
-  # source://activemodel//lib/active_model/validations.rb#289
+  # source://activemodel//lib/active_model/validations.rb#293
   def inherited(base); end
 
   # Adds a validation method or block to the class. This is useful when
@@ -5812,7 +6310,7 @@ module ActiveModel::Validations::ClassMethods
   #
   # NOTE: Calling +validate+ multiple times on the same method will overwrite previous definitions.
   #
-  # source://activemodel//lib/active_model/validations.rb#162
+  # source://activemodel//lib/active_model/validations.rb#166
   def validate(*args, &block); end
 
   # This method is a shortcut to all default validators and any custom
@@ -5970,8 +6468,12 @@ module ActiveModel::Validations::ClassMethods
   #   or an array of symbols. (e.g. <tt>except: :create</tt> or
   #   <tt>except_on: :custom_validation_context</tt> or
   #   <tt>except_on: [:create, :custom_validation_context]</tt>)
-  # * <tt>:allow_nil</tt> - Skip validation if attribute is +nil+.
-  # * <tt>:allow_blank</tt> - Skip validation if attribute is blank.
+  # * <tt>:allow_nil</tt> - Specify a method, proc, or boolean, to skip
+  #   validation if attribute is +nil+ (e.g. <tt>allow_nil: true</tt>, or
+  #   <tt>allow_nil: Proc.new { |user| user.signup_step > 2 }</tt>).
+  # * <tt>:allow_blank</tt> - Specify a method, proc, or boolean, to skip
+  #   validation if attribute is +blank+ (e.g. <tt>allow_blank: true</tt>,
+  #   or <tt>allow_blank: Proc.new { |user| user.signup_step > 2 }</tt>).
   # * <tt>:if</tt> - Specifies a method, proc, or string to call to determine
   #   if the validation should occur (e.g. <tt>if: :allow_validation</tt>,
   #   or <tt>if: Proc.new { |user| user.signup_step > 2 }</tt>). The method,
@@ -5982,7 +6484,7 @@ module ActiveModel::Validations::ClassMethods
   #   method, proc, or string should return or evaluate to a +true+ or +false+
   #   value.
   #
-  # source://activemodel//lib/active_model/validations.rb#89
+  # source://activemodel//lib/active_model/validations.rb#93
   def validates_each(*attr_names, &block); end
 
   # Passes the record off to the class or classes specified and allows them
@@ -6075,7 +6577,7 @@ module ActiveModel::Validations::ClassMethods
   #   #      #<StrictValidator:0x007fbff3204a30 @options={strict:true}>
   #   #    ]
   #
-  # source://activemodel//lib/active_model/validations.rb#206
+  # source://activemodel//lib/active_model/validations.rb#210
   def validators; end
 
   # List all validators that are being used to validate a specific attribute.
@@ -6094,7 +6596,7 @@ module ActiveModel::Validations::ClassMethods
   #   #       #<ActiveModel::Validations::PresenceValidator:0x007fe604914e60 @attributes=[:name], @options={}>,
   #   #    ]
   #
-  # source://activemodel//lib/active_model/validations.rb#268
+  # source://activemodel//lib/active_model/validations.rb#272
   def validators_on(*attributes); end
 
   private
@@ -6108,11 +6610,11 @@ module ActiveModel::Validations::ClassMethods
   # source://activemodel//lib/active_model/validations/validates.rb#162
   def _validates_default_keys; end
 
-  # source://activemodel//lib/active_model/validations.rb#298
+  # source://activemodel//lib/active_model/validations.rb#302
   def predicate_for_validation_context(context); end
 end
 
-# source://activemodel//lib/active_model/validations.rb#93
+# source://activemodel//lib/active_model/validations.rb#97
 ActiveModel::Validations::ClassMethods::VALID_OPTIONS_FOR_VALIDATE = T.let(T.unsafe(nil), Array)
 
 # source://activemodel//lib/active_model/validations/clusivity.rb#8

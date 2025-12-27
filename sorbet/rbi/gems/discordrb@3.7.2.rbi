@@ -1418,30 +1418,30 @@ module Discordrb::API::Server
   # Adds a custom emoji.
   # https://discord.com/developers/docs/resources/emoji#create-guild-emoji
   #
-  # source://discordrb//lib/discordrb/api/server.rb#482
+  # source://discordrb//lib/discordrb/api/server.rb#483
   def add_emoji(token, server_id, image, name, roles = T.unsafe(nil), reason = T.unsafe(nil)); end
 
   # Adds a member to a server with an OAuth2 Bearer token that has been granted `guilds.join`
   # https://discord.com/developers/docs/resources/guild#add-guild-member
   #
-  # source://discordrb//lib/discordrb/api/server.rb#549
+  # source://discordrb//lib/discordrb/api/server.rb#550
   def add_member(token, server_id, user_id, access_token, nick = T.unsafe(nil), roles = T.unsafe(nil), mute = T.unsafe(nil), deaf = T.unsafe(nil)); end
 
   # Adds a single role to a member
   # https://discord.com/developers/docs/resources/guild#add-guild-member-role
   #
-  # source://discordrb//lib/discordrb/api/server.rb#310
+  # source://discordrb//lib/discordrb/api/server.rb#311
   def add_member_role(token, server_id, user_id, role_id, reason = T.unsafe(nil)); end
 
   # Gets a server's audit logs
   # https://discord.com/developers/docs/resources/audit-log#get-guild-audit-log
   #
-  # source://discordrb//lib/discordrb/api/server.rb#375
+  # source://discordrb//lib/discordrb/api/server.rb#376
   def audit_logs(token, server_id, limit, user_id = T.unsafe(nil), action_type = T.unsafe(nil), before = T.unsafe(nil)); end
 
   # Make an member avatar URL from the server, user and avatar IDs
   #
-  # source://discordrb//lib/discordrb/api/server.rb#562
+  # source://discordrb//lib/discordrb/api/server.rb#563
   def avatar_url(server_id, user_id, avatar_id, format = T.unsafe(nil)); end
 
   # https://discord.com/developers/docs/resources/guild#create-guild-ban
@@ -1459,7 +1459,7 @@ module Discordrb::API::Server
 
   # Make a banner URL from the server, user and banner IDs
   #
-  # source://discordrb//lib/discordrb/api/server.rb#572
+  # source://discordrb//lib/discordrb/api/server.rb#573
   def banner_url(server_id, user_id, banner_id, format = T.unsafe(nil)); end
 
   # Get a server's banned users
@@ -1471,13 +1471,13 @@ module Discordrb::API::Server
   # Begin server prune
   # https://discord.com/developers/docs/resources/guild#begin-guild-prune
   #
-  # source://discordrb//lib/discordrb/api/server.rb#349
+  # source://discordrb//lib/discordrb/api/server.rb#350
   def begin_prune(token, server_id, days, reason = T.unsafe(nil)); end
 
   # Ban multiple users in one go
   # https://discord.com/developers/docs/resources/guild#bulk-guild-ban
   #
-  # source://discordrb//lib/discordrb/api/server.rb#583
+  # source://discordrb//lib/discordrb/api/server.rb#584
   def bulk_ban(token, server_id, users, message_seconds, reason = T.unsafe(nil)); end
 
   # Get a server's channels list
@@ -1495,7 +1495,7 @@ module Discordrb::API::Server
   # Create a server integration
   # https://discord.com/developers/docs/resources/guild#create-guild-integration
   #
-  # source://discordrb//lib/discordrb/api/server.rb#399
+  # source://discordrb//lib/discordrb/api/server.rb#400
   def create_integration(token, server_id, type, id, reason = T.unsafe(nil)); end
 
   # Create a role (parameters such as name and colour if not set can be set by update_role afterwards)
@@ -1510,49 +1510,49 @@ module Discordrb::API::Server
   # Deletes a custom emoji
   # https://discord.com/developers/docs/resources/emoji#delete-guild-emoji
   #
-  # source://discordrb//lib/discordrb/api/server.rb#512
+  # source://discordrb//lib/discordrb/api/server.rb#513
   def delete_emoji(token, server_id, emoji_id, reason = T.unsafe(nil)); end
 
   # Delete a server integration
   # https://discord.com/developers/docs/resources/guild#delete-guild-integration
   #
-  # source://discordrb//lib/discordrb/api/server.rb#427
+  # source://discordrb//lib/discordrb/api/server.rb#428
   def delete_integration(token, server_id, integration_id, reason = T.unsafe(nil)); end
 
   # Delete a role
   # https://discord.com/developers/docs/resources/guild#delete-guild-role
   #
-  # source://discordrb//lib/discordrb/api/server.rb#297
+  # source://discordrb//lib/discordrb/api/server.rb#298
   def delete_role(token, server_id, role_id, reason = T.unsafe(nil)); end
 
   # Changes an emoji name and/or roles.
   # https://discord.com/developers/docs/resources/emoji#modify-guild-emoji
   #
-  # source://discordrb//lib/discordrb/api/server.rb#497
+  # source://discordrb//lib/discordrb/api/server.rb#498
   def edit_emoji(token, server_id, emoji_id, name, roles = T.unsafe(nil), reason = T.unsafe(nil)); end
 
-  # source://discordrb//lib/discordrb/api/server.rb#462
+  # source://discordrb//lib/discordrb/api/server.rb#463
   def embed(token, server_id); end
 
   # Get server integrations
   # https://discord.com/developers/docs/resources/guild#get-guild-integrations
   #
-  # source://discordrb//lib/discordrb/api/server.rb#387
+  # source://discordrb//lib/discordrb/api/server.rb#388
   def integrations(token, server_id); end
 
   # Get invites from server
   # https://discord.com/developers/docs/resources/guild#get-guild-invites
   #
-  # source://discordrb//lib/discordrb/api/server.rb#363
+  # source://discordrb//lib/discordrb/api/server.rb#364
   def invites(token, server_id); end
 
-  # source://discordrb//lib/discordrb/api/server.rb#478
+  # source://discordrb//lib/discordrb/api/server.rb#479
   def modify_embed(token, server_id, enabled, channel_id, reason = T.unsafe(nil)); end
 
   # Modify a server's widget settings
   # https://discord.com/developers/docs/resources/guild#modify-guild-widget
   #
-  # source://discordrb//lib/discordrb/api/server.rb#466
+  # source://discordrb//lib/discordrb/api/server.rb#467
   def modify_widget(token, server_id, enabled, channel_id, reason = T.unsafe(nil)); end
 
   # Get the preview of a server.
@@ -1564,13 +1564,13 @@ module Discordrb::API::Server
   # Get server prune count
   # https://discord.com/developers/docs/resources/guild#get-guild-prune-count
   #
-  # source://discordrb//lib/discordrb/api/server.rb#337
+  # source://discordrb//lib/discordrb/api/server.rb#338
   def prune_count(token, server_id, days); end
 
   # Available voice regions for this server
   # https://discord.com/developers/docs/resources/guild#get-guild-voice-regions
   #
-  # source://discordrb//lib/discordrb/api/server.rb#525
+  # source://discordrb//lib/discordrb/api/server.rb#526
   def regions(token, server_id); end
 
   # Remove user from server
@@ -1582,7 +1582,7 @@ module Discordrb::API::Server
   # Removes a single role from a member
   # https://discord.com/developers/docs/resources/guild#remove-guild-member-role
   #
-  # source://discordrb//lib/discordrb/api/server.rb#324
+  # source://discordrb//lib/discordrb/api/server.rb#325
   def remove_member_role(token, server_id, user_id, role_id, reason = T.unsafe(nil)); end
 
   # Get a server's data
@@ -1618,7 +1618,7 @@ module Discordrb::API::Server
   # Sync an integration
   # https://discord.com/developers/docs/resources/guild#sync-guild-integration
   #
-  # source://discordrb//lib/discordrb/api/server.rb#440
+  # source://discordrb//lib/discordrb/api/server.rb#441
   def sync_integration(token, server_id, integration_id); end
 
   # Unban a user from a server
@@ -1648,7 +1648,7 @@ module Discordrb::API::Server
   # Update integration from server
   # https://discord.com/developers/docs/resources/guild#modify-guild-integration
   #
-  # source://discordrb//lib/discordrb/api/server.rb#413
+  # source://discordrb//lib/discordrb/api/server.rb#414
   def update_integration(token, server_id, integration_id, expire_behavior, expire_grace_period, enable_emoticons); end
 
   # Update a user properties
@@ -1672,48 +1672,48 @@ module Discordrb::API::Server
   # https://discord.com/developers/docs/resources/guild#modify-guild-role-positions
   #
   # source://discordrb//lib/discordrb/api/server.rb#283
-  def update_role_positions(token, server_id, roles); end
+  def update_role_positions(token, server_id, roles, reason = T.unsafe(nil)); end
 
   # Get server webhooks
   # https://discord.com/developers/docs/resources/webhook#get-guild-webhooks
   #
-  # source://discordrb//lib/discordrb/api/server.rb#537
+  # source://discordrb//lib/discordrb/api/server.rb#538
   def webhooks(token, server_id); end
 
   # Retrieves a server's widget information
   # https://discord.com/developers/docs/resources/guild#get-guild-widget
   #
-  # source://discordrb//lib/discordrb/api/server.rb#453
+  # source://discordrb//lib/discordrb/api/server.rb#454
   def widget(token, server_id); end
 
   class << self
     # Adds a custom emoji.
     # https://discord.com/developers/docs/resources/emoji#create-guild-emoji
     #
-    # source://discordrb//lib/discordrb/api/server.rb#482
+    # source://discordrb//lib/discordrb/api/server.rb#483
     def add_emoji(token, server_id, image, name, roles = T.unsafe(nil), reason = T.unsafe(nil)); end
 
     # Adds a member to a server with an OAuth2 Bearer token that has been granted `guilds.join`
     # https://discord.com/developers/docs/resources/guild#add-guild-member
     #
-    # source://discordrb//lib/discordrb/api/server.rb#549
+    # source://discordrb//lib/discordrb/api/server.rb#550
     def add_member(token, server_id, user_id, access_token, nick = T.unsafe(nil), roles = T.unsafe(nil), mute = T.unsafe(nil), deaf = T.unsafe(nil)); end
 
     # Adds a single role to a member
     # https://discord.com/developers/docs/resources/guild#add-guild-member-role
     #
-    # source://discordrb//lib/discordrb/api/server.rb#310
+    # source://discordrb//lib/discordrb/api/server.rb#311
     def add_member_role(token, server_id, user_id, role_id, reason = T.unsafe(nil)); end
 
     # Gets a server's audit logs
     # https://discord.com/developers/docs/resources/audit-log#get-guild-audit-log
     #
-    # source://discordrb//lib/discordrb/api/server.rb#375
+    # source://discordrb//lib/discordrb/api/server.rb#376
     def audit_logs(token, server_id, limit, user_id = T.unsafe(nil), action_type = T.unsafe(nil), before = T.unsafe(nil)); end
 
     # Make an member avatar URL from the server, user and avatar IDs
     #
-    # source://discordrb//lib/discordrb/api/server.rb#562
+    # source://discordrb//lib/discordrb/api/server.rb#563
     def avatar_url(server_id, user_id, avatar_id, format = T.unsafe(nil)); end
 
     # https://discord.com/developers/docs/resources/guild#create-guild-ban
@@ -1731,7 +1731,7 @@ module Discordrb::API::Server
 
     # Make a banner URL from the server, user and banner IDs
     #
-    # source://discordrb//lib/discordrb/api/server.rb#572
+    # source://discordrb//lib/discordrb/api/server.rb#573
     def banner_url(server_id, user_id, banner_id, format = T.unsafe(nil)); end
 
     # Get a server's banned users
@@ -1743,13 +1743,13 @@ module Discordrb::API::Server
     # Begin server prune
     # https://discord.com/developers/docs/resources/guild#begin-guild-prune
     #
-    # source://discordrb//lib/discordrb/api/server.rb#349
+    # source://discordrb//lib/discordrb/api/server.rb#350
     def begin_prune(token, server_id, days, reason = T.unsafe(nil)); end
 
     # Ban multiple users in one go
     # https://discord.com/developers/docs/resources/guild#bulk-guild-ban
     #
-    # source://discordrb//lib/discordrb/api/server.rb#583
+    # source://discordrb//lib/discordrb/api/server.rb#584
     def bulk_ban(token, server_id, users, message_seconds, reason = T.unsafe(nil)); end
 
     # Get a server's channels list
@@ -1767,7 +1767,7 @@ module Discordrb::API::Server
     # Create a server integration
     # https://discord.com/developers/docs/resources/guild#create-guild-integration
     #
-    # source://discordrb//lib/discordrb/api/server.rb#399
+    # source://discordrb//lib/discordrb/api/server.rb#400
     def create_integration(token, server_id, type, id, reason = T.unsafe(nil)); end
 
     # Create a role (parameters such as name and colour if not set can be set by update_role afterwards)
@@ -1782,43 +1782,43 @@ module Discordrb::API::Server
     # Deletes a custom emoji
     # https://discord.com/developers/docs/resources/emoji#delete-guild-emoji
     #
-    # source://discordrb//lib/discordrb/api/server.rb#512
+    # source://discordrb//lib/discordrb/api/server.rb#513
     def delete_emoji(token, server_id, emoji_id, reason = T.unsafe(nil)); end
 
     # Delete a server integration
     # https://discord.com/developers/docs/resources/guild#delete-guild-integration
     #
-    # source://discordrb//lib/discordrb/api/server.rb#427
+    # source://discordrb//lib/discordrb/api/server.rb#428
     def delete_integration(token, server_id, integration_id, reason = T.unsafe(nil)); end
 
     # Delete a role
     # https://discord.com/developers/docs/resources/guild#delete-guild-role
     #
-    # source://discordrb//lib/discordrb/api/server.rb#297
+    # source://discordrb//lib/discordrb/api/server.rb#298
     def delete_role(token, server_id, role_id, reason = T.unsafe(nil)); end
 
     # Changes an emoji name and/or roles.
     # https://discord.com/developers/docs/resources/emoji#modify-guild-emoji
     #
-    # source://discordrb//lib/discordrb/api/server.rb#497
+    # source://discordrb//lib/discordrb/api/server.rb#498
     def edit_emoji(token, server_id, emoji_id, name, roles = T.unsafe(nil), reason = T.unsafe(nil)); end
 
     # Get server integrations
     # https://discord.com/developers/docs/resources/guild#get-guild-integrations
     #
-    # source://discordrb//lib/discordrb/api/server.rb#387
+    # source://discordrb//lib/discordrb/api/server.rb#388
     def integrations(token, server_id); end
 
     # Get invites from server
     # https://discord.com/developers/docs/resources/guild#get-guild-invites
     #
-    # source://discordrb//lib/discordrb/api/server.rb#363
+    # source://discordrb//lib/discordrb/api/server.rb#364
     def invites(token, server_id); end
 
     # Modify a server's widget settings
     # https://discord.com/developers/docs/resources/guild#modify-guild-widget
     #
-    # source://discordrb//lib/discordrb/api/server.rb#466
+    # source://discordrb//lib/discordrb/api/server.rb#467
     def modify_widget(token, server_id, enabled, channel_id, reason = T.unsafe(nil)); end
 
     # Get the preview of a server.
@@ -1830,13 +1830,13 @@ module Discordrb::API::Server
     # Get server prune count
     # https://discord.com/developers/docs/resources/guild#get-guild-prune-count
     #
-    # source://discordrb//lib/discordrb/api/server.rb#337
+    # source://discordrb//lib/discordrb/api/server.rb#338
     def prune_count(token, server_id, days); end
 
     # Available voice regions for this server
     # https://discord.com/developers/docs/resources/guild#get-guild-voice-regions
     #
-    # source://discordrb//lib/discordrb/api/server.rb#525
+    # source://discordrb//lib/discordrb/api/server.rb#526
     def regions(token, server_id); end
 
     # Remove user from server
@@ -1848,7 +1848,7 @@ module Discordrb::API::Server
     # Removes a single role from a member
     # https://discord.com/developers/docs/resources/guild#remove-guild-member-role
     #
-    # source://discordrb//lib/discordrb/api/server.rb#324
+    # source://discordrb//lib/discordrb/api/server.rb#325
     def remove_member_role(token, server_id, user_id, role_id, reason = T.unsafe(nil)); end
 
     # Get a server's data
@@ -1884,7 +1884,7 @@ module Discordrb::API::Server
     # Sync an integration
     # https://discord.com/developers/docs/resources/guild#sync-guild-integration
     #
-    # source://discordrb//lib/discordrb/api/server.rb#440
+    # source://discordrb//lib/discordrb/api/server.rb#441
     def sync_integration(token, server_id, integration_id); end
 
     # Unban a user from a server
@@ -1914,7 +1914,7 @@ module Discordrb::API::Server
     # Update integration from server
     # https://discord.com/developers/docs/resources/guild#modify-guild-integration
     #
-    # source://discordrb//lib/discordrb/api/server.rb#413
+    # source://discordrb//lib/discordrb/api/server.rb#414
     def update_integration(token, server_id, integration_id, expire_behavior, expire_grace_period, enable_emoticons); end
 
     # Update a user properties
@@ -1938,18 +1938,18 @@ module Discordrb::API::Server
     # https://discord.com/developers/docs/resources/guild#modify-guild-role-positions
     #
     # source://discordrb//lib/discordrb/api/server.rb#283
-    def update_role_positions(token, server_id, roles); end
+    def update_role_positions(token, server_id, roles, reason = T.unsafe(nil)); end
 
     # Get server webhooks
     # https://discord.com/developers/docs/resources/webhook#get-guild-webhooks
     #
-    # source://discordrb//lib/discordrb/api/server.rb#537
+    # source://discordrb//lib/discordrb/api/server.rb#538
     def webhooks(token, server_id); end
 
     # Retrieves a server's widget information
     # https://discord.com/developers/docs/resources/guild#get-guild-widget
     #
-    # source://discordrb//lib/discordrb/api/server.rb#453
+    # source://discordrb//lib/discordrb/api/server.rb#454
     def widget(token, server_id); end
   end
 end
@@ -6752,18 +6752,12 @@ module Discordrb::Errors
 end
 
 # OAuth2 application limit reached
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::ApplicationLimitReached < ::Discordrb::Errors::CodeError; end
 
 # A message can only be pinned to the channel it was sent in
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::CannotPinInDifferentChannel < ::Discordrb::Errors::CodeError; end
 
 # Maximum number of guild channels reached (500)
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::ChannelLimitReached < ::Discordrb::Errors::CodeError; end
 
 # Raised when the bot gets a HTTP 502 error, which is usually caused by Cloudflare.
@@ -6824,43 +6818,27 @@ class Discordrb::Errors::CodeError < ::RuntimeError
 end
 
 # Embed Disabled
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::EmbedDisabled < ::Discordrb::Errors::CodeError; end
 
 # Bots cannot use this endpoint
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::EndpointNotForBots < ::Discordrb::Errors::CodeError; end
 
 # Only bots can use this endpoint
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::EndpointOnlyForBots < ::Discordrb::Errors::CodeError; end
 
 # Maximum number of friends reached (1000)
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::FriendLimitReached < ::Discordrb::Errors::CodeError; end
 
 # Invalid Account Type
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::InvalidAccountType < ::Discordrb::Errors::CodeError; end
 
 # Cannot execute action on a DM channel
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::InvalidActionForDM < ::Discordrb::Errors::CodeError; end
 
 # Cannot execute action on a system message
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::InvalidActionForSystemMessage < ::Discordrb::Errors::CodeError; end
 
 # Invalid authentication token
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::InvalidAuthToken < ::Discordrb::Errors::CodeError; end
 
 # Raised when authentication data is invalid or incorrect.
@@ -6874,28 +6852,18 @@ class Discordrb::Errors::InvalidAuthenticationError < ::RuntimeError
 end
 
 # Provided too few or too many messages to delete. Must provide at least 2 and fewer than 100 messages to delete.
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::InvalidBulkDeleteCount < ::Discordrb::Errors::CodeError; end
 
 # Invalid Form Body
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::InvalidFormBody < ::Discordrb::Errors::CodeError; end
 
 # Invalid OAuth State
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::InvalidOAuthState < ::Discordrb::Errors::CodeError; end
 
 # Cannot edit a message authored by another user
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::MessageAuthoredByOtherUser < ::Discordrb::Errors::CodeError; end
 
 # Cannot send an empty message
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::MessageEmpty < ::Discordrb::Errors::CodeError; end
 
 # Raised when a message is over the character limit
@@ -6904,38 +6872,24 @@ class Discordrb::Errors::MessageEmpty < ::Discordrb::Errors::CodeError; end
 class Discordrb::Errors::MessageTooLong < ::RuntimeError; end
 
 # A message provided was too old to bulk delete
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::MessageTooOld < ::Discordrb::Errors::CodeError; end
 
 # Missing Access
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::MissingAccess < ::Discordrb::Errors::CodeError; end
 
 # An invite was accepted to a guild the application's bot is not in
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::MissingBotMember < ::Discordrb::Errors::CodeError; end
 
 # Missing Permissions
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::MissingPermissions < ::Discordrb::Errors::CodeError; end
 
 # OAuth2 application does not have a bot
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::NoBotForApplication < ::Discordrb::Errors::CodeError; end
 
 # Cannot send messages in a voice channel
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::NoMessagesInVoiceChannel < ::Discordrb::Errors::CodeError; end
 
 # Cannot send messages to this user
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::NoMessagesToUser < ::Discordrb::Errors::CodeError; end
 
 # Raised when the bot can't do something because its permissions on the server are insufficient
@@ -6944,41 +6898,26 @@ class Discordrb::Errors::NoMessagesToUser < ::Discordrb::Errors::CodeError; end
 class Discordrb::Errors::NoPermission < ::RuntimeError; end
 
 # Note is too long
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::NoteTooLong < ::Discordrb::Errors::CodeError; end
 
 # Maximum number of pins reached (50)
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::PinLimitReached < ::Discordrb::Errors::CodeError; end
 
 # Reaction Blocked
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::ReactionBlocked < ::Discordrb::Errors::CodeError; end
 
 # Too many reactions
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::ReactionLimitReached < ::Discordrb::Errors::CodeError; end
 
 # Maximum number of guild roles reached (250)
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::RoleLimitReached < ::Discordrb::Errors::CodeError; end
 
 # Maximum number of servers reached (100)
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::ServerLimitReached < ::Discordrb::Errors::CodeError; end
 
 # Unable to bulk ban any users
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::UnableToBulkBanUsers < ::Discordrb::Errors::CodeError; end
 
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::Unauthorised < ::Discordrb::Errors::CodeError; end
 
 # Unauthorized
@@ -6992,83 +6931,51 @@ Discordrb::Errors::Unauthorized = Discordrb::Errors::Unauthorised
 class Discordrb::Errors::UnauthorizedWebhook < ::RuntimeError; end
 
 # Unknown Account
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::UnknownAccount < ::Discordrb::Errors::CodeError; end
 
 # Unknown Application
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::UnknownApplication < ::Discordrb::Errors::CodeError; end
 
 # Unknown Channel
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::UnknownChannel < ::Discordrb::Errors::CodeError; end
 
 # Unknown Emoji
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::UnknownEmoji < ::Discordrb::Errors::CodeError; end
 
 # Used when Discord doesn't provide a more specific code
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::UnknownError < ::Discordrb::Errors::CodeError; end
 
 # Unknown Integration
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::UnknownIntegration < ::Discordrb::Errors::CodeError; end
 
 # Unknown Invite
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::UnknownInvite < ::Discordrb::Errors::CodeError; end
 
 # Unknown Member
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::UnknownMember < ::Discordrb::Errors::CodeError; end
 
 # Unknown Message
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::UnknownMessage < ::Discordrb::Errors::CodeError; end
 
 # Unknown Overwrite
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::UnknownOverwrite < ::Discordrb::Errors::CodeError; end
 
 # Unknown Provider
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::UnknownProvider < ::Discordrb::Errors::CodeError; end
 
 # Unknown Role
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::UnknownRole < ::Discordrb::Errors::CodeError; end
 
 # Unknown Server
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::UnknownServer < ::Discordrb::Errors::CodeError; end
 
 # Unknown Token
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::UnknownToken < ::Discordrb::Errors::CodeError; end
 
 # Unknown User
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::UnknownUser < ::Discordrb::Errors::CodeError; end
 
 # Channel verification level is too high
-#
-# source://discordrb//lib/discordrb/errors.rb#89
 class Discordrb::Errors::VerificationLevelTooHigh < ::Discordrb::Errors::CodeError; end
 
 # This module provides the functionality required for events and awaits. It is separated
@@ -14239,7 +14146,7 @@ class Discordrb::Role
   #
   # @param colour [ColourRGB, Integer, nil] The new colour.
   #
-  # source://discordrb//lib/discordrb/data/role.rb#285
+  # source://discordrb//lib/discordrb/data/role.rb#289
   def color=(colour); end
 
   # @return [ColourRGB] the primary colour of this role.
@@ -14251,14 +14158,14 @@ class Discordrb::Role
   #
   # @param colour [ColourRGB, Integer, nil] The new colour.
   #
-  # source://discordrb//lib/discordrb/data/role.rb#208
+  # source://discordrb//lib/discordrb/data/role.rb#212
   def colour=(colour); end
 
   # Deletes this role. This cannot be undone without recreating the role!
   #
   # @param reason [String] the reason for this role's deletion
   #
-  # source://discordrb//lib/discordrb/data/role.rb#325
+  # source://discordrb//lib/discordrb/data/role.rb#321
   def delete(reason = T.unsafe(nil)); end
 
   # Get the icon that a role has displayed.
@@ -14266,7 +14173,7 @@ class Discordrb::Role
   # @note A role can have a unicode emoji, and an icon, but only the icon will be shown in the UI.
   # @return [String, nil] Icon URL, the unicode emoji, or nil if this role doesn't have any icon.
   #
-  # source://discordrb//lib/discordrb/data/role.rb#253
+  # source://discordrb//lib/discordrb/data/role.rb#257
   def display_icon; end
 
   # Set the icon this role is displaying.
@@ -14274,7 +14181,7 @@ class Discordrb::Role
   # @note Setting the icon to nil will remove the unicode emoji **and** the custom icon.
   # @param icon [File, String, nil] File like object that responds to #read, unicode emoji, or nil.
   #
-  # source://discordrb//lib/discordrb/data/role.rb#260
+  # source://discordrb//lib/discordrb/data/role.rb#264
   def display_icon=(icon); end
 
   # @return [Integer] The flags for this role.
@@ -14286,7 +14193,7 @@ class Discordrb::Role
   #
   # @return [true, false]
   #
-  # source://discordrb//lib/discordrb/data/role.rb#281
+  # source://discordrb//lib/discordrb/data/role.rb#285
   def gradient?; end
 
   # @return [true, false] whether or not this role should be displayed separately from other users
@@ -14298,7 +14205,7 @@ class Discordrb::Role
   #
   # @param hoist [true, false] The value it should be changed to
   #
-  # source://discordrb//lib/discordrb/data/role.rb#196
+  # source://discordrb//lib/discordrb/data/role.rb#200
   def hoist=(hoist); end
 
   # @return [true, false] whether or not this role should be displayed separately from other users
@@ -14310,14 +14217,14 @@ class Discordrb::Role
   #
   # @param holographic [true, false] whether the role colour should be a holographic style.
   #
-  # source://discordrb//lib/discordrb/data/role.rb#226
+  # source://discordrb//lib/discordrb/data/role.rb#230
   def holographic=(holographic); end
 
   # Whether or not the role is of the holographic style.
   #
   # @return [true, false]
   #
-  # source://discordrb//lib/discordrb/data/role.rb#275
+  # source://discordrb//lib/discordrb/data/role.rb#279
   def holographic?; end
 
   # @return [String, nil] The icon hash for this role.
@@ -14329,18 +14236,18 @@ class Discordrb::Role
   #
   # @param file [File, nil] File like object that responds to #read, or nil.
   #
-  # source://discordrb//lib/discordrb/data/role.rb#232
+  # source://discordrb//lib/discordrb/data/role.rb#236
   def icon=(file); end
 
   # @param format ['webp', 'png', 'jpeg']
   # @return [String] URL to the icon on Discord's CDN.
   #
-  # source://discordrb//lib/discordrb/data/role.rb#244
+  # source://discordrb//lib/discordrb/data/role.rb#248
   def icon_url(format = T.unsafe(nil)); end
 
   # The inspect method is overwritten to give more useful output
   #
-  # source://discordrb//lib/discordrb/data/role.rb#358
+  # source://discordrb//lib/discordrb/data/role.rb#410
   def inspect; end
 
   # @return [true, false] whether or not this role is managed by an integration or a bot
@@ -14373,7 +14280,7 @@ class Discordrb::Role
   #
   # @param mentionable [true, false] The value it should be changed to
   #
-  # source://discordrb//lib/discordrb/data/role.rb#202
+  # source://discordrb//lib/discordrb/data/role.rb#206
   def mentionable=(mentionable); end
 
   # @return [true, false] whether this role can be mentioned using a role mention
@@ -14381,13 +14288,34 @@ class Discordrb::Role
   # source://discordrb//lib/discordrb/data/role.rb#27
   def mentionable?; end
 
+  # Move the position of this role in the roles list.
+  #
+  # @example This will move the role 2 places above the `@everyone` role.
+  #   role.move(bottom: true, offset: 2)
+  # @example This will move the role 3 spots below the `No Images` role.
+  #   roles.move(below: 254077236989132800, offset: -3)
+  # @example This will move the role above the `@muted` role.
+  #   role.move(above: 257017090932867072)
+  # @param above [Integer, String, Role, nil] The role that this role should be moved above.
+  # @param below [Integer, String, Role, nil] The role that this role should be moved below.
+  # @param bottom [true, false, nil] Whether to move the roles to the bottom of the role list.
+  # @param offset [Integer, nil] The number of roles to offset the new position by. A positive number will
+  #   move the role above, and a negative number will move the role below. This parameter is relative and
+  #   calculated after the `bottom`, `above`, and `below` parameters.
+  # @param reason [String, nil] The audit log reason to show for moving the role.
+  # @return [Integer] the new position of the role.
+  #
+  # source://discordrb//lib/discordrb/data/role.rb#341
+  def move(bottom: T.unsafe(nil), above: T.unsafe(nil), below: T.unsafe(nil), offset: T.unsafe(nil), reason: T.unsafe(nil)); end
+
   # Moves this role above another role in the list.
   #
+  # @deprecated Please migrate to using {#move} with the `above` or `below` KWARGS.
   # @param other [Role, String, Integer, nil] The role, or its ID, above which this role should be moved. If it is `nil`,
   #   the role will be moved above the @everyone role.
   # @return [Integer] the new position of this role
   #
-  # source://discordrb//lib/discordrb/data/role.rb#321
+  # source://discordrb//lib/discordrb/data/role.rb#317
   def move_above(other = T.unsafe(nil)); end
 
   # @return [String] this role's name ("new role" if it hasn't been changed)
@@ -14397,9 +14325,9 @@ class Discordrb::Role
 
   # Sets the role name to something new
   #
-  # @param name [String] The name that should be set
+  # @param name [String, nil] The name that should be set.
   #
-  # source://discordrb//lib/discordrb/data/role.rb#190
+  # source://discordrb//lib/discordrb/data/role.rb#194
   def name=(name); end
 
   # Changes this role's permissions to a fixed bitfield. This allows setting multiple permissions at once with just
@@ -14410,11 +14338,11 @@ class Discordrb::Role
   #
   # @example Remove all permissions from a role
   #   role.packed = 0
-  # @param packed [Integer] A bitfield with the desired permissions value.
+  # @param packed [Integer, nil] A bitfield with the desired permissions value.
   # @param update_perms [true, false] Whether the internal data should also be updated. This should always be true
   #   when calling externally.
   #
-  # source://discordrb//lib/discordrb/data/role.rb#299
+  # source://discordrb//lib/discordrb/data/role.rb#303
   def packed=(packed, update_perms = T.unsafe(nil)); end
 
   # @return [Permissions] this role's permissions.
@@ -14436,7 +14364,7 @@ class Discordrb::Role
   #
   # @param colour [ColourRGB, Integer, nil] The new secondary colour.
   #
-  # source://discordrb//lib/discordrb/data/role.rb#286
+  # source://discordrb//lib/discordrb/data/role.rb#290
   def secondary_color=(colour); end
 
   # @return [ColourRGB, nil] the secondary colour of this role.
@@ -14448,7 +14376,7 @@ class Discordrb::Role
   #
   # @param colour [ColourRGB, Integer, nil] The new secondary colour.
   #
-  # source://discordrb//lib/discordrb/data/role.rb#214
+  # source://discordrb//lib/discordrb/data/role.rb#218
   def secondary_colour=(colour); end
 
   # @return [Server] the server this role belongs to
@@ -14458,11 +14386,12 @@ class Discordrb::Role
 
   # Moves this role above another role in the list.
   #
+  # @deprecated Please migrate to using {#move} with the `above` or `below` KWARGS.
   # @param other [Role, String, Integer, nil] The role, or its ID, above which this role should be moved. If it is `nil`,
   #   the role will be moved above the @everyone role.
   # @return [Integer] the new position of this role
   #
-  # source://discordrb//lib/discordrb/data/role.rb#308
+  # source://discordrb//lib/discordrb/data/role.rb#313
   def sort_above(other = T.unsafe(nil)); end
 
   # @return [Tags, nil] The role tags.
@@ -14479,7 +14408,7 @@ class Discordrb::Role
   #
   # @param colour [ColourRGB, Integer, nil] The new tertiary colour.
   #
-  # source://discordrb//lib/discordrb/data/role.rb#287
+  # source://discordrb//lib/discordrb/data/role.rb#291
   def tertiary_color=(colour); end
 
   # @return [ColourRGB, nil] the tertiary colour of this role.
@@ -14491,7 +14420,7 @@ class Discordrb::Role
   #
   # @param colour [ColourRGB, Integer, nil] The new tertiary colour.
   #
-  # source://discordrb//lib/discordrb/data/role.rb#220
+  # source://discordrb//lib/discordrb/data/role.rb#224
   def tertiary_colour=(colour); end
 
   # @return [String, nil] The unicode emoji of this role, or nil.
@@ -14503,7 +14432,7 @@ class Discordrb::Role
   #
   # @param emoji [String, nil] The new unicode emoji for this role, or nil.
   #
-  # source://discordrb//lib/discordrb/data/role.rb#238
+  # source://discordrb//lib/discordrb/data/role.rb#242
   def unicode_emoji=(emoji); end
 
   # A rich interface designed to make working with role colours simple.
@@ -14511,28 +14440,30 @@ class Discordrb::Role
   # @param holographic [true, false] Whether to apply or remove the holographic style to the role colour, overriding any other
   #   arguments that were passed. Using this argument is recommended over passing individual colours.
   # @param primary [ColourRGB, Integer, nil] The new primary/base colour of this role, or nil to clear the primary colour.
+  # @param reason [String, nil] The audit log reason to show for updating the role's colours.
   # @param secondary [ColourRGB, Integer, nil] The new secondary colour of this role, or nil to clear the secondary colour.
   # @param tertiary [ColourRGB, Integer, nil] The new tertiary colour of this role, or nil to clear the tertiary colour.
   #
-  # source://discordrb//lib/discordrb/data/role.rb#355
-  def update_colors(primary: T.unsafe(nil), secondary: T.unsafe(nil), tertiary: T.unsafe(nil), holographic: T.unsafe(nil)); end
+  # source://discordrb//lib/discordrb/data/role.rb#407
+  def update_colors(primary: T.unsafe(nil), secondary: T.unsafe(nil), tertiary: T.unsafe(nil), holographic: T.unsafe(nil), reason: T.unsafe(nil)); end
 
   # A rich interface designed to make working with role colours simple.
   #
   # @param holographic [true, false] Whether to apply or remove the holographic style to the role colour, overriding any other
   #   arguments that were passed. Using this argument is recommended over passing individual colours.
   # @param primary [ColourRGB, Integer, nil] The new primary/base colour of this role, or nil to clear the primary colour.
+  # @param reason [String, nil] The audit log reason to show for updating the role's colours.
   # @param secondary [ColourRGB, Integer, nil] The new secondary colour of this role, or nil to clear the secondary colour.
   # @param tertiary [ColourRGB, Integer, nil] The new tertiary colour of this role, or nil to clear the tertiary colour.
   #
-  # source://discordrb//lib/discordrb/data/role.rb#336
-  def update_colours(primary: T.unsafe(nil), secondary: T.unsafe(nil), tertiary: T.unsafe(nil), holographic: T.unsafe(nil)); end
+  # source://discordrb//lib/discordrb/data/role.rb#388
+  def update_colours(primary: T.unsafe(nil), secondary: T.unsafe(nil), tertiary: T.unsafe(nil), holographic: T.unsafe(nil), reason: T.unsafe(nil)); end
 
   # Updates the data cache from a hash containing data
   #
   # @note For internal use only
   #
-  # source://discordrb//lib/discordrb/data/role.rb#173
+  # source://discordrb//lib/discordrb/data/role.rb#175
   def update_data(new_data); end
 
   # Updates the data cache from another Role object
@@ -14550,7 +14481,7 @@ class Discordrb::Role
 
   private
 
-  # source://discordrb//lib/discordrb/data/role.rb#364
+  # source://discordrb//lib/discordrb/data/role.rb#417
   def update_role_data(new_data); end
 end
 
@@ -15412,7 +15343,7 @@ class Discordrb::Server
   # @note For internal use only
   #
   # source://discordrb//lib/discordrb/data/server.rb#415
-  def update_role_positions(role_positions); end
+  def update_role_positions(role_positions, reason: T.unsafe(nil)); end
 
   # Updates a member's voice state
   #

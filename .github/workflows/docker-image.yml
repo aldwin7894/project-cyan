@@ -1,5 +1,6 @@
 name: Docker Image CI
-permissions: read-all
+permissions:
+  contents: read
 concurrency:
   group: production
   cancel-in-progress: true
