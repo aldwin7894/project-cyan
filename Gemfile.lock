@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 92481359a7f74261059a292a7cea61e68144b57e
+  revision: 0cfd49f401f12ef5d32f811f93150c6cbf92c1b3
   branch: main
   specs:
     actioncable (8.2.0.alpha)
@@ -240,7 +240,6 @@ GEM
       mime-types-data (~> 3.2025, >= 3.2025.0507)
     mime-types-data (3.2025.0924)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.9)
     minitest (6.0.1)
       prism (~> 1.5)
     mongo (2.22.0)
@@ -267,12 +266,9 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.7.5)
-    nokogiri (1.18.10)
-      mini_portile2 (~> 2.8.2)
+    nokogiri (1.19.0-aarch64-linux-gnu)
       racc (~> 1.4)
-    nokogiri (1.18.10-aarch64-linux-gnu)
-      racc (~> 1.4)
-    nokogiri (1.18.10-x86_64-linux-gnu)
+    nokogiri (1.19.0-x86_64-linux-gnu)
       racc (~> 1.4)
     opus-ruby (1.0.1)
       ffi
