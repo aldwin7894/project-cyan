@@ -103,7 +103,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    action_text-trix (2.1.15)
+    action_text-trix (2.1.16)
       railties
     addressable (2.8.8)
       public_suffix (>= 2.0.2, < 8.0)
