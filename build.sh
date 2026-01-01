@@ -19,8 +19,8 @@ export BUNDLER_VERSION
 gem install bundler
 
 if [[ ${RAILS_ENV} == "production" ]]; then
-	bin/bundle config without "development test"
-	bin/bundle config frozen "true"
+	bin/bundle config set without "development test"
+	bin/bundle config set frozen "true"
 fi
 
 yarn install --frozen-lockfile
