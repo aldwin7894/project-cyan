@@ -5,11 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "4.0.0"
 
-# Temporary fix
-gem "rails", "~> 8.2.0.alpha",  github: "rails/rails", branch: "main"
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-# gem "rails", "~> 8.1.1"
+gem "rails", "~> 8.1.2"
 # use vite to build javascripts and assets
 gem "vite_rails", "~> 3.0"
 # Use mongodb

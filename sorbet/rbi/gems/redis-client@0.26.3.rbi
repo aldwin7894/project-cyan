@@ -185,7 +185,6 @@ class RedisClient
   end
 end
 
-# source://redis-client//lib/redis_client.rb#199
 class RedisClient::AuthenticationError < ::RedisClient::CommandError; end
 
 # source://redis-client//lib/redis_client/middlewares.rb#4
@@ -214,10 +213,7 @@ class RedisClient::BasicMiddleware
   def connect(_config); end
 end
 
-# source://redis-client//lib/redis_client.rb#152
 class RedisClient::CannotConnectError < ::RedisClient::ConnectionError; end
-
-# source://redis-client//lib/redis_client.rb#159
 class RedisClient::CheckoutTimeoutError < ::RedisClient::TimeoutError; end
 
 # source://redis-client//lib/redis_client/circuit_breaker.rb#4
@@ -274,7 +270,6 @@ module RedisClient::CircuitBreaker::Middleware
   def connect(config); end
 end
 
-# source://redis-client//lib/redis_client/circuit_breaker.rb#19
 class RedisClient::CircuitBreaker::OpenCircuitError < ::RedisClient::CannotConnectError; end
 
 # source://redis-client//lib/redis_client/command_builder.rb#4
@@ -522,7 +517,6 @@ RedisClient::Config::DEFAULT_TIMEOUT = T.let(T.unsafe(nil), Float)
 # source://redis-client//lib/redis_client/config.rb#11
 RedisClient::Config::DEFAULT_USERNAME = T.let(T.unsafe(nil), String)
 
-# source://redis-client//lib/redis_client.rb#151
 class RedisClient::ConnectionError < ::RedisClient::Error; end
 
 # source://redis-client//lib/redis_client/connection_mixin.rb#4
@@ -687,7 +681,6 @@ class RedisClient::Error < ::StandardError
   end
 end
 
-# source://redis-client//lib/redis_client.rb#154
 class RedisClient::FailoverError < ::RedisClient::ConnectionError; end
 
 # source://redis-client//lib/redis_client.rb#120
@@ -745,7 +738,6 @@ module RedisClient::HasConfig
   def message; end
 end
 
-# source://redis-client//lib/redis_client.rb#209
 class RedisClient::MasterDownError < ::RedisClient::ConnectionError
   include ::RedisClient::HasCommand
   include ::RedisClient::HasCode
@@ -799,10 +791,7 @@ class RedisClient::Multi
   def call_v(command, &block); end
 end
 
-# source://redis-client//lib/redis_client.rb#203
 class RedisClient::NoScriptError < ::RedisClient::CommandError; end
-
-# source://redis-client//lib/redis_client.rb#202
 class RedisClient::OutOfMemoryError < ::RedisClient::CommandError; end
 
 # source://redis-client//lib/redis_client/pid_cache.rb#4
@@ -824,7 +813,6 @@ module RedisClient::PIDCache::CoreExt
   def _fork; end
 end
 
-# source://redis-client//lib/redis_client.rb#200
 class RedisClient::PermissionError < ::RedisClient::CommandError; end
 
 # source://redis-client//lib/redis_client.rb#662
@@ -924,7 +912,6 @@ end
 # source://redis-client//lib/redis_client/pooled.rb#7
 RedisClient::Pooled::EMPTY_HASH = T.let(T.unsafe(nil), Hash)
 
-# source://redis-client//lib/redis_client.rb#148
 class RedisClient::ProtocolError < ::RedisClient::Error; end
 
 # source://redis-client//lib/redis_client.rb#546
@@ -1114,7 +1101,6 @@ RedisClient::RESP3::EOL = T.let(T.unsafe(nil), String)
 # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#12
 RedisClient::RESP3::EOL_SIZE = T.let(T.unsafe(nil), Integer)
 
-# source://redis-client//lib/redis_client/ruby_connection/resp3.rb#7
 class RedisClient::RESP3::Error < ::RedisClient::Error; end
 
 # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#34
@@ -1123,19 +1109,14 @@ RedisClient::RESP3::INTEGER_RANGE = T.let(T.unsafe(nil), Range)
 # source://redis-client//lib/redis_client/ruby_connection/resp3.rb#19
 RedisClient::RESP3::PARSER_TYPES = T.let(T.unsafe(nil), Hash)
 
-# source://redis-client//lib/redis_client/ruby_connection/resp3.rb#9
 class RedisClient::RESP3::SyntaxError < ::RedisClient::RESP3::Error; end
-
-# source://redis-client//lib/redis_client/ruby_connection/resp3.rb#8
 class RedisClient::RESP3::UnknownType < ::RedisClient::RESP3::Error; end
 
-# source://redis-client//lib/redis_client.rb#205
 class RedisClient::ReadOnlyError < ::RedisClient::ConnectionError
   include ::RedisClient::HasCommand
   include ::RedisClient::HasCode
 end
 
-# source://redis-client//lib/redis_client.rb#157
 class RedisClient::ReadTimeoutError < ::RedisClient::TimeoutError; end
 
 # source://redis-client//lib/redis_client.rb#102
@@ -1319,10 +1300,10 @@ class RedisClient::SentinelConfig
   # source://redis-client//lib/redis_client/sentinel_config.rb#12
   def initialize(sentinels:, sentinel_password: T.unsafe(nil), sentinel_username: T.unsafe(nil), role: T.unsafe(nil), name: T.unsafe(nil), url: T.unsafe(nil), **client_config); end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#110
+  # source://redis-client//lib/redis_client/sentinel_config.rb#113
   def check_role!(role); end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#89
+  # source://redis-client//lib/redis_client/sentinel_config.rb#92
   def host; end
 
   # Returns the value of attribute name.
@@ -1330,57 +1311,57 @@ class RedisClient::SentinelConfig
   # source://redis-client//lib/redis_client/sentinel_config.rb#10
   def name; end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#97
+  # source://redis-client//lib/redis_client/sentinel_config.rb#100
   def path; end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#93
+  # source://redis-client//lib/redis_client/sentinel_config.rb#96
   def port; end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#79
+  # source://redis-client//lib/redis_client/sentinel_config.rb#82
   def reset; end
 
   # @return [Boolean]
   #
-  # source://redis-client//lib/redis_client/sentinel_config.rb#124
+  # source://redis-client//lib/redis_client/sentinel_config.rb#127
   def resolved?; end
 
   # @return [Boolean]
   #
-  # source://redis-client//lib/redis_client/sentinel_config.rb#101
+  # source://redis-client//lib/redis_client/sentinel_config.rb#104
   def retry_connecting?(attempt, error); end
 
   # @return [Boolean]
   #
-  # source://redis-client//lib/redis_client/sentinel_config.rb#106
+  # source://redis-client//lib/redis_client/sentinel_config.rb#109
   def sentinel?; end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#73
+  # source://redis-client//lib/redis_client/sentinel_config.rb#76
   def sentinels; end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#85
+  # source://redis-client//lib/redis_client/sentinel_config.rb#88
   def server_key; end
 
   private
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#143
+  # source://redis-client//lib/redis_client/sentinel_config.rb#146
   def config; end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#190
+  # source://redis-client//lib/redis_client/sentinel_config.rb#193
   def each_sentinel; end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#216
+  # source://redis-client//lib/redis_client/sentinel_config.rb#219
   def refresh_sentinels(sentinel_client); end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#153
+  # source://redis-client//lib/redis_client/sentinel_config.rb#156
   def resolve_master; end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#172
+  # source://redis-client//lib/redis_client/sentinel_config.rb#175
   def resolve_replica; end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#168
+  # source://redis-client//lib/redis_client/sentinel_config.rb#171
   def sentinel_client(sentinel_config); end
 
-  # source://redis-client//lib/redis_client/sentinel_config.rb#132
+  # source://redis-client//lib/redis_client/sentinel_config.rb#135
   def sentinels_to_configs(sentinels); end
 end
 
@@ -1390,7 +1371,6 @@ RedisClient::SentinelConfig::DEFAULT_RECONNECT_ATTEMPTS = T.let(T.unsafe(nil), I
 # source://redis-client//lib/redis_client/sentinel_config.rb#7
 RedisClient::SentinelConfig::SENTINEL_DELAY = T.let(T.unsafe(nil), Float)
 
-# source://redis-client//lib/redis_client.rb#156
 class RedisClient::TimeoutError < ::RedisClient::ConnectionError; end
 
 # source://redis-client//lib/redis_client/url_config.rb#6
@@ -1434,14 +1414,10 @@ class RedisClient::URLConfig
   def username; end
 end
 
-# source://redis-client//lib/redis_client.rb#149
 class RedisClient::UnsupportedServer < ::RedisClient::Error; end
 
 # source://redis-client//lib/redis_client/version.rb#4
 RedisClient::VERSION = T.let(T.unsafe(nil), String)
 
-# source://redis-client//lib/redis_client.rb#158
 class RedisClient::WriteTimeoutError < ::RedisClient::TimeoutError; end
-
-# source://redis-client//lib/redis_client.rb#201
 class RedisClient::WrongTypeError < ::RedisClient::CommandError; end

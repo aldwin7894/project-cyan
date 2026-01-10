@@ -707,18 +707,15 @@ module ActionView::CollectionCaching
   # source://actionview//lib/action_view/renderer/partial_renderer/collection_caching.rb#20
   def cache_collection_render(instrumentation_payload, view, template, collection); end
 
-  # source://actionview//lib/action_view/renderer/partial_renderer/collection_caching.rb#54
-  def callable_cache_key; end
-
   # @return [Boolean]
   #
-  # source://actionview//lib/action_view/renderer/partial_renderer/collection_caching.rb#62
+  # source://actionview//lib/action_view/renderer/partial_renderer/collection_caching.rb#54
   def callable_cache_key?; end
 
-  # source://actionview//lib/action_view/renderer/partial_renderer/collection_caching.rb#66
+  # source://actionview//lib/action_view/renderer/partial_renderer/collection_caching.rb#58
   def collection_by_cache_keys(view, template, collection); end
 
-  # source://actionview//lib/action_view/renderer/partial_renderer/collection_caching.rb#79
+  # source://actionview//lib/action_view/renderer/partial_renderer/collection_caching.rb#71
   def expanded_cache_key(key, view, template, digest_path); end
 
   # `order_by` is an enumerable object containing keys of the cache,
@@ -737,7 +734,7 @@ module ActionView::CollectionCaching
   # If the partial is not already cached it will also be
   # written back to the underlying cache store.
   #
-  # source://actionview//lib/action_view/renderer/partial_renderer/collection_caching.rb#99
+  # source://actionview//lib/action_view/renderer/partial_renderer/collection_caching.rb#91
   def fetch_or_cache_partial(cached_partials, template, order_by:); end
 
   # @return [Boolean]
@@ -759,7 +756,7 @@ class ActionView::CollectionRenderer < ::ActionView::PartialRenderer
   private
 
   # source://actionview//lib/action_view/renderer/collection_renderer.rb#182
-  def collection_with_template(view, template, layout, collection, &block); end
+  def collection_with_template(view, template, layout, collection); end
 
   # source://actionview//lib/action_view/renderer/collection_renderer.rb#153
   def render_collection(collection, view, path, template, layout, block); end
@@ -9599,7 +9596,7 @@ module ActionView::Helpers::TagHelper
   #   cdata_section("hello]]>world")
   #   # => <![CDATA[hello]]]]><![CDATA[>world]]>
   #
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#559
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#555
   def cdata_section(content); end
 
   # Returns a string of tokens built from +args+.
@@ -9614,7 +9611,7 @@ module ActionView::Helpers::TagHelper
   #   token_list(nil, false, 123, "", "foo", { bar: true })
   #    # => "123 foo bar"
   #
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#544
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#540
   def class_names(*args); end
 
   # Returns an HTML block tag of type +name+ surrounding the +content+. Add
@@ -9646,7 +9643,7 @@ module ActionView::Helpers::TagHelper
   #   <% end -%>
   #    # => <div class="strong">Hello world!</div>
   #
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#517
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#513
   def content_tag(name, content_or_options_with_block = T.unsafe(nil), options = T.unsafe(nil), escape = T.unsafe(nil), &block); end
 
   # Returns an escaped version of +html+ without affecting existing escaped entities.
@@ -9657,7 +9654,7 @@ module ActionView::Helpers::TagHelper
   #   escape_once("&lt;&lt; Accept & Checkout")
   #   # => "&lt;&lt; Accept &amp; Checkout"
   #
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#571
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#567
   def escape_once(html); end
 
   # Returns an HTML tag.
@@ -9807,7 +9804,7 @@ module ActionView::Helpers::TagHelper
   #   tag("div", class: { highlight: current_user.admin? })
   #   # => <div class="highlight" />
   #
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#480
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#476
   def tag(name = T.unsafe(nil), options = T.unsafe(nil), open = T.unsafe(nil), escape = T.unsafe(nil)); end
 
   # Returns a string of tokens built from +args+.
@@ -9822,29 +9819,29 @@ module ActionView::Helpers::TagHelper
   #   token_list(nil, false, 123, "", "foo", { bar: true })
   #    # => "123 foo bar"
   #
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#539
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#535
   def token_list(*args); end
 
   private
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#581
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#577
   def build_tag_values(*args); end
 
   # @raise [ArgumentError]
   #
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#576
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#572
   def ensure_valid_html5_tag_name(name); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#601
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#597
   def tag_builder; end
 
   class << self
-    # source://actionview//lib/action_view/helpers/tag_helper.rb#599
+    # source://actionview//lib/action_view/helpers/tag_helper.rb#595
     def build_tag_values(*args); end
 
     # @raise [ArgumentError]
     #
-    # source://actionview//lib/action_view/helpers/tag_helper.rb#579
+    # source://actionview//lib/action_view/helpers/tag_helper.rb#575
     def ensure_valid_html5_tag_name(name); end
   end
 end
@@ -10272,24 +10269,24 @@ class ActionView::Helpers::TagHelper::TagBuilder
 
   private
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#292
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#288
   def boolean_tag_option(key); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#325
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#321
   def method_missing(called, *args, escape: T.unsafe(nil), **options, &block); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#313
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#309
   def prefix_tag_option(prefix, key, value, escape); end
 
   # @return [Boolean]
   #
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#321
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#317
   def respond_to_missing?(*args); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#288
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#284
   def self_closing_tag_string(name, options, escape = T.unsafe(nil), tag_suffix = T.unsafe(nil)); end
 
-  # source://actionview//lib/action_view/helpers/tag_helper.rb#296
+  # source://actionview//lib/action_view/helpers/tag_helper.rb#292
   def tag_option(key, value, escape); end
 
   # source://actionview//lib/action_view/helpers/tag_helper.rb#278
@@ -12505,45 +12502,76 @@ module ActionView::Layouts::ClassMethods::LayoutConditions
 end
 
 # source://actionview//lib/action_view/log_subscriber.rb#6
-class ActionView::LogSubscriber < ::ActiveSupport::EventReporter::LogSubscriber
+class ActionView::LogSubscriber < ::ActiveSupport::LogSubscriber
+  include ::ActionView::LogSubscriber::Utils
+
   # @return [LogSubscriber] a new instance of LogSubscriber
   #
-  # source://actionview//lib/action_view/log_subscriber.rb#11
+  # source://actionview//lib/action_view/log_subscriber.rb#9
   def initialize; end
 
-  # source://actionview//lib/action_view/log_subscriber.rb#44
+  # source://actionview//lib/action_view/log_subscriber.rb#42
   def render_collection(event); end
 
-  # source://actionview//lib/action_view/log_subscriber.rb#36
+  # source://actionview//lib/action_view/log_subscriber.rb#34
   def render_layout(event); end
 
-  # source://actionview//lib/action_view/log_subscriber.rb#25
+  # source://actionview//lib/action_view/log_subscriber.rb#23
   def render_partial(event); end
 
-  # source://actionview//lib/action_view/log_subscriber.rb#56
-  def render_start(event); end
-
-  # source://actionview//lib/action_view/log_subscriber.rb#16
+  # source://actionview//lib/action_view/log_subscriber.rb#14
   def render_template(event); end
 
   private
 
-  # source://actionview//lib/action_view/log_subscriber.rb#90
+  # source://actionview//lib/action_view/log_subscriber.rb#118
   def cache_message(payload); end
 
-  # source://actionview//lib/action_view/log_subscriber.rb#72
-  def from_rails_root(string); end
-
-  # source://actionview//lib/action_view/log_subscriber.rb#78
-  def rails_root; end
-
-  # source://actionview//lib/action_view/log_subscriber.rb#82
+  # source://actionview//lib/action_view/log_subscriber.rb#110
   def render_count(payload); end
 
   class << self
-    # source://actionview//lib/action_view/log_subscriber.rb#67
-    def default_logger; end
+    # source://actionview//lib/action_view/log_subscriber.rb#102
+    def attach_to(*_arg0); end
+
+    private
+
+    # source://actionview//lib/action_view/log_subscriber.rb#21
+    def __class_attr_log_levels; end
+
+    # source://actionview//lib/action_view/log_subscriber.rb#21
+    def __class_attr_log_levels=(new_value); end
   end
+end
+
+# source://actionview//lib/action_view/log_subscriber.rb#73
+class ActionView::LogSubscriber::Start
+  include ::ActionView::LogSubscriber::Utils
+
+  # source://actionview//lib/action_view/log_subscriber.rb#94
+  def finish(name, id, payload); end
+
+  # @return [Boolean]
+  #
+  # source://actionview//lib/action_view/log_subscriber.rb#97
+  def silenced?(_); end
+
+  # source://actionview//lib/action_view/log_subscriber.rb#76
+  def start(name, id, payload); end
+end
+
+# source://actionview//lib/action_view/log_subscriber.rb#54
+module ActionView::LogSubscriber::Utils
+  # source://actionview//lib/action_view/log_subscriber.rb#55
+  def logger; end
+
+  private
+
+  # source://actionview//lib/action_view/log_subscriber.rb#60
+  def from_rails_root(string); end
+
+  # source://actionview//lib/action_view/log_subscriber.rb#66
+  def rails_root; end
 end
 
 # source://actionview//lib/action_view/log_subscriber.rb#7
@@ -15878,7 +15906,7 @@ ActionView::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActionView::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://actionview//lib/action_view/gem_version.rb#13
-ActionView::VERSION::PRE = T.let(T.unsafe(nil), String)
+ActionView::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
 
 # source://actionview//lib/action_view/gem_version.rb#15
 ActionView::VERSION::STRING = T.let(T.unsafe(nil), String)

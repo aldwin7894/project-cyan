@@ -12,18 +12,12 @@ module ActionMailer::TestCase::Behavior
   mixes_in_class_methods GeneratedClassMethods
 
   module GeneratedClassMethods
-    def _decoders; end
-    def _decoders=(value); end
-    def _decoders?; end
     def _mailer_class; end
     def _mailer_class=(value); end
     def _mailer_class?; end
   end
 
   module GeneratedInstanceMethods
-    def _decoders; end
-    def _decoders=(value); end
-    def _decoders?; end
     def _mailer_class; end
     def _mailer_class=(value); end
     def _mailer_class?; end

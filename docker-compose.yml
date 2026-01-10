@@ -1,7 +1,7 @@
 services:
   db:
     container_name: project-cyan-mongo
-    image: mongo:4.4.18
+    image: mongo:8.2.3
     restart: always
     environment:
       - TZ

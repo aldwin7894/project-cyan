@@ -1836,21 +1836,31 @@ end
 # source://actionmailer//lib/action_mailer/inline_preview_interceptor.rb#18
 ActionMailer::InlinePreviewInterceptor::PATTERN = T.let(T.unsafe(nil), Regexp)
 
-# source://actionmailer//lib/action_mailer/log_subscriber.rb#6
-class ActionMailer::LogSubscriber < ::ActiveSupport::EventReporter::LogSubscriber
+# source://actionmailer//lib/action_mailer/log_subscriber.rb#7
+class ActionMailer::LogSubscriber < ::ActiveSupport::LogSubscriber
   # An email was delivered.
   #
-  # source://actionmailer//lib/action_mailer/log_subscriber.rb#10
-  def delivered(event); end
+  # source://actionmailer//lib/action_mailer/log_subscriber.rb#8
+  def deliver(event); end
+
+  # Use the logger configured for ActionMailer::Base.
+  #
+  # source://actionmailer//lib/action_mailer/log_subscriber.rb#34
+  def logger; end
 
   # An email was generated.
   #
-  # source://actionmailer//lib/action_mailer/log_subscriber.rb#27
-  def processed(event); end
+  # source://actionmailer//lib/action_mailer/log_subscriber.rb#24
+  def process(event); end
 
   class << self
-    # source://actionmailer//lib/action_mailer/log_subscriber.rb#36
-    def default_logger; end
+    private
+
+    # source://actionmailer//lib/action_mailer/log_subscriber.rb#21
+    def __class_attr_log_levels; end
+
+    # source://actionmailer//lib/action_mailer/log_subscriber.rb#21
+    def __class_attr_log_levels=(new_value); end
   end
 end
 
@@ -2440,66 +2450,42 @@ class ActionMailer::TestCase < ::ActiveSupport::TestCase
   extend ::ActionMailer::TestCase::Behavior::ClassMethods
 
   # source://actionmailer//lib/action_mailer/test_case.rb#41
-  def _decoders; end
-
-  # source://actionmailer//lib/action_mailer/test_case.rb#41
-  def _decoders=(_arg0); end
-
-  # source://actionmailer//lib/action_mailer/test_case.rb#41
-  def _decoders?; end
-
-  # source://actionmailer//lib/action_mailer/test_case.rb#44
   def _mailer_class; end
 
-  # source://actionmailer//lib/action_mailer/test_case.rb#44
+  # source://actionmailer//lib/action_mailer/test_case.rb#41
   def _mailer_class=(_arg0); end
 
-  # source://actionmailer//lib/action_mailer/test_case.rb#44
+  # source://actionmailer//lib/action_mailer/test_case.rb#41
   def _mailer_class?; end
 
-  # source://actionmailer//lib/action_mailer/test_case.rb#45
+  # source://actionmailer//lib/action_mailer/test_case.rb#42
   def _run_setup_callbacks(&block); end
 
-  # source://actionmailer//lib/action_mailer/test_case.rb#47
+  # source://actionmailer//lib/action_mailer/test_case.rb#44
   def _run_teardown_callbacks(&block); end
 
   class << self
     # source://actionmailer//lib/action_mailer/test_case.rb#41
-    def _decoders; end
-
-    # source://actionmailer//lib/action_mailer/test_case.rb#41
-    def _decoders=(value); end
-
-    # source://actionmailer//lib/action_mailer/test_case.rb#41
-    def _decoders?; end
-
-    # source://actionmailer//lib/action_mailer/test_case.rb#44
     def _mailer_class; end
 
-    # source://actionmailer//lib/action_mailer/test_case.rb#44
+    # source://actionmailer//lib/action_mailer/test_case.rb#41
     def _mailer_class=(value); end
 
-    # source://actionmailer//lib/action_mailer/test_case.rb#44
+    # source://actionmailer//lib/action_mailer/test_case.rb#41
     def _mailer_class?; end
 
     private
 
-    # source://actionmailer//lib/action_mailer/test_case.rb#45
+    # source://actionmailer//lib/action_mailer/test_case.rb#42
     def __class_attr___callbacks; end
 
-    # source://actionmailer//lib/action_mailer/test_case.rb#45
+    # source://actionmailer//lib/action_mailer/test_case.rb#42
     def __class_attr___callbacks=(new_value); end
 
     # source://actionmailer//lib/action_mailer/test_case.rb#41
-    def __class_attr__decoders; end
-
-    # source://actionmailer//lib/action_mailer/test_case.rb#41
-    def __class_attr__decoders=(new_value); end
-
-    # source://actionmailer//lib/action_mailer/test_case.rb#44
     def __class_attr__mailer_class; end
 
-    # source://actionmailer//lib/action_mailer/test_case.rb#44
+    # source://actionmailer//lib/action_mailer/test_case.rb#41
     def __class_attr__mailer_class=(new_value); end
   end
 end
@@ -2519,114 +2505,62 @@ module ActionMailer::TestCase::Behavior
   mixes_in_class_methods ::ActiveSupport::Testing::ConstantLookup::ClassMethods
   mixes_in_class_methods ::ActionMailer::TestCase::Behavior::ClassMethods
 
-  # Assert that a Mail instance does not have a part with a matching MIME type
-  #
-  # By default, assert against the last delivered Mail.
-  #
-  #   UsersMailer.create(user).deliver_now
-  #
-  #   assert_no_part :html
-  #   assert_no_part :text
-  #
-  # source://actionmailer//lib/action_mailer/test_case.rb#129
-  def assert_no_part(content_type, mail = T.unsafe(nil)); end
-
-  # Assert that a Mail instance has a part matching the content type.
-  # If the Mail is multipart, extract and decode the appropriate part. Yield the decoded part to the block.
-  #
-  # By default, assert against the last delivered Mail.
-  #
-  #   UsersMailer.create(user).deliver_now
-  #   assert_part :text do |text|
-  #     assert_includes text, "Welcome, #{user.email}"
-  #   end
-  #   assert_part :html do |html|
-  #     assert_dom html.root, "h1", text: "Welcome, #{user.email}"
-  #   end
-  #
-  # Assert against a Mail instance when provided
-  #
-  #   mail = UsersMailer.create(user)
-  #   assert_part :text, mail do |text|
-  #     assert_includes text, "Welcome, #{user.email}"
-  #   end
-  #   assert_part :html, mail do |html|
-  #     assert_dom html.root, "h1", text: "Welcome, #{user.email}"
-  #   end
-  #
-  # @yield [decoder.call(part.decoded)]
-  #
-  # source://actionmailer//lib/action_mailer/test_case.rb#111
-  def assert_part(content_type, mail = T.unsafe(nil)); end
-
   # Reads the fixture file for the given mailer.
   #
   # This is useful when testing mailers by being able to write the body of
   # an email inside a fixture. See the testing guide for a concrete example:
   # https://guides.rubyonrails.org/testing.html#revenge-of-the-fixtures
   #
-  # source://actionmailer//lib/action_mailer/test_case.rb#85
+  # source://actionmailer//lib/action_mailer/test_case.rb#82
   def read_fixture(action); end
 
   private
 
-  # source://actionmailer//lib/action_mailer/test_case.rb#165
+  # source://actionmailer//lib/action_mailer/test_case.rb#115
   def charset; end
 
-  # source://actionmailer//lib/action_mailer/test_case.rb#169
+  # source://actionmailer//lib/action_mailer/test_case.rb#119
   def encode(subject); end
 
-  # source://actionmailer//lib/action_mailer/test_case.rb#137
+  # source://actionmailer//lib/action_mailer/test_case.rb#87
   def initialize_test_deliveries; end
 
-  # source://actionmailer//lib/action_mailer/test_case.rb#173
-  def last_delivered_mail; end
-
-  # source://actionmailer//lib/action_mailer/test_case.rb#177
-  def last_delivered_mail!; end
-
-  # source://actionmailer//lib/action_mailer/test_case.rb#154
+  # source://actionmailer//lib/action_mailer/test_case.rb#104
   def restore_delivery_method; end
 
-  # source://actionmailer//lib/action_mailer/test_case.rb#144
+  # source://actionmailer//lib/action_mailer/test_case.rb#94
   def restore_test_deliveries; end
 
-  # source://actionmailer//lib/action_mailer/test_case.rb#149
+  # source://actionmailer//lib/action_mailer/test_case.rb#99
   def set_delivery_method(method); end
 
-  # source://actionmailer//lib/action_mailer/test_case.rb#159
+  # source://actionmailer//lib/action_mailer/test_case.rb#109
   def set_expected_mail; end
 
   module GeneratedClassMethods
-    def _decoders; end
-    def _decoders=(value); end
-    def _decoders?; end
     def _mailer_class; end
     def _mailer_class=(value); end
     def _mailer_class?; end
   end
 
   module GeneratedInstanceMethods
-    def _decoders; end
-    def _decoders=(value); end
-    def _decoders?; end
     def _mailer_class; end
     def _mailer_class=(value); end
     def _mailer_class?; end
   end
 end
 
-# source://actionmailer//lib/action_mailer/test_case.rb#51
+# source://actionmailer//lib/action_mailer/test_case.rb#48
 module ActionMailer::TestCase::Behavior::ClassMethods
   # @raise [NonInferrableMailerError]
   #
-  # source://actionmailer//lib/action_mailer/test_case.rb#71
+  # source://actionmailer//lib/action_mailer/test_case.rb#68
   def determine_default_mailer(name); end
 
-  # source://actionmailer//lib/action_mailer/test_case.rb#63
+  # source://actionmailer//lib/action_mailer/test_case.rb#60
   def mailer_class; end
 
-  # source://actionmailer//lib/action_mailer/test_case.rb#52
+  # source://actionmailer//lib/action_mailer/test_case.rb#49
   def tests(mailer); end
 end
 
@@ -2885,7 +2819,7 @@ ActionMailer::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActionMailer::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://actionmailer//lib/action_mailer/gem_version.rb#13
-ActionMailer::VERSION::PRE = T.let(T.unsafe(nil), String)
+ActionMailer::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
 
 # source://actionmailer//lib/action_mailer/gem_version.rb#15
 ActionMailer::VERSION::STRING = T.let(T.unsafe(nil), String)

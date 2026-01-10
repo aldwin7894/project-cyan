@@ -68,6 +68,11 @@ module FFI
     # source://ffi//lib/ffi/library.rb#46
     def map_library_name(lib); end
 
+    # This is for FFI internal use only.
+    #
+    # source://ffi//lib/ffi/compat.rb#46
+    def shareable_proc(**kwargs, &block); end
+
     # Get +type+ size, in bytes.
     #
     # @param type +type+ is an instance of class accepted by {FFI.find_type}
@@ -737,21 +742,31 @@ class FFI::AutoPointer < ::FFI::Pointer
   # @raise [FrozenError]
   # @return [Boolean] +autorelease+
   #
-  # source://ffi//lib/ffi/autopointer.rb#101
+  # source://ffi//lib/ffi/autopointer.rb#107
   def autorelease=(autorelease); end
 
   # Get +autorelease+ property. See {Pointer Autorelease section at Pointer}.
   #
   # @return [Boolean] +autorelease+
   #
-  # source://ffi//lib/ffi/autopointer.rb#108
+  # source://ffi//lib/ffi/autopointer.rb#114
   def autorelease?; end
+
+  # @raise [RuntimeError]
+  #
+  # source://ffi//lib/ffi/autopointer.rb#96
+  def clone; end
+
+  # @raise [RuntimeError]
+  #
+  # source://ffi//lib/ffi/autopointer.rb#92
+  def dup; end
 
   # Free the pointer.
   #
   # @return [nil]
   #
-  # source://ffi//lib/ffi/autopointer.rb#94
+  # source://ffi//lib/ffi/autopointer.rb#100
   def free; end
 
   class << self
@@ -762,7 +777,7 @@ class FFI::AutoPointer < ::FFI::Pointer
     # @overload self.from_native
     # @return [AutoPointer]
     #
-    # source://ffi//lib/ffi/autopointer.rb#175
+    # source://ffi//lib/ffi/autopointer.rb#181
     def from_native(val, ctx); end
 
     # Return native type of AutoPointer.
@@ -772,7 +787,7 @@ class FFI::AutoPointer < ::FFI::Pointer
     # @raise [RuntimeError] if class does not implement a +#release+ method
     # @return [Type::POINTER]
     #
-    # source://ffi//lib/ffi/autopointer.rb#161
+    # source://ffi//lib/ffi/autopointer.rb#167
     def native_type; end
   end
 end
@@ -783,7 +798,7 @@ end
 #
 #   All subclasses of Releaser should define a +#release(ptr)+ method.
 #
-# source://ffi//lib/ffi/autopointer.rb#116
+# source://ffi//lib/ffi/autopointer.rb#122
 class FFI::AutoPointer::Releaser
   # A new instance of Releaser.
   #
@@ -791,33 +806,33 @@ class FFI::AutoPointer::Releaser
   # @param ptr [Pointer]
   # @return [nil]
   #
-  # source://ffi//lib/ffi/autopointer.rb#123
+  # source://ffi//lib/ffi/autopointer.rb#129
   def initialize(ptr, proc); end
 
   # Returns the value of attribute autorelease.
   #
-  # source://ffi//lib/ffi/autopointer.rb#117
+  # source://ffi//lib/ffi/autopointer.rb#123
   def autorelease; end
 
   # Sets the attribute autorelease
   #
   # @param value the value to set the attribute autorelease to.
   #
-  # source://ffi//lib/ffi/autopointer.rb#117
+  # source://ffi//lib/ffi/autopointer.rb#123
   def autorelease=(_arg0); end
 
   # Release pointer if +autorelease+ is set.
   #
   # @param args
   #
-  # source://ffi//lib/ffi/autopointer.rb#142
+  # source://ffi//lib/ffi/autopointer.rb#148
   def call(*args); end
 
   # Free pointer.
   #
   # @return [nil]
   #
-  # source://ffi//lib/ffi/autopointer.rb#131
+  # source://ffi//lib/ffi/autopointer.rb#137
   def free; end
 
   # Release +ptr+ by using Proc or Method defined at +ptr+
@@ -826,7 +841,7 @@ class FFI::AutoPointer::Releaser
   # @param ptr [Pointer]
   # @return [nil]
   #
-  # source://ffi//lib/ffi/autopointer.rb#151
+  # source://ffi//lib/ffi/autopointer.rb#157
   def release(ptr); end
 end
 
@@ -1147,6 +1162,8 @@ class FFI::Function < ::FFI::Pointer
   # source://ffi//lib/ffi.rb#3
   def initialize(*_arg0); end
 
+  # Use a workaround for https://github.com/libffi/libffi/issues/905
+  #
   # source://ffi//lib/ffi.rb#3
   def attach(mod, name); end
 
@@ -1195,9 +1212,9 @@ end
 # Stash the Function in a module variable so it can be inspected by attached_functions.
 # On CRuby it also ensures that it does not get garbage collected.
 #
-# source://ffi//lib/ffi/function.rb#56
+# source://ffi//lib/ffi/function.rb#79
 module FFI::Function::RegisterAttach
-  # source://ffi//lib/ffi/function.rb#57
+  # source://ffi//lib/ffi/function.rb#80
   def attach(mod, name); end
 end
 
@@ -1448,7 +1465,7 @@ module FFI::Library
   # Freeze all definitions of the module
   #
   # This freezes the module's definitions, so that it can be used in a Ractor.
-  # No further methods or variables can be attached and no further enums or typedefs can be created in this module afterwards.
+  # No further functions or variables can be attached and no further enums or typedefs can be created in this module afterwards.
   #
   # source://ffi//lib/ffi/library.rb#568
   def freeze; end
@@ -2302,7 +2319,7 @@ class FFI::StructByReference
   # Always get {FFI::Type}::POINTER.
   #
   # source://ffi//lib/ffi/struct_by_reference.rb#47
-  def native_type; end
+  def native_type(_type = T.unsafe(nil)); end
 
   # Returns the value of attribute struct_class.
   #

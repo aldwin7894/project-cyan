@@ -276,10 +276,10 @@
     "@csstools/utilities" "^2.0.0"
     postcss-value-parser "^4.2.0"
 
-"@csstools/postcss-normalize-display-values@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@csstools/postcss-normalize-display-values/-/postcss-normalize-display-values-4.0.0.tgz#ecdde2daf4e192e5da0c6fd933b6d8aff32f2a36"
-  integrity sha512-HlEoG0IDRoHXzXnkV4in47dzsxdsjdz6+j7MLjaACABX2NfvjFS6XVAnpaDyGesz9gK2SC7MbNwdCHusObKJ9Q==
+"@csstools/postcss-normalize-display-values@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-normalize-display-values/-/postcss-normalize-display-values-4.0.1.tgz#3738ecadb38cd6521c9565635d61aa4bf5457d27"
+  integrity sha512-TQUGBuRvxdc7TgNSTevYqrL8oItxiwPDixk20qCB5me/W8uF7BPbhRrAvFuhEoywQp/woRsUZ6SJ+sU5idZAIA==
   dependencies:
     postcss-value-parser "^4.2.0"
 
@@ -565,12 +565,12 @@
   resolved "https://registry.yarnpkg.com/@eslint-community/regexpp/-/regexpp-4.12.2.tgz#bccdf615bcf7b6e8db830ec0b8d21c9a25de597b"
   integrity sha512-EriSTlt5OC9/7SXkRSCAhfSxxoSUgBm33OH+IkwbdpgoqsSsUg7y3uh+IICI/Qg4BBWr3U2i39RpmycbxMq4ew==
 
-"@eslint/compat@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@eslint/compat/-/compat-2.0.0.tgz#0c98f24fdac8717eff6b6530971c1fa25e8612a8"
-  integrity sha512-T9AfE1G1uv4wwq94ozgTGio5EUQBqAVe1X9qsQtSNVEYW6j3hvtZVm8Smr4qL1qDPFg+lOB2cL5RxTRMzq4CTA==
+"@eslint/compat@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@eslint/compat/-/compat-2.0.1.tgz#5894516f8ce9ba884f4d4ba5ecb6b6459b231144"
+  integrity sha512-yl/JsgplclzuvGFNqwNYV4XNPhP3l62ZOP9w/47atNAdmDtIFCx6X7CSk/SlWUuBGkT4Et/5+UD+WyvX2iiIWA==
   dependencies:
-    "@eslint/core" "^1.0.0"
+    "@eslint/core" "^1.0.1"
 
 "@eslint/config-array@^0.21.1":
   version "0.21.1"
@@ -595,10 +595,10 @@
   dependencies:
     "@types/json-schema" "^7.0.15"
 
-"@eslint/core@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@eslint/core/-/core-1.0.0.tgz#6e371a1ce8dc56224f3b9b97fb6b815cd41f9b87"
-  integrity sha512-PRfWP+8FOldvbApr6xL7mNCw4cJcSTq4GA7tYbgq15mRb0kWKO/wEB2jr+uwjFH3sZvEZneZyCUGTxsv4Sahyw==
+"@eslint/core@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@eslint/core/-/core-1.0.1.tgz#701ff760cbd279f9490bef0ce54095f4088d4def"
+  integrity sha512-r18fEAj9uCk+VjzGt2thsbOmychS+4kxI14spVNibUO2vqKX7obOG+ymZljAwuPZl+S3clPGwCwTDtrdqTiY6Q==
   dependencies:
     "@types/json-schema" "^7.0.15"
 
@@ -863,10 +863,15 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
   integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
 
-"@rails/actioncable@>=7.0", "@rails/actioncable@^8.1.100":
+"@rails/actioncable@>=7.0":
   version "8.1.100"
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-8.1.100.tgz#b1f85f3482425fb91e5eba1deb55152ee0bb2f85"
   integrity sha512-j4vJQqz51CDVYv2UafKRu4jiZi5/gTnm7NkyL+VMIgEw3s8jtVtmzu9uItUaZccUg9NJ6o05yVyBAHxNfTuCRA==
+
+"@rails/actioncable@^8.1.200":
+  version "8.1.200"
+  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-8.1.200.tgz#acecf74ab4846144eefdbc16618786df0cebedf9"
+  integrity sha512-on0DSb7AFUkq1ocxivDNQhhGW/RQpY91zvRVyyaEWP4gOOZWy33P/UyxjQk74IENWNrTqs8+zOGHwTjiiFruRw==
 
 "@rollup/rollup-android-arm-eabi@4.46.2":
   version "4.46.2"
@@ -1007,10 +1012,10 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
-"@types/node@^25.0.3":
-  version "25.0.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-25.0.3.tgz#79b9ac8318f373fbfaaf6e2784893efa9701f269"
-  integrity sha512-W609buLVRVmeW693xKfzHeIV6nJGGz98uCPfeXI1ELMLXVeKYZ9m15fAMSaUPBHYLGFsVRcMmSCksQOrZV9BYA==
+"@types/node@^25.0.6":
+  version "25.0.6"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-25.0.6.tgz#5ca3c46f2b256b59128f433426e42d464765dab1"
+  integrity sha512-NNu0sjyNxpoiW3YuVFfNz7mxSQ+S4X2G28uqg2s+CzoqoQjLPsWSbsFFyztIAqt2vb8kfEAsJNepMGPTxFDx3Q==
   dependencies:
     undici-types "~7.16.0"
 
@@ -3913,10 +3918,10 @@ postcss-place@^10.0.0:
   dependencies:
     postcss-value-parser "^4.2.0"
 
-postcss-preset-env@^10.6.0:
-  version "10.6.0"
-  resolved "https://registry.yarnpkg.com/postcss-preset-env/-/postcss-preset-env-10.6.0.tgz#8b2106ce3f0de1f0005929587aa331385076d463"
-  integrity sha512-+LzpUSLCGHUdlZ1YZP7lp7w1MjxInJRSG0uaLyk/V/BM17iU2B7xTO7I8x3uk0WQAcLLh/ffqKzOzfaBvG7Fdw==
+postcss-preset-env@^10.6.1:
+  version "10.6.1"
+  resolved "https://registry.yarnpkg.com/postcss-preset-env/-/postcss-preset-env-10.6.1.tgz#df30cfc54e90af2dcff5f94104e6f272359c9f65"
+  integrity sha512-yrk74d9EvY+W7+lO9Aj1QmjWY9q5NsKjK2V9drkOPZB/X6KZ0B3igKsHUYakb7oYVhnioWypQX3xGuePf89f3g==
   dependencies:
     "@csstools/postcss-alpha-function" "^1.0.1"
     "@csstools/postcss-cascade-layers" "^5.0.2"
@@ -3943,7 +3948,7 @@ postcss-preset-env@^10.6.0:
     "@csstools/postcss-media-minmax" "^2.0.9"
     "@csstools/postcss-media-queries-aspect-ratio-number-values" "^3.0.5"
     "@csstools/postcss-nested-calc" "^4.0.0"
-    "@csstools/postcss-normalize-display-values" "^4.0.0"
+    "@csstools/postcss-normalize-display-values" "^4.0.1"
     "@csstools/postcss-oklab-function" "^4.0.12"
     "@csstools/postcss-position-area-property" "^1.0.0"
     "@csstools/postcss-progressive-custom-properties" "^4.2.1"
@@ -5147,10 +5152,10 @@ vite-plugin-ruby@^5.1.2:
     debug "^4.3.4"
     fast-glob "^3.3.2"
 
-vite@^7.3.0:
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-7.3.0.tgz#066c7a835993a66e82004eac3e185d0d157fd658"
-  integrity sha512-dZwN5L1VlUBewiP6H9s2+B3e3Jg96D0vzN+Ry73sOefebhYr9f94wwkMNN/9ouoU8pV1BqA1d1zGk8928cx0rg==
+vite@^7.3.1:
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-7.3.1.tgz#7f6cfe8fb9074138605e822a75d9d30b814d6507"
+  integrity sha512-w+N7Hifpc3gRjZ63vYBXA56dvvRlNWRczTdmCBBa+CotUzAPf5b7YMdMR/8CQoeYE5LX3W4wj6RYTgonm1b9DA==
   dependencies:
     esbuild "^0.27.0"
     fdir "^6.5.0"

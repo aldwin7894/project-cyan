@@ -1831,7 +1831,7 @@ module ActiveJob::Instrumentation
 end
 
 # source://activejob//lib/active_job/log_subscriber.rb#6
-class ActiveJob::LogSubscriber < ::ActiveSupport::EventReporter::LogSubscriber
+class ActiveJob::LogSubscriber < ::ActiveSupport::LogSubscriber
   # source://activejob//lib/active_job/log_subscriber.rb#7
   def backtrace_cleaner; end
 
@@ -1841,70 +1841,76 @@ class ActiveJob::LogSubscriber < ::ActiveSupport::EventReporter::LogSubscriber
   # source://activejob//lib/active_job/log_subscriber.rb#7
   def backtrace_cleaner?; end
 
+  # source://activejob//lib/active_job/log_subscriber.rb#131
+  def discard(event); end
+
+  # source://activejob//lib/active_job/log_subscriber.rb#9
+  def enqueue(event); end
+
   # source://activejob//lib/active_job/log_subscriber.rb#49
-  def bulk_enqueued(event); end
+  def enqueue_all(event); end
 
-  # source://activejob//lib/active_job/log_subscriber.rb#81
-  def completed(event); end
+  # source://activejob//lib/active_job/log_subscriber.rb#29
+  def enqueue_at(event); end
 
-  # source://activejob//lib/active_job/log_subscriber.rb#123
-  def discarded(event); end
-
-  # source://activejob//lib/active_job/log_subscriber.rb#11
-  def enqueued(event); end
-
-  # source://activejob//lib/active_job/log_subscriber.rb#30
-  def enqueued_at(event); end
-
-  # source://activejob//lib/active_job/log_subscriber.rb#132
-  def interrupt(event); end
+  # source://activejob//lib/active_job/log_subscriber.rb#106
+  def enqueue_retry(event); end
 
   # source://activejob//lib/active_job/log_subscriber.rb#141
+  def interrupt(event); end
+
+  # source://activejob//lib/active_job/log_subscriber.rb#86
+  def perform(event); end
+
+  # source://activejob//lib/active_job/log_subscriber.rb#76
+  def perform_start(event); end
+
+  # source://activejob//lib/active_job/log_subscriber.rb#149
   def resume(event); end
 
-  # source://activejob//lib/active_job/log_subscriber.rb#101
-  def retry_scheduled(event); end
-
-  # source://activejob//lib/active_job/log_subscriber.rb#114
+  # source://activejob//lib/active_job/log_subscriber.rb#121
   def retry_stopped(event); end
 
-  # source://activejob//lib/active_job/log_subscriber.rb#70
-  def started(event); end
-
-  # source://activejob//lib/active_job/log_subscriber.rb#172
+  # source://activejob//lib/active_job/log_subscriber.rb#178
   def step(event); end
 
-  # source://activejob//lib/active_job/log_subscriber.rb#150
+  # source://activejob//lib/active_job/log_subscriber.rb#157
   def step_skipped(event); end
 
-  # source://activejob//lib/active_job/log_subscriber.rb#159
+  # source://activejob//lib/active_job/log_subscriber.rb#165
   def step_started(event); end
 
   private
 
-  # source://activejob//lib/active_job/log_subscriber.rb#201
-  def args_info(event); end
+  # source://activejob//lib/active_job/log_subscriber.rb#204
+  def args_info(job); end
 
-  # source://activejob//lib/active_job/log_subscriber.rb#247
+  # source://activejob//lib/active_job/log_subscriber.rb#258
   def enqueue_source_location; end
 
-  # source://activejob//lib/active_job/log_subscriber.rb#251
-  def enqueued_jobs_message(event); end
+  # source://activejob//lib/active_job/log_subscriber.rb#262
+  def enqueued_jobs_message(adapter, enqueued_jobs); end
 
-  # source://activejob//lib/active_job/log_subscriber.rb#231
+  # source://activejob//lib/active_job/log_subscriber.rb#242
   def error(progname = T.unsafe(nil), &block); end
 
-  # source://activejob//lib/active_job/log_subscriber.rb#210
+  # source://activejob//lib/active_job/log_subscriber.rb#213
   def format(arg); end
 
-  # source://activejob//lib/active_job/log_subscriber.rb#223
+  # source://activejob//lib/active_job/log_subscriber.rb#234
   def info(progname = T.unsafe(nil), &block); end
 
-  # source://activejob//lib/active_job/log_subscriber.rb#239
+  # source://activejob//lib/active_job/log_subscriber.rb#250
   def log_enqueue_source; end
 
-  # source://activejob//lib/active_job/log_subscriber.rb#196
+  # source://activejob//lib/active_job/log_subscriber.rb#230
+  def logger; end
+
+  # source://activejob//lib/active_job/log_subscriber.rb#200
   def queue_name(event); end
+
+  # source://activejob//lib/active_job/log_subscriber.rb#226
+  def scheduled_at(event); end
 
   class << self
     # source://activejob//lib/active_job/log_subscriber.rb#7
@@ -1916,9 +1922,6 @@ class ActiveJob::LogSubscriber < ::ActiveSupport::EventReporter::LogSubscriber
     # source://activejob//lib/active_job/log_subscriber.rb#7
     def backtrace_cleaner?; end
 
-    # source://activejob//lib/active_job/log_subscriber.rb#191
-    def default_logger; end
-
     private
 
     # source://activejob//lib/active_job/log_subscriber.rb#7
@@ -1926,6 +1929,12 @@ class ActiveJob::LogSubscriber < ::ActiveSupport::EventReporter::LogSubscriber
 
     # source://activejob//lib/active_job/log_subscriber.rb#7
     def __class_attr_backtrace_cleaner=(new_value); end
+
+    # source://activejob//lib/active_job/log_subscriber.rb#27
+    def __class_attr_log_levels; end
+
+    # source://activejob//lib/active_job/log_subscriber.rb#27
+    def __class_attr_log_levels=(new_value); end
   end
 end
 
@@ -2137,12 +2146,12 @@ module ActiveJob::QueueAdapters
     #   ActiveJob::QueueAdapters.lookup(:sidekiq)
     #   # => ActiveJob::QueueAdapters::SidekiqAdapter
     #
-    # source://activejob//lib/active_job/queue_adapters.rb#135
+    # source://activejob//lib/active_job/queue_adapters.rb#134
     def lookup(name); end
   end
 end
 
-# source://activejob//lib/active_job/queue_adapters.rb#127
+# source://activejob//lib/active_job/queue_adapters.rb#126
 ActiveJob::QueueAdapters::ADAPTER = T.let(T.unsafe(nil), String)
 
 # = Active Job Abstract Adapter
@@ -2999,7 +3008,7 @@ module ActiveJob::TestHelper
   #   end
   #
   # +:only+ and +:except+ options accept Class, Array of Class, or Proc. When passed a Proc,
-  # a hash containing the job's class and its argument are passed as argument.
+  # a hash containing the job's class and it's argument are passed as argument.
   #
   # Asserts the number of times a job is enqueued to a specific queue by passing +:queue+ option.
   #
@@ -3102,7 +3111,7 @@ module ActiveJob::TestHelper
   #   end
   #
   # +:only+ and +:except+ options accept Class, Array of Class, or Proc. When passed a Proc,
-  # a hash containing the job's class and its argument are passed as argument.
+  # a hash containing the job's class and it's argument are passed as argument.
   #
   # Asserts that no jobs are enqueued to a specific queue by passing +:queue+ option
   #
@@ -3519,7 +3528,7 @@ ActiveJob::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActiveJob::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://activejob//lib/active_job/gem_version.rb#13
-ActiveJob::VERSION::PRE = T.let(T.unsafe(nil), String)
+ActiveJob::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
 
 # source://activejob//lib/active_job/gem_version.rb#15
 ActiveJob::VERSION::STRING = T.let(T.unsafe(nil), String)

@@ -4,6 +4,7 @@ namespace :db do
   desc "Seed Game IDs"
   task seed_game_ids: :environment do
     GameId.delete_all
+    GameId.create(name: "Blue Protocol: Star Resonance (SEA Server)", ign: "CyanNyan", game_id: "1241629", icon_filename: "bpsr.webp")
     GameId.create(name: "Zenless Zone Zero (Asia Server)", ign: "CyanNyan", game_id: "1300754744", icon_filename: "zzz.webp")
     GameId.create(name: "Genshin Impact (Asia Server)", ign: "Cyan★Nyan♪", game_id: "801533690", icon_filename: "genshin.webp")
     GameId.create(name: "Honkai: Star Rail (Asia Server)", ign: "CyanNyan", game_id: "800470038", icon_filename: "hsr.webp")
