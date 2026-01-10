@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 3d31d593e6cf0f82fa9bd0338b635af2f30d627b
+  revision: 3b5b9a96a83c14a3fd9f0bc0a256e2084997d54c
   branch: main
   specs:
     actioncable (8.2.0.alpha)
@@ -34,7 +34,7 @@ GIT
       rails-html-sanitizer (~> 1.6)
       useragent (~> 0.16)
     actiontext (8.2.0.alpha)
-      action_text-trix (~> 2.1.15)
+      action_text-trix (~> 2.1.16)
       actionpack (= 8.2.0.alpha)
       activerecord (= 8.2.0.alpha)
       activestorage (= 8.2.0.alpha)
@@ -441,7 +441,7 @@ GEM
       spoom (>= 1.7.9)
       thor (>= 1.2.0)
       yard-sorbet
-    thor (1.4.0)
+    thor (1.5.0)
     timeout (0.6.0)
     tsort (0.2.0)
     turbo-rails (2.0.20)
