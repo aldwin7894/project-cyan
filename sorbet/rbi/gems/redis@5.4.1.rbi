@@ -3071,7 +3071,6 @@ end
 # source://redis//lib/redis/errors.rb#46
 class Redis::ConnectionError < ::Redis::BaseConnectionError; end
 
-# source://redis//lib/redis.rb#11
 class Redis::Deprecated < ::StandardError; end
 
 # source://redis//lib/redis/distributed.rb#6

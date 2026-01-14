@@ -1849,7 +1849,7 @@ class SidekiqUniqueJobs::Lock::BaseLock
   def lock; end
 
   # source://sidekiq-unique-jobs//lib/sidekiq_unique_jobs/lock/base_lock.rb#33
-  def locked?(*args, **_arg1, &block); end
+  def locked?(*_arg0, **_arg1, &_arg2); end
 
   # The lock manager/client
   #

@@ -221,7 +221,6 @@ class Cronex::ExpressionDescriptor
   def year_description(expression_parts); end
 end
 
-# source://cronex//lib/cronex/errors.rb#2
 class Cronex::ExpressionError < ::StandardError; end
 
 # source://cronex//lib/cronex/description/hours.rb#2
@@ -361,7 +360,6 @@ class Cronex::Resource
   def messages; end
 end
 
-# source://cronex//lib/cronex/errors.rb#3
 class Cronex::ResourceError < ::StandardError; end
 
 # source://cronex//lib/cronex/exp_descriptor.rb#6

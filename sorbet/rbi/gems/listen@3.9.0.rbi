@@ -378,10 +378,10 @@ class Listen::Backend
   def min_delay_between_events; end
 
   # source://listen//lib/listen/backend.rb#31
-  def start(*args, **_arg1, &block); end
+  def start(*_arg0, **_arg1, &_arg2); end
 
   # source://listen//lib/listen/backend.rb#32
-  def stop(*args, **_arg1, &block); end
+  def stop(*_arg0, **_arg1, &_arg2); end
 
   private
 
@@ -629,13 +629,13 @@ class Listen::Event::Queue
   def <<(args); end
 
   # source://listen//lib/listen/event/queue.rb#43
-  def close(*args, **_arg1, &block); end
+  def close(*_arg0, **_arg1, &_arg2); end
 
   # source://listen//lib/listen/event/queue.rb#41
-  def empty?(*args, **_arg1, &block); end
+  def empty?(*_arg0, **_arg1, &_arg2); end
 
   # source://listen//lib/listen/event/queue.rb#42
-  def pop(*args, **_arg1, &block); end
+  def pop(*_arg0, **_arg1, &_arg2); end
 
   private
 

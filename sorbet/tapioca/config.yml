@@ -11,6 +11,8 @@ gem:
     - tapioca
     - ruby-lsp
     - ruby-lsp-rails
+    - prism
+    - rdoc
 dsl:
 annotations:
   typed_overrides:

@@ -680,10 +680,10 @@ class GraphQL::Backtrace
   def initialize(context, value: T.unsafe(nil)); end
 
   # source://graphql//lib/graphql/backtrace.rb#24
-  def [](*args, **_arg1, &block); end
+  def [](*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/backtrace.rb#24
-  def each(*args, **_arg1, &block); end
+  def each(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/backtrace.rb#34
   def inspect; end
@@ -1392,7 +1392,7 @@ class GraphQL::Execution::Interpreter::Arguments
   def initialize(argument_values:, keyword_arguments: T.unsafe(nil)); end
 
   # source://graphql//lib/graphql/execution/interpreter/arguments.rb#62
-  def [](*args, **_arg1, &block); end
+  def [](*_arg0, **_arg1, &_arg2); end
 
   # @return [Hash{Symbol => ArgumentValue}]
   #
@@ -1400,10 +1400,10 @@ class GraphQL::Execution::Interpreter::Arguments
   def argument_values; end
 
   # source://graphql//lib/graphql/execution/interpreter/arguments.rb#62
-  def each(*args, **_arg1, &block); end
+  def each(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/execution/interpreter/arguments.rb#63
-  def each_value(*args, **_arg1, &block); end
+  def each_value(*_arg0, **_arg1, &_arg2); end
 
   # @return [Boolean]
   #
@@ -1411,16 +1411,16 @@ class GraphQL::Execution::Interpreter::Arguments
   def empty?; end
 
   # source://graphql//lib/graphql/execution/interpreter/arguments.rb#62
-  def fetch(*args, **_arg1, &block); end
+  def fetch(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/execution/interpreter/arguments.rb#65
   def inspect; end
 
   # source://graphql//lib/graphql/execution/interpreter/arguments.rb#62
-  def key?(*args, **_arg1, &block); end
+  def key?(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/execution/interpreter/arguments.rb#62
-  def keys(*args, **_arg1, &block); end
+  def keys(*_arg0, **_arg1, &_arg2); end
 
   # The Ruby-style arguments hash, ready for a resolver.
   # This hash is the one used at runtime.
@@ -1442,13 +1442,13 @@ class GraphQL::Execution::Interpreter::Arguments
   def merge_extras(extra_args); end
 
   # source://graphql//lib/graphql/execution/interpreter/arguments.rb#62
-  def size(*args, **_arg1, &block); end
+  def size(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/execution/interpreter/arguments.rb#62
-  def to_h(*args, **_arg1, &block); end
+  def to_h(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/execution/interpreter/arguments.rb#62
-  def values(*args, **_arg1, &block); end
+  def values(*_arg0, **_arg1, &_arg2); end
 end
 
 # source://graphql//lib/graphql/execution/interpreter/arguments.rb#84
@@ -2091,10 +2091,10 @@ class GraphQL::Execution::Lazy::LazyMethodMap::ConcurrentishMap
   def compute_if_absent(key); end
 
   # source://graphql//lib/graphql/execution/lazy/lazy_method_map.rb#61
-  def each_pair(*args, **_arg1, &block); end
+  def each_pair(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/execution/lazy/lazy_method_map.rb#61
-  def size(*args, **_arg1, &block); end
+  def size(*_arg0, **_arg1, &_arg2); end
 
   protected
 
@@ -2574,7 +2574,6 @@ end
 # source://graphql//lib/graphql/introspection/directive_location_enum.rb#4
 class GraphQL::Introspection::DirectiveLocationEnum < ::GraphQL::Schema::Enum; end
 
-# source://graphql//lib/graphql/introspection/directive_location_enum.rb#4
 class GraphQL::Introspection::DirectiveLocationEnum::UnresolvedValueError < ::GraphQL::Schema::Enum::UnresolvedValueError; end
 
 # source://graphql//lib/graphql/introspection/directive_type.rb#4
@@ -2668,7 +2667,6 @@ end
 # source://graphql//lib/graphql/introspection/type_kind_enum.rb#4
 class GraphQL::Introspection::TypeKindEnum < ::GraphQL::Schema::Enum; end
 
-# source://graphql//lib/graphql/introspection/type_kind_enum.rb#4
 class GraphQL::Introspection::TypeKindEnum::UnresolvedValueError < ::GraphQL::Schema::Enum::UnresolvedValueError; end
 
 # source://graphql//lib/graphql/introspection/type_type.rb#4
@@ -6664,7 +6662,7 @@ class GraphQL::Query
   def analysis_errors=(_arg0); end
 
   # source://graphql//lib/graphql/query.rb#319
-  def analyzers(*args, **_arg1, &block); end
+  def analyzers(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/query.rb#275
   def arguments_cache; end
@@ -6679,7 +6677,7 @@ class GraphQL::Query
   def arguments_for(ast_node, definition, parent_object: T.unsafe(nil)); end
 
   # source://graphql//lib/graphql/query.rb#319
-  def ast_analyzers(*args, **_arg1, &block); end
+  def ast_analyzers(*_arg0, **_arg1, &_arg2); end
 
   # Returns the value of attribute context.
   #
@@ -6721,10 +6719,10 @@ class GraphQL::Query
   def fragments; end
 
   # source://graphql//lib/graphql/query.rb#331
-  def get_field(*args, **_arg1, &block); end
+  def get_field(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/query.rb#331
-  def get_type(*args, **_arg1, &block); end
+  def get_type(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   #
@@ -6747,10 +6745,10 @@ class GraphQL::Query
   def lookahead; end
 
   # source://graphql//lib/graphql/query.rb#319
-  def max_complexity(*args, **_arg1, &block); end
+  def max_complexity(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/query.rb#319
-  def max_depth(*args, **_arg1, &block); end
+  def max_depth(*_arg0, **_arg1, &_arg2); end
 
   # @return [void]
   #
@@ -6793,7 +6791,7 @@ class GraphQL::Query
   def operations; end
 
   # source://graphql//lib/graphql/query.rb#331
-  def possible_types(*args, **_arg1, &block); end
+  def possible_types(*_arg0, **_arg1, &_arg2); end
 
   # Returns the value of attribute provided_variables.
   #
@@ -6843,7 +6841,7 @@ class GraphQL::Query
   def result_values=(result_hash); end
 
   # source://graphql//lib/graphql/query.rb#331
-  def root_type_for_operation(*args, **_arg1, &block); end
+  def root_type_for_operation(*_arg0, **_arg1, &_arg2); end
 
   # The value for root types
   #
@@ -6931,7 +6929,7 @@ class GraphQL::Query
   def validate=(new_validate); end
 
   # source://graphql//lib/graphql/query.rb#319
-  def validation_errors(*args, **_arg1, &block); end
+  def validation_errors(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/query.rb#315
   def validation_pipeline; end
@@ -7025,7 +7023,7 @@ class GraphQL::Query::Context
   def interpreter=(_arg0); end
 
   # source://graphql//lib/graphql/query/context.rb#213
-  def interpreter?(*args, **_arg1, &block); end
+  def interpreter?(*_arg0, **_arg1, &_arg2); end
 
   # @return [Boolean]
   #
@@ -7083,7 +7081,7 @@ class GraphQL::Query::Context
   def to_hash; end
 
   # source://graphql//lib/graphql/query/context.rb#213
-  def trace(*args, **_arg1, &block); end
+  def trace(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   #
@@ -7263,7 +7261,7 @@ class GraphQL::Query::NullContext
   def initialize; end
 
   # source://graphql//lib/graphql/query/null_context.rb#18
-  def [](*args, **_arg1, &block); end
+  def [](*_arg0, **_arg1, &_arg2); end
 
   # Returns the value of attribute dataloader.
   #
@@ -7271,10 +7269,10 @@ class GraphQL::Query::NullContext
   def dataloader; end
 
   # source://graphql//lib/graphql/query/null_context.rb#18
-  def dig(*args, **_arg1, &block); end
+  def dig(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/query/null_context.rb#18
-  def fetch(*args, **_arg1, &block); end
+  def fetch(*_arg0, **_arg1, &_arg2); end
 
   # @return [Boolean]
   #
@@ -7282,7 +7280,7 @@ class GraphQL::Query::NullContext
   def interpreter?; end
 
   # source://graphql//lib/graphql/query/null_context.rb#18
-  def key?(*args, **_arg1, &block); end
+  def key?(*_arg0, **_arg1, &_arg2); end
 
   # Returns the value of attribute query.
   #
@@ -7301,34 +7299,34 @@ class GraphQL::Query::NullContext
 
   class << self
     # source://graphql//lib/graphql/query/null_context.rb#38
-    def [](*args, **_arg1, &block); end
+    def [](*_arg0, **_arg1, &_arg2); end
 
     # source://graphql//lib/graphql/query/null_context.rb#38
-    def dataloader(*args, **_arg1, &block); end
+    def dataloader(*_arg0, **_arg1, &_arg2); end
 
     # source://graphql//lib/graphql/query/null_context.rb#38
-    def dig(*args, **_arg1, &block); end
+    def dig(*_arg0, **_arg1, &_arg2); end
 
     # source://graphql//lib/graphql/query/null_context.rb#38
-    def fetch(*args, **_arg1, &block); end
+    def fetch(*_arg0, **_arg1, &_arg2); end
 
     # source://graphql//lib/graphql/query/null_context.rb#34
     def instance; end
 
     # source://graphql//lib/graphql/query/null_context.rb#38
-    def interpreter?(*args, **_arg1, &block); end
+    def interpreter?(*_arg0, **_arg1, &_arg2); end
 
     # source://graphql//lib/graphql/query/null_context.rb#38
-    def key?(*args, **_arg1, &block); end
+    def key?(*_arg0, **_arg1, &_arg2); end
 
     # source://graphql//lib/graphql/query/null_context.rb#38
-    def query(*args, **_arg1, &block); end
+    def query(*_arg0, **_arg1, &_arg2); end
 
     # source://graphql//lib/graphql/query/null_context.rb#38
-    def schema(*args, **_arg1, &block); end
+    def schema(*_arg0, **_arg1, &_arg2); end
 
     # source://graphql//lib/graphql/query/null_context.rb#38
-    def warden(*args, **_arg1, &block); end
+    def warden(*_arg0, **_arg1, &_arg2); end
   end
 end
 
@@ -7377,19 +7375,19 @@ class GraphQL::Query::Result
   def ==(other); end
 
   # source://graphql//lib/graphql/query/result.rb#24
-  def [](*args, **_arg1, &block); end
+  def [](*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/query/result.rb#24
-  def as_json(*args, **_arg1, &block); end
+  def as_json(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/query/result.rb#22
-  def context(*args, **_arg1, &block); end
+  def context(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/query/result.rb#39
   def inspect; end
 
   # source://graphql//lib/graphql/query/result.rb#24
-  def keys(*args, **_arg1, &block); end
+  def keys(*_arg0, **_arg1, &_arg2); end
 
   # Delegate any hash-like method to the underlying hash.
   #
@@ -7397,7 +7395,7 @@ class GraphQL::Query::Result
   def method_missing(method_name, *args, &block); end
 
   # source://graphql//lib/graphql/query/result.rb#22
-  def mutation?(*args, **_arg1, &block); end
+  def mutation?(*_arg0, **_arg1, &_arg2); end
 
   # @return [GraphQL::Query] The query that was executed
   #
@@ -7405,10 +7403,10 @@ class GraphQL::Query::Result
   def query; end
 
   # source://graphql//lib/graphql/query/result.rb#22
-  def query?(*args, **_arg1, &block); end
+  def query?(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/query/result.rb#22
-  def subscription?(*args, **_arg1, &block); end
+  def subscription?(*_arg0, **_arg1, &_arg2); end
 
   # @return [Hash] The resulting hash of "data" and/or "errors"
   #
@@ -7416,10 +7414,10 @@ class GraphQL::Query::Result
   def to_h; end
 
   # source://graphql//lib/graphql/query/result.rb#24
-  def to_json(*args, **_arg1, &block); end
+  def to_json(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/query/result.rb#24
-  def values(*args, **_arg1, &block); end
+  def values(*_arg0, **_arg1, &_arg2); end
 
   private
 
@@ -7554,7 +7552,7 @@ class GraphQL::Query::Variables
   def initialize(ctx, ast_variables, provided_variables); end
 
   # source://graphql//lib/graphql/query/variables.rb#66
-  def [](*args, **_arg1, &block); end
+  def [](*_arg0, **_arg1, &_arg2); end
 
   # Returns the value of attribute context.
   #
@@ -7567,16 +7565,16 @@ class GraphQL::Query::Variables
   def errors; end
 
   # source://graphql//lib/graphql/query/variables.rb#66
-  def fetch(*args, **_arg1, &block); end
+  def fetch(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/query/variables.rb#66
-  def key?(*args, **_arg1, &block); end
+  def key?(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/query/variables.rb#66
-  def length(*args, **_arg1, &block); end
+  def length(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/query/variables.rb#66
-  def to_h(*args, **_arg1, &block); end
+  def to_h(*_arg0, **_arg1, &_arg2); end
 
   private
 
@@ -9952,7 +9950,7 @@ class GraphQL::Schema::InputObject < ::GraphQL::Schema::Member
   def [](key); end
 
   # source://graphql//lib/graphql/schema/input_object.rb#19
-  def any?(*args, **_arg1, &block); end
+  def any?(*_arg0, **_arg1, &_arg2); end
 
   # @return [GraphQL::Execution::Interpereter::Arguments] The underlying arguments instance
   #
@@ -9965,10 +9963,10 @@ class GraphQL::Schema::InputObject < ::GraphQL::Schema::Member
   def context; end
 
   # source://graphql//lib/graphql/schema/input_object.rb#19
-  def each(*args, **_arg1, &block); end
+  def each(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/schema/input_object.rb#19
-  def empty?(*args, **_arg1, &block); end
+  def empty?(*_arg0, **_arg1, &_arg2); end
 
   # @return [Boolean]
   #
@@ -9976,10 +9974,10 @@ class GraphQL::Schema::InputObject < ::GraphQL::Schema::Member
   def key?(key); end
 
   # source://graphql//lib/graphql/schema/input_object.rb#19
-  def keys(*args, **_arg1, &block); end
+  def keys(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/schema/input_object.rb#19
-  def map(*args, **_arg1, &block); end
+  def map(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/schema/input_object.rb#47
   def prepare; end
@@ -9999,7 +9997,7 @@ class GraphQL::Schema::InputObject < ::GraphQL::Schema::Member
   def unwrap_value(value); end
 
   # source://graphql//lib/graphql/schema/input_object.rb#19
-  def values(*args, **_arg1, &block); end
+  def values(*_arg0, **_arg1, &_arg2); end
 
   private
 
@@ -13359,13 +13357,13 @@ class GraphQL::StaticValidation::DefinitionDependencies::NodeWithPath
   def initialize(node, path); end
 
   # source://graphql//lib/graphql/static_validation/definition_dependencies.rb#106
-  def eql?(*args, **_arg1, &block); end
+  def eql?(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/static_validation/definition_dependencies.rb#106
-  def hash(*args, **_arg1, &block); end
+  def hash(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/static_validation/definition_dependencies.rb#106
-  def name(*args, **_arg1, &block); end
+  def name(*_arg0, **_arg1, &_arg2); end
 
   # Returns the value of attribute node.
   #
@@ -14830,16 +14828,16 @@ class GraphQL::StaticValidation::ValidationContext
   def initialize(query, visitor_class, max_errors); end
 
   # source://graphql//lib/graphql/static_validation/validation_context.rb#32
-  def argument_definition(*args, **_arg1, &block); end
+  def argument_definition(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/static_validation/validation_context.rb#32
-  def dependencies(*args, **_arg1, &block); end
+  def dependencies(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/static_validation/validation_context.rb#32
-  def directive_definition(*args, **_arg1, &block); end
+  def directive_definition(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/static_validation/validation_context.rb#21
-  def document(*args, **_arg1, &block); end
+  def document(*_arg0, **_arg1, &_arg2); end
 
   # Returns the value of attribute errors.
   #
@@ -14847,10 +14845,10 @@ class GraphQL::StaticValidation::ValidationContext
   def errors; end
 
   # source://graphql//lib/graphql/static_validation/validation_context.rb#32
-  def field_definition(*args, **_arg1, &block); end
+  def field_definition(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/static_validation/validation_context.rb#21
-  def fragments(*args, **_arg1, &block); end
+  def fragments(*_arg0, **_arg1, &_arg2); end
 
   # Returns the value of attribute max_errors.
   #
@@ -14858,7 +14856,7 @@ class GraphQL::StaticValidation::ValidationContext
   def max_errors; end
 
   # source://graphql//lib/graphql/static_validation/validation_context.rb#32
-  def object_types(*args, **_arg1, &block); end
+  def object_types(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/static_validation/validation_context.rb#36
   def on_dependency_resolve(&handler); end
@@ -14869,13 +14867,13 @@ class GraphQL::StaticValidation::ValidationContext
   def on_dependency_resolve_handlers; end
 
   # source://graphql//lib/graphql/static_validation/validation_context.rb#21
-  def operations(*args, **_arg1, &block); end
+  def operations(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/static_validation/validation_context.rb#32
-  def parent_type_definition(*args, **_arg1, &block); end
+  def parent_type_definition(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/static_validation/validation_context.rb#32
-  def path(*args, **_arg1, &block); end
+  def path(*_arg0, **_arg1, &_arg2); end
 
   # Returns the value of attribute query.
   #
@@ -14883,7 +14881,7 @@ class GraphQL::StaticValidation::ValidationContext
   def query; end
 
   # source://graphql//lib/graphql/static_validation/validation_context.rb#21
-  def schema(*args, **_arg1, &block); end
+  def schema(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/static_validation/validation_context.rb#48
   def schema_directives; end
@@ -14894,7 +14892,7 @@ class GraphQL::StaticValidation::ValidationContext
   def too_many_errors?; end
 
   # source://graphql//lib/graphql/static_validation/validation_context.rb#32
-  def type_definition(*args, **_arg1, &block); end
+  def type_definition(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/static_validation/validation_context.rb#40
   def validate_literal(ast_value, type); end
@@ -14905,7 +14903,7 @@ class GraphQL::StaticValidation::ValidationContext
   def visitor; end
 
   # source://graphql//lib/graphql/static_validation/validation_context.rb#21
-  def warden(*args, **_arg1, &block); end
+  def warden(*_arg0, **_arg1, &_arg2); end
 end
 
 # source://graphql//lib/graphql/static_validation/validation_timeout_error.rb#4
@@ -17598,10 +17596,10 @@ module GraphQL::Types::Relay::ConnectionBehaviors
   mixes_in_class_methods ::GraphQL::Types::Relay::ConnectionBehaviors::ClassMethods
 
   # source://graphql//lib/graphql/types/relay/connection_behaviors.rb#8
-  def cursor_from_node(*args, **_arg1, &block); end
+  def cursor_from_node(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql//lib/graphql/types/relay/connection_behaviors.rb#8
-  def parent(*args, **_arg1, &block); end
+  def parent(*_arg0, **_arg1, &_arg2); end
 
   class << self
     # source://graphql//lib/graphql/types/relay/connection_behaviors.rb#169
@@ -17850,10 +17848,7 @@ module GraphQL::Types::Relay::Node
   extend ::GraphQL::Types::Relay::NodeBehaviors::ClassMethods
 end
 
-# source://graphql//lib/graphql/types/relay/node.rb#10
 module GraphQL::Types::Relay::Node::DefinitionMethods; end
-
-# source://graphql//lib/graphql/types/relay/node.rb#10
 class GraphQL::Types::Relay::Node::UnresolvedTypeError < ::GraphQL::UnresolvedTypeError; end
 
 # source://graphql//lib/graphql/types/relay/node_behaviors.rb#6

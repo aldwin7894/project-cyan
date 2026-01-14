@@ -35,22 +35,22 @@ module Mongo
 
   class << self
     # source://mongo//lib/mongo.rb#94
-    def broken_view_aggregate(*args, **_arg1, &block); end
+    def broken_view_aggregate(*_arg0, **_arg1, &_arg2); end
 
     # source://mongo//lib/mongo.rb#94
-    def broken_view_aggregate=(*args, **_arg1, &block); end
+    def broken_view_aggregate=(*_arg0, **_arg1, &_arg2); end
 
     # source://mongo//lib/mongo.rb#94
-    def broken_view_aggregate?(*args, **_arg1, &block); end
+    def broken_view_aggregate?(*_arg0, **_arg1, &_arg2); end
 
     # source://mongo//lib/mongo.rb#94
-    def broken_view_options(*args, **_arg1, &block); end
+    def broken_view_options(*_arg0, **_arg1, &_arg2); end
 
     # source://mongo//lib/mongo.rb#94
-    def broken_view_options=(*args, **_arg1, &block); end
+    def broken_view_options=(*_arg0, **_arg1, &_arg2); end
 
     # source://mongo//lib/mongo.rb#94
-    def broken_view_options?(*args, **_arg1, &block); end
+    def broken_view_options?(*_arg0, **_arg1, &_arg2); end
 
     # Clears the driver's OCSP response cache.
     #
@@ -58,7 +58,7 @@ module Mongo
     def clear_ocsp_cache; end
 
     # source://mongo//lib/mongo.rb#99
-    def options=(*args, **_arg1, &block); end
+    def options=(*_arg0, **_arg1, &_arg2); end
 
     # This is a user-settable list of hooks that will be invoked when any new
     # TLS socket is connected. Each hook should be a Proc that takes
@@ -80,13 +80,13 @@ module Mongo
     def tls_context_hooks=(hooks); end
 
     # source://mongo//lib/mongo.rb#94
-    def validate_update_replace(*args, **_arg1, &block); end
+    def validate_update_replace(*_arg0, **_arg1, &_arg2); end
 
     # source://mongo//lib/mongo.rb#94
-    def validate_update_replace=(*args, **_arg1, &block); end
+    def validate_update_replace=(*_arg0, **_arg1, &_arg2); end
 
     # source://mongo//lib/mongo.rb#94
-    def validate_update_replace?(*args, **_arg1, &block); end
+    def validate_update_replace?(*_arg0, **_arg1, &_arg2); end
   end
 end
 
@@ -2823,10 +2823,10 @@ class Mongo::Auth::User::View
   def initialize(database); end
 
   # source://mongo//lib/mongo/auth/user/view.rb#31
-  def client(*args, **_arg1, &block); end
+  def client(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/auth/user/view.rb#31
-  def cluster(*args, **_arg1, &block); end
+  def cluster(*_arg0, **_arg1, &_arg2); end
 
   # Create a new user in the database.
   #
@@ -2862,10 +2862,10 @@ class Mongo::Auth::User::View
   def info(name, options = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/auth/user/view.rb#32
-  def next_primary(*args, **_arg1, &block); end
+  def next_primary(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/auth/user/view.rb#31
-  def read_preference(*args, **_arg1, &block); end
+  def read_preference(*_arg0, **_arg1, &_arg2); end
 
   # Remove a user from the database.
   #
@@ -3109,10 +3109,10 @@ class Mongo::BulkWrite
   def initialize(collection, requests, options = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/bulk_write.rb#48
-  def client(*args, **_arg1, &block); end
+  def client(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/bulk_write.rb#41
-  def cluster(*args, **_arg1, &block); end
+  def cluster(*_arg0, **_arg1, &_arg2); end
 
   # @return [Mongo::Collection] collection The collection.
   #
@@ -3120,7 +3120,7 @@ class Mongo::BulkWrite
   def collection; end
 
   # source://mongo//lib/mongo/bulk_write.rb#41
-  def database(*args, **_arg1, &block); end
+  def database(*_arg0, **_arg1, &_arg2); end
 
   # Execute the bulk write operation.
   #
@@ -3133,10 +3133,10 @@ class Mongo::BulkWrite
   def execute; end
 
   # source://mongo//lib/mongo/bulk_write.rb#41
-  def next_primary(*args, **_arg1, &block); end
+  def next_primary(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/bulk_write.rb#41
-  def nro_write_with_retry(*args, **_arg1, &block); end
+  def nro_write_with_retry(*_arg0, **_arg1, &_arg2); end
 
   # @return [Hash, BSON::Document] options The options.
   #
@@ -3171,7 +3171,7 @@ class Mongo::BulkWrite
   def write_concern(session = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/bulk_write.rb#41
-  def write_with_retry(*args, **_arg1, &block); end
+  def write_with_retry(*_arg0, **_arg1, &_arg2); end
 
   private
 
@@ -4013,10 +4013,10 @@ class Mongo::Client
   def cluster_options; end
 
   # source://mongo//lib/mongo/client.rb#152
-  def collections(*args, **_arg1, &block); end
+  def collections(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/client.rb#152
-  def command(*args, **_arg1, &block); end
+  def command(*_arg0, **_arg1, &_arg2); end
 
   # @return [Mongo::Database] database The database the client is operating on.
   # @since 2.0.0
@@ -4249,7 +4249,7 @@ class Mongo::Client
   def start_session(options = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/client.rb#155
-  def subscribe(*args, **_arg1, &block); end
+  def subscribe(*_arg0, **_arg1, &_arg2); end
 
   # Get a summary of the client state.
   #
@@ -4276,7 +4276,7 @@ class Mongo::Client
   def timeout_sec; end
 
   # source://mongo//lib/mongo/client.rb#155
-  def unsubscribe(*args, **_arg1, &block); end
+  def unsubscribe(*_arg0, **_arg1, &_arg2); end
 
   # Updates this client's options from new_options, validating all options.
   #
@@ -5004,7 +5004,7 @@ class Mongo::Cluster
   def load_balanced?; end
 
   # source://mongo//lib/mongo/cluster.rb#465
-  def logical_session_timeout(*args, **_arg1, &block); end
+  def logical_session_timeout(*_arg0, **_arg1, &_arg2); end
 
   # Get the maximum number of times the client can retry a read operation
   # when using legacy read retries.
@@ -5123,10 +5123,10 @@ class Mongo::Cluster
   def remove(host, disconnect: T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/cluster.rb#340
-  def replica_set?(*args, **_arg1, &block); end
+  def replica_set?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/cluster.rb#340
-  def replica_set_name(*args, **_arg1, &block); end
+  def replica_set_name(*_arg0, **_arg1, &_arg2); end
 
   # Runs SDAM flow on the cluster.
   #
@@ -5232,10 +5232,10 @@ class Mongo::Cluster
   def set_server_list(server_address_strs); end
 
   # source://mongo//lib/mongo/cluster.rb#340
-  def sharded?(*args, **_arg1, &block); end
+  def sharded?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/cluster.rb#340
-  def single?(*args, **_arg1, &block); end
+  def single?(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @since 2.0.0
@@ -5261,7 +5261,7 @@ class Mongo::Cluster
   def topology; end
 
   # source://mongo//lib/mongo/cluster.rb#340
-  def unknown?(*args, **_arg1, &block); end
+  def unknown?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/cluster.rb#352
   def unregister_cursor(*args); end
@@ -5698,7 +5698,7 @@ class Mongo::Cluster::SdamFlow
   def do_remove(address_str); end
 
   # source://mongo//lib/mongo/cluster/sdam_flow.rb#42
-  def log_warn(*args, **_arg1, &block); end
+  def log_warn(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   #
@@ -5716,7 +5716,7 @@ class Mongo::Cluster::SdamFlow
   def publish_description_change_event; end
 
   # source://mongo//lib/mongo/cluster/sdam_flow.rb#42
-  def publish_sdam_event(*args, **_arg1, &block); end
+  def publish_sdam_event(*_arg0, **_arg1, &_arg2); end
 
   # Removes the server whose description we are processing from the
   # topology.
@@ -5736,10 +5736,10 @@ class Mongo::Cluster::SdamFlow
   def remove_servers_not_in_desc(updated_desc); end
 
   # source://mongo//lib/mongo/cluster/sdam_flow.rb#62
-  def replica_set_name(*args, **_arg1, &block); end
+  def replica_set_name(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/cluster/sdam_flow.rb#42
-  def seeds(*args, **_arg1, &block); end
+  def seeds(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   #
@@ -5747,7 +5747,7 @@ class Mongo::Cluster::SdamFlow
   def server_description_changed; end
 
   # source://mongo//lib/mongo/cluster/sdam_flow.rb#42
-  def servers_list(*args, **_arg1, &block); end
+  def servers_list(*_arg0, **_arg1, &_arg2); end
 
   # Whether updated_desc is for a stale primary.
   #
@@ -6870,10 +6870,10 @@ class Mongo::Collection
   def capped?; end
 
   # source://mongo//lib/mongo/collection.rb#55
-  def client(*args, **_arg1, &block); end
+  def client(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/collection.rb#55
-  def cluster(*args, **_arg1, &block); end
+  def cluster(*_arg0, **_arg1, &_arg2); end
 
   # Gets an estimated number of matching documents in the collection.
   #
@@ -7029,7 +7029,7 @@ class Mongo::Collection
   def drop(opts = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/collection.rb#55
-  def encrypted_fields_map(*args, **_arg1, &block); end
+  def encrypted_fields_map(*_arg0, **_arg1, &_arg2); end
 
   # Gets an estimate of the number of documents in the collection using the
   # collection metadata.
@@ -7235,7 +7235,7 @@ class Mongo::Collection
   def namespace; end
 
   # source://mongo//lib/mongo/collection.rb#58
-  def next_primary(*args, **_arg1, &block); end
+  def next_primary(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [Hash] timeout_ms value set on the operation level (if any),
@@ -7697,10 +7697,10 @@ class Mongo::Collection::View
   def ==(other); end
 
   # source://mongo//lib/mongo/collection/view.rb#62
-  def client(*args, **_arg1, &block); end
+  def client(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/collection/view.rb#62
-  def cluster(*args, **_arg1, &block); end
+  def cluster(*_arg0, **_arg1, &_arg2); end
 
   # @api semipublic
   # @return [Collection] The +Collection+ to query.
@@ -7709,7 +7709,7 @@ class Mongo::Collection::View
   def collection; end
 
   # source://mongo//lib/mongo/collection/view.rb#62
-  def database(*args, **_arg1, &block); end
+  def database(*_arg0, **_arg1, &_arg2); end
 
   # Compare two +View+ objects.
   #
@@ -7753,10 +7753,10 @@ class Mongo::Collection::View
   def inspect; end
 
   # source://mongo//lib/mongo/collection/view.rb#73
-  def next_primary(*args, **_arg1, &block); end
+  def next_primary(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/collection/view.rb#62
-  def nro_write_with_retry(*args, **_arg1, &block); end
+  def nro_write_with_retry(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [Integer | nil | The timeout_ms value that was passed as an
@@ -7774,10 +7774,10 @@ class Mongo::Collection::View
   def operation_timeouts(opts = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/collection/view.rb#62
-  def read_with_retry(*args, **_arg1, &block); end
+  def read_with_retry(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/collection/view.rb#62
-  def read_with_retry_cursor(*args, **_arg1, &block); end
+  def read_with_retry_cursor(*_arg0, **_arg1, &_arg2); end
 
   # @api semipublic
   # @return [Hash] The query filter.
@@ -7806,10 +7806,10 @@ class Mongo::Collection::View
   def write_concern; end
 
   # source://mongo//lib/mongo/collection/view.rb#62
-  def write_concern_with_session(*args, **_arg1, &block); end
+  def write_concern_with_session(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/collection/view.rb#62
-  def write_with_retry(*args, **_arg1, &block); end
+  def write_with_retry(*_arg0, **_arg1, &_arg2); end
 
   private
 
@@ -7945,22 +7945,22 @@ module Mongo::Collection::View::Aggregation::Behavior
   def allow_disk_use(value = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/collection/view/aggregation/behavior.rb#22
-  def batch_size(*args, **_arg1, &block); end
+  def batch_size(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/collection/view/aggregation/behavior.rb#25
-  def client(*args, **_arg1, &block); end
+  def client(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/collection/view/aggregation/behavior.rb#22
-  def cluster(*args, **_arg1, &block); end
+  def cluster(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/collection/view/aggregation/behavior.rb#22
-  def collection(*args, **_arg1, &block); end
+  def collection(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/collection/view/aggregation/behavior.rb#22
-  def cursor_type(*args, **_arg1, &block); end
+  def cursor_type(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/collection/view/aggregation/behavior.rb#25
-  def database(*args, **_arg1, &block); end
+  def database(*_arg0, **_arg1, &_arg2); end
 
   # Get the explain plan for the aggregation.
   #
@@ -7973,10 +7973,10 @@ module Mongo::Collection::View::Aggregation::Behavior
   def explain; end
 
   # source://mongo//lib/mongo/collection/view/aggregation/behavior.rb#22
-  def limit(*args, **_arg1, &block); end
+  def limit(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/collection/view/aggregation/behavior.rb#22
-  def read(*args, **_arg1, &block); end
+  def read(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [Integer | nil] the timeout_ms value that was passed as
@@ -8050,10 +8050,10 @@ class Mongo::Collection::View::Builder::Aggregation
   def initialize(pipeline, view, options); end
 
   # source://mongo//lib/mongo/collection/view/builder/aggregation.rb#46
-  def collection(*args, **_arg1, &block); end
+  def collection(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/collection/view/builder/aggregation.rb#46
-  def database(*args, **_arg1, &block); end
+  def database(*_arg0, **_arg1, &_arg2); end
 
   # @return [Hash] options The map/reduce specific options.
   # @since 2.2.0
@@ -8068,7 +8068,7 @@ class Mongo::Collection::View::Builder::Aggregation
   def pipeline; end
 
   # source://mongo//lib/mongo/collection/view/builder/aggregation.rb#46
-  def read(*args, **_arg1, &block); end
+  def read(*_arg0, **_arg1, &_arg2); end
 
   # Get the specification to pass to the aggregation operation.
   #
@@ -8087,7 +8087,7 @@ class Mongo::Collection::View::Builder::Aggregation
   def view; end
 
   # source://mongo//lib/mongo/collection/view/builder/aggregation.rb#46
-  def write_concern(*args, **_arg1, &block); end
+  def write_concern(*_arg0, **_arg1, &_arg2); end
 
   private
 
@@ -8138,13 +8138,13 @@ class Mongo::Collection::View::Builder::MapReduce
   def initialize(map, reduce, view, options); end
 
   # source://mongo//lib/mongo/collection/view/builder/map_reduce.rb#42
-  def collection(*args, **_arg1, &block); end
+  def collection(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/collection/view/builder/map_reduce.rb#42
-  def database(*args, **_arg1, &block); end
+  def database(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/collection/view/builder/map_reduce.rb#42
-  def filter(*args, **_arg1, &block); end
+  def filter(*_arg0, **_arg1, &_arg2); end
 
   # @return [String] map The map function.
   # @since 2.2.0
@@ -8159,7 +8159,7 @@ class Mongo::Collection::View::Builder::MapReduce
   def options; end
 
   # source://mongo//lib/mongo/collection/view/builder/map_reduce.rb#42
-  def read(*args, **_arg1, &block); end
+  def read(*_arg0, **_arg1, &_arg2); end
 
   # @return [String] reduce The reduce function.
   # @since 2.2.0
@@ -8184,7 +8184,7 @@ class Mongo::Collection::View::Builder::MapReduce
   def view; end
 
   # source://mongo//lib/mongo/collection/view/builder/map_reduce.rb#42
-  def write_concern(*args, **_arg1, &block); end
+  def write_concern(*_arg0, **_arg1, &_arg2); end
 
   private
 
@@ -8702,16 +8702,16 @@ class Mongo::Collection::View::MapReduce
   def initialize(view, map, reduce, options = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/collection/view/map_reduce.rb#57
-  def client(*args, **_arg1, &block); end
+  def client(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/collection/view/map_reduce.rb#54
-  def cluster(*args, **_arg1, &block); end
+  def cluster(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/collection/view/map_reduce.rb#54
-  def collection(*args, **_arg1, &block); end
+  def collection(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/collection/view/map_reduce.rb#57
-  def database(*args, **_arg1, &block); end
+  def database(*_arg0, **_arg1, &_arg2); end
 
   # Iterate through documents returned by the map/reduce.
   #
@@ -8802,7 +8802,7 @@ class Mongo::Collection::View::MapReduce
   def out_database_name; end
 
   # source://mongo//lib/mongo/collection/view/map_reduce.rb#54
-  def read(*args, **_arg1, &block); end
+  def read(*_arg0, **_arg1, &_arg2); end
 
   # @return [String] reduce The reduce function.
   # @since 2.0.0
@@ -8823,7 +8823,7 @@ class Mongo::Collection::View::MapReduce
   def scope(object = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/collection/view/map_reduce.rb#54
-  def timeout_ms(*args, **_arg1, &block); end
+  def timeout_ms(*_arg0, **_arg1, &_arg2); end
 
   # Whether to include the timing information in the result.
   #
@@ -9629,7 +9629,7 @@ class Mongo::ConditionVariable
   def signal; end
 
   # source://mongo//lib/mongo/condition_variable.rb#48
-  def synchronize(*args, **_arg1, &block); end
+  def synchronize(*_arg0, **_arg1, &_arg2); end
 
   # Waits for the condition variable to be signaled up to timeout seconds.
   # If condition variable is not signaled, returns after timeout seconds.
@@ -10074,7 +10074,7 @@ class Mongo::Crypt::Context
   def ctx_p; end
 
   # source://mongo//lib/mongo/crypt/context.rb#32
-  def kms_providers(*args, **_arg1, &block); end
+  def kms_providers(*_arg0, **_arg1, &_arg2); end
 
   # Runs the mongocrypt_ctx_t state machine and handles
   # all I/O on behalf of
@@ -11104,7 +11104,7 @@ class Mongo::Crypt::KMS::AWS::Credentials
   def access_key_id; end
 
   # source://mongo//lib/mongo/crypt/kms/aws/credentials.rb#40
-  def empty?(*args, **_arg1, &block); end
+  def empty?(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [String] AWS secret access key.
@@ -11273,7 +11273,7 @@ class Mongo::Crypt::KMS::Azure::Credentials
   def client_secret; end
 
   # source://mongo//lib/mongo/crypt/kms/azure/credentials.rb#44
-  def empty?(*args, **_arg1, &block); end
+  def empty?(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [String | nil] Azure identity platform endpoint.
@@ -11543,7 +11543,7 @@ class Mongo::Crypt::KMS::GCP::Credentials
   def email; end
 
   # source://mongo//lib/mongo/crypt/kms/gcp/credentials.rb#43
-  def empty?(*args, **_arg1, &block); end
+  def empty?(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [String | nil] GCP KMS endpoint.
@@ -11717,7 +11717,7 @@ class Mongo::Crypt::KMS::KMIP::Credentials
   def initialize(opts); end
 
   # source://mongo//lib/mongo/crypt/kms/kmip/credentials.rb#34
-  def empty?(*args, **_arg1, &block); end
+  def empty?(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [String] KMIP KMS endpoint with optional port.
@@ -11814,7 +11814,7 @@ class Mongo::Crypt::KMS::Local::Credentials
   def initialize(opts); end
 
   # source://mongo//lib/mongo/crypt/kms/local/credentials.rb#33
-  def empty?(*args, **_arg1, &block); end
+  def empty?(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [String] Master key.
@@ -12299,7 +12299,7 @@ class Mongo::Cursor
   def batch_size; end
 
   # source://mongo//lib/mongo/cursor.rb#40
-  def client(*args, **_arg1, &block); end
+  def client(*_arg0, **_arg1, &_arg2); end
 
   # Closes this cursor, freeing any associated resources on the client and
   # the server.
@@ -12322,10 +12322,10 @@ class Mongo::Cursor
   def closed?; end
 
   # source://mongo//lib/mongo/cursor.rb#41
-  def cluster(*args, **_arg1, &block); end
+  def cluster(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/cursor.rb#39
-  def collection(*args, **_arg1, &block); end
+  def collection(*_arg0, **_arg1, &_arg2); end
 
   # Get the parsed collection name.
   #
@@ -12350,7 +12350,7 @@ class Mongo::Cursor
   def context; end
 
   # source://mongo//lib/mongo/cursor.rb#40
-  def database(*args, **_arg1, &block); end
+  def database(*_arg0, **_arg1, &_arg2); end
 
   # Iterate through documents returned from the query.
   #
@@ -12820,7 +12820,7 @@ class Mongo::Database
   # @since 2.0.0
   #
   # source://mongo//lib/mongo/database.rb#71
-  def cluster(*args, **_arg1, &block); end
+  def cluster(*_arg0, **_arg1, &_arg2); end
 
   # Get a collection in this database by the provided name.
   #
@@ -12902,7 +12902,7 @@ class Mongo::Database
   def drop(options = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/database.rb#71
-  def encrypted_fields_map(*args, **_arg1, &block); end
+  def encrypted_fields_map(*_arg0, **_arg1, &_arg2); end
 
   # Get the Grid "filesystem" for this database.
   #
@@ -12958,7 +12958,7 @@ class Mongo::Database
   def name; end
 
   # source://mongo//lib/mongo/database.rb#80
-  def next_primary(*args, **_arg1, &block); end
+  def next_primary(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [Hash] timeout_ms value set on the operation level (if any),
@@ -12991,13 +12991,13 @@ class Mongo::Database
   def read_command(operation, opts = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/database.rb#71
-  def read_concern(*args, **_arg1, &block); end
+  def read_concern(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/database.rb#71
-  def read_preference(*args, **_arg1, &block); end
+  def read_preference(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/database.rb#71
-  def server_selector(*args, **_arg1, &block); end
+  def server_selector(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [Integer | nil] Operation timeout that is for this database or
@@ -13045,7 +13045,7 @@ class Mongo::Database
   def watch(pipeline = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/database.rb#71
-  def write_concern(*args, **_arg1, &block); end
+  def write_concern(*_arg0, **_arg1, &_arg2); end
 
   class << self
     # Create a database for the provided client, for use when we don't want the
@@ -13155,10 +13155,10 @@ class Mongo::Database::View
   def batch_size; end
 
   # source://mongo//lib/mongo/database/view.rb#33
-  def client(*args, **_arg1, &block); end
+  def client(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/database/view.rb#33
-  def cluster(*args, **_arg1, &block); end
+  def cluster(*_arg0, **_arg1, &_arg2); end
 
   # @return [Collection] collection The command collection.
   # @since 2.0.0
@@ -13218,7 +13218,7 @@ class Mongo::Database::View
   def list_collections(options = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/database/view.rb#36
-  def next_primary(*args, **_arg1, &block); end
+  def next_primary(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [Integer | nil | The timeout_ms value that was passed as an
@@ -13237,13 +13237,13 @@ class Mongo::Database::View
   def operation_timeouts(opts = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/database/view.rb#35
-  def read_concern(*args, **_arg1, &block); end
+  def read_concern(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/database/view.rb#33
-  def read_preference(*args, **_arg1, &block); end
+  def read_preference(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/database/view.rb#35
-  def server_selector(*args, **_arg1, &block); end
+  def server_selector(*_arg0, **_arg1, &_arg2); end
 
   # The timeout_ms value to use for this operation; either specified as an
   # option to the view, or inherited from the database.
@@ -13255,7 +13255,7 @@ class Mongo::Database::View
   def timeout_ms; end
 
   # source://mongo//lib/mongo/database/view.rb#35
-  def write_concern(*args, **_arg1, &block); end
+  def write_concern(*_arg0, **_arg1, &_arg2); end
 
   private
 
@@ -14806,7 +14806,7 @@ module Mongo::Error::OperationFailure::Family
   #   the operation that this exception refers to was performed on.
   #
   # source://mongo//lib/mongo/error/operation_failure.rb#39
-  def connection_description(*args, **_arg1, &block); end
+  def connection_description(*_arg0, **_arg1, &_arg2); end
 
   # @return [String | nil] The details of the error.
   #   For WriteConcernErrors this is `document['writeConcernError']['errInfo']`.
@@ -14831,7 +14831,7 @@ module Mongo::Error::OperationFailure::Family
   def max_time_ms_expired?; end
 
   # source://mongo//lib/mongo/error/operation_failure.rb#31
-  def operation_time(*args, **_arg1, &block); end
+  def operation_time(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [Operation::Result] the result object for the operation.
@@ -15996,7 +15996,7 @@ class Mongo::Grid::FSBucket
   def chunks_collection; end
 
   # source://mongo//lib/mongo/grid/fs_bucket.rb#108
-  def client(*args, **_arg1, &block); end
+  def client(*_arg0, **_arg1, &_arg2); end
 
   # @return [Database] database The database.
   # @since 2.0.0
@@ -16708,7 +16708,7 @@ class Mongo::Grid::File
   def ==(other); end
 
   # source://mongo//lib/mongo/grid/file.rb#34
-  def chunk_size(*args, **_arg1, &block); end
+  def chunk_size(*_arg0, **_arg1, &_arg2); end
 
   # @return [Array<Chunk>] chunks The file chunks.
   # @since 2.0.0
@@ -16717,7 +16717,7 @@ class Mongo::Grid::File
   def chunks; end
 
   # source://mongo//lib/mongo/grid/file.rb#34
-  def content_type(*args, **_arg1, &block); end
+  def content_type(*_arg0, **_arg1, &_arg2); end
 
   # Joins chunks into a string.
   #
@@ -16728,10 +16728,10 @@ class Mongo::Grid::File
   def data; end
 
   # source://mongo//lib/mongo/grid/file.rb#34
-  def filename(*args, **_arg1, &block); end
+  def filename(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/grid/file.rb#34
-  def id(*args, **_arg1, &block); end
+  def id(*_arg0, **_arg1, &_arg2); end
 
   # @return [File::Info] info The file information.
   # @since 2.0.0
@@ -16750,10 +16750,10 @@ class Mongo::Grid::File
   def inspect; end
 
   # source://mongo//lib/mongo/grid/file.rb#34
-  def md5(*args, **_arg1, &block); end
+  def md5(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/grid/file.rb#34
-  def upload_date(*args, **_arg1, &block); end
+  def upload_date(*_arg0, **_arg1, &_arg2); end
 
   private
 
@@ -17272,10 +17272,10 @@ class Mongo::Index::View
   def batch_size; end
 
   # source://mongo//lib/mongo/index/view.rb#46
-  def client(*args, **_arg1, &block); end
+  def client(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/index/view.rb#46
-  def cluster(*args, **_arg1, &block); end
+  def cluster(*_arg0, **_arg1, &_arg2); end
 
   # @return [Collection] collection The indexes collection.
   # @since 2.0.0
@@ -17343,7 +17343,7 @@ class Mongo::Index::View
   def create_one(keys, options = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/index/view.rb#46
-  def database(*args, **_arg1, &block); end
+  def database(*_arg0, **_arg1, &_arg2); end
 
   # Drop all indexes on the collection.
   #
@@ -17397,7 +17397,7 @@ class Mongo::Index::View
   def get(keys_or_name); end
 
   # source://mongo//lib/mongo/index/view.rb#47
-  def next_primary(*args, **_arg1, &block); end
+  def next_primary(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [Integer | nil | The timeout_ms value that was passed as an
@@ -17417,7 +17417,7 @@ class Mongo::Index::View
   def operation_timeouts(opts = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/index/view.rb#46
-  def read_preference(*args, **_arg1, &block); end
+  def read_preference(*_arg0, **_arg1, &_arg2); end
 
   # The timeout_ms value to use for this operation; either specified as an
   # option to the view, or inherited from the collection.
@@ -17429,7 +17429,7 @@ class Mongo::Index::View
   def timeout_ms; end
 
   # source://mongo//lib/mongo/index/view.rb#46
-  def write_concern(*args, **_arg1, &block); end
+  def write_concern(*_arg0, **_arg1, &_arg2); end
 
   private
 
@@ -22583,13 +22583,13 @@ class Mongo::Operation::Result
   def namespace; end
 
   # source://mongo//lib/mongo/operation/result.rb#155
-  def node_recovering?(*args, **_arg1, &block); end
+  def node_recovering?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/operation/result.rb#155
-  def node_shutting_down?(*args, **_arg1, &block); end
+  def node_shutting_down?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/operation/result.rb#155
-  def not_master?(*args, **_arg1, &block); end
+  def not_master?(*_arg0, **_arg1, &_arg2); end
 
   # Check the first document's ok field.
   #
@@ -26675,16 +26675,16 @@ module Mongo::Retryable
   extend ::Forwardable
 
   # source://mongo//lib/mongo/retryable.rb#36
-  def nro_write_with_retry(*args, **_arg1, &block); end
+  def nro_write_with_retry(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/retryable.rb#30
-  def read_with_one_retry(*args, **_arg1, &block); end
+  def read_with_one_retry(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/retryable.rb#30
-  def read_with_retry(*args, **_arg1, &block); end
+  def read_with_retry(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/retryable.rb#30
-  def read_with_retry_cursor(*args, **_arg1, &block); end
+  def read_with_retry_cursor(*_arg0, **_arg1, &_arg2); end
 
   # Returns the read worker for handling retryable reads.
   #
@@ -26710,7 +26710,7 @@ module Mongo::Retryable
   def select_server(cluster, server_selector, session, failed_server = T.unsafe(nil), timeout: T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/retryable.rb#36
-  def write_with_retry(*args, **_arg1, &block); end
+  def write_with_retry(*_arg0, **_arg1, &_arg2); end
 
   # Returns the write worker for handling retryable writes.
   #
@@ -26746,10 +26746,10 @@ class Mongo::Retryable::BaseWorker
   def initialize(retryable); end
 
   # source://mongo//lib/mongo/retryable/base_worker.rb#27
-  def client(*args, **_arg1, &block); end
+  def client(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/retryable/base_worker.rb#27
-  def cluster(*args, **_arg1, &block); end
+  def cluster(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [Mongo::Retryable] retryable A reference to the client object
@@ -26759,7 +26759,7 @@ class Mongo::Retryable::BaseWorker
   def retryable; end
 
   # source://mongo//lib/mongo/retryable/base_worker.rb#27
-  def select_server(*args, **_arg1, &block); end
+  def select_server(*_arg0, **_arg1, &_arg2); end
 
   private
 
@@ -27475,16 +27475,16 @@ class Mongo::Server
   def address; end
 
   # source://mongo//lib/mongo/server.rb#213
-  def app_metadata(*args, **_arg1, &block); end
+  def app_metadata(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/server.rb#190
-  def arbiter?(*args, **_arg1, &block); end
+  def arbiter?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/server.rb#190
-  def average_round_trip_time(*args, **_arg1, &block); end
+  def average_round_trip_time(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/server.rb#223
-  def check_driver_support!(*args, **_arg1, &block); end
+  def check_driver_support!(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @param :interrupt_in_use_connections [true | false] Whether or not the
@@ -27517,7 +27517,7 @@ class Mongo::Server
   def cluster; end
 
   # source://mongo//lib/mongo/server.rb#213
-  def cluster_time(*args, **_arg1, &block); end
+  def cluster_time(*_arg0, **_arg1, &_arg2); end
 
   # The compressor negotiated by the server monitor, if any.
   #
@@ -27576,7 +27576,7 @@ class Mongo::Server
   def disconnect!; end
 
   # source://mongo//lib/mongo/server.rb#190
-  def features(*args, **_arg1, &block); end
+  def features(*_arg0, **_arg1, &_arg2); end
 
   # Returns whether this server is forced to be a load balancer.
   #
@@ -27588,7 +27588,7 @@ class Mongo::Server
   def force_load_balancer?; end
 
   # source://mongo//lib/mongo/server.rb#190
-  def ghost?(*args, **_arg1, &block); end
+  def ghost?(*_arg0, **_arg1, &_arg2); end
 
   # Handle authentication failure.
   #
@@ -27650,13 +27650,13 @@ class Mongo::Server
   def last_scan_monotime; end
 
   # source://mongo//lib/mongo/server.rb#190
-  def last_write_date(*args, **_arg1, &block); end
+  def last_write_date(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/server.rb#190
-  def load_balancer?(*args, **_arg1, &block); end
+  def load_balancer?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/server.rb#190
-  def logical_session_timeout(*args, **_arg1, &block); end
+  def logical_session_timeout(*_arg0, **_arg1, &_arg2); end
 
   # Determine if the provided tags are a subset of the server's tags.
   #
@@ -27670,22 +27670,22 @@ class Mongo::Server
   def matches_tag_set?(tag_set); end
 
   # source://mongo//lib/mongo/server.rb#190
-  def max_bson_object_size(*args, **_arg1, &block); end
+  def max_bson_object_size(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/server.rb#190
-  def max_message_size(*args, **_arg1, &block); end
+  def max_message_size(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/server.rb#190
-  def max_wire_version(*args, **_arg1, &block); end
+  def max_wire_version(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/server.rb#190
-  def max_write_batch_size(*args, **_arg1, &block); end
+  def max_write_batch_size(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/server.rb#190
-  def minimum_round_trip_time(*args, **_arg1, &block); end
+  def minimum_round_trip_time(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/server.rb#190
-  def mongos?(*args, **_arg1, &block); end
+  def mongos?(*_arg0, **_arg1, &_arg2); end
 
   # @return [nil | Monitor] monitor The server monitor. nil if the servenr
   #   was created with monitoring_io: false option.
@@ -27695,7 +27695,7 @@ class Mongo::Server
   def monitor; end
 
   # source://mongo//lib/mongo/server.rb#219
-  def monitor_app_metadata(*args, **_arg1, &block); end
+  def monitor_app_metadata(*_arg0, **_arg1, &_arg2); end
 
   # @return [Monitoring] monitoring The monitoring.
   # @since 2.0.0
@@ -27716,7 +27716,7 @@ class Mongo::Server
   def options; end
 
   # source://mongo//lib/mongo/server.rb#190
-  def other?(*args, **_arg1, &block); end
+  def other?(*_arg0, **_arg1, &_arg2); end
 
   # Get the connection pool for this server.
   #
@@ -27741,7 +27741,7 @@ class Mongo::Server
   def pool_internal; end
 
   # source://mongo//lib/mongo/server.rb#190
-  def primary?(*args, **_arg1, &block); end
+  def primary?(*_arg0, **_arg1, &_arg2); end
 
   # Publishes the server opening event.
   #
@@ -27752,7 +27752,7 @@ class Mongo::Server
   def publish_opening_event; end
 
   # source://mongo//lib/mongo/server.rb#219
-  def push_monitor_app_metadata(*args, **_arg1, &block); end
+  def push_monitor_app_metadata(*_arg0, **_arg1, &_arg2); end
 
   # Restart the server monitor.
   #
@@ -27765,7 +27765,7 @@ class Mongo::Server
   def reconnect!; end
 
   # source://mongo//lib/mongo/server.rb#190
-  def replica_set_name(*args, **_arg1, &block); end
+  def replica_set_name(*_arg0, **_arg1, &_arg2); end
 
   # Whether the server supports modern read retries.
   #
@@ -27801,7 +27801,7 @@ class Mongo::Server
   def round_trip_time_calculator; end
 
   # source://mongo//lib/mongo/server.rb#169
-  def scan!(*args, **_arg1, &block); end
+  def scan!(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [Semaphore] Semaphore to signal to request an immediate scan
@@ -27812,10 +27812,10 @@ class Mongo::Server
   def scan_semaphore; end
 
   # source://mongo//lib/mongo/server.rb#190
-  def secondary?(*args, **_arg1, &block); end
+  def secondary?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/server.rb#190
-  def standalone?(*args, **_arg1, &block); end
+  def standalone?(*_arg0, **_arg1, &_arg2); end
 
   # Start monitoring the server.
   #
@@ -27843,7 +27843,7 @@ class Mongo::Server
   def summary; end
 
   # source://mongo//lib/mongo/server.rb#190
-  def tags(*args, **_arg1, &block); end
+  def tags(*_arg0, **_arg1, &_arg2); end
 
   # Marks server unknown and publishes the associated SDAM event
   # (server description changed).
@@ -27864,10 +27864,10 @@ class Mongo::Server
   def unknown!(options = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/server.rb#190
-  def unknown?(*args, **_arg1, &block); end
+  def unknown?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/server.rb#213
-  def update_cluster_time(*args, **_arg1, &block); end
+  def update_cluster_time(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @since 2.0.0
@@ -28902,7 +28902,7 @@ class Mongo::Server::ConnectionBase < ::Mongo::Server::ConnectionCommon
   extend ::Forwardable
 
   # source://mongo//lib/mongo/server/connection_base.rb#61
-  def address(*args, **_arg1, &block); end
+  def address(*_arg0, **_arg1, &_arg2); end
 
   # @api semipublic
   #
@@ -28910,7 +28910,7 @@ class Mongo::Server::ConnectionBase < ::Mongo::Server::ConnectionCommon
   def app_metadata; end
 
   # source://mongo//lib/mongo/server/connection_base.rb#64
-  def cluster_time(*args, **_arg1, &block); end
+  def cluster_time(*_arg0, **_arg1, &_arg2); end
 
   # Returns the server description for this connection, derived from
   # the hello response for the handshake performed on this connection.
@@ -28952,7 +28952,7 @@ class Mongo::Server::ConnectionBase < ::Mongo::Server::ConnectionCommon
   def dispatch(messages, context, options = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/server/connection_base.rb#85
-  def features(*args, **_arg1, &block); end
+  def features(*_arg0, **_arg1, &_arg2); end
 
   # Connection pool generation from which this connection was created.
   # May be nil.
@@ -28964,13 +28964,13 @@ class Mongo::Server::ConnectionBase < ::Mongo::Server::ConnectionCommon
   def generation; end
 
   # source://mongo//lib/mongo/server/connection_base.rb#85
-  def max_bson_object_size(*args, **_arg1, &block); end
+  def max_bson_object_size(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/server/connection_base.rb#85
-  def max_message_size(*args, **_arg1, &block); end
+  def max_message_size(*_arg0, **_arg1, &_arg2); end
 
   # source://mongo//lib/mongo/server/connection_base.rb#85
-  def mongos?(*args, **_arg1, &block); end
+  def mongos?(*_arg0, **_arg1, &_arg2); end
 
   # @api semipublic
   # @return [Hash] options The passed in options.
@@ -28991,7 +28991,7 @@ class Mongo::Server::ConnectionBase < ::Mongo::Server::ConnectionCommon
   def service_id; end
 
   # source://mongo//lib/mongo/server/connection_base.rb#64
-  def update_cluster_time(*args, **_arg1, &block); end
+  def update_cluster_time(*_arg0, **_arg1, &_arg2); end
 
   private
 
@@ -29188,7 +29188,7 @@ class Mongo::Server::ConnectionPool
   def initialize(server, options = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/server/connection_pool.rb#186
-  def address(*args, **_arg1, &block); end
+  def address(*_arg0, **_arg1, &_arg2); end
 
   # Number of available connections in the pool.
   #
@@ -29312,7 +29312,7 @@ class Mongo::Server::ConnectionPool
   def do_pause; end
 
   # source://mongo//lib/mongo/server/connection_pool.rb#239
-  def generation(*args, **_arg1, &block); end
+  def generation(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [Integer] generation Generation of connections currently
@@ -29323,7 +29323,7 @@ class Mongo::Server::ConnectionPool
   def generation_manager; end
 
   # source://mongo//lib/mongo/server/connection_pool.rb#239
-  def generation_unlocked(*args, **_arg1, &block); end
+  def generation_unlocked(*_arg0, **_arg1, &_arg2); end
 
   # Get a pretty printed string inspection for the pool.
   #
@@ -29367,7 +29367,7 @@ class Mongo::Server::ConnectionPool
   def min_size; end
 
   # source://mongo//lib/mongo/server/connection_pool.rb#336
-  def monitoring(*args, **_arg1, &block); end
+  def monitoring(*_arg0, **_arg1, &_arg2); end
 
   # @return [Hash] options The pool options.
   # @since 2.0.0, largely rewritten in 2.9.0
@@ -30860,7 +30860,7 @@ class Mongo::Server::Monitor
   def initialize(server, event_listeners, monitoring, options = T.unsafe(nil)); end
 
   # source://mongo//lib/mongo/server/monitor.rb#122
-  def compressor(*args, **_arg1, &block); end
+  def compressor(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [Mongo::Server::Monitor::Connection] connection The connection to use.
@@ -30893,7 +30893,7 @@ class Mongo::Server::Monitor
   def heartbeat_interval; end
 
   # source://mongo//lib/mongo/server/monitor.rb#116
-  def last_scan(*args, **_arg1, &block); end
+  def last_scan(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   # @return [Monitoring] monitoring The monitoring.
@@ -31383,7 +31383,7 @@ class Mongo::Server::PushMonitor
   def read_response; end
 
   # source://mongo//lib/mongo/server/push_monitor.rb#67
-  def server(*args, **_arg1, &block); end
+  def server(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   #

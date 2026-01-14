@@ -372,6 +372,9 @@ end
 
 # source://health_check//lib/health_check/health_check_controller.rb#6
 class HealthCheck::HealthCheckController < ::ActionController::Base
+  # source://health_check//lib/health_check/health_check_controller.rb#9
+  def _run_process_action_callbacks(&block); end
+
   # source://health_check//lib/health_check/health_check_controller.rb#12
   def index; end
 
@@ -418,6 +421,12 @@ class HealthCheck::HealthCheckController < ::ActionController::Base
 
     # source://health_check//lib/health_check/health_check_controller.rb#8
     def __class_attr__layout_conditions=(new_value); end
+
+    # source://health_check//lib/health_check/health_check_controller.rb#6
+    def __class_attr_config; end
+
+    # source://health_check//lib/health_check/health_check_controller.rb#6
+    def __class_attr_config=(new_value); end
 
     # source://health_check//lib/health_check/health_check_controller.rb#6
     def __class_attr_middleware_stack; end

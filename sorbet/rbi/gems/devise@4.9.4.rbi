@@ -16,6 +16,7 @@ class ActionController::Base < ::ActionController::Metal
   include ::Devise::Controllers::UrlHelpers
   extend ::AbstractController::Helpers::Resolution
   extend ::Devise::Controllers::Helpers::ClassMethods
+  extend ::ActionController::Renderers::DeprecatedEscapeJsonResponses
 end
 
 # source://devise//lib/devise/rails/routes.rb#28
@@ -1694,6 +1695,7 @@ class Devise::FailureApp < ::ActionController::Metal
   include ::ActiveSupport::Callbacks
   include ::AbstractController::Callbacks
   extend ::AbstractController::UrlFor::ClassMethods
+  extend ::ActionController::Redirecting::ClassMethods
   extend ::ActiveSupport::Callbacks::ClassMethods
   extend ::AbstractController::Callbacks::ClassMethods
 
@@ -1705,6 +1707,21 @@ class Devise::FailureApp < ::ActionController::Metal
 
   # source://devise//lib/devise/failure_app.rb#21
   def _run_process_action_callbacks(&block); end
+
+  # source://devise//lib/devise/failure_app.rb#21
+  def _run_process_action_callbacks!(&block); end
+
+  # source://devise//lib/devise/failure_app.rb#12
+  def action_on_open_redirect; end
+
+  # source://devise//lib/devise/failure_app.rb#12
+  def action_on_open_redirect=(val); end
+
+  # source://devise//lib/devise/failure_app.rb#12
+  def action_on_path_relative_redirect; end
+
+  # source://devise//lib/devise/failure_app.rb#12
+  def action_on_path_relative_redirect=(val); end
 
   # source://devise//lib/devise/failure_app.rb#11
   def default_url_options; end
@@ -1722,10 +1739,10 @@ class Devise::FailureApp < ::ActionController::Metal
   def http_auth; end
 
   # source://devise//lib/devise/failure_app.rb#12
-  def logger; end
+  def logger(*_arg0, **_arg1, &_arg2); end
 
   # source://devise//lib/devise/failure_app.rb#12
-  def logger=(value); end
+  def logger=(arg); end
 
   # source://devise//lib/devise/failure_app.rb#21
   def raise_on_missing_callback_actions; end
@@ -1870,6 +1887,12 @@ class Devise::FailureApp < ::ActionController::Metal
     # source://devise//lib/devise/failure_app.rb#21
     def __callbacks=(value); end
 
+    # source://devise//lib/devise/failure_app.rb#12
+    def _allowed_redirect_hosts; end
+
+    # source://devise//lib/devise/failure_app.rb#12
+    def _allowed_redirect_hosts=(value); end
+
     # source://devise//lib/devise/failure_app.rb#21
     def _process_action_callbacks; end
 
@@ -1878,6 +1901,27 @@ class Devise::FailureApp < ::ActionController::Metal
 
     # source://devise//lib/devise/failure_app.rb#14
     def _routes; end
+
+    # source://devise//lib/devise/failure_app.rb#12
+    def action_on_open_redirect; end
+
+    # source://devise//lib/devise/failure_app.rb#12
+    def action_on_open_redirect=(val); end
+
+    # source://devise//lib/devise/failure_app.rb#12
+    def action_on_path_relative_redirect; end
+
+    # source://devise//lib/devise/failure_app.rb#12
+    def action_on_path_relative_redirect=(val); end
+
+    # source://devise//lib/devise/failure_app.rb#12
+    def allowed_redirect_hosts; end
+
+    # source://devise//lib/devise/failure_app.rb#12
+    def allowed_redirect_hosts_permissions; end
+
+    # source://devise//lib/devise/failure_app.rb#12
+    def allowed_redirect_hosts_permissions=(value); end
 
     # source://devise//lib/devise/failure_app.rb#26
     def call(env); end
@@ -1896,10 +1940,10 @@ class Devise::FailureApp < ::ActionController::Metal
     def default_url_options?; end
 
     # source://devise//lib/devise/failure_app.rb#12
-    def logger; end
+    def logger(*_arg0, **_arg1, &_arg2); end
 
     # source://devise//lib/devise/failure_app.rb#12
-    def logger=(value); end
+    def logger=(arg); end
 
     # source://devise//lib/devise/failure_app.rb#21
     def raise_on_missing_callback_actions; end
@@ -1920,6 +1964,24 @@ class Devise::FailureApp < ::ActionController::Metal
 
     # source://devise//lib/devise/failure_app.rb#21
     def __class_attr___callbacks=(new_value); end
+
+    # source://devise//lib/devise/failure_app.rb#12
+    def __class_attr__allowed_redirect_hosts; end
+
+    # source://devise//lib/devise/failure_app.rb#12
+    def __class_attr__allowed_redirect_hosts=(new_value); end
+
+    # source://devise//lib/devise/failure_app.rb#12
+    def __class_attr_allowed_redirect_hosts_permissions; end
+
+    # source://devise//lib/devise/failure_app.rb#12
+    def __class_attr_allowed_redirect_hosts_permissions=(new_value); end
+
+    # source://devise//lib/devise/failure_app.rb#10
+    def __class_attr_config; end
+
+    # source://devise//lib/devise/failure_app.rb#10
+    def __class_attr_config=(new_value); end
 
     # source://devise//lib/devise/failure_app.rb#11
     def __class_attr_default_url_options; end
@@ -1991,6 +2053,13 @@ class Devise::Mailer < ::ActionMailer::Base
   private
 
   def _layout(lookup_context, formats, keys); end
+
+  class << self
+    private
+
+    def __class_attr_config; end
+    def __class_attr_config=(new_value); end
+  end
 end
 
 # source://devise//lib/devise.rb#38

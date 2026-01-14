@@ -731,13 +731,13 @@ class GraphQL::Client::HashWithIndifferentAccess
   def [](key); end
 
   # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
-  def each(*args, **_arg1, &block); end
+  def each(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#46
   def each_key(&block); end
 
   # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
-  def empty?(*args, **_arg1, &block); end
+  def empty?(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#35
   def fetch(key, *args, &block); end
@@ -753,7 +753,7 @@ class GraphQL::Client::HashWithIndifferentAccess
   def include?(key); end
 
   # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
-  def inspect(*args, **_arg1, &block); end
+  def inspect(*_arg0, **_arg1, &_arg2); end
 
   # @return [Boolean]
   #
@@ -761,10 +761,10 @@ class GraphQL::Client::HashWithIndifferentAccess
   def key?(key); end
 
   # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
-  def keys(*args, **_arg1, &block); end
+  def keys(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
-  def length(*args, **_arg1, &block); end
+  def length(*_arg0, **_arg1, &_arg2); end
 
   # @return [Boolean]
   #
@@ -772,16 +772,16 @@ class GraphQL::Client::HashWithIndifferentAccess
   def member?(key); end
 
   # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
-  def size(*args, **_arg1, &block); end
+  def size(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
-  def to_h(*args, **_arg1, &block); end
+  def to_h(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
-  def to_hash(*args, **_arg1, &block); end
+  def to_hash(*_arg0, **_arg1, &_arg2); end
 
   # source://graphql-client//lib/graphql/client/hash_with_indifferent_access.rb#29
-  def values(*args, **_arg1, &block); end
+  def values(*_arg0, **_arg1, &_arg2); end
 
   private
 

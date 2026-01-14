@@ -354,6 +354,8 @@ class Turbo::Native::NavigationController < ::ActionController::Base
   class << self
     private
 
+    def __class_attr_config; end
+    def __class_attr_config=(new_value); end
     def __class_attr_middleware_stack; end
     def __class_attr_middleware_stack=(new_value); end
   end
@@ -367,7 +369,6 @@ module Turbo::RequestIdTracking
   def turbo_tracking_request_id(&block); end
 end
 
-# source://turbo-rails//lib/turbo/system_test_helper.rb#107
 module Turbo::Streams; end
 
 class Turbo::Streams::ActionBroadcastJob < ::ActiveJob::Base

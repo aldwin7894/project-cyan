@@ -84,11 +84,16 @@ class DiscordBannerController < ApplicationController
         large_image = "https://i.scdn.co/image/#{activity_assets&.large_image_url&.split(':')&.last&.split('.')&.first.gsub('b273', '4851')}"
         title = "Listening on Spotify"
       when "Jellyfin"
-        title = "Watching on #{activity_name}"
-        large_image = get_jellyfin_poster_url(large_image)
+        large_image = get_discord_external_asset_url(
+          url: large_image,
+          additional_params: "?fillWidth=64&quality=80"
+        )
         details = activity_state
         subdetails = activity_details.remove!("Watching").strip unless activity_details&.include? "Movie"
       when "Music"
+        large_image = get_discord_external_asset_url(
+          url: large_image
+        )
         title = "Listening to #{activity_name}"
         details = activity_details
         subdetails = [activity_state, activity_assets&.large_text].compact_blank.join(" - ")

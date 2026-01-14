@@ -7,6 +7,8 @@
 
 # source://warden//lib/warden/mixins/common.rb#3
 module Warden
+  extend ::Warden::Test::WardenHelpers
+
   class << self
     # Provides helper methods to warden for testing.
     #
@@ -604,10 +606,10 @@ class Warden::Proxy
   def custom_failure?; end
 
   # source://warden//lib/warden/proxy.rb#23
-  def custom_response(*args, **_arg1, &block); end
+  def custom_response(*_arg0, **_arg1, &_arg2); end
 
   # source://warden//lib/warden/proxy.rb#26
-  def default_strategies(*args, **_arg1, &block); end
+  def default_strategies(*_arg0, **_arg1, &_arg2); end
 
   # An accessor to the rack env hash, the proxy owner and its config
   # :api: public
@@ -622,7 +624,7 @@ class Warden::Proxy
   def errors; end
 
   # source://warden//lib/warden/proxy.rb#23
-  def headers(*args, **_arg1, &block); end
+  def headers(*_arg0, **_arg1, &_arg2); end
 
   # source://warden//lib/warden/proxy.rb#318
   def inspect(*args); end
@@ -719,7 +721,7 @@ class Warden::Proxy
   def set_user(user, opts = T.unsafe(nil)); end
 
   # source://warden//lib/warden/proxy.rb#23
-  def status(*args, **_arg1, &block); end
+  def status(*_arg0, **_arg1, &_arg2); end
 
   # source://warden//lib/warden/proxy.rb#322
   def to_s(*args); end

@@ -766,8 +766,6 @@ Selenium::WebDriver::ChildProcess::SIGKILL = T.let(T.unsafe(nil), String)
 Selenium::WebDriver::ChildProcess::SIGTERM = T.let(T.unsafe(nil), String)
 
 # @api private
-#
-# source://selenium-webdriver//lib/selenium/webdriver/common/child_process.rb#27
 class Selenium::WebDriver::ChildProcess::TimeoutError < ::StandardError; end
 
 # source://selenium-webdriver//lib/selenium/webdriver/chrome.rb#24
@@ -4511,7 +4509,7 @@ class Selenium::WebDriver::Logger
   def allow(ids); end
 
   # source://selenium-webdriver//lib/selenium/webdriver/common/logger.rb#39
-  def close(*args, **_arg1, &block); end
+  def close(*_arg0, **_arg1, &_arg2); end
 
   # Used to supply information of interest for debugging a problem
   # Overrides default #debug to skip ignored messages by provided id
@@ -4524,7 +4522,7 @@ class Selenium::WebDriver::Logger
   def debug(message, id: T.unsafe(nil), &block); end
 
   # source://selenium-webdriver//lib/selenium/webdriver/common/logger.rb#39
-  def debug?(*args, **_arg1, &block); end
+  def debug?(*_arg0, **_arg1, &_arg2); end
 
   # Marks code as deprecated with/without replacement.
   #
@@ -4547,13 +4545,13 @@ class Selenium::WebDriver::Logger
   def error(message, id: T.unsafe(nil), &block); end
 
   # source://selenium-webdriver//lib/selenium/webdriver/common/logger.rb#39
-  def error?(*args, **_arg1, &block); end
+  def error?(*_arg0, **_arg1, &_arg2); end
 
   # source://selenium-webdriver//lib/selenium/webdriver/common/logger.rb#39
-  def fatal(*args, **_arg1, &block); end
+  def fatal(*_arg0, **_arg1, &_arg2); end
 
   # source://selenium-webdriver//lib/selenium/webdriver/common/logger.rb#39
-  def fatal?(*args, **_arg1, &block); end
+  def fatal?(*_arg0, **_arg1, &_arg2); end
 
   # Will not log the provided ID.
   #
@@ -4572,7 +4570,7 @@ class Selenium::WebDriver::Logger
   def info(message, id: T.unsafe(nil), &block); end
 
   # source://selenium-webdriver//lib/selenium/webdriver/common/logger.rb#39
-  def info?(*args, **_arg1, &block); end
+  def info?(*_arg0, **_arg1, &_arg2); end
 
   # Returns IO object used by logger internally.
   #
@@ -4588,7 +4586,7 @@ class Selenium::WebDriver::Logger
   def io; end
 
   # source://selenium-webdriver//lib/selenium/webdriver/common/logger.rb#39
-  def level(*args, **_arg1, &block); end
+  def level(*_arg0, **_arg1, &_arg2); end
 
   # source://selenium-webdriver//lib/selenium/webdriver/common/logger.rb#60
   def level=(level); end
@@ -4610,7 +4608,7 @@ class Selenium::WebDriver::Logger
   def warn(message, id: T.unsafe(nil), &block); end
 
   # source://selenium-webdriver//lib/selenium/webdriver/common/logger.rb#39
-  def warn?(*args, **_arg1, &block); end
+  def warn?(*_arg0, **_arg1, &_arg2); end
 
   private
 

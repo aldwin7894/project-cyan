@@ -112,67 +112,67 @@ module Mongoid
   def RawValue(*args); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def allow_bson5_decimal128(*args, **_arg1, &block); end
+  def allow_bson5_decimal128(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def allow_bson5_decimal128=(*args, **_arg1, &block); end
+  def allow_bson5_decimal128=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def allow_bson5_decimal128?(*args, **_arg1, &block); end
+  def allow_bson5_decimal128?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def allow_scopes_to_unset_default_scope(*args, **_arg1, &block); end
+  def allow_scopes_to_unset_default_scope(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def allow_scopes_to_unset_default_scope=(*args, **_arg1, &block); end
+  def allow_scopes_to_unset_default_scope=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def allow_scopes_to_unset_default_scope?(*args, **_arg1, &block); end
+  def allow_scopes_to_unset_default_scope?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def app_name(*args, **_arg1, &block); end
+  def app_name(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def app_name=(*args, **_arg1, &block); end
+  def app_name=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def app_name?(*args, **_arg1, &block); end
+  def app_name?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def around_callbacks_for_embeds(*args, **_arg1, &block); end
+  def around_callbacks_for_embeds(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def around_callbacks_for_embeds=(*args, **_arg1, &block); end
+  def around_callbacks_for_embeds=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def around_callbacks_for_embeds?(*args, **_arg1, &block); end
+  def around_callbacks_for_embeds?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def async_query_executor(*args, **_arg1, &block); end
+  def async_query_executor(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def async_query_executor=(*args, **_arg1, &block); end
+  def async_query_executor=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def async_query_executor?(*args, **_arg1, &block); end
+  def async_query_executor?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def background_indexing(*args, **_arg1, &block); end
+  def background_indexing(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def background_indexing=(*args, **_arg1, &block); end
+  def background_indexing=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def background_indexing?(*args, **_arg1, &block); end
+  def background_indexing?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def belongs_to_required_by_default(*args, **_arg1, &block); end
+  def belongs_to_required_by_default(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def belongs_to_required_by_default=(*args, **_arg1, &block); end
+  def belongs_to_required_by_default=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def belongs_to_required_by_default?(*args, **_arg1, &block); end
+  def belongs_to_required_by_default?(*_arg0, **_arg1, &_arg2); end
 
   # Convenience method for getting a named client.
   #
@@ -184,10 +184,10 @@ module Mongoid
   def client(name); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def clients(*args, **_arg1, &block); end
+  def clients(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def config(*args, **_arg1, &block); end
+  def config(*_arg0, **_arg1, &_arg2); end
 
   # Sets the Mongoid configuration options. Best used by passing a block.
   #
@@ -213,10 +213,10 @@ module Mongoid
   def configure(&block); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def configured?(*args, **_arg1, &block); end
+  def configured?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def connect_to(*args, **_arg1, &block); end
+  def connect_to(*_arg0, **_arg1, &_arg2); end
 
   # Convenience method for getting the default client.
   #
@@ -228,10 +228,10 @@ module Mongoid
   def default_client; end
 
   # source://mongoid//lib/mongoid.rb#128
-  def deregister_model(*args, **_arg1, &block); end
+  def deregister_model(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def destructive_fields(*args, **_arg1, &block); end
+  def destructive_fields(*_arg0, **_arg1, &_arg2); end
 
   # Disconnect all active clients.
   #
@@ -243,118 +243,118 @@ module Mongoid
   def disconnect_clients; end
 
   # source://mongoid//lib/mongoid.rb#128
-  def discriminator_key(*args, **_arg1, &block); end
+  def discriminator_key(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def discriminator_key=(*args, **_arg1, &block); end
+  def discriminator_key=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def discriminator_key?(*args, **_arg1, &block); end
+  def discriminator_key?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def duplicate_fields_exception(*args, **_arg1, &block); end
+  def duplicate_fields_exception(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def duplicate_fields_exception=(*args, **_arg1, &block); end
+  def duplicate_fields_exception=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def duplicate_fields_exception?(*args, **_arg1, &block); end
+  def duplicate_fields_exception?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def global_executor_concurrency(*args, **_arg1, &block); end
+  def global_executor_concurrency(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def global_executor_concurrency=(*args, **_arg1, &block); end
+  def global_executor_concurrency=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def global_executor_concurrency?(*args, **_arg1, &block); end
+  def global_executor_concurrency?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def immutable_ids(*args, **_arg1, &block); end
+  def immutable_ids(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def immutable_ids=(*args, **_arg1, &block); end
+  def immutable_ids=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def immutable_ids?(*args, **_arg1, &block); end
+  def immutable_ids?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def include_root_in_json(*args, **_arg1, &block); end
+  def include_root_in_json(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def include_root_in_json=(*args, **_arg1, &block); end
+  def include_root_in_json=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def include_root_in_json?(*args, **_arg1, &block); end
+  def include_root_in_json?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def include_type_for_serialization(*args, **_arg1, &block); end
+  def include_type_for_serialization(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def include_type_for_serialization=(*args, **_arg1, &block); end
+  def include_type_for_serialization=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def include_type_for_serialization?(*args, **_arg1, &block); end
+  def include_type_for_serialization?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def join_contexts(*args, **_arg1, &block); end
+  def join_contexts(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def join_contexts=(*args, **_arg1, &block); end
+  def join_contexts=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def join_contexts?(*args, **_arg1, &block); end
+  def join_contexts?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def legacy_persistence_context_behavior(*args, **_arg1, &block); end
+  def legacy_persistence_context_behavior(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def legacy_persistence_context_behavior=(*args, **_arg1, &block); end
+  def legacy_persistence_context_behavior=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def legacy_persistence_context_behavior?(*args, **_arg1, &block); end
+  def legacy_persistence_context_behavior?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def legacy_readonly(*args, **_arg1, &block); end
+  def legacy_readonly(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def legacy_readonly=(*args, **_arg1, &block); end
+  def legacy_readonly=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def legacy_readonly?(*args, **_arg1, &block); end
+  def legacy_readonly?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def load!(*args, **_arg1, &block); end
+  def load!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def load_configuration(*args, **_arg1, &block); end
+  def load_configuration(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def log_level=(*args, **_arg1, &block); end
+  def log_level=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def log_level?(*args, **_arg1, &block); end
+  def log_level?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def map_big_decimal_to_decimal128(*args, **_arg1, &block); end
+  def map_big_decimal_to_decimal128(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def map_big_decimal_to_decimal128=(*args, **_arg1, &block); end
+  def map_big_decimal_to_decimal128=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def map_big_decimal_to_decimal128?(*args, **_arg1, &block); end
+  def map_big_decimal_to_decimal128?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def models(*args, **_arg1, &block); end
+  def models(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def options=(*args, **_arg1, &block); end
+  def options=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def override_client(*args, **_arg1, &block); end
+  def override_client(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def override_database(*args, **_arg1, &block); end
+  def override_database(*_arg0, **_arg1, &_arg2); end
 
   # Define persistence context that is used when a transaction method is called
   # on Mongoid module.
@@ -365,34 +365,34 @@ module Mongoid
   def persistence_context; end
 
   # source://mongoid//lib/mongoid.rb#128
-  def preload_models(*args, **_arg1, &block); end
+  def preload_models(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def preload_models=(*args, **_arg1, &block); end
+  def preload_models=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def preload_models?(*args, **_arg1, &block); end
+  def preload_models?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def prevent_multiple_calls_of_embedded_callbacks(*args, **_arg1, &block); end
+  def prevent_multiple_calls_of_embedded_callbacks(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def prevent_multiple_calls_of_embedded_callbacks=(*args, **_arg1, &block); end
+  def prevent_multiple_calls_of_embedded_callbacks=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def prevent_multiple_calls_of_embedded_callbacks?(*args, **_arg1, &block); end
+  def prevent_multiple_calls_of_embedded_callbacks?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def purge!(*args, **_arg1, &block); end
+  def purge!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def raise_not_found_error(*args, **_arg1, &block); end
+  def raise_not_found_error(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def raise_not_found_error=(*args, **_arg1, &block); end
+  def raise_not_found_error=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def raise_not_found_error?(*args, **_arg1, &block); end
+  def raise_not_found_error?(*_arg0, **_arg1, &_arg2); end
 
   # Reconnect all active clients.
   #
@@ -404,19 +404,19 @@ module Mongoid
   def reconnect_clients; end
 
   # source://mongoid//lib/mongoid.rb#128
-  def register_model(*args, **_arg1, &block); end
+  def register_model(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def running_with_passenger?(*args, **_arg1, &block); end
+  def running_with_passenger?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def scope_overwrite_exception(*args, **_arg1, &block); end
+  def scope_overwrite_exception(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def scope_overwrite_exception=(*args, **_arg1, &block); end
+  def scope_overwrite_exception=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def scope_overwrite_exception?(*args, **_arg1, &block); end
+  def scope_overwrite_exception?(*_arg0, **_arg1, &_arg2); end
 
   # Define client that is used when a transaction method is called
   # on Mongoid module. This MUST be the default client.
@@ -427,19 +427,19 @@ module Mongoid
   def storage_options; end
 
   # source://mongoid//lib/mongoid.rb#128
-  def time_zone(*args, **_arg1, &block); end
+  def time_zone(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def truncate!(*args, **_arg1, &block); end
+  def truncate!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def use_utc(*args, **_arg1, &block); end
+  def use_utc(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def use_utc=(*args, **_arg1, &block); end
+  def use_utc=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid.rb#128
-  def use_utc?(*args, **_arg1, &block); end
+  def use_utc?(*_arg0, **_arg1, &_arg2); end
 end
 
 # Mixin module which adds association behavior to a Mongoid document.
@@ -1166,7 +1166,6 @@ module Mongoid::Association::Depending
   end
 end
 
-# source://mongoid//lib/mongoid/association/depending.rb#22
 module Mongoid::Association::Depending::ClassMethods
   # source://mongoid//lib/mongoid/association/depending.rb#30
   def _all_dependents; end
@@ -2319,7 +2318,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   def exists?(id_or_conditions = T.unsafe(nil)); end
 
   # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#58
-  def find(*args, **_arg1, &block); end
+  def find(*_arg0, **_arg1, &_arg2); end
 
   # Get all the documents in the association that are loaded into memory.
   #
@@ -2343,7 +2342,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   def new(attributes = T.unsafe(nil), type = T.unsafe(nil)); end
 
   # source://mongoid//lib/mongoid/association/embedded/embeds_many/proxy.rb#58
-  def pluck(*args, **_arg1, &block); end
+  def pluck(*_arg0, **_arg1, &_arg2); end
 
   # Pop documents off the association. This can be a single document or
   # multiples, and will automatically persist the changes.
@@ -3160,10 +3159,10 @@ class Mongoid::Association::Many < ::Mongoid::Association::Proxy
   include ::Enumerable
 
   # source://mongoid//lib/mongoid/association/many.rb#14
-  def any?(*args, **_arg1, &block); end
+  def any?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/association/many.rb#13
-  def avg(*args, **_arg1, &block); end
+  def avg(*_arg0, **_arg1, &_arg2); end
 
   # Is the association empty?
   #
@@ -3239,13 +3238,13 @@ class Mongoid::Association::Many < ::Mongoid::Association::Proxy
   def find_or_initialize_by(attrs = T.unsafe(nil), type = T.unsafe(nil), &block); end
 
   # source://mongoid//lib/mongoid/association/many.rb#14
-  def length(*args, **_arg1, &block); end
+  def length(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/association/many.rb#13
-  def max(*args, **_arg1, &block); end
+  def max(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/association/many.rb#13
-  def min(*args, **_arg1, &block); end
+  def min(*_arg0, **_arg1, &_arg2); end
 
   # This proxy can never be nil.
   #
@@ -3292,10 +3291,10 @@ class Mongoid::Association::Many < ::Mongoid::Association::Proxy
   def serializable_hash(options = T.unsafe(nil)); end
 
   # source://mongoid//lib/mongoid/association/many.rb#14
-  def size(*args, **_arg1, &block); end
+  def size(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/association/many.rb#13
-  def sum(*args, **_arg1, &block); end
+  def sum(*_arg0, **_arg1, &_arg2); end
 
   # Get a criteria for the embedded documents without the default scoping
   # applied.
@@ -3971,10 +3970,10 @@ class Mongoid::Association::Proxy
   def _target=(_arg0); end
 
   # source://mongoid//lib/mongoid/association/proxy.rb#52
-  def bind_one(*args, **_arg1, &block); end
+  def bind_one(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/association/proxy.rb#53
-  def collection_name(*args, **_arg1, &block); end
+  def collection_name(*_arg0, **_arg1, &_arg2); end
 
   # Allow extension to be an array and extend each module
   #
@@ -3985,10 +3984,10 @@ class Mongoid::Association::Proxy
   def extend_proxy(*_arg0); end
 
   # source://mongoid//lib/mongoid/association/proxy.rb#51
-  def foreign_key(*args, **_arg1, &block); end
+  def foreign_key(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/association/proxy.rb#51
-  def inverse_foreign_key(*args, **_arg1, &block); end
+  def inverse_foreign_key(*_arg0, **_arg1, &_arg2); end
 
   # Get the class from the association, or return nil if no association present.
   #
@@ -4019,7 +4018,7 @@ class Mongoid::Association::Proxy
   def substitutable; end
 
   # source://mongoid//lib/mongoid/association/proxy.rb#52
-  def unbind_one(*args, **_arg1, &block); end
+  def unbind_one(*_arg0, **_arg1, &_arg2); end
 
   protected
 
@@ -5721,10 +5720,10 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   def inspect; end
 
   # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#26
-  def is_a?(*args, **_arg1, &block); end
+  def is_a?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/association/referenced/has_many/enumerable.rb#26
-  def kind_of?(*args, **_arg1, &block); end
+  def kind_of?(*_arg0, **_arg1, &_arg2); end
 
   # Get the last document in the enumerable. Will check the new
   # documents first. Does not load the entire enumerable.
@@ -5979,7 +5978,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   def concat(documents); end
 
   # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#36
-  def count(*args, **_arg1, &block); end
+  def count(*_arg0, **_arg1, &_arg2); end
 
   # Delete the document from the association. This will set the foreign key
   # on the document to nil. If the dependent options on the association are
@@ -6099,13 +6098,13 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   def find(*args, &block); end
 
   # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#37
-  def first(*args, **_arg1, &block); end
+  def first(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#37
-  def in_memory(*args, **_arg1, &block); end
+  def in_memory(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#37
-  def last(*args, **_arg1, &block); end
+  def last(*_arg0, **_arg1, &_arg2); end
 
   # Build a new document from the attributes and append it to this
   # association without saving.
@@ -6179,7 +6178,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   def push(*args); end
 
   # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#37
-  def reset(*args, **_arg1, &block); end
+  def reset(*_arg0, **_arg1, &_arg2); end
 
   # Substitutes the supplied target documents for the existing documents
   # in the association. If the new target is nil, perform the necessary
@@ -6194,7 +6193,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   def substitute(replacement); end
 
   # source://mongoid//lib/mongoid/association/referenced/has_many/proxy.rb#37
-  def uniq(*args, **_arg1, &block); end
+  def uniq(*_arg0, **_arg1, &_arg2); end
 
   # Get a criteria for the documents without the default scoping
   # applied.
@@ -10412,10 +10411,10 @@ module Mongoid::Config
   def log_level?; end
 
   # source://mongoid//lib/mongoid/config.rb#22
-  def logger(*args, **_arg1, &block); end
+  def logger(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/config.rb#22
-  def logger=(*args, **_arg1, &block); end
+  def logger=(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/config.rb#81
   def map_big_decimal_to_decimal128; end
@@ -11109,31 +11108,31 @@ module Mongoid::Contextual
   extend ::Forwardable
 
   # source://mongoid//lib/mongoid/contextual.rb#22
-  def add_each_to_set(*args, **_arg1, &block); end
+  def add_each_to_set(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#22
-  def add_to_set(*args, **_arg1, &block); end
+  def add_to_set(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#18
-  def aggregates(*args, **_arg1, &block); end
+  def aggregates(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#18
-  def avg(*args, **_arg1, &block); end
+  def avg(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#22
-  def bit(*args, **_arg1, &block); end
+  def bit(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#29
-  def blank?(*args, **_arg1, &block); end
+  def blank?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#22
-  def clamp_lower_bound(*args, **_arg1, &block); end
+  def clamp_lower_bound(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#22
-  def clamp_upper_bound(*args, **_arg1, &block); end
+  def clamp_upper_bound(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#29
-  def collection(*args, **_arg1, &block); end
+  def collection(*_arg0, **_arg1, &_arg2); end
 
   # Get the context in which criteria queries should execute. This is either
   # in memory (for embedded documents) or mongo (for root level documents.)
@@ -11146,91 +11145,91 @@ module Mongoid::Contextual
   def context; end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def count(*args, **_arg1, &block); end
+  def count(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#29
-  def criteria(*args, **_arg1, &block); end
+  def criteria(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def database_field_name(*args, **_arg1, &block); end
+  def database_field_name(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def delete(*args, **_arg1, &block); end
+  def delete(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def delete_all(*args, **_arg1, &block); end
+  def delete_all(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def destroy(*args, **_arg1, &block); end
+  def destroy(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def destroy_all(*args, **_arg1, &block); end
+  def destroy_all(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def distinct(*args, **_arg1, &block); end
+  def distinct(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def documents_loader(*args, **_arg1, &block); end
+  def documents_loader(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def each(*args, **_arg1, &block); end
+  def each(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#29
-  def empty?(*args, **_arg1, &block); end
+  def empty?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def estimated_count(*args, **_arg1, &block); end
+  def estimated_count(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def exists?(*args, **_arg1, &block); end
+  def exists?(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def explain(*args, **_arg1, &block); end
+  def explain(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def fifth(*args, **_arg1, &block); end
+  def fifth(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def fifth!(*args, **_arg1, &block); end
+  def fifth!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def find_first(*args, **_arg1, &block); end
+  def find_first(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def find_one_and_delete(*args, **_arg1, &block); end
+  def find_one_and_delete(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def find_one_and_replace(*args, **_arg1, &block); end
+  def find_one_and_replace(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def find_one_and_update(*args, **_arg1, &block); end
+  def find_one_and_update(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def first(*args, **_arg1, &block); end
+  def first(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def first!(*args, **_arg1, &block); end
+  def first!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def fourth(*args, **_arg1, &block); end
+  def fourth(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def fourth!(*args, **_arg1, &block); end
+  def fourth!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#22
-  def inc(*args, **_arg1, &block); end
+  def inc(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#29
-  def klass(*args, **_arg1, &block); end
+  def klass(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def last(*args, **_arg1, &block); end
+  def last(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def last!(*args, **_arg1, &block); end
+  def last!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def length(*args, **_arg1, &block); end
+  def length(*_arg0, **_arg1, &_arg2); end
 
   # Instructs the context to schedule an asynchronous loading of documents
   # specified by the criteria.
@@ -11244,106 +11243,106 @@ module Mongoid::Contextual
   def load_async; end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def map_reduce(*args, **_arg1, &block); end
+  def map_reduce(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#18
-  def max(*args, **_arg1, &block); end
+  def max(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#18
-  def min(*args, **_arg1, &block); end
+  def min(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#22
-  def mul(*args, **_arg1, &block); end
+  def mul(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def one(*args, **_arg1, &block); end
+  def one(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def pick(*args, **_arg1, &block); end
+  def pick(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def pluck(*args, **_arg1, &block); end
+  def pluck(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#22
-  def pop(*args, **_arg1, &block); end
+  def pop(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#22
-  def pull(*args, **_arg1, &block); end
+  def pull(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#22
-  def pull_all(*args, **_arg1, &block); end
+  def pull_all(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#22
-  def push(*args, **_arg1, &block); end
+  def push(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#22
-  def push_all(*args, **_arg1, &block); end
+  def push_all(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#22
-  def rename(*args, **_arg1, &block); end
+  def rename(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def second(*args, **_arg1, &block); end
+  def second(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def second!(*args, **_arg1, &block); end
+  def second!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def second_to_last(*args, **_arg1, &block); end
+  def second_to_last(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def second_to_last!(*args, **_arg1, &block); end
+  def second_to_last!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#22
-  def set(*args, **_arg1, &block); end
+  def set(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#22
-  def set_max(*args, **_arg1, &block); end
+  def set_max(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#22
-  def set_min(*args, **_arg1, &block); end
+  def set_min(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def size(*args, **_arg1, &block); end
+  def size(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def sort(*args, **_arg1, &block); end
+  def sort(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#18
-  def sum(*args, **_arg1, &block); end
+  def sum(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def take(*args, **_arg1, &block); end
+  def take(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def take!(*args, **_arg1, &block); end
+  def take!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def tally(*args, **_arg1, &block); end
+  def tally(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def third(*args, **_arg1, &block); end
+  def third(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def third!(*args, **_arg1, &block); end
+  def third!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def third_to_last(*args, **_arg1, &block); end
+  def third_to_last(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def third_to_last!(*args, **_arg1, &block); end
+  def third_to_last!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#22
-  def unset(*args, **_arg1, &block); end
+  def unset(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def update(*args, **_arg1, &block); end
+  def update(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def update_all(*args, **_arg1, &block); end
+  def update_all(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual.rb#26
-  def view(*args, **_arg1, &block); end
+  def view(*_arg0, **_arg1, &_arg2); end
 
   private
 
@@ -11906,10 +11905,10 @@ class Mongoid::Contextual::MapReduce
   def initialize(collection, criteria, map, reduce); end
 
   # source://mongoid//lib/mongoid/contextual/map_reduce.rb#14
-  def ==(*args, **_arg1, &block); end
+  def ==(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual/map_reduce.rb#13
-  def [](*args, **_arg1, &block); end
+  def [](*_arg0, **_arg1, &_arg2); end
 
   # Returns the selector of the command spec.
   #
@@ -11949,7 +11948,7 @@ class Mongoid::Contextual::MapReduce
   def emitted; end
 
   # source://mongoid//lib/mongoid/contextual/map_reduce.rb#14
-  def empty?(*args, **_arg1, &block); end
+  def empty?(*_arg0, **_arg1, &_arg2); end
 
   # Get the raw output from the map/reduce operation.
   # Execute the map/reduce, returning the raw output.
@@ -12743,7 +12742,7 @@ class Mongoid::Contextual::Mongo
   def count(options = T.unsafe(nil), &block); end
 
   # source://mongoid//lib/mongoid/contextual/mongo.rb#280
-  def database_field_name(*args, **_arg1, &block); end
+  def database_field_name(*_arg0, **_arg1, &_arg2); end
 
   # Delete all documents in the database that match the selector.
   #
@@ -12841,7 +12840,7 @@ class Mongoid::Contextual::Mongo
   def exists?(id_or_conditions = T.unsafe(nil)); end
 
   # source://mongoid//lib/mongoid/contextual/mongo.rb#54
-  def explain(*args, **_arg1, &block); end
+  def explain(*_arg0, **_arg1, &_arg2); end
 
   # Get the fifth document in the database for the criteria's selector.
   #
@@ -13539,16 +13538,16 @@ class Mongoid::Contextual::Mongo::DocumentsLoader
   def unschedule; end
 
   # source://mongoid//lib/mongoid/contextual/mongo/documents_loader.rb#14
-  def value(*args, **_arg1, &block); end
+  def value(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual/mongo/documents_loader.rb#14
-  def value!(*args, **_arg1, &block); end
+  def value!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual/mongo/documents_loader.rb#14
-  def wait(*args, **_arg1, &block); end
+  def wait(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/contextual/mongo/documents_loader.rb#14
-  def wait!(*args, **_arg1, &block); end
+  def wait!(*_arg0, **_arg1, &_arg2); end
 
   private
 
@@ -22884,7 +22883,7 @@ class Mongoid::Fields::Standard
   def default_val=(_arg0); end
 
   # source://mongoid//lib/mongoid/fields/standard.rb#17
-  def demongoize(*args, **_arg1, &block); end
+  def demongoize(*_arg0, **_arg1, &_arg2); end
 
   # Evaluate the default value and return it. Will handle the
   # serialization, proc calls, and duplication if necessary.
@@ -22898,7 +22897,7 @@ class Mongoid::Fields::Standard
   def eval_default(doc); end
 
   # source://mongoid//lib/mongoid/fields/standard.rb#17
-  def evolve(*args, **_arg1, &block); end
+  def evolve(*_arg0, **_arg1, &_arg2); end
 
   # Is this field a foreign key?
   #
@@ -22949,7 +22948,7 @@ class Mongoid::Fields::Standard
   def localized?; end
 
   # source://mongoid//lib/mongoid/fields/standard.rb#17
-  def mongoize(*args, **_arg1, &block); end
+  def mongoize(*_arg0, **_arg1, &_arg2); end
 
   # Defines the behavior for defined fields in the document.
   # Set readers for the instance variables.
@@ -23171,73 +23170,73 @@ module Mongoid::Findable
   extend ::Forwardable
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def aggregates(*args, **_arg1, &block); end
+  def aggregates(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def all(*args, **_arg1, &block); end
+  def all(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def all_in(*args, **_arg1, &block); end
+  def all_in(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def all_of(*args, **_arg1, &block); end
+  def all_of(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def and(*args, **_arg1, &block); end
+  def and(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def any_in(*args, **_arg1, &block); end
+  def any_in(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def any_of(*args, **_arg1, &block); end
+  def any_of(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def asc(*args, **_arg1, &block); end
+  def asc(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def ascending(*args, **_arg1, &block); end
+  def ascending(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def avg(*args, **_arg1, &block); end
+  def avg(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def batch_size(*args, **_arg1, &block); end
+  def batch_size(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def between(*args, **_arg1, &block); end
+  def between(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def collation(*args, **_arg1, &block); end
+  def collation(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def comment(*args, **_arg1, &block); end
+  def comment(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#74
-  def count(*args, **_arg1, &block); end
+  def count(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def create_with(*args, **_arg1, &block); end
+  def create_with(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def cursor_type(*args, **_arg1, &block); end
+  def cursor_type(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def desc(*args, **_arg1, &block); end
+  def desc(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def descending(*args, **_arg1, &block); end
+  def descending(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def distinct(*args, **_arg1, &block); end
+  def distinct(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def each(*args, **_arg1, &block); end
+  def each(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def each_with_index(*args, **_arg1, &block); end
+  def each_with_index(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def elem_match(*args, **_arg1, &block); end
+  def elem_match(*_arg0, **_arg1, &_arg2); end
 
   # Returns true if count is zero
   #
@@ -23249,7 +23248,7 @@ module Mongoid::Findable
   def empty?; end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def eq(*args, **_arg1, &block); end
+  def eq(*_arg0, **_arg1, &_arg2); end
 
   # Returns an estimated count of records in the database.
   #
@@ -23261,10 +23260,10 @@ module Mongoid::Findable
   def estimated_count; end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def excludes(*args, **_arg1, &block); end
+  def excludes(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def exists(*args, **_arg1, &block); end
+  def exists(*_arg0, **_arg1, &_arg2); end
 
   # Returns true if there are on document in database based on the
   # provided arguments.
@@ -23284,13 +23283,13 @@ module Mongoid::Findable
   def exists?(id_or_conditions = T.unsafe(nil)); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def extras(*args, **_arg1, &block); end
+  def extras(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def fifth(*args, **_arg1, &block); end
+  def fifth(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def fifth!(*args, **_arg1, &block); end
+  def fifth!(*_arg0, **_arg1, &_arg2); end
 
   # Finds a +Document+ or multiple documents by their _id values.
   #
@@ -23373,22 +23372,22 @@ module Mongoid::Findable
   def find_by!(attrs = T.unsafe(nil)); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def find_one_and_delete(*args, **_arg1, &block); end
+  def find_one_and_delete(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def find_one_and_replace(*args, **_arg1, &block); end
+  def find_one_and_replace(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def find_one_and_update(*args, **_arg1, &block); end
+  def find_one_and_update(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def find_or_create_by(*args, **_arg1, &block); end
+  def find_or_create_by(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def find_or_create_by!(*args, **_arg1, &block); end
+  def find_or_create_by!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def find_or_initialize_by(*args, **_arg1, &block); end
+  def find_or_initialize_by(*_arg0, **_arg1, &_arg2); end
 
   # Find the first +Document+ given the conditions.
   #
@@ -23401,43 +23400,43 @@ module Mongoid::Findable
   def first(limit = T.unsafe(nil)); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def first!(*args, **_arg1, &block); end
+  def first!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def first_or_create(*args, **_arg1, &block); end
+  def first_or_create(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def first_or_create!(*args, **_arg1, &block); end
+  def first_or_create!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def first_or_initialize(*args, **_arg1, &block); end
+  def first_or_initialize(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def for_js(*args, **_arg1, &block); end
+  def for_js(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def fourth(*args, **_arg1, &block); end
+  def fourth(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def fourth!(*args, **_arg1, &block); end
+  def fourth!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def geo_spatial(*args, **_arg1, &block); end
+  def geo_spatial(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def gt(*args, **_arg1, &block); end
+  def gt(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def gte(*args, **_arg1, &block); end
+  def gte(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def hint(*args, **_arg1, &block); end
+  def hint(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def in(*args, **_arg1, &block); end
+  def in(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def includes(*args, **_arg1, &block); end
+  def includes(*_arg0, **_arg1, &_arg2); end
 
   # Find the last +Document+ given the conditions.
   #
@@ -23450,70 +23449,70 @@ module Mongoid::Findable
   def last(limit = T.unsafe(nil)); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def last!(*args, **_arg1, &block); end
+  def last!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def limit(*args, **_arg1, &block); end
+  def limit(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def lt(*args, **_arg1, &block); end
+  def lt(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def lte(*args, **_arg1, &block); end
+  def lte(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def map_reduce(*args, **_arg1, &block); end
+  def map_reduce(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def max(*args, **_arg1, &block); end
+  def max(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def max_distance(*args, **_arg1, &block); end
+  def max_distance(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def max_scan(*args, **_arg1, &block); end
+  def max_scan(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def max_time_ms(*args, **_arg1, &block); end
+  def max_time_ms(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def min(*args, **_arg1, &block); end
+  def min(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def mod(*args, **_arg1, &block); end
+  def mod(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def ne(*args, **_arg1, &block); end
+  def ne(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def near(*args, **_arg1, &block); end
+  def near(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def near_sphere(*args, **_arg1, &block); end
+  def near_sphere(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def nin(*args, **_arg1, &block); end
+  def nin(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def no_timeout(*args, **_arg1, &block); end
+  def no_timeout(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def none(*args, **_arg1, &block); end
+  def none(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def none_of(*args, **_arg1, &block); end
+  def none_of(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def nor(*args, **_arg1, &block); end
+  def nor(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def not(*args, **_arg1, &block); end
+  def not(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def not_in(*args, **_arg1, &block); end
+  def not_in(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def offset(*args, **_arg1, &block); end
+  def offset(*_arg0, **_arg1, &_arg2); end
 
   # Find the first +Document+ given the conditions.
   #
@@ -23526,94 +23525,94 @@ module Mongoid::Findable
   def one(limit = T.unsafe(nil)); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def only(*args, **_arg1, &block); end
+  def only(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def or(*args, **_arg1, &block); end
+  def or(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def order(*args, **_arg1, &block); end
+  def order(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def order_by(*args, **_arg1, &block); end
+  def order_by(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def pick(*args, **_arg1, &block); end
+  def pick(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def pluck(*args, **_arg1, &block); end
+  def pluck(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def read(*args, **_arg1, &block); end
+  def read(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def reorder(*args, **_arg1, &block); end
+  def reorder(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def second(*args, **_arg1, &block); end
+  def second(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def second!(*args, **_arg1, &block); end
+  def second!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def second_to_last(*args, **_arg1, &block); end
+  def second_to_last(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def second_to_last!(*args, **_arg1, &block); end
+  def second_to_last!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def skip(*args, **_arg1, &block); end
+  def skip(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def slice(*args, **_arg1, &block); end
+  def slice(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def snapshot(*args, **_arg1, &block); end
+  def snapshot(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def sum(*args, **_arg1, &block); end
+  def sum(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def take(*args, **_arg1, &block); end
+  def take(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def take!(*args, **_arg1, &block); end
+  def take!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def tally(*args, **_arg1, &block); end
+  def tally(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def text_search(*args, **_arg1, &block); end
+  def text_search(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def third(*args, **_arg1, &block); end
+  def third(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def third!(*args, **_arg1, &block); end
+  def third!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def third_to_last(*args, **_arg1, &block); end
+  def third_to_last(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def third_to_last!(*args, **_arg1, &block); end
+  def third_to_last!(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def update(*args, **_arg1, &block); end
+  def update(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#18
-  def update_all(*args, **_arg1, &block); end
+  def update_all(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def where(*args, **_arg1, &block); end
+  def where(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def with_size(*args, **_arg1, &block); end
+  def with_size(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def with_type(*args, **_arg1, &block); end
+  def with_type(*_arg0, **_arg1, &_arg2); end
 
   # source://mongoid//lib/mongoid/findable.rb#11
-  def without(*args, **_arg1, &block); end
+  def without(*_arg0, **_arg1, &_arg2); end
 end
 
 # Module used to prepend the discriminator key assignment function to change
@@ -23808,46 +23807,88 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   def _rollback_callbacks; end
 
   # source://mongoid//lib/mongoid.rb#155
-  def _run_build_callbacks(&block); end
+  def _run_build_callbacks; end
 
   # source://mongoid//lib/mongoid.rb#155
-  def _run_commit_callbacks(&block); end
+  def _run_build_callbacks!(&block); end
 
   # source://mongoid//lib/mongoid.rb#155
-  def _run_create_callbacks(&block); end
+  def _run_commit_callbacks; end
 
   # source://mongoid//lib/mongoid.rb#155
-  def _run_destroy_callbacks(&block); end
+  def _run_commit_callbacks!(&block); end
 
   # source://mongoid//lib/mongoid.rb#155
-  def _run_find_callbacks(&block); end
+  def _run_create_callbacks; end
 
   # source://mongoid//lib/mongoid.rb#155
-  def _run_initialize_callbacks(&block); end
+  def _run_create_callbacks!(&block); end
 
   # source://mongoid//lib/mongoid.rb#155
-  def _run_persist_parent_callbacks(&block); end
+  def _run_destroy_callbacks; end
 
   # source://mongoid//lib/mongoid.rb#155
-  def _run_rollback_callbacks(&block); end
+  def _run_destroy_callbacks!(&block); end
 
   # source://mongoid//lib/mongoid.rb#155
-  def _run_save_callbacks(&block); end
+  def _run_find_callbacks; end
 
   # source://mongoid//lib/mongoid.rb#155
-  def _run_touch_callbacks(&block); end
+  def _run_find_callbacks!(&block); end
 
   # source://mongoid//lib/mongoid.rb#155
-  def _run_update_callbacks(&block); end
+  def _run_initialize_callbacks; end
 
   # source://mongoid//lib/mongoid.rb#155
-  def _run_upsert_callbacks(&block); end
+  def _run_initialize_callbacks!(&block); end
 
   # source://mongoid//lib/mongoid.rb#155
-  def _run_validate_callbacks(&block); end
+  def _run_persist_parent_callbacks; end
 
   # source://mongoid//lib/mongoid.rb#155
-  def _run_validation_callbacks(&block); end
+  def _run_persist_parent_callbacks!(&block); end
+
+  # source://mongoid//lib/mongoid.rb#155
+  def _run_rollback_callbacks; end
+
+  # source://mongoid//lib/mongoid.rb#155
+  def _run_rollback_callbacks!(&block); end
+
+  # source://mongoid//lib/mongoid.rb#155
+  def _run_save_callbacks; end
+
+  # source://mongoid//lib/mongoid.rb#155
+  def _run_save_callbacks!(&block); end
+
+  # source://mongoid//lib/mongoid.rb#155
+  def _run_touch_callbacks; end
+
+  # source://mongoid//lib/mongoid.rb#155
+  def _run_touch_callbacks!(&block); end
+
+  # source://mongoid//lib/mongoid.rb#155
+  def _run_update_callbacks; end
+
+  # source://mongoid//lib/mongoid.rb#155
+  def _run_update_callbacks!(&block); end
+
+  # source://mongoid//lib/mongoid.rb#155
+  def _run_upsert_callbacks; end
+
+  # source://mongoid//lib/mongoid.rb#155
+  def _run_upsert_callbacks!(&block); end
+
+  # source://mongoid//lib/mongoid.rb#155
+  def _run_validate_callbacks; end
+
+  # source://mongoid//lib/mongoid.rb#155
+  def _run_validate_callbacks!(&block); end
+
+  # source://mongoid//lib/mongoid.rb#155
+  def _run_validation_callbacks; end
+
+  # source://mongoid//lib/mongoid.rb#155
+  def _run_validation_callbacks!(&block); end
 
   # source://mongoid//lib/mongoid.rb#155
   def _save_callbacks; end
@@ -24683,7 +24724,6 @@ module Mongoid::Identifiable
   mixes_in_class_methods ::Mongoid::Identifiable::ClassMethods
 end
 
-# source://mongoid//lib/mongoid/identifiable.rb#11
 module Mongoid::Identifiable::ClassMethods
   # source://mongoid//lib/mongoid/identifiable.rb#23
   def identify_as(*aliases, resolver: T.unsafe(nil)); end
@@ -26903,7 +26943,7 @@ class Mongoid::ModelResolver
     def instance; end
 
     # source://mongoid//lib/mongoid/model_resolver.rb#22
-    def register(*args, **_arg1, &block); end
+    def register(*_arg0, **_arg1, &_arg2); end
 
     # Register the given resolver under the given name.
     #
@@ -28001,7 +28041,7 @@ class Mongoid::PersistenceContext
   def client_name; end
 
   # source://mongoid//lib/mongoid/persistence_context.rb#12
-  def cluster(*args, **_arg1, &block); end
+  def cluster(*_arg0, **_arg1, &_arg2); end
 
   # Get the collection for this persistence context.
   #
@@ -28077,7 +28117,7 @@ class Mongoid::PersistenceContext
   def reusable_client?; end
 
   # source://mongoid//lib/mongoid/persistence_context.rb#15
-  def storage_options(*args, **_arg1, &block); end
+  def storage_options(*_arg0, **_arg1, &_arg2); end
 
   private
 
@@ -30015,10 +30055,10 @@ module Mongoid::Timestamps::Timeless
 
   class << self
     # source://mongoid//lib/mongoid/timestamps/timeless.rb#62
-    def [](*args, **_arg1, &block); end
+    def [](*_arg0, **_arg1, &_arg2); end
 
     # source://mongoid//lib/mongoid/timestamps/timeless.rb#62
-    def []=(*args, **_arg1, &block); end
+    def []=(*_arg0, **_arg1, &_arg2); end
 
     # Returns the in-memory thread cache of classes
     # for which to skip timestamping.

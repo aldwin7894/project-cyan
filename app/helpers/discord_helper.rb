@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module DiscordHelper
-  def get_jellyfin_poster_url(url)
-    return nil unless url.include?("jellyfin.")
+  def get_discord_external_asset_url(url:, additional_params: "")
+    return url unless url.include?("mp:external")
 
-    "https://#{url.split("https/").last.split(".png").first}?fillWidth=64&quality=80"
+    "https://#{url.split("https/").last.split(".png").first}#{additional_params}"
   end
 
   def get_playing_elapsed_time(start_time)
