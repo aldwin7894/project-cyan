@@ -164,7 +164,7 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.1.0)
       domain_name (~> 0.5)
-    httparty (0.24.0)
+    httparty (0.24.2)
       csv
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
@@ -504,7 +504,7 @@ DEPENDENCIES
   graphlient (~> 0.8.0)
   graphql (~> 2.0.27)
   health_check (~> 3.1)
-  httparty (~> 0.24.0)
+  httparty (~> 0.24.2)
   httplog (~> 1.8)
   jwt (~> 3.1)
   kodachroma (~> 1.0)
