@@ -1,7 +1,7 @@
 FROM ruby:4.0.1-slim-trixie AS build-env
 
 ENV BUNDLE_PATH=/gems
-ENV NODE_VERSION=24.11.0
+ENV NODE_VERSION=24.13.0
 
 RUN apt-get update && apt-get install -yq --no-install-recommends \
   build-essential \
@@ -14,7 +14,9 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
   wget \
   && curl --proto "=https" -fsSL https://deb.nodesource.com/setup_lts.x | bash -s -- ${NODE_VERSION} \
   && apt-get install -yq --no-install-recommends nodejs=${NODE_VERSION}-1nodesource1 \
-  && npm i -g --ignore-scripts npm yarn \
+  && corepack enable \
+  && corepack prepare yarn@stable --activate \
+  && npm i -g --ignore-scripts npm \
   && npm cache clean --force \
   && apt-get clean \
   && apt-get autoremove

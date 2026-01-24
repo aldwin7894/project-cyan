@@ -2,7 +2,6 @@
   "name": "project-cyan",
   "type": "module",
   "version": "0.1.0",
-  "private": false,
   "repository": "git@github.com:aldwin7894/project-cyan.git",
   "license": "GPL-3.0-only",
   "author": "aldwin7894 <cyan@aldwin7894.dev>",
@@ -68,8 +67,8 @@
     "typescript-eslint": "^8.53.1"
   },
   "engines": {
-    "node": "24.11.0",
-    "npm": ">= 10.9",
-    "yarn": ">= 1.22"
-  }
+    "node": "24.13.0",
+    "npm": ">= 11.8.0"
+  },
+  "packageManager": "yarn@4.12.0"
 }

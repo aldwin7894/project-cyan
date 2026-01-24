@@ -92,8 +92,8 @@ module Turbo::Broadcastable
   def broadcast_prepend_to(*streamables, target: T.unsafe(nil), **rendering); end
   def broadcast_refresh; end
   def broadcast_refresh_later; end
-  def broadcast_refresh_later_to(*streamables); end
-  def broadcast_refresh_to(*streamables); end
+  def broadcast_refresh_later_to(*streamables, **attributes); end
+  def broadcast_refresh_to(*streamables, **attributes); end
   def broadcast_remove(**rendering); end
   def broadcast_remove_to(*streamables, target: T.unsafe(nil), **rendering); end
   def broadcast_render(**rendering); end
@@ -124,144 +124,6 @@ module Turbo::Broadcastable::ClassMethods
   def broadcasts_to(stream, inserts_by: T.unsafe(nil), target: T.unsafe(nil), **rendering); end
   def suppressed_turbo_broadcasts?; end
   def suppressing_turbo_broadcasts(&block); end
-end
-
-# source://turbo-rails//lib/turbo/broadcastable/test_helper.rb#3
-module Turbo::Broadcastable::TestHelper
-  extend ::ActiveSupport::Concern
-  include ::ActionCable::TestHelper
-  include ::Turbo::Streams::StreamName
-
-  # Asserts that no `<turbo-stream>` elements were broadcast over Action Cable
-  #
-  # ==== Arguments
-  #
-  # * <tt>stream_name_or_object</tt> the objects used to generate the
-  #   channel Action Cable name, or the name itself
-  # * <tt>&block</tt> optional block executed before the
-  #   assertion
-  #
-  # Asserts that no `<turbo-stream>` elements were broadcast:
-  #
-  #     message = Message.find(1)
-  #     message.broadcast_replace_to "messages"
-  #
-  #     assert_no_turbo_stream_broadcasts "messages" # fails with MiniTest::Assertion error
-  #
-  # You can pass a block to run before the assertion:
-  #
-  #     message = Message.find(1)
-  #
-  #     assert_no_turbo_stream_broadcasts "messages" do
-  #       # do something other than broadcast to "messages"
-  #     end
-  #
-  # In addition to a String, the helper also accepts an Object or Array to
-  # determine the name of the channel the elements are broadcast to:
-  #
-  #     message = Message.find(1)
-  #
-  #     assert_no_turbo_stream_broadcasts message do
-  #       # do something other than broadcast to "message_1"
-  #     end
-  #
-  # source://turbo-rails//lib/turbo/broadcastable/test_helper.rb#104
-  def assert_no_turbo_stream_broadcasts(stream_name_or_object, &block); end
-
-  # Asserts that `<turbo-stream>` elements were broadcast over Action Cable
-  #
-  # ==== Arguments
-  #
-  # * <tt>stream_name_or_object</tt> the objects used to generate the
-  #   channel Action Cable name, or the name itself
-  # * <tt>&block</tt> optional block executed before the
-  #   assertion
-  #
-  # ==== Options
-  #
-  # * <tt>count:</tt> the number of `<turbo-stream>` elements that are
-  # expected to be broadcast
-  #
-  # Asserts `<turbo-stream>` elements were broadcast:
-  #
-  #     message = Message.find(1)
-  #     message.broadcast_replace_to "messages"
-  #
-  #     assert_turbo_stream_broadcasts "messages"
-  #
-  # Asserts that two `<turbo-stream>` elements were broadcast:
-  #
-  #     message = Message.find(1)
-  #     message.broadcast_replace_to "messages"
-  #     message.broadcast_remove_to "messages"
-  #
-  #     assert_turbo_stream_broadcasts "messages", count: 2
-  #
-  # You can pass a block to run before the assertion:
-  #
-  #     message = Message.find(1)
-  #
-  #     assert_turbo_stream_broadcasts "messages" do
-  #       message.broadcast_append_to "messages"
-  #     end
-  #
-  # In addition to a String, the helper also accepts an Object or Array to
-  # determine the name of the channel the elements are broadcast to:
-  #
-  #     message = Message.find(1)
-  #
-  #     assert_turbo_stream_broadcasts message do
-  #       message.broadcast_replace
-  #     end
-  #
-  # source://turbo-rails//lib/turbo/broadcastable/test_helper.rb#58
-  def assert_turbo_stream_broadcasts(stream_name_or_object, count: T.unsafe(nil), &block); end
-
-  # Captures any `<turbo-stream>` elements that were broadcast over Action Cable
-  #
-  # ==== Arguments
-  #
-  # * <tt>stream_name_or_object</tt> the objects used to generate the
-  #   channel Action Cable name, or the name itself
-  # * <tt>&block</tt> optional block to capture broadcasts during execution
-  #
-  # Returns any `<turbo-stream>` elements that have been broadcast as an
-  # Array of <tt>Nokogiri::XML::Element</tt> instances
-  #
-  #     message = Message.find(1)
-  #     message.broadcast_append_to "messages"
-  #     message.broadcast_prepend_to "messages"
-  #
-  #     turbo_streams = capture_turbo_stream_broadcasts "messages"
-  #
-  #     assert_equal "append", turbo_streams.first["action"]
-  #     assert_equal "prepend", turbo_streams.second["action"]
-  #
-  # You can pass a block to limit the scope of the broadcasts being captured:
-  #
-  #     message = Message.find(1)
-  #
-  #     turbo_streams = capture_turbo_stream_broadcasts "messages" do
-  #       message.broadcast_append_to "messages"
-  #     end
-  #
-  #     assert_equal "append", turbo_streams.first["action"]
-  #
-  # In addition to a String, the helper also accepts an Object or Array to
-  # determine the name of the channel the elements are broadcast to:
-  #
-  #     message = Message.find(1)
-  #
-  #     replace, remove = capture_turbo_stream_broadcasts message do
-  #       message.broadcast_replace
-  #       message.broadcast_remove
-  #     end
-  #
-  #     assert_equal "replace", replace["action"]
-  #     assert_equal "replace", remove["action"]
-  #
-  # source://turbo-rails//lib/turbo/broadcastable/test_helper.rb#157
-  def capture_turbo_stream_broadcasts(stream_name_or_object, &block); end
 end
 
 class Turbo::Debouncer
@@ -301,7 +163,7 @@ class Turbo::Engine < ::Rails::Engine; end
 #   config.assets.precompile -= Turbo::Engine::PRECOMPILE_ASSETS
 # end
 #
-# source://turbo-rails//lib/turbo/engine.rb#67
+# source://turbo-rails//lib/turbo/engine.rb#41
 Turbo::Engine::PRECOMPILE_ASSETS = T.let(T.unsafe(nil), Array)
 
 module Turbo::Frames; end
@@ -317,6 +179,14 @@ end
 
 module Turbo::FramesHelper
   def turbo_frame_tag(*ids, src: T.unsafe(nil), target: T.unsafe(nil), **attributes, &block); end
+end
+
+class Turbo::ImmediateDebouncer
+  def initialize(delay: T.unsafe(nil)); end
+
+  def complete?; end
+  def debounce(&block); end
+  def wait; end
 end
 
 module Turbo::IncludesHelper
@@ -434,7 +304,7 @@ module Turbo::Streams::Broadcasts
   def broadcast_prepend_later_to(*streamables, **opts); end
   def broadcast_prepend_to(*streamables, **opts); end
   def broadcast_refresh_later_to(*streamables, request_id: T.unsafe(nil), **opts); end
-  def broadcast_refresh_to(*streamables, **opts); end
+  def broadcast_refresh_to(*streamables, **attributes); end
   def broadcast_remove_to(*streamables, **opts); end
   def broadcast_render_later_to(*streamables, **rendering); end
   def broadcast_render_to(*streamables, **rendering); end
@@ -599,26 +469,52 @@ module Turbo::SystemTestHelper
   def connect_turbo_cable_stream_sources(**options, &block); end
 end
 
-# source://turbo-rails//lib/turbo/system_test_helper.rb#106
+# source://turbo-rails//lib/turbo/system_test_helper.rb#108
 class Turbo::SystemTestHelper::SignedStreamNameConditions
   include ::Enumerable
   include ::Turbo::Streams::StreamName
 
   # @return [SignedStreamNameConditions] a new instance of SignedStreamNameConditions
   #
-  # source://turbo-rails//lib/turbo/system_test_helper.rb#109
+  # source://turbo-rails//lib/turbo/system_test_helper.rb#111
   def initialize(value); end
 
-  # source://turbo-rails//lib/turbo/system_test_helper.rb#113
+  # source://turbo-rails//lib/turbo/system_test_helper.rb#115
   def attribute; end
 
-  # source://turbo-rails//lib/turbo/system_test_helper.rb#117
+  # source://turbo-rails//lib/turbo/system_test_helper.rb#119
   def each; end
 end
 
 # source://turbo-rails//lib/turbo/test_assertions.rb#2
 module Turbo::TestAssertions
   extend ::ActiveSupport::Concern
+
+  # Assert that the rendered fragment of HTML does not contain a `<turbo-frame>`
+  # element.
+  #
+  # ==== Arguments
+  #
+  # * <tt>ids</tt> [String, Array<String, ActiveRecord::Base>] matches the <tt>[id]</tt> attribute
+  #
+  # ==== Options
+  #
+  # * <tt>:loading</tt> [String] matches the element's <tt>[loading]</tt>
+  #   attribute
+  # * <tt>:src</tt> [String] matches the element's <tt>[src]</tt> attribute
+  # * <tt>:target</tt> [String] matches the element's <tt>[target]</tt>
+  #   attribute
+  #
+  #   Given the following HTML fragment:
+  #
+  #     <turbo-frame id="example" target="_top"></turbo-frame>
+  #
+  #   The following assertion would fail:
+  #
+  #     assert_no_turbo_frame id: "example", target: "_top"
+  #
+  # source://turbo-rails//lib/turbo/test_assertions.rb#153
+  def assert_no_turbo_frame(*ids, **options, &block); end
 
   # Assert that the rendered fragment of HTML does not contain a `<turbo-stream>`
   # element.
@@ -643,6 +539,47 @@ module Turbo::TestAssertions
   #
   # source://turbo-rails//lib/turbo/test_assertions.rb#76
   def assert_no_turbo_stream(action:, target: T.unsafe(nil), targets: T.unsafe(nil)); end
+
+  # Assert that the rendered fragment of HTML contains a `<turbo-frame>`
+  # element.
+  #
+  # ==== Arguments
+  #
+  # * <tt>ids</tt> [String, Array<String, ActiveRecord::Base>] matches the element's <tt>[id]</tt> attribute
+  #
+  # ==== Options
+  #
+  # * <tt>:loading</tt> [String] matches the element's <tt>[loading]</tt>
+  #   attribute
+  # * <tt>:src</tt> [String] matches the element's <tt>[src]</tt> attribute
+  # * <tt>:target</tt> [String] matches the element's <tt>[target]</tt>
+  #   attribute
+  # * <tt>:count</tt> [Integer] indicates how many turbo frames are expected.
+  #   Defaults to <tt>1</tt>.
+  #
+  #   Given the following HTML fragment:
+  #
+  #     <turbo-frame id="example" target="_top"></turbo-frame>
+  #
+  #   The following assertion would pass:
+  #
+  #     assert_turbo_frame id: "example", target: "_top"
+  #
+  # You can also pass a block make assertions about the contents of the
+  # element. Given the following HTML fragment:
+  #
+  #     <turbo-frame id="example">
+  #       <p>Hello!</p>
+  #     </turbo-frame>
+  #
+  #   The following assertion would pass:
+  #
+  #     assert_turbo_frame id: "example" do
+  #       assert_select "p", text: "Hello!"
+  #     end
+  #
+  # source://turbo-rails//lib/turbo/test_assertions.rb#121
+  def assert_turbo_frame(*ids, loading: T.unsafe(nil), src: T.unsafe(nil), target: T.unsafe(nil), count: T.unsafe(nil), &block); end
 
   # Assert that the rendered fragment of HTML contains a `<turbo-stream>`
   # element.
@@ -686,78 +623,13 @@ module Turbo::TestAssertions
   def assert_turbo_stream(action:, target: T.unsafe(nil), targets: T.unsafe(nil), count: T.unsafe(nil), &block); end
 end
 
-# source://turbo-rails//lib/turbo/test_assertions/integration_test_assertions.rb#3
-module Turbo::TestAssertions::IntegrationTestAssertions
-  # Assert that the Turbo Stream request's response body's HTML does not
-  # contain a `<turbo-stream>` element.
-  #
-  # ==== Options
-  #
-  # * <tt>:status</tt> [Integer, Symbol] the HTTP response status
-  # * <tt>:action</tt> [String] matches the element's <tt>[action]</tt>
-  #   attribute
-  # * <tt>:target</tt> [String, #to_key] matches the element's
-  #   <tt>[target]</tt> attribute. If the value responds to <tt>#to_key</tt>,
-  #   the value will be transformed by calling <tt>dom_id</tt>
-  # * <tt>:targets</tt> [String] matches the element's <tt>[targets]</tt>
-  #   attribute
-  #
-  #   Given the following HTML response body:
-  #
-  #     <turbo-stream action="remove" target="message_1"></turbo-stream>
-  #
-  #   The following assertion would fail:
-  #
-  #     assert_no_turbo_stream action: "remove", target: "message_1"
-  #
-  # source://turbo-rails//lib/turbo/test_assertions/integration_test_assertions.rb#69
-  def assert_no_turbo_stream(status: T.unsafe(nil), **attributes); end
-
-  # Assert that the Turbo Stream request's response body's HTML contains a
-  # `<turbo-stream>` element.
-  #
-  # ==== Options
-  #
-  # * <tt>:status</tt> [Integer, Symbol] the HTTP response status
-  # * <tt>:action</tt> [String] matches the element's <tt>[action]</tt>
-  #   attribute
-  # * <tt>:target</tt> [String, #to_key] matches the element's
-  #   <tt>[target]</tt> attribute. If the value responds to <tt>#to_key</tt>,
-  #   the value will be transformed by calling <tt>dom_id</tt>
-  # * <tt>:targets</tt> [String] matches the element's <tt>[targets]</tt>
-  #   attribute
-  #
-  #   Given the following HTML response body:
-  #
-  #     <turbo-stream action="remove" target="message_1"></turbo-stream>
-  #
-  #   The following assertion would pass:
-  #
-  #     assert_turbo_stream action: "remove", target: "message_1"
-  #
-  # You can also pass a block make assertions about the contents of the
-  # element. Given the following HTML response body:
-  #
-  #     <turbo-stream action="replace" target="message_1">
-  #       <template>
-  #         <p>Hello!</p>
-  #       <template>
-  #     </turbo-stream>
-  #
-  #   The following assertion would pass:
-  #
-  #     assert_turbo_stream action: "replace", target: "message_1" do
-  #       assert_select "template p", text: "Hello!"
-  #     end
-  #
-  # source://turbo-rails//lib/turbo/test_assertions/integration_test_assertions.rb#41
-  def assert_turbo_stream(status: T.unsafe(nil), **attributes, &block); end
-end
-
 class Turbo::ThreadDebouncer
   def initialize(key, thread, delay:); end
 
   def debounce; end
+  def debouncer_class; end
+  def debouncer_class=(_arg0); end
+  def debouncer_class?; end
   def wait(*_arg0, **_arg1, &_arg2); end
 
   private
@@ -767,10 +639,15 @@ class Turbo::ThreadDebouncer
   def thread; end
 
   class << self
+    def debouncer_class; end
+    def debouncer_class=(value); end
+    def debouncer_class?; end
     def for(key, delay: T.unsafe(nil)); end
 
     private
 
+    def __class_attr_debouncer_class; end
+    def __class_attr_debouncer_class=(new_value); end
     def new(*_arg0); end
   end
 end

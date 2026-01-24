@@ -19,7 +19,7 @@ module Dry
     # @return [Dry::CLI] the new instance
     # @since 0.4.0
     #
-    # source://dry-cli//lib/dry/cli.rb#231
+    # source://dry-cli//lib/dry/cli.rb#230
     def CLI(registry_or_command = T.unsafe(nil), &block); end
   end
 end
@@ -59,7 +59,7 @@ class Dry::CLI
   # @return [Module] module extended with registry abilities and configured with a block
   # @since 0.4.0
   #
-  # source://dry-cli//lib/dry/cli.rb#212
+  # source://dry-cli//lib/dry/cli.rb#211
   def anonymous_registry(&block); end
 
   # @api private
@@ -76,7 +76,7 @@ class Dry::CLI
   # @see .command?
   # @since 0.1.0
   #
-  # source://dry-cli//lib/dry/cli.rb#200
+  # source://dry-cli//lib/dry/cli.rb#199
   def command?(command); end
 
   # @api private
@@ -155,7 +155,7 @@ class Dry::CLI
   # @api private
   # @since 0.7.0
   #
-  # source://dry-cli//lib/dry/cli.rb#186
+  # source://dry-cli//lib/dry/cli.rb#185
   def signal_exception(exception); end
 
   # @since 1.1.1

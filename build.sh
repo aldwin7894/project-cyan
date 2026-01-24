@@ -23,7 +23,7 @@ if [[ ${RAILS_ENV} == "production" ]]; then
 	bin/bundle config set frozen "true"
 fi
 
-yarn install --frozen-lockfile
+yarn install --immutable
 bin/bundle install -j4
 
 echo "Precompiling Assets..."

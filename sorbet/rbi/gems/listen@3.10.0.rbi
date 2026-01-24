@@ -5,8 +5,7 @@
 # Please instead update this file by running `bin/tapioca gem listen`.
 
 
-# Besides programming error exceptions like ArgumentError,
-# all public interface exceptions should be declared here and inherit from Listen::Error.
+# Code copied from https://github.com/celluloid/celluloid-fsm
 #
 # source://listen//lib/listen/logger.rb#3
 module Listen
@@ -83,36 +82,36 @@ end
 class Listen::Adapter::BSD < ::Listen::Adapter::Base
   private
 
-  # source://listen//lib/listen/adapter/bsd.rb#73
+  # source://listen//lib/listen/adapter/bsd.rb#70
   def _change(event_flags); end
 
-  # source://listen//lib/listen/adapter/bsd.rb#43
+  # source://listen//lib/listen/adapter/bsd.rb#40
   def _configure(directory, &callback); end
 
-  # source://listen//lib/listen/adapter/bsd.rb#82
+  # source://listen//lib/listen/adapter/bsd.rb#79
   def _event_path(event); end
 
   # Quick rubocop workaround
   #
-  # source://listen//lib/listen/adapter/bsd.rb#102
+  # source://listen//lib/listen/adapter/bsd.rb#99
   def _find(*paths, &block); end
 
-  # source://listen//lib/listen/adapter/bsd.rb#55
+  # source://listen//lib/listen/adapter/bsd.rb#52
   def _process_event(dir, event); end
 
-  # source://listen//lib/listen/adapter/bsd.rb#51
+  # source://listen//lib/listen/adapter/bsd.rb#48
   def _run; end
 
-  # source://listen//lib/listen/adapter/bsd.rb#95
+  # source://listen//lib/listen/adapter/bsd.rb#92
   def _watch_file(path, queue); end
 
-  # source://listen//lib/listen/adapter/bsd.rb#86
+  # source://listen//lib/listen/adapter/bsd.rb#83
   def _watch_for_new_file(event); end
 
   class << self
     # @return [Boolean]
     #
-    # source://listen//lib/listen/adapter/bsd.rb#31
+    # source://listen//lib/listen/adapter/bsd.rb#28
     def usable?; end
   end
 end
@@ -475,12 +474,12 @@ class Listen::Event::Config
   # source://listen//lib/listen/event/config.rb#8
   def initialize(listener, event_queue, queue_optimizer, wait_for_delay, &block); end
 
-  # source://listen//lib/listen/event/config.rb#27
+  # source://listen//lib/listen/event/config.rb#26
   def call(*args); end
 
   # @return [Boolean]
   #
-  # source://listen//lib/listen/event/config.rb#31
+  # source://listen//lib/listen/event/config.rb#30
   def callable?; end
 
   # Returns the value of attribute event_queue.
@@ -498,63 +497,63 @@ class Listen::Event::Config
   # source://listen//lib/listen/event/config.rb#6
   def min_delay_between_events; end
 
-  # source://listen//lib/listen/event/config.rb#35
+  # source://listen//lib/listen/event/config.rb#34
   def optimize_changes(changes); end
 
-  # source://listen//lib/listen/event/config.rb#23
+  # source://listen//lib/listen/event/config.rb#22
   def sleep(seconds); end
 end
 
-# source://listen//lib/listen/event/loop.rb#12
+# source://listen//lib/listen/event/loop.rb#10
 class Listen::Event::Loop
   include ::Listen::FSM
   extend ::Listen::FSM::ClassMethods
 
   # @return [Loop] a new instance of Loop
   #
-  # source://listen//lib/listen/event/loop.rb#24
+  # source://listen//lib/listen/event/loop.rb#22
   def initialize(config); end
 
-  # source://listen//lib/listen/event/loop.rb#62
+  # source://listen//lib/listen/event/loop.rb#60
   def pause; end
 
-  # source://listen//lib/listen/event/loop.rb#44
+  # source://listen//lib/listen/event/loop.rb#42
   def start; end
 
   # @return [Boolean]
   #
-  # source://listen//lib/listen/event/loop.rb#37
+  # source://listen//lib/listen/event/loop.rb#35
   def started?; end
 
-  # source://listen//lib/listen/event/loop.rb#67
+  # source://listen//lib/listen/event/loop.rb#65
   def stop; end
 
   # @return [Boolean]
   #
-  # source://listen//lib/listen/event/loop.rb#74
+  # source://listen//lib/listen/event/loop.rb#72
   def stopped?; end
 
-  # source://listen//lib/listen/event/loop.rb#31
+  # source://listen//lib/listen/event/loop.rb#29
   def wakeup_on_event; end
 
   private
 
-  # source://listen//lib/listen/event/loop.rb#80
+  # source://listen//lib/listen/event/loop.rb#78
   def _process_changes; end
 
-  # source://listen//lib/listen/event/loop.rb#88
+  # source://listen//lib/listen/event/loop.rb#86
   def _wakeup(reason); end
 end
 
-# source://listen//lib/listen/event/loop.rb#15
+# source://listen//lib/listen/event/loop.rb#13
 Listen::Event::Loop::Error = Listen::Error
 
-# source://listen//lib/listen/event/loop.rb#41
+# source://listen//lib/listen/event/loop.rb#39
 Listen::Event::Loop::MAX_STARTUP_SECONDS = T.let(T.unsafe(nil), Float)
 
 # for backward compatibility
 #
-# source://listen//lib/listen/event/loop.rb#16
+# source://listen//lib/listen/event/loop.rb#14
 Listen::Event::Loop::NotStarted = Listen::Error::NotStarted
 
 # source://listen//lib/listen/event/processor.rb#7
@@ -578,12 +577,12 @@ class Listen::Event::Processor
   # source://listen//lib/listen/event/processor.rb#82
   def _deadline; end
 
-  # source://listen//lib/listen/event/processor.rb#94
+  # source://listen//lib/listen/event/processor.rb#96
   def _flush_wakeup_reasons; end
 
   # for easier testing without sleep loop
   #
-  # source://listen//lib/listen/event/processor.rb#102
+  # source://listen//lib/listen/event/processor.rb#104
   def _process_changes(event); end
 
   # source://listen//lib/listen/event/processor.rb#74
@@ -598,7 +597,7 @@ class Listen::Event::Processor
   # blocks until event is popped
   # returns the event or `nil` when the event_queue is closed
   #
-  # source://listen//lib/listen/event/processor.rb#88
+  # source://listen//lib/listen/event/processor.rb#89
   def _wait_until_events; end
 
   # source://listen//lib/listen/event/processor.rb#36
@@ -609,145 +608,145 @@ class Listen::Event::Processor
 
   # Returns the value of attribute config.
   #
-  # source://listen//lib/listen/event/processor.rb#123
+  # source://listen//lib/listen/event/processor.rb#125
   def config; end
 end
 
 # source://listen//lib/listen/event/processor.rb#33
 class Listen::Event::Processor::Stopped < ::RuntimeError; end
 
-# source://listen//lib/listen/event/queue.rb#9
+# source://listen//lib/listen/event/queue.rb#7
 class Listen::Event::Queue
   extend ::Forwardable
 
   # @return [Queue] a new instance of Queue
   #
-  # source://listen//lib/listen/event/queue.rb#22
+  # source://listen//lib/listen/event/queue.rb#20
   def initialize(config); end
 
-  # source://listen//lib/listen/event/queue.rb#27
+  # source://listen//lib/listen/event/queue.rb#25
   def <<(args); end
 
-  # source://listen//lib/listen/event/queue.rb#43
+  # source://listen//lib/listen/event/queue.rb#41
   def close(*_arg0, **_arg1, &_arg2); end
 
-  # source://listen//lib/listen/event/queue.rb#41
+  # source://listen//lib/listen/event/queue.rb#39
   def empty?(*_arg0, **_arg1, &_arg2); end
 
-  # source://listen//lib/listen/event/queue.rb#42
+  # source://listen//lib/listen/event/queue.rb#40
   def pop(*_arg0, **_arg1, &_arg2); end
 
   private
 
-  # source://listen//lib/listen/event/queue.rb#47
+  # source://listen//lib/listen/event/queue.rb#45
   def _safe_relative_from_cwd(dir); end
 end
 
-# source://listen//lib/listen/event/queue.rb#12
+# source://listen//lib/listen/event/queue.rb#10
 class Listen::Event::Queue::Config
   # @return [Config] a new instance of Config
   #
-  # source://listen//lib/listen/event/queue.rb#13
+  # source://listen//lib/listen/event/queue.rb#11
   def initialize(relative); end
 
   # @return [Boolean]
   #
-  # source://listen//lib/listen/event/queue.rb#17
+  # source://listen//lib/listen/event/queue.rb#15
   def relative?; end
 end
 
-# source://listen//lib/listen/fsm.rb#8
+# source://listen//lib/listen/fsm.rb#6
 module Listen::FSM
   mixes_in_class_methods ::Listen::FSM::ClassMethods
 
-  # Note: including classes must call initialize_fsm from their initialize method.
+  # NOTE: including classes must call initialize_fsm from their initialize method.
   #
-  # source://listen//lib/listen/fsm.rb#42
+  # source://listen//lib/listen/fsm.rb#40
   def initialize_fsm; end
 
   # Current state of the FSM, stored as a symbol
   #
-  # source://listen//lib/listen/fsm.rb#50
+  # source://listen//lib/listen/fsm.rb#48
   def state; end
 
   # checks for one of the given states to wait for
   # if not already, waits for a state change (up to timeout seconds--`nil` means infinite)
   # returns truthy iff the transition to one of the desired state has occurred
   #
-  # source://listen//lib/listen/fsm.rb#55
+  # source://listen//lib/listen/fsm.rb#53
   def wait_for_state(*wait_for_states, timeout: T.unsafe(nil)); end
 
   private
 
-  # source://listen//lib/listen/fsm.rb#108
+  # source://listen//lib/listen/fsm.rb#106
   def current_state; end
 
-  # source://listen//lib/listen/fsm.rb#69
+  # source://listen//lib/listen/fsm.rb#67
   def transition(new_state_name); end
 
   # Low-level, immediate state transition with no checks or callbacks.
   #
-  # source://listen//lib/listen/fsm.rb#77
+  # source://listen//lib/listen/fsm.rb#75
   def transition!(new_state_name); end
 
-  # source://listen//lib/listen/fsm.rb#103
+  # source://listen//lib/listen/fsm.rb#101
   def transition_with_callbacks!(new_state); end
 
-  # source://listen//lib/listen/fsm.rb#87
+  # source://listen//lib/listen/fsm.rb#85
   def validate_and_sanitize_new_state(new_state_name); end
 
   class << self
     # Included hook to extend class methods
     #
-    # source://listen//lib/listen/fsm.rb#10
+    # source://listen//lib/listen/fsm.rb#8
     def included(klass); end
   end
 end
 
-# source://listen//lib/listen/fsm.rb#14
+# source://listen//lib/listen/fsm.rb#12
 module Listen::FSM::ClassMethods
   # Obtain or set the start state
   # Passing a state name sets the start state
   #
-  # source://listen//lib/listen/fsm.rb#17
+  # source://listen//lib/listen/fsm.rb#15
   def start_state(new_start_state = T.unsafe(nil)); end
 
   # Declare an FSM state and optionally provide a callback block to fire on state entry
   # Options:
   # * to: a state or array of states this state can transition to
   #
-  # source://listen//lib/listen/fsm.rb#35
+  # source://listen//lib/listen/fsm.rb#33
   def state(state_name, to: T.unsafe(nil), &block); end
 
   # The valid states for this FSM, as a hash with state name symbols as keys and State objects as values.
   #
-  # source://listen//lib/listen/fsm.rb#28
+  # source://listen//lib/listen/fsm.rb#26
   def states; end
 end
 
-# source://listen//lib/listen/fsm.rb#112
+# source://listen//lib/listen/fsm.rb#110
 class Listen::FSM::State
   # @return [State] a new instance of State
   #
-  # source://listen//lib/listen/fsm.rb#115
+  # source://listen//lib/listen/fsm.rb#113
   def initialize(name, transitions, &block); end
 
-  # source://listen//lib/listen/fsm.rb#123
+  # source://listen//lib/listen/fsm.rb#121
   def call(obj); end
 
   # Returns the value of attribute name.
   #
-  # source://listen//lib/listen/fsm.rb#113
+  # source://listen//lib/listen/fsm.rb#111
   def name; end
 
   # Returns the value of attribute transitions.
   #
-  # source://listen//lib/listen/fsm.rb#113
+  # source://listen//lib/listen/fsm.rb#111
   def transitions; end
 
   # @return [Boolean]
   #
-  # source://listen//lib/listen/fsm.rb#127
+  # source://listen//lib/listen/fsm.rb#125
   def valid_transition?(new_state); end
 end
 
@@ -873,14 +872,14 @@ class Listen::Options
   # source://listen//lib/listen/options.rb#5
   def initialize(opts, defaults); end
 
-  # source://listen//lib/listen/options.rb#20
+  # source://listen//lib/listen/options.rb#19
   def method_missing(name, *_); end
 
   private
 
   # @return [Boolean]
   #
-  # source://listen//lib/listen/options.rb#16
+  # source://listen//lib/listen/options.rb#15
   def respond_to_missing?(name, *_); end
 end
 
@@ -952,53 +951,53 @@ end
 class Listen::Record
   # @return [Record] a new instance of Record
   #
-  # source://listen//lib/listen/record.rb#14
+  # source://listen//lib/listen/record.rb#13
   def initialize(directory, silencer); end
 
-  # source://listen//lib/listen/record.rb#20
+  # source://listen//lib/listen/record.rb#19
   def add_dir(rel_path); end
 
-  # source://listen//lib/listen/record.rb#62
+  # source://listen//lib/listen/record.rb#61
   def build; end
 
-  # source://listen//lib/listen/record.rb#46
+  # source://listen//lib/listen/record.rb#45
   def dir_entries(rel_path); end
 
-  # source://listen//lib/listen/record.rb#36
+  # source://listen//lib/listen/record.rb#35
   def file_data(rel_path); end
 
   # TODO: one Record object per watched directory?
   # TODO: deprecate
   #
-  # source://listen//lib/listen/record.rb#12
+  # source://listen//lib/listen/record.rb#11
   def root; end
 
-  # source://listen//lib/listen/record.rb#31
+  # source://listen//lib/listen/record.rb#30
   def unset_path(rel_path); end
 
-  # source://listen//lib/listen/record.rb#26
+  # source://listen//lib/listen/record.rb#25
   def update_file(rel_path, data); end
 
   private
 
-  # source://listen//lib/listen/record.rb#103
+  # source://listen//lib/listen/record.rb#102
   def _fast_build_dir(remaining, symlink_detector); end
 
-  # source://listen//lib/listen/record.rb#117
+  # source://listen//lib/listen/record.rb#116
   def _fast_try_file(entry); end
 
-  # source://listen//lib/listen/record.rb#91
+  # source://listen//lib/listen/record.rb#90
   def _fast_unset_path(dirname, basename); end
 
-  # source://listen//lib/listen/record.rb#83
+  # source://listen//lib/listen/record.rb#82
   def _fast_update_file(dirname, basename, data); end
 
   # @return [Boolean]
   #
-  # source://listen//lib/listen/record.rb#75
+  # source://listen//lib/listen/record.rb#74
   def empty_dirname?(dirname); end
 
-  # source://listen//lib/listen/record.rb#79
+  # source://listen//lib/listen/record.rb#78
   def reset_tree; end
 end
 

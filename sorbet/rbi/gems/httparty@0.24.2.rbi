@@ -95,7 +95,7 @@ HTTParty::COMMON_NETWORK_ERRORS = T.let(T.unsafe(nil), Array)
 # [:+local_host+:] Local address to bind to before connecting.
 # [:+local_port+:] Local port to bind to before connecting.
 # [:+body_stream+:] Allow streaming to a REST server to specify a body_stream.
-# [:+stream_body+:] Allow for streaming large files without loading them into memory.
+# [:+stream_body+:] When downloading with a block, avoids accumulating the response in memory. When uploading files, streams the request body to reduce memory usage (opt-in).
 # [:+multipart+:] Force content-type to be multipart
 #
 # There are also another set of options with names corresponding to various class methods. The methods in question are those that let you set a class-wide default, and the options override the defaults on a request-by-request basis. Those options are:
@@ -1678,16 +1678,16 @@ class HTTParty::Request::StreamingMultipartBody
   # source://httparty//lib/httparty/request/streaming_multipart_body.rb#131
   def build_part_header(key, value, is_file); end
 
-  # source://httparty//lib/httparty/request/streaming_multipart_body.rb#143
+  # source://httparty//lib/httparty/request/streaming_multipart_body.rb#145
   def calculate_size; end
 
-  # source://httparty//lib/httparty/request/streaming_multipart_body.rb#154
+  # source://httparty//lib/httparty/request/streaming_multipart_body.rb#156
   def content_size(value, is_file); end
 
-  # source://httparty//lib/httparty/request/streaming_multipart_body.rb#168
+  # source://httparty//lib/httparty/request/streaming_multipart_body.rb#170
   def content_type(object); end
 
-  # source://httparty//lib/httparty/request/streaming_multipart_body.rb#175
+  # source://httparty//lib/httparty/request/streaming_multipart_body.rb#177
   def file_name(object); end
 
   # source://httparty//lib/httparty/request/streaming_multipart_body.rb#52
@@ -1705,7 +1705,7 @@ class HTTParty::Request::StreamingMultipartBody
   # source://httparty//lib/httparty/request/streaming_multipart_body.rb#87
   def read_header_chunk(key, value, is_file, max_length); end
 
-  # source://httparty//lib/httparty/request/streaming_multipart_body.rb#179
+  # source://httparty//lib/httparty/request/streaming_multipart_body.rb#181
   def replacement_table; end
 end
 
