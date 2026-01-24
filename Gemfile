@@ -13,7 +13,7 @@ gem "vite_rails", "~> 3.0"
 gem "mongoid", "~> 9.0.9"
 gem "bson", "~> 5.2"
 # Use Puma as the app server
-gem "puma", "~> 7.1"
+gem "puma", "~> 7.2"
 # Turbo gives you the speed of a single-page web application without having to write any JavaScript.
 gem "turbo-rails", "~> 2.0.21"
 # Use Redis adapter to run Action Cable in production
