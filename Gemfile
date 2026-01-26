@@ -67,7 +67,7 @@ end
 
 gem "httparty", "~> 0.24.2"
 
-gem "devise", "~> 4.9"
+gem "devise", "~> 5.0"
 
 gem "graphql", "~> 2.0.27"
 
