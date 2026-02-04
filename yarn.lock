@@ -850,17 +850,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/compat@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@eslint/compat@npm:2.0.1"
+"@eslint/compat@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@eslint/compat@npm:2.0.2"
   dependencies:
-    "@eslint/core": "npm:^1.0.1"
+    "@eslint/core": "npm:^1.1.0"
   peerDependencies:
-    eslint: ^8.40 || 9
+    eslint: ^8.40 || 9 || 10
   peerDependenciesMeta:
     eslint:
       optional: true
-  checksum: 10/3ae4af6faba4a1191fc42f51675e1e8a78f9133e980133e2a6b86acd7d9d79bb8692afbeef283c4359a611874cd6bd4583464ae656f9a64d7dcecbbdb7afaa08
+  checksum: 10/027525ddafc0363a82df3ebc82b44214bb32a3e7bec8f4ad9ddb2fc43fa64f1c031f8f39a9164d14ed4a5f431c0abbf4c0b38021e88a5dd36cb19cfd92376acd
   languageName: node
   linkType: hard
 
@@ -893,12 +893,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/core@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@eslint/core@npm:1.0.1"
+"@eslint/core@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@eslint/core@npm:1.1.0"
   dependencies:
     "@types/json-schema": "npm:^7.0.15"
-  checksum: 10/442b54d50adee1681672596abc538cba1a57d108d28e39aeed64e4beaee23aa6f9f029c7bc0b39e26d8c4754de16305fbfce7f6539e7df266163c0c49fbaa4af
+  checksum: 10/f62724beacbb5fdd3560816a4edbbf832485cbec9516b76037fdf2cc2d75011e546e305a22feaa6bed4c1a26d069dc953979aa3c8c28eccf0a746a5ac53483b0
   languageName: node
   linkType: hard
 
@@ -1013,11 +1013,11 @@ __metadata:
   linkType: hard
 
 "@isaacs/brace-expansion@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "@isaacs/brace-expansion@npm:5.0.0"
+  version: 5.0.1
+  resolution: "@isaacs/brace-expansion@npm:5.0.1"
   dependencies:
     "@isaacs/balanced-match": "npm:^4.0.1"
-  checksum: 10/cf3b7f206aff12128214a1df764ac8cdbc517c110db85249b945282407e3dfc5c6e66286383a7c9391a059fc8e6e6a8ca82262fc9d2590bd615376141fbebd2d
+  checksum: 10/aec226065bc4285436a27379e08cc35bf94ef59f5098ac1c026495c9ba4ab33d851964082d3648d56d63eb90f2642867bd15a3e1b810b98beb1a8c14efce6a94
   languageName: node
   linkType: hard
 
@@ -1727,12 +1727,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"alpinejs@npm:^3.15.5":
-  version: 3.15.5
-  resolution: "alpinejs@npm:3.15.5"
+"alpinejs@npm:^3.15.8":
+  version: 3.15.8
+  resolution: "alpinejs@npm:3.15.8"
   dependencies:
     "@vue/reactivity": "npm:~3.1.1"
-  checksum: 10/4b5abde6dd7454a69dfc47d887e1de9009a5083b82c7af30c08ccf52f620460aa82a01a944a86f13ed9642c9753290af419ad8607708659a04b083b1075066f4
+  checksum: 10/cbd7c2b8aa7c4a1d986c3fb8b41918e63e39e8e56f1ce0569f84a83c75a8beb09d850b469303ae98724ea48a391b54ae64ea234372a1f4c2e9a41fafc1ddfdaa
   languageName: node
   linkType: hard
 
@@ -3723,10 +3723,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^17.2.0":
-  version: 17.2.0
-  resolution: "globals@npm:17.2.0"
-  checksum: 10/2812d7ae9a2889da33cad5188e6fe7c2d1a615e62d8e2092fbaa76a016536c2fcd72aba25896d8c6112fa0f2d95f005f59bf1dfc81ee014fe1ba54326ce14e57
+"globals@npm:^17.3.0":
+  version: 17.3.0
+  resolution: "globals@npm:17.3.0"
+  checksum: 10/44ba2b7db93eb6a2531dfba09219845e21f2e724a4f400eb59518b180b7d5bcf7f65580530e3d3023d7dc2bdbacf5d265fd87c393f567deb9a2b0472b51c9d5e
   languageName: node
   linkType: hard
 
@@ -6045,7 +6045,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "project-cyan@workspace:."
   dependencies:
-    "@eslint/compat": "npm:^2.0.1"
+    "@eslint/compat": "npm:^2.0.2"
     "@eslint/eslintrc": "npm:^3.3.3"
     "@eslint/js": "npm:^9.39.2"
     "@hotwired/turbo-rails": "npm:^8.0.23"
@@ -6055,7 +6055,7 @@ __metadata:
     "@tailwindcss/typography": "npm:^0.5.19"
     "@types/node": "npm:^25.0.8"
     "@typescript-eslint/parser": "npm:^8.54.0"
-    alpinejs: "npm:^3.15.5"
+    alpinejs: "npm:^3.15.8"
     autoprefixer: "npm:^10.4.23"
     chart.js: "npm:^4.5.1"
     cssnano: "npm:^7.1.2"
@@ -6066,7 +6066,7 @@ __metadata:
     eslint-plugin-import: "npm:^2.32.0"
     eslint-plugin-prettier: "npm:^5.5.5"
     eslint-plugin-tailwindcss: "npm:^3.18.2"
-    globals: "npm:^17.2.0"
+    globals: "npm:^17.3.0"
     iconify-icon: "npm:^3.0.2"
     postcss: "npm:^8.5.2"
     postcss-flexbugs-fixes: "npm:^5.0.2"
