@@ -136,7 +136,7 @@ GEM
     et-orbi (1.4.0)
       tzinfo
     event_emitter (0.2.6)
-    faraday (2.14.0)
+    faraday (2.14.1)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
@@ -502,6 +502,7 @@ DEPENDENCIES
   discordrb (~> 3.7.1)
   dotenv (~> 3.2.0)
   erb-formatter
+  faraday (~> 2.14)
   graphlient (~> 0.8.0)
   graphql (~> 2.0.27)
   health_check (~> 3.1)

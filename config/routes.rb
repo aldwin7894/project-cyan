@@ -26,8 +26,8 @@ Rails.application.routes.draw do
         sign_out: "/logout"
       }
 
-    end
     mount Sidekiq::Web => "/sidekiq"
+  end
 
   root to: "home#index"
 

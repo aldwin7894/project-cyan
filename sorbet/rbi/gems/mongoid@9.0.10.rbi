@@ -8054,7 +8054,7 @@ module Mongoid::Attributes
   # @param name [String | Symbol] The name of the attribute to update.
   # @param value [Object] The value to set for the attribute.
   #
-  # source://mongoid//lib/mongoid/attributes.rb#204
+  # source://mongoid//lib/mongoid/attributes.rb#205
   def []=(name, value); end
 
   # Allows you to set all the attributes for a particular mass-assignment security role
@@ -8068,7 +8068,7 @@ module Mongoid::Attributes
   #   person.assign_attributes(:title => "Mr.")
   # @param attrs [Hash] The new attributes to set.
   #
-  # source://mongoid//lib/mongoid/attributes.rb#218
+  # source://mongoid//lib/mongoid/attributes.rb#219
   def assign_attributes(attrs = T.unsafe(nil)); end
 
   # Determine if the attribute is missing from the document, due to loading
@@ -8079,7 +8079,7 @@ module Mongoid::Attributes
   # @param name [String] The name of the attribute.
   # @return [true | false] If the attribute is missing.
   #
-  # source://mongoid//lib/mongoid/attributes.rb#249
+  # source://mongoid//lib/mongoid/attributes.rb#250
   def attribute_missing?(name); end
 
   # Determine if an attribute is present.
@@ -8107,7 +8107,7 @@ module Mongoid::Attributes
   #   person.write_attributes(:title => "Mr.")
   # @param attrs [Hash] The new attributes to set.
   #
-  # source://mongoid//lib/mongoid/attributes.rb#238
+  # source://mongoid//lib/mongoid/attributes.rb#239
   def attributes=(attrs = T.unsafe(nil)); end
 
   # Get the attributes that have not been cast.
@@ -8180,7 +8180,7 @@ module Mongoid::Attributes
   # @return [Object] The value of the attribute before type cast, if
   #   available. Otherwise, the value of the attribute.
   #
-  # source://mongoid//lib/mongoid/attributes.rb#122
+  # source://mongoid//lib/mongoid/attributes.rb#123
   def read_attribute_before_type_cast(name); end
 
   # Remove a value from the +Document+ attributes. If the value does not exist
@@ -8192,7 +8192,7 @@ module Mongoid::Attributes
   # @raise [Errors::ReadonlyAttribute] If the field cannot be removed due
   #   to being flagged as reaodnly.
   #
-  # source://mongoid//lib/mongoid/attributes.rb#141
+  # source://mongoid//lib/mongoid/attributes.rb#142
   def remove_attribute(name); end
 
   # Return type-casted attributes.
@@ -8201,7 +8201,7 @@ module Mongoid::Attributes
   #   document.typed_attributes
   # @return [Object] The hash with keys and values of the type-casted attributes.
   #
-  # source://mongoid//lib/mongoid/attributes.rb#259
+  # source://mongoid//lib/mongoid/attributes.rb#260
   def typed_attributes; end
 
   # Write a single attribute to the document attribute hash. This will
@@ -8215,7 +8215,7 @@ module Mongoid::Attributes
   # @param name [String | Symbol] The name of the attribute to update.
   # @param value [Object] The value to set for the attribute.
   #
-  # source://mongoid//lib/mongoid/attributes.rb#164
+  # source://mongoid//lib/mongoid/attributes.rb#165
   def write_attribute(name, value); end
 
   # Writes the supplied attributes hash to the document. This will only
@@ -8228,7 +8228,7 @@ module Mongoid::Attributes
   #   person.write_attributes(:title => "Mr.")
   # @param attrs [Hash] The new attributes to set.
   #
-  # source://mongoid//lib/mongoid/attributes.rb#235
+  # source://mongoid//lib/mongoid/attributes.rb#236
   def write_attributes(attrs = T.unsafe(nil)); end
 
   private
@@ -8240,7 +8240,7 @@ module Mongoid::Attributes
   #
   # @return [Boolean]
   #
-  # source://mongoid//lib/mongoid/attributes.rb#381
+  # source://mongoid//lib/mongoid/attributes.rb#382
   def attribute_will_not_change?(field_name, typed_value); end
 
   # Does the string contain dot syntax for accessing hashes?
@@ -8250,20 +8250,20 @@ module Mongoid::Attributes
   #   model.hash_dot_syntax?
   # @return [true | false] If the string contains a "."
   #
-  # source://mongoid//lib/mongoid/attributes.rb#273
+  # source://mongoid//lib/mongoid/attributes.rb#274
   def hash_dot_syntax?(string); end
 
-  # source://mongoid//lib/mongoid/attributes.rb#363
+  # source://mongoid//lib/mongoid/attributes.rb#364
   def lookup_attribute_presence(name, value); end
 
   # If `value` is a `BSON::Decimal128`, convert it to a `BigDecimal` for
   # comparison purposes. This is necessary because `BSON::Decimal128` does
   # not implement `#==` in a way that is compatible with `BigDecimal`.
   #
-  # source://mongoid//lib/mongoid/attributes.rb#373
+  # source://mongoid//lib/mongoid/attributes.rb#374
   def normalize_value(value); end
 
-  # source://mongoid//lib/mongoid/attributes.rb#292
+  # source://mongoid//lib/mongoid/attributes.rb#293
   def read_raw_attribute(name); end
 
   # Return the typecasted value for a field.
@@ -8274,7 +8274,7 @@ module Mongoid::Attributes
   # @param value [Object] The uncast value.
   # @return [Object] The cast value.
   #
-  # source://mongoid//lib/mongoid/attributes.rb#286
+  # source://mongoid//lib/mongoid/attributes.rb#287
   def typed_value_for(key, value); end
 
   module GeneratedClassMethods
@@ -8296,7 +8296,7 @@ module Mongoid::Attributes
   end
 end
 
-# source://mongoid//lib/mongoid/attributes.rb#310
+# source://mongoid//lib/mongoid/attributes.rb#311
 module Mongoid::Attributes::ClassMethods
   # Alias the provided name to the original field. This will provide an
   # aliased getter, setter, existence check, and all dirty attribute
@@ -8311,14 +8311,14 @@ module Mongoid::Attributes::ClassMethods
   # @param name [Symbol] The new name.
   # @param original [Symbol] The original name.
   #
-  # source://mongoid//lib/mongoid/attributes.rb#325
+  # source://mongoid//lib/mongoid/attributes.rb#326
   def alias_attribute(name, original); end
 
   # Removes a field alias.
   #
   # @param name [Symbol] The aliased field name to remove.
   #
-  # source://mongoid//lib/mongoid/attributes.rb#343
+  # source://mongoid//lib/mongoid/attributes.rb#344
   def unalias_attribute(name); end
 end
 
@@ -14072,7 +14072,7 @@ class Mongoid::Criteria
   # @param klass [Class] The model class.
   # @return [Criteria] a new instance of Criteria
   #
-  # source://mongoid//lib/mongoid/criteria.rb#233
+  # source://mongoid//lib/mongoid/criteria.rb#266
   def initialize(klass); end
 
   # Returns true if the supplied +Enumerable+ or +Criteria+ is equal to the results
@@ -14082,7 +14082,7 @@ class Mongoid::Criteria
   # @param other [Object] The other +Enumerable+ or +Criteria+ to compare to.
   # @return [true | false] If the objects are equal.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#78
+  # source://mongoid//lib/mongoid/criteria.rb#111
   def ==(other); end
 
   # @api private
@@ -14102,19 +14102,19 @@ class Mongoid::Criteria
   # @param options [Hash] Options to pass through to the serializer.
   # @return [String] The JSON string.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#140
+  # source://mongoid//lib/mongoid/criteria.rb#173
   def as_json(options = T.unsafe(nil)); end
 
   # Returns the value of attribute association.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#68
+  # source://mongoid//lib/mongoid/criteria.rb#101
   def association; end
 
   # Sets the attribute association
   #
   # @param value the value to set the attribute association to.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#68
+  # source://mongoid//lib/mongoid/criteria.rb#101
   def association=(_arg0); end
 
   # Get the documents from the embedded criteria.
@@ -14123,7 +14123,7 @@ class Mongoid::Criteria
   #   criteria.documents
   # @return [Array<Document>] The documents.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#150
+  # source://mongoid//lib/mongoid/criteria.rb#183
   def documents; end
 
   # Set the embedded documents on the criteria.
@@ -14132,19 +14132,19 @@ class Mongoid::Criteria
   # @param docs [Array<Document>] The embedded documents.
   # @return [Array<Document>] The embedded documents.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#161
+  # source://mongoid//lib/mongoid/criteria.rb#194
   def documents=(docs); end
 
   # Returns the value of attribute embedded.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#68
+  # source://mongoid//lib/mongoid/criteria.rb#101
   def embedded; end
 
   # Sets the attribute embedded
   #
   # @param value the value to set the attribute embedded to.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#68
+  # source://mongoid//lib/mongoid/criteria.rb#101
   def embedded=(_arg0); end
 
   # Is the criteria for embedded documents?
@@ -14153,7 +14153,7 @@ class Mongoid::Criteria
   #   criteria.embedded?
   # @return [true | false] If the criteria is embedded.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#171
+  # source://mongoid//lib/mongoid/criteria.rb#204
   def embedded?; end
 
   # Is the criteria an empty but chainable criteria?
@@ -14162,7 +14162,7 @@ class Mongoid::Criteria
   #   criteria.empty_and_chainable?
   # @return [true | false] If the criteria is a none.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#301
+  # source://mongoid//lib/mongoid/criteria.rb#335
   def empty_and_chainable?; end
 
   # Extract a single id from the provided criteria. Could be in an $and
@@ -14172,7 +14172,7 @@ class Mongoid::Criteria
   #   criteria.extract_id
   # @return [Object] The id.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#182
+  # source://mongoid//lib/mongoid/criteria.rb#215
   def extract_id; end
 
   # Adds a criterion to the +Criteria+ that specifies additional options
@@ -14184,7 +14184,7 @@ class Mongoid::Criteria
   # @param extras [Hash] The extra driver options.
   # @return [Criteria] The cloned criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#195
+  # source://mongoid//lib/mongoid/criteria.rb#228
   def extras(extras); end
 
   # Get the list of included fields.
@@ -14193,7 +14193,7 @@ class Mongoid::Criteria
   #   criteria.field_list
   # @return [Array<String>] The fields.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#207
+  # source://mongoid//lib/mongoid/criteria.rb#240
   def field_list; end
 
   # Finds one or many documents given the provided _id values, or filters
@@ -14230,7 +14230,7 @@ class Mongoid::Criteria
   # @see https://ruby-doc.org/core/Enumerable.html#method-i-find
   # @yield [Object] Yields each enumerable element to the block.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#124
+  # source://mongoid//lib/mongoid/criteria.rb#157
   def find(*args, &block); end
 
   # Find documents by the provided javascript and scope. Uses a $where but is
@@ -14245,7 +14245,7 @@ class Mongoid::Criteria
   # @param scope [Hash] The scope for the code.
   # @return [Criteria] The criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#466
+  # source://mongoid//lib/mongoid/criteria.rb#500
   def for_js(*args, **_arg1, &block); end
 
   # When freezing a criteria we need to initialize the context first
@@ -14256,19 +14256,19 @@ class Mongoid::Criteria
   #   criteria.freeze
   # @return [Criteria] The frozen criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#223
+  # source://mongoid//lib/mongoid/criteria.rb#256
   def freeze; end
 
   # Returns the value of attribute klass.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#68
+  # source://mongoid//lib/mongoid/criteria.rb#101
   def klass; end
 
   # Sets the attribute klass
   #
   # @param value the value to set the attribute klass to.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#68
+  # source://mongoid//lib/mongoid/criteria.rb#101
   def klass=(_arg0); end
 
   # Merges another object with this +Criteria+ and returns a new criteria.
@@ -14277,7 +14277,8 @@ class Mongoid::Criteria
   # may be desired.
   #
   # @example Merge the criteria with a hash. The hash must contain a klass
-  #   key and the key/value pairs correspond to method names/args.
+  #   key that specifies the model class for the criteria and the key/value
+  #   pairs correspond to method names/args.
   #
   #   criteria.merge({
   #   klass: Band,
@@ -14286,10 +14287,10 @@ class Mongoid::Criteria
   #   })
   # @example Merge the criteria with another criteria.
   #   criteria.merge(other_criteria)
-  # @param other [Criteria] The other criterion to merge with.
+  # @param other [Criteria | Hash] The other criterion to merge with.
   # @return [Criteria] A cloned self.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#260
+  # source://mongoid//lib/mongoid/criteria.rb#294
   def merge(other); end
 
   # Merge the other criteria into this one.
@@ -14299,7 +14300,7 @@ class Mongoid::Criteria
   # @param other [Criteria | Hash] The criteria to merge in.
   # @return [Criteria] The merged criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#274
+  # source://mongoid//lib/mongoid/criteria.rb#308
   def merge!(other); end
 
   # Returns a criteria that will always contain zero results and never hits
@@ -14309,7 +14310,7 @@ class Mongoid::Criteria
   #   criteria.none
   # @return [Criteria] The none criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#291
+  # source://mongoid//lib/mongoid/criteria.rb#325
   def none; end
 
   # Overriden to include _type in the fields.
@@ -14319,19 +14320,19 @@ class Mongoid::Criteria
   # @param *args [[ Symbol | Array<Symbol> ]...] The field name(s).
   # @return [Criteria] The cloned criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#313
+  # source://mongoid//lib/mongoid/criteria.rb#347
   def only(*args); end
 
   # Returns the value of attribute parent_document.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#68
+  # source://mongoid//lib/mongoid/criteria.rb#101
   def parent_document; end
 
   # Sets the attribute parent_document
   #
   # @param value the value to set the attribute parent_document to.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#68
+  # source://mongoid//lib/mongoid/criteria.rb#101
   def parent_document=(_arg0); end
 
   # Set the read preference for the criteria.
@@ -14341,7 +14342,7 @@ class Mongoid::Criteria
   # @param value [Hash] The mode preference.
   # @return [Criteria] The cloned criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#333
+  # source://mongoid//lib/mongoid/criteria.rb#367
   def read(value = T.unsafe(nil)); end
 
   # Returns true if criteria responds to the given method.
@@ -14352,10 +14353,10 @@ class Mongoid::Criteria
   # @param name [Symbol] The name of the class method on the +Document+.
   # @return [true | false] If the criteria responds to the method.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#361
+  # source://mongoid//lib/mongoid/criteria.rb#395
   def respond_to?(name, include_private = T.unsafe(nil)); end
 
-  # source://mongoid//lib/mongoid/criteria.rb#365
+  # source://mongoid//lib/mongoid/criteria.rb#399
   def to_ary(*_arg0); end
 
   # Convenience for objects that want to be merged into a criteria.
@@ -14365,7 +14366,7 @@ class Mongoid::Criteria
   #   criteria.to_criteria
   # @return [Criteria] self.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#374
+  # source://mongoid//lib/mongoid/criteria.rb#408
   def to_criteria(*args, **_arg1, &block); end
 
   # Convert the criteria to a proc.
@@ -14374,7 +14375,7 @@ class Mongoid::Criteria
   #   criteria.to_proc
   # @return [Proc] The wrapped criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#385
+  # source://mongoid//lib/mongoid/criteria.rb#419
   def to_proc; end
 
   # Adds a criterion to the +Criteria+ that specifies a type or an Array of
@@ -14386,7 +14387,7 @@ class Mongoid::Criteria
   # @param types [Array<String>] The types to match against.
   # @return [Criteria] The cloned criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#399
+  # source://mongoid//lib/mongoid/criteria.rb#433
   def type(types); end
 
   # This is the general entry point for most MongoDB queries. This either
@@ -14403,7 +14404,7 @@ class Mongoid::Criteria
   #   is embedded.
   # @return [Criteria] The cloned selectable.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#420
+  # source://mongoid//lib/mongoid/criteria.rb#454
   def where(*args); end
 
   # Overriden to exclude _id from the fields.
@@ -14413,7 +14414,7 @@ class Mongoid::Criteria
   # @param *args [Symbol...] The field name(s).
   # @return [Criteria] The cloned criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#347
+  # source://mongoid//lib/mongoid/criteria.rb#381
   def without(*args); end
 
   # Get a version of this criteria without the options.
@@ -14422,7 +14423,7 @@ class Mongoid::Criteria
   #   criteria.without_options
   # @return [Criteria] The cloned criteria.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#446
+  # source://mongoid//lib/mongoid/criteria.rb#480
   def without_options; end
 
   private
@@ -14438,7 +14439,7 @@ class Mongoid::Criteria
   # @raise [Errors::DocumentNotFound] If none are found and raising an
   #   error.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#492
+  # source://mongoid//lib/mongoid/criteria.rb#526
   def check_for_missing_documents!(result, ids); end
 
   # Clone or dup the current +Criteria+. This will return a new criteria with
@@ -14452,7 +14453,7 @@ class Mongoid::Criteria
   # @param other [Criteria] The criteria getting cloned.
   # @return [nil] nil.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#512
+  # source://mongoid//lib/mongoid/criteria.rb#546
   def initialize_copy(other); end
 
   # For models where inheritance is at play we need to add the type
@@ -14462,7 +14463,7 @@ class Mongoid::Criteria
   #   criteria.merge_type_selection
   # @return [true | false] If type selection was added.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#549
+  # source://mongoid//lib/mongoid/criteria.rb#583
   def merge_type_selection; end
 
   # Used for chaining +Criteria+ scopes together in the for of class methods
@@ -14474,7 +14475,7 @@ class Mongoid::Criteria
   # @param name [Symbol] The method name.
   # @return [Object] The result of the method call.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#530
+  # source://mongoid//lib/mongoid/criteria.rb#564
   def method_missing(name, *args, **_arg2, &block); end
 
   # Get a new selector with type selection in it.
@@ -14484,7 +14485,7 @@ class Mongoid::Criteria
   #   criteria.selector_with_type_selection
   # @return [Hash] The selector.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#592
+  # source://mongoid//lib/mongoid/criteria.rb#626
   def selector_with_type_selection; end
 
   # Is the criteria type selectable?
@@ -14494,7 +14495,7 @@ class Mongoid::Criteria
   #   criteria.type_selectable?
   # @return [true | false] If type selection should be added.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#561
+  # source://mongoid//lib/mongoid/criteria.rb#595
   def type_selectable?; end
 
   # Get the selector for type selection.
@@ -14504,28 +14505,37 @@ class Mongoid::Criteria
   #   criteria.type_selection
   # @return [Hash] The type selection.
   #
-  # source://mongoid//lib/mongoid/criteria.rb#575
+  # source://mongoid//lib/mongoid/criteria.rb#609
   def type_selection; end
 
   class << self
     # Convert the given hash to a criteria. Will iterate over each keys in the
-    # hash which must correspond to method on a criteria object. The hash
-    # must also include a "klass" key.
+    # hash which must correspond to an allowed method on a criteria object. The hash
+    # can include a "klass" key that specifies the model class for the criteria.
     #
+    # @deprecated This method is deprecated and will
+    #   be removed in a future release.
     # @example Convert the hash to a criteria.
     #   Criteria.from_hash({ klass: Band, where: { name: "Depeche Mode" })
     # @param hash [Hash] The hash to convert.
+    # @raise [ArgumentError] If a method is not allowed in from_hash.
     # @return [Criteria] The criteria.
     #
-    # source://mongoid//lib/mongoid/criteria.rb#55
-    def from_hash(hash); end
+    # source://mongoid//lib/mongoid/criteria.rb#83
+    def from_hash(*args, **_arg1, &block); end
   end
 end
+
+# Allowed methods for from_hash to prevent arbitrary method execution.
+# Only query-building methods are allowed, not execution or modification methods.
+#
+# source://mongoid//lib/mongoid/criteria.rb#46
+Mongoid::Criteria::ALLOWED_FROM_HASH_METHODS = T.let(T.unsafe(nil), Array)
 
 # Static array used to check with method missing - we only need to ever
 # instantiate once.
 #
-# source://mongoid//lib/mongoid/criteria.rb#66
+# source://mongoid//lib/mongoid/criteria.rb#99
 Mongoid::Criteria::CHECK = T.let(T.unsafe(nil), Array)
 
 # Mixin module included in Mongoid::Criteria which adds the ability

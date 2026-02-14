@@ -965,6 +965,7 @@ end
 # source://actioncable//lib/action_cable/channel/test_case.rb#190
 class ActionCable::Channel::TestCase < ::ActiveSupport::TestCase
   include ::ActiveSupport::Testing::ConstantLookup
+  include ::ActionCable::TestHelper
   include ::ActionCable::Channel::TestCase::Behavior
   extend ::ActiveSupport::Testing::ConstantLookup::ClassMethods
   extend ::ActionCable::Channel::TestCase::Behavior::ClassMethods
@@ -3130,7 +3131,9 @@ class ActionCable::SubscriptionAdapter::Test < ::ActionCable::SubscriptionAdapte
 end
 
 # source://actioncable//lib/action_cable/test_case.rb#8
-class ActionCable::TestCase < ::ActiveSupport::TestCase; end
+class ActionCable::TestCase < ::ActiveSupport::TestCase
+  include ::ActionCable::TestHelper
+end
 
 # Provides helper methods for testing Action Cable broadcasting
 #
@@ -3259,9 +3262,3 @@ ActionCable::VERSION::STRING = T.let(T.unsafe(nil), String)
 
 # source://actioncable//lib/action_cable/gem_version.rb#14
 ActionCable::VERSION::TINY = T.let(T.unsafe(nil), Integer)
-
-class ActiveSupport::TestCase < ::Minitest::Test
-  include ::Turbo::Broadcastable::TestHelper
-  include ::ActionCable::TestHelper
-  include ::Turbo::Streams::StreamName
-end

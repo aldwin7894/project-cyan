@@ -89,7 +89,6 @@ gem "rack-cors", "~> 3.0", require: "rack/cors"
 
 gem "addressable", "~> 2.8"
 
-
 gem "jwt", "~> 3.1"
 
 gem "recaptcha", "~> 5.21"
@@ -97,12 +96,6 @@ gem "recaptcha", "~> 5.21"
 # gem "ferrum", "~> 0.13"
 
 gem "discordrb", "~> 3.7.1"
-
-# gem "opentelemetry-sdk"
-
-# gem "opentelemetry-exporter-otlp"
-
-# gem "opentelemetry-instrumentation-all"
 
 gem "kodachroma", "~> 1.0"
 
@@ -121,3 +114,5 @@ gem "sidekiq-cron", "~> 2.3"
 gem "colorize", "~> 1.1"
 
 gem "sidekiq-unique-jobs", "~> 8.0"
+
+gem "faraday", "~> 2.14"
