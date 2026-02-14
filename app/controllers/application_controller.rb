@@ -8,6 +8,16 @@ class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
   respond_to? :html
 
+  def remote_ip
+    if request.headers["HTTP_CF_CONNECTING_IP"].present?
+      request.headers["HTTP_CF_CONNECTING_IP"].strip
+    elsif request.headers["X-Forwarded-For"].present?
+      T.let(request.headers["X-Forwarded-For"].split(",").first, String).strip
+    else
+      request.remote_ip
+    end
+  end
+
   private
     def check_if_from_cloudfront
       raise "Operation not possible." if request.headers["HTTP_USER_AGENT"] == "Amazon CloudFront"

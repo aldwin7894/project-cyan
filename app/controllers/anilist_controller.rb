@@ -37,7 +37,7 @@ class AnilistController < ApplicationController
       return render layout: false
     end
 
-    cooldown = Rails.cache.fetch("ANILIST/FOLLOW_CHECKER_CD")
+    cooldown = Rails.cache.fetch("ANILIST/FOLLOW_CHECKER_CD/#{remote_ip}")
     if Time.zone.now.to_i <= cooldown.to_i && !Rails.env.development?
       cd_mins = cooldown - Time.zone.now
       return @error = "On cooldown, please try again after #{format_date(cd_mins, true, false)}."
@@ -61,7 +61,7 @@ class AnilistController < ApplicationController
     @user.save
     @job_id = AnilistFollowListCheckerJob.perform_async(@user._id)
 
-    Rails.cache.fetch("ANILIST/FOLLOW_CHECKER_CD", expires_in: 20.minutes) do
+    Rails.cache.fetch("ANILIST/FOLLOW_CHECKER_CD/#{remote_ip}", expires_in: 20.minutes) do
       20.minutes.from_now
     end
     @success = true
@@ -72,10 +72,10 @@ class AnilistController < ApplicationController
 
     case error.status_code
     when 429
-      Rails.cache.write("ANILIST/FOLLOW_CHECKER_CD", expires_in: 5.minutes)
+      Rails.cache.write("ANILIST/FOLLOW_CHECKER_CD/#{remote_ip}", expires_in: 5.minutes)
       @error = "We're being rate-limited by AniList API, please try again later."
     when 404
-      Rails.cache.write("ANILIST/FOLLOW_CHECKER_CD", nil)
+      Rails.cache.write("ANILIST/FOLLOW_CHECKER_CD/#{remote_ip}", nil)
       @error = "User <strong>#{username}</strong> was not found or has a private profile."
     else
       @error = "Something went wrong, please try again later."
