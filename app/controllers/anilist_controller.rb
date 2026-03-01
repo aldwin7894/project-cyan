@@ -13,14 +13,14 @@ class AnilistController < ApplicationController
     @user = AnilistUser.find_by(job_id: params[:id])
     if @user.blank?
       raise ActionController::RoutingError.new("Not Found")
-
     end
 
-    @following = @user.following
-    @followers = @user.followers
+    @following = @user.user_following.order(username: :asc).pluck(:username).presence || @user.following
+    @followers = @user.user_followers.order(username: :asc).pluck(:username).presence || @user.followers
     @following_count = @following.size
     @followers_count = @followers.size
   end
+
   def new
     # new
   end

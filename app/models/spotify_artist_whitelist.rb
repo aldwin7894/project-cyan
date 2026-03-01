@@ -7,5 +7,7 @@ class SpotifyArtistWhitelist
   field :name, type: String
   field :spotify_id, type: String
 
-  index({ spotify_id: 1 }, { unique: true })
+  index({ name: 1 }, { name: "spotify_artist_whitelist_name_index" })
 end
+
+SpotifyArtistWhitelist.create_indexes

@@ -113,6 +113,8 @@ class MusicNpBannerController < ApplicationController
 
     recording_mbid = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("recording_mbid")
     recording_mbid ||= @recent&.[]("track_metadata")&.[]("mbid_mapping")&.[]("recording_mbid")
+    recording_msid = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("recording_msid")
+    recording_msid ||= @recent&.[]("track_metadata")&.[]("mbid_mapping")&.[]("recording_msid")
     spotify_album_id = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("spotify_album_id")
 
     if spotify_album_id
@@ -120,7 +122,10 @@ class MusicNpBannerController < ApplicationController
     else
       @album_art = ListenBrainz.get_cover_art_url(track: @recent, size: 250)
     end
-    @loved = ListenbrainzLovedTrack.exists?(recording_mbid: recording_mbid.to_s)
+    @loved = ListenbrainzLovedTrack.or({
+      recording_mbid: recording_mbid.to_s.presence,
+      recording_msid: recording_msid.to_s.presence
+    }.compact).exists?
 
     timestamp = @recent["listened_at"].to_i
     @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"

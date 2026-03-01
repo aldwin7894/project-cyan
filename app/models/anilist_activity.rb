@@ -13,6 +13,4 @@ class AnilistActivity
 
   field :date, type: Integer
   field :page, type: Integer
-
-  index({ _id: 1 }, { unique: true })
 end

@@ -4,6 +4,15 @@ class AnilistUser
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  has_many :user_following,
+    class_name: "AnilistUserFollowing",
+    dependent: :destroy,
+    inverse_of: :anilist_user
+  has_many :user_followers,
+    class_name: "AnilistUserFollower",
+    dependent: :destroy,
+    inverse_of: :anilist_user
+
   field :_id, type: Integer
   field :username, type: String
   field :following, type: Array, default: []
@@ -12,5 +21,7 @@ class AnilistUser
   field :sync_in_progress, type: Boolean, default: true
   field :job_id, type: String, default: nil
 
-  index({ _id: 1 }, { unique: true })
+  index({ job_id: 1 }, { name: "anilist_user_job_id_index", sparse: true })
 end
+
+AnilistUser.create_indexes

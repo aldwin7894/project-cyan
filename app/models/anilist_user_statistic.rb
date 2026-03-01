@@ -6,6 +6,4 @@ class AnilistUserStatistic
 
   field :_id, type: Integer
   field :statistics, type: Hash
-
-  index({ _id: 1 }, { unique: true })
 end

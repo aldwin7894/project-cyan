@@ -6,7 +6,7 @@ require "anilist"
 class AnilistFollowListCheckerJob
   include Sidekiq::Job
   sidekiq_options retry: 5,
-    queue: 'default',
+    queue: "default",
     lock: :until_and_while_executing,
     lock_args_method: ->(args) { [args.first] },
     on_conflict: {
@@ -26,27 +26,27 @@ class AnilistFollowListCheckerJob
     user = AnilistUser.find(id)
     username = "[#{user.username}] ".blue
     if type === "following" && page === 1
-      user.following = []
+      user.user_following.destroy_all
+      user.user_followers.destroy_all
       user.job_id = self.jid
     end
-    user.followers = [] if type === "followers" && page === 1
 
     if type === "following"
       logger.info(TAG + username + "FETCHING FOLLOWING: PAGE #{page}".green)
-      following = user.following
       response = AniList::Client.execute(AniList::UserFollowingQuery, user_id: user._id, page:)
-      following.push(*response.data.page.following.map(&:name))
-      following.sort!
+      following = response.data.page.following.map(&:name)
 
-      user.following = following
+      following.each do |username|
+        AnilistUserFollowing.create!(anilist_user: user, username:)
+      end
     elsif type === "followers"
       logger.info(TAG + username + "FETCHING FOLLOWERS: PAGE #{page}".green)
-      followers = user.followers
       response = AniList::Client.execute(AniList::UserFollowersQuery, user_id: user._id, page:)
-      followers.push(*response.data.page.followers.map(&:name))
-      followers.sort!
+      followers = response.data.page.followers.map(&:name)
 
-      user.followers = followers
+      followers.each do |username|
+        data = AnilistUserFollower.create!(anilist_user: user, username:)
+      end
     end
 
     if response.data.page.page_info.has_next_page? === false && type === "following"

@@ -25,4 +25,23 @@ namespace :db do
     SpotifyArtistWhitelist.delete_all
     SpotifyArtistWhitelist.create(name: "Heavenly", spotify_id: "7j3etSXgd9ZLYIUW7KWnpd")
   end
+
+  desc "Migrate Anilist User Follow Data to Separate Collections"
+  task migrate_anilist_user_follow: :environment do
+    users = AnilistUser.all
+    users.each do |user|
+      user.following.each do |username|
+        user.user_following << AnilistUserFollowing.new(anilist_user: user, username:)
+      end
+
+      user.followers.each do |username|
+        user.user_followers << AnilistUserFollower.new(anilist_user: user, username:)
+      end
+
+      user.following = []
+      user.followers = []
+
+      user.save!
+    end
+  end
 end
