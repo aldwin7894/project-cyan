@@ -99,6 +99,7 @@ module AniList
               bannerImage
               siteUrl
               duration
+              episodes
               title {
                 userPreferred
                 english

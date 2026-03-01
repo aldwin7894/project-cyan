@@ -28,7 +28,24 @@ class AnilistActivitiesSyncJob
         activity["date"] = date
         activity["page"] = page
 
+        format = activity&.[]("media")&.[]("format")
+        country = activity&.[]("media")&.[]("countryOfOrigin")
+        episodes = activity&.[]("media")&.[]("episodes").to_i
+        duration = activity&.[]("media")&.[]("duration").to_i
+
         activity = AnilistActivity.new(activity)
+
+        # Anilist has some weird formatting for ONAs, so we need to fix it
+        if format === "ONA"
+          if duration <= 10
+            activity[:media][:format] = "TV_SHORT"
+          elsif country != "CN" && episodes < 10 && duration < 40
+            activity[:media][:format] = "OVA"
+          elsif episodes === 1 && duration >= 40
+            activity[:media][:format] = "MOVIE"
+          end
+        end
+
         activity.upsert(replace: true)
       end
 
