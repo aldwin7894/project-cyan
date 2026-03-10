@@ -105,7 +105,7 @@ gem "persistent_httparty", "~> 0.1.2"
 
 gem "sorbet-runtime"
 
-gem "brotli", "~> 0.7.0"
+gem "brotli", "~> 0.8.0"
 
 gem "sidekiq", "~> 8.1"
 
