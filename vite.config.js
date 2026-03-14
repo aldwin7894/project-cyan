@@ -30,10 +30,12 @@ export default defineConfig({
     cssCodeSplit: true,
     minify: "terser",
     sourcemap: false,
-    rollupOptions: {
+    rolldownOptions: {
       output: {
-        compact: true,
-        generatedCode: "es2015",
+        minify: true,
+        generatedCode: {
+          preset: "es2015",
+        },
       },
     },
     terserOptions: {
