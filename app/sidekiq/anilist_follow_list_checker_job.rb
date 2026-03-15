@@ -26,8 +26,8 @@ class AnilistFollowListCheckerJob
     user = AnilistUser.find(id)
     username = "[#{user.username}] ".blue
     if type === "following" && page === 1
-      user.user_following.destroy_all
-      user.user_followers.destroy_all
+      user.following.destroy_all
+      user.followers.destroy_all
       user.job_id = self.jid
     end
 
@@ -45,7 +45,7 @@ class AnilistFollowListCheckerJob
       followers = response.data.page.followers.map(&:name)
 
       followers.each do |username|
-        data = AnilistUserFollower.create!(anilist_user: user, username:)
+        AnilistUserFollower.create!(anilist_user: user, username:)
       end
     end
 

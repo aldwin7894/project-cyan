@@ -15,8 +15,8 @@ class AnilistController < ApplicationController
       raise ActionController::RoutingError.new("Not Found")
     end
 
-    @following = @user.user_following.order(username: :asc).pluck(:username).presence || @user.following
-    @followers = @user.user_followers.order(username: :asc).pluck(:username).presence || @user.followers
+    @following = @user.following.order(username: :asc).pluck(:username) || []
+    @followers = @user.followers.order(username: :asc).pluck(:username) || []
     @following_count = @following.size
     @followers_count = @followers.size
   end
