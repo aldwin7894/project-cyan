@@ -1,4 +1,4 @@
-FROM ruby:4.0.1-slim-trixie AS build-env
+FROM ruby:4.0.2-slim-trixie AS build-env
 
 ENV BUNDLE_PATH=/gems
 ENV NODE_VERSION=24.14.0
@@ -54,7 +54,7 @@ RUN --mount=type=secret,id=TZ \
   && bash ./build.sh
 
 #==============================================
-FROM ruby:4.0.1-slim-trixie
+FROM ruby:4.0.2-slim-trixie
 
 ENV BUNDLE_PATH=/gems
 
