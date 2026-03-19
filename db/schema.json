@@ -6954,6 +6954,24 @@
               "description": "An anime or manga on the user's list has been deleted from the site",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "MEDIA_SUBMISSION_UPDATE",
+              "description": "A user's submission has been accepted, partially accepted, or rejected",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "STAFF_SUBMISSION_UPDATE",
+              "description": "A user's staff submission has been accepted, partially accepted, or rejected",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CHARACTER_SUBMISSION_UPDATE",
+              "description": "A user's character submission has been accepted, partially accepted, or rejected",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -16928,6 +16946,21 @@
               "kind": "OBJECT",
               "name": "MediaDeletionNotification",
               "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "MediaSubmissionUpdateNotification",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "StaffSubmissionUpdateNotification",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "CharacterSubmissionUpdateNotification",
+              "ofType": null
             }
           ]
         },
@@ -20390,6 +20423,327 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "MediaSubmissionUpdateNotification",
+          "description": "Notification for when a media submission is accepted, partially accepted, or rejected",
+          "fields": [
+            {
+              "name": "id",
+              "description": "The id of the Notification",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": "The type of notification",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "NotificationType",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "contexts",
+              "description": "The notification context text",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "status",
+              "description": "The status of the submission",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "notes",
+              "description": "The notes of the submission",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createdAt",
+              "description": "The time the notification was created at",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "media",
+              "description": "The media that was created or modified. If this submission was to create a new media and it was rejected, this will be null.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Media",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "submittedTitle",
+              "description": "The title of the media that was submitted. If this submission was to edit an existing media, this will be null.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StaffSubmissionUpdateNotification",
+          "description": "Notification for when a staff submission is accepted, partially accepted, or rejected",
+          "fields": [
+            {
+              "name": "id",
+              "description": "The id of the Notification",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": "The type of notification",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "NotificationType",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "contexts",
+              "description": "The notification context text",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "status",
+              "description": "The status of the submission",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "notes",
+              "description": "The notes of the submission",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createdAt",
+              "description": "The time the notification was created at",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "staff",
+              "description": "The staff that was modified.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Staff",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CharacterSubmissionUpdateNotification",
+          "description": "Notification for when a character submission is accepted, partially accepted, or rejected",
+          "fields": [
+            {
+              "name": "id",
+              "description": "The id of the Notification",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "type",
+              "description": "The type of notification",
+              "args": [],
+              "type": {
+                "kind": "ENUM",
+                "name": "NotificationType",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "contexts",
+              "description": "The notification context text",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "status",
+              "description": "The status of the submission",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "notes",
+              "description": "The notes of the submission",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createdAt",
+              "description": "The time the notification was created at",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "character",
+              "description": "The character that was modified.",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Character",
                 "ofType": null
               },
               "isDeprecated": false,

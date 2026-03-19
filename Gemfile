@@ -3,12 +3,12 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "4.0.1"
+ruby "4.0.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem "rails", "~> 8.1.2"
 # use vite to build javascripts and assets
-gem "vite_rails", "~> 3.0"
+gem "vite_rails", "~> 3.10"
 # Use mongodb
 gem "mongoid", "~> 9.0.10"
 gem "bson", "~> 5.2"
