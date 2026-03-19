@@ -6381,7 +6381,7 @@ __metadata:
     postcss-preset-env: "npm:^11.2.0"
     prettier: "npm:^3.8.1"
     rollup: "npm:^4.59.0"
-    rollup-plugin-gzip: "npm:^4.1.1"
+    rollup-plugin-gzip: "npm:^4.2.0"
     rollup-plugin-visualizer: "npm:^7.0.1"
     sass-embedded: "npm:1.98.0"
     smartcrop: "npm:^2.0.5"
@@ -6605,12 +6605,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-gzip@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "rollup-plugin-gzip@npm:4.1.1"
+"rollup-plugin-gzip@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "rollup-plugin-gzip@npm:4.2.0"
   peerDependencies:
     rollup: ">=2.0.0"
-  checksum: 10/d4a6726b2a40ee91b02b8cb0a2a691a4ce759bed1a94073392350c6df70b34b187e429df7ee43e60aa4563298d1a1fb4c2856a4575d6d51e9eed5fd7050065bf
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: 10/acb308911b758a3107fc5a357309475936c1f49f63396db93043fe7a580daa876e0bcd36578c889d84b254c37e57bc1a9adc63ea22a1a2241a37bfa187674842
   languageName: node
   linkType: hard
 
