@@ -92,8 +92,9 @@ module ListenBrainz
       result = res.to_h
       data.push(*result["feedback"])
       total = result["total_count"].to_i
+      ratelimit_remaining = res.headers["x-ratelimit-remaining"].to_i
 
-      { data:, total: }
+      { data:, total:, ratelimit_remaining: }
     rescue HTTParty::Error => e
       raise ApiError.new(e.message)
     end

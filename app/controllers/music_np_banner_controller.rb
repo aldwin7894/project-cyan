@@ -122,10 +122,11 @@ class MusicNpBannerController < ApplicationController
     else
       @album_art = ListenBrainz.get_cover_art_url(track: @recent, size: 250)
     end
-    @loved = ListenbrainzLovedTrack.or({
-      recording_mbid: recording_mbid.to_s.presence,
-      recording_msid: recording_msid.to_s.presence
-    }.compact).exists?
+
+    criteria = []
+    criteria << { recording_mbid: } if recording_mbid.present?
+    criteria << { recording_msid: } if recording_msid.present?
+    @loved = ListenbrainzLovedTrack.or(*criteria).exists?
 
     timestamp = @recent["listened_at"].to_i
     @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"
