@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "@hotwired/turbo-rails": "^8.0.23",
-    "@rails/actioncable": "^8.1.201",
+    "@rails/actioncable": "^8.1.300",
     "alpinejs": "^3.15.8",
     "chart.js": "^4.5.1",
     "smartcrop": "^2.0.5",
