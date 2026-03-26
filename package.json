@@ -64,7 +64,7 @@
     "typescript-eslint": "^8.57.2",
     "vite": "^8.0.2",
     "vite-plugin-full-reload": "^1.2.0",
-    "vite-plugin-ruby": "^5.2.0"
+    "vite-plugin-ruby": "^5.2.1"
   },
   "engines": {
     "node": "24.14.0",
