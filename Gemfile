@@ -113,6 +113,6 @@ gem "sidekiq-cron", "~> 2.3"
 
 gem "colorize", "~> 1.1"
 
-gem "sidekiq-unique-jobs", "~> 8.0"
+gem "sidekiq-unique-jobs", "~> 8.1"
 
 gem "faraday", "~> 2.14"
