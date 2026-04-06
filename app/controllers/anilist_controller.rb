@@ -3,7 +3,6 @@
 
 class AnilistController < ApplicationController
   include FormatDateHelper
-  before_action :check_if_from_cloudfront
 
   def index
     # index

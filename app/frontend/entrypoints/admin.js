@@ -3,5 +3,5 @@ import "@hotwired/turbo-rails";
 import Alpine from "alpinejs";
 import "~/stylesheets/admin.css.scss";
 
-window.Alpine = Alpine;
+globalThis.Alpine = Alpine;
 Alpine.start();

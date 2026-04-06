@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     constraints: lambda { |req| ["html", "svg"].include? req.format }
   resources :anilist, only: [:index, :new, :show] do
     collection do
-      get "fetch_followers"
+      get "fetch_followers", to: "anilist#fetch_followers"
     end
   end
   resources :discord_banner,

@@ -2,12 +2,18 @@
   "compilerOptions": {
     "module": "ESNext",
     "target": "ESNext",
-    "baseUrl": ".",
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "paths": {
-      "~/*": ["app/frontend/*"]
+      "~/*": [
+        "./app/frontend/*"
+      ]
     }
   },
-  "include": ["app", "app/frontend"],
-  "exclude": ["node_modules"]
+  "include": [
+    "app",
+    "app/frontend"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

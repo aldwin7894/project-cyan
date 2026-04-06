@@ -9,7 +9,7 @@ class ListenbrainzLovedTracksSyncJob
 
   TAG = "[LISTENBRAINZ FAVORITES SYNC] ".yellow
 
-  def perform(*args)
+  def perform(*_args)
     offset = T.let(0, T.untyped)
     total = T.let(1, T.untyped)
     loved_tracks = []

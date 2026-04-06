@@ -77,11 +77,11 @@ HealthCheck.setup do |config|
 
   # Failure Hooks to do something more ...
   # checks lists the checks requested
-  config.on_failure do |checks, msg|
+  config.on_failure do |_checks, _msg|
     # log msg somewhere
   end
 
-  config.on_success do |checks|
+  config.on_success do |_checks|
     # flag that everything is well
   end
 end

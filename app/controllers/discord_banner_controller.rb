@@ -4,7 +4,6 @@
 class DiscordBannerController < ApplicationController
   include DiscordHelper
   layout "discord-banner"
-  before_action :check_if_from_cloudfront
   before_action :set_no_cache_headers
 
   content_security_policy(only: :index) do |policy|
