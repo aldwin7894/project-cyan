@@ -19,9 +19,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-    def check_if_from_cloudfront
-      raise "Operation not possible." if request.headers["HTTP_USER_AGENT"] == "Amazon CloudFront"
-    end
     def query(definition, variables = {})
       response = AniList::Client.execute(definition, variables)
       response&.data

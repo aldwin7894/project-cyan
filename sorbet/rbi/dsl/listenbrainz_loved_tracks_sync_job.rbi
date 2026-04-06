@@ -7,13 +7,13 @@
 
 class ListenbrainzLovedTracksSyncJob
   class << self
-    sig { params(args: T.untyped).returns(String) }
-    def perform_async(*args); end
+    sig { params(_args: T.untyped).returns(String) }
+    def perform_async(*_args); end
 
-    sig { params(interval: T.any(DateTime, Time, ActiveSupport::TimeWithZone), args: T.untyped).returns(String) }
-    def perform_at(interval, *args); end
+    sig { params(interval: T.any(DateTime, Time, ActiveSupport::TimeWithZone), _args: T.untyped).returns(String) }
+    def perform_at(interval, *_args); end
 
-    sig { params(interval: T.any(Numeric, ActiveSupport::Duration), args: T.untyped).returns(String) }
-    def perform_in(interval, *args); end
+    sig { params(interval: T.any(Numeric, ActiveSupport::Duration), _args: T.untyped).returns(String) }
+    def perform_in(interval, *_args); end
   end
 end

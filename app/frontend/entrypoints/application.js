@@ -29,7 +29,7 @@ import "~/stylesheets/application.css.scss";
 
 const initElems = (parent = null) => {
   // popover
-  const tippyPopoverList = [].slice.call(
+  const tippyPopoverList = Array.prototype.slice.call(
     (parent || document).querySelectorAll("[data-tippy=popover]"),
   );
   Tippy(tippyPopoverList, {
@@ -39,7 +39,7 @@ const initElems = (parent = null) => {
     placement: "bottom",
     interactive: true,
     content(reference) {
-      const id = reference.getAttribute("data-tippy-template");
+      const id = reference.dataset.tippyTemplate;
       const template = document.getElementById(id);
       return template.innerHTML;
     },
@@ -47,7 +47,7 @@ const initElems = (parent = null) => {
   });
 
   // tooltip
-  const tippyTooltipList = [].slice.call(
+  const tippyTooltipList = Array.prototype.slice.call(
     (parent || document).querySelectorAll("[data-tippy=tooltip]"),
   );
   Tippy(tippyTooltipList, {
@@ -114,9 +114,7 @@ window.addEventListener("load", () => {
   });
 });
 document.addEventListener("turbo:before-frame-render", event => {
-  const id = event.target.getAttribute("data-turbo-frame")
-    ? event.target.getAttribute("data-turbo-frame")
-    : event.target.id;
+  const id = event.target.dataset.turboFrame || event.target.id;
 
   if (id.includes("last_watched")) {
     event.preventDefault();

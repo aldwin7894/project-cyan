@@ -12,8 +12,8 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
   ruby-dev \
   tar \
   wget \
-  && curl --proto "=https" -fsSL https://deb.nodesource.com/setup_lts.x | bash -s -- ${NODE_VERSION} \
-  && apt-get install -yq --no-install-recommends nodejs=${NODE_VERSION}-1nodesource1 \
+  && curl --proto "=https" -fsSL https://deb.nodesource.com/setup_lts.x | bash -s -- "${NODE_VERSION}" \
+  && apt-get install -yq --no-install-recommends nodejs="${NODE_VERSION}-1nodesource1" \
   && corepack enable \
   && corepack prepare yarn@stable --activate \
   && npm i -g --ignore-scripts npm \

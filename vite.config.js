@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import RubyPlugin from "vite-plugin-ruby";
 import FullReload from "vite-plugin-full-reload";
-import { brotliCompressSync } from "zlib";
+import { brotliCompressSync } from "node:zlib";
 import gzipPlugin from "rollup-plugin-gzip";
 import { visualizer } from "rollup-plugin-visualizer";
 

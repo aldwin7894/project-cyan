@@ -46,8 +46,8 @@ class DeviseCustomMailer
     sig { params(resource_or_scope: T.untyped, args: T.untyped).returns(::ActionMailer::MessageDelivery) }
     def password_url(resource_or_scope, *args); end
 
-    sig { params(record: T.untyped, token: T.untyped, opts: T.untyped).returns(::ActionMailer::MessageDelivery) }
-    def reset_password_instructions(record, token, opts = T.unsafe(nil)); end
+    sig { params(_record: T.untyped, _token: T.untyped, _opts: T.untyped).returns(::ActionMailer::MessageDelivery) }
+    def reset_password_instructions(_record, _token, _opts = T.unsafe(nil)); end
 
     sig { params(resource_or_scope: T.untyped, args: T.untyped).returns(::ActionMailer::MessageDelivery) }
     def session_path(resource_or_scope, *args); end

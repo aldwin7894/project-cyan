@@ -10,7 +10,6 @@ class HomeController < ApplicationController
   include FormatDateHelper
   include Turbo::Frames::FrameRequest
   layout "application"
-  before_action :check_if_from_cloudfront
   before_action :check_if_turbo_frame, only: %i(lastfm_stats lastfm_top_artists anilist_user_statistics anilist_user_activities watched_anime_section watched_movie_section)
 
   ANIME_FORMATS = ["TV", "TV_SHORT", "ONA"]
@@ -318,6 +317,6 @@ class HomeController < ApplicationController
     end
 
     def check_if_turbo_frame
-      head(:unprocessable_entity) unless turbo_frame_request?
+      head(:unprocessable_content) unless turbo_frame_request?
     end
 end
