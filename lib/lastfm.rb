@@ -45,6 +45,7 @@ module LastFM
         method: "user.getRecentTracks",
         user:,
       }
+      log_tag = "LastFM.get_recent_tracks".yellow
 
       Rails.cache.fetch("LASTFM/#{user}/RECENT_TRACKS", expires_in: 30.seconds, skip_nil: true) do
         res = self.class.get("/", headers:, query:)
@@ -54,8 +55,12 @@ module LastFM
 
         res["recenttracks"]["track"]
       end
-    rescue HTTParty::Error => e
-      raise ApiError.new(e.message)
+    rescue HTTParty::Error, ApiError => e
+      Rails.logger.tagged("LASTFM".yellow, log_tag, user.to_s.yellow) do
+        Rails.logger.error("ERROR".red, e.message)
+      end
+
+      nil
     end
 
     def get_top_artists(user:, period:, limit:)
@@ -70,15 +75,16 @@ module LastFM
         period:,
         user:,
       }
+      log_tag = "LastFM.get_top_artists".yellow
 
       cache_key = "LASTFM/#{user}/TOP_ARTISTS"
       if Rails.cache.exist? cache_key
-        Rails.logger.tagged("CACHE".yellow, "LastFM.get_top_artists".yellow, cache_key.yellow) do
+        Rails.logger.tagged("CACHE".yellow, log_tag, cache_key.yellow) do
           Rails.logger.info("HIT".green)
         end
         top_artists = Rails.cache.fetch(cache_key)
       else
-        Rails.logger.tagged("CACHE".yellow, "LastFM.get_top_artists".yellow, cache_key.yellow) do
+        Rails.logger.tagged("CACHE".yellow, log_tag, cache_key.yellow) do
           Rails.logger.info("MISS".red)
         end
         top_artists = Rails.cache.fetch(cache_key, expires_in: 1.month, skip_nil: true) do
@@ -92,8 +98,12 @@ module LastFM
       end
 
       top_artists
-    rescue HTTParty::Error => e
-      raise ApiError.new(e.message)
+    rescue HTTParty::Error, ApiError => e
+      Rails.logger.tagged("LASTFM".yellow, log_tag, user.to_s.yellow) do
+        Rails.logger.error("ERROR".red, e.message)
+      end
+
+      nil
     end
   end
 

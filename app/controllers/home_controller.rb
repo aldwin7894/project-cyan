@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 # typed: true
 
-require "spotify"
 require "lastfm"
 require "shoko"
 require "fanart"
+require "subsonic"
 
 class HomeController < ApplicationController
   include FormatDateHelper
@@ -230,19 +230,14 @@ class HomeController < ApplicationController
 
   def lastfm_top_artists
     lastfm = LastFM::Client.new
-    spotify = Spotify::Client.new
+    subsonic = Subsonic::Client.new
+    fanart = Fanart::Client.new
     @lastfm_top_artists = lastfm.get_top_artists(user: ENV.fetch("LASTFM_USERNAME"), period: "overall", limit: 20)
 
-    artist_names = @lastfm_top_artists.pluck("name")
-    artist_ids = []
-    artist_names.each do |name|
-      artist_id = spotify.get_artist_id_by_name(name:)
-      artist_ids.push(artist_id)
-    end
-    images = spotify.get_artists_images(ids: artist_ids.join(","))
-
-    @lastfm_top_artists = @lastfm_top_artists.each_with_index.map do |artist, i|
-      artist["image"] = images[i] || artist["image"].first["#text"]
+    @lastfm_top_artists = @lastfm_top_artists.map do |artist|
+      artist["image"] = subsonic.get_artist_image(name: artist["name"])
+      artist["image"] ||= fanart.get_fanart_by_mbid_id(mbid_id: artist["mbid"]) if artist["mbid"].present?
+      artist["image"] ||= artist["image"].first["#text"]
       artist
     end
 
