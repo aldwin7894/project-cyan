@@ -44,16 +44,17 @@ module Shoko
       url = "/Series/Search"
       series = T.let(nil, T.nilable(T::Array[T.untyped]))
       name = name.downcase
+      log_tag = "Shoko.find_series".yellow
 
       cache_key = "SHOKO/SERIES/#{name.downcase.gsub(/\s/, "_")}"
       if Rails.cache.exist? cache_key
-        Rails.logger.tagged("CACHE".yellow, "Shoko.find_series".yellow, cache_key.yellow) do
+        Rails.logger.tagged("CACHE".yellow, log_tag, cache_key.yellow) do
           Rails.logger.info("HIT".green)
         end
         return Rails.cache.fetch(cache_key)
       end
 
-      Rails.logger.tagged("CACHE".yellow, "Shoko.find_series".yellow, cache_key.yellow) do
+      Rails.logger.tagged("CACHE".yellow, log_tag, cache_key.yellow) do
         Rails.logger.info("MISS".red)
       end
 
@@ -87,7 +88,7 @@ module Shoko
       end
       possible_queries.uniq!
 
-      Rails.logger.tagged("SHOKO".yellow, "FIND SERIES".yellow, name.yellow) do
+      Rails.logger.tagged("SHOKO".yellow, log_tag, name.yellow) do
         Rails.logger.info("START".green)
       end
 
@@ -102,17 +103,17 @@ module Shoko
         }
         res = self.class.get(url, query:, **@options)
         unless res.success?
-          raise ApiError.new("Shoko API error")
+          raise ApiError.new(res.body.to_json, res.code)
         end
 
-        res = JSON.parse res, symbolize_names: true
+        res = JSON.parse res.body, symbolize_names: true
         if res.is_a?(Array) && !res.empty?
           series = res.find { |x| x&.[](:IDs)&.[](:MAL)&.include?(possible_queries[index]&.[](:mal_id)) }
           series ||= res.find { |x| x&.[](:Distance) <= 0.5 }
           break if series.present?
         end
 
-        Rails.logger.tagged("SHOKO".yellow, "FIND SERIES".yellow, possible_queries[index]&.[](:name)&.yellow) do
+        Rails.logger.tagged("SHOKO".yellow, log_tag, possible_queries[index]&.[](:name)&.yellow) do
           Rails.logger.info("NOT FOUND".red)
         end
         index += 1
@@ -122,7 +123,11 @@ module Shoko
 
       Rails.cache.write(cache_key, series, expires_in: 3.months)
       series
-    rescue HTTParty::Error, ApiError
+    rescue HTTParty::Error, ApiError, JSON::ParserError => e
+      Rails.logger.tagged("SHOKO".yellow, log_tag, name.yellow) do
+        Rails.logger.error("ERROR".red, e.message)
+      end
+
       nil
     end
 
@@ -133,32 +138,33 @@ module Shoko
       cache_key = "SHOKO/FANART/#{series_id}"
       fanart_url = nil
       url = "/Series/#{series_id}/Images"
+      log_tag = "Shoko.get_series_fanart_by_name".yellow
 
       if Rails.cache.exist? cache_key
-        Rails.logger.tagged("CACHE".yellow, "Shoko.get_series_fanart_by_name".yellow, cache_key.yellow) do
+        Rails.logger.tagged("CACHE".yellow, log_tag, cache_key.yellow) do
           Rails.logger.info("HIT".green)
         end
         return Rails.cache.fetch(cache_key)
       end
 
-      Rails.logger.tagged("CACHE".yellow, "Shoko.get_series_fanart_by_name".yellow, cache_key.yellow) do
+      Rails.logger.tagged("CACHE".yellow, log_tag, cache_key.yellow) do
         Rails.logger.info("MISS".red)
       end
 
       res = self.class.get(url, **@options)
       unless res.success?
-        raise ApiError.new("Shoko API error")
+        raise ApiError.new(res.body.to_json, res.code)
       end
 
-      res = JSON.parse res, symbolize_names: true
+      res = JSON.parse res.body, symbolize_names: true
       if res&.[](:Backdrops).blank?
-        Rails.logger.tagged("SHOKO".yellow, "GET FANART".yellow, series_id&.yellow) do
+        Rails.logger.tagged("SHOKO".yellow, log_tag, series_id&.yellow) do
           Rails.logger.info("NO FANARTS".red)
         end
         return fanart_url
       end
 
-      Rails.logger.tagged("SHOKO".yellow, "GET FANART".yellow, series&.[](:match)&.yellow) do
+      Rails.logger.tagged("SHOKO".yellow, log_tag, series&.[](:match)&.yellow) do
         Rails.logger.info("FOUND".green)
       end
 
@@ -171,6 +177,12 @@ module Shoko
       end
 
       fanart_url
+    rescue HTTParty::Error, ApiError, JSON::ParserError => e
+      Rails.logger.tagged("SHOKO".yellow, log_tag, series_id&.yellow) do
+        Rails.logger.error("ERROR".red, e.message)
+      end
+
+      nil
     end
 
     private

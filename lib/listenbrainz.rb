@@ -42,6 +42,7 @@ module ListenBrainz
       query = {
         count: limit
       }
+      log_tag = "ListenBrainz.get_recent_tracks".yellow
 
       Rails.cache.fetch("LISTENBRAINZ/#{user}/RECENT_TRACKS", expires_in: 5.minutes, skip_nil: true) do
         res = self.class.get("/user/#{user}/listens", headers:, query:)
@@ -51,14 +52,19 @@ module ListenBrainz
 
         res["payload"]
       end
-    rescue HTTParty::Error => e
-      raise ApiError.new(e.message)
+    rescue HTTParty::Error, ApiError => e
+      Rails.logger.tagged("LISTENBRAINZ".yellow, log_tag, user.to_s.yellow) do
+        Rails.logger.error("ERROR".red, e.message)
+      end
+
+      nil
     end
 
     def get_now_playing(user:)
       headers = {
         **JSON_HEADER
       }
+      log_tag = "ListenBrainz.get_now_playing".yellow
 
       Rails.cache.fetch("LISTENBRAINZ/#{user}/NOW_PLAYING", expires_in: 2.minutes, skip_nil: true) do
         res = self.class.get("/user/#{user}/playing-now", headers:)
@@ -68,8 +74,12 @@ module ListenBrainz
 
         res["payload"]
       end
-    rescue HTTParty::Error => e
-      raise ApiError.new(e.message)
+    rescue HTTParty::Error, ApiError => e
+      Rails.logger.tagged("LISTENBRAINZ".yellow, log_tag, user.to_s.yellow) do
+        Rails.logger.error("ERROR".red, e.message)
+      end
+
+      nil
     end
 
     def get_loved_tracks(user:, offset: 0)
@@ -83,6 +93,7 @@ module ListenBrainz
         count: 1000,
         offset:
       }
+      log_tag = "ListenBrainz.get_loved_tracks".yellow
 
       res = self.class.get("/feedback/user/#{user}/get-feedback", headers:, query:)
       unless res.success?
@@ -95,8 +106,12 @@ module ListenBrainz
       ratelimit_remaining = res.headers["x-ratelimit-remaining"].to_i
 
       { data:, total:, ratelimit_remaining: }
-    rescue HTTParty::Error => e
-      raise ApiError.new(e.message)
+    rescue HTTParty::Error, ApiError => e
+      Rails.logger.tagged("LISTENBRAINZ".yellow, log_tag, user.to_s.yellow) do
+        Rails.logger.error("ERROR".red, e.message)
+      end
+
+      nil
     end
   end
 
