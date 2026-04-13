@@ -234,10 +234,11 @@ class HomeController < ApplicationController
     fanart = Fanart::Client.new
     @lastfm_top_artists = lastfm.get_top_artists(user: ENV.fetch("LASTFM_USERNAME"), period: "overall", limit: 20)
 
-    @lastfm_top_artists = @lastfm_top_artists.map do |artist|
-      artist["image"] = subsonic.get_artist_image(name: artist["name"])
-      artist["image"] ||= fanart.get_fanart_by_mbid_id(mbid_id: artist["mbid"]) if artist["mbid"].present?
-      artist["image"] ||= artist["image"].first["#text"]
+    @lastfm_top_artists.map! do |artist|
+      image = subsonic.get_artist_image(name: artist["name"])
+      image ||= fanart.get_fanart_by_mbid_id(mbid_id: artist["mbid"]) if artist["mbid"].present?
+      image ||= artist["image"].first["#text"]
+      artist["image"] = image
       artist
     end
 

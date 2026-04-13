@@ -248,7 +248,7 @@ GEM
       ffi
     orm_adapter (0.5.0)
     ostruct (0.6.3)
-    parallel (1.28.0)
+    parallel (2.0.1)
     parser (3.3.11.1)
       ast (~> 2.4.1)
       racc
@@ -334,7 +334,7 @@ GEM
       erb
       psych (>= 4.0.0)
       tsort
-    recaptcha (5.21.1)
+    recaptcha (5.21.2)
     redis (5.4.1)
       redis-client (>= 0.22.0)
     redis-client (0.28.0)
@@ -354,11 +354,11 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.4.4)
-    rubocop (1.86.0)
+    rubocop (1.86.1)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
-      parallel (~> 1.10)
+      parallel (>= 1.10)
       parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 2.9.3, < 3.0)
@@ -409,14 +409,14 @@ GEM
       concurrent-ruby (~> 1.0, >= 1.0.5)
       sidekiq (>= 7.0.0, < 9.0.0)
       thor (>= 1.0, < 3.0)
-    sorbet (0.6.13108)
-      sorbet-static (= 0.6.13108)
-    sorbet-runtime (0.6.13108)
-    sorbet-static (0.6.13108-aarch64-linux)
-    sorbet-static (0.6.13108-x86_64-linux)
-    sorbet-static-and-runtime (0.6.13108)
-      sorbet (= 0.6.13108)
-      sorbet-runtime (= 0.6.13108)
+    sorbet (0.6.13117)
+      sorbet-static (= 0.6.13117)
+    sorbet-runtime (0.6.13117)
+    sorbet-static (0.6.13117-aarch64-linux)
+    sorbet-static (0.6.13117-x86_64-linux)
+    sorbet-static-and-runtime (0.6.13117)
+      sorbet (= 0.6.13117)
+      sorbet-runtime (= 0.6.13117)
     spoom (1.7.12)
       erubi (>= 1.10.0)
       prism (>= 0.28.0)
@@ -481,7 +481,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yard (0.9.38)
+    yard (0.9.40)
     yard-sorbet (0.9.0)
       sorbet-runtime
       yard
@@ -538,8 +538,7 @@ DEPENDENCIES
   sidekiq (~> 8.1)
   sidekiq-cron (~> 2.3)
   sidekiq-unique-jobs (~> 8.1)
-  sorbet
-  sorbet-runtime
+  sorbet-static-and-runtime
   tapioca
   turbo-rails (~> 2.0.23)
   vite_rails (~> 3.10)

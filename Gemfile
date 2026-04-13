@@ -53,7 +53,6 @@ group :development do
   gem "erb-formatter"
   gem "ruby-lsp", require: false
   gem "ruby-lsp-rails"
-  gem "sorbet"
   gem "tapioca", require: false
 end
 
@@ -103,7 +102,7 @@ gem "responders", "~> 3.1"
 
 gem "persistent_httparty", "~> 0.1.2"
 
-gem "sorbet-runtime"
+gem "sorbet-static-and-runtime"
 
 gem "brotli", "~> 0.8.0"
 
