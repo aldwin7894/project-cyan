@@ -36,7 +36,7 @@ class AnilistActivitiesSyncJob
         activity = AnilistActivity.new(activity)
 
         # Anilist has some weird formatting for ONAs, so we need to fix it
-        if format === "ONA"
+        if format === "ONA" && episodes != 0 && duration != 0
           if duration <= 10
             activity[:media][:format] = "TV_SHORT"
           elsif country != "CN" && episodes < 10 && duration < 40
