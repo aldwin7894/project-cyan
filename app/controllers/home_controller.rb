@@ -296,6 +296,8 @@ class HomeController < ApplicationController
 
       shoko = Shoko::Client.new
       series = shoko.find_series(name:, year:, mal_id:, alternatives:)
+      return user_activity if series.blank?
+
       fanart_url = shoko.get_fanart_by_series(series:)
 
       tvdb_id = series&.[](:IDs)&.[](:TvDB)&.first

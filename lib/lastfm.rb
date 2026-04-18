@@ -57,10 +57,10 @@ module LastFM
       end
     rescue HTTParty::Error, ApiError => e
       Rails.logger.tagged("LASTFM".yellow, log_tag, user.to_s.yellow) do
-        Rails.logger.error("ERROR".red, e.message)
+        Rails.logger.error("ERROR: #{e.message}".red)
       end
 
-      nil
+      raise e
     end
 
     def get_top_artists(user:, period:, limit:)
@@ -100,10 +100,10 @@ module LastFM
       top_artists
     rescue HTTParty::Error, ApiError => e
       Rails.logger.tagged("LASTFM".yellow, log_tag, user.to_s.yellow) do
-        Rails.logger.error("ERROR".red, e.message)
+        Rails.logger.error("ERROR: #{e.message}".red)
       end
 
-      nil
+      raise e
     end
   end
 

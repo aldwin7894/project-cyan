@@ -55,20 +55,18 @@ class ActionView::Base
   include ::Recaptcha::Adapters::ViewMethods
 end
 
-module ERB::Escape; end
-
-# source://recaptcha//lib/recaptcha/configuration.rb#3
+# pkg:gem/recaptcha#lib/recaptcha/configuration.rb:3
 module Recaptcha
   class << self
-    # source://recaptcha//lib/recaptcha.rb#127
+    # pkg:gem/recaptcha#lib/recaptcha.rb:129
     def api_verification_enterprise(query_params, body, project_id, timeout: T.unsafe(nil)); end
 
-    # source://recaptcha//lib/recaptcha.rb#112
+    # pkg:gem/recaptcha#lib/recaptcha.rb:114
     def api_verification_free(verify_hash, timeout: T.unsafe(nil), json: T.unsafe(nil)); end
 
     # Gives access to the current Configuration.
     #
-    # source://recaptcha//lib/recaptcha.rb#26
+    # pkg:gem/recaptcha#lib/recaptcha.rb:26
     def configuration; end
 
     # Allows easy setting of multiple configuration options. See Configuration
@@ -80,55 +78,55 @@ module Recaptcha
     #
     # @yield [config]
     #
-    # source://recaptcha//lib/recaptcha.rb#36
+    # pkg:gem/recaptcha#lib/recaptcha.rb:36
     def configure; end
 
-    # source://recaptcha//lib/recaptcha.rb#97
+    # pkg:gem/recaptcha#lib/recaptcha.rb:99
     def http_client_for(uri:, timeout: T.unsafe(nil)); end
 
     # @return [Boolean]
     #
-    # source://recaptcha//lib/recaptcha.rb#58
+    # pkg:gem/recaptcha#lib/recaptcha.rb:60
     def invalid_response?(resp); end
 
     # @return [Boolean]
     #
-    # source://recaptcha//lib/recaptcha.rb#54
+    # pkg:gem/recaptcha#lib/recaptcha.rb:54
     def skip_env?(env); end
 
-    # source://recaptcha//lib/recaptcha.rb#62
+    # pkg:gem/recaptcha#lib/recaptcha.rb:64
     def verify_via_api_call(response, options); end
 
-    # source://recaptcha//lib/recaptcha.rb#70
+    # pkg:gem/recaptcha#lib/recaptcha.rb:72
     def verify_via_api_call_enterprise(response, options); end
 
-    # source://recaptcha//lib/recaptcha.rb#86
+    # pkg:gem/recaptcha#lib/recaptcha.rb:88
     def verify_via_api_call_free(response, options); end
 
-    # source://recaptcha//lib/recaptcha.rb#41
+    # pkg:gem/recaptcha#lib/recaptcha.rb:41
     def with_configuration(config); end
   end
 end
 
-# source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#4
+# pkg:gem/recaptcha#lib/recaptcha/adapters/controller_methods.rb:4
 module Recaptcha::Adapters; end
 
-# source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#5
+# pkg:gem/recaptcha#lib/recaptcha/adapters/controller_methods.rb:5
 module Recaptcha::Adapters::ControllerMethods
   private
 
-  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#90
+  # pkg:gem/recaptcha#lib/recaptcha/adapters/controller_methods.rb:90
   def recaptcha_error(model, attribute, message); end
 
-  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#86
+  # pkg:gem/recaptcha#lib/recaptcha/adapters/controller_methods.rb:86
   def recaptcha_failure_reason; end
 
   # @return [Boolean]
   #
-  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#98
+  # pkg:gem/recaptcha#lib/recaptcha/adapters/controller_methods.rb:98
   def recaptcha_flash_supported?; end
 
-  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#82
+  # pkg:gem/recaptcha#lib/recaptcha/adapters/controller_methods.rb:82
   def recaptcha_reply; end
 
   # Extracts response token from params. params['g-recaptcha-response-data'] for recaptcha_v3 or
@@ -138,29 +136,29 @@ module Recaptcha::Adapters::ControllerMethods
   #
   # @return [String] A response token if one was passed in the params; otherwise, `''`
   #
-  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#109
+  # pkg:gem/recaptcha#lib/recaptcha/adapters/controller_methods.rb:109
   def recaptcha_response_token(action = T.unsafe(nil)); end
 
   # Your private API can be specified in the +options+ hash or preferably
   # using the Configuration.
   #
-  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#10
+  # pkg:gem/recaptcha#lib/recaptcha/adapters/controller_methods.rb:10
   def verify_recaptcha(options = T.unsafe(nil)); end
 
-  # source://recaptcha//lib/recaptcha/adapters/controller_methods.rb#78
+  # pkg:gem/recaptcha#lib/recaptcha/adapters/controller_methods.rb:78
   def verify_recaptcha!(options = T.unsafe(nil)); end
 end
 
-# source://recaptcha//lib/recaptcha/adapters/view_methods.rb#5
+# pkg:gem/recaptcha#lib/recaptcha/adapters/view_methods.rb:5
 module Recaptcha::Adapters::ViewMethods
   # Renders a reCAPTCHA v2 [Invisible reCAPTCHA](https://developers.google.com/recaptcha/docs/invisible)
   #
-  # source://recaptcha//lib/recaptcha/adapters/view_methods.rb#21
+  # pkg:gem/recaptcha#lib/recaptcha/adapters/view_methods.rb:21
   def invisible_recaptcha_tags(options = T.unsafe(nil)); end
 
   # Renders a reCAPTCHA [v2 Checkbox](https://developers.google.com/recaptcha/docs/display) widget
   #
-  # source://recaptcha//lib/recaptcha/adapters/view_methods.rb#16
+  # pkg:gem/recaptcha#lib/recaptcha/adapters/view_methods.rb:16
   def recaptcha_tags(options = T.unsafe(nil)); end
 
   # Renders a [reCAPTCHA v3](https://developers.google.com/recaptcha/docs/v3) script and (by
@@ -169,7 +167,7 @@ module Recaptcha::Adapters::ViewMethods
   # `Recaptcha::Helpers.recaptcha_v3_execute_function_name(action)` to get the name of the
   # function to call.
   #
-  # source://recaptcha//lib/recaptcha/adapters/view_methods.rb#11
+  # pkg:gem/recaptcha#lib/recaptcha/adapters/view_methods.rb:11
   def recaptcha_v3(options = T.unsafe(nil)); end
 end
 
@@ -201,263 +199,263 @@ end
 #     config.secret_key = '6Lc6BAAAAAAAAKN3DRm6VA_xxxxxxxxxxxxxxxxx'
 #   end
 #
-# source://recaptcha//lib/recaptcha/configuration.rb#32
+# pkg:gem/recaptcha#lib/recaptcha/configuration.rb:32
 class Recaptcha::Configuration
   # @return [Configuration] a new instance of Configuration
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#46
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:46
   def initialize; end
 
-  # source://recaptcha//lib/recaptcha/configuration.rb#81
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:81
   def api_server_url; end
 
   # Sets the attribute api_server_url
   #
   # @param value the value to set the attribute api_server_url to.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#44
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:44
   def api_server_url=(_arg0); end
 
   # Returns the value of attribute default_env.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def default_env; end
 
   # Sets the attribute default_env
   #
   # @param value the value to set the attribute default_env to.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def default_env=(_arg0); end
 
   # Returns the value of attribute enterprise.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def enterprise; end
 
   # Sets the attribute enterprise
   #
   # @param value the value to set the attribute enterprise to.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def enterprise=(_arg0); end
 
   # Returns the value of attribute enterprise_api_key.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def enterprise_api_key; end
 
-  # source://recaptcha//lib/recaptcha/configuration.rb#73
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:73
   def enterprise_api_key!; end
 
   # Sets the attribute enterprise_api_key
   #
   # @param value the value to set the attribute enterprise_api_key to.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def enterprise_api_key=(_arg0); end
 
   # Returns the value of attribute enterprise_project_id.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def enterprise_project_id; end
 
-  # source://recaptcha//lib/recaptcha/configuration.rb#77
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:77
   def enterprise_project_id!; end
 
   # Sets the attribute enterprise_project_id
   #
   # @param value the value to set the attribute enterprise_project_id to.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def enterprise_project_id=(_arg0); end
 
   # Returns the value of attribute handle_timeouts_gracefully.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def handle_timeouts_gracefully; end
 
   # Sets the attribute handle_timeouts_gracefully
   #
   # @param value the value to set the attribute handle_timeouts_gracefully to.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def handle_timeouts_gracefully=(_arg0); end
 
   # Returns the value of attribute hostname.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def hostname; end
 
   # Sets the attribute hostname
   #
   # @param value the value to set the attribute hostname to.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def hostname=(_arg0); end
 
   # Returns the value of attribute proxy.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def proxy; end
 
   # Sets the attribute proxy
   #
   # @param value the value to set the attribute proxy to.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def proxy=(_arg0); end
 
   # Returns the value of attribute response_limit.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def response_limit; end
 
   # Sets the attribute response_limit
   #
   # @param value the value to set the attribute response_limit to.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def response_limit=(_arg0); end
 
   # Returns the value of attribute response_minimum.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def response_minimum; end
 
   # Sets the attribute response_minimum
   #
   # @param value the value to set the attribute response_minimum to.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def response_minimum=(_arg0); end
 
   # Returns the value of attribute secret_key.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def secret_key; end
 
-  # source://recaptcha//lib/recaptcha/configuration.rb#65
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:65
   def secret_key!; end
 
   # Sets the attribute secret_key
   #
   # @param value the value to set the attribute secret_key to.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def secret_key=(_arg0); end
 
   # Returns the value of attribute site_key.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def site_key; end
 
-  # source://recaptcha//lib/recaptcha/configuration.rb#69
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:69
   def site_key!; end
 
   # Sets the attribute site_key
   #
   # @param value the value to set the attribute site_key to.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def site_key=(_arg0); end
 
   # Returns the value of attribute skip_verify_env.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def skip_verify_env; end
 
   # Sets the attribute skip_verify_env
   #
   # @param value the value to set the attribute skip_verify_env to.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#40
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:40
   def skip_verify_env=(_arg0); end
 
-  # source://recaptcha//lib/recaptcha/configuration.rb#85
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:85
   def verify_url; end
 
   # Sets the attribute verify_url
   #
   # @param value the value to set the attribute verify_url to.
   #
-  # source://recaptcha//lib/recaptcha/configuration.rb#44
+  # pkg:gem/recaptcha#lib/recaptcha/configuration.rb:44
   def verify_url=(_arg0); end
 end
 
-# source://recaptcha//lib/recaptcha/configuration.rb#33
+# pkg:gem/recaptcha#lib/recaptcha/configuration.rb:33
 Recaptcha::Configuration::DEFAULTS = T.let(T.unsafe(nil), Hash)
 
-# source://recaptcha//lib/recaptcha.rb#17
+# pkg:gem/recaptcha#lib/recaptcha.rb:17
 Recaptcha::DEFAULT_TIMEOUT = T.let(T.unsafe(nil), Integer)
 
-# source://recaptcha//lib/recaptcha/helpers.rb#4
+# pkg:gem/recaptcha#lib/recaptcha/helpers.rb:4
 module Recaptcha::Helpers
   class << self
-    # source://recaptcha//lib/recaptcha/helpers.rb#91
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:91
     def invisible_recaptcha_tags(custom); end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#304
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:304
     def recaptcha_execute_method_name; end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#308
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:308
     def recaptcha_ready_method_name; end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#48
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:48
     def recaptcha_tags(options); end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#10
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:10
     def recaptcha_v3(options = T.unsafe(nil)); end
 
     # Returns the name of an async JavaScript function that executes the reCAPTCHA code.
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#266
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:266
     def recaptcha_v3_async_execute_function_name(action); end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#270
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:270
     def recaptcha_v3_default_callback_name(action); end
 
     # Returns the name of the JavaScript function that actually executes the
     # reCAPTCHA code (calls `grecaptcha.execute` or
     # `grecaptcha.enterprise.execute`). You can call it again later to reset it.
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#261
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:261
     def recaptcha_v3_execute_function_name(action); end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#110
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:110
     def to_error_message(key); end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#116
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:116
     def to_message(key, default); end
 
     private
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#125
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:125
     def components(options); end
 
     # Returns a dasherized string that is safe for use as an HTML ID
     # dasherize_action('my/action') => 'my-action'
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#327
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:327
     def dasherize_action(action); end
 
     # v2
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#276
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:276
     def default_callback(options = T.unsafe(nil)); end
 
     # @return [Boolean]
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#312
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:312
     def default_callback_required?(options); end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#335
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:335
     def element_check_condition(options); end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#331
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:331
     def hash_to_query(hash); end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#241
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:241
     def recaptcha_v3_define_default_callback(callback, options); end
 
     # Returns true if we should be adding the default callback.
@@ -466,121 +464,121 @@ module Recaptcha::Helpers
     #
     # @return [Boolean]
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#253
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:253
     def recaptcha_v3_define_default_callback?(callback, action, options); end
 
     # Renders a script that calls `grecaptcha.execute` or
     # `grecaptcha.enterprise.execute` for the given `site_key` and `action` and
     # calls the `callback` with the resulting response token.
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#183
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:183
     def recaptcha_v3_inline_script(site_key, action, callback, id, options = T.unsafe(nil)); end
 
     # @return [Boolean]
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#235
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:235
     def recaptcha_v3_inline_script?(options); end
 
-    # source://recaptcha//lib/recaptcha/helpers.rb#217
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:217
     def recaptcha_v3_onload_script(site_key, action, callback, id, options = T.unsafe(nil)); end
 
     # Returns a camelized string that is safe for use in a JavaScript variable/function name.
     # sanitize_action_for_js('my/action') => 'MyAction'
     #
-    # source://recaptcha//lib/recaptcha/helpers.rb#321
+    # pkg:gem/recaptcha#lib/recaptcha/helpers.rb:321
     def sanitize_action_for_js(action); end
   end
 end
 
-# source://recaptcha//lib/recaptcha/helpers.rb#5
+# pkg:gem/recaptcha#lib/recaptcha/helpers.rb:5
 Recaptcha::Helpers::DEFAULT_ERRORS = T.let(T.unsafe(nil), Hash)
 
-# source://recaptcha//lib/recaptcha/railtie.rb#4
+# pkg:gem/recaptcha#lib/recaptcha/railtie.rb:4
 class Recaptcha::Railtie < ::Rails::Railtie
   class << self
     protected
 
-    # source://recaptcha//lib/recaptcha/railtie.rb#24
+    # pkg:gem/recaptcha#lib/recaptcha/railtie.rb:24
     def add(pattern); end
 
-    # source://recaptcha//lib/recaptcha/railtie.rb#29
+    # pkg:gem/recaptcha#lib/recaptcha/railtie.rb:29
     def pattern_from(args); end
   end
 end
 
-# source://recaptcha//lib/recaptcha.rb#19
+# pkg:gem/recaptcha#lib/recaptcha.rb:19
 class Recaptcha::RecaptchaError < ::StandardError; end
 
-# source://recaptcha//lib/recaptcha/reply.rb#4
+# pkg:gem/recaptcha#lib/recaptcha/reply.rb:4
 class Recaptcha::Reply
   # @return [Reply] a new instance of Reply
   #
-  # source://recaptcha//lib/recaptcha/reply.rb#5
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:5
   def initialize(raw_reply, enterprise:); end
 
-  # source://recaptcha//lib/recaptcha/reply.rb#10
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:10
   def [](key); end
 
-  # source://recaptcha//lib/recaptcha/reply.rb#42
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:42
   def action; end
 
   # @return [Boolean]
   #
-  # source://recaptcha//lib/recaptcha/reply.rb#85
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:85
   def action_valid?(expected_action); end
 
-  # source://recaptcha//lib/recaptcha/reply.rb#66
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:66
   def challenge_ts; end
 
   # @return [Boolean]
   #
-  # source://recaptcha//lib/recaptcha/reply.rb#102
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:102
   def enterprise?; end
 
-  # source://recaptcha//lib/recaptcha/reply.rb#58
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:58
   def error_codes; end
 
-  # source://recaptcha//lib/recaptcha/reply.rb#34
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:34
   def hostname; end
 
   # @return [Boolean]
   #
-  # source://recaptcha//lib/recaptcha/reply.rb#72
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:72
   def hostname_valid?(validation); end
 
-  # source://recaptcha//lib/recaptcha/reply.rb#50
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:50
   def score; end
 
   # @return [Boolean]
   #
-  # source://recaptcha//lib/recaptcha/reply.rb#94
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:94
   def score_above_threshold?(minimum_score); end
 
   # @return [Boolean]
   #
-  # source://recaptcha//lib/recaptcha/reply.rb#98
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:98
   def score_below_threshold?(maximum_score); end
 
-  # source://recaptcha//lib/recaptcha/reply.rb#26
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:26
   def success; end
 
   # @return [Boolean]
   #
-  # source://recaptcha//lib/recaptcha/reply.rb#14
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:14
   def success?(options = T.unsafe(nil)); end
 
-  # source://recaptcha//lib/recaptcha/reply.rb#106
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:106
   def to_h; end
 
-  # source://recaptcha//lib/recaptcha/reply.rb#114
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:114
   def to_json(*args); end
 
-  # source://recaptcha//lib/recaptcha/reply.rb#110
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:110
   def to_s; end
 
-  # source://recaptcha//lib/recaptcha/reply.rb#22
+  # pkg:gem/recaptcha#lib/recaptcha/reply.rb:22
   def token_properties; end
 end
 
-# source://recaptcha//lib/recaptcha.rb#22
+# pkg:gem/recaptcha#lib/recaptcha.rb:22
 class Recaptcha::VerifyError < ::Recaptcha::RecaptchaError; end

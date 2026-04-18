@@ -16,14 +16,6 @@ module FFI
     # pkg:gem/ffi#lib/ffi.rb:3
     def _async_cb_dispatcher_atfork_child; end
 
-    # Add a definition type to type definitions.
-    #
-    # The type definition is local per Ractor.
-    #
-    # @param add [Symbol] new type definition's name to add
-    # @param old [Type, DataConverter, Symbol] type definition used by {FFI.find_type}
-    # @return [Type]
-    #
     # pkg:gem/ffi#lib/ffi/types.rb:62
     def add_typedef(old, add); end
 

@@ -7,10 +7,10 @@
 
 # $: << File.join(File.dirname(__FILE__), "..", "..", "vendor", "bundle")
 #
-# source://logstash-event//lib/logstash/namespace.rb#3
+# pkg:gem/logstash-event#lib/logstash/namespace.rb:3
 module LogStash; end
 
-# source://logstash-event//lib/logstash/namespace.rb#8
+# pkg:gem/logstash-event#lib/logstash/namespace.rb:8
 module LogStash::Config; end
 
 # the logstash event object.
@@ -36,152 +36,152 @@ module LogStash::Config; end
 #       message: "hello world"
 #     }
 #
-# source://logstash-event//lib/logstash/event.rb#41
+# pkg:gem/logstash-event#lib/logstash/event.rb:41
 class LogStash::Event
   # @return [Event] a new instance of Event
   #
-  # source://logstash-event//lib/logstash/event.rb#45
+  # pkg:gem/logstash-event#lib/logstash/event.rb:45
   def initialize(data = T.unsafe(nil)); end
 
-  # source://logstash-event//lib/logstash/event.rb#125
+  # pkg:gem/logstash-event#lib/logstash/event.rb:125
   def [](str); end
 
-  # source://logstash-event//lib/logstash/event.rb#133
+  # pkg:gem/logstash-event#lib/logstash/event.rb:133
   def []=(str, value); end
 
-  # source://logstash-event//lib/logstash/event.rb#188
+  # pkg:gem/logstash-event#lib/logstash/event.rb:188
   def append(event); end
 
-  # source://logstash-event//lib/logstash/event.rb#74
+  # pkg:gem/logstash-event#lib/logstash/event.rb:74
   def cancel; end
 
   # @return [Boolean]
   #
-  # source://logstash-event//lib/logstash/event.rb#84
+  # pkg:gem/logstash-event#lib/logstash/event.rb:84
   def cancelled?; end
 
-  # source://logstash-event//lib/logstash/event.rb#90
+  # pkg:gem/logstash-event#lib/logstash/event.rb:90
   def clone; end
 
   # @raise [DeprecatedMethod]
   #
-  # source://logstash-event//lib/logstash/event.rb#163
+  # pkg:gem/logstash-event#lib/logstash/event.rb:163
   def fields; end
 
   # @return [Boolean]
   #
-  # source://logstash-event//lib/logstash/event.rb#182
+  # pkg:gem/logstash-event#lib/logstash/event.rb:182
   def include?(key); end
 
-  # source://logstash-event//lib/logstash/event.rb#261
+  # pkg:gem/logstash-event#lib/logstash/event.rb:261
   def message=(value); end
 
-  # source://logstash-event//lib/logstash/event.rb#177
+  # pkg:gem/logstash-event#lib/logstash/event.rb:177
   def overwrite(event); end
 
-  # source://logstash-event//lib/logstash/event.rb#196
+  # pkg:gem/logstash-event#lib/logstash/event.rb:196
   def remove(str); end
 
   # def unix_timestamp
   #
   # @raise [DeprecatedMethod]
   #
-  # source://logstash-event//lib/logstash/event.rb#119
+  # pkg:gem/logstash-event#lib/logstash/event.rb:119
   def ruby_timestamp; end
 
-  # source://logstash-event//lib/logstash/event.rb#262
+  # pkg:gem/logstash-event#lib/logstash/event.rb:262
   def source=(value); end
 
-  # source://logstash-event//lib/logstash/event.rb#219
+  # pkg:gem/logstash-event#lib/logstash/event.rb:219
   def sprintf(format); end
 
-  # source://logstash-event//lib/logstash/event.rb#267
+  # pkg:gem/logstash-event#lib/logstash/event.rb:267
   def tag(value); end
 
-  # source://logstash-event//lib/logstash/event.rb#260
+  # pkg:gem/logstash-event#lib/logstash/event.rb:260
   def tags; end
 
   # Shims to remove after event v1 is the default.
   #
-  # source://logstash-event//lib/logstash/event.rb#259
+  # pkg:gem/logstash-event#lib/logstash/event.rb:259
   def tags=(value); end
 
   # def timestamp
   #
-  # source://logstash-event//lib/logstash/event.rb#112
+  # pkg:gem/logstash-event#lib/logstash/event.rb:112
   def timestamp; end
 
   # def timestamp=
   #
-  # source://logstash-event//lib/logstash/event.rb#113
+  # pkg:gem/logstash-event#lib/logstash/event.rb:113
   def timestamp=(val); end
 
   # def to_json
   #
-  # source://logstash-event//lib/logstash/event.rb#172
+  # pkg:gem/logstash-event#lib/logstash/event.rb:172
   def to_hash; end
 
-  # source://logstash-event//lib/logstash/event.rb#168
+  # pkg:gem/logstash-event#lib/logstash/event.rb:168
   def to_json(*args); end
 
-  # source://logstash-event//lib/logstash/event.rb#106
+  # pkg:gem/logstash-event#lib/logstash/event.rb:106
   def to_s; end
 
-  # source://logstash-event//lib/logstash/event.rb#264
+  # pkg:gem/logstash-event#lib/logstash/event.rb:264
   def type; end
 
-  # source://logstash-event//lib/logstash/event.rb#263
+  # pkg:gem/logstash-event#lib/logstash/event.rb:263
   def type=(value); end
 
-  # source://logstash-event//lib/logstash/event.rb#79
+  # pkg:gem/logstash-event#lib/logstash/event.rb:79
   def uncancel; end
 
   # @raise [DeprecatedMethod]
   #
-  # source://logstash-event//lib/logstash/event.rb#115
+  # pkg:gem/logstash-event#lib/logstash/event.rb:115
   def unix_timestamp; end
 
   class << self
     # @private
     #
-    # source://logstash-event//lib/logstash/event.rb#62
+    # pkg:gem/logstash-event#lib/logstash/event.rb:62
     def included(klass); end
   end
 end
 
 # def included
 #
-# source://logstash-event//lib/logstash/event.rb#66
+# pkg:gem/logstash-event#lib/logstash/event.rb:66
 module LogStash::Event::ClassMethods
-  # source://logstash-event//lib/logstash/event.rb#68
+  # pkg:gem/logstash-event#lib/logstash/event.rb:68
   def from_json(json); end
 end
 
-# source://logstash-event//lib/logstash/event.rb#42
+# pkg:gem/logstash-event#lib/logstash/event.rb:42
 class LogStash::Event::DeprecatedMethod < ::StandardError; end
 
-# source://logstash-event//lib/logstash/namespace.rb#9
+# pkg:gem/logstash-event#lib/logstash/namespace.rb:9
 module LogStash::File; end
 
-# source://logstash-event//lib/logstash/namespace.rb#6
+# pkg:gem/logstash-event#lib/logstash/namespace.rb:6
 module LogStash::Filters; end
 
-# source://logstash-event//lib/logstash/namespace.rb#4
+# pkg:gem/logstash-event#lib/logstash/namespace.rb:4
 module LogStash::Inputs; end
 
-# source://logstash-event//lib/logstash/namespace.rb#5
+# pkg:gem/logstash-event#lib/logstash/namespace.rb:5
 module LogStash::Outputs; end
 
-# source://logstash-event//lib/logstash/namespace.rb#12
+# pkg:gem/logstash-event#lib/logstash/namespace.rb:12
 module LogStash::PluginMixins; end
 
-# source://logstash-event//lib/logstash/namespace.rb#14
+# pkg:gem/logstash-event#lib/logstash/namespace.rb:14
 LogStash::SHUTDOWN = T.let(T.unsafe(nil), Symbol)
 
-# source://logstash-event//lib/logstash/namespace.rb#7
+# pkg:gem/logstash-event#lib/logstash/namespace.rb:7
 module LogStash::Search; end
 
-# source://logstash-event//lib/logstash/namespace.rb#11
+# pkg:gem/logstash-event#lib/logstash/namespace.rb:11
 module LogStash::Util
   class << self
     # Merge hash 'src' into 'dst' nondestructively
@@ -190,12 +190,12 @@ module LogStash::Util
     #
     # [ src["foo"], dst["foo"] ]
     #
-    # source://logstash-event//lib/logstash/util.rb#30
+    # pkg:gem/logstash-event#lib/logstash/util.rb:30
     def hash_merge(dst, src); end
 
     # def self.hash_merge
     #
-    # source://logstash-event//lib/logstash/util.rb#98
+    # pkg:gem/logstash-event#lib/logstash/util.rb:98
     def hash_merge_many(*hashes); end
 
     # Merge hash 'src' into 'dst' nondestructively
@@ -205,46 +205,46 @@ module LogStash::Util
     #
     # [ src["foo"], dst["foo"] ]
     #
-    # source://logstash-event//lib/logstash/util.rb#67
+    # pkg:gem/logstash-event#lib/logstash/util.rb:67
     def hash_merge_with_dups(dst, src); end
 
-    # source://logstash-event//lib/logstash/util.rb#10
+    # pkg:gem/logstash-event#lib/logstash/util.rb:10
     def set_thread_name(name); end
   end
 end
 
-# source://logstash-event//lib/logstash/util/fieldreference.rb#4
+# pkg:gem/logstash-event#lib/logstash/util/fieldreference.rb:4
 module LogStash::Util::FieldReference
   extend ::LogStash::Util::FieldReference
 
-  # source://logstash-event//lib/logstash/util/fieldreference.rb#5
+  # pkg:gem/logstash-event#lib/logstash/util/fieldreference.rb:5
   def compile(str); end
 
   # def compile
   #
-  # source://logstash-event//lib/logstash/util/fieldreference.rb#42
+  # pkg:gem/logstash-event#lib/logstash/util/fieldreference.rb:42
   def exec(str, obj, &block); end
 end
 
-# source://logstash-event//lib/logstash/util.rb#9
+# pkg:gem/logstash-event#lib/logstash/util.rb:9
 LogStash::Util::PR_SET_NAME = T.let(T.unsafe(nil), Integer)
 
-# source://logstash-event//lib/logstash/util.rb#4
+# pkg:gem/logstash-event#lib/logstash/util.rb:4
 LogStash::Util::UNAME = T.let(T.unsafe(nil), String)
 
-# source://logstash-event//lib/logstash/namespace.rb#10
+# pkg:gem/logstash-event#lib/logstash/namespace.rb:10
 module LogStash::Web; end
 
 # Use a custom serialization for jsonifying Time objects.
 # TODO(sissel): Put this in a separate file.
 #
-# source://logstash-event//lib/logstash/event.rb#9
+# pkg:gem/logstash-event#lib/logstash/event.rb:9
 class Time
   include ::Comparable
 
-  # source://logstash-event//lib/logstash/event.rb#14
+  # pkg:gem/logstash-event#lib/logstash/event.rb:14
   def inspect; end
 
-  # source://logstash-event//lib/logstash/event.rb#10
+  # pkg:gem/logstash-event#lib/logstash/event.rb:10
   def to_json(*args); end
 end

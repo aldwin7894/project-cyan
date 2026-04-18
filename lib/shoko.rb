@@ -125,7 +125,7 @@ module Shoko
       series
     rescue HTTParty::Error, ApiError, JSON::ParserError => e
       Rails.logger.tagged("SHOKO".yellow, log_tag, name.yellow) do
-        Rails.logger.error("ERROR".red, e.message)
+        Rails.logger.error("ERROR: #{e.message}".red)
       end
 
       nil

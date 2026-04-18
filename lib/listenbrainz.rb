@@ -54,10 +54,10 @@ module ListenBrainz
       end
     rescue HTTParty::Error, ApiError => e
       Rails.logger.tagged("LISTENBRAINZ".yellow, log_tag, user.to_s.yellow) do
-        Rails.logger.error("ERROR".red, e.message)
+        Rails.logger.error("ERROR: #{e.message}".red)
       end
 
-      nil
+      raise e
     end
 
     def get_now_playing(user:)
@@ -76,10 +76,10 @@ module ListenBrainz
       end
     rescue HTTParty::Error, ApiError => e
       Rails.logger.tagged("LISTENBRAINZ".yellow, log_tag, user.to_s.yellow) do
-        Rails.logger.error("ERROR".red, e.message)
+        Rails.logger.error("ERROR: #{e.message}".red)
       end
 
-      nil
+      raise e
     end
 
     def get_loved_tracks(user:, offset: 0)
@@ -108,10 +108,10 @@ module ListenBrainz
       { data:, total:, ratelimit_remaining: }
     rescue HTTParty::Error, ApiError => e
       Rails.logger.tagged("LISTENBRAINZ".yellow, log_tag, user.to_s.yellow) do
-        Rails.logger.error("ERROR".red, e.message)
+        Rails.logger.error("ERROR: #{e.message}".red)
       end
 
-      nil
+      raise e
     end
   end
 

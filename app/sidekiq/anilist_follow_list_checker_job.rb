@@ -28,7 +28,6 @@ class AnilistFollowListCheckerJob
     if type === "following" && page === 1
       user.following.destroy_all
       user.followers.destroy_all
-      user.job_id = self.jid
     end
 
     if type === "following"

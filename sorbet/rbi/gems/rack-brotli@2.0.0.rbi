@@ -5,16 +5,16 @@
 # Please instead update this file by running `bin/tapioca gem rack-brotli`.
 
 
-# source://rack-brotli//lib/rack/brotli/version.rb#1
+# pkg:gem/rack-brotli#lib/rack/brotli/version.rb:1
 module Rack; end
 
-# source://rack-brotli//lib/rack/brotli/deflater.rb#8
+# pkg:gem/rack-brotli#lib/rack/brotli/deflater.rb:8
 module Rack::Brotli
   class << self
-    # source://rack-brotli//lib/rack/brotli.rb#10
+    # pkg:gem/rack-brotli#lib/rack/brotli.rb:10
     def new(app, options = T.unsafe(nil)); end
 
-    # source://rack-brotli//lib/rack/brotli.rb#6
+    # pkg:gem/rack-brotli#lib/rack/brotli.rb:6
     def release; end
   end
 end
@@ -22,7 +22,7 @@ end
 # This middleware enables compression of http responses with the `br` encoding,
 # when support is detected and allowed.
 #
-# source://rack-brotli//lib/rack/brotli/deflater.rb#11
+# pkg:gem/rack-brotli#lib/rack/brotli/deflater.rb:11
 class Rack::Brotli::Deflater
   # Creates Rack::Brotli middleware.
   #
@@ -39,10 +39,10 @@ class Rack::Brotli::Deflater
   #
   # @return [Deflater] a new instance of Deflater
   #
-  # source://rack-brotli//lib/rack/brotli/deflater.rb#25
+  # pkg:gem/rack-brotli#lib/rack/brotli/deflater.rb:25
   def initialize(app, options = T.unsafe(nil)); end
 
-  # source://rack-brotli//lib/rack/brotli/deflater.rb#34
+  # pkg:gem/rack-brotli#lib/rack/brotli/deflater.rb:34
   def call(env); end
 
   private
@@ -51,42 +51,42 @@ class Rack::Brotli::Deflater
   #
   # @return [Boolean]
   #
-  # source://rack-brotli//lib/rack/brotli/deflater.rb#115
+  # pkg:gem/rack-brotli#lib/rack/brotli/deflater.rb:115
   def should_deflate?(env, status, headers, body); end
 end
 
 # Body class used for encoded responses.
 #
-# source://rack-brotli//lib/rack/brotli/deflater.rb#68
+# pkg:gem/rack-brotli#lib/rack/brotli/deflater.rb:68
 class Rack::Brotli::Deflater::BrotliStream
   # @return [BrotliStream] a new instance of BrotliStream
   #
-  # source://rack-brotli//lib/rack/brotli/deflater.rb#72
+  # pkg:gem/rack-brotli#lib/rack/brotli/deflater.rb:72
   def initialize(body, sync, br_options); end
 
   # Close the original body if possible.
   #
-  # source://rack-brotli//lib/rack/brotli/deflater.rb#107
+  # pkg:gem/rack-brotli#lib/rack/brotli/deflater.rb:107
   def close; end
 
   # Yield compressed strings to the given block.
   #
-  # source://rack-brotli//lib/rack/brotli/deflater.rb#79
+  # pkg:gem/rack-brotli#lib/rack/brotli/deflater.rb:79
   def each(&block); end
 
   # Call the block passed to #each with the compressed data.
   #
-  # source://rack-brotli//lib/rack/brotli/deflater.rb#102
+  # pkg:gem/rack-brotli#lib/rack/brotli/deflater.rb:102
   def write(data); end
 end
 
-# source://rack-brotli//lib/rack/brotli/deflater.rb#70
+# pkg:gem/rack-brotli#lib/rack/brotli/deflater.rb:70
 Rack::Brotli::Deflater::BrotliStream::BUFFER_LENGTH = T.let(T.unsafe(nil), Integer)
 
-# source://rack-brotli//lib/rack/brotli/version.rb#3
+# pkg:gem/rack-brotli#lib/rack/brotli/version.rb:3
 class Rack::Brotli::Version
   class << self
-    # source://rack-brotli//lib/rack/brotli/version.rb#4
+    # pkg:gem/rack-brotli#lib/rack/brotli/version.rb:4
     def to_s; end
   end
 end

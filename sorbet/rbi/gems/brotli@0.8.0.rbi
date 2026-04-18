@@ -5,172 +5,175 @@
 # Please instead update this file by running `bin/tapioca gem brotli`.
 
 
-# source://brotli//lib/brotli/version.rb#1
+# pkg:gem/brotli#lib/brotli/version.rb:1
 module Brotli
   class << self
-    # source://brotli//lib/brotli.rb#2
+    # pkg:gem/brotli#lib/brotli.rb:2
     def deflate(*_arg0); end
 
-    # source://brotli//lib/brotli.rb#2
+    # pkg:gem/brotli#lib/brotli.rb:2
     def inflate(*_arg0); end
 
-    # source://brotli//lib/brotli.rb#2
+    # pkg:gem/brotli#lib/brotli.rb:2
     def version; end
   end
 end
 
+# pkg:gem/brotli#lib/brotli.rb:2
 class Brotli::Compressor
-  # source://brotli//lib/brotli.rb#2
+  # pkg:gem/brotli#lib/brotli.rb:2
   def initialize(*_arg0); end
 
-  # source://brotli//lib/brotli.rb#2
+  # pkg:gem/brotli#lib/brotli.rb:2
   def finish; end
 
-  # source://brotli//lib/brotli.rb#2
+  # pkg:gem/brotli#lib/brotli.rb:2
   def finished?; end
 
-  # source://brotli//lib/brotli.rb#2
+  # pkg:gem/brotli#lib/brotli.rb:2
   def flush; end
 
-  # source://brotli//lib/brotli.rb#2
+  # pkg:gem/brotli#lib/brotli.rb:2
   def process(_arg0); end
 end
 
+# pkg:gem/brotli#lib/brotli.rb:2
 class Brotli::Decompressor
-  # source://brotli//lib/brotli.rb#2
+  # pkg:gem/brotli#lib/brotli.rb:2
   def initialize(*_arg0); end
 
-  # source://brotli//lib/brotli.rb#2
+  # pkg:gem/brotli#lib/brotli.rb:2
   def can_accept_more_data; end
 
-  # source://brotli//lib/brotli.rb#2
+  # pkg:gem/brotli#lib/brotli.rb:2
   def can_accept_more_data?; end
 
-  # source://brotli//lib/brotli.rb#2
+  # pkg:gem/brotli#lib/brotli.rb:2
   def finished?; end
 
-  # source://brotli//lib/brotli.rb#2
+  # pkg:gem/brotli#lib/brotli.rb:2
   def is_finished; end
 
-  # source://brotli//lib/brotli.rb#2
+  # pkg:gem/brotli#lib/brotli.rb:2
   def process(*_arg0); end
 
-  # source://brotli//lib/brotli.rb#2
+  # pkg:gem/brotli#lib/brotli.rb:2
   def unused_data; end
 end
 
+# pkg:gem/brotli#lib/brotli.rb:2
 class Brotli::Error < ::StandardError; end
 
-# source://brotli//lib/brotli/reader.rb#4
+# pkg:gem/brotli#lib/brotli/reader.rb:4
 class Brotli::Reader
   # @raise [ArgumentError]
   # @return [Reader] a new instance of Reader
   #
-  # source://brotli//lib/brotli/reader.rb#7
+  # pkg:gem/brotli#lib/brotli/reader.rb:7
   def initialize(io, options = T.unsafe(nil), **kwargs); end
 
-  # source://brotli//lib/brotli/reader.rb#65
+  # pkg:gem/brotli#lib/brotli/reader.rb:65
   def close; end
 
   # @return [Boolean]
   #
-  # source://brotli//lib/brotli/reader.rb#80
+  # pkg:gem/brotli#lib/brotli/reader.rb:80
   def closed?; end
 
   # @return [Boolean]
   #
-  # source://brotli//lib/brotli/reader.rb#56
+  # pkg:gem/brotli#lib/brotli/reader.rb:56
   def eof?; end
 
   # @raise [ArgumentError]
   #
-  # source://brotli//lib/brotli/reader.rb#17
+  # pkg:gem/brotli#lib/brotli/reader.rb:17
   def read(length = T.unsafe(nil), outbuf = T.unsafe(nil)); end
 
   # @raise [ArgumentError]
   #
-  # source://brotli//lib/brotli/reader.rb#38
+  # pkg:gem/brotli#lib/brotli/reader.rb:38
   def readpartial(maxlen, outbuf = T.unsafe(nil)); end
 
   private
 
-  # source://brotli//lib/brotli/reader.rb#163
+  # pkg:gem/brotli#lib/brotli/reader.rb:163
   def coerce_string(value); end
 
-  # source://brotli//lib/brotli/reader.rb#110
+  # pkg:gem/brotli#lib/brotli/reader.rb:110
   def drain_stream; end
 
   # @raise [Error]
   #
-  # source://brotli//lib/brotli/reader.rb#86
+  # pkg:gem/brotli#lib/brotli/reader.rb:86
   def ensure_open; end
 
-  # source://brotli//lib/brotli/reader.rb#128
+  # pkg:gem/brotli#lib/brotli/reader.rb:128
   def feed_chunk(chunk, output_limit: T.unsafe(nil)); end
 
-  # source://brotli//lib/brotli/reader.rb#114
+  # pkg:gem/brotli#lib/brotli/reader.rb:114
   def fill_buffer(wanted, output_limit: T.unsafe(nil), stop_after_output: T.unsafe(nil)); end
 
-  # source://brotli//lib/brotli/reader.rb#139
+  # pkg:gem/brotli#lib/brotli/reader.rb:139
   def next_chunk; end
 
-  # source://brotli//lib/brotli/reader.rb#153
+  # pkg:gem/brotli#lib/brotli/reader.rb:153
   def normalize_options(options, kwargs); end
 
-  # source://brotli//lib/brotli/reader.rb#147
+  # pkg:gem/brotli#lib/brotli/reader.rb:147
   def remaining_output_limit(output_limit); end
 
-  # source://brotli//lib/brotli/reader.rb#90
+  # pkg:gem/brotli#lib/brotli/reader.rb:90
   def replace_outbuf(outbuf, string); end
 
-  # source://brotli//lib/brotli/reader.rb#98
+  # pkg:gem/brotli#lib/brotli/reader.rb:98
   def take_output(length = T.unsafe(nil)); end
 end
 
-# source://brotli//lib/brotli/reader.rb#5
+# pkg:gem/brotli#lib/brotli/reader.rb:5
 Brotli::Reader::DEFAULT_READ_SIZE = T.let(T.unsafe(nil), Integer)
 
-# source://brotli//lib/brotli/version.rb#2
+# pkg:gem/brotli#lib/brotli/version.rb:2
 Brotli::VERSION = T.let(T.unsafe(nil), String)
 
-# source://brotli//lib/brotli/writer.rb#4
+# pkg:gem/brotli#lib/brotli/writer.rb:4
 class Brotli::Writer
   # @raise [ArgumentError]
   # @return [Writer] a new instance of Writer
   #
-  # source://brotli//lib/brotli/writer.rb#5
+  # pkg:gem/brotli#lib/brotli/writer.rb:5
   def initialize(io, options = T.unsafe(nil), **kwargs); end
 
-  # source://brotli//lib/brotli/writer.rb#36
+  # pkg:gem/brotli#lib/brotli/writer.rb:36
   def close; end
 
   # @return [Boolean]
   #
-  # source://brotli//lib/brotli/writer.rb#53
+  # pkg:gem/brotli#lib/brotli/writer.rb:53
   def closed?; end
 
-  # source://brotli//lib/brotli/writer.rb#21
+  # pkg:gem/brotli#lib/brotli/writer.rb:21
   def finish; end
 
-  # source://brotli//lib/brotli/writer.rb#28
+  # pkg:gem/brotli#lib/brotli/writer.rb:28
   def flush; end
 
-  # source://brotli//lib/brotli/writer.rb#13
+  # pkg:gem/brotli#lib/brotli/writer.rb:13
   def write(data); end
 
   private
 
-  # source://brotli//lib/brotli/writer.rb#77
+  # pkg:gem/brotli#lib/brotli/writer.rb:77
   def coerce_string(value); end
 
   # @raise [Error]
   #
-  # source://brotli//lib/brotli/writer.rb#59
+  # pkg:gem/brotli#lib/brotli/writer.rb:59
   def ensure_open; end
 
-  # source://brotli//lib/brotli/writer.rb#67
+  # pkg:gem/brotli#lib/brotli/writer.rb:67
   def normalize_options(options, kwargs); end
 
-  # source://brotli//lib/brotli/writer.rb#63
+  # pkg:gem/brotli#lib/brotli/writer.rb:63
   def write_output(output); end
 end

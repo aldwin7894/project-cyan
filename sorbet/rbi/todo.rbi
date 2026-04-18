@@ -5,11 +5,8 @@
 # typed: false
 
 module ::RequireHooks::LoadIseq; end
-module ::Tapioca::SourceURI; end
 module ActiveRecord::ConnectionAdapters::DatabaseStatements; end
 module ActiveRecord::ConnectionAdapters::SchemaStatements; end
-module Parser::Builders::Default; end
-module Parser::Diagnostic; end
-module Parser::Source::Range; end
 module Set::SubclassCompatible; end
 module Set::SubclassCompatible::ClassMethods; end
+module ::ERB::Escape; end

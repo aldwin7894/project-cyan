@@ -19,7 +19,7 @@ end
 #
 # @since 0.0.0
 #
-# source://bson//lib/bson/environment.rb#17
+# pkg:gem/bson#lib/bson/environment.rb:17
 module BSON
   class << self
     # Create a new object id from a string using ObjectId.from_string
@@ -32,7 +32,7 @@ module BSON
     # @see ObjectId.from_string
     # @since 0.0.0
     #
-    # source://bson//lib/bson.rb#36
+    # pkg:gem/bson#lib/bson.rb:36
     def ObjectId(string); end
   end
 end
@@ -43,7 +43,7 @@ end
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/array.rb#25
+# pkg:gem/bson#lib/bson/array.rb:25
 module BSON::Array
   # Converts this object to a representation directly serializable to
   # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
@@ -56,7 +56,7 @@ module BSON::Array
   # @return [Array] This array converted to extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/array.rb#104
+  # pkg:gem/bson#lib/bson/array.rb:104
   def as_extended_json(**options); end
 
   # Get the array as encoded BSON.
@@ -69,7 +69,7 @@ module BSON::Array
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/array.rb#44
+  # pkg:gem/bson#lib/bson/array.rb:44
   def to_bson(buffer = T.unsafe(nil)); end
 
   # Converts the array to a normalized value in a BSON document.
@@ -79,7 +79,7 @@ module BSON::Array
   # @return [Array] The normalized array.
   # @since 3.0.0
   #
-  # source://bson//lib/bson/array.rb#90
+  # pkg:gem/bson#lib/bson/array.rb:90
   def to_bson_normalized_value; end
 
   # Convert the array to an object id. This will only work for arrays of size
@@ -92,7 +92,7 @@ module BSON::Array
   # @return [String] The raw object id bytes.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/array.rb#78
+  # pkg:gem/bson#lib/bson/array.rb:78
   def to_bson_object_id; end
 end
 
@@ -100,14 +100,14 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/array.rb#29
+# pkg:gem/bson#lib/bson/array.rb:29
 BSON::Array::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # Class-level methods to be added to the Array class.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/array.rb#111
+# pkg:gem/bson#lib/bson/array.rb:111
 module BSON::Array::ClassMethods
   # Deserialize the array from BSON.
   #
@@ -122,7 +122,7 @@ module BSON::Array::ClassMethods
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/array.rb#126
+  # pkg:gem/bson#lib/bson/array.rb:126
   def from_bson(buffer, **options); end
 
   private
@@ -134,7 +134,7 @@ module BSON::Array::ClassMethods
   # @param options [Hash] the optional keyword arguments
   # @since 2.0.0
   #
-  # source://bson//lib/bson/array.rb#163
+  # pkg:gem/bson#lib/bson/array.rb:163
   def parse_array_elements_from_buffer(array, buffer, **options); end
 
   # Parse an array from the buffer.
@@ -146,7 +146,7 @@ module BSON::Array::ClassMethods
   # @return [Array] the array that was parsed
   # @since 2.0.0
   #
-  # source://bson//lib/bson/array.rb#145
+  # pkg:gem/bson#lib/bson/array.rb:145
   def parse_array_from_buffer(buffer, **options); end
 end
 
@@ -154,7 +154,7 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson.rb#43
+# pkg:gem/bson#lib/bson.rb:43
 BSON::BINARY = T.let(T.unsafe(nil), String)
 
 # Injects behaviour for encoding and decoding BigDecimals
@@ -162,12 +162,12 @@ BSON::BINARY = T.let(T.unsafe(nil), String)
 #
 # @see http://bsonspec.org/#/specification
 #
-# source://bson//lib/bson/big_decimal.rb#23
+# pkg:gem/bson#lib/bson/big_decimal.rb:23
 module BSON::BigDecimal
   # Get the BSON type for BigDecimal. This is the same BSON type as
   # BSON::Decimal128.
   #
-  # source://bson//lib/bson/big_decimal.rb#43
+  # pkg:gem/bson#lib/bson/big_decimal.rb:43
   def bson_type; end
 
   # Get the BigDecimal as encoded BSON.
@@ -177,17 +177,17 @@ module BSON::BigDecimal
   # @return [BSON::ByteBuffer] The buffer with the encoded object.
   # @see http://bsonspec.org/#/specification
   #
-  # source://bson//lib/bson/big_decimal.rb#37
+  # pkg:gem/bson#lib/bson/big_decimal.rb:37
   def to_bson(buffer = T.unsafe(nil)); end
 end
 
 # BigDecimals are serialized as Decimal128s under the hood. A Decimal128
 # is type 0x13 in the BSON spec.
 #
-# source://bson//lib/bson/big_decimal.rb#27
+# pkg:gem/bson#lib/bson/big_decimal.rb:27
 BSON::BigDecimal::BSON_TYPE = T.let(T.unsafe(nil), String)
 
-# source://bson//lib/bson/big_decimal.rb#47
+# pkg:gem/bson#lib/bson/big_decimal.rb:47
 module BSON::BigDecimal::ClassMethods
   # Deserialize the BigDecimal from raw BSON bytes. If the :mode option
   # is set to BSON, this will return a BSON::Decimal128
@@ -199,7 +199,7 @@ module BSON::BigDecimal::ClassMethods
   # @param options [Hash] a customizable set of options
   # @return [BigDecimal | BSON::Decimal128] The decimal object.
   #
-  # source://bson//lib/bson/big_decimal.rb#60
+  # pkg:gem/bson#lib/bson/big_decimal.rb:60
   def from_bson(buffer, **options); end
 end
 
@@ -208,7 +208,7 @@ end
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/binary.rb#25
+# pkg:gem/bson#lib/bson/binary.rb:25
 class BSON::Binary
   include ::BSON::JSON
   include ::Comparable
@@ -229,7 +229,7 @@ class BSON::Binary
   # @return [Binary] a new instance of Binary
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#197
+  # pkg:gem/bson#lib/bson/binary.rb:197
   def initialize(data = T.unsafe(nil), type = T.unsafe(nil)); end
 
   # Compare this binary object to another object. The two objects must have
@@ -241,7 +241,7 @@ class BSON::Binary
   #   other is not a Binary, or is a Binary of a different type, returns nil.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#114
+  # pkg:gem/bson#lib/bson/binary.rb:114
   def <=>(other); end
 
   # Determine if this binary object is equal to another object.
@@ -252,7 +252,7 @@ class BSON::Binary
   # @return [true, false] If the objects are equal.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#98
+  # pkg:gem/bson#lib/bson/binary.rb:98
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
@@ -263,7 +263,7 @@ class BSON::Binary
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#148
+  # pkg:gem/bson#lib/bson/binary.rb:148
   def as_extended_json(**options); end
 
   # Return a representation of the object for use in
@@ -274,7 +274,7 @@ class BSON::Binary
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#137
+  # pkg:gem/bson#lib/bson/binary.rb:137
   def as_json(*_args); end
 
   # Decode the binary data as a vector data type.
@@ -283,10 +283,10 @@ class BSON::Binary
   # @return [BSON::Vector] The decoded vector data.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#164
+  # pkg:gem/bson#lib/bson/binary.rb:164
   def as_vector; end
 
-  # source://bson//lib/bson/binary.rb#655
+  # pkg:gem/bson#lib/bson/binary.rb:655
   def bson_type; end
 
   # The string is always stored in BINARY encoding.
@@ -294,7 +294,7 @@ class BSON::Binary
   # @return [String] The raw binary data.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#80
+  # pkg:gem/bson#lib/bson/binary.rb:80
   def data; end
 
   # Determine if this binary object is equal to another object.
@@ -305,7 +305,7 @@ class BSON::Binary
   # @return [true, false] If the objects are equal.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#104
+  # pkg:gem/bson#lib/bson/binary.rb:104
   def eql?(other); end
 
   # Generates a Fixnum hash value for this object.
@@ -315,7 +315,7 @@ class BSON::Binary
   # @return [Fixnum]
   # @since 2.3.1
   #
-  # source://bson//lib/bson/binary.rb#127
+  # pkg:gem/bson#lib/bson/binary.rb:127
   def hash; end
 
   # For legacy deserialization support where BSON::Binary objects are
@@ -324,7 +324,7 @@ class BSON::Binary
   # @api private
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#206
+  # pkg:gem/bson#lib/bson/binary.rb:206
   def init_with(coder); end
 
   # Get a nice string for use with object inspection.
@@ -334,13 +334,13 @@ class BSON::Binary
   # @return [String] The binary in form BSON::Binary:object_id
   # @since 2.3.0
   #
-  # source://bson//lib/bson/binary.rb#218
+  # pkg:gem/bson#lib/bson/binary.rb:218
   def inspect; end
 
   # @return [String] The raw type value, as an encoded integer.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#86
+  # pkg:gem/bson#lib/bson/binary.rb:86
   def raw_type; end
 
   # Encode the binary type
@@ -351,7 +351,7 @@ class BSON::Binary
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#274
+  # pkg:gem/bson#lib/bson/binary.rb:274
   def to_bson(buffer = T.unsafe(nil)); end
 
   # Returns a string representation of the UUID stored in this Binary.
@@ -379,13 +379,13 @@ class BSON::Binary
   # @return [String] The string representation of the UUID.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#248
+  # pkg:gem/bson#lib/bson/binary.rb:248
   def to_uuid(representation = T.unsafe(nil)); end
 
   # @return [Symbol] The binary type.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#83
+  # pkg:gem/bson#lib/bson/binary.rb:83
   def type; end
 
   private
@@ -396,7 +396,7 @@ class BSON::Binary
   # @return [String] the csharp-legacy-formatted UUID
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#566
+  # pkg:gem/bson#lib/bson/binary.rb:566
   def from_uuid_old_to_csharp_legacy_uuid(hex); end
 
   # Converts a UUID-old object to a java-legacy representation.
@@ -405,7 +405,7 @@ class BSON::Binary
   # @return [String] the java-legacy-formatted UUID
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#575
+  # pkg:gem/bson#lib/bson/binary.rb:575
   def from_uuid_old_to_java_legacy_uuid(hex); end
 
   # Converts a UUID-old object to a python-legacy representation.
@@ -414,7 +414,7 @@ class BSON::Binary
   # @return [String] the python-legacy-formatted UUID
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#586
+  # pkg:gem/bson#lib/bson/binary.rb:586
   def from_uuid_old_to_python_legacy_uuid(hex); end
 
   # Tries to convert a UUID-old object to a standard representation, which is
@@ -424,7 +424,7 @@ class BSON::Binary
   # @raise [ArgumentError] because standard representation is not supported
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#557
+  # pkg:gem/bson#lib/bson/binary.rb:557
   def from_uuid_old_to_standard_uuid(_hex); end
 
   # Converts the UUID-old object to a UUID of the given representation.
@@ -434,7 +434,7 @@ class BSON::Binary
   # @return [String] the UUID as a string
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#537
+  # pkg:gem/bson#lib/bson/binary.rb:537
   def from_uuid_old_to_uuid(representation); end
 
   # Converts the Binary UUID object to a UUID of the given representation.
@@ -445,7 +445,7 @@ class BSON::Binary
   # @return [String] the UUID as a string
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#518
+  # pkg:gem/bson#lib/bson/binary.rb:518
   def from_uuid_to_uuid(representation); end
 
   # initializes an instance of BSON::Binary.
@@ -454,7 +454,7 @@ class BSON::Binary
   # @param type [Symbol] the type to assign the binary object
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#498
+  # pkg:gem/bson#lib/bson/binary.rb:498
   def initialize_instance(data, type); end
 
   # Test that the given integer type is valid.
@@ -464,7 +464,7 @@ class BSON::Binary
   # @return [Symbol] the symbolic type corresponding to the argument.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#626
+  # pkg:gem/bson#lib/bson/binary.rb:626
   def validate_integer_type!(type); end
 
   # Test that the given symbol type is valid.
@@ -474,7 +474,7 @@ class BSON::Binary
   # @return [Symbol] the symbolic type corresponding to the argument.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#645
+  # pkg:gem/bson#lib/bson/binary.rb:645
   def validate_symbol_type!(type); end
 
   # Validate the provided type is a valid type.
@@ -487,7 +487,7 @@ class BSON::Binary
   # @return [Symbol] the symbolic type corresponding to the argument.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/binary.rb#604
+  # pkg:gem/bson#lib/bson/binary.rb:604
   def validate_type!(type); end
 
   class << self
@@ -500,7 +500,7 @@ class BSON::Binary
     # @see http://bsonspec.org/#/specification
     # @since 2.0.0
     #
-    # source://bson//lib/bson/binary.rb#294
+    # pkg:gem/bson#lib/bson/binary.rb:294
     def from_bson(buffer, **_options); end
 
     # Constructs a new binary object from a csharp legacy-format binary UUID
@@ -511,7 +511,7 @@ class BSON::Binary
     # @return [BSON::Binary] the Binary object
     # @since 2.0.0
     #
-    # source://bson//lib/bson/binary.rb#371
+    # pkg:gem/bson#lib/bson/binary.rb:371
     def from_csharp_legacy_uuid(uuid_binary); end
 
     # Constructs a new binary object from a java legacy-format binary UUID
@@ -522,7 +522,7 @@ class BSON::Binary
     # @return [BSON::Binary] the Binary object
     # @since 2.0.0
     #
-    # source://bson//lib/bson/binary.rb#384
+    # pkg:gem/bson#lib/bson/binary.rb:384
     def from_java_legacy_uuid(uuid_binary); end
 
     # Constructs a new binary object from a python legacy-format binary UUID
@@ -533,7 +533,7 @@ class BSON::Binary
     # @return [BSON::Binary] the Binary object
     # @since 2.0.0
     #
-    # source://bson//lib/bson/binary.rb#399
+    # pkg:gem/bson#lib/bson/binary.rb:399
     def from_python_legacy_uuid(uuid_binary); end
 
     # Constructs a new binary object from a standard-format binary UUID
@@ -544,7 +544,7 @@ class BSON::Binary
     # @return [BSON::Binary] the Binary object
     # @since 2.0.0
     #
-    # source://bson//lib/bson/binary.rb#359
+    # pkg:gem/bson#lib/bson/binary.rb:359
     def from_standard_uuid(uuid_binary); end
 
     # Creates a BSON::Binary from a string representation of a UUID.
@@ -571,7 +571,7 @@ class BSON::Binary
     # @return [Binary] The binary.
     # @since 2.0.0
     #
-    # source://bson//lib/bson/binary.rb#339
+    # pkg:gem/bson#lib/bson/binary.rb:339
     def from_uuid(uuid, representation = T.unsafe(nil)); end
 
     # be ignored when a vector element's size is less than a byte. Must be 0 if vector is a BSON::Vector.
@@ -583,7 +583,7 @@ class BSON::Binary
     # @return [BSON::Binary] The binary object.
     # @since 2.0.0
     #
-    # source://bson//lib/bson/binary.rb#412
+    # pkg:gem/bson#lib/bson/binary.rb:412
     def from_vector(vector, dtype = T.unsafe(nil), padding = T.unsafe(nil), validate_vector_data: T.unsafe(nil)); end
 
     private
@@ -596,7 +596,7 @@ class BSON::Binary
     # @return [Array] The extracted data, dtype, and padding.
     # @since 2.0.0
     #
-    # source://bson//lib/bson/binary.rb#439
+    # pkg:gem/bson#lib/bson/binary.rb:439
     def extract_args_for_vector(vector, dtype, padding); end
 
     # Validate the arguments for a binary vector.
@@ -607,7 +607,7 @@ class BSON::Binary
     # @raise [ArgumentError] If the arguments are invalid.
     # @since 2.0.0
     #
-    # source://bson//lib/bson/binary.rb#460
+    # pkg:gem/bson#lib/bson/binary.rb:460
     def validate_args_for_vector!(data, dtype, padding); end
 
     # Validate that all the values in the vector data are valid for the given dtype.
@@ -616,7 +616,7 @@ class BSON::Binary
     # @param dtype [::Symbol] The vector data type.
     # @since 2.0.0
     #
-    # source://bson//lib/bson/binary.rb#477
+    # pkg:gem/bson#lib/bson/binary.rb:477
     def validate_vector_data!(data, dtype); end
   end
 end
@@ -625,7 +625,7 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/binary.rb#32
+# pkg:gem/bson#lib/bson/binary.rb:32
 BSON::Binary::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # The mappings of subtypes to their single byte identifiers.
@@ -637,34 +637,34 @@ BSON::Binary::BSON_TYPE = T.let(T.unsafe(nil), String)
 #   An application should not create new BSON::Binary objects of this subtype.
 # @since 2.0.0
 #
-# source://bson//lib/bson/binary.rb#43
+# pkg:gem/bson#lib/bson/binary.rb:43
 BSON::Binary::SUBTYPES = T.let(T.unsafe(nil), Hash)
 
 # The mappings of single byte subtypes to their symbol counterparts.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/binary.rb#63
+# pkg:gem/bson#lib/bson/binary.rb:63
 BSON::Binary::TYPES = T.let(T.unsafe(nil), Hash)
 
 # The starting point of the user-defined subtype range.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/binary.rb#58
+# pkg:gem/bson#lib/bson/binary.rb:58
 BSON::Binary::USER_SUBTYPE = T.let(T.unsafe(nil), Integer)
 
 # Types of vector data.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/binary.rb#66
+# pkg:gem/bson#lib/bson/binary.rb:66
 BSON::Binary::VECTOR_DATA_TYPES = T.let(T.unsafe(nil), Hash)
 
 # @api private
 # @since 2.0.0
 #
-# source://bson//lib/bson/binary.rb#73
+# pkg:gem/bson#lib/bson/binary.rb:73
 BSON::Binary::VECTOR_DATA_TYPES_INVERSE = T.let(T.unsafe(nil), Hash)
 
 # Represents a boolean type, which compares less than any other value in the
@@ -673,9 +673,9 @@ BSON::Binary::VECTOR_DATA_TYPES_INVERSE = T.let(T.unsafe(nil), Hash)
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/boolean.rb#25
+# pkg:gem/bson#lib/bson/boolean.rb:25
 class BSON::Boolean
-  # source://bson//lib/bson/boolean.rb#57
+  # pkg:gem/bson#lib/bson/boolean.rb:57
   def bson_type; end
 
   class << self
@@ -688,7 +688,7 @@ class BSON::Boolean
     # @see http://bsonspec.org/#/specification
     # @since 2.0.0
     #
-    # source://bson//lib/bson/boolean.rb#43
+    # pkg:gem/bson#lib/bson/boolean.rb:43
     def from_bson(buffer, **options); end
   end
 end
@@ -697,98 +697,99 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/boolean.rb#30
+# pkg:gem/bson#lib/bson/boolean.rb:30
 BSON::Boolean::BSON_TYPE = T.let(T.unsafe(nil), String)
 
+# pkg:gem/bson#lib/bson.rb:110
 class BSON::ByteBuffer
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def initialize(*_arg0); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def get_array(*_arg0); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def get_byte; end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def get_bytes(_arg0); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def get_cstring; end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def get_decimal128_bytes; end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def get_double; end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def get_hash(*_arg0); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def get_int32; end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def get_int64; end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def get_string; end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def get_uint32; end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def length; end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def put_array(_arg0); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def put_byte(_arg0); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def put_bytes(_arg0); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def put_cstring(_arg0); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def put_decimal128(_arg0, _arg1); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def put_double(_arg0); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def put_hash(_arg0); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def put_int32(_arg0); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def put_int64(_arg0); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def put_string(_arg0); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def put_symbol(_arg0); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def put_uint32(_arg0); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def read_position; end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def replace_int32(_arg0, _arg1); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def rewind!; end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def to_s; end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def write_position; end
 end
 
@@ -797,7 +798,7 @@ end
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/code.rb#24
+# pkg:gem/bson#lib/bson/code.rb:24
 class BSON::Code
   include ::BSON::JSON
 
@@ -809,7 +810,7 @@ class BSON::Code
   # @return [Code] a new instance of Code
   # @since 2.0.0
   #
-  # source://bson//lib/bson/code.rb#81
+  # pkg:gem/bson#lib/bson/code.rb:81
   def initialize(javascript = T.unsafe(nil)); end
 
   # Determine if this code object is equal to another object.
@@ -820,7 +821,7 @@ class BSON::Code
   # @return [true, false] If the objects are equal.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/code.rb#47
+  # pkg:gem/bson#lib/bson/code.rb:47
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
@@ -831,7 +832,7 @@ class BSON::Code
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/code.rb#69
+  # pkg:gem/bson#lib/bson/code.rb:69
   def as_extended_json(**_options); end
 
   # Return a representation of the object for use in
@@ -842,15 +843,15 @@ class BSON::Code
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/code.rb#58
+  # pkg:gem/bson#lib/bson/code.rb:58
   def as_json(*_args); end
 
-  # source://bson//lib/bson/code.rb#117
+  # pkg:gem/bson#lib/bson/code.rb:117
   def bson_type; end
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/code.rb#35
+  # pkg:gem/bson#lib/bson/code.rb:35
   def javascript; end
 
   # Encode the javascript code.
@@ -861,7 +862,7 @@ class BSON::Code
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/code.rb#95
+  # pkg:gem/bson#lib/bson/code.rb:95
   def to_bson(buffer = T.unsafe(nil)); end
 
   class << self
@@ -874,7 +875,7 @@ class BSON::Code
     # @see http://bsonspec.org/#/specification
     # @since 2.0.0
     #
-    # source://bson//lib/bson/code.rb#110
+    # pkg:gem/bson#lib/bson/code.rb:110
     def from_bson(buffer, **options); end
   end
 end
@@ -883,7 +884,7 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/code.rb#30
+# pkg:gem/bson#lib/bson/code.rb:30
 BSON::Code::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # Represents a code with scope, which is a wrapper around javascript code
@@ -892,7 +893,7 @@ BSON::Code::BSON_TYPE = T.let(T.unsafe(nil), String)
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/code_with_scope.rb#25
+# pkg:gem/bson#lib/bson/code_with_scope.rb:25
 class BSON::CodeWithScope
   include ::BSON::JSON
 
@@ -905,7 +906,7 @@ class BSON::CodeWithScope
   # @return [CodeWithScope] a new instance of CodeWithScope
   # @since 2.0.0
   #
-  # source://bson//lib/bson/code_with_scope.rb#86
+  # pkg:gem/bson#lib/bson/code_with_scope.rb:86
   def initialize(javascript = T.unsafe(nil), scope = T.unsafe(nil)); end
 
   # Determine if this code with scope object is equal to another object.
@@ -916,7 +917,7 @@ class BSON::CodeWithScope
   # @return [true, false] If the objects are equal.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/code_with_scope.rb#51
+  # pkg:gem/bson#lib/bson/code_with_scope.rb:51
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
@@ -927,7 +928,7 @@ class BSON::CodeWithScope
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/code_with_scope.rb#73
+  # pkg:gem/bson#lib/bson/code_with_scope.rb:73
   def as_extended_json(**options); end
 
   # Return a representation of the object for use in
@@ -938,21 +939,21 @@ class BSON::CodeWithScope
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/code_with_scope.rb#62
+  # pkg:gem/bson#lib/bson/code_with_scope.rb:62
   def as_json(*_args); end
 
-  # source://bson//lib/bson/code_with_scope.rb#141
+  # pkg:gem/bson#lib/bson/code_with_scope.rb:141
   def bson_type; end
 
   # @return [String] The javascript code.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/code_with_scope.rb#39
+  # pkg:gem/bson#lib/bson/code_with_scope.rb:39
   def javascript; end
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/code_with_scope.rb#39
+  # pkg:gem/bson#lib/bson/code_with_scope.rb:39
   def scope; end
 
   # Encode the javascript code with scope.
@@ -963,7 +964,7 @@ class BSON::CodeWithScope
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/code_with_scope.rb#101
+  # pkg:gem/bson#lib/bson/code_with_scope.rb:101
   def to_bson(buffer = T.unsafe(nil)); end
 
   class << self
@@ -976,7 +977,7 @@ class BSON::CodeWithScope
     # @see http://bsonspec.org/#/specification
     # @since 2.0.0
     #
-    # source://bson//lib/bson/code_with_scope.rb#120
+    # pkg:gem/bson#lib/bson/code_with_scope.rb:120
     def from_bson(buffer, **options); end
   end
 end
@@ -985,14 +986,14 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/code_with_scope.rb#31
+# pkg:gem/bson#lib/bson/code_with_scope.rb:31
 BSON::CodeWithScope::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # Provides configuration options for the BSON library.
 #
 # @since 4.1.0
 #
-# source://bson//lib/bson/config.rb#22
+# pkg:gem/bson#lib/bson/config.rb:22
 module BSON::Config
   extend ::BSON::Config
 end
@@ -1001,12 +1002,12 @@ end
 #
 # @api private
 #
-# source://bson//lib/bson/date.rb#24
+# pkg:gem/bson#lib/bson/date.rb:24
 BSON::DATE_REFERENCE = T.let(T.unsafe(nil), Integer)
 
 # Represents a DBRef document in the database.
 #
-# source://bson//lib/bson/dbref.rb#21
+# pkg:gem/bson#lib/bson/dbref.rb:21
 class BSON::DBRef < ::BSON::Document
   include ::BSON::JSON
 
@@ -1025,7 +1026,7 @@ class BSON::DBRef < ::BSON::Document
   #   to the constructor.
   # @return [DBRef] a new instance of DBRef
   #
-  # source://bson//lib/bson/dbref.rb#80
+  # pkg:gem/bson#lib/bson/dbref.rb:80
   def initialize(hash_or_collection, id = T.unsafe(nil), database = T.unsafe(nil)); end
 
   # Get the DBRef as a JSON document
@@ -1034,22 +1035,22 @@ class BSON::DBRef < ::BSON::Document
   #   dbref.as_json
   # @return [Hash] The max key as a JSON hash.
   #
-  # source://bson//lib/bson/dbref.rb#60
+  # pkg:gem/bson#lib/bson/dbref.rb:60
   def as_json(*args); end
 
   # @return [String] collection The collection name.
   #
-  # source://bson//lib/bson/dbref.rb#40
+  # pkg:gem/bson#lib/bson/dbref.rb:40
   def collection; end
 
   # @return [String] database The database name.
   #
-  # source://bson//lib/bson/dbref.rb#50
+  # pkg:gem/bson#lib/bson/dbref.rb:50
   def database; end
 
   # @return [BSON::ObjectId] id The referenced document id.
   #
-  # source://bson//lib/bson/dbref.rb#45
+  # pkg:gem/bson#lib/bson/dbref.rb:45
   def id; end
 
   # Converts the DBRef to raw BSON.
@@ -1059,7 +1060,7 @@ class BSON::DBRef < ::BSON::Document
   # @param buffer [BSON::ByteBuffer] The encoded BSON buffer to append to.
   # @return [BSON::ByteBuffer] The buffer with the encoded object.
   #
-  # source://bson//lib/bson/dbref.rb#129
+  # pkg:gem/bson#lib/bson/dbref.rb:129
   def to_bson(buffer = T.unsafe(nil)); end
 
   private
@@ -1071,7 +1072,7 @@ class BSON::DBRef < ::BSON::Document
   # @param hash [Hash] The input hash. Must be a valid dbref.
   # @return [Hash] The hash with it's fields reordered.
   #
-  # source://bson//lib/bson/dbref.rb#142
+  # pkg:gem/bson#lib/bson/dbref.rb:142
   def reorder_fields(hash); end
 end
 
@@ -1079,21 +1080,21 @@ end
 #
 # @deprecated
 #
-# source://bson//lib/bson/dbref.rb#27
+# pkg:gem/bson#lib/bson/dbref.rb:27
 BSON::DBRef::COLLECTION = T.let(T.unsafe(nil), String)
 
 # The constant for the database field.
 #
 # @deprecated
 #
-# source://bson//lib/bson/dbref.rb#37
+# pkg:gem/bson#lib/bson/dbref.rb:37
 BSON::DBRef::DATABASE = T.let(T.unsafe(nil), String)
 
 # The constant for the id field.
 #
 # @deprecated
 #
-# source://bson//lib/bson/dbref.rb#32
+# pkg:gem/bson#lib/bson/dbref.rb:32
 BSON::DBRef::ID = T.let(T.unsafe(nil), String)
 
 # Injects behaviour for encoding date values to raw bytes as specified by
@@ -1102,7 +1103,7 @@ BSON::DBRef::ID = T.let(T.unsafe(nil), String)
 # @see http://bsonspec.org/#/specification
 # @since 2.1.0
 #
-# source://bson//lib/bson/date.rb#37
+# pkg:gem/bson#lib/bson/date.rb:37
 module BSON::Date
   # Get the BSON type for the date.
   #
@@ -1110,7 +1111,7 @@ module BSON::Date
   #
   # @since 2.1.0
   #
-  # source://bson//lib/bson/date.rb#56
+  # pkg:gem/bson#lib/bson/date.rb:56
   def bson_type; end
 
   # Get the date as encoded BSON.
@@ -1121,7 +1122,7 @@ module BSON::Date
   # @see http://bsonspec.org/#/specification
   # @since 2.1.0
   #
-  # source://bson//lib/bson/date.rb#49
+  # pkg:gem/bson#lib/bson/date.rb:49
   def to_bson(buffer = T.unsafe(nil)); end
 end
 
@@ -1131,7 +1132,7 @@ end
 # @see http://bsonspec.org/#/specification
 # @since 2.1.0
 #
-# source://bson//lib/bson/date_time.rb#27
+# pkg:gem/bson#lib/bson/date_time.rb:27
 module BSON::DateTime
   # Get the date time as encoded BSON.
   #
@@ -1141,7 +1142,7 @@ module BSON::DateTime
   # @see http://bsonspec.org/#/specification
   # @since 2.1.0
   #
-  # source://bson//lib/bson/date_time.rb#39
+  # pkg:gem/bson#lib/bson/date_time.rb:39
   def to_bson(buffer = T.unsafe(nil)); end
 end
 
@@ -1150,7 +1151,7 @@ end
 #
 # @see http://bsonspec.org/#/specification
 #
-# source://bson//lib/bson/db_pointer.rb#23
+# pkg:gem/bson#lib/bson/db_pointer.rb:23
 class BSON::DbPointer
   include ::BSON::JSON
 
@@ -1160,7 +1161,7 @@ class BSON::DbPointer
   # @param ref [String] The database collection name.
   # @return [DbPointer] a new instance of DbPointer
   #
-  # source://bson//lib/bson/db_pointer.rb#33
+  # pkg:gem/bson#lib/bson/db_pointer.rb:33
   def initialize(ref, id); end
 
   # Determine if this DBPointer object is equal to another object.
@@ -1168,7 +1169,7 @@ class BSON::DbPointer
   # @param other [Object] The object to compare against.
   # @return [true | false] If the objects are equal
   #
-  # source://bson//lib/bson/db_pointer.rb#53
+  # pkg:gem/bson#lib/bson/db_pointer.rb:53
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
@@ -1176,7 +1177,7 @@ class BSON::DbPointer
   #
   # @return [Hash] The extended json representation.
   #
-  # source://bson//lib/bson/db_pointer.rb#72
+  # pkg:gem/bson#lib/bson/db_pointer.rb:72
   def as_extended_json(**_options); end
 
   # Return a representation of the object for use in
@@ -1186,24 +1187,24 @@ class BSON::DbPointer
   #
   # @return [Hash] The extended json representation.
   #
-  # source://bson//lib/bson/db_pointer.rb#64
+  # pkg:gem/bson#lib/bson/db_pointer.rb:64
   def as_json(*_args); end
 
-  # source://bson//lib/bson/db_pointer.rb#108
+  # pkg:gem/bson#lib/bson/db_pointer.rb:108
   def bson_type; end
 
   # Return the DbPointer's id.
   #
   # @return [BSON::ObjectId] The id of the DbPointer instance
   #
-  # source://bson//lib/bson/db_pointer.rb#46
+  # pkg:gem/bson#lib/bson/db_pointer.rb:46
   def id; end
 
   # Return the collection name.
   #
   # @return [String] The database collection name.
   #
-  # source://bson//lib/bson/db_pointer.rb#41
+  # pkg:gem/bson#lib/bson/db_pointer.rb:41
   def ref; end
 
   # Encode the DBPointer.
@@ -1211,7 +1212,7 @@ class BSON::DbPointer
   # @return [BSON::ByteBuffer] The buffer with the encoded object.
   # @see http://bsonspec.org/#/specification
   #
-  # source://bson//lib/bson/db_pointer.rb#81
+  # pkg:gem/bson#lib/bson/db_pointer.rb:81
   def to_bson(buffer = T.unsafe(nil)); end
 
   class << self
@@ -1223,17 +1224,17 @@ class BSON::DbPointer
     # @return [BSON::DbPointer] The decoded DBPointer.
     # @see http://bsonspec.org/#/specification
     #
-    # source://bson//lib/bson/db_pointer.rb#97
+    # pkg:gem/bson#lib/bson/db_pointer.rb:97
     def from_bson(buffer, **options); end
   end
 end
 
 # A DBPointer is type 0x0C in the BSON spec.
 #
-# source://bson//lib/bson/db_pointer.rb#27
+# pkg:gem/bson#lib/bson/db_pointer.rb:27
 BSON::DbPointer::BSON_TYPE = T.let(T.unsafe(nil), String)
 
-# source://bson//lib/bson/decimal128/builder.rb#18
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:18
 class BSON::Decimal128
   include ::BSON::JSON
   include ::Comparable
@@ -1248,10 +1249,10 @@ class BSON::Decimal128
   # @return [Decimal128] a new instance of Decimal128
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128.rb#123
+  # pkg:gem/bson#lib/bson/decimal128.rb:123
   def initialize(object); end
 
-  # source://bson//lib/bson/decimal128.rb#103
+  # pkg:gem/bson#lib/bson/decimal128.rb:103
   def <=>(other); end
 
   # Check equality of the decimal128 object with another object.
@@ -1262,7 +1263,7 @@ class BSON::Decimal128
   # @return [true, false] If the objects are equal.
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128.rb#96
+  # pkg:gem/bson#lib/bson/decimal128.rb:96
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
@@ -1272,7 +1273,7 @@ class BSON::Decimal128
   # @param opts [Hash] a customizable set of options
   # @return [Hash] The extended json representation.
   #
-  # source://bson//lib/bson/decimal128.rb#82
+  # pkg:gem/bson#lib/bson/decimal128.rb:82
   def as_extended_json(**_options); end
 
   # Return a string representation of the Decimal128 use in standard
@@ -1284,12 +1285,12 @@ class BSON::Decimal128
   #   decimal.as_json
   # @return [String | nil] The decimal128 as a String or nil for non-representable numbers.
   #
-  # source://bson//lib/bson/decimal128.rb#70
+  # pkg:gem/bson#lib/bson/decimal128.rb:70
   def as_json(*args); end
 
   # Get the BSON type for Decimal128.
   #
-  # source://bson//lib/bson/decimal128.rb#134
+  # pkg:gem/bson#lib/bson/decimal128.rb:134
   def bson_type; end
 
   # Check equality of the decimal128 object with another object.
@@ -1300,7 +1301,7 @@ class BSON::Decimal128
   # @return [true, false] If the objects are equal.
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128.rb#101
+  # pkg:gem/bson#lib/bson/decimal128.rb:101
   def eql?(other); end
 
   # Get the hash value for the decimal128.
@@ -1310,7 +1311,7 @@ class BSON::Decimal128
   # @return [Integer] The hash value.
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128.rb#160
+  # pkg:gem/bson#lib/bson/decimal128.rb:160
   def hash; end
 
   # Get a nice string for use with object inspection.
@@ -1320,7 +1321,7 @@ class BSON::Decimal128
   # @return [String] The decimal as a string.
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128.rb#174
+  # pkg:gem/bson#lib/bson/decimal128.rb:174
   def inspect; end
 
   # Get a Ruby BigDecimal object corresponding to this Decimal128.
@@ -1340,7 +1341,7 @@ class BSON::Decimal128
   #   => "0.2E0"
   # @return [BigDecimal] The decimal as a BigDecimal.
   #
-  # source://bson//lib/bson/decimal128.rb#211
+  # pkg:gem/bson#lib/bson/decimal128.rb:211
   def to_big_decimal; end
 
   # Get the decimal128 as its raw BSON data.
@@ -1351,7 +1352,7 @@ class BSON::Decimal128
   # @see http://bsonspec.org/#/specification
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128.rb#148
+  # pkg:gem/bson#lib/bson/decimal128.rb:148
   def to_bson(buffer = T.unsafe(nil)); end
 
   # Get a Ruby BigDecimal object corresponding to this Decimal128.
@@ -1371,7 +1372,7 @@ class BSON::Decimal128
   #   => "0.2E0"
   # @return [BigDecimal] The decimal as a BigDecimal.
   #
-  # source://bson//lib/bson/decimal128.rb#208
+  # pkg:gem/bson#lib/bson/decimal128.rb:208
   def to_d; end
 
   # Get the string representation of the decimal128.
@@ -1381,7 +1382,7 @@ class BSON::Decimal128
   # @return [String] The decimal128 as a string.
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128.rb#186
+  # pkg:gem/bson#lib/bson/decimal128.rb:186
   def to_s; end
 
   # Get the string representation of the decimal128.
@@ -1391,12 +1392,12 @@ class BSON::Decimal128
   # @return [String] The decimal128 as a string.
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128.rb#189
+  # pkg:gem/bson#lib/bson/decimal128.rb:189
   def to_str; end
 
   private
 
-  # source://bson//lib/bson/decimal128.rb#215
+  # pkg:gem/bson#lib/bson/decimal128.rb:215
   def set_bits(low, high); end
 
   class << self
@@ -1409,7 +1410,7 @@ class BSON::Decimal128
     # @return [BSON::Decimal128] The new decimal128.
     # @since 4.2.0
     #
-    # source://bson//lib/bson/decimal128.rb#265
+    # pkg:gem/bson#lib/bson/decimal128.rb:265
     def from_bits(low, high); end
 
     # Deserialize the decimal128 from raw BSON bytes.
@@ -1422,7 +1423,7 @@ class BSON::Decimal128
     # @return [BSON::Decimal128] The decimal object.
     # @since 4.2.0
     #
-    # source://bson//lib/bson/decimal128.rb#234
+    # pkg:gem/bson#lib/bson/decimal128.rb:234
     def from_bson(buffer, **options); end
 
     # Instantiate a Decimal128 from a string.
@@ -1434,7 +1435,7 @@ class BSON::Decimal128
     # @return [BSON::Decimal128] The new decimal128.
     # @since 4.2.0
     #
-    # source://bson//lib/bson/decimal128.rb#250
+    # pkg:gem/bson#lib/bson/decimal128.rb:250
     def from_string(string); end
   end
 end
@@ -1443,7 +1444,7 @@ end
 #
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128.rb#29
+# pkg:gem/bson#lib/bson/decimal128.rb:29
 BSON::Decimal128::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # Helper module for parsing String, Integer, Float, BigDecimal, and Decimal128
@@ -1452,7 +1453,7 @@ BSON::Decimal128::BSON_TYPE = T.let(T.unsafe(nil), String)
 # @api private
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#26
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:26
 module BSON::Decimal128::Builder
   extend ::BSON::Decimal128::Builder
 
@@ -1465,7 +1466,7 @@ module BSON::Decimal128::Builder
   # @return [Array] Tuple of the low and high bits.
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#64
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:64
   def parts_to_bits(significand, exponent, is_negative); end
 
   private
@@ -1474,20 +1475,20 @@ module BSON::Decimal128::Builder
   # @return [Boolean]
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#102
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:102
   def valid_exponent?(exponent); end
 
   # @api private
   # @return [Boolean]
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#98
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:98
   def valid_significand?(significand); end
 
   # @api private
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#88
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:88
   def validate_range!(exponent, significand); end
 end
 
@@ -1496,7 +1497,7 @@ end
 # @api private
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#275
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:275
 class BSON::Decimal128::Builder::FromBigDecimal
   # Initialize the FromBigDecimal Builder object.
   #
@@ -1508,7 +1509,7 @@ class BSON::Decimal128::Builder::FromBigDecimal
   # @return [FromBigDecimal] a new instance of FromBigDecimal
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#286
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:286
   def initialize(big_decimal); end
 
   # Get the bits representing the Decimal128 that the big decimal corresponds to.
@@ -1519,7 +1520,7 @@ class BSON::Decimal128::Builder::FromBigDecimal
   # @return [Array] Tuple of the low and high bits.
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#298
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:298
   def bits; end
 
   private
@@ -1528,19 +1529,19 @@ class BSON::Decimal128::Builder::FromBigDecimal
   # @return [Boolean]
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#329
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:329
   def special?; end
 
   # @api private
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#320
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:320
   def to_bits; end
 
   # @api private
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#308
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:308
   def to_special_bits; end
 end
 
@@ -1549,7 +1550,7 @@ end
 # @api private
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#111
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:111
 class BSON::Decimal128::Builder::FromString
   # Initialize the FromString Builder object.
   #
@@ -1560,7 +1561,7 @@ class BSON::Decimal128::Builder::FromString
   # @return [FromString] a new instance of FromString
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#169
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:169
   def initialize(string); end
 
   # Get the bits representing the Decimal128 that the string corresponds to.
@@ -1571,7 +1572,7 @@ class BSON::Decimal128::Builder::FromString
   # @return [Array] Tuple of the low and high bits.
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#181
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:181
   def bits; end
 
   private
@@ -1579,39 +1580,39 @@ class BSON::Decimal128::Builder::FromString
   # @api private
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#232
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:232
   def clamp(exponent, significand); end
 
   # @api private
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#208
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:208
   def round_exact(exponent, significand); end
 
   # @api private
   # @return [Boolean]
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#261
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:261
   def special?; end
 
   # @api private
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#192
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:192
   def to_bits; end
 
   # @api private
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#248
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:248
   def to_special_bits; end
 
   # @api private
   # @raise [Error::InvalidDecimal128String]
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#265
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:265
   def validate_format!; end
 end
 
@@ -1621,7 +1622,7 @@ end
 # @return [Regex] A regex matching a positive or negative Infinity string.
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#125
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:125
 BSON::Decimal128::Builder::FromString::INFINITY_REGEX = T.let(T.unsafe(nil), Regexp)
 
 # Regex matching a string representing NaN.
@@ -1630,7 +1631,7 @@ BSON::Decimal128::Builder::FromString::INFINITY_REGEX = T.let(T.unsafe(nil), Reg
 # @return [Regex] A regex matching a NaN string.
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#118
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:118
 BSON::Decimal128::Builder::FromString::NAN_REGEX = T.let(T.unsafe(nil), Regexp)
 
 # Regex matching a scientific exponent.
@@ -1639,7 +1640,7 @@ BSON::Decimal128::Builder::FromString::NAN_REGEX = T.let(T.unsafe(nil), Regexp)
 # @return [Regex] A regex matching E, e, E+, e+.
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#147
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:147
 BSON::Decimal128::Builder::FromString::SCIENTIFIC_EXPONENT_REGEX = T.let(T.unsafe(nil), Regexp)
 
 # Regex for the fraction, including leading zeros.
@@ -1649,7 +1650,7 @@ BSON::Decimal128::Builder::FromString::SCIENTIFIC_EXPONENT_REGEX = T.let(T.unsaf
 #   including leading zeros.
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#133
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:133
 BSON::Decimal128::Builder::FromString::SIGNIFICAND_WITH_LEADING_ZEROS_REGEX = T.let(T.unsafe(nil), Regexp)
 
 # Regex for separating a negative sign from the significands.
@@ -1658,7 +1659,7 @@ BSON::Decimal128::Builder::FromString::SIGNIFICAND_WITH_LEADING_ZEROS_REGEX = T.
 # @return [Regex] The regex for separating a sign from significands.
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#140
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:140
 BSON::Decimal128::Builder::FromString::SIGN_AND_DIGITS_REGEX = T.let(T.unsafe(nil), Regexp)
 
 # Regex for capturing trailing zeros.
@@ -1666,7 +1667,7 @@ BSON::Decimal128::Builder::FromString::SIGN_AND_DIGITS_REGEX = T.let(T.unsafe(ni
 # @api private
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#152
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:152
 BSON::Decimal128::Builder::FromString::TRAILING_ZEROS_REGEX = T.let(T.unsafe(nil), Regexp)
 
 # Regex for a valid decimal128 string format.
@@ -1675,7 +1676,7 @@ BSON::Decimal128::Builder::FromString::TRAILING_ZEROS_REGEX = T.let(T.unsafe(nil
 # @return [Regex] The regex for a valid decimal128 string.
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#159
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:159
 BSON::Decimal128::Builder::FromString::VALID_DECIMAL128_STRING_REGEX = T.let(T.unsafe(nil), Regexp)
 
 # Infinity mask.
@@ -1683,7 +1684,7 @@ BSON::Decimal128::Builder::FromString::VALID_DECIMAL128_STRING_REGEX = T.let(T.u
 # @api private
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#31
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:31
 BSON::Decimal128::Builder::INFINITY_MASK = T.let(T.unsafe(nil), Integer)
 
 # NaN mask.
@@ -1691,7 +1692,7 @@ BSON::Decimal128::Builder::INFINITY_MASK = T.let(T.unsafe(nil), Integer)
 # @api private
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#36
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:36
 BSON::Decimal128::Builder::NAN_MASK = T.let(T.unsafe(nil), Integer)
 
 # Signed bit mask.
@@ -1699,7 +1700,7 @@ BSON::Decimal128::Builder::NAN_MASK = T.let(T.unsafe(nil), Integer)
 # @api private
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#46
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:46
 BSON::Decimal128::Builder::SIGN_BIT_MASK = T.let(T.unsafe(nil), Integer)
 
 # SNaN mask.
@@ -1707,7 +1708,7 @@ BSON::Decimal128::Builder::SIGN_BIT_MASK = T.let(T.unsafe(nil), Integer)
 # @api private
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#41
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:41
 BSON::Decimal128::Builder::SNAN_MASK = T.let(T.unsafe(nil), Integer)
 
 # The two highest bits of the 64 high order bits.
@@ -1715,7 +1716,7 @@ BSON::Decimal128::Builder::SNAN_MASK = T.let(T.unsafe(nil), Integer)
 # @api private
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#51
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:51
 BSON::Decimal128::Builder::TWO_HIGHEST_BITS_SET = T.let(T.unsafe(nil), Integer)
 
 # Helper class for getting a String representation of a Decimal128 object.
@@ -1723,7 +1724,7 @@ BSON::Decimal128::Builder::TWO_HIGHEST_BITS_SET = T.let(T.unsafe(nil), Integer)
 # @api private
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#339
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:339
 class BSON::Decimal128::Builder::ToString
   # Initialize the FromBigDecimal Builder object.
   #
@@ -1735,7 +1736,7 @@ class BSON::Decimal128::Builder::ToString
   # @return [ToString] a new instance of ToString
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#364
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:364
   def initialize(decimal128); end
 
   # Get the string representing the Decimal128 object.
@@ -1747,7 +1748,7 @@ class BSON::Decimal128::Builder::ToString
   # @return [String] The string representing the decimal128 object.
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#378
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:378
   def string; end
 
   private
@@ -1755,78 +1756,78 @@ class BSON::Decimal128::Builder::ToString
   # @api private
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#424
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:424
   def bits_to_significand; end
 
   # @api private
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#386
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:386
   def create_string; end
 
   # @api private
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#414
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:414
   def exponent; end
 
   # @api private
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#446
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:446
   def high_bits; end
 
   # @api private
   # @return [Boolean]
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#442
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:442
   def infinity?; end
 
   # @api private
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#450
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:450
   def low_bits; end
 
   # @api private
   # @return [Boolean]
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#434
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:434
   def nan?; end
 
   # @api private
   # @return [Boolean]
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#438
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:438
   def negative?; end
 
   # @api private
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#406
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:406
   def scientific_exponent; end
 
   # @api private
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#420
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:420
   def significand; end
 
   # @api private
   # @return [Boolean]
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#430
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:430
   def two_highest_bits_set?; end
 
   # @api private
   # @return [Boolean]
   # @since 4.2.0
   #
-  # source://bson//lib/bson/decimal128/builder.rb#410
+  # pkg:gem/bson#lib/bson/decimal128/builder.rb:410
   def use_scientific_notation?; end
 end
 
@@ -1836,7 +1837,7 @@ end
 # @return [String] The string representing Infinity.
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#353
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:353
 BSON::Decimal128::Builder::ToString::INFINITY_STRING = T.let(T.unsafe(nil), String)
 
 # String representing a NaN value.
@@ -1845,49 +1846,49 @@ BSON::Decimal128::Builder::ToString::INFINITY_STRING = T.let(T.unsafe(nil), Stri
 # @return [String] The string representing NaN.
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128/builder.rb#346
+# pkg:gem/bson#lib/bson/decimal128/builder.rb:346
 BSON::Decimal128::Builder::ToString::NAN_STRING = T.let(T.unsafe(nil), String)
 
 # Exponent offset.
 #
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128.rb#34
+# pkg:gem/bson#lib/bson/decimal128.rb:34
 BSON::Decimal128::EXPONENT_OFFSET = T.let(T.unsafe(nil), Integer)
 
 # Key for this type when converted to extended json.
 #
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128.rb#54
+# pkg:gem/bson#lib/bson/decimal128.rb:54
 BSON::Decimal128::EXTENDED_JSON_KEY = T.let(T.unsafe(nil), String)
 
 # Maximum digits of precision.
 #
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128.rb#49
+# pkg:gem/bson#lib/bson/decimal128.rb:49
 BSON::Decimal128::MAX_DIGITS_OF_PRECISION = T.let(T.unsafe(nil), Integer)
 
 # Maximum exponent.
 #
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128.rb#44
+# pkg:gem/bson#lib/bson/decimal128.rb:44
 BSON::Decimal128::MAX_EXPONENT = T.let(T.unsafe(nil), Integer)
 
 # Minimum exponent.
 #
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128.rb#39
+# pkg:gem/bson#lib/bson/decimal128.rb:39
 BSON::Decimal128::MIN_EXPONENT = T.let(T.unsafe(nil), Integer)
 
 # The native type to which this object can be converted.
 #
 # @since 4.2.0
 #
-# source://bson//lib/bson/decimal128.rb#59
+# pkg:gem/bson#lib/bson/decimal128.rb:59
 BSON::Decimal128::NATIVE_TYPE = BigDecimal
 
 # This module provides behaviour for serializing and deserializing entire
@@ -1897,7 +1898,7 @@ BSON::Decimal128::NATIVE_TYPE = BigDecimal
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/document.rb#37
+# pkg:gem/bson#lib/bson/document.rb:37
 class BSON::Document < ::Hash
   # Instantiate a new Document. Valid parameters for instantiation is a hash
   # only or nothing.
@@ -1908,7 +1909,7 @@ class BSON::Document < ::Hash
   # @return [Document] a new instance of Document
   # @since 3.0.0
   #
-  # source://bson//lib/bson/document.rb#213
+  # pkg:gem/bson#lib/bson/document.rb:213
   def initialize(elements = T.unsafe(nil)); end
 
   # Get a value from the document for the provided key. Can use string or
@@ -1922,7 +1923,7 @@ class BSON::Document < ::Hash
   # @return [Object] The found value, or nil if none found.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/document.rb#89
+  # pkg:gem/bson#lib/bson/document.rb:89
   def [](key); end
 
   # Stores a key-value pair in the current document.
@@ -1976,12 +1977,12 @@ class BSON::Document < ::Hash
   # @return [Object] The updated value.
   # @since 3.0.0
   #
-  # source://bson//lib/bson/document.rb#146
+  # pkg:gem/bson#lib/bson/document.rb:146
   def []=(key, value); end
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/document.rb#324
+  # pkg:gem/bson#lib/bson/document.rb:324
   def deep_symbolize_keys!; end
 
   # Deletes the key-value pair and returns the value from the document
@@ -1996,7 +1997,7 @@ class BSON::Document < ::Hash
   # @return [Object]
   # @since 4.0.0
   #
-  # source://bson//lib/bson/document.rb#200
+  # pkg:gem/bson#lib/bson/document.rb:200
   def delete(key, &block); end
 
   # Retrieves the value object corresponding to the each key objects repeatedly.
@@ -2011,7 +2012,7 @@ class BSON::Document < ::Hash
   # @return [Object, NilClass] The requested value or nil.
   # @since 3.0.0
   #
-  # source://bson//lib/bson/document.rb#269
+  # pkg:gem/bson#lib/bson/document.rb:269
   def dig(*keys); end
 
   # Returns a new document consisting of the current document minus the
@@ -2030,7 +2031,7 @@ class BSON::Document < ::Hash
   # @return [BSON::Document] The document with the specified keys removed.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/document.rb#314
+  # pkg:gem/bson#lib/bson/document.rb:314
   def except(*keys); end
 
   # Get a value from the document for the provided key. Can use string or
@@ -2051,7 +2052,7 @@ class BSON::Document < ::Hash
   # @since 4.4.0
   # @yield [key] Block returning default value for the given key.
   #
-  # source://bson//lib/bson/document.rb#70
+  # pkg:gem/bson#lib/bson/document.rb:70
   def fetch(key, *args, &block); end
 
   # Returns true if the given key is present in the document.  Will normalize
@@ -2063,7 +2064,7 @@ class BSON::Document < ::Hash
   # @return [true, false]
   # @since 4.0.0
   #
-  # source://bson//lib/bson/document.rb#161
+  # pkg:gem/bson#lib/bson/document.rb:161
   def has_key?(key); end
 
   # Returns true if the given value is present in the document.  Will normalize
@@ -2075,7 +2076,7 @@ class BSON::Document < ::Hash
   # @return [true, false]
   # @since 4.0.0
   #
-  # source://bson//lib/bson/document.rb#180
+  # pkg:gem/bson#lib/bson/document.rb:180
   def has_value?(value); end
 
   # Returns true if the given key is present in the document.  Will normalize
@@ -2087,7 +2088,7 @@ class BSON::Document < ::Hash
   # @return [true, false]
   # @since 4.0.0
   #
-  # source://bson//lib/bson/document.rb#165
+  # pkg:gem/bson#lib/bson/document.rb:165
   def include?(key); end
 
   # Returns true if the given key is present in the document.  Will normalize
@@ -2099,7 +2100,7 @@ class BSON::Document < ::Hash
   # @return [true, false]
   # @since 4.0.0
   #
-  # source://bson//lib/bson/document.rb#166
+  # pkg:gem/bson#lib/bson/document.rb:166
   def key?(key); end
 
   # Returns true if the given key is present in the document.  Will normalize
@@ -2111,7 +2112,7 @@ class BSON::Document < ::Hash
   # @return [true, false]
   # @since 4.0.0
   #
-  # source://bson//lib/bson/document.rb#167
+  # pkg:gem/bson#lib/bson/document.rb:167
   def member?(key); end
 
   # Merge this document with another document, returning a new document in
@@ -2123,7 +2124,7 @@ class BSON::Document < ::Hash
   # @return [BSON::Document] The result of the merge.
   # @since 3.0.0
   #
-  # source://bson//lib/bson/document.rb#229
+  # pkg:gem/bson#lib/bson/document.rb:229
   def merge(other, &block); end
 
   # Merge this document with another document, returning the same document in
@@ -2135,7 +2136,7 @@ class BSON::Document < ::Hash
   # @return [BSON::Document] The result of the merge.
   # @since 3.0.0
   #
-  # source://bson//lib/bson/document.rb#244
+  # pkg:gem/bson#lib/bson/document.rb:244
   def merge!(other); end
 
   # Slices a document to include only the given keys.
@@ -2151,13 +2152,13 @@ class BSON::Document < ::Hash
   # @return [BSON::Document] The document with only the selected keys
   # @since 4.3.1
   #
-  # source://bson//lib/bson/document.rb#289
+  # pkg:gem/bson#lib/bson/document.rb:289
   def slice(*keys); end
 
   # @raise [ArgumentError]
   # @since 2.0.0
   #
-  # source://bson//lib/bson/document.rb#320
+  # pkg:gem/bson#lib/bson/document.rb:320
   def symbolize_keys!; end
 
   # Override the Hash implementation of to_bson_normalized_value.
@@ -2171,7 +2172,7 @@ class BSON::Document < ::Hash
   # @return [BSON::Document] The normalized hash.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/document.rb#341
+  # pkg:gem/bson#lib/bson/document.rb:341
   def to_bson_normalized_value; end
 
   # Merge this document with another document, returning the same document in
@@ -2183,7 +2184,7 @@ class BSON::Document < ::Hash
   # @return [BSON::Document] The result of the merge.
   # @since 3.0.0
   #
-  # source://bson//lib/bson/document.rb#252
+  # pkg:gem/bson#lib/bson/document.rb:252
   def update(other); end
 
   # Returns true if the given value is present in the document.  Will normalize
@@ -2195,19 +2196,19 @@ class BSON::Document < ::Hash
   # @return [true, false]
   # @since 4.0.0
   #
-  # source://bson//lib/bson/document.rb#184
+  # pkg:gem/bson#lib/bson/document.rb:184
   def value(value); end
 
   private
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/document.rb#347
+  # pkg:gem/bson#lib/bson/document.rb:347
   def convert_key(key); end
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/document.rb#351
+  # pkg:gem/bson#lib/bson/document.rb:351
   def convert_value(value); end
 end
 
@@ -2216,7 +2217,7 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/environment.rb#23
+# pkg:gem/bson#lib/bson/environment.rb:23
 module BSON::Environment
   extend ::BSON::Environment
 
@@ -2227,7 +2228,7 @@ module BSON::Environment
   # @return [true, false] If JRuby is our vm.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/environment.rb#34
+  # pkg:gem/bson#lib/bson/environment.rb:34
   def jruby?; end
 
   # Determine if we are using Ruby version 1.9.
@@ -2238,28 +2239,28 @@ module BSON::Environment
   # @return [true, false] If the Ruby version is 1.9.
   # @since 4.2.0
   #
-  # source://bson//lib/bson/environment.rb#47
+  # pkg:gem/bson#lib/bson/environment.rb:47
   def ruby_1_9?; end
 end
 
 # Base exception class for all BSON-related errors.
 #
-# source://bson//lib/bson/error.rb#5
+# pkg:gem/bson#lib/bson/error.rb:5
 class BSON::Error < ::StandardError; end
 
 # Exception raised when BSON decoding fails.
 #
-# source://bson//lib/bson/error/bson_decode_error.rb#8
+# pkg:gem/bson#lib/bson/error/bson_decode_error.rb:8
 class BSON::Error::BSONDecodeError < ::BSON::Error; end
 
 # Exception raised when Extended JSON parsing fails.
 #
-# source://bson//lib/bson/error/ext_json_parse_error.rb#8
+# pkg:gem/bson#lib/bson/error/ext_json_parse_error.rb:8
 class BSON::Error::ExtJSONParseError < ::BSON::Error; end
 
 # Raised when providing an invalid type to the Binary.
 #
-# source://bson//lib/bson/error/invalid_binary_type.rb#8
+# pkg:gem/bson#lib/bson/error/invalid_binary_type.rb:8
 class BSON::Error::InvalidBinaryType < ::BSON::Error
   # Instantiate the new error.
   #
@@ -2269,7 +2270,7 @@ class BSON::Error::InvalidBinaryType < ::BSON::Error
   # @param type [Object] The invalid type.
   # @return [InvalidBinaryType] a new instance of InvalidBinaryType
   #
-  # source://bson//lib/bson/error/invalid_binary_type.rb#21
+  # pkg:gem/bson#lib/bson/error/invalid_binary_type.rb:21
   def initialize(type); end
 
   # Get the custom error message for the exception.
@@ -2278,23 +2279,23 @@ class BSON::Error::InvalidBinaryType < ::BSON::Error
   #   error.message
   # @return [String] The error message.
   #
-  # source://bson//lib/bson/error/invalid_binary_type.rb#31
+  # pkg:gem/bson#lib/bson/error/invalid_binary_type.rb:31
   def message; end
 
   # @return [Object] The invalid type.
   #
-  # source://bson//lib/bson/error/invalid_binary_type.rb#11
+  # pkg:gem/bson#lib/bson/error/invalid_binary_type.rb:11
   def type; end
 end
 
 # Raised when trying to create a BSON::DBRef from an object that is an invalid DBRef.
 #
-# source://bson//lib/bson/error/invalid_dbref_argument.rb#8
+# pkg:gem/bson#lib/bson/error/invalid_dbref_argument.rb:8
 class BSON::Error::InvalidDBRefArgument < ::BSON::Error; end
 
 # Raised when trying to create a Decimal128 from an object that is neither a String nor a BigDecimal.
 #
-# source://bson//lib/bson/error/invalid_decimal128_argument.rb#8
+# pkg:gem/bson#lib/bson/error/invalid_decimal128_argument.rb:8
 class BSON::Error::InvalidDecimal128Argument < ::BSON::Error
   # Get the custom error message for the exception.
   #
@@ -2302,18 +2303,18 @@ class BSON::Error::InvalidDecimal128Argument < ::BSON::Error
   #   error.message
   # @return [String] The error message.
   #
-  # source://bson//lib/bson/error/invalid_decimal128_argument.rb#19
+  # pkg:gem/bson#lib/bson/error/invalid_decimal128_argument.rb:19
   def message; end
 end
 
 # The custom error message for this error.
 #
-# source://bson//lib/bson/error/invalid_decimal128_argument.rb#11
+# pkg:gem/bson#lib/bson/error/invalid_decimal128_argument.rb:11
 BSON::Error::InvalidDecimal128Argument::MESSAGE = T.let(T.unsafe(nil), String)
 
 # Raised when the exponent is outside the valid range.
 #
-# source://bson//lib/bson/error/invalid_decimal128_range.rb#8
+# pkg:gem/bson#lib/bson/error/invalid_decimal128_range.rb:8
 class BSON::Error::InvalidDecimal128Range < ::BSON::Error
   # Get the custom error message for the exception.
   #
@@ -2321,7 +2322,7 @@ class BSON::Error::InvalidDecimal128Range < ::BSON::Error
   #   error.message
   # @return [String] The error message.
   #
-  # source://bson//lib/bson/error/invalid_decimal128_range.rb#21
+  # pkg:gem/bson#lib/bson/error/invalid_decimal128_range.rb:21
   def message; end
 end
 
@@ -2329,13 +2330,13 @@ end
 #
 # @deprecated
 #
-# source://bson//lib/bson/error/invalid_decimal128_range.rb#13
+# pkg:gem/bson#lib/bson/error/invalid_decimal128_range.rb:13
 BSON::Error::InvalidDecimal128Range::MESSAGE = T.let(T.unsafe(nil), String)
 
 # Raised when trying to create a Decimal128 from a string with
 #   an invalid format.
 #
-# source://bson//lib/bson/error/invalid_decimal128_string.rb#9
+# pkg:gem/bson#lib/bson/error/invalid_decimal128_string.rb:9
 class BSON::Error::InvalidDecimal128String < ::BSON::Error
   # Get the custom error message for the exception.
   #
@@ -2343,18 +2344,18 @@ class BSON::Error::InvalidDecimal128String < ::BSON::Error
   #   error.message
   # @return [String] The error message.
   #
-  # source://bson//lib/bson/error/invalid_decimal128_string.rb#20
+  # pkg:gem/bson#lib/bson/error/invalid_decimal128_string.rb:20
   def message; end
 end
 
 # The custom error message for this error.
 #
-# source://bson//lib/bson/error/invalid_decimal128_string.rb#12
+# pkg:gem/bson#lib/bson/error/invalid_decimal128_string.rb:12
 BSON::Error::InvalidDecimal128String::MESSAGE = T.let(T.unsafe(nil), String)
 
 # Raised when trying to serialize an object into a key.
 #
-# source://bson//lib/bson/error/invalid_key.rb#8
+# pkg:gem/bson#lib/bson/error/invalid_key.rb:8
 class BSON::Error::InvalidKey < ::BSON::Error
   # Instantiate the exception.
   #
@@ -2364,31 +2365,31 @@ class BSON::Error::InvalidKey < ::BSON::Error
   # @param object [Object] The object that was meant for the key.
   # @return [InvalidKey] a new instance of InvalidKey
   #
-  # source://bson//lib/bson/error/invalid_key.rb#18
+  # pkg:gem/bson#lib/bson/error/invalid_key.rb:18
   def initialize(object); end
 end
 
 # Raised when trying to create an object id with invalid data.
 #
-# source://bson//lib/bson/error/invalid_object_id.rb#8
+# pkg:gem/bson#lib/bson/error/invalid_object_id.rb:8
 class BSON::Error::InvalidObjectId < ::BSON::Error; end
 
 # Exception raised when there is an invalid argument passed into the
 # constructor of regexp object. This includes when the argument contains
 # a null byte.
 #
-# source://bson//lib/bson/error/invalid_regexp_pattern.rb#10
+# pkg:gem/bson#lib/bson/error/invalid_regexp_pattern.rb:10
 class BSON::Error::InvalidRegexpPattern < ::BSON::Error; end
 
 # Raised when the significand provided is outside the valid range.
 #
-# source://bson//lib/bson/error/unrepresentable_precision.rb#8
+# pkg:gem/bson#lib/bson/error/unrepresentable_precision.rb:8
 class BSON::Error::UnrepresentablePrecision < ::BSON::Error
   # Get the custom error message for the exception.
   #
   # @return [String] The error message.
   #
-  # source://bson//lib/bson/error/unrepresentable_precision.rb#13
+  # pkg:gem/bson#lib/bson/error/unrepresentable_precision.rb:13
   def message; end
 end
 
@@ -2396,39 +2397,39 @@ end
 # array or hash element is of a class that does not define how to serialize
 # itself to BSON.
 #
-# source://bson//lib/bson/error/unserializable_class.rb#10
+# pkg:gem/bson#lib/bson/error/unserializable_class.rb:10
 class BSON::Error::UnserializableClass < ::BSON::Error; end
 
 # Exception raised when decoding BSON and the data contains an
 # unsupported binary subtype.
 #
-# source://bson//lib/bson/error/unsupported_binary_subtype.rb#9
+# pkg:gem/bson#lib/bson/error/unsupported_binary_subtype.rb:9
 class BSON::Error::UnsupportedBinarySubtype < ::BSON::Error; end
 
 # Raised when trying to get a type from the registry that doesn't exist.
 #
-# source://bson//lib/bson/error/unsupported_type.rb#8
+# pkg:gem/bson#lib/bson/error/unsupported_type.rb:8
 class BSON::Error::UnsupportedType < ::BSON::Error; end
 
 # This module contains methods for parsing Extended JSON 2.0.
 # https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md
 #
-# source://bson//lib/bson/ext_json.rb#23
+# pkg:gem/bson#lib/bson/ext_json.rb:23
 module BSON::ExtJSON
   private
 
-  # source://bson//lib/bson/ext_json.rb#366
+  # pkg:gem/bson#lib/bson/ext_json.rb:366
   def create_binary(encoded_value, encoded_subtype); end
 
-  # source://bson//lib/bson/ext_json.rb#376
+  # pkg:gem/bson#lib/bson/ext_json.rb:376
   def create_regexp(pattern, options); end
 
   # @return [Boolean]
   #
-  # source://bson//lib/bson/ext_json.rb#380
+  # pkg:gem/bson#lib/bson/ext_json.rb:380
   def dbref?(hash); end
 
-  # source://bson//lib/bson/ext_json.rb#357
+  # pkg:gem/bson#lib/bson/ext_json.rb:357
   def map_hash(hash, **options); end
 
   # Parses JSON in a string into a Ruby object tree.
@@ -2464,10 +2465,10 @@ module BSON::ExtJSON
   # @param str [String] The string to parse.
   # @return [Object] Parsed object tree.
   #
-  # source://bson//lib/bson/ext_json.rb#59
+  # pkg:gem/bson#lib/bson/ext_json.rb:59
   def parse(str, **options); end
 
-  # source://bson//lib/bson/ext_json.rb#138
+  # pkg:gem/bson#lib/bson/ext_json.rb:138
   def parse_hash(hash, **options); end
 
   # Transforms a Ruby object tree containing extended JSON type hashes
@@ -2510,25 +2511,25 @@ module BSON::ExtJSON
   # @param value [Object] The object tree to convert.
   # @return [Object] Converted object tree.
   #
-  # source://bson//lib/bson/ext_json.rb#106
+  # pkg:gem/bson#lib/bson/ext_json.rb:106
   def parse_obj(value, **options); end
 
-  # source://bson//lib/bson/ext_json.rb#344
+  # pkg:gem/bson#lib/bson/ext_json.rb:344
   def verify_no_reserved_keys(hash, **options); end
 
   class << self
-    # source://bson//lib/bson/ext_json.rb#366
+    # pkg:gem/bson#lib/bson/ext_json.rb:366
     def create_binary(encoded_value, encoded_subtype); end
 
-    # source://bson//lib/bson/ext_json.rb#376
+    # pkg:gem/bson#lib/bson/ext_json.rb:376
     def create_regexp(pattern, options); end
 
     # @return [Boolean]
     #
-    # source://bson//lib/bson/ext_json.rb#380
+    # pkg:gem/bson#lib/bson/ext_json.rb:380
     def dbref?(hash); end
 
-    # source://bson//lib/bson/ext_json.rb#357
+    # pkg:gem/bson#lib/bson/ext_json.rb:357
     def map_hash(hash, **options); end
 
     # Parses JSON in a string into a Ruby object tree.
@@ -2564,10 +2565,10 @@ module BSON::ExtJSON
     # @param str [String] The string to parse.
     # @return [Object] Parsed object tree.
     #
-    # source://bson//lib/bson/ext_json.rb#59
+    # pkg:gem/bson#lib/bson/ext_json.rb:59
     def parse(str, **options); end
 
-    # source://bson//lib/bson/ext_json.rb#138
+    # pkg:gem/bson#lib/bson/ext_json.rb:138
     def parse_hash(hash, **options); end
 
     # Transforms a Ruby object tree containing extended JSON type hashes
@@ -2610,18 +2611,18 @@ module BSON::ExtJSON
     # @param value [Object] The object tree to convert.
     # @return [Object] Converted object tree.
     #
-    # source://bson//lib/bson/ext_json.rb#106
+    # pkg:gem/bson#lib/bson/ext_json.rb:106
     def parse_obj(value, **options); end
 
-    # source://bson//lib/bson/ext_json.rb#344
+    # pkg:gem/bson#lib/bson/ext_json.rb:344
     def verify_no_reserved_keys(hash, **options); end
   end
 end
 
-# source://bson//lib/bson/ext_json.rb#128
+# pkg:gem/bson#lib/bson/ext_json.rb:128
 BSON::ExtJSON::RESERVED_KEYS = T.let(T.unsafe(nil), Array)
 
-# source://bson//lib/bson/ext_json.rb#134
+# pkg:gem/bson#lib/bson/ext_json.rb:134
 BSON::ExtJSON::RESERVED_KEYS_HASH = T.let(T.unsafe(nil), Hash)
 
 # Injects behaviour for encoding and decoding false values to and from
@@ -2630,7 +2631,7 @@ BSON::ExtJSON::RESERVED_KEYS_HASH = T.let(T.unsafe(nil), Hash)
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/false_class.rb#25
+# pkg:gem/bson#lib/bson/false_class.rb:25
 module BSON::FalseClass
   # The BSON type for false values is the general boolean type of 0x08.
   #
@@ -2639,7 +2640,7 @@ module BSON::FalseClass
   # @return [String] The character 0x08.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/false_class.rb#40
+  # pkg:gem/bson#lib/bson/false_class.rb:40
   def bson_type; end
 
   # Get the false boolean as encoded BSON.
@@ -2650,7 +2651,7 @@ module BSON::FalseClass
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/false_class.rb#54
+  # pkg:gem/bson#lib/bson/false_class.rb:54
   def to_bson(buffer = T.unsafe(nil)); end
 end
 
@@ -2658,7 +2659,7 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/false_class.rb#30
+# pkg:gem/bson#lib/bson/false_class.rb:30
 BSON::FalseClass::FALSE_BYTE = T.let(T.unsafe(nil), String)
 
 # Injects behaviour for encoding and decoding floating point values
@@ -2667,7 +2668,7 @@ BSON::FalseClass::FALSE_BYTE = T.let(T.unsafe(nil), String)
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/float.rb#25
+# pkg:gem/bson#lib/bson/float.rb:25
 module BSON::Float
   # Converts this object to a representation directly serializable to
   # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
@@ -2680,7 +2681,7 @@ module BSON::Float
   # @return [Hash | Float] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/float.rb#61
+  # pkg:gem/bson#lib/bson/float.rb:61
   def as_extended_json(**options); end
 
   # Get the floating point as encoded BSON.
@@ -2691,7 +2692,7 @@ module BSON::Float
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/float.rb#47
+  # pkg:gem/bson#lib/bson/float.rb:47
   def to_bson(buffer = T.unsafe(nil)); end
 end
 
@@ -2699,12 +2700,12 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/float.rb#30
+# pkg:gem/bson#lib/bson/float.rb:30
 BSON::Float::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # @since 2.0.0
 #
-# source://bson//lib/bson/float.rb#83
+# pkg:gem/bson#lib/bson/float.rb:83
 module BSON::Float::ClassMethods
   # Deserialize an instance of a Float from a BSON double.
   #
@@ -2715,7 +2716,7 @@ module BSON::Float::ClassMethods
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/float.rb#96
+  # pkg:gem/bson#lib/bson/float.rb:96
   def from_bson(buffer, **options); end
 end
 
@@ -2723,7 +2724,7 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/float.rb#35
+# pkg:gem/bson#lib/bson/float.rb:35
 BSON::Float::PACK = T.let(T.unsafe(nil), String)
 
 # Injects behaviour for encoding and decoding hashes to
@@ -2731,7 +2732,7 @@ BSON::Float::PACK = T.let(T.unsafe(nil), String)
 #
 # @see http://bsonspec.org/#/specification
 #
-# source://bson//lib/bson/hash.rb#23
+# pkg:gem/bson#lib/bson/hash.rb:23
 module BSON::Hash
   # Converts this object to a representation directly serializable to
   # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
@@ -2743,7 +2744,7 @@ module BSON::Hash
   # @param opts [Hash] a customizable set of options
   # @return [Hash] This hash converted to extended json representation.
   #
-  # source://bson//lib/bson/hash.rb#65
+  # pkg:gem/bson#lib/bson/hash.rb:65
   def as_extended_json(**options); end
 
   # Get the hash as encoded BSON.
@@ -2753,7 +2754,7 @@ module BSON::Hash
   # @return [BSON::ByteBuffer] The buffer with the encoded object.
   # @see http://bsonspec.org/#/specification
   #
-  # source://bson//lib/bson/hash.rb#35
+  # pkg:gem/bson#lib/bson/hash.rb:35
   def to_bson(buffer = T.unsafe(nil)); end
 
   # Converts the hash to a normalized value in a BSON document.
@@ -2762,7 +2763,7 @@ module BSON::Hash
   #   hash.to_bson_normalized_value
   # @return [BSON::Document] The normalized hash.
   #
-  # source://bson//lib/bson/hash.rb#51
+  # pkg:gem/bson#lib/bson/hash.rb:51
   def to_bson_normalized_value; end
 
   private
@@ -2775,7 +2776,7 @@ module BSON::Hash
   # @raise [ArgumentError] if the string cannot be serialized
   # @raise [EncodingError] if the string is not a valid encoding
   #
-  # source://bson//lib/bson/hash.rb#111
+  # pkg:gem/bson#lib/bson/hash.rb:111
   def serialize_key(buffer, key); end
 
   # Serialize the key/value pairs in this hash instance to the given
@@ -2785,25 +2786,25 @@ module BSON::Hash
   #   key/value pairs.
   # @raise [Error::UnserializableClass] if a value cannot be serialized
   #
-  # source://bson//lib/bson/hash.rb#89
+  # pkg:gem/bson#lib/bson/hash.rb:89
   def serialize_key_value_pairs(buffer); end
 
   # Serialize this hash instance to the given buffer.
   #
   # @param buffer [ByteBuf] The buffer to receive the serialized hash.
   #
-  # source://bson//lib/bson/hash.rb#74
+  # pkg:gem/bson#lib/bson/hash.rb:74
   def serialize_to_buffer(buffer); end
 end
 
 # A hash, also called an embedded document, is type 0x03 in the BSON spec.
 #
-# source://bson//lib/bson/hash.rb#25
+# pkg:gem/bson#lib/bson/hash.rb:25
 BSON::Hash::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # The methods to augment the Hash class with (class-level methods).
 #
-# source://bson//lib/bson/hash.rb#122
+# pkg:gem/bson#lib/bson/hash.rb:122
 module BSON::Hash::ClassMethods
   # Deserialize the hash from BSON.
   #
@@ -2817,7 +2818,7 @@ module BSON::Hash::ClassMethods
   # @return [Hash] The decoded hash.
   # @see http://bsonspec.org/#/specification
   #
-  # source://bson//lib/bson/hash.rb#137
+  # pkg:gem/bson#lib/bson/hash.rb:137
   def from_bson(buffer, **options); end
 
   private
@@ -2829,7 +2830,7 @@ module BSON::Hash::ClassMethods
   # @param hash [Hash] the hash to try and decode
   # @return [DBRef | Hash] the result of decoding the hash
   #
-  # source://bson//lib/bson/hash.rb#155
+  # pkg:gem/bson#lib/bson/hash.rb:155
   def maybe_dbref(hash); end
 
   # Given an empty hash and a byte buffer, parse the key/value pairs from
@@ -2839,7 +2840,7 @@ module BSON::Hash::ClassMethods
   # @param hash [Hash] the hash to populate
   # @param options [Hash] the keyword arguments
   #
-  # source://bson//lib/bson/hash.rb#189
+  # pkg:gem/bson#lib/bson/hash.rb:189
   def parse_hash_contents(hash, buffer, **options); end
 
   # Given a byte buffer, extract and return a hash from it.
@@ -2849,7 +2850,7 @@ module BSON::Hash::ClassMethods
   # @raise [Error::BSONDecodeError]
   # @return [Hash] the hash parsed from the buffer
   #
-  # source://bson//lib/bson/hash.rb#169
+  # pkg:gem/bson#lib/bson/hash.rb:169
   def parse_hash_from_buffer(buffer, **options); end
 end
 
@@ -2858,7 +2859,7 @@ end
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/int32.rb#24
+# pkg:gem/bson#lib/bson/int32.rb:24
 class BSON::Int32
   include ::BSON::JSON
 
@@ -2869,7 +2870,7 @@ class BSON::Int32
   # @see http://bsonspec.org/#/specification
   # @since 4.2.0
   #
-  # source://bson//lib/bson/int32.rb#64
+  # pkg:gem/bson#lib/bson/int32.rb:64
   def initialize(value); end
 
   # Check equality of the int32 with another object.
@@ -2878,7 +2879,7 @@ class BSON::Int32
   # @return [true, false] If the objects are equal.
   # @since 4.4.0
   #
-  # source://bson//lib/bson/int32.rb#114
+  # pkg:gem/bson#lib/bson/int32.rb:114
   def ==(other); end
 
   # Check equality of the int32 with another object.
@@ -2887,7 +2888,7 @@ class BSON::Int32
   # @return [true, false] If the objects are equal.
   # @since 4.4.0
   #
-  # source://bson//lib/bson/int32.rb#119
+  # pkg:gem/bson#lib/bson/int32.rb:119
   def ===(other); end
 
   # Converts this object to a representation directly serializable to
@@ -2901,7 +2902,7 @@ class BSON::Int32
   # @return [Hash | Integer] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/int32.rb#143
+  # pkg:gem/bson#lib/bson/int32.rb:143
   def as_extended_json(**options); end
 
   # Return a string representation of the Int32 for use in
@@ -2913,10 +2914,10 @@ class BSON::Int32
   # @return [Integer] The Int32 as an Integer.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/int32.rb#129
+  # pkg:gem/bson#lib/bson/int32.rb:129
   def as_json(**options); end
 
-  # source://bson//lib/bson/int32.rb#154
+  # pkg:gem/bson#lib/bson/int32.rb:154
   def bson_type; end
 
   # Check equality of the int32 with another object.
@@ -2925,7 +2926,7 @@ class BSON::Int32
   # @return [true, false] If the objects are equal.
   # @since 4.4.0
   #
-  # source://bson//lib/bson/int32.rb#118
+  # pkg:gem/bson#lib/bson/int32.rb:118
   def eql?(other); end
 
   # Append the integer as encoded BSON to a ByteBuffer.
@@ -2936,7 +2937,7 @@ class BSON::Int32
   # @see http://bsonspec.org/#/specification
   # @since 4.2.0
   #
-  # source://bson//lib/bson/int32.rb#91
+  # pkg:gem/bson#lib/bson/int32.rb:91
   def to_bson(buffer = T.unsafe(nil)); end
 
   # Convert the integer to a BSON string key.
@@ -2946,7 +2947,7 @@ class BSON::Int32
   # @return [String] The string key.
   # @since 4.2.0
   #
-  # source://bson//lib/bson/int32.rb#103
+  # pkg:gem/bson#lib/bson/int32.rb:103
   def to_bson_key; end
 
   # Returns the value of this Int32.
@@ -2954,7 +2955,7 @@ class BSON::Int32
   # @return [Integer] The integer value.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/int32.rb#79
+  # pkg:gem/bson#lib/bson/int32.rb:79
   def value; end
 
   class << self
@@ -2967,7 +2968,7 @@ class BSON::Int32
     # @see http://bsonspec.org/#/specification
     # @since 2.0.0
     #
-    # source://bson//lib/bson/int32.rb#53
+    # pkg:gem/bson#lib/bson/int32.rb:53
     def from_bson(buffer, **options); end
   end
 end
@@ -2976,21 +2977,21 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/int32.rb#30
+# pkg:gem/bson#lib/bson/int32.rb:30
 BSON::Int32::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # The number of bytes constant.
 #
 # @since 4.0.0
 #
-# source://bson//lib/bson/int32.rb#35
+# pkg:gem/bson#lib/bson/int32.rb:35
 BSON::Int32::BYTES_LENGTH = T.let(T.unsafe(nil), Integer)
 
 # Constant for the int 32 pack directive.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/int32.rb#40
+# pkg:gem/bson#lib/bson/int32.rb:40
 BSON::Int32::PACK = T.let(T.unsafe(nil), String)
 
 # Represents int64 type.
@@ -2998,7 +2999,7 @@ BSON::Int32::PACK = T.let(T.unsafe(nil), String)
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/int64.rb#24
+# pkg:gem/bson#lib/bson/int64.rb:24
 class BSON::Int64
   include ::BSON::JSON
 
@@ -3009,7 +3010,7 @@ class BSON::Int64
   # @see http://bsonspec.org/#/specification
   # @since 4.2.0
   #
-  # source://bson//lib/bson/int64.rb#64
+  # pkg:gem/bson#lib/bson/int64.rb:64
   def initialize(value); end
 
   # Check equality of the int64 with another object.
@@ -3018,7 +3019,7 @@ class BSON::Int64
   # @return [true, false] If the objects are equal.
   # @since 4.4.0
   #
-  # source://bson//lib/bson/int64.rb#114
+  # pkg:gem/bson#lib/bson/int64.rb:114
   def ==(other); end
 
   # Check equality of the int64 with another object.
@@ -3027,7 +3028,7 @@ class BSON::Int64
   # @return [true, false] If the objects are equal.
   # @since 4.4.0
   #
-  # source://bson//lib/bson/int64.rb#119
+  # pkg:gem/bson#lib/bson/int64.rb:119
   def ===(other); end
 
   # Converts this object to a representation directly serializable to
@@ -3041,7 +3042,7 @@ class BSON::Int64
   # @return [Hash | Integer] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/int64.rb#143
+  # pkg:gem/bson#lib/bson/int64.rb:143
   def as_extended_json(**options); end
 
   # Return a string representation of the Int64 for use in
@@ -3053,10 +3054,10 @@ class BSON::Int64
   # @return [Integer] The Int64 as an Integer.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/int64.rb#129
+  # pkg:gem/bson#lib/bson/int64.rb:129
   def as_json(**options); end
 
-  # source://bson//lib/bson/int64.rb#154
+  # pkg:gem/bson#lib/bson/int64.rb:154
   def bson_type; end
 
   # Check equality of the int64 with another object.
@@ -3065,7 +3066,7 @@ class BSON::Int64
   # @return [true, false] If the objects are equal.
   # @since 4.4.0
   #
-  # source://bson//lib/bson/int64.rb#118
+  # pkg:gem/bson#lib/bson/int64.rb:118
   def eql?(other); end
 
   # Append the integer as encoded BSON to a ByteBuffer.
@@ -3076,7 +3077,7 @@ class BSON::Int64
   # @see http://bsonspec.org/#/specification
   # @since 4.2.0
   #
-  # source://bson//lib/bson/int64.rb#91
+  # pkg:gem/bson#lib/bson/int64.rb:91
   def to_bson(buffer = T.unsafe(nil)); end
 
   # Convert the integer to a BSON string key.
@@ -3086,7 +3087,7 @@ class BSON::Int64
   # @return [String] The string key.
   # @since 4.2.0
   #
-  # source://bson//lib/bson/int64.rb#103
+  # pkg:gem/bson#lib/bson/int64.rb:103
   def to_bson_key; end
 
   # Returns the value of this Int64.
@@ -3094,7 +3095,7 @@ class BSON::Int64
   # @return [Integer] The integer value.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/int64.rb#79
+  # pkg:gem/bson#lib/bson/int64.rb:79
   def value; end
 
   class << self
@@ -3107,7 +3108,7 @@ class BSON::Int64
     # @see http://bsonspec.org/#/specification
     # @since 2.0.0
     #
-    # source://bson//lib/bson/int64.rb#48
+    # pkg:gem/bson#lib/bson/int64.rb:48
     def from_bson(buffer, **options); end
   end
 end
@@ -3116,14 +3117,14 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/int64.rb#30
+# pkg:gem/bson#lib/bson/int64.rb:30
 BSON::Int64::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # Constant for the int 64 pack directive.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/int64.rb#35
+# pkg:gem/bson#lib/bson/int64.rb:35
 BSON::Int64::PACK = T.let(T.unsafe(nil), String)
 
 # Injects behaviour for encoding and decoding integer values to and from
@@ -3132,7 +3133,7 @@ BSON::Int64::PACK = T.let(T.unsafe(nil), String)
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/integer.rb#25
+# pkg:gem/bson#lib/bson/integer.rb:25
 module BSON::Integer
   # Converts this object to a representation directly serializable to
   # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
@@ -3147,7 +3148,7 @@ module BSON::Integer
   # @return [Hash | Integer] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/integer.rb#174
+  # pkg:gem/bson#lib/bson/integer.rb:174
   def as_extended_json(**options); end
 
   # Is this integer a valid BSON 32 bit value?
@@ -3157,7 +3158,7 @@ module BSON::Integer
   # @return [true, false] If the integer is 32 bit.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/integer.rb#67
+  # pkg:gem/bson#lib/bson/integer.rb:67
   def bson_int32?; end
 
   # Is this integer a valid BSON 64 bit value?
@@ -3167,7 +3168,7 @@ module BSON::Integer
   # @return [true, false] If the integer is 64 bit.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/integer.rb#79
+  # pkg:gem/bson#lib/bson/integer.rb:79
   def bson_int64?; end
 
   # Get the BSON type for this integer. Will depend on whether the integer
@@ -3179,7 +3180,7 @@ module BSON::Integer
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/integer.rb#94
+  # pkg:gem/bson#lib/bson/integer.rb:94
   def bson_type; end
 
   # Get the integer as encoded BSON.
@@ -3190,7 +3191,7 @@ module BSON::Integer
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/integer.rb#108
+  # pkg:gem/bson#lib/bson/integer.rb:108
   def to_bson(buffer = T.unsafe(nil)); end
 
   # Convert the integer to a 32 bit (4 bytes) raw bytes string.
@@ -3201,7 +3202,7 @@ module BSON::Integer
   # @return [String] The encoded string.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/integer.rb#128
+  # pkg:gem/bson#lib/bson/integer.rb:128
   def to_bson_int32(encoded); end
 
   # Convert the integer to a 64 bit (8 bytes) raw bytes string.
@@ -3212,7 +3213,7 @@ module BSON::Integer
   # @return [String] The encoded string.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/integer.rb#142
+  # pkg:gem/bson#lib/bson/integer.rb:142
   def to_bson_int64(encoded); end
 
   # Convert the integer to a BSON string key.
@@ -3222,20 +3223,20 @@ module BSON::Integer
   # @return [String] The string key.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/integer.rb#158
+  # pkg:gem/bson#lib/bson/integer.rb:158
   def to_bson_key; end
 
   private
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/integer.rb#198
+  # pkg:gem/bson#lib/bson/integer.rb:198
   def append_bson_int32(encoded); end
 
   # @raise [RangeError]
   # @since 2.0.0
   #
-  # source://bson//lib/bson/integer.rb#205
+  # pkg:gem/bson#lib/bson/integer.rb:205
   def out_of_range!; end
 end
 
@@ -3243,49 +3244,49 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/integer.rb#55
+# pkg:gem/bson#lib/bson/integer.rb:55
 BSON::Integer::BSON_ARRAY_INDEXES = T.let(T.unsafe(nil), Array)
 
 # The BSON index size.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/integer.rb#50
+# pkg:gem/bson#lib/bson/integer.rb:50
 BSON::Integer::BSON_INDEX_SIZE = T.let(T.unsafe(nil), Integer)
 
 # The maximum 32 bit integer value.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/integer.rb#30
+# pkg:gem/bson#lib/bson/integer.rb:30
 BSON::Integer::MAX_32BIT = T.let(T.unsafe(nil), Integer)
 
 # The maximum 64 bit integer value.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/integer.rb#35
+# pkg:gem/bson#lib/bson/integer.rb:35
 BSON::Integer::MAX_64BIT = T.let(T.unsafe(nil), Integer)
 
 # The minimum 32 bit integer value.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/integer.rb#40
+# pkg:gem/bson#lib/bson/integer.rb:40
 BSON::Integer::MIN_32BIT = T.let(T.unsafe(nil), Integer)
 
 # The minimum 64 bit integer value.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/integer.rb#45
+# pkg:gem/bson#lib/bson/integer.rb:45
 BSON::Integer::MIN_64BIT = T.let(T.unsafe(nil), Integer)
 
 # Provides common behaviour for JSON serialization of objects.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/json.rb#22
+# pkg:gem/bson#lib/bson/json.rb:22
 module BSON::JSON
   # Converting an object to JSON simply gets it's hash representation via
   # as_json, then converts it to a string.
@@ -3296,7 +3297,7 @@ module BSON::JSON
   # @return [String] The object as JSON.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/json.rb#35
+  # pkg:gem/bson#lib/bson/json.rb:35
   def to_json(*args); end
 end
 
@@ -3304,7 +3305,7 @@ end
 #
 # @api private
 #
-# source://bson//lib/bson/date.rb#29
+# pkg:gem/bson#lib/bson/date.rb:29
 BSON::MILLISECONDS_IN_DAY = T.let(T.unsafe(nil), Integer)
 
 # Represents a $maxKey type, which compares less than any other value in the
@@ -3313,7 +3314,7 @@ BSON::MILLISECONDS_IN_DAY = T.let(T.unsafe(nil), Integer)
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/max_key.rb#25
+# pkg:gem/bson#lib/bson/max_key.rb:25
 class BSON::MaxKey
   include ::Comparable
   include ::BSON::JSON
@@ -3329,7 +3330,7 @@ class BSON::MaxKey
   # @return [Integer] Always 1.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/max_key.rb#51
+  # pkg:gem/bson#lib/bson/max_key.rb:51
   def <=>(other); end
 
   # Converts this object to a representation directly serializable to
@@ -3340,7 +3341,7 @@ class BSON::MaxKey
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/max_key.rb#72
+  # pkg:gem/bson#lib/bson/max_key.rb:72
   def as_extended_json(**options); end
 
   # Return a representation of the object for use in
@@ -3351,10 +3352,10 @@ class BSON::MaxKey
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/max_key.rb#61
+  # pkg:gem/bson#lib/bson/max_key.rb:61
   def as_json(*_args); end
 
-  # source://bson//lib/bson/max_key.rb#79
+  # pkg:gem/bson#lib/bson/max_key.rb:79
   def bson_type; end
 end
 
@@ -3362,14 +3363,14 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/max_key.rb#33
+# pkg:gem/bson#lib/bson/max_key.rb:33
 BSON::MaxKey::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # Constant for always evaluating greater in a comparison.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/max_key.rb#38
+# pkg:gem/bson#lib/bson/max_key.rb:38
 BSON::MaxKey::GREATER = T.let(T.unsafe(nil), Integer)
 
 # Represents a $minKey type, which compares less than any other value in the
@@ -3378,7 +3379,7 @@ BSON::MaxKey::GREATER = T.let(T.unsafe(nil), Integer)
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/min_key.rb#25
+# pkg:gem/bson#lib/bson/min_key.rb:25
 class BSON::MinKey
   include ::Comparable
   include ::BSON::JSON
@@ -3394,7 +3395,7 @@ class BSON::MinKey
   # @return [Integer] Always -1.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/min_key.rb#51
+  # pkg:gem/bson#lib/bson/min_key.rb:51
   def <=>(other); end
 
   # Converts this object to a representation directly serializable to
@@ -3405,7 +3406,7 @@ class BSON::MinKey
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/min_key.rb#72
+  # pkg:gem/bson#lib/bson/min_key.rb:72
   def as_extended_json(**options); end
 
   # Return a representation of the object for use in
@@ -3416,10 +3417,10 @@ class BSON::MinKey
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/min_key.rb#61
+  # pkg:gem/bson#lib/bson/min_key.rb:61
   def as_json(*_args); end
 
-  # source://bson//lib/bson/min_key.rb#79
+  # pkg:gem/bson#lib/bson/min_key.rb:79
   def bson_type; end
 end
 
@@ -3427,28 +3428,28 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/min_key.rb#33
+# pkg:gem/bson#lib/bson/min_key.rb:33
 BSON::MinKey::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # Constant for always evaluating lesser in a comparison.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/min_key.rb#38
+# pkg:gem/bson#lib/bson/min_key.rb:38
 BSON::MinKey::LESSER = T.let(T.unsafe(nil), Integer)
 
 # Constant for bson types that don't actually serialize a value.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson.rb#48
+# pkg:gem/bson#lib/bson.rb:48
 BSON::NO_VALUE = T.let(T.unsafe(nil), String)
 
 # Constant for a null byte (0x00).
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson.rb#53
+# pkg:gem/bson#lib/bson.rb:53
 BSON::NULL_BYTE = T.let(T.unsafe(nil), String)
 
 # Injects behaviour for encoding and decoding nil values to and from
@@ -3457,7 +3458,7 @@ BSON::NULL_BYTE = T.let(T.unsafe(nil), String)
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/nil_class.rb#25
+# pkg:gem/bson#lib/bson/nil_class.rb:25
 module BSON::NilClass
   include ::BSON::Specialized
   extend ::BSON::Specialized::ClassMethods
@@ -3467,12 +3468,12 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/nil_class.rb#31
+# pkg:gem/bson#lib/bson/nil_class.rb:31
 BSON::NilClass::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # @since 2.0.0
 #
-# source://bson//lib/bson/nil_class.rb#33
+# pkg:gem/bson#lib/bson/nil_class.rb:33
 module BSON::NilClass::ClassMethods
   # Deserialize NilClass from BSON.
   #
@@ -3483,7 +3484,7 @@ module BSON::NilClass::ClassMethods
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/nil_class.rb#46
+  # pkg:gem/bson#lib/bson/nil_class.rb:46
   def from_bson(buffer, **options); end
 end
 
@@ -3491,7 +3492,7 @@ end
 #
 # @since 2.2.4
 #
-# source://bson//lib/bson/object.rb#22
+# pkg:gem/bson#lib/bson/object.rb:22
 module BSON::Object
   # Converts this object to a representation directly serializable to
   # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
@@ -3502,7 +3503,7 @@ module BSON::Object
   # @return [Object] The extended json representation.
   # @since 2.2.4
   #
-  # source://bson//lib/bson/object.rb#84
+  # pkg:gem/bson#lib/bson/object.rb:84
   def as_extended_json(**_options); end
 
   # Objects that don't override this method will raise an error when trying
@@ -3515,7 +3516,7 @@ module BSON::Object
   # @see http://bsonspec.org/#/specification
   # @since 2.2.4
   #
-  # source://bson//lib/bson/object.rb#36
+  # pkg:gem/bson#lib/bson/object.rb:36
   def to_bson_key; end
 
   # Converts the object to a normalized key in a BSON document.
@@ -3525,7 +3526,7 @@ module BSON::Object
   # @return [Object] self.
   # @since 3.0.0
   #
-  # source://bson//lib/bson/object.rb#48
+  # pkg:gem/bson#lib/bson/object.rb:48
   def to_bson_normalized_key; end
 
   # Converts the object to a normalized value in a BSON document.
@@ -3535,7 +3536,7 @@ module BSON::Object
   # @return [Object] self.
   # @since 3.0.0
   #
-  # source://bson//lib/bson/object.rb#60
+  # pkg:gem/bson#lib/bson/object.rb:60
   def to_bson_normalized_value; end
 
   # Serializes this object to Extended JSON
@@ -3548,7 +3549,7 @@ module BSON::Object
   # @return [String] The extended json serialization.
   # @since 2.2.4
   #
-  # source://bson//lib/bson/object.rb#73
+  # pkg:gem/bson#lib/bson/object.rb:73
   def to_extended_json(**options); end
 end
 
@@ -3557,7 +3558,7 @@ end
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/object_id.rb#23
+# pkg:gem/bson#lib/bson/object_id.rb:23
 class BSON::ObjectId
   include ::Comparable
   include ::BSON::JSON
@@ -3570,7 +3571,7 @@ class BSON::ObjectId
   # @return [Integer] The result of the comparison.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#95
+  # pkg:gem/bson#lib/bson/object_id.rb:95
   def <=>(other); end
 
   # Check equality of the object id with another object.
@@ -3581,7 +3582,7 @@ class BSON::ObjectId
   # @return [true, false] If the objects are equal.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#42
+  # pkg:gem/bson#lib/bson/object_id.rb:42
   def ==(other); end
 
   # Check case equality on the object id.
@@ -3592,7 +3593,7 @@ class BSON::ObjectId
   # @return [true, false] If the objects are equal in a case.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#59
+  # pkg:gem/bson#lib/bson/object_id.rb:59
   def ===(other); end
 
   # Extract the counter-specific part of the object id. This is used only
@@ -3602,7 +3603,7 @@ class BSON::ObjectId
   # @return [String] The counter portion of the id.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#212
+  # pkg:gem/bson#lib/bson/object_id.rb:212
   def _counter_part; end
 
   # Extract the process-specific part of the object id. This is used only
@@ -3612,7 +3613,7 @@ class BSON::ObjectId
   # @return [String] The process portion of the id.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#202
+  # pkg:gem/bson#lib/bson/object_id.rb:202
   def _process_part; end
 
   # Converts this object to a representation directly serializable to
@@ -3621,7 +3622,7 @@ class BSON::ObjectId
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#81
+  # pkg:gem/bson#lib/bson/object_id.rb:81
   def as_extended_json(**_); end
 
   # Return a string representation of the object id for use in
@@ -3633,10 +3634,10 @@ class BSON::ObjectId
   # @return [String] The object id as a string.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#73
+  # pkg:gem/bson#lib/bson/object_id.rb:73
   def as_json(*_); end
 
-  # source://bson//lib/bson/object_id.rb#381
+  # pkg:gem/bson#lib/bson/object_id.rb:381
   def bson_type; end
 
   # Check equality of the object id with another object.
@@ -3647,7 +3648,7 @@ class BSON::ObjectId
   # @return [true, false] If the objects are equal.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#47
+  # pkg:gem/bson#lib/bson/object_id.rb:47
   def eql?(other); end
 
   # Return the UTC time at which this ObjectId was generated. This may
@@ -3659,7 +3660,7 @@ class BSON::ObjectId
   # @return [Time] The time the id was generated.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#109
+  # pkg:gem/bson#lib/bson/object_id.rb:109
   def generation_time; end
 
   # Get the hash value for the object id.
@@ -3669,7 +3670,7 @@ class BSON::ObjectId
   # @return [Integer] The hash value.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#122
+  # pkg:gem/bson#lib/bson/object_id.rb:122
   def hash; end
 
   # Get a nice string for use with object inspection.
@@ -3679,7 +3680,7 @@ class BSON::ObjectId
   # @return [String] The object id in form BSON::ObjectId('id')
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#134
+  # pkg:gem/bson#lib/bson/object_id.rb:134
   def inspect; end
 
   # Dump the raw bson when calling Marshal.dump.
@@ -3689,7 +3690,7 @@ class BSON::ObjectId
   # @return [String] The raw bson bytes.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#146
+  # pkg:gem/bson#lib/bson/object_id.rb:146
   def marshal_dump; end
 
   # Unmarshal the data into an object id.
@@ -3700,7 +3701,7 @@ class BSON::ObjectId
   # @return [String] The raw bson bytes.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#160
+  # pkg:gem/bson#lib/bson/object_id.rb:160
   def marshal_load(data); end
 
   # Get the object id as it's raw BSON data.
@@ -3715,7 +3716,7 @@ class BSON::ObjectId
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#179
+  # pkg:gem/bson#lib/bson/object_id.rb:179
   def to_bson(buffer = T.unsafe(nil)); end
 
   # Get the string representation of the object id.
@@ -3725,7 +3726,7 @@ class BSON::ObjectId
   # @return [String] The object id as a string.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#191
+  # pkg:gem/bson#lib/bson/object_id.rb:191
   def to_s; end
 
   # Get the string representation of the object id.
@@ -3735,7 +3736,7 @@ class BSON::ObjectId
   # @return [String] The object id as a string.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#194
+  # pkg:gem/bson#lib/bson/object_id.rb:194
   def to_str; end
 
   # Return the UTC time at which this ObjectId was generated. This may
@@ -3747,24 +3748,24 @@ class BSON::ObjectId
   # @return [Time] The time the id was generated.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#112
+  # pkg:gem/bson#lib/bson/object_id.rb:112
   def to_time; end
 
   private
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#242
+  # pkg:gem/bson#lib/bson/object_id.rb:242
   def generate_data; end
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#237
+  # pkg:gem/bson#lib/bson/object_id.rb:237
   def initialize_copy(other); end
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/object_id.rb#250
+  # pkg:gem/bson#lib/bson/object_id.rb:250
   def repair; end
 
   class << self
@@ -3773,7 +3774,7 @@ class BSON::ObjectId
     # @api private
     # @since 2.0.0
     #
-    # source://bson//lib/bson/object_id.rb#231
+    # pkg:gem/bson#lib/bson/object_id.rb:231
     def _generator; end
 
     # Deserialize the object id from raw BSON bytes.
@@ -3785,7 +3786,7 @@ class BSON::ObjectId
     # @return [BSON::ObjectId] The object id.
     # @since 2.0.0
     #
-    # source://bson//lib/bson/object_id.rb#267
+    # pkg:gem/bson#lib/bson/object_id.rb:267
     def from_bson(buffer, **_); end
 
     # Create a new object id from raw bytes.
@@ -3796,7 +3797,7 @@ class BSON::ObjectId
     # @return [ObjectId] The new object id.
     # @since 2.0.0
     #
-    # source://bson//lib/bson/object_id.rb#281
+    # pkg:gem/bson#lib/bson/object_id.rb:281
     def from_data(data); end
 
     # Create a new object id from a string.
@@ -3808,7 +3809,7 @@ class BSON::ObjectId
     # @return [BSON::ObjectId] The new object id.
     # @since 2.0.0
     #
-    # source://bson//lib/bson/object_id.rb#299
+    # pkg:gem/bson#lib/bson/object_id.rb:299
     def from_string(string); end
 
     # Create a new object id from a time.
@@ -3823,7 +3824,7 @@ class BSON::ObjectId
     # @return [ObjectId] The new object id.
     # @since 2.0.0
     #
-    # source://bson//lib/bson/object_id.rb#322
+    # pkg:gem/bson#lib/bson/object_id.rb:322
     def from_time(time, options = T.unsafe(nil)); end
 
     # Determine if the provided string is a legal object id.
@@ -3834,7 +3835,7 @@ class BSON::ObjectId
     # @return [true, false] If the string is legal.
     # @since 2.0.0
     #
-    # source://bson//lib/bson/object_id.rb#336
+    # pkg:gem/bson#lib/bson/object_id.rb:336
     def legal?(string); end
 
     # Executes the provided block only if the size of the provided object is
@@ -3847,7 +3848,7 @@ class BSON::ObjectId
     # @return [String] The result of the block.
     # @since 2.0.0
     #
-    # source://bson//lib/bson/object_id.rb#353
+    # pkg:gem/bson#lib/bson/object_id.rb:353
     def repair(object); end
 
     # Returns an integer timestamp (seconds since the Epoch). Primarily used
@@ -3859,7 +3860,7 @@ class BSON::ObjectId
     # @return [Integer] the number of seconds since the Epoch.
     # @since 2.0.0
     #
-    # source://bson//lib/bson/object_id.rb#373
+    # pkg:gem/bson#lib/bson/object_id.rb:373
     def timestamp; end
   end
 end
@@ -3868,7 +3869,7 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/object_id.rb#30
+# pkg:gem/bson#lib/bson/object_id.rb:30
 BSON::ObjectId::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # Extended by native code (see init.c, util.c, GeneratorExtension.java)
@@ -3877,12 +3878,12 @@ BSON::ObjectId::BSON_TYPE = T.let(T.unsafe(nil), String)
 # @api private
 # @since 2.0.0
 #
-# source://bson//lib/bson/object_id.rb#221
+# pkg:gem/bson#lib/bson/object_id.rb:221
 class BSON::ObjectId::Generator
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def next_object_id(*_arg0); end
 
-  # source://bson//lib/bson.rb#110
+  # pkg:gem/bson#lib/bson.rb:110
   def reset_counter(*_arg0); end
 end
 
@@ -3892,7 +3893,7 @@ end
 # @see http://bsonspec.org/#/specification
 # @since 4.2.0
 #
-# source://bson//lib/bson/open_struct.rb#25
+# pkg:gem/bson#lib/bson/open_struct.rb:25
 module BSON::OpenStruct
   # The BSON type for OpenStruct objects is the Hash type of 0x03.
   #
@@ -3901,7 +3902,7 @@ module BSON::OpenStruct
   # @return [String] The character 0x03.
   # @since 4.2.0
   #
-  # source://bson//lib/bson/open_struct.rb#53
+  # pkg:gem/bson#lib/bson/open_struct.rb:53
   def bson_type; end
 
   # Get the OpenStruct as encoded BSON.
@@ -3912,7 +3913,7 @@ module BSON::OpenStruct
   # @see http://bsonspec.org/#/specification
   # @since 4.2.0
   #
-  # source://bson//lib/bson/open_struct.rb#37
+  # pkg:gem/bson#lib/bson/open_struct.rb:37
   def to_bson(buffer = T.unsafe(nil)); end
 end
 
@@ -3922,7 +3923,7 @@ end
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/regexp.rb#25
+# pkg:gem/bson#lib/bson/regexp.rb:25
 module BSON::Regexp
   include ::BSON::JSON
 
@@ -3933,7 +3934,7 @@ module BSON::Regexp
   # @return [Hash] The regexp as a JSON hash.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#66
+  # pkg:gem/bson#lib/bson/regexp.rb:66
   def as_json(*_arg0); end
 
   # Get the regular expression as encoded BSON.
@@ -3953,29 +3954,29 @@ module BSON::Regexp
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#89
+  # pkg:gem/bson#lib/bson/regexp.rb:89
   def to_bson(buffer = T.unsafe(nil)); end
 
   private
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#109
+  # pkg:gem/bson#lib/bson/regexp.rb:109
   def bson_dotall; end
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#101
+  # pkg:gem/bson#lib/bson/regexp.rb:101
   def bson_extended; end
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#105
+  # pkg:gem/bson#lib/bson/regexp.rb:105
   def bson_ignorecase; end
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#96
+  # pkg:gem/bson#lib/bson/regexp.rb:96
   def bson_options; end
 end
 
@@ -3983,14 +3984,14 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/regexp.rb#31
+# pkg:gem/bson#lib/bson/regexp.rb:31
 BSON::Regexp::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # Class-level methods to be added to the Regexp class.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/regexp.rb#250
+# pkg:gem/bson#lib/bson/regexp.rb:250
 module BSON::Regexp::ClassMethods
   # Deserialize the regular expression from BSON.
   #
@@ -4005,7 +4006,7 @@ module BSON::Regexp::ClassMethods
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#265
+  # pkg:gem/bson#lib/bson/regexp.rb:265
   def from_bson(buffer, **_); end
 end
 
@@ -4013,28 +4014,28 @@ end
 #
 # @since 3.2.6
 #
-# source://bson//lib/bson/regexp.rb#36
+# pkg:gem/bson#lib/bson/regexp.rb:36
 BSON::Regexp::EXTENDED_VALUE = T.let(T.unsafe(nil), String)
 
 # Ignore case constant.
 #
 # @since 3.2.6
 #
-# source://bson//lib/bson/regexp.rb#41
+# pkg:gem/bson#lib/bson/regexp.rb:41
 BSON::Regexp::IGNORECASE_VALUE = T.let(T.unsafe(nil), String)
 
 # Multiline constant.
 #
 # @since 3.2.6
 #
-# source://bson//lib/bson/regexp.rb#46
+# pkg:gem/bson#lib/bson/regexp.rb:46
 BSON::Regexp::MULTILINE_VALUE = T.let(T.unsafe(nil), String)
 
 # Newline constant.
 #
 # @since 3.2.6
 #
-# source://bson//lib/bson/regexp.rb#51
+# pkg:gem/bson#lib/bson/regexp.rb:51
 BSON::Regexp::NEWLINE_VALUE = T.let(T.unsafe(nil), String)
 
 # Ruby multiline constant.
@@ -4042,7 +4043,7 @@ BSON::Regexp::NEWLINE_VALUE = T.let(T.unsafe(nil), String)
 # @deprecated Will be removed in 5.0
 # @since 3.2.6
 #
-# source://bson//lib/bson/regexp.rb#58
+# pkg:gem/bson#lib/bson/regexp.rb:58
 BSON::Regexp::RUBY_MULTILINE_VALUE = T.let(T.unsafe(nil), String)
 
 # Represents the raw values for the regular expression.
@@ -4050,7 +4051,7 @@ BSON::Regexp::RUBY_MULTILINE_VALUE = T.let(T.unsafe(nil), String)
 # @see https://jira.mongodb.org/browse/RUBY-698
 # @since 2.0.0
 #
-# source://bson//lib/bson/regexp.rb#117
+# pkg:gem/bson#lib/bson/regexp.rb:117
 class BSON::Regexp::Raw
   include ::BSON::JSON
 
@@ -4063,7 +4064,7 @@ class BSON::Regexp::Raw
   # @return [Raw] a new instance of Raw
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#143
+  # pkg:gem/bson#lib/bson/regexp.rb:143
   def initialize(pattern, options = T.unsafe(nil)); end
 
   # Check equality of the raw bson regexp against another.
@@ -4074,7 +4075,7 @@ class BSON::Regexp::Raw
   # @return [true, false] If the objects are equal.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#225
+  # pkg:gem/bson#lib/bson/regexp.rb:225
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
@@ -4085,7 +4086,7 @@ class BSON::Regexp::Raw
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#209
+  # pkg:gem/bson#lib/bson/regexp.rb:209
   def as_extended_json(**opts); end
 
   # Get the raw BSON regexp as JSON hash data.
@@ -4095,7 +4096,7 @@ class BSON::Regexp::Raw
   # @return [Hash] The raw regexp as a JSON hash.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#198
+  # pkg:gem/bson#lib/bson/regexp.rb:198
   def as_json(*_arg0); end
 
   # Compile the Regular expression into the native type.
@@ -4105,7 +4106,7 @@ class BSON::Regexp::Raw
   # @return [::Regexp] The compiled regular expression.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#132
+  # pkg:gem/bson#lib/bson/regexp.rb:132
   def compile; end
 
   # Check equality of the raw bson regexp against another.
@@ -4116,19 +4117,19 @@ class BSON::Regexp::Raw
   # @return [true, false] If the objects are equal.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#230
+  # pkg:gem/bson#lib/bson/regexp.rb:230
   def eql?(other); end
 
   # @return [String] options The options.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#124
+  # pkg:gem/bson#lib/bson/regexp.rb:124
   def options; end
 
   # @return [String] pattern The regex pattern.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#121
+  # pkg:gem/bson#lib/bson/regexp.rb:121
   def pattern; end
 
   # Encode the Raw Regexp object to BSON.
@@ -4148,19 +4149,19 @@ class BSON::Regexp::Raw
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#187
+  # pkg:gem/bson#lib/bson/regexp.rb:187
   def to_bson(buffer = T.unsafe(nil)); end
 
   private
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#234
+  # pkg:gem/bson#lib/bson/regexp.rb:234
   def method_missing(method, *arguments); end
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#240
+  # pkg:gem/bson#lib/bson/regexp.rb:240
   def options_to_int; end
 
   # Allow automatic delegation of methods to the Regexp object
@@ -4170,7 +4171,7 @@ class BSON::Regexp::Raw
   # @return [Boolean]
   # @since 2.0.0
   #
-  # source://bson//lib/bson/regexp.rb#162
+  # pkg:gem/bson#lib/bson/regexp.rb:162
   def respond_to_missing?(method, include_private = T.unsafe(nil)); end
 end
 
@@ -4180,7 +4181,7 @@ end
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/registry.rb#25
+# pkg:gem/bson#lib/bson/registry.rb:25
 module BSON::Registry
   extend ::BSON::Registry
 
@@ -4193,7 +4194,7 @@ module BSON::Registry
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/registry.rb#44
+  # pkg:gem/bson#lib/bson/registry.rb:44
   def get(byte, field = T.unsafe(nil)); end
 
   # Register the Ruby type for the corresponding single byte.
@@ -4205,20 +4206,20 @@ module BSON::Registry
   # @return [Class] The class.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/registry.rb#63
+  # pkg:gem/bson#lib/bson/registry.rb:63
   def register(byte, type); end
 
   private
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/registry.rb#70
+  # pkg:gem/bson#lib/bson/registry.rb:70
   def define_type_reader(type); end
 
   # @raise [Error::UnsupportedType]
   # @since 2.0.0
   #
-  # source://bson//lib/bson/registry.rb#76
+  # pkg:gem/bson#lib/bson/registry.rb:76
   def handle_unsupported_type!(byte, field); end
 end
 
@@ -4226,7 +4227,7 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/registry.rb#31
+# pkg:gem/bson#lib/bson/registry.rb:31
 BSON::Registry::MAPPINGS = T.let(T.unsafe(nil), Hash)
 
 # Provides behaviour to special values that exist in the BSON spec that don't
@@ -4235,7 +4236,7 @@ BSON::Registry::MAPPINGS = T.let(T.unsafe(nil), Hash)
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/specialized.rb#25
+# pkg:gem/bson#lib/bson/specialized.rb:25
 module BSON::Specialized
   mixes_in_class_methods ::BSON::Specialized::ClassMethods
 
@@ -4247,7 +4248,7 @@ module BSON::Specialized
   # @return [true, false] If the objects are equal.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/specialized.rb#37
+  # pkg:gem/bson#lib/bson/specialized.rb:37
   def ==(other); end
 
   # Encode the min key - has no value since it only needs the type and field
@@ -4258,20 +4259,20 @@ module BSON::Specialized
   # @return [BSON::ByteBuffer] The buffer with the encoded object.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/specialized.rb#50
+  # pkg:gem/bson#lib/bson/specialized.rb:50
   def to_bson(buffer = T.unsafe(nil)); end
 
   class << self
     # @since 2.0.0
     #
-    # source://bson//lib/bson/specialized.rb#56
+    # pkg:gem/bson#lib/bson/specialized.rb:56
     def included(klass); end
   end
 end
 
 # @since 2.0.0
 #
-# source://bson//lib/bson/specialized.rb#60
+# pkg:gem/bson#lib/bson/specialized.rb:60
 module BSON::Specialized::ClassMethods
   # Deserialize from BSON.
   #
@@ -4282,7 +4283,7 @@ module BSON::Specialized::ClassMethods
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/specialized.rb#73
+  # pkg:gem/bson#lib/bson/specialized.rb:73
   def from_bson(buffer, **options); end
 end
 
@@ -4292,7 +4293,7 @@ end
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/string.rb#26
+# pkg:gem/bson#lib/bson/string.rb:26
 module BSON::String
   # Get the string as encoded BSON.
   #
@@ -4303,7 +4304,7 @@ module BSON::String
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/string.rb#50
+  # pkg:gem/bson#lib/bson/string.rb:50
   def to_bson(buffer = T.unsafe(nil)); end
 
   # Get the string as a BSON key name encoded C string with checking for special characters.
@@ -4315,7 +4316,7 @@ module BSON::String
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/string.rb#66
+  # pkg:gem/bson#lib/bson/string.rb:66
   def to_bson_key; end
 
   # Convert the string to an object id. This will only work for strings of size
@@ -4328,7 +4329,7 @@ module BSON::String
   # @return [String] The raw object id bytes.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/string.rb#83
+  # pkg:gem/bson#lib/bson/string.rb:83
   def to_bson_object_id; end
 
   # Convert the string to a hexidecimal representation.
@@ -4338,7 +4339,7 @@ module BSON::String
   # @return [String] The string as hex.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/string.rb#95
+  # pkg:gem/bson#lib/bson/string.rb:95
   def to_hex_string; end
 end
 
@@ -4346,12 +4347,12 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/string.rb#31
+# pkg:gem/bson#lib/bson/string.rb:31
 BSON::String::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # @since 2.0.0
 #
-# source://bson//lib/bson/string.rb#99
+# pkg:gem/bson#lib/bson/string.rb:99
 module BSON::String::ClassMethods
   # Deserialize a string from BSON.
   #
@@ -4362,7 +4363,7 @@ module BSON::String::ClassMethods
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/string.rb#112
+  # pkg:gem/bson#lib/bson/string.rb:112
   def from_bson(buffer, **options); end
 end
 
@@ -4370,7 +4371,7 @@ end
 #
 # @since 4.1.0
 #
-# source://bson//lib/bson/string.rb#36
+# pkg:gem/bson#lib/bson/string.rb:36
 BSON::String::ILLEGAL_KEY = T.let(T.unsafe(nil), Regexp)
 
 # Injects behaviour for encoding and decoding symbol values to and from
@@ -4381,7 +4382,7 @@ BSON::String::ILLEGAL_KEY = T.let(T.unsafe(nil), Regexp)
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/symbol.rb#28
+# pkg:gem/bson#lib/bson/symbol.rb:28
 module BSON::Symbol
   # Converts this object to a representation directly serializable to
   # Extended JSON (https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md).
@@ -4389,7 +4390,7 @@ module BSON::Symbol
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/symbol.rb#95
+  # pkg:gem/bson#lib/bson/symbol.rb:95
   def as_extended_json(**_options); end
 
   # Symbols are serialized as strings as symbols are now removed from the
@@ -4402,7 +4403,7 @@ module BSON::Symbol
   # @see http://bsonspec.org/#/specification
   # @since 4.0.0
   #
-  # source://bson//lib/bson/symbol.rb#47
+  # pkg:gem/bson#lib/bson/symbol.rb:47
   def bson_type; end
 
   # Get the symbol as encoded BSON.
@@ -4413,7 +4414,7 @@ module BSON::Symbol
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/symbol.rb#61
+  # pkg:gem/bson#lib/bson/symbol.rb:61
   def to_bson(buffer = T.unsafe(nil)); end
 
   # Get the symbol as a BSON key name encoded C symbol.
@@ -4424,7 +4425,7 @@ module BSON::Symbol
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/symbol.rb#75
+  # pkg:gem/bson#lib/bson/symbol.rb:75
   def to_bson_key; end
 
   # Converts the symbol to a normalized key in a BSON document.
@@ -4434,7 +4435,7 @@ module BSON::Symbol
   # @return [String] The symbol as a non interned string.
   # @since 3.0.0
   #
-  # source://bson//lib/bson/symbol.rb#87
+  # pkg:gem/bson#lib/bson/symbol.rb:87
   def to_bson_normalized_key; end
 end
 
@@ -4442,12 +4443,12 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/symbol.rb#33
+# pkg:gem/bson#lib/bson/symbol.rb:33
 BSON::Symbol::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # @since 2.0.0
 #
-# source://bson//lib/bson/symbol.rb#177
+# pkg:gem/bson#lib/bson/symbol.rb:177
 module BSON::Symbol::ClassMethods
   # Deserialize a symbol from BSON.
   #
@@ -4458,13 +4459,13 @@ module BSON::Symbol::ClassMethods
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/symbol.rb#190
+  # pkg:gem/bson#lib/bson/symbol.rb:190
   def from_bson(buffer, **options); end
 end
 
 # @since 2.0.0
 #
-# source://bson//lib/bson/symbol.rb#99
+# pkg:gem/bson#lib/bson/symbol.rb:99
 class BSON::Symbol::Raw
   include ::BSON::JSON
 
@@ -4476,7 +4477,7 @@ class BSON::Symbol::Raw
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/symbol.rb#108
+  # pkg:gem/bson#lib/bson/symbol.rb:108
   def initialize(str_or_sym); end
 
   # Check equality of the raw bson symbol against another.
@@ -4485,7 +4486,7 @@ class BSON::Symbol::Raw
   # @return [true, false] If the objects are equal.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/symbol.rb#135
+  # pkg:gem/bson#lib/bson/symbol.rb:135
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
@@ -4494,7 +4495,7 @@ class BSON::Symbol::Raw
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/symbol.rb#172
+  # pkg:gem/bson#lib/bson/symbol.rb:172
   def as_extended_json(**_options); end
 
   # Return a string representation of the raw symbol for use in
@@ -4506,12 +4507,12 @@ class BSON::Symbol::Raw
   # @return [String] The raw symbol as a String.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/symbol.rb#164
+  # pkg:gem/bson#lib/bson/symbol.rb:164
   def as_json(*args); end
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/symbol.rb#152
+  # pkg:gem/bson#lib/bson/symbol.rb:152
   def bson_type; end
 
   # Check equality of the raw bson symbol against another.
@@ -4520,7 +4521,7 @@ class BSON::Symbol::Raw
   # @return [true, false] If the objects are equal.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/symbol.rb#139
+  # pkg:gem/bson#lib/bson/symbol.rb:139
   def eql?(other); end
 
   # Get the symbol as encoded BSON.
@@ -4530,7 +4531,7 @@ class BSON::Symbol::Raw
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/symbol.rb#148
+  # pkg:gem/bson#lib/bson/symbol.rb:148
   def to_bson(buffer = T.unsafe(nil)); end
 
   # Get the underlying symbol as a Ruby string.
@@ -4538,7 +4539,7 @@ class BSON::Symbol::Raw
   # @return [String] The symbol as a string.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/symbol.rb#126
+  # pkg:gem/bson#lib/bson/symbol.rb:126
   def to_s; end
 
   # Get the underlying symbol as a Ruby symbol.
@@ -4546,7 +4547,7 @@ class BSON::Symbol::Raw
   # @return [Symbol] The symbol represented by this BSON object.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/symbol.rb#119
+  # pkg:gem/bson#lib/bson/symbol.rb:119
   def to_sym; end
 end
 
@@ -4568,11 +4569,11 @@ end
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/time.rb#39
+# pkg:gem/bson#lib/bson/time.rb:39
 module BSON::Time
   # @since 2.0.0
   #
-  # source://bson//lib/bson/time.rb#93
+  # pkg:gem/bson#lib/bson/time.rb:93
   def _bson_to_i; end
 
   # Converts this object to a representation directly serializable to
@@ -4584,7 +4585,7 @@ module BSON::Time
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/time.rb#72
+  # pkg:gem/bson#lib/bson/time.rb:72
   def as_extended_json(**options); end
 
   # Get the time as encoded BSON.
@@ -4596,7 +4597,7 @@ module BSON::Time
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/time.rb#58
+  # pkg:gem/bson#lib/bson/time.rb:58
   def to_bson(buffer = T.unsafe(nil)); end
 end
 
@@ -4604,12 +4605,12 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/time.rb#44
+# pkg:gem/bson#lib/bson/time.rb:44
 BSON::Time::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # @since 2.0.0
 #
-# source://bson//lib/bson/time.rb#103
+# pkg:gem/bson#lib/bson/time.rb:103
 module BSON::Time::ClassMethods
   # Deserialize UTC datetime from BSON.
   #
@@ -4620,7 +4621,7 @@ module BSON::Time::ClassMethods
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/time.rb#116
+  # pkg:gem/bson#lib/bson/time.rb:116
   def from_bson(buffer, **options); end
 end
 
@@ -4630,12 +4631,12 @@ end
 # @see http://bsonspec.org/#/specification
 # @since 4.4.0
 #
-# source://bson//lib/bson/time_with_zone.rb#27
+# pkg:gem/bson#lib/bson/time_with_zone.rb:27
 module BSON::TimeWithZone
   # @api private
   # @since 4.4.0
   #
-  # source://bson//lib/bson/time_with_zone.rb#52
+  # pkg:gem/bson#lib/bson/time_with_zone.rb:52
   def _bson_to_i; end
 
   # Get the BSON type for the ActiveSupport::TimeWithZone.
@@ -4645,7 +4646,7 @@ module BSON::TimeWithZone
   #
   # @since 4.4.0
   #
-  # source://bson//lib/bson/time_with_zone.rb#47
+  # pkg:gem/bson#lib/bson/time_with_zone.rb:47
   def bson_type; end
 
   # Get the ActiveSupport::TimeWithZone as encoded BSON.
@@ -4656,7 +4657,7 @@ module BSON::TimeWithZone
   # @see http://bsonspec.org/#/specification
   # @since 4.4.0
   #
-  # source://bson//lib/bson/time_with_zone.rb#39
+  # pkg:gem/bson#lib/bson/time_with_zone.rb:39
   def to_bson(buffer = T.unsafe(nil)); end
 end
 
@@ -4665,7 +4666,7 @@ end
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/timestamp.rb#24
+# pkg:gem/bson#lib/bson/timestamp.rb:24
 class BSON::Timestamp
   include ::BSON::JSON
   include ::Comparable
@@ -4679,7 +4680,7 @@ class BSON::Timestamp
   # @return [Timestamp] a new instance of Timestamp
   # @since 2.0.0
   #
-  # source://bson//lib/bson/timestamp.rb#114
+  # pkg:gem/bson#lib/bson/timestamp.rb:114
   def initialize(seconds, increment); end
 
   # Determine if this timestamp is greater or less than another object.
@@ -4691,7 +4692,7 @@ class BSON::Timestamp
   # @return [true, false] The result of the comparison.
   # @since 4.3.0
   #
-  # source://bson//lib/bson/timestamp.rb#73
+  # pkg:gem/bson#lib/bson/timestamp.rb:73
   def <=>(other); end
 
   # Determine if this timestamp is equal to another object.
@@ -4702,7 +4703,7 @@ class BSON::Timestamp
   # @return [true, false] If the objects are equal.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/timestamp.rb#58
+  # pkg:gem/bson#lib/bson/timestamp.rb:58
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
@@ -4713,7 +4714,7 @@ class BSON::Timestamp
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/timestamp.rb#101
+  # pkg:gem/bson#lib/bson/timestamp.rb:101
   def as_extended_json(**options); end
 
   # Get the timestamp as JSON hash data.
@@ -4724,21 +4725,21 @@ class BSON::Timestamp
   # @return [Hash] The timestamp as a JSON hash.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/timestamp.rb#90
+  # pkg:gem/bson#lib/bson/timestamp.rb:90
   def as_json(*args); end
 
-  # source://bson//lib/bson/timestamp.rb#153
+  # pkg:gem/bson#lib/bson/timestamp.rb:153
   def bson_type; end
 
   # @since 2.0.0
   #
-  # source://bson//lib/bson/timestamp.rb#46
+  # pkg:gem/bson#lib/bson/timestamp.rb:46
   def increment; end
 
   # @return [Integer] The number of seconds.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/timestamp.rb#46
+  # pkg:gem/bson#lib/bson/timestamp.rb:46
   def seconds; end
 
   # Get the timestamp as its encoded raw BSON bytes.
@@ -4749,7 +4750,7 @@ class BSON::Timestamp
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/timestamp.rb#128
+  # pkg:gem/bson#lib/bson/timestamp.rb:128
   def to_bson(buffer = T.unsafe(nil)); end
 
   class << self
@@ -4762,7 +4763,7 @@ class BSON::Timestamp
     # @see http://bsonspec.org/#/specification
     # @since 2.0.0
     #
-    # source://bson//lib/bson/timestamp.rb#144
+    # pkg:gem/bson#lib/bson/timestamp.rb:144
     def from_bson(buffer, **options); end
   end
 end
@@ -4771,14 +4772,14 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/timestamp.rb#31
+# pkg:gem/bson#lib/bson/timestamp.rb:31
 BSON::Timestamp::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # Error message if an object other than a Timestamp is compared with this object.
 #
 # @since 4.3.0
 #
-# source://bson//lib/bson/timestamp.rb#36
+# pkg:gem/bson#lib/bson/timestamp.rb:36
 BSON::Timestamp::COMPARISON_ERROR_MESSAGE = T.let(T.unsafe(nil), String)
 
 # Injects behaviour for encoding and decoding true values to and from
@@ -4787,7 +4788,7 @@ BSON::Timestamp::COMPARISON_ERROR_MESSAGE = T.let(T.unsafe(nil), String)
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/true_class.rb#25
+# pkg:gem/bson#lib/bson/true_class.rb:25
 module BSON::TrueClass
   # The BSON type for true values is the general boolean type of 0x08.
   #
@@ -4796,7 +4797,7 @@ module BSON::TrueClass
   # @return [String] The character 0x08.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/true_class.rb#40
+  # pkg:gem/bson#lib/bson/true_class.rb:40
   def bson_type; end
 
   # Get the true boolean as encoded BSON.
@@ -4807,7 +4808,7 @@ module BSON::TrueClass
   # @see http://bsonspec.org/#/specification
   # @since 2.0.0
   #
-  # source://bson//lib/bson/true_class.rb#54
+  # pkg:gem/bson#lib/bson/true_class.rb:54
   def to_bson(buffer = T.unsafe(nil)); end
 end
 
@@ -4815,14 +4816,14 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/true_class.rb#30
+# pkg:gem/bson#lib/bson/true_class.rb:30
 BSON::TrueClass::TRUE_BYTE = T.let(T.unsafe(nil), String)
 
 # Constant for UTF-8 string encoding.
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson.rb#58
+# pkg:gem/bson#lib/bson.rb:58
 BSON::UTF8 = T.let(T.unsafe(nil), String)
 
 # Represents the Undefined BSON type
@@ -4830,7 +4831,7 @@ BSON::UTF8 = T.let(T.unsafe(nil), String)
 # @see http://bsonspec.org/#/specification
 # @since 2.0.0
 #
-# source://bson//lib/bson/undefined.rb#24
+# pkg:gem/bson#lib/bson/undefined.rb:24
 class BSON::Undefined
   include ::BSON::JSON
   include ::BSON::Specialized
@@ -4844,7 +4845,7 @@ class BSON::Undefined
   # @return [true, false] If the objects are equal.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/undefined.rb#43
+  # pkg:gem/bson#lib/bson/undefined.rb:43
   def ==(other); end
 
   # Converts this object to a representation directly serializable to
@@ -4855,7 +4856,7 @@ class BSON::Undefined
   # @return [Hash] The extended json representation.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/undefined.rb#66
+  # pkg:gem/bson#lib/bson/undefined.rb:66
   def as_extended_json(**options); end
 
   # Return a string representation of the BSON::Undefined for use in
@@ -4867,10 +4868,10 @@ class BSON::Undefined
   # @return [nil] The undefined as nil.
   # @since 2.0.0
   #
-  # source://bson//lib/bson/undefined.rb#55
+  # pkg:gem/bson#lib/bson/undefined.rb:55
   def as_json(*args); end
 
-  # source://bson//lib/bson/undefined.rb#73
+  # pkg:gem/bson#lib/bson/undefined.rb:73
   def bson_type; end
 end
 
@@ -4878,7 +4879,7 @@ end
 #
 # @since 2.0.0
 #
-# source://bson//lib/bson/undefined.rb#31
+# pkg:gem/bson#lib/bson/undefined.rb:31
 BSON::Undefined::BSON_TYPE = T.let(T.unsafe(nil), String)
 
 # The current version of the library.
@@ -4886,12 +4887,12 @@ BSON::Undefined::BSON_TYPE = T.let(T.unsafe(nil), String)
 # NOTE: this file is automatically updated via `rake candidate:create`.
 # Manual changes to this file may be overwritten by that rake task.
 #
-# source://bson//lib/bson/version.rb#8
+# pkg:gem/bson#lib/bson/version.rb:8
 BSON::VERSION = T.let(T.unsafe(nil), String)
 
 # Vector of numbers along with metadata for binary interoperability.
 #
-# source://bson//lib/bson/vector.rb#19
+# pkg:gem/bson#lib/bson/vector.rb:19
 class BSON::Vector < ::Array
   # be ignored when a vector element's size is less than a byte
   # and the length of the vector is not a multiple of 8.
@@ -4901,17 +4902,17 @@ class BSON::Vector < ::Array
   # @param padding [Integer] The number of bits in the final byte that are to
   # @return [Vector] a new instance of Vector
   #
-  # source://bson//lib/bson/vector.rb#38
+  # pkg:gem/bson#lib/bson/vector.rb:38
   def initialize(data, dtype, padding = T.unsafe(nil)); end
 
   # @return [BSON::ByteBuffer] The data in the vector.
   #
-  # source://bson//lib/bson/vector.rb#29
+  # pkg:gem/bson#lib/bson/vector.rb:29
   def data; end
 
   # @return [Integer] The data type stored in the vector.
   #
-  # source://bson//lib/bson/vector.rb#21
+  # pkg:gem/bson#lib/bson/vector.rb:21
   def dtype; end
 
   # be ignored when a vector element's size is less than a byte
@@ -4919,10 +4920,11 @@ class BSON::Vector < ::Array
   #
   # @return [Integer] The number of bits in the final byte that are to
   #
-  # source://bson//lib/bson/vector.rb#26
+  # pkg:gem/bson#lib/bson/vector.rb:26
   def padding; end
 end
 
+# pkg:gem/bson#lib/bson/decimal128.rb:59
 class BigDecimal < ::Numeric
   include ::BSON::BigDecimal
   extend ::BSON::BigDecimal::ClassMethods

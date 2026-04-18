@@ -7,7 +7,7 @@
 
 # Generic connection pool class
 #
-# source://gene_pool//lib/gene_pool.rb#7
+# pkg:gem/gene_pool#lib/gene_pool.rb:7
 class GenePool
   # Creates a gene_pool.  The passed block will be used to initialize a single instance of
   # the item being pooled (i.e., socket connection or whatever)
@@ -24,17 +24,17 @@ class GenePool
   #
   # @return [GenePool] a new instance of GenePool
   #
-  # source://gene_pool//lib/gene_pool.rb#24
+  # pkg:gem/gene_pool#lib/gene_pool.rb:24
   def initialize(options = T.unsafe(nil), &connect_block); end
 
   # Return a connection to the pool.
   #
-  # source://gene_pool//lib/gene_pool.rb#112
+  # pkg:gem/gene_pool#lib/gene_pool.rb:112
   def checkin(connection); end
 
   # Check out a connection from the pool, creating it if necessary.
   #
-  # source://gene_pool//lib/gene_pool.rb#71
+  # pkg:gem/gene_pool#lib/gene_pool.rb:71
   def checkout; end
 
   # Close all connections and wait for active connections to complete
@@ -43,93 +43,93 @@ class GenePool
   #   timeout:
   #     Maximum time to wait for connections to close before returning
   #
-  # source://gene_pool//lib/gene_pool.rb#246
+  # pkg:gem/gene_pool#lib/gene_pool.rb:246
   def close(timeout = T.unsafe(nil)); end
 
   # Return a copy of all the current connections
   #
-  # source://gene_pool//lib/gene_pool.rb#234
+  # pkg:gem/gene_pool#lib/gene_pool.rb:234
   def connections; end
 
   # Perform the given block for each connection.  Note that close should be used for safely closing all connections
   # This should probably only ever be used to allow interrupt of a connection that is checked out?
   #
-  # source://gene_pool//lib/gene_pool.rb#226
+  # pkg:gem/gene_pool#lib/gene_pool.rb:226
   def each; end
 
   # Returns the value of attribute logger.
   #
-  # source://gene_pool//lib/gene_pool.rb#9
+  # pkg:gem/gene_pool#lib/gene_pool.rb:9
   def logger; end
 
   # Sets the attribute logger
   #
   # @param value the value to set the attribute logger to.
   #
-  # source://gene_pool//lib/gene_pool.rb#9
+  # pkg:gem/gene_pool#lib/gene_pool.rb:9
   def logger=(_arg0); end
 
   # Returns the value of attribute name.
   #
-  # source://gene_pool//lib/gene_pool.rb#9
+  # pkg:gem/gene_pool#lib/gene_pool.rb:9
   def name; end
 
   # Sets the attribute name
   #
   # @param value the value to set the attribute name to.
   #
-  # source://gene_pool//lib/gene_pool.rb#9
+  # pkg:gem/gene_pool#lib/gene_pool.rb:9
   def name=(_arg0); end
 
   # Returns the value of attribute pool_size.
   #
-  # source://gene_pool//lib/gene_pool.rb#10
+  # pkg:gem/gene_pool#lib/gene_pool.rb:10
   def pool_size; end
 
-  # source://gene_pool//lib/gene_pool.rb#56
+  # pkg:gem/gene_pool#lib/gene_pool.rb:56
   def pool_size=(size); end
 
   # Remove an existing connection from the pool
   #
-  # source://gene_pool//lib/gene_pool.rb#180
+  # pkg:gem/gene_pool#lib/gene_pool.rb:180
   def remove(connection); end
 
-  # source://gene_pool//lib/gene_pool.rb#260
+  # pkg:gem/gene_pool#lib/gene_pool.rb:260
   def remove_idle(idle_time = T.unsafe(nil)); end
 
   # If a connection needs to be renewed for some reason, reassign it here
   #
-  # source://gene_pool//lib/gene_pool.rb#191
+  # pkg:gem/gene_pool#lib/gene_pool.rb:191
   def renew(old_connection); end
 
-  # source://gene_pool//lib/gene_pool.rb#50
+  # pkg:gem/gene_pool#lib/gene_pool.rb:50
   def size; end
 
   # Returns the value of attribute timeout_class.
   #
-  # source://gene_pool//lib/gene_pool.rb#9
+  # pkg:gem/gene_pool#lib/gene_pool.rb:9
   def timeout_class; end
 
   # Sets the attribute timeout_class
   #
   # @param value the value to set the attribute timeout_class to.
   #
-  # source://gene_pool//lib/gene_pool.rb#9
+  # pkg:gem/gene_pool#lib/gene_pool.rb:9
   def timeout_class=(_arg0); end
 
-  # source://gene_pool//lib/gene_pool.rb#271
+  # pkg:gem/gene_pool#lib/gene_pool.rb:271
   def to_s; end
 
   # Returns the value of attribute warn_timeout.
   #
-  # source://gene_pool//lib/gene_pool.rb#9
+  # pkg:gem/gene_pool#lib/gene_pool.rb:9
   def warn_timeout; end
 
   # Sets the attribute warn_timeout
   #
   # @param value the value to set the attribute warn_timeout to.
   #
-  # source://gene_pool//lib/gene_pool.rb#9
+  # pkg:gem/gene_pool#lib/gene_pool.rb:9
   def warn_timeout=(_arg0); end
 
   # Create a scope for checking out a connection
@@ -140,34 +140,34 @@ class GenePool
   #   end
   # Note that with_connection_auto_remove automatically does this
   #
-  # source://gene_pool//lib/gene_pool.rb#133
+  # pkg:gem/gene_pool#lib/gene_pool.rb:133
   def with_connection; end
 
   # Create a scope for checking out a connection while automatically removing this connection on exception
   #
-  # source://gene_pool//lib/gene_pool.rb#146
+  # pkg:gem/gene_pool#lib/gene_pool.rb:146
   def with_connection_auto_remove; end
 
   # Create a scope for checking out a connection while automatically retrying on exception
   #
-  # source://gene_pool//lib/gene_pool.rb#159
+  # pkg:gem/gene_pool#lib/gene_pool.rb:159
   def with_connection_auto_retry; end
 
   private
 
-  # source://gene_pool//lib/gene_pool.rb#285
+  # pkg:gem/gene_pool#lib/gene_pool.rb:285
   def close_connection(connection); end
 
   # Clients should have obtained the mutex before calling this!
   #
-  # source://gene_pool//lib/gene_pool.rb#301
+  # pkg:gem/gene_pool#lib/gene_pool.rb:301
   def remove_and_close(connection); end
 
-  # source://gene_pool//lib/gene_pool.rb#306
+  # pkg:gem/gene_pool#lib/gene_pool.rb:306
   def setup_mutex; end
 
   # @raise [@timeout_class]
   #
-  # source://gene_pool//lib/gene_pool.rb#314
+  # pkg:gem/gene_pool#lib/gene_pool.rb:314
   def wait_mutex(start_time); end
 end

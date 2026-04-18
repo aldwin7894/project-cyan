@@ -7,7 +7,7 @@
 
 # The main module.
 #
-# source://kodachroma//lib/kodachroma/version.rb#2
+# pkg:gem/kodachroma#lib/kodachroma/version.rb:2
 module Kodachroma
   class << self
     # Defines a custom palette for use by {Color#palette}. Uses a DSL inside
@@ -28,7 +28,7 @@ module Kodachroma
     # @raise [Errors::PaletteDefinedError] if the palette is already defined
     # @return [Symbol, String] the name of the custom palette
     #
-    # source://kodachroma//lib/kodachroma.rb#111
+    # pkg:gem/kodachroma#lib/kodachroma.rb:111
     def define_palette(name, &block); end
 
     # Returns the hexadecimal string representation of a named color and nil
@@ -41,7 +41,7 @@ module Kodachroma
     # @param name [String] the color name
     # @return [String, nil] the color as a string hexadecimal or nil
     #
-    # source://kodachroma//lib/kodachroma.rb#74
+    # pkg:gem/kodachroma#lib/kodachroma.rb:74
     def hex_from_name(name); end
 
     # Returns the color name of a hexadecimal color if available and nil if no
@@ -55,7 +55,7 @@ module Kodachroma
     # @param hex [String] the hexadecimal color
     # @return [String, nil] the color name or nil
     #
-    # source://kodachroma//lib/kodachroma.rb#89
+    # pkg:gem/kodachroma#lib/kodachroma.rb:89
     def name_from_hex(hex); end
 
     # Returns a new instance of color. Supports hexadecimal, rgb, rgba, hsl,
@@ -72,14 +72,14 @@ module Kodachroma
     # @param input [String] the color
     # @return [Color] an instance of {Color}
     #
-    # source://kodachroma//lib/kodachroma.rb#60
+    # pkg:gem/kodachroma#lib/kodachroma.rb:60
     def paint(input); end
   end
 end
 
 # The main class to represent colors.
 #
-# source://kodachroma//lib/kodachroma/color/attributes.rb#3
+# pkg:gem/kodachroma#lib/kodachroma/color/attributes.rb:3
 class Kodachroma::Color
   include ::Kodachroma::Color::Attributes
   include ::Kodachroma::Color::Serializers
@@ -90,7 +90,7 @@ class Kodachroma::Color
   # @param input [String, ColorModes::Rgb, ColorModes::Hsl, ColorModes::Hsv]
   # @return [Color] a new instance of Color
   #
-  # source://kodachroma//lib/kodachroma/color.rb#12
+  # pkg:gem/kodachroma#lib/kodachroma/color.rb:12
   def initialize(input, format = T.unsafe(nil)); end
 
   # Returns true if both are equal in value.
@@ -105,7 +105,7 @@ class Kodachroma::Color
   # @param other [Color]
   # @return [true, false]
   #
-  # source://kodachroma//lib/kodachroma/color.rb#60
+  # pkg:gem/kodachroma#lib/kodachroma/color.rb:60
   def ==(other); end
 
   # Returns the complementary color.
@@ -114,7 +114,7 @@ class Kodachroma::Color
   #   'red'.paint.complement #=> cyan
   # @return [Color] the complementary color
   #
-  # source://kodachroma//lib/kodachroma/color.rb#70
+  # pkg:gem/kodachroma#lib/kodachroma/color.rb:70
   def complement; end
 
   # Defines a custom palette and immediately returns it. Uses a DSL inside
@@ -129,7 +129,7 @@ class Kodachroma::Color
   # @param block [Proc] the palette definition block
   # @return [Array<Color>] palette array of colors
   #
-  # source://kodachroma//lib/kodachroma/color.rb#98
+  # pkg:gem/kodachroma#lib/kodachroma/color.rb:98
   def custom_palette(&block); end
 
   # Returns true if `self` is equal to `other` and they're both instances of
@@ -145,7 +145,7 @@ class Kodachroma::Color
   # @param other [Color]
   # @return [true, false]
   #
-  # source://kodachroma//lib/kodachroma/color.rb#44
+  # pkg:gem/kodachroma#lib/kodachroma/color.rb:44
   def eql?(other); end
 
   # Returns self. Useful for ducktyping situations with {String#paint}.
@@ -157,7 +157,7 @@ class Kodachroma::Color
   #   red.paint.equal? red #=> true
   # @return [self]
   #
-  # source://kodachroma//lib/kodachroma/color.rb#27
+  # pkg:gem/kodachroma#lib/kodachroma/color.rb:27
   def paint; end
 
   # Returns an instance of {Harmonies} from which to call a palette method.
@@ -166,21 +166,21 @@ class Kodachroma::Color
   #   'red'.paint.palette #=> #<Kodachroma::Harmonies:0x007faf6b9f9148 @color=red>
   # @return [Harmonies]
   #
-  # source://kodachroma//lib/kodachroma/color.rb#82
+  # pkg:gem/kodachroma#lib/kodachroma/color.rb:82
   def palette; end
 
   private
 
-  # source://kodachroma//lib/kodachroma/color.rb#108
+  # pkg:gem/kodachroma#lib/kodachroma/color.rb:108
   def generate_rgb_and_format(input); end
 
-  # source://kodachroma//lib/kodachroma/color.rb#104
+  # pkg:gem/kodachroma#lib/kodachroma/color.rb:104
   def to_2char_hex(n); end
 end
 
 # Attribute methods for {Color}.
 #
-# source://kodachroma//lib/kodachroma/color/attributes.rb#5
+# pkg:gem/kodachroma#lib/kodachroma/color/attributes.rb:5
 module Kodachroma::Color::Attributes
   # Returns the alpha channel value.
   #
@@ -189,7 +189,7 @@ module Kodachroma::Color::Attributes
   #   'rgba(0, 0, 0, 0.5)'.paint.alpha #=> 0.5
   # @return [Float]
   #
-  # source://kodachroma//lib/kodachroma/color/attributes.rb#37
+  # pkg:gem/kodachroma#lib/kodachroma/color/attributes.rb:37
   def alpha; end
 
   # Calculates the brightness.
@@ -199,7 +199,7 @@ module Kodachroma::Color::Attributes
   #   'yellow'.paint.brightness #=> 225.93
   # @return [Float]
   #
-  # source://kodachroma//lib/kodachroma/color/attributes.rb#48
+  # pkg:gem/kodachroma#lib/kodachroma/color/attributes.rb:48
   def brightness; end
 
   # Determines if the color is dark.
@@ -209,12 +209,12 @@ module Kodachroma::Color::Attributes
   #   'yellow'.paint.dark? #=> false
   # @return [true, false]
   #
-  # source://kodachroma//lib/kodachroma/color/attributes.rb#15
+  # pkg:gem/kodachroma#lib/kodachroma/color/attributes.rb:15
   def dark?; end
 
   # Returns the value of attribute format.
   #
-  # source://kodachroma//lib/kodachroma/color/attributes.rb#6
+  # pkg:gem/kodachroma#lib/kodachroma/color/attributes.rb:6
   def format; end
 
   # Determines if the color is light.
@@ -224,18 +224,18 @@ module Kodachroma::Color::Attributes
   #   'yellow'.paint.light? #=> true
   # @return [true, false]
   #
-  # source://kodachroma//lib/kodachroma/color/attributes.rb#26
+  # pkg:gem/kodachroma#lib/kodachroma/color/attributes.rb:26
   def light?; end
 
   private
 
-  # source://kodachroma//lib/kodachroma/color/attributes.rb#54
+  # pkg:gem/kodachroma#lib/kodachroma/color/attributes.rb:54
   def rounded_alpha; end
 end
 
 # Methods that return a new modified {Color}.
 #
-# source://kodachroma//lib/kodachroma/color/modifiers.rb#5
+# pkg:gem/kodachroma#lib/kodachroma/color/modifiers.rb:5
 module Kodachroma::Color::Modifiers
   # Brightens the color by the given `amount`.
   #
@@ -245,7 +245,7 @@ module Kodachroma::Color::Modifiers
   # @param amount [Fixnum]
   # @return [Color]
   #
-  # source://kodachroma//lib/kodachroma/color/modifiers.rb#28
+  # pkg:gem/kodachroma#lib/kodachroma/color/modifiers.rb:28
   def brighten(amount = T.unsafe(nil)); end
 
   # Darkens the color by the given `amount`.
@@ -256,7 +256,7 @@ module Kodachroma::Color::Modifiers
   # @param amount [Fixnum]
   # @return [Color]
   #
-  # source://kodachroma//lib/kodachroma/color/modifiers.rb#48
+  # pkg:gem/kodachroma#lib/kodachroma/color/modifiers.rb:48
   def darken(amount = T.unsafe(nil)); end
 
   # Desaturates the color by the given `amount`.
@@ -267,7 +267,7 @@ module Kodachroma::Color::Modifiers
   # @param amount [Fixnum]
   # @return [Color]
   #
-  # source://kodachroma//lib/kodachroma/color/modifiers.rb#62
+  # pkg:gem/kodachroma#lib/kodachroma/color/modifiers.rb:62
   def desaturate(amount = T.unsafe(nil)); end
 
   # Converts the color to grayscale.
@@ -276,7 +276,7 @@ module Kodachroma::Color::Modifiers
   #   'green'.paint.grayscale #=> #404040
   # @return [Color]
   #
-  # source://kodachroma//lib/kodachroma/color/modifiers.rb#88
+  # pkg:gem/kodachroma#lib/kodachroma/color/modifiers.rb:88
   def grayscale; end
 
   # Converts the color to grayscale.
@@ -285,7 +285,7 @@ module Kodachroma::Color::Modifiers
   #   'green'.paint.grayscale #=> #404040
   # @return [Color]
   #
-  # source://kodachroma//lib/kodachroma/color/modifiers.rb#92
+  # pkg:gem/kodachroma#lib/kodachroma/color/modifiers.rb:92
   def greyscale; end
 
   # Lightens the color by the given `amount`.
@@ -296,7 +296,7 @@ module Kodachroma::Color::Modifiers
   # @param amount [Fixnum]
   # @return [Color]
   #
-  # source://kodachroma//lib/kodachroma/color/modifiers.rb#14
+  # pkg:gem/kodachroma#lib/kodachroma/color/modifiers.rb:14
   def lighten(amount = T.unsafe(nil)); end
 
   # Sets color opacity to the given 'amount'.
@@ -307,7 +307,7 @@ module Kodachroma::Color::Modifiers
   # @param amount [Fixnum]
   # @return [Color]
   #
-  # source://kodachroma//lib/kodachroma/color/modifiers.rb#102
+  # pkg:gem/kodachroma#lib/kodachroma/color/modifiers.rb:102
   def opacity(amount); end
 
   # Saturates the color by the given `amount`.
@@ -318,7 +318,7 @@ module Kodachroma::Color::Modifiers
   # @param amount [Fixnum]
   # @return [Color]
   #
-  # source://kodachroma//lib/kodachroma/color/modifiers.rb#76
+  # pkg:gem/kodachroma#lib/kodachroma/color/modifiers.rb:76
   def saturate(amount = T.unsafe(nil)); end
 
   # Spins around the hue color wheel by `amount` in degrees.
@@ -330,26 +330,26 @@ module Kodachroma::Color::Modifiers
   # @param amount [Fixnum]
   # @return [Color]
   #
-  # source://kodachroma//lib/kodachroma/color/modifiers.rb#116
+  # pkg:gem/kodachroma#lib/kodachroma/color/modifiers.rb:116
   def spin(amount); end
 end
 
 # Methods for serializing {Color} to different color mode string formats.
 #
-# source://kodachroma//lib/kodachroma/color/serializers.rb#5
+# pkg:gem/kodachroma#lib/kodachroma/color/serializers.rb:5
 module Kodachroma::Color::Serializers
   # Converts to an instance of {ColorModes::Hsl}
   #
   # @return [ColorModes::Hsl]
   #
-  # source://kodachroma//lib/kodachroma/color/serializers.rb#131
+  # pkg:gem/kodachroma#lib/kodachroma/color/serializers.rb:131
   def hsl; end
 
   # Converts to an instance of {ColorModes::Hsv}
   #
   # @return [ColorModes::Hsv]
   #
-  # source://kodachroma//lib/kodachroma/color/serializers.rb#125
+  # pkg:gem/kodachroma#lib/kodachroma/color/serializers.rb:125
   def hsv; end
 
   # Convert to a string based on the color format.
@@ -362,14 +362,14 @@ module Kodachroma::Color::Serializers
   # @param format [Symbol] the color format
   # @return [String]
   #
-  # source://kodachroma//lib/kodachroma/color/serializers.rb#121
+  # pkg:gem/kodachroma#lib/kodachroma/color/serializers.rb:121
   def inspect(format = T.unsafe(nil)); end
 
   # Converts to an instance of {ColorModes::Rgb}
   #
   # @return [ColorModes::Rgb]
   #
-  # source://kodachroma//lib/kodachroma/color/serializers.rb#137
+  # pkg:gem/kodachroma#lib/kodachroma/color/serializers.rb:137
   def rgb; end
 
   # Convert to hexadecimal string.
@@ -382,7 +382,7 @@ module Kodachroma::Color::Serializers
   #   if possible
   # @return [String]
   #
-  # source://kodachroma//lib/kodachroma/color/serializers.rb#38
+  # pkg:gem/kodachroma#lib/kodachroma/color/serializers.rb:38
   def to_hex(allow_3 = T.unsafe(nil)); end
 
   # Convert to 8-character hexadecimal string. The highest order byte
@@ -393,7 +393,7 @@ module Kodachroma::Color::Serializers
   #   'rgba(255, 0, 0, 0.5)'.paint.to_hex #=> '#80ff0000'
   # @return [String]
   #
-  # source://kodachroma//lib/kodachroma/color/serializers.rb#50
+  # pkg:gem/kodachroma#lib/kodachroma/color/serializers.rb:50
   def to_hex8; end
 
   # Convert to hsl string.
@@ -403,7 +403,7 @@ module Kodachroma::Color::Serializers
   #   'rgba(255, 0, 0, 0.5)'.paint.to_hsl #=> 'hsla(0, 100%, 50%, 0.5)'
   # @return [String]
   #
-  # source://kodachroma//lib/kodachroma/color/serializers.rb#24
+  # pkg:gem/kodachroma#lib/kodachroma/color/serializers.rb:24
   def to_hsl; end
 
   # Convert to hsv string.
@@ -413,7 +413,7 @@ module Kodachroma::Color::Serializers
   #   'rgba(255, 0, 0, 0.5)'.paint.to_hsv #=> 'hsva(0, 100%, 100%, 0.5)'
   # @return [String]
   #
-  # source://kodachroma//lib/kodachroma/color/serializers.rb#13
+  # pkg:gem/kodachroma#lib/kodachroma/color/serializers.rb:13
   def to_hsv; end
 
   # Convert to named color if possible. If a color name can't be found, it
@@ -429,7 +429,7 @@ module Kodachroma::Color::Serializers
   #   should be returned
   # @return [String]
   #
-  # source://kodachroma//lib/kodachroma/color/serializers.rb#80
+  # pkg:gem/kodachroma#lib/kodachroma/color/serializers.rb:80
   def to_name(hex_for_unknown = T.unsafe(nil)); end
 
   # Convert to rgb string.
@@ -439,7 +439,7 @@ module Kodachroma::Color::Serializers
   #   'rgba(255, 0, 0, 0.5)'.paint.to_rgb #=> 'rgb(255, 0, 0, 0.5)'
   # @return [String]
   #
-  # source://kodachroma//lib/kodachroma/color/serializers.rb#61
+  # pkg:gem/kodachroma#lib/kodachroma/color/serializers.rb:61
   def to_rgb; end
 
   # Convert to a string based on the color format.
@@ -452,25 +452,25 @@ module Kodachroma::Color::Serializers
   # @param format [Symbol] the color format
   # @return [String]
   #
-  # source://kodachroma//lib/kodachroma/color/serializers.rb#104
+  # pkg:gem/kodachroma#lib/kodachroma/color/serializers.rb:104
   def to_s(format = T.unsafe(nil)); end
 
   private
 
-  # source://kodachroma//lib/kodachroma/color/serializers.rb#141
+  # pkg:gem/kodachroma#lib/kodachroma/color/serializers.rb:141
   def to_basic_hex(allow_3 = T.unsafe(nil)); end
 
-  # source://kodachroma//lib/kodachroma/color/serializers.rb#153
+  # pkg:gem/kodachroma#lib/kodachroma/color/serializers.rb:153
   def to_basic_hex8; end
 
-  # source://kodachroma//lib/kodachroma/color/serializers.rb#162
+  # pkg:gem/kodachroma#lib/kodachroma/color/serializers.rb:162
   def to_hs(third); end
 
-  # source://kodachroma//lib/kodachroma/color/serializers.rb#175
+  # pkg:gem/kodachroma#lib/kodachroma/color/serializers.rb:175
   def with_alpha(mode, middle); end
 end
 
-# source://kodachroma//lib/kodachroma/color_modes.rb#3
+# pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:3
 module Kodachroma::ColorModes
   class << self
     private
@@ -480,12 +480,12 @@ module Kodachroma::ColorModes
     # @param attrs [Array<Symbol>] the instance attribute names
     # @param name [String] the class name
     #
-    # source://kodachroma//lib/kodachroma/color_modes.rb#32
+    # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:32
     def build(name, *attrs); end
   end
 end
 
-# source://kodachroma//lib/kodachroma/color_modes.rb#34
+# pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
 class Kodachroma::ColorModes::Hsl
   # @param a [Numeric]
   # @param h [Numeric]
@@ -493,73 +493,73 @@ class Kodachroma::ColorModes::Hsl
   # @param s [Numeric]
   # @return [Hsl] a new instance of Hsl
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def initialize(h, s, l, a = T.unsafe(nil)); end
 
   # Returns the value of attribute a.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def a; end
 
   # Sets the attribute a
   #
   # @param value the value to set the attribute a to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def a=(_arg0); end
 
   # Returns the value of attribute h.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def h; end
 
   # Sets the attribute h
   #
   # @param value the value to set the attribute h to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def h=(_arg0); end
 
   # Returns the value of attribute l.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def l; end
 
   # Sets the attribute l
   #
   # @param value the value to set the attribute l to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def l=(_arg0); end
 
   # Returns the value of attribute s.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def s; end
 
   # Sets the attribute s
   #
   # @param value the value to set the attribute s to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def s=(_arg0); end
 
   # Returns the values `h`, `s`, `l`, and `a` as an array.
   #
   # @return [Array<Numeric>]
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def to_a; end
 
   # Returns the values `h`, `s`, `l`, and `a` as an array.
   #
   # @return [Array<Numeric>]
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def to_ary; end
 end
 
-# source://kodachroma//lib/kodachroma/color_modes.rb#34
+# pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
 class Kodachroma::ColorModes::Hsv
   # @param a [Numeric]
   # @param h [Numeric]
@@ -567,73 +567,73 @@ class Kodachroma::ColorModes::Hsv
   # @param v [Numeric]
   # @return [Hsv] a new instance of Hsv
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def initialize(h, s, v, a = T.unsafe(nil)); end
 
   # Returns the value of attribute a.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def a; end
 
   # Sets the attribute a
   #
   # @param value the value to set the attribute a to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def a=(_arg0); end
 
   # Returns the value of attribute h.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def h; end
 
   # Sets the attribute h
   #
   # @param value the value to set the attribute h to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def h=(_arg0); end
 
   # Returns the value of attribute s.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def s; end
 
   # Sets the attribute s
   #
   # @param value the value to set the attribute s to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def s=(_arg0); end
 
   # Returns the values `h`, `s`, `v`, and `a` as an array.
   #
   # @return [Array<Numeric>]
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def to_a; end
 
   # Returns the values `h`, `s`, `v`, and `a` as an array.
   #
   # @return [Array<Numeric>]
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def to_ary; end
 
   # Returns the value of attribute v.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def v; end
 
   # Sets the attribute v
   #
   # @param value the value to set the attribute v to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def v=(_arg0); end
 end
 
-# source://kodachroma//lib/kodachroma/color_modes.rb#34
+# pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
 class Kodachroma::ColorModes::Rgb
   # @param a [Numeric]
   # @param b [Numeric]
@@ -641,210 +641,210 @@ class Kodachroma::ColorModes::Rgb
   # @param r [Numeric]
   # @return [Rgb] a new instance of Rgb
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def initialize(r, g, b, a = T.unsafe(nil)); end
 
   # Returns the value of attribute a.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def a; end
 
   # Sets the attribute a
   #
   # @param value the value to set the attribute a to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def a=(_arg0); end
 
   # Returns the value of attribute b.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def b; end
 
   # Sets the attribute b
   #
   # @param value the value to set the attribute b to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def b=(_arg0); end
 
   # Returns the value of attribute g.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def g; end
 
   # Sets the attribute g
   #
   # @param value the value to set the attribute g to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def g=(_arg0); end
 
   # Returns the value of attribute r.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def r; end
 
   # Sets the attribute r
   #
   # @param value the value to set the attribute r to.
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def r=(_arg0); end
 
   # Returns the values `r`, `g`, `b`, and `a` as an array.
   #
   # @return [Array<Numeric>]
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def to_a; end
 
   # Returns the values `r`, `g`, `b`, and `a` as an array.
   #
   # @return [Array<Numeric>]
   #
-  # source://kodachroma//lib/kodachroma/color_modes.rb#33
+  # pkg:gem/kodachroma#lib/kodachroma/color_modes.rb:33
   def to_ary; end
 end
 
-# source://kodachroma//lib/kodachroma/converters/base.rb#3
+# pkg:gem/kodachroma#lib/kodachroma/converters/base.rb:3
 module Kodachroma::Converters; end
 
 # Base class for converting one color mode to another.
 #
 # @abstract
 #
-# source://kodachroma//lib/kodachroma/converters/base.rb#6
+# pkg:gem/kodachroma#lib/kodachroma/converters/base.rb:6
 class Kodachroma::Converters::Base
   include ::Kodachroma::Helpers::Bounders
 
   # @param input [ColorModes::Rgb, ColorModes::Hsl, ColorModes::Hsv]
   # @return [Base]
   #
-  # source://kodachroma//lib/kodachroma/converters/base.rb#11
+  # pkg:gem/kodachroma#lib/kodachroma/converters/base.rb:11
   def initialize(input); end
 
   class << self
     # @param hsl [ColorModes::Hsl]
     # @return [ColorModes::Rgb, ColorModes::Hsl, ColorModes::Hsv]
     #
-    # source://kodachroma//lib/kodachroma/converters/base.rb#23
+    # pkg:gem/kodachroma#lib/kodachroma/converters/base.rb:23
     def convert_hsl(hsl); end
 
     # @param hsv [ColorModes::Hsv]
     # @return [ColorModes::Rgb, ColorModes::Hsl, ColorModes::Hsv]
     #
-    # source://kodachroma//lib/kodachroma/converters/base.rb#29
+    # pkg:gem/kodachroma#lib/kodachroma/converters/base.rb:29
     def convert_hsv(hsv); end
 
     # @param rgb [ColorModes::Rgb]
     # @return [ColorModes::Rgb, ColorModes::Hsl, ColorModes::Hsv]
     #
-    # source://kodachroma//lib/kodachroma/converters/base.rb#17
+    # pkg:gem/kodachroma#lib/kodachroma/converters/base.rb:17
     def convert_rgb(rgb); end
   end
 end
 
 # Class to convert a color mode to {ColorModes::Hsl}.
 #
-# source://kodachroma//lib/kodachroma/converters/hsl_converter.rb#5
+# pkg:gem/kodachroma#lib/kodachroma/converters/hsl_converter.rb:5
 class Kodachroma::Converters::HslConverter < ::Kodachroma::Converters::Base
   # Returns @input because it's the same color mode.
   #
   # @return [ColorModes::Hsl]
   #
-  # source://kodachroma//lib/kodachroma/converters/hsl_converter.rb#44
+  # pkg:gem/kodachroma#lib/kodachroma/converters/hsl_converter.rb:44
   def convert_hsl; end
 
   # Convert hsv to hsl.
   #
   # @return [ColorModes::Hsl]
   #
-  # source://kodachroma//lib/kodachroma/converters/hsl_converter.rb#50
+  # pkg:gem/kodachroma#lib/kodachroma/converters/hsl_converter.rb:50
   def convert_hsv; end
 
   # Convert rgb to hsl.
   #
   # @return [ColorModes::Hsl]
   #
-  # source://kodachroma//lib/kodachroma/converters/hsl_converter.rb#8
+  # pkg:gem/kodachroma#lib/kodachroma/converters/hsl_converter.rb:8
   def convert_rgb; end
 end
 
 # Class to convert a color mode to {ColorModes::Hsl}.
 #
-# source://kodachroma//lib/kodachroma/converters/hsv_converter.rb#5
+# pkg:gem/kodachroma#lib/kodachroma/converters/hsv_converter.rb:5
 class Kodachroma::Converters::HsvConverter < ::Kodachroma::Converters::Base
   # Convert hsl to hsv.
   #
   # @return [ColorModes::Hsv]
   #
-  # source://kodachroma//lib/kodachroma/converters/hsv_converter.rb#38
+  # pkg:gem/kodachroma#lib/kodachroma/converters/hsv_converter.rb:38
   def convert_hsl; end
 
   # Returns @input because it's the same color mode.
   #
   # @return [ColorModes::Hsv]
   #
-  # source://kodachroma//lib/kodachroma/converters/hsv_converter.rb#44
+  # pkg:gem/kodachroma#lib/kodachroma/converters/hsv_converter.rb:44
   def convert_hsv; end
 
   # Convert rgb to hsv.
   #
   # @return [ColorModes::Hsv]
   #
-  # source://kodachroma//lib/kodachroma/converters/hsv_converter.rb#8
+  # pkg:gem/kodachroma#lib/kodachroma/converters/hsv_converter.rb:8
   def convert_rgb; end
 end
 
 # Class to convert a color mode to {ColorModes::Rgb}.
 #
-# source://kodachroma//lib/kodachroma/converters/rgb_converter.rb#5
+# pkg:gem/kodachroma#lib/kodachroma/converters/rgb_converter.rb:5
 class Kodachroma::Converters::RgbConverter < ::Kodachroma::Converters::Base
   # Convert hsl to rgb.
   #
   # @return [ColorModes::Rgb]
   #
-  # source://kodachroma//lib/kodachroma/converters/rgb_converter.rb#14
+  # pkg:gem/kodachroma#lib/kodachroma/converters/rgb_converter.rb:14
   def convert_hsl; end
 
   # Convert hsv to rgb.
   #
   # @return [ColorModes::Rgb]
   #
-  # source://kodachroma//lib/kodachroma/converters/rgb_converter.rb#36
+  # pkg:gem/kodachroma#lib/kodachroma/converters/rgb_converter.rb:36
   def convert_hsv; end
 
   # Returns @input because it's the same color mode.
   #
   # @return [ColorModes::Rgb]
   #
-  # source://kodachroma//lib/kodachroma/converters/rgb_converter.rb#8
+  # pkg:gem/kodachroma#lib/kodachroma/converters/rgb_converter.rb:8
   def convert_rgb; end
 
   private
 
-  # source://kodachroma//lib/kodachroma/converters/rgb_converter.rb#59
+  # pkg:gem/kodachroma#lib/kodachroma/converters/rgb_converter.rb:59
   def hue_to_rgb(p, q, t); end
 end
 
-# source://kodachroma//lib/kodachroma/errors.rb#3
+# pkg:gem/kodachroma#lib/kodachroma/errors.rb:3
 module Kodachroma::Errors; end
 
-# source://kodachroma//lib/kodachroma/errors.rb#4
+# pkg:gem/kodachroma#lib/kodachroma/errors.rb:4
 class Kodachroma::Errors::PaletteDefinedError < ::StandardError; end
 
-# source://kodachroma//lib/kodachroma/errors.rb#6
+# pkg:gem/kodachroma#lib/kodachroma/errors.rb:6
 class Kodachroma::Errors::UnrecognizedColor < ::StandardError; end
 
 # Class to hold all palette methods.
 #
-# source://kodachroma//lib/kodachroma/harmonies.rb#4
+# pkg:gem/kodachroma#lib/kodachroma/harmonies.rb:4
 class Kodachroma::Harmonies
   # @param color [Color]
   # @return [Harmonies] a new instance of Harmonies
   #
-  # source://kodachroma//lib/kodachroma/harmonies.rb#6
+  # pkg:gem/kodachroma#lib/kodachroma/harmonies.rb:6
   def initialize(color); end
 
   # Generate an analogous palette.
@@ -860,7 +860,7 @@ class Kodachroma::Harmonies
   # @param options [Hash]
   # @return [Array<Color>, Array<String>] depending on presence of `options[:as]`
   #
-  # source://kodachroma//lib/kodachroma/harmonies.rb#80
+  # pkg:gem/kodachroma#lib/kodachroma/harmonies.rb:80
   def analogous(options = T.unsafe(nil)); end
 
   # Generate a complement palette.
@@ -873,7 +873,7 @@ class Kodachroma::Harmonies
   # @param options [Hash]
   # @return [Array<Color>, Array<String>] depending on presence of `options[:as]`
   #
-  # source://kodachroma//lib/kodachroma/harmonies.rb#20
+  # pkg:gem/kodachroma#lib/kodachroma/harmonies.rb:20
   def complement(options = T.unsafe(nil)); end
 
   # Generate a monochromatic palette.
@@ -887,7 +887,7 @@ class Kodachroma::Harmonies
   # @param options [Hash]
   # @return [Array<Color>, Array<String>] depending on presence of `options[:as]`
   #
-  # source://kodachroma//lib/kodachroma/harmonies.rb#107
+  # pkg:gem/kodachroma#lib/kodachroma/harmonies.rb:107
   def monochromatic(options = T.unsafe(nil)); end
 
   # Generate a split complement palette.
@@ -900,7 +900,7 @@ class Kodachroma::Harmonies
   # @param options [Hash]
   # @return [Array<Color>, Array<String>] depending on presence of `options[:as]`
   #
-  # source://kodachroma//lib/kodachroma/harmonies.rb#62
+  # pkg:gem/kodachroma#lib/kodachroma/harmonies.rb:62
   def split_complement(options = T.unsafe(nil)); end
 
   # Generate a tetrad palette.
@@ -913,7 +913,7 @@ class Kodachroma::Harmonies
   # @param options [Hash]
   # @return [Array<Color>, Array<String>] depending on presence of `options[:as]`
   #
-  # source://kodachroma//lib/kodachroma/harmonies.rb#48
+  # pkg:gem/kodachroma#lib/kodachroma/harmonies.rb:48
   def tetrad(options = T.unsafe(nil)); end
 
   # Generate a triad palette.
@@ -926,22 +926,22 @@ class Kodachroma::Harmonies
   # @param options [Hash]
   # @return [Array<Color>, Array<String>] depending on presence of `options[:as]`
   #
-  # source://kodachroma//lib/kodachroma/harmonies.rb#34
+  # pkg:gem/kodachroma#lib/kodachroma/harmonies.rb:34
   def triad(options = T.unsafe(nil)); end
 
   private
 
-  # source://kodachroma//lib/kodachroma/harmonies.rb#129
+  # pkg:gem/kodachroma#lib/kodachroma/harmonies.rb:129
   def hsl_map(degrees, options); end
 
-  # source://kodachroma//lib/kodachroma/harmonies.rb#124
+  # pkg:gem/kodachroma#lib/kodachroma/harmonies.rb:124
   def with_reformat(palette, as); end
 end
 
-# source://kodachroma//lib/kodachroma/helpers/bounders.rb#3
+# pkg:gem/kodachroma#lib/kodachroma/helpers/bounders.rb:3
 module Kodachroma::Helpers; end
 
-# source://kodachroma//lib/kodachroma/helpers/bounders.rb#4
+# pkg:gem/kodachroma#lib/kodachroma/helpers/bounders.rb:4
 module Kodachroma::Helpers::Bounders
   # Bounds a value `n` that is from `0` to `max` to `0` to `1`.
   #
@@ -949,7 +949,7 @@ module Kodachroma::Helpers::Bounders
   # @param n [Numeric, String]
   # @return [Float]
   #
-  # source://kodachroma//lib/kodachroma/helpers/bounders.rb#10
+  # pkg:gem/kodachroma#lib/kodachroma/helpers/bounders.rb:10
   def bound01(n, max); end
 
   # Ensure alpha value `a` is between `0` and `1`.
@@ -957,7 +957,7 @@ module Kodachroma::Helpers::Bounders
   # @param a [Numeric, String] alpha value
   # @return [Numeric]
   #
-  # source://kodachroma//lib/kodachroma/helpers/bounders.rb#24
+  # pkg:gem/kodachroma#lib/kodachroma/helpers/bounders.rb:24
   def bound_alpha(a); end
 
   # Ensures a number between `0` and `1`. Returns `n` if it is between `0`
@@ -966,7 +966,7 @@ module Kodachroma::Helpers::Bounders
   # @param n [Numeric]
   # @return [Numeric]
   #
-  # source://kodachroma//lib/kodachroma/helpers/bounders.rb#35
+  # pkg:gem/kodachroma#lib/kodachroma/helpers/bounders.rb:35
   def clamp01(n); end
 
   # Converts `n` to a percentage type value.
@@ -974,31 +974,31 @@ module Kodachroma::Helpers::Bounders
   # @param n [Numeric, String]
   # @return [String, Float]
   #
-  # source://kodachroma//lib/kodachroma/helpers/bounders.rb#43
+  # pkg:gem/kodachroma#lib/kodachroma/helpers/bounders.rb:43
   def to_percentage(n); end
 end
 
-# source://kodachroma//lib/kodachroma/named_colors.rb#155
+# pkg:gem/kodachroma#lib/kodachroma/named_colors.rb:155
 Kodachroma::INVERTED_NAMED_COLORS = T.let(T.unsafe(nil), Hash)
 
-# source://kodachroma//lib/kodachroma/named_colors.rb#3
+# pkg:gem/kodachroma#lib/kodachroma/named_colors.rb:3
 Kodachroma::NAMED_COLORS = T.let(T.unsafe(nil), Hash)
 
 # Class internally used to build custom palettes from {Kodachroma.define_palette}.
 #
-# source://kodachroma//lib/kodachroma/palette_builder.rb#4
+# pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:4
 class Kodachroma::PaletteBuilder
   # @param block [Proc] the palette definition block
   # @return [PaletteBuilder] a new instance of PaletteBuilder
   #
-  # source://kodachroma//lib/kodachroma/palette_builder.rb#15
+  # pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:15
   def initialize(&block); end
 
   # Build the custom palette
   #
   # @return [PaletteBuilder::PaletteEvaluator] lazy palette generator
   #
-  # source://kodachroma//lib/kodachroma/palette_builder.rb#21
+  # pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:21
   def build; end
 
   class << self
@@ -1008,77 +1008,77 @@ class Kodachroma::PaletteBuilder
     # @param block [Proc] the palette definition block
     # @return [PaletteBuilder::PaletteEvaluator] lazy palette generator
     #
-    # source://kodachroma//lib/kodachroma/palette_builder.rb#10
+    # pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:10
     def build(&block); end
   end
 end
 
 # Internal class for palette building DSL syntax.
 #
-# source://kodachroma//lib/kodachroma/palette_builder.rb#46
+# pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:46
 class Kodachroma::PaletteBuilder::PaletteBuilderDsl
   # @return [PaletteBuilderDsl] a new instance of PaletteBuilderDsl
   #
-  # source://kodachroma//lib/kodachroma/palette_builder.rb#49
+  # pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:49
   def initialize; end
 
   # Returns the value of attribute evaluator.
   #
-  # source://kodachroma//lib/kodachroma/palette_builder.rb#47
+  # pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:47
   def evaluator; end
 
-  # source://kodachroma//lib/kodachroma/palette_builder.rb#53
+  # pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:53
   def method_missing(name, *args); end
 end
 
 # Internal class to represent color modification calls in the palette
 # builder DSL definition syntax.
 #
-# source://kodachroma//lib/kodachroma/palette_builder.rb#61
+# pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:61
 class Kodachroma::PaletteBuilder::PaletteBuilderDsl::ColorCalls
   # @return [ColorCalls] a new instance of ColorCalls
   #
-  # source://kodachroma//lib/kodachroma/palette_builder.rb#64
+  # pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:64
   def initialize(name, args); end
 
   # Returns the value of attribute args.
   #
-  # source://kodachroma//lib/kodachroma/palette_builder.rb#62
+  # pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:62
   def args; end
 
-  # source://kodachroma//lib/kodachroma/palette_builder.rb#68
+  # pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:68
   def evaluate(color); end
 
-  # source://kodachroma//lib/kodachroma/palette_builder.rb#74
+  # pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:74
   def method_missing(name, *args); end
 
   # Returns the value of attribute name.
   #
-  # source://kodachroma//lib/kodachroma/palette_builder.rb#62
+  # pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:62
   def name; end
 end
 
 # Internal class for delaying evaluating a color to generate a
 # final palette
 #
-# source://kodachroma//lib/kodachroma/palette_builder.rb#29
+# pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:29
 class Kodachroma::PaletteBuilder::PaletteEvaluator
   # @return [PaletteEvaluator] a new instance of PaletteEvaluator
   #
-  # source://kodachroma//lib/kodachroma/palette_builder.rb#30
+  # pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:30
   def initialize; end
 
-  # source://kodachroma//lib/kodachroma/palette_builder.rb#34
+  # pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:34
   def <<(conversion); end
 
-  # source://kodachroma//lib/kodachroma/palette_builder.rb#38
+  # pkg:gem/kodachroma#lib/kodachroma/palette_builder.rb:38
   def evaluate(color); end
 end
 
 # Main module to generate an instance of {ColorModes::Rgb} from several
 # possible inputs.
 #
-# source://kodachroma//lib/kodachroma/rgb_generator.rb#5
+# pkg:gem/kodachroma#lib/kodachroma/rgb_generator.rb:5
 module Kodachroma::RgbGenerator
   class << self
     # Generates an instance of {ColorModes::Rgb} as well as color format
@@ -1087,15 +1087,15 @@ module Kodachroma::RgbGenerator
     # @param input [String, ColorModes::Rgb, ColorModes::Hsl, ColorModes::Hsv]
     # @return [[ColorModes::Rgb, Symbol]]
     #
-    # source://kodachroma//lib/kodachroma/rgb_generator.rb#12
+    # pkg:gem/kodachroma#lib/kodachroma/rgb_generator.rb:12
     def generate_rgb_and_format(input); end
 
     private
 
-    # source://kodachroma//lib/kodachroma/rgb_generator.rb#22
+    # pkg:gem/kodachroma#lib/kodachroma/rgb_generator.rb:22
     def get_generator(input); end
 
-    # source://kodachroma//lib/kodachroma/rgb_generator.rb#33
+    # pkg:gem/kodachroma#lib/kodachroma/rgb_generator.rb:33
     def round(n); end
   end
 end
@@ -1104,12 +1104,12 @@ end
 #
 # @abstract
 #
-# source://kodachroma//lib/kodachroma/rgb_generator/base.rb#6
+# pkg:gem/kodachroma#lib/kodachroma/rgb_generator/base.rb:6
 class Kodachroma::RgbGenerator::Base
   include ::Kodachroma::Helpers::Bounders
 end
 
-# source://kodachroma//lib/kodachroma/rgb_generator/from_hex_string_values.rb#4
+# pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hex_string_values.rb:4
 class Kodachroma::RgbGenerator::FromHexStringValues < ::Kodachroma::RgbGenerator::Base
   # @param a [String] alpha value
   # @param b [String] blue value
@@ -1118,14 +1118,14 @@ class Kodachroma::RgbGenerator::FromHexStringValues < ::Kodachroma::RgbGenerator
   # @param r [String] red value
   # @return [FromHexStringValues] a new instance of FromHexStringValues
   #
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_hex_string_values.rb#10
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hex_string_values.rb:10
   def initialize(format, r, g, b, a = T.unsafe(nil)); end
 
   # Generates a {ColorModes::Rgb}.
   #
   # @return [ColorModes::Rgb]
   #
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_hex_string_values.rb#20
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hex_string_values.rb:20
   def generate; end
 
   class << self
@@ -1137,7 +1137,7 @@ class Kodachroma::RgbGenerator::FromHexStringValues < ::Kodachroma::RgbGenerator
     # @param r [String] red value
     # @return [ColorModes::Rgb]
     #
-    # source://kodachroma//lib/kodachroma/rgb_generator/from_hex_string_values.rb#34
+    # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hex_string_values.rb:34
     def from_hex3(format, r, g, b); end
 
     # Generates a {ColorModes::Rgb} from 6-character hexadecimal.
@@ -1148,7 +1148,7 @@ class Kodachroma::RgbGenerator::FromHexStringValues < ::Kodachroma::RgbGenerator
     # @param r [String] red value
     # @return [ColorModes::Rgb]
     #
-    # source://kodachroma//lib/kodachroma/rgb_generator/from_hex_string_values.rb#45
+    # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hex_string_values.rb:45
     def from_hex6(format, r, g, b); end
 
     # Generates a {ColorModes::Rgb} from 8-character hexadecimal.
@@ -1160,29 +1160,29 @@ class Kodachroma::RgbGenerator::FromHexStringValues < ::Kodachroma::RgbGenerator
     # @param r [String] red value
     # @return [ColorModes::Rgb]
     #
-    # source://kodachroma//lib/kodachroma/rgb_generator/from_hex_string_values.rb#57
+    # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hex_string_values.rb:57
     def from_hex8(format, r, g, b, a); end
   end
 end
 
-# source://kodachroma//lib/kodachroma/rgb_generator/from_hsl.rb#4
+# pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hsl.rb:4
 class Kodachroma::RgbGenerator::FromHsl < ::Kodachroma::RgbGenerator::Base
   # @param format [Symbol] color format
   # @param hsl [ColorModes::Hsl]
   # @return [FromHsl] a new instance of FromHsl
   #
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_hsl.rb#7
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hsl.rb:7
   def initialize(format, hsl); end
 
   # Generates a {ColorModes::Rgb}.
   #
   # @return [ColorModes::Rgb]
   #
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_hsl.rb#14
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hsl.rb:14
   def generate; end
 end
 
-# source://kodachroma//lib/kodachroma/rgb_generator/from_hsl_values.rb#4
+# pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hsl_values.rb:4
 class Kodachroma::RgbGenerator::FromHslValues < ::Kodachroma::RgbGenerator::Base
   # @param a [String, Numeric] alpha value
   # @param format [Symbol] color format
@@ -1191,35 +1191,35 @@ class Kodachroma::RgbGenerator::FromHslValues < ::Kodachroma::RgbGenerator::Base
   # @param s [String, Numeric] saturation value
   # @return [FromHslValues] a new instance of FromHslValues
   #
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_hsl_values.rb#10
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hsl_values.rb:10
   def initialize(format, h, s, l, a = T.unsafe(nil)); end
 
   # Generates a {ColorModes::Rgb}.
   #
   # @return [ColorModes::Rgb]
   #
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_hsl_values.rb#20
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hsl_values.rb:20
   def generate; end
 end
 
-# source://kodachroma//lib/kodachroma/rgb_generator/from_hsv.rb#4
+# pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hsv.rb:4
 class Kodachroma::RgbGenerator::FromHsv < ::Kodachroma::RgbGenerator::Base
   # @param format [Symbol] color format
   # @param hsv [ColorModes::Hsv]
   # @return [FromHsv] a new instance of FromHsv
   #
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_hsv.rb#7
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hsv.rb:7
   def initialize(format, hsv); end
 
   # Generates a {ColorModes::Rgb}.
   #
   # @return [ColorModes::Rgb]
   #
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_hsv.rb#14
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hsv.rb:14
   def generate; end
 end
 
-# source://kodachroma//lib/kodachroma/rgb_generator/from_hsv_values.rb#4
+# pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hsv_values.rb:4
 class Kodachroma::RgbGenerator::FromHsvValues < ::Kodachroma::RgbGenerator::Base
   # @param a [String, Numeric] alpha value
   # @param format [Symbol] color format
@@ -1228,35 +1228,35 @@ class Kodachroma::RgbGenerator::FromHsvValues < ::Kodachroma::RgbGenerator::Base
   # @param v [String, Numeric] value value
   # @return [FromHsvValues] a new instance of FromHsvValues
   #
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_hsv_values.rb#10
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hsv_values.rb:10
   def initialize(format, h, s, v, a = T.unsafe(nil)); end
 
   # Generates a {ColorModes::Rgb}.
   #
   # @return [ColorModes::Rgb]
   #
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_hsv_values.rb#20
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_hsv_values.rb:20
   def generate; end
 end
 
-# source://kodachroma//lib/kodachroma/rgb_generator/from_rgb.rb#4
+# pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_rgb.rb:4
 class Kodachroma::RgbGenerator::FromRgb < ::Kodachroma::RgbGenerator::Base
   # @param format [Symbol] color format
   # @param rgb [ColorModes::Rgb]
   # @return [FromRgb] a new instance of FromRgb
   #
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_rgb.rb#7
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_rgb.rb:7
   def initialize(format, rgb); end
 
   # Generates a {ColorModes::Rgb}.
   #
   # @return [ColorModes::Rgb]
   #
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_rgb.rb#14
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_rgb.rb:14
   def generate; end
 end
 
-# source://kodachroma//lib/kodachroma/rgb_generator/from_rgb_values.rb#4
+# pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_rgb_values.rb:4
 class Kodachroma::RgbGenerator::FromRgbValues < ::Kodachroma::RgbGenerator::Base
   # @param a [String, Numeric] alpha value
   # @param b [String, Numeric] blue value
@@ -1265,45 +1265,45 @@ class Kodachroma::RgbGenerator::FromRgbValues < ::Kodachroma::RgbGenerator::Base
   # @param r [String, Numeric] red value
   # @return [FromRgbValues] a new instance of FromRgbValues
   #
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_rgb_values.rb#10
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_rgb_values.rb:10
   def initialize(format, r, g, b, a = T.unsafe(nil)); end
 
   # Generates a {ColorModes::Rgb}.
   #
   # @return [ColorModes::Rgb]
   #
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_rgb_values.rb#20
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_rgb_values.rb:20
   def generate; end
 end
 
-# source://kodachroma//lib/kodachroma/rgb_generator/from_string.rb#4
+# pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_string.rb:4
 class Kodachroma::RgbGenerator::FromString < ::Kodachroma::RgbGenerator::Base
   # @param format [Symbol] unused
   # @param input [String] input to parse
   # @return [FromString] a new instance of FromString
   #
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_string.rb#39
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_string.rb:39
   def initialize(_format, input); end
 
   # Generates a {ColorModes::Rgb}.
   #
   # @return [ColorModes::Rgb]
   #
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_string.rb#45
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_string.rb:45
   def generate; end
 
   private
 
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_string.rb#74
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_string.rb:74
   def build_generator(args, class_name, builder, format); end
 
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_string.rb#51
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_string.rb:51
   def get_generator; end
 
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_string.rb#84
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_string.rb:84
   def matchers; end
 
-  # source://kodachroma//lib/kodachroma/rgb_generator/from_string.rb#80
+  # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_string.rb:80
   def normalize_input(input); end
 
   class << self
@@ -1313,10 +1313,10 @@ class Kodachroma::RgbGenerator::FromString < ::Kodachroma::RgbGenerator::Base
     # @api private
     # @return [Hash<Symbol, Hash>]
     #
-    # source://kodachroma//lib/kodachroma/rgb_generator/from_string.rb#10
+    # pkg:gem/kodachroma#lib/kodachroma/rgb_generator/from_string.rb:10
     def matchers; end
   end
 end
 
-# source://kodachroma//lib/kodachroma/version.rb#3
+# pkg:gem/kodachroma#lib/kodachroma/version.rb:3
 Kodachroma::VERSION = T.let(T.unsafe(nil), String)

@@ -92,7 +92,7 @@ module Fanart
       fanart_url
     rescue HTTParty::Error, ApiError, JSON::ParserError => e
       Rails.logger.tagged(FANART_TAG, log_tag, tmdb_id.to_s.yellow) do
-        Rails.logger.error("ERROR".red, e.message)
+        Rails.logger.error("ERROR: #{e.message}".red)
       end
 
       nil
@@ -145,7 +145,7 @@ module Fanart
       fanart_url
     rescue HTTParty::Error, ApiError, JSON::ParserError => e
       Rails.logger.tagged(FANART_TAG, log_tag, tvdb_id.to_s.yellow) do
-        Rails.logger.error("ERROR".red, e.message)
+        Rails.logger.error("ERROR: #{e.message}".red)
       end
 
       nil
@@ -198,7 +198,7 @@ module Fanart
       fanart_url
     rescue HTTParty::Error, ApiError, JSON::ParserError => e
       Rails.logger.tagged(FANART_TAG, log_tag, mbid_id.to_s.yellow) do
-        Rails.logger.error("ERROR".red, e.message)
+        Rails.logger.error("ERROR: #{e.message}".red)
       end
 
       nil

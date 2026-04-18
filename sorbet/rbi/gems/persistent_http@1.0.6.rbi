@@ -35,7 +35,7 @@
 #     ... Handle response as you would a normal Net::HTTPResponse ...
 #   end
 #
-# source://persistent_http//lib/persistent_http.rb#38
+# pkg:gem/persistent_http#lib/persistent_http.rb:38
 class PersistentHTTP
   # Creates a new PersistentHTTP.
   #
@@ -55,29 +55,29 @@ class PersistentHTTP
   #
   # @return [PersistentHTTP] a new instance of PersistentHTTP
   #
-  # source://persistent_http//lib/persistent_http.rb#173
+  # pkg:gem/persistent_http#lib/persistent_http.rb:173
   def initialize(options = T.unsafe(nil)); end
 
   # An SSL certificate authority.  Setting this will set verify_mode to
   # VERIFY_PEER.
   #
-  # source://persistent_http//lib/persistent_http.rb#53
+  # pkg:gem/persistent_http#lib/persistent_http.rb:53
   def ca_file; end
 
   # An SSL certificate authority.  Setting this will set verify_mode to
   # VERIFY_PEER.
   #
-  # source://persistent_http//lib/persistent_http.rb#53
+  # pkg:gem/persistent_http#lib/persistent_http.rb:53
   def ca_file=(_arg0); end
 
   # This client's OpenSSL::X509::Certificate
   #
-  # source://persistent_http//lib/persistent_http.rb#57
+  # pkg:gem/persistent_http#lib/persistent_http.rb:57
   def certificate; end
 
   # This client's OpenSSL::X509::Certificate
   #
-  # source://persistent_http//lib/persistent_http.rb#57
+  # pkg:gem/persistent_http#lib/persistent_http.rb:57
   def certificate=(_arg0); end
 
   # Sends debug_output to this IO via Net::HTTP#set_debug_output.
@@ -85,7 +85,7 @@ class PersistentHTTP
   # Never use this method in production code, it causes a serious security
   # hole.
   #
-  # source://persistent_http//lib/persistent_http.rb#64
+  # pkg:gem/persistent_http#lib/persistent_http.rb:64
   def debug_output; end
 
   # Sends debug_output to this IO via Net::HTTP#set_debug_output.
@@ -93,52 +93,52 @@ class PersistentHTTP
   # Never use this method in production code, it causes a serious security
   # hole.
   #
-  # source://persistent_http//lib/persistent_http.rb#64
+  # pkg:gem/persistent_http#lib/persistent_http.rb:64
   def debug_output=(_arg0); end
 
   # Default path for the request
   #
-  # source://persistent_http//lib/persistent_http.rb#68
+  # pkg:gem/persistent_http#lib/persistent_http.rb:68
   def default_path; end
 
   # Default path for the request
   #
-  # source://persistent_http//lib/persistent_http.rb#68
+  # pkg:gem/persistent_http#lib/persistent_http.rb:68
   def default_path=(_arg0); end
 
   # Retry even for non-idempotent (POST) requests.
   #
-  # source://persistent_http//lib/persistent_http.rb#72
+  # pkg:gem/persistent_http#lib/persistent_http.rb:72
   def force_retry; end
 
   # Retry even for non-idempotent (POST) requests.
   #
-  # source://persistent_http//lib/persistent_http.rb#72
+  # pkg:gem/persistent_http#lib/persistent_http.rb:72
   def force_retry=(_arg0); end
 
   # Headers that are added to every request
   #
-  # source://persistent_http//lib/persistent_http.rb#76
+  # pkg:gem/persistent_http#lib/persistent_http.rb:76
   def headers; end
 
   # Headers that are added to every request
   #
-  # source://persistent_http//lib/persistent_http.rb#76
+  # pkg:gem/persistent_http#lib/persistent_http.rb:76
   def headers=(_arg0); end
 
   # Host for the Net:HTTP connection
   #
-  # source://persistent_http//lib/persistent_http.rb#80
+  # pkg:gem/persistent_http#lib/persistent_http.rb:80
   def host; end
 
   # HTTP version to enable version specific features.
   #
-  # source://persistent_http//lib/persistent_http.rb#84
+  # pkg:gem/persistent_http#lib/persistent_http.rb:84
   def http_version; end
 
   # Connection will be renewed if it hasn't been used in this amount of time.  Defaults to 10 seconds.
   #
-  # source://persistent_http//lib/persistent_http.rb#88
+  # pkg:gem/persistent_http#lib/persistent_http.rb:88
   def idle_timeout; end
 
   # The value sent in the Keep-Alive header.  Defaults to 30.  Not needed for
@@ -149,7 +149,7 @@ class PersistentHTTP
   # This method may be removed in a future version as RFC 2616 does not
   # require this header.
   #
-  # source://persistent_http//lib/persistent_http.rb#98
+  # pkg:gem/persistent_http#lib/persistent_http.rb:98
   def keep_alive; end
 
   # The value sent in the Keep-Alive header.  Defaults to 30.  Not needed for
@@ -160,83 +160,83 @@ class PersistentHTTP
   # This method may be removed in a future version as RFC 2616 does not
   # require this header.
   #
-  # source://persistent_http//lib/persistent_http.rb#98
+  # pkg:gem/persistent_http#lib/persistent_http.rb:98
   def keep_alive=(_arg0); end
 
   # Logger for message logging.
   #
-  # source://persistent_http//lib/persistent_http.rb#102
+  # pkg:gem/persistent_http#lib/persistent_http.rb:102
   def logger; end
 
   # Logger for message logging.
   #
-  # source://persistent_http//lib/persistent_http.rb#102
+  # pkg:gem/persistent_http#lib/persistent_http.rb:102
   def logger=(_arg0); end
 
   # A name for this connection.  Allows you to keep your connections apart
   # from everybody else's.
   #
-  # source://persistent_http//lib/persistent_http.rb#107
+  # pkg:gem/persistent_http#lib/persistent_http.rb:107
   def name; end
 
   # Seconds to wait until a connection is opened.  See Net::HTTP#open_timeout
   #
-  # source://persistent_http//lib/persistent_http.rb#114
+  # pkg:gem/persistent_http#lib/persistent_http.rb:114
   def open_timeout; end
 
   # Seconds to wait until a connection is opened.  See Net::HTTP#open_timeout
   #
-  # source://persistent_http//lib/persistent_http.rb#114
+  # pkg:gem/persistent_http#lib/persistent_http.rb:114
   def open_timeout=(_arg0); end
 
   # Return the size of the connection pool
   #
-  # source://persistent_http//lib/persistent_http.rb#118
+  # pkg:gem/persistent_http#lib/persistent_http.rb:118
   def pool_size; end
 
   # Reset the size of the connection pool
   #
-  # source://persistent_http//lib/persistent_http.rb#265
+  # pkg:gem/persistent_http#lib/persistent_http.rb:265
   def pool_size=(pool_size); end
 
   # Seconds to wait for an available connection before a Timeout::Error is raised
   #
-  # source://persistent_http//lib/persistent_http.rb#111
+  # pkg:gem/persistent_http#lib/persistent_http.rb:111
   def pool_timeout; end
 
   # Seconds to wait for an available connection before a Timeout::Error is raised
   #
-  # source://persistent_http//lib/persistent_http.rb#111
+  # pkg:gem/persistent_http#lib/persistent_http.rb:111
   def pool_timeout=(_arg0); end
 
   # Port for the Net:HTTP connection
   #
-  # source://persistent_http//lib/persistent_http.rb#122
+  # pkg:gem/persistent_http#lib/persistent_http.rb:122
   def port; end
 
   # This client's SSL private key
   #
-  # source://persistent_http//lib/persistent_http.rb#126
+  # pkg:gem/persistent_http#lib/persistent_http.rb:126
   def private_key; end
 
   # This client's SSL private key
   #
-  # source://persistent_http//lib/persistent_http.rb#126
+  # pkg:gem/persistent_http#lib/persistent_http.rb:126
   def private_key=(_arg0); end
 
   # The URL through which requests will be proxied
   #
-  # source://persistent_http//lib/persistent_http.rb#130
+  # pkg:gem/persistent_http#lib/persistent_http.rb:130
   def proxy_uri; end
 
   # Seconds to wait until reading one block.  See Net::HTTP#read_timeout
   #
-  # source://persistent_http//lib/persistent_http.rb#134
+  # pkg:gem/persistent_http#lib/persistent_http.rb:134
   def read_timeout; end
 
   # Seconds to wait until reading one block.  See Net::HTTP#read_timeout
   #
-  # source://persistent_http//lib/persistent_http.rb#134
+  # pkg:gem/persistent_http#lib/persistent_http.rb:134
   def read_timeout=(_arg0); end
 
   # Makes a request per +req+.  If +req+ is nil a Net::HTTP::Get is performed
@@ -250,27 +250,27 @@ class PersistentHTTP
   # If there is an error and the request is idempontent according to RFC 2616
   # it will be retried automatically.
   #
-  # source://persistent_http//lib/persistent_http.rb#286
+  # pkg:gem/persistent_http#lib/persistent_http.rb:286
   def request(req = T.unsafe(nil), options = T.unsafe(nil), &block); end
 
   # Shuts down all connections.
   #
-  # source://persistent_http//lib/persistent_http.rb#348
+  # pkg:gem/persistent_http#lib/persistent_http.rb:348
   def shutdown(timeout = T.unsafe(nil)); end
 
   # Use ssl if set
   #
-  # source://persistent_http//lib/persistent_http.rb#138
+  # pkg:gem/persistent_http#lib/persistent_http.rb:138
   def use_ssl; end
 
   # SSL verification callback.  Used when ca_file is set.
   #
-  # source://persistent_http//lib/persistent_http.rb#142
+  # pkg:gem/persistent_http#lib/persistent_http.rb:142
   def verify_callback; end
 
   # SSL verification callback.  Used when ca_file is set.
   #
-  # source://persistent_http//lib/persistent_http.rb#142
+  # pkg:gem/persistent_http#lib/persistent_http.rb:142
   def verify_callback=(_arg0); end
 
   # HTTPS verify mode.  Defaults to OpenSSL::SSL::VERIFY_NONE which ignores
@@ -278,7 +278,7 @@ class PersistentHTTP
   #
   # You can use +verify_mode+ to override any default values.
   #
-  # source://persistent_http//lib/persistent_http.rb#149
+  # pkg:gem/persistent_http#lib/persistent_http.rb:149
   def verify_mode; end
 
   # HTTPS verify mode.  Defaults to OpenSSL::SSL::VERIFY_NONE which ignores
@@ -286,13 +286,13 @@ class PersistentHTTP
   #
   # You can use +verify_mode+ to override any default values.
   #
-  # source://persistent_http//lib/persistent_http.rb#149
+  # pkg:gem/persistent_http#lib/persistent_http.rb:149
   def verify_mode=(_arg0); end
 
   # The threshold in seconds for checking out a connection at which a warning
   # will be logged via the logger
   #
-  # source://persistent_http//lib/persistent_http.rb#154
+  # pkg:gem/persistent_http#lib/persistent_http.rb:154
   def warn_timeout; end
 
   private
@@ -300,29 +300,29 @@ class PersistentHTTP
   # Returns an error message containing the number of requests performed on
   # this connection
   #
-  # source://persistent_http//lib/persistent_http.rb#360
+  # pkg:gem/persistent_http#lib/persistent_http.rb:360
   def error_message(connection); end
 
   # URI::escape wrapper
   #
-  # source://persistent_http//lib/persistent_http.rb#368
+  # pkg:gem/persistent_http#lib/persistent_http.rb:368
   def escape(str); end
 
   # Finishes the Net::HTTP +connection+
   #
-  # source://persistent_http//lib/persistent_http.rb#375
+  # pkg:gem/persistent_http#lib/persistent_http.rb:375
   def finish(connection); end
 
   # Is +req+ idempotent according to RFC 2616?
   #
   # @return [Boolean]
   #
-  # source://persistent_http//lib/persistent_http.rb#384
+  # pkg:gem/persistent_http#lib/persistent_http.rb:384
   def idempotent?(req); end
 
   # Adds "http://" to the String +uri+ if it is missing.
   #
-  # source://persistent_http//lib/persistent_http.rb#395
+  # pkg:gem/persistent_http#lib/persistent_http.rb:395
   def normalize_uri(uri); end
 
   # Creates a URI for an HTTP proxy server from ENV variables.
@@ -336,24 +336,24 @@ class PersistentHTTP
   # For Windows users lowercase ENV variables are preferred over uppercase ENV
   # variables.
   #
-  # source://persistent_http//lib/persistent_http.rb#411
+  # pkg:gem/persistent_http#lib/persistent_http.rb:411
   def proxy_from_env; end
 
   # Finishes then removes the Net::HTTP +connection+
   #
-  # source://persistent_http//lib/persistent_http.rb#429
+  # pkg:gem/persistent_http#lib/persistent_http.rb:429
   def remove(connection); end
 
   # Finishes then renews the Net::HTTP +connection+.  It may be unnecessary
   # to completely recreate the connection but connections that get timed out
   # in JRuby leave the ssl context in a frozen object state.
   #
-  # source://persistent_http//lib/persistent_http.rb#439
+  # pkg:gem/persistent_http#lib/persistent_http.rb:439
   def renew(connection); end
 
   # Enables SSL on +connection+
   #
-  # source://persistent_http//lib/persistent_http.rb#447
+  # pkg:gem/persistent_http#lib/persistent_http.rb:447
   def ssl(connection); end
 end
 
@@ -361,10 +361,10 @@ end
 # SystemCallErrors are re-raised with a human-readable message under this
 # class.
 #
-# source://persistent_http//lib/persistent_http.rb#48
+# pkg:gem/persistent_http#lib/persistent_http.rb:48
 class PersistentHTTP::Error < ::StandardError; end
 
 # The version of PersistentHTTP use are using
 #
-# source://persistent_http//lib/persistent_http.rb#42
+# pkg:gem/persistent_http#lib/persistent_http.rb:42
 PersistentHTTP::VERSION = T.let(T.unsafe(nil), String)

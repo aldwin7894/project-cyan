@@ -5,71 +5,71 @@
 # Please instead update this file by running `bin/tapioca gem graphlient`.
 
 
-# source://graphlient//lib/graphlient/version.rb#1
+# pkg:gem/graphlient#lib/graphlient/version.rb:1
 module Graphlient; end
 
-# source://graphlient//lib/graphlient/adapters/http/adapter.rb#2
+# pkg:gem/graphlient#lib/graphlient/adapters/http/adapter.rb:2
 module Graphlient::Adapters; end
 
-# source://graphlient//lib/graphlient/adapters/http/adapter.rb#3
+# pkg:gem/graphlient#lib/graphlient/adapters/http/adapter.rb:3
 module Graphlient::Adapters::HTTP; end
 
-# source://graphlient//lib/graphlient/adapters/http/adapter.rb#4
+# pkg:gem/graphlient#lib/graphlient/adapters/http/adapter.rb:4
 class Graphlient::Adapters::HTTP::Adapter
   # @return [Adapter] a new instance of Adapter
   # @yield [_self]
   # @yieldparam _self [Graphlient::Adapters::HTTP::Adapter] the object that the method was called on
   #
-  # source://graphlient//lib/graphlient/adapters/http/adapter.rb#7
+  # pkg:gem/graphlient#lib/graphlient/adapters/http/adapter.rb:7
   def initialize(url, options = T.unsafe(nil), &_block); end
 
   # @raise [NotImplementedError]
   #
-  # source://graphlient//lib/graphlient/adapters/http/adapter.rb#23
+  # pkg:gem/graphlient#lib/graphlient/adapters/http/adapter.rb:23
   def execute(*_arg0); end
 
-  # source://graphlient//lib/graphlient/adapters/http/adapter.rb#13
+  # pkg:gem/graphlient#lib/graphlient/adapters/http/adapter.rb:13
   def headers; end
 
-  # source://graphlient//lib/graphlient/adapters/http/adapter.rb#17
+  # pkg:gem/graphlient#lib/graphlient/adapters/http/adapter.rb:17
   def http_options; end
 
   # Returns the value of attribute options.
   #
-  # source://graphlient//lib/graphlient/adapters/http/adapter.rb#5
+  # pkg:gem/graphlient#lib/graphlient/adapters/http/adapter.rb:5
   def options; end
 
   # Sets the attribute options
   #
   # @param value the value to set the attribute options to.
   #
-  # source://graphlient//lib/graphlient/adapters/http/adapter.rb#5
+  # pkg:gem/graphlient#lib/graphlient/adapters/http/adapter.rb:5
   def options=(_arg0); end
 
   # Returns the value of attribute url.
   #
-  # source://graphlient//lib/graphlient/adapters/http/adapter.rb#5
+  # pkg:gem/graphlient#lib/graphlient/adapters/http/adapter.rb:5
   def url; end
 
   # Sets the attribute url
   #
   # @param value the value to set the attribute url to.
   #
-  # source://graphlient//lib/graphlient/adapters/http/adapter.rb#5
+  # pkg:gem/graphlient#lib/graphlient/adapters/http/adapter.rb:5
   def url=(_arg0); end
 
   private
 
-  # source://graphlient//lib/graphlient/adapters/http/adapter.rb#29
+  # pkg:gem/graphlient#lib/graphlient/adapters/http/adapter.rb:29
   def configure_http_options(client_options); end
 end
 
-# source://graphlient//lib/graphlient/adapters/http/faraday_adapter.rb#7
+# pkg:gem/graphlient#lib/graphlient/adapters/http/faraday_adapter.rb:7
 class Graphlient::Adapters::HTTP::FaradayAdapter < ::Graphlient::Adapters::HTTP::Adapter
-  # source://graphlient//lib/graphlient/adapters/http/faraday_adapter.rb#29
+  # pkg:gem/graphlient#lib/graphlient/adapters/http/faraday_adapter.rb:29
   def connection; end
 
-  # source://graphlient//lib/graphlient/adapters/http/faraday_adapter.rb#8
+  # pkg:gem/graphlient#lib/graphlient/adapters/http/faraday_adapter.rb:8
   def execute(document:, operation_name:, variables:, context:); end
 
   private
@@ -83,167 +83,167 @@ class Graphlient::Adapters::HTTP::FaradayAdapter < ::Graphlient::Adapters::HTTP:
   # anyways. If the body cannot be parsed as JSON, an exception will be
   # raised.
   #
-  # source://graphlient//lib/graphlient/adapters/http/faraday_adapter.rb#55
+  # pkg:gem/graphlient#lib/graphlient/adapters/http/faraday_adapter.rb:55
   def parse_body(body); end
 end
 
-# source://graphlient//lib/graphlient/adapters/http/http_adapter.rb#6
+# pkg:gem/graphlient#lib/graphlient/adapters/http/http_adapter.rb:6
 class Graphlient::Adapters::HTTP::HTTPAdapter < ::Graphlient::Adapters::HTTP::Adapter
-  # source://graphlient//lib/graphlient/adapters/http/http_adapter.rb#29
+  # pkg:gem/graphlient#lib/graphlient/adapters/http/http_adapter.rb:29
   def connection; end
 
   # @raise [Graphlient::Errors::HttpServerError]
   #
-  # source://graphlient//lib/graphlient/adapters/http/http_adapter.rb#7
+  # pkg:gem/graphlient#lib/graphlient/adapters/http/http_adapter.rb:7
   def execute(document:, operation_name: T.unsafe(nil), variables: T.unsafe(nil), context: T.unsafe(nil)); end
 
-  # source://graphlient//lib/graphlient/adapters/http/http_adapter.rb#25
+  # pkg:gem/graphlient#lib/graphlient/adapters/http/http_adapter.rb:25
   def uri; end
 end
 
-# source://graphlient//lib/graphlient/client.rb#2
+# pkg:gem/graphlient#lib/graphlient/client.rb:2
 class Graphlient::Client
   # @return [Client] a new instance of Client
   # @yield [_self]
   # @yieldparam _self [Graphlient::Client] the object that the method was called on
   #
-  # source://graphlient//lib/graphlient/client.rb#7
+  # pkg:gem/graphlient#lib/graphlient/client.rb:7
   def initialize(url, options = T.unsafe(nil), &_block); end
 
-  # source://graphlient//lib/graphlient/client.rb#23
+  # pkg:gem/graphlient#lib/graphlient/client.rb:23
   def execute(query, variables = T.unsafe(nil)); end
 
-  # source://graphlient//lib/graphlient/client.rb#50
+  # pkg:gem/graphlient#lib/graphlient/client.rb:50
   def http(&block); end
 
-  # source://graphlient//lib/graphlient/client.rb#46
+  # pkg:gem/graphlient#lib/graphlient/client.rb:46
   def http_adapter_class; end
 
   # Returns the value of attribute options.
   #
-  # source://graphlient//lib/graphlient/client.rb#3
+  # pkg:gem/graphlient#lib/graphlient/client.rb:3
   def options; end
 
   # Sets the attribute options
   #
   # @param value the value to set the attribute options to.
   #
-  # source://graphlient//lib/graphlient/client.rb#3
+  # pkg:gem/graphlient#lib/graphlient/client.rb:3
   def options=(_arg0); end
 
-  # source://graphlient//lib/graphlient/client.rb#14
+  # pkg:gem/graphlient#lib/graphlient/client.rb:14
   def parse(query_str = T.unsafe(nil), &block); end
 
-  # source://graphlient//lib/graphlient/client.rb#38
+  # pkg:gem/graphlient#lib/graphlient/client.rb:38
   def query(query_or_variables = T.unsafe(nil), variables = T.unsafe(nil), &block); end
 
-  # source://graphlient//lib/graphlient/client.rb#56
+  # pkg:gem/graphlient#lib/graphlient/client.rb:56
   def schema; end
 
   # Returns the value of attribute uri.
   #
-  # source://graphlient//lib/graphlient/client.rb#3
+  # pkg:gem/graphlient#lib/graphlient/client.rb:3
   def uri; end
 
   # Sets the attribute uri
   #
   # @param value the value to set the attribute uri to.
   #
-  # source://graphlient//lib/graphlient/client.rb#3
+  # pkg:gem/graphlient#lib/graphlient/client.rb:3
   def uri=(_arg0); end
 
   private
 
-  # source://graphlient//lib/graphlient/client.rb#70
+  # pkg:gem/graphlient#lib/graphlient/client.rb:70
   def client; end
 
   # @return [Boolean]
   #
-  # source://graphlient//lib/graphlient/client.rb#76
+  # pkg:gem/graphlient#lib/graphlient/client.rb:76
   def errors_in_result?(response); end
 
   # @raise [InvalidConfigurationError]
   #
-  # source://graphlient//lib/graphlient/client.rb#62
+  # pkg:gem/graphlient#lib/graphlient/client.rb:62
   def raise_error_if_invalid_configuration!; end
 
-  # source://graphlient//lib/graphlient/client.rb#66
+  # pkg:gem/graphlient#lib/graphlient/client.rb:66
   def schema_path; end
 end
 
-# source://graphlient//lib/graphlient/client.rb#5
+# pkg:gem/graphlient#lib/graphlient/client.rb:5
 class Graphlient::Client::InvalidConfigurationError < ::StandardError; end
 
-# source://graphlient//lib/graphlient/errors/error.rb#2
+# pkg:gem/graphlient#lib/graphlient/errors/error.rb:2
 module Graphlient::Errors; end
 
-# source://graphlient//lib/graphlient/errors/client_error.rb#3
+# pkg:gem/graphlient#lib/graphlient/errors/client_error.rb:3
 class Graphlient::Errors::ClientError < ::Graphlient::Errors::Error; end
 
-# source://graphlient//lib/graphlient/errors/connection_failed_error.rb#3
+# pkg:gem/graphlient#lib/graphlient/errors/connection_failed_error.rb:3
 class Graphlient::Errors::ConnectionFailedError < ::Graphlient::Errors::ServerError; end
 
-# source://graphlient//lib/graphlient/errors/error.rb#3
+# pkg:gem/graphlient#lib/graphlient/errors/error.rb:3
 class Graphlient::Errors::Error < ::StandardError
   # @return [Error] a new instance of Error
   #
-  # source://graphlient//lib/graphlient/errors/error.rb#5
+  # pkg:gem/graphlient#lib/graphlient/errors/error.rb:5
   def initialize(message, inner_exception = T.unsafe(nil)); end
 
   # Returns the value of attribute inner_exception.
   #
-  # source://graphlient//lib/graphlient/errors/error.rb#4
+  # pkg:gem/graphlient#lib/graphlient/errors/error.rb:4
   def inner_exception; end
 end
 
-# source://graphlient//lib/graphlient/errors/execution_error.rb#3
+# pkg:gem/graphlient#lib/graphlient/errors/execution_error.rb:3
 class Graphlient::Errors::ExecutionError < ::Graphlient::Errors::Error
   # @return [ExecutionError] a new instance of ExecutionError
   #
-  # source://graphlient//lib/graphlient/errors/execution_error.rb#6
+  # pkg:gem/graphlient#lib/graphlient/errors/execution_error.rb:6
   def initialize(response); end
 
-  # source://graphlient//lib/graphlient/errors/execution_error.rb#11
+  # pkg:gem/graphlient#lib/graphlient/errors/execution_error.rb:11
   def errors; end
 
   # Returns the value of attribute response.
   #
-  # source://graphlient//lib/graphlient/errors/execution_error.rb#4
+  # pkg:gem/graphlient#lib/graphlient/errors/execution_error.rb:4
   def response; end
 
-  # source://graphlient//lib/graphlient/errors/execution_error.rb#15
+  # pkg:gem/graphlient#lib/graphlient/errors/execution_error.rb:15
   def to_s; end
 
   private
 
-  # source://graphlient//lib/graphlient/errors/execution_error.rb#24
+  # pkg:gem/graphlient#lib/graphlient/errors/execution_error.rb:24
   def create_details(details); end
 end
 
-# source://graphlient//lib/graphlient/errors/faraday_server_error.rb#3
+# pkg:gem/graphlient#lib/graphlient/errors/faraday_server_error.rb:3
 class Graphlient::Errors::FaradayServerError < ::Graphlient::Errors::ServerError
   # @return [FaradayServerError] a new instance of FaradayServerError
   #
-  # source://graphlient//lib/graphlient/errors/faraday_server_error.rb#4
+  # pkg:gem/graphlient#lib/graphlient/errors/faraday_server_error.rb:4
   def initialize(inner_exception); end
 end
 
-# source://graphlient//lib/graphlient/errors/graphql_error.rb#3
+# pkg:gem/graphlient#lib/graphlient/errors/graphql_error.rb:3
 class Graphlient::Errors::GraphQLError < ::Graphlient::Errors::Error
   # @return [GraphQLError] a new instance of GraphQLError
   #
-  # source://graphlient//lib/graphlient/errors/graphql_error.rb#5
+  # pkg:gem/graphlient#lib/graphlient/errors/graphql_error.rb:5
   def initialize(response); end
 
-  # source://graphlient//lib/graphlient/errors/graphql_error.rb#10
+  # pkg:gem/graphlient#lib/graphlient/errors/graphql_error.rb:10
   def errors; end
 
   # Returns the value of attribute response.
   #
-  # source://graphlient//lib/graphlient/errors/graphql_error.rb#4
+  # pkg:gem/graphlient#lib/graphlient/errors/graphql_error.rb:4
   def response; end
 
-  # source://graphlient//lib/graphlient/errors/graphql_error.rb#14
+  # pkg:gem/graphlient#lib/graphlient/errors/graphql_error.rb:14
   def to_s; end
 
   private
@@ -253,181 +253,181 @@ class Graphlient::Errors::GraphQLError < ::Graphlient::Errors::Error
   # then checks for error root level `path` and tries to generate error from that
   # and if none exist, it fallbacks to just return error message
   #
-  # source://graphlient//lib/graphlient/errors/graphql_error.rb#32
+  # pkg:gem/graphlient#lib/graphlient/errors/graphql_error.rb:32
   def create_detail(detail); end
 
-  # source://graphlient//lib/graphlient/errors/graphql_error.rb#23
+  # pkg:gem/graphlient#lib/graphlient/errors/graphql_error.rb:23
   def create_details(details); end
 
-  # source://graphlient//lib/graphlient/errors/graphql_error.rb#46
+  # pkg:gem/graphlient#lib/graphlient/errors/graphql_error.rb:46
   def create_problem(problem); end
 
-  # source://graphlient//lib/graphlient/errors/graphql_error.rb#42
+  # pkg:gem/graphlient#lib/graphlient/errors/graphql_error.rb:42
   def create_problems(problems); end
 end
 
-# source://graphlient//lib/graphlient/errors/http_options_error.rb#3
+# pkg:gem/graphlient#lib/graphlient/errors/http_options_error.rb:3
 class Graphlient::Errors::HttpOptionsError < ::Graphlient::Errors::Error; end
 
-# source://graphlient//lib/graphlient/errors/http_server_error.rb#3
+# pkg:gem/graphlient#lib/graphlient/errors/http_server_error.rb:3
 class Graphlient::Errors::HttpServerError < ::Graphlient::Errors::Error
   # @return [HttpServerError] a new instance of HttpServerError
   #
-  # source://graphlient//lib/graphlient/errors/http_server_error.rb#6
+  # pkg:gem/graphlient#lib/graphlient/errors/http_server_error.rb:6
   def initialize(message, response); end
 
   # Returns the value of attribute response.
   #
-  # source://graphlient//lib/graphlient/errors/http_server_error.rb#4
+  # pkg:gem/graphlient#lib/graphlient/errors/http_server_error.rb:4
   def response; end
 
   # Returns the value of attribute status_code.
   #
-  # source://graphlient//lib/graphlient/errors/http_server_error.rb#4
+  # pkg:gem/graphlient#lib/graphlient/errors/http_server_error.rb:4
   def status_code; end
 end
 
-# source://graphlient//lib/graphlient/errors/server_error.rb#3
+# pkg:gem/graphlient#lib/graphlient/errors/server_error.rb:3
 class Graphlient::Errors::ServerError < ::Graphlient::Errors::Error
   # Returns the value of attribute response.
   #
-  # source://graphlient//lib/graphlient/errors/server_error.rb#4
+  # pkg:gem/graphlient#lib/graphlient/errors/server_error.rb:4
   def response; end
 
   # Returns the value of attribute status_code.
   #
-  # source://graphlient//lib/graphlient/errors/server_error.rb#4
+  # pkg:gem/graphlient#lib/graphlient/errors/server_error.rb:4
   def status_code; end
 end
 
-# source://graphlient//lib/graphlient/errors/timeout_error.rb#3
+# pkg:gem/graphlient#lib/graphlient/errors/timeout_error.rb:3
 class Graphlient::Errors::TimeoutError < ::Graphlient::Errors::Error; end
 
-# source://graphlient//lib/graphlient/extensions/query.rb#2
+# pkg:gem/graphlient#lib/graphlient/extensions/query.rb:2
 module Graphlient::Extensions; end
 
-# source://graphlient//lib/graphlient/extensions/query.rb#3
+# pkg:gem/graphlient#lib/graphlient/extensions/query.rb:3
 module Graphlient::Extensions::Query
-  # source://graphlient//lib/graphlient/extensions/query.rb#4
+  # pkg:gem/graphlient#lib/graphlient/extensions/query.rb:4
   def method_missing(method_name, *args, &block); end
 
   private
 
   # @return [Boolean]
   #
-  # source://graphlient//lib/graphlient/extensions/query.rb#10
+  # pkg:gem/graphlient#lib/graphlient/extensions/query.rb:10
   def respond_to_missing?(method_name, include_private = T.unsafe(nil)); end
 end
 
-# source://graphlient//lib/graphlient/query.rb#2
+# pkg:gem/graphlient#lib/graphlient/query.rb:2
 class Graphlient::Query
   # @return [Query] a new instance of Query
   #
-  # source://graphlient//lib/graphlient/query.rb#16
+  # pkg:gem/graphlient#lib/graphlient/query.rb:16
   def initialize(&block); end
 
-  # source://graphlient//lib/graphlient/query.rb#23
+  # pkg:gem/graphlient#lib/graphlient/query.rb:23
   def method_missing(method_name, *args, &block); end
 
-  # source://graphlient//lib/graphlient/query.rb#28
+  # pkg:gem/graphlient#lib/graphlient/query.rb:28
   def mutation(*args, &block); end
 
-  # source://graphlient//lib/graphlient/query.rb#28
+  # pkg:gem/graphlient#lib/graphlient/query.rb:28
   def query(*args, &block); end
 
   # Returns the value of attribute query_str.
   #
-  # source://graphlient//lib/graphlient/query.rb#14
+  # pkg:gem/graphlient#lib/graphlient/query.rb:14
   def query_str; end
 
   # Sets the attribute query_str
   #
   # @param value the value to set the attribute query_str to.
   #
-  # source://graphlient//lib/graphlient/query.rb#14
+  # pkg:gem/graphlient#lib/graphlient/query.rb:14
   def query_str=(_arg0); end
 
-  # source://graphlient//lib/graphlient/query.rb#28
+  # pkg:gem/graphlient#lib/graphlient/query.rb:28
   def subscription(*args, &block); end
 
-  # source://graphlient//lib/graphlient/query.rb#38
+  # pkg:gem/graphlient#lib/graphlient/query.rb:38
   def to_s; end
 
   private
 
-  # source://graphlient//lib/graphlient/query.rb#59
+  # pkg:gem/graphlient#lib/graphlient/query.rb:59
   def append_node(node, args, arg_processor: T.unsafe(nil), &block); end
 
-  # source://graphlient//lib/graphlient/query.rb#87
+  # pkg:gem/graphlient#lib/graphlient/query.rb:87
   def args_str(hash_args, arg_processor: T.unsafe(nil)); end
 
-  # source://graphlient//lib/graphlient/query.rb#93
+  # pkg:gem/graphlient#lib/graphlient/query.rb:93
   def argument_string(key, val); end
 
-  # source://graphlient//lib/graphlient/query.rb#111
+  # pkg:gem/graphlient#lib/graphlient/query.rb:111
   def argument_value_string(value); end
 
-  # source://graphlient//lib/graphlient/query.rb#44
+  # pkg:gem/graphlient#lib/graphlient/query.rb:44
   def evaluate(&block); end
 
-  # source://graphlient//lib/graphlient/query.rb#83
+  # pkg:gem/graphlient#lib/graphlient/query.rb:83
   def hash_arg(args); end
 
-  # source://graphlient//lib/graphlient/query.rb#79
+  # pkg:gem/graphlient#lib/graphlient/query.rb:79
   def indent; end
 
-  # source://graphlient//lib/graphlient/query.rb#50
+  # pkg:gem/graphlient#lib/graphlient/query.rb:50
   def resolve_fragment_constant(value); end
 
   # @return [Boolean]
   #
-  # source://graphlient//lib/graphlient/query.rb#34
+  # pkg:gem/graphlient#lib/graphlient/query.rb:34
   def respond_to_missing?(method_name, include_private = T.unsafe(nil)); end
 
-  # source://graphlient//lib/graphlient/query.rb#97
+  # pkg:gem/graphlient#lib/graphlient/query.rb:97
   def variable_string(val); end
 end
 
-# source://graphlient//lib/graphlient/query.rb#12
+# pkg:gem/graphlient#lib/graphlient/query.rb:12
 Graphlient::Query::FRAGMENT_DEFITION = T.let(T.unsafe(nil), Regexp)
 
-# source://graphlient//lib/graphlient/query.rb#10
+# pkg:gem/graphlient#lib/graphlient/query.rb:10
 Graphlient::Query::ROOT_NODES = T.let(T.unsafe(nil), Array)
 
-# source://graphlient//lib/graphlient/query.rb#3
+# pkg:gem/graphlient#lib/graphlient/query.rb:3
 Graphlient::Query::SCALAR_TYPES = T.let(T.unsafe(nil), Hash)
 
-# source://graphlient//lib/graphlient/schema.rb#4
+# pkg:gem/graphlient#lib/graphlient/schema.rb:4
 class Graphlient::Schema < ::SimpleDelegator
   # @return [Schema] a new instance of Schema
   #
-  # source://graphlient//lib/graphlient/schema.rb#13
+  # pkg:gem/graphlient#lib/graphlient/schema.rb:13
   def initialize(http, path); end
 
   # @raise [MissingConfigurationError]
   #
-  # source://graphlient//lib/graphlient/schema.rb#21
+  # pkg:gem/graphlient#lib/graphlient/schema.rb:21
   def dump!; end
 
-  # source://graphlient//lib/graphlient/schema.rb#9
+  # pkg:gem/graphlient#lib/graphlient/schema.rb:9
   def graphql_schema; end
 
   # Returns the value of attribute http.
   #
-  # source://graphlient//lib/graphlient/schema.rb#11
+  # pkg:gem/graphlient#lib/graphlient/schema.rb:11
   def http; end
 
   # Returns the value of attribute path.
   #
-  # source://graphlient//lib/graphlient/schema.rb#11
+  # pkg:gem/graphlient#lib/graphlient/schema.rb:11
   def path; end
 end
 
-# source://graphlient//lib/graphlient/schema.rb#7
+# pkg:gem/graphlient#lib/graphlient/schema.rb:7
 class Graphlient::Schema::MissingConfigurationError < ::StandardError; end
 
-# source://graphlient//lib/graphlient/schema.rb#5
+# pkg:gem/graphlient#lib/graphlient/schema.rb:5
 Graphlient::Schema::PATH_ERROR_MESSAGE = T.let(T.unsafe(nil), String)
 
-# source://graphlient//lib/graphlient/version.rb#2
+# pkg:gem/graphlient#lib/graphlient/version.rb:2
 Graphlient::VERSION = T.let(T.unsafe(nil), String)

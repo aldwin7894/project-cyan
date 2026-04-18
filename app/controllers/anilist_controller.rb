@@ -57,8 +57,9 @@ class AnilistController < ApplicationController
 
     @user.sync_in_progress = true
     @user.last_known_error = nil
-    @user.save
     @job_id = AnilistFollowListCheckerJob.perform_async(@user._id)
+    @user.job_id = @job_id
+    @user.save
 
     Rails.cache.fetch("ANILIST/FOLLOW_CHECKER_CD/#{remote_ip}", expires_in: 20.minutes) do
       20.minutes.from_now
