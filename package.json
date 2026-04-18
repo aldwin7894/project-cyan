@@ -52,7 +52,7 @@
     "postcss": "^8.5.9",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^16.1.1",
-    "postcss-preset-env": "^11.2.0",
+    "postcss-preset-env": "^11.2.1",
     "prettier": "^3.8.2",
     "rollup-plugin-gzip": "^4.2.0",
     "rollup-plugin-visualizer": "^7.0.1",
