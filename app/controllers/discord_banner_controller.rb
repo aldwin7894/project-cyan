@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 # typed: true
 
+require "discord_api"
+
 class DiscordBannerController < ApplicationController
   include DiscordHelper
   layout "discord-banner"
@@ -97,11 +99,25 @@ class DiscordBannerController < ApplicationController
         details = activity_details
         subdetails = [activity_state, activity_assets&.large_text].compact_blank.join(" - ")
       else
+        if large_image.present? || activity.application_id == ENV.fetch("DISCORD_APP_ID")
+          large_image = get_discord_external_asset_url(
+            url: large_image
+          )
+        end
+
         case activity_type
         when 0
           title = "Playing #{activity_name || 'Playing a game'}"
           details = details.presence || activity_name
           subdetails = subdetails.presence || get_playing_elapsed_time(activity.timestamps&.start)
+
+          if large_image.blank? && activity.application_id.present?
+            discord_api = DiscordAPI::Client.new
+            game_icon_hash = discord_api.get_game_icon_hash(activity.application_id)
+            if game_icon_hash.present?
+              large_image = get_game_icon_url(activity.application_id, game_icon_hash)
+            end
+          end
         when 1
           title = "Streaming #{activity_name}"
         when 2

@@ -5,7 +5,9 @@
 # Please instead update this file by running `bin/tapioca gem http-cookie`.
 
 
-# pkg:gem/http-cookie#lib/http/cookie/version.rb:1
+# :markup: markdown
+#
+# pkg:gem/http-cookie#lib/http-cookie.rb:1
 module HTTP; end
 
 # This class is used to represent an HTTP Cookie.
@@ -38,13 +40,13 @@ class HTTP::Cookie
   #
   # @return [Cookie] a new instance of Cookie
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:130
+  # pkg:gem/http-cookie#lib/http/cookie.rb:133
   def initialize(*args); end
 
   # Compares the cookie with another.  When there are many cookies with
   # the same name for a URL, the value of the smallest must be used.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:645
+  # pkg:gem/http-cookie#lib/http/cookie.rb:648
   def <=>(other); end
 
   # Tests if it is OK to accept this cookie considering its origin.
@@ -53,7 +55,7 @@ class HTTP::Cookie
   #
   # @return [Boolean]
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:571
+  # pkg:gem/http-cookie#lib/http/cookie.rb:574
   def acceptable?; end
 
   # Tests if it is OK to accept this cookie if it is sent from a given
@@ -61,90 +63,90 @@ class HTTP::Cookie
   #
   # @return [Boolean]
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:552
+  # pkg:gem/http-cookie#lib/http/cookie.rb:555
   def acceptable_from_uri?(uri); end
 
   # The time this cookie was last accessed at.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:548
+  # pkg:gem/http-cookie#lib/http/cookie.rb:551
   def accessed_at; end
 
   # The time this cookie was last accessed at.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:548
+  # pkg:gem/http-cookie#lib/http/cookie.rb:551
   def accessed_at=(_arg0); end
 
   # Returns a string for use in the Cookie header, i.e. `name=value`
   # or `name="value"`.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:598
+  # pkg:gem/http-cookie#lib/http/cookie.rb:601
   def cookie_value; end
 
   # The time this cookie was created at.  This value is used as a base
   # date for interpreting the Max-Age attribute value.  See #expires.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:545
+  # pkg:gem/http-cookie#lib/http/cookie.rb:548
   def created_at; end
 
   # The time this cookie was created at.  This value is used as a base
   # date for interpreting the Max-Age attribute value.  See #expires.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:545
+  # pkg:gem/http-cookie#lib/http/cookie.rb:548
   def created_at=(_arg0); end
 
   # Returns the value of attribute domain.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:383
+  # pkg:gem/http-cookie#lib/http/cookie.rb:386
   def domain; end
 
   # See #domain.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:386
+  # pkg:gem/http-cookie#lib/http/cookie.rb:389
   def domain=(domain); end
 
   # Returns the domain attribute value as a DomainName object.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:431
+  # pkg:gem/http-cookie#lib/http/cookie.rb:434
   def domain_name; end
 
   # Returns the domain, with a dot prefixed only if the domain flag is
   # on.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:426
+  # pkg:gem/http-cookie#lib/http/cookie.rb:429
   def dot_domain; end
 
   # YAML serialization helper for Psych.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:666
+  # pkg:gem/http-cookie#lib/http/cookie.rb:669
   def encode_with(coder); end
 
   # Expires this cookie by setting the expires attribute value to a
   # past date.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:538
+  # pkg:gem/http-cookie#lib/http/cookie.rb:541
   def expire!; end
 
   # Tests if this cookie is expired by now, or by a given time.
   #
   # @return [Boolean]
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:528
+  # pkg:gem/http-cookie#lib/http/cookie.rb:531
   def expired?(time = T.unsafe(nil)); end
 
-  # pkg:gem/http-cookie#lib/http/cookie.rb:485
+  # pkg:gem/http-cookie#lib/http/cookie.rb:488
   def expires; end
 
   # See #expires.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:490
+  # pkg:gem/http-cookie#lib/http/cookie.rb:493
   def expires=(t); end
 
-  # pkg:gem/http-cookie#lib/http/cookie.rb:503
+  # pkg:gem/http-cookie#lib/http/cookie.rb:506
   def expires_at; end
 
   # See #expires.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:504
+  # pkg:gem/http-cookie#lib/http/cookie.rb:507
   def expires_at=(t); end
 
   # The domain flag. (the opposite of host-only-flag)
@@ -153,7 +155,7 @@ class HTTP::Cookie
   # \#domain, including the host domain itself.  If it is false, this
   # cookie will be sent only to the host indicated by the #domain.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:438
+  # pkg:gem/http-cookie#lib/http/cookie.rb:441
   def for_domain; end
 
   # The domain flag. (the opposite of host-only-flag)
@@ -162,7 +164,7 @@ class HTTP::Cookie
   # \#domain, including the host domain itself.  If it is false, this
   # cookie will be sent only to the host indicated by the #domain.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:438
+  # pkg:gem/http-cookie#lib/http/cookie.rb:441
   def for_domain=(_arg0); end
 
   # The domain flag. (the opposite of host-only-flag)
@@ -171,76 +173,76 @@ class HTTP::Cookie
   # \#domain, including the host domain itself.  If it is false, this
   # cookie will be sent only to the host indicated by the #domain.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:439
+  # pkg:gem/http-cookie#lib/http/cookie.rb:442
   def for_domain?; end
 
   # The HttpOnly flag. (http-only-flag)
   #
   # A cookie with this flag on should be hidden from a client script.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:476
+  # pkg:gem/http-cookie#lib/http/cookie.rb:479
   def httponly; end
 
   # The HttpOnly flag. (http-only-flag)
   #
   # A cookie with this flag on should be hidden from a client script.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:476
+  # pkg:gem/http-cookie#lib/http/cookie.rb:479
   def httponly=(_arg0); end
 
   # The HttpOnly flag. (http-only-flag)
   #
   # A cookie with this flag on should be hidden from a client script.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:477
+  # pkg:gem/http-cookie#lib/http/cookie.rb:480
   def httponly?; end
 
   # YAML deserialization helper for Syck.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:673
+  # pkg:gem/http-cookie#lib/http/cookie.rb:676
   def init_with(coder); end
 
-  # pkg:gem/http-cookie#lib/http/cookie.rb:637
+  # pkg:gem/http-cookie#lib/http/cookie.rb:640
   def inspect; end
 
   # Returns the value of attribute max_age.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:506
+  # pkg:gem/http-cookie#lib/http/cookie.rb:509
   def max_age; end
 
   # See #max_age.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:509
+  # pkg:gem/http-cookie#lib/http/cookie.rb:512
   def max_age=(sec); end
 
   # Returns the value of attribute name.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:347
+  # pkg:gem/http-cookie#lib/http/cookie.rb:350
   def name; end
 
   # See #name.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:350
+  # pkg:gem/http-cookie#lib/http/cookie.rb:353
   def name=(name); end
 
   # Returns the value of attribute origin.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:450
+  # pkg:gem/http-cookie#lib/http/cookie.rb:453
   def origin; end
 
   # See #origin.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:453
+  # pkg:gem/http-cookie#lib/http/cookie.rb:456
   def origin=(origin); end
 
   # Returns the value of attribute path.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:441
+  # pkg:gem/http-cookie#lib/http/cookie.rb:444
   def path; end
 
   # See #path.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:444
+  # pkg:gem/http-cookie#lib/http/cookie.rb:447
   def path=(path); end
 
   # The secure flag. (secure-only-flag)
@@ -248,7 +250,7 @@ class HTTP::Cookie
   # A cookie with this flag on should only be sent via a secure
   # protocol like HTTPS.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:470
+  # pkg:gem/http-cookie#lib/http/cookie.rb:473
   def secure; end
 
   # The secure flag. (secure-only-flag)
@@ -256,7 +258,7 @@ class HTTP::Cookie
   # A cookie with this flag on should only be sent via a secure
   # protocol like HTTPS.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:470
+  # pkg:gem/http-cookie#lib/http/cookie.rb:473
   def secure=(_arg0); end
 
   # The secure flag. (secure-only-flag)
@@ -264,21 +266,21 @@ class HTTP::Cookie
   # A cookie with this flag on should only be sent via a secure
   # protocol like HTTPS.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:471
+  # pkg:gem/http-cookie#lib/http/cookie.rb:474
   def secure?; end
 
   # The session flag. (the opposite of persistent-flag)
   #
   # A cookie with this flag on should be hidden from a client script.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:482
+  # pkg:gem/http-cookie#lib/http/cookie.rb:485
   def session; end
 
   # The session flag. (the opposite of persistent-flag)
   #
   # A cookie with this flag on should be hidden from a client script.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:483
+  # pkg:gem/http-cookie#lib/http/cookie.rb:486
   def session?; end
 
   # Returns a string for use in the Set-Cookie header.  If necessary
@@ -286,23 +288,23 @@ class HTTP::Cookie
   # missing, RuntimeError is raised.  It is always the best to set an
   # origin before calling this method.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:607
+  # pkg:gem/http-cookie#lib/http/cookie.rb:610
   def set_cookie_value; end
 
   # Hash serialization helper for use back into other libraries (Like Selenium)
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:656
+  # pkg:gem/http-cookie#lib/http/cookie.rb:659
   def to_h; end
 
   # Returns a string for use in the Cookie header, i.e. `name=value`
   # or `name="value"`.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:601
+  # pkg:gem/http-cookie#lib/http/cookie.rb:604
   def to_s; end
 
   # YAML serialization helper for Syck.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:661
+  # pkg:gem/http-cookie#lib/http/cookie.rb:664
   def to_yaml_properties; end
 
   # Tests if it is OK to send this cookie to a given `uri`.  A
@@ -310,36 +312,36 @@ class HTTP::Cookie
   #
   # @return [Boolean]
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:586
+  # pkg:gem/http-cookie#lib/http/cookie.rb:589
   def valid_for_uri?(uri); end
 
   # Returns the value of attribute value.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:364
+  # pkg:gem/http-cookie#lib/http/cookie.rb:367
   def value; end
 
   # See #value.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:367
+  # pkg:gem/http-cookie#lib/http/cookie.rb:370
   def value=(value); end
 
   # YAML deserialization helper for Psych.
   #
-  # pkg:gem/http-cookie#lib/http/cookie.rb:678
+  # pkg:gem/http-cookie#lib/http/cookie.rb:681
   def yaml_initialize(tag, map); end
 
   class << self
     # Takes an array of cookies and returns a string for use in the
     # Cookie header, like "name1=value2; name2=value2".
     #
-    # pkg:gem/http-cookie#lib/http/cookie.rb:331
+    # pkg:gem/http-cookie#lib/http/cookie.rb:334
     def cookie_value(cookies); end
 
     # Parses a Cookie header value into a hash of name-value string
     # pairs.  The first appearance takes precedence if multiple pairs
     # with the same name occur.
     #
-    # pkg:gem/http-cookie#lib/http/cookie.rb:338
+    # pkg:gem/http-cookie#lib/http/cookie.rb:341
     def cookie_value_to_hash(cookie_value); end
 
     # Parses a Set-Cookie header value `set_cookie` assuming that it
@@ -374,7 +376,7 @@ class HTTP::Cookie
     #   cookie definitions containing double-quotes just as naturally
     #   expected.
     #
-    # pkg:gem/http-cookie#lib/http/cookie.rb:273
+    # pkg:gem/http-cookie#lib/http/cookie.rb:276
     def parse(set_cookie, origin, options = T.unsafe(nil), &block); end
 
     # Tests if +target_path+ is under +base_path+ as described in RFC
@@ -397,7 +399,7 @@ class HTTP::Cookie
     #
     # @return [Boolean]
     #
-    # pkg:gem/http-cookie#lib/http/cookie.rb:229
+    # pkg:gem/http-cookie#lib/http/cookie.rb:232
     def path_match?(base_path, target_path); end
   end
 end
@@ -405,22 +407,22 @@ end
 # Maximum number of cookies per domain (RFC 6265 6.1 requires 50 at
 # least)
 #
-# pkg:gem/http-cookie#lib/http/cookie.rb:19
+# pkg:gem/http-cookie#lib/http/cookie.rb:22
 HTTP::Cookie::MAX_COOKIES_PER_DOMAIN = T.let(T.unsafe(nil), Integer)
 
 # Maximum number of cookies total (RFC 6265 6.1 requires 3000 at
 # least)
 #
-# pkg:gem/http-cookie#lib/http/cookie.rb:22
+# pkg:gem/http-cookie#lib/http/cookie.rb:25
 HTTP::Cookie::MAX_COOKIES_TOTAL = T.let(T.unsafe(nil), Integer)
 
 # Maximum number of bytes per cookie (RFC 6265 6.1 requires 4096 at
 # least)
 #
-# pkg:gem/http-cookie#lib/http/cookie.rb:16
+# pkg:gem/http-cookie#lib/http/cookie.rb:19
 HTTP::Cookie::MAX_LENGTH = T.let(T.unsafe(nil), Integer)
 
-# pkg:gem/http-cookie#lib/http/cookie.rb:27
+# pkg:gem/http-cookie#lib/http/cookie.rb:30
 HTTP::Cookie::PERSISTENT_PROPERTIES = T.let(T.unsafe(nil), Array)
 
 # pkg:gem/http-cookie#lib/http/cookie/scanner.rb:6
@@ -486,7 +488,7 @@ HTTP::Cookie::Scanner::RE_WSP = T.let(T.unsafe(nil), Regexp)
 
 # :stopdoc:
 #
-# pkg:gem/http-cookie#lib/http/cookie.rb:25
+# pkg:gem/http-cookie#lib/http/cookie.rb:28
 HTTP::Cookie::UNIX_EPOCH = T.let(T.unsafe(nil), Time)
 
 # pkg:gem/http-cookie#lib/http/cookie/uri_parser.rb:1
@@ -529,7 +531,7 @@ HTTP::Cookie::VERSION = T.let(T.unsafe(nil), String)
 # This class is used to manage the Cookies that have been returned from
 # any particular website.
 #
-# pkg:gem/http-cookie#lib/http/cookie_jar.rb:9
+# pkg:gem/http-cookie#lib/http/cookie_jar.rb:11
 class HTTP::CookieJar
   include ::Enumerable
 
@@ -550,7 +552,7 @@ class HTTP::CookieJar
   #
   # @return [CookieJar] a new instance of CookieJar
   #
-  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:50
+  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:52
   def initialize(options = T.unsafe(nil)); end
 
   # Adds a cookie to the jar if it is acceptable, and returns self in
@@ -577,7 +579,7 @@ class HTTP::CookieJar
   #       jar.origin = origin
   #       jar.add(cookie)     # acceptance check is performed
   #
-  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:95
+  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:97
   def <<(cookie); end
 
   # Adds a cookie to the jar if it is acceptable, and returns self in
@@ -604,25 +606,25 @@ class HTTP::CookieJar
   #       jar.origin = origin
   #       jar.add(cookie)     # acceptance check is performed
   #
-  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:86
+  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:88
   def add(cookie); end
 
   # Removes expired cookies and returns self.  If `session` is true,
   # all session cookies are removed as well.
   #
-  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:321
+  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:323
   def cleanup(session = T.unsafe(nil)); end
 
   # Clears the cookie jar and returns self.
   #
-  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:314
+  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:316
   def clear; end
 
   # Gets an array of cookies sorted by the path and creation time.  If
   # `url` is given, only ones that should be sent to the URL/URI are
   # selected, with the access time of each of them updated.
   #
-  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:111
+  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:113
   def cookies(url = T.unsafe(nil)); end
 
   # Deletes a cookie that has the same name, domain and path as a
@@ -632,7 +634,7 @@ class HTTP::CookieJar
   # depends on the store used.  See individual store classes for that
   # matter.
   #
-  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:103
+  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:105
   def delete(cookie); end
 
   # Iterates over all cookies that are not expired in no particular
@@ -646,7 +648,7 @@ class HTTP::CookieJar
   # If (and only if) the `uri` option is given, last access time of
   # each cookie is updated to the current time.
   #
-  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:136
+  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:138
   def each(uri = T.unsafe(nil), &block); end
 
   # Tests if the jar is empty.  If `url` is given, tests if there is
@@ -654,7 +656,7 @@ class HTTP::CookieJar
   #
   # @return [Boolean]
   #
-  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:117
+  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:119
   def empty?(url = T.unsafe(nil)); end
 
   # call-seq:
@@ -683,7 +685,7 @@ class HTTP::CookieJar
   # All options given are passed through to the underlying cookie
   # saver module's constructor.
   #
-  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:275
+  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:277
   def load(readable, *options); end
 
   # Parses a Set-Cookie field value `set_cookie` assuming that it is
@@ -702,7 +704,7 @@ class HTTP::CookieJar
   #
   # See HTTP::Cookie.parse for available options.
   #
-  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:164
+  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:166
   def parse(set_cookie, origin, options = T.unsafe(nil)); end
 
   # call-seq:
@@ -740,22 +742,22 @@ class HTTP::CookieJar
   # All options given are passed through to the underlying cookie
   # saver module's constructor.
   #
-  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:212
+  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:214
   def save(writable, *options); end
 
   # Returns the value of attribute store.
   #
-  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:11
+  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:13
   def store; end
 
   private
 
-  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:13
+  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:15
   def get_impl(base, value, *args); end
 
   # The copy constructor.  Not all backend store classes support cloning.
   #
-  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:59
+  # pkg:gem/http-cookie#lib/http/cookie_jar.rb:61
   def initialize_copy(other); end
 end
 
