@@ -39,7 +39,7 @@
     "@types/node": "^25.6.0",
     "@typescript-eslint/parser": "^8.58.2",
     "autoprefixer": "^10.5.0",
-    "cssnano": "^7.1.5",
+    "cssnano": "^7.1.7",
     "cssnano-preset-advanced": "^7.0.13",
     "eslint": "^10.2.1",
     "eslint-config-prettier": "^10.1.8",
