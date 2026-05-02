@@ -1591,12 +1591,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"alpinejs@npm:^3.15.11":
-  version: 3.15.11
-  resolution: "alpinejs@npm:3.15.11"
+"alpinejs@npm:^3.15.12":
+  version: 3.15.12
+  resolution: "alpinejs@npm:3.15.12"
   dependencies:
     "@vue/reactivity": "npm:~3.1.1"
-  checksum: 10/8ce0116cc1b53f78d566d930a6370159dcead3c175dd41ff1b9a37df0d44da230d02668e5e53a1cb7c8ba8f7733b061bcf89292b3d0cb1ae734b8f851a8d21cc
+  checksum: 10/33bfeb057f5478c6d056b0fea78b65a5f953da7823b1fbc61461f2ac02211cddd8d71e4a49187c779f978c22e95bcff63d6ef3b6bb1aecafa65833fe0c76ef55
   languageName: node
   linkType: hard
 
@@ -6231,7 +6231,7 @@ __metadata:
     "@tailwindcss/typography": "npm:^0.5.19"
     "@types/node": "npm:^25.6.0"
     "@typescript-eslint/parser": "npm:^8.59.0"
-    alpinejs: "npm:^3.15.11"
+    alpinejs: "npm:^3.15.12"
     autoprefixer: "npm:^10.5.0"
     chart.js: "npm:^4.5.1"
     cssnano: "npm:^7.1.7"
