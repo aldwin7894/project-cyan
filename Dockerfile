@@ -1,4 +1,6 @@
 FROM ruby:4.0.3-slim-trixie AS build-env
+ADD --checksum=sha256:6e3d580f5bd7ccf2aa1e8df8d35c60d78e873c3ff8beb282c9bebd914904ad72 \
+  https://deb.nodesource.com/setup_lts.x /tmp/setup_lts.x
 
 ENV BUNDLE_PATH=/gems
 ENV NODE_VERSION=24.14.0
@@ -12,12 +14,10 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
   ruby-dev \
   tar \
   wget \
-  && curl --proto "=https" -fsSL https://deb.nodesource.com/setup_lts.x | bash -s -- "${NODE_VERSION}" \
+  && bash /tmp/setup_lts.x "${NODE_VERSION}}" \
   && apt-get install -yq --no-install-recommends nodejs="${NODE_VERSION}-1nodesource1" \
   && corepack enable \
   && corepack prepare yarn@stable --activate \
-  && npm i -g --ignore-scripts npm \
-  && npm cache clean --force \
   && apt-get clean \
   && apt-get autoremove
 
