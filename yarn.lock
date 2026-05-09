@@ -6698,7 +6698,7 @@ __metadata:
     typescript-eslint: "npm:^8.59.1"
     vite: "npm:^8.0.10"
     vite-plugin-full-reload: "npm:^1.2.0"
-    vite-plugin-ruby: "npm:^5.2.1"
+    vite-plugin-ruby: "npm:^5.2.2"
   languageName: unknown
   linkType: soft
 
@@ -8278,15 +8278,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-ruby@npm:^5.2.1":
-  version: 5.2.1
-  resolution: "vite-plugin-ruby@npm:5.2.1"
+"vite-plugin-ruby@npm:^5.2.2":
+  version: 5.2.2
+  resolution: "vite-plugin-ruby@npm:5.2.2"
   dependencies:
     obug: "npm:^2.0"
     tinyglobby: "npm:^0.2.12"
   peerDependencies:
     vite: ">=5.0.0"
-  checksum: 10/57eebffef33c5d5a5ca22e7eb443b03eef0b66a659b6688455a60434643619d48b2e7a102bb4a5454cb33037705486d09d9bd590d821e9f9060238e292146ff8
+  checksum: 10/86bf5d446548f45c33bf1a9e74e91bfd90d611ddc5232b9cf996f6bb4b81cd26c8c9bdbb5363970551ba0932c59f5db562b5f28c8d6decd8c31a4b08467a9678
   languageName: node
   linkType: hard
 
