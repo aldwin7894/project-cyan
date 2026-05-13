@@ -1,4 +1,6 @@
-require 'test_helper'
+# frozen_string_literal: true
+
+require "test_helper"
 class AnilistActivitiesSyncJobTest < Minitest::Test
   def test_example
     skip "add some examples to (or delete) #{__FILE__}"

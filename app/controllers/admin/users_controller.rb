@@ -33,8 +33,8 @@ module Admin
           format.html { redirect_to [:admin, @user], notice: "User was successfully created." }
           format.json { render :show, status: :created, location: @user }
         else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @user.errors, status: :unprocessable_entity }
+          format.html { render :new, status: :unprocessable_content }
+          format.json { render json: @user.errors, status: :unprocessable_content }
         end
       end
     end
@@ -46,8 +46,8 @@ module Admin
           format.html { redirect_to [:admin, @user], notice: "User was successfully updated." }
           format.json { render :show, status: :ok, location: @user }
         else
-          format.html { render :edit, status: :unprocessable_entity }
-          format.json { render json: @user.errors, status: :unprocessable_entity }
+          format.html { render :edit, status: :unprocessable_content }
+          format.json { render json: @user.errors, status: :unprocessable_content }
         end
       end
     end
@@ -61,12 +61,12 @@ module Admin
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_user
-        @user = User.find(params[:id])
+        @user = User.find(params.expect(:id))
       end
 
       # Only allow a list of trusted parameters through.
       def user_params
-        params.require(:user).permit(:username, :email, :password, :password_confirmation, :photo)
+        params.expect(user: [:username, :email, :password, :password_confirmation, :photo])
       end
   end
 end

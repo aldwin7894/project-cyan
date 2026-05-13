@@ -33,8 +33,8 @@ module Admin
           format.html { redirect_to [:admin, @social_link], notice: "Social Link was successfully created." }
           format.json { render :show, status: :created, location: @social_link }
         else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @social_link.errors, status: :unprocessable_entity }
+          format.html { render :new, status: :unprocessable_content }
+          format.json { render json: @social_link.errors, status: :unprocessable_content }
         end
       end
     end
@@ -46,8 +46,8 @@ module Admin
           format.html { redirect_to [:admin, @social_link], notice: "Social Link was successfully updated." }
           format.json { render :show, status: :ok, location: @social_link }
         else
-          format.html { render :edit, status: :unprocessable_entity }
-          format.json { render json: @social_link.errors, status: :unprocessable_entity }
+          format.html { render :edit, status: :unprocessable_content }
+          format.json { render json: @social_link.errors, status: :unprocessable_content }
         end
       end
     end
@@ -61,12 +61,12 @@ module Admin
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_social_link
-        @social_link = SocialLink.find(params[:id])
+        @social_link = SocialLink.find(params.expect(:id))
       end
 
       # Only allow a list of trusted parameters through.
       def social_link_params
-        params.require(:social_link).permit(:name, :url, :icon_url)
+        params.expect(social_link: [:name, :url, :icon_url])
       end
   end
 end

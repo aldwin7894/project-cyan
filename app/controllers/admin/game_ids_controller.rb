@@ -33,8 +33,8 @@ module Admin
           format.html { redirect_to [:admin, @game_id], notice: "Game ID was successfully created." }
           format.json { render :show, status: :created, location: @game_id }
         else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @game_id.errors, status: :unprocessable_entity }
+          format.html { render :new, status: :unprocessable_content }
+          format.json { render json: @game_id.errors, status: :unprocessable_content }
         end
       end
     end
@@ -46,8 +46,8 @@ module Admin
           format.html { redirect_to [:admin, @game_id], notice: "Game ID was successfully updated." }
           format.json { render :show, status: :ok, location: @game_id }
         else
-          format.html { render :edit, status: :unprocessable_entity }
-          format.json { render json: @game_id.errors, status: :unprocessable_entity }
+          format.html { render :edit, status: :unprocessable_content }
+          format.json { render json: @game_id.errors, status: :unprocessable_content }
         end
       end
     end
@@ -61,12 +61,12 @@ module Admin
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_game_id
-        @game_id = GameId.find(params[:id])
+        @game_id = GameId.find(params.expect(:id))
       end
 
       # Only allow a list of trusted parameters through.
       def game_id_params
-        params.require(:game_id).permit(:name, :ign, :game_id, :icon_name, :icon_filename, :icon_url, :status)
+        params.expect(game_id: [:name, :ign, :game_id, :icon_name, :icon_filename, :icon_url, :status])
       end
   end
 end
