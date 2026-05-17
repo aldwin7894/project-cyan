@@ -10,10 +10,10 @@ gem "rails", "~> 8.1.3"
 # use vite to build javascripts and assets
 gem "vite_rails", "~> 3.10"
 # Use mongodb
-gem "mongoid", "~> 9.0.10"
+gem "mongoid", "~> 9.1.0"
 gem "bson", "~> 5.2"
 # Use Puma as the app server
-gem "puma", "~> 7.2"
+gem "puma", "~> 8.0"
 # Turbo gives you the speed of a single-page web application without having to write any JavaScript.
 gem "turbo-rails", "~> 2.0.23"
 # Use Redis adapter to run Action Cable in production
@@ -61,7 +61,7 @@ group :test do
   gem "capybara", ">= 3.26"
   gem "selenium-webdriver"
   # Easy installation and use of web drivers to run system tests with browsers
-  gem "webdrivers", "=5.3.0"
+  gem "webdrivers", "5.3.1"
 end
 
 gem "httparty", "~> 0.24.2"
