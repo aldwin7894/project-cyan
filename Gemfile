@@ -88,7 +88,7 @@ gem "rack-cors", "~> 3.0", require: "rack/cors"
 
 gem "addressable", "~> 2.8"
 
-gem "jwt", "~> 3.1"
+gem "jwt", "~> 3.2"
 
 gem "recaptcha", "~> 5.21"
 
