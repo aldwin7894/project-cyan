@@ -62,7 +62,7 @@
     "terser": "^5.47.1",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.3",
-    "vite": "^8.0.13",
+    "vite": "^8.0.14",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-ruby": "^5.2.2"
   },
