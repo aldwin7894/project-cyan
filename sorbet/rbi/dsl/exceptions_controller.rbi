@@ -21,6 +21,7 @@ class ExceptionsController
     include ::ViteRails::TagHelpers
     include ::ActionController::Base::HelperMethods
     include ::ApplicationHelper
+    include ::ActionView::Helpers::DateHelper
     include ::DiscordHelper
     include ::FormatDateHelper
     include ::DeviseHelper

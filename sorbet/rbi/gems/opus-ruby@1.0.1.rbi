@@ -149,13 +149,9 @@ Opus::Constants::OPUS_UNIMPLEMENTED = T.let(T.unsafe(nil), Integer)
 
 # pkg:gem/opus-ruby#lib/opus-ruby/decoder.rb:30
 class Opus::Decoder
-  # @return [Decoder] a new instance of Decoder
-  #
   # pkg:gem/opus-ruby#lib/opus-ruby/decoder.rb:33
   def initialize(sample_rate, frame_size, channels); end
 
-  # Returns the value of attribute channels.
-  #
   # pkg:gem/opus-ruby#lib/opus-ruby/decoder.rb:31
   def channels; end
 
@@ -165,37 +161,27 @@ class Opus::Decoder
   # pkg:gem/opus-ruby#lib/opus-ruby/decoder.rb:41
   def destroy; end
 
-  # Returns the value of attribute frame_size.
-  #
   # pkg:gem/opus-ruby#lib/opus-ruby/decoder.rb:31
   def frame_size; end
 
   # pkg:gem/opus-ruby#lib/opus-ruby/decoder.rb:45
   def reset; end
 
-  # Returns the value of attribute sample_rate.
-  #
   # pkg:gem/opus-ruby#lib/opus-ruby/decoder.rb:31
   def sample_rate; end
 end
 
 # pkg:gem/opus-ruby#lib/opus-ruby/encoder.rb:2
 class Opus::Encoder
-  # @return [Encoder] a new instance of Encoder
-  #
   # pkg:gem/opus-ruby#lib/opus-ruby/encoder.rb:6
   def initialize(sample_rate, frame_size, channels); end
 
-  # Returns the value of attribute bitrate.
-  #
   # pkg:gem/opus-ruby#lib/opus-ruby/encoder.rb:3
   def bitrate; end
 
   # pkg:gem/opus-ruby#lib/opus-ruby/encoder.rb:27
   def bitrate=(value); end
 
-  # Returns the value of attribute channels.
-  #
   # pkg:gem/opus-ruby#lib/opus-ruby/encoder.rb:3
   def channels; end
 
@@ -205,21 +191,15 @@ class Opus::Encoder
   # pkg:gem/opus-ruby#lib/opus-ruby/encoder.rb:32
   def encode(data, size); end
 
-  # Returns the value of attribute frame_size.
-  #
   # pkg:gem/opus-ruby#lib/opus-ruby/encoder.rb:3
   def frame_size; end
 
   # pkg:gem/opus-ruby#lib/opus-ruby/encoder.rb:18
   def reset; end
 
-  # Returns the value of attribute sample_rate.
-  #
   # pkg:gem/opus-ruby#lib/opus-ruby/encoder.rb:3
   def sample_rate; end
 
-  # Returns the value of attribute vbr_rate.
-  #
   # pkg:gem/opus-ruby#lib/opus-ruby/encoder.rb:3
   def vbr_rate; end
 

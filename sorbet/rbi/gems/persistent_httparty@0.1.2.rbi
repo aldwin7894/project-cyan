@@ -26,15 +26,9 @@ class HTTParty::Persistent::ConnectionAdapter
   # pkg:gem/persistent_httparty#lib/httparty/persistent/connection_adapter.rb:8
   def call(uri, options); end
 
-  # Returns the value of attribute persistent_http.
-  #
   # pkg:gem/persistent_httparty#lib/httparty/persistent/connection_adapter.rb:6
   def persistent_http; end
 
-  # Sets the attribute persistent_http
-  #
-  # @param value the value to set the attribute persistent_http to.
-  #
   # pkg:gem/persistent_httparty#lib/httparty/persistent/connection_adapter.rb:6
   def persistent_http=(_arg0); end
 end

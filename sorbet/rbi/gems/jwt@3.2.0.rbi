@@ -9,6 +9,10 @@
 #
 # Should be up to date with the latest spec:
 # https://tools.ietf.org/html/rfc7519
+# JSON Web Token implementation
+#
+# Should be up to date with the latest spec:
+# https://tools.ietf.org/html/rfc7519
 #
 # pkg:gem/jwt#lib/jwt/version.rb:7
 module JWT
@@ -20,8 +24,8 @@ module JWT
   #
   # @param jwt [String] the JWT to decode.
   # @param key [String] the key used to verify the JWT.
-  # @param options [Hash] additional options for decoding.
   # @param verify [Boolean] whether to verify the JWT signature.
+  # @param options [Hash] additional options for decoding.
   # @return [Array<Hash>] the decoded payload and headers.
   #
   # pkg:gem/jwt#lib/jwt.rb:45
@@ -29,10 +33,10 @@ module JWT
 
   # Encodes a payload into a JWT.
   #
+  # @param payload [Hash] the payload to encode.
+  # @param key [String] the key used to sign the JWT.
   # @param algorithm [String] the algorithm used to sign the JWT.
   # @param header_fields [Hash] additional headers to include in the JWT.
-  # @param key [String] the key used to sign the JWT.
-  # @param payload [Hash] the payload to encode.
   # @return [String] the encoded JWT.
   #
   # pkg:gem/jwt#lib/jwt.rb:31
@@ -43,8 +47,8 @@ module JWT
     #
     # @param jwt [String] the JWT to decode.
     # @param key [String] the key used to verify the JWT.
-    # @param options [Hash] additional options for decoding.
     # @param verify [Boolean] whether to verify the JWT signature.
+    # @param options [Hash] additional options for decoding.
     # @return [Array<Hash>] the decoded payload and headers.
     #
     # pkg:gem/jwt#lib/jwt.rb:45
@@ -52,10 +56,10 @@ module JWT
 
     # Encodes a payload into a JWT.
     #
+    # @param payload [Hash] the payload to encode.
+    # @param key [String] the key used to sign the JWT.
     # @param algorithm [String] the algorithm used to sign the JWT.
     # @param header_fields [Hash] additional headers to include in the JWT.
-    # @param key [String] the key used to sign the JWT.
-    # @param payload [Hash] the payload to encode.
     # @return [String] the encoded JWT.
     #
     # pkg:gem/jwt#lib/jwt.rb:31
@@ -70,46 +74,35 @@ module JWT
 
     # Checks if the OpenSSL version is 3 or greater.
     #
-    # @api private
     # @return [Boolean] true if OpenSSL version is 3 or greater, false otherwise.
+    # @api private
     #
     # pkg:gem/jwt#lib/jwt/version.rb:29
     def openssl_3?; end
 
-    # Checks if there is an OpenSSL 3 HMAC empty key regression.
-    #
-    # @api private
-    # @return [Boolean] true if there is an OpenSSL 3 HMAC empty key regression, false otherwise.
-    #
-    # pkg:gem/jwt#lib/jwt/version.rb:39
-    def openssl_3_hmac_empty_key_regression?; end
-
     # Returns the OpenSSL version.
     #
-    # @api private
     # @return [Gem::Version] the OpenSSL version.
+    # @api private
     #
-    # pkg:gem/jwt#lib/jwt/version.rb:47
+    # pkg:gem/jwt#lib/jwt/version.rb:39
     def openssl_version; end
   end
 end
 
 # Base64 encoding and decoding
-#
 # @api private
 #
 # pkg:gem/jwt#lib/jwt/base64.rb:8
 class JWT::Base64
   class << self
     # Decode a string with URL-safe Base64 complying with RFC 4648.
-    #
     # @api private
     #
     # pkg:gem/jwt#lib/jwt/base64.rb:18
     def url_decode(str); end
 
     # Encode a string with URL-safe Base64 complying with RFC 4648 (not padded).
-    #
     # @api private
     #
     # pkg:gem/jwt#lib/jwt/base64.rb:12
@@ -149,23 +142,23 @@ module JWT::Claims
 
     # Checks if the claims in the JWT payload are valid.
     #
-    # @param options [Array] the options for verifying the claims.
     # @param payload [Hash] the JWT payload.
+    # @param options [Array] the options for verifying the claims.
     # @return [Boolean] true if the claims are valid, false otherwise
     #
     # pkg:gem/jwt#lib/jwt/claims.rb:54
     def valid_payload?(payload, *options); end
 
     # Checks if the claims in the JWT payload are valid.
-    #
     # @example
     #
     #   ::JWT::Claims.verify_payload!({"exp" => Time.now.to_i + 10}, :exp)
     #   ::JWT::Claims.verify_payload!({"exp" => Time.now.to_i - 10}, exp: { leeway: 11})
-    # @param options [Array] the options for verifying the claims.
+    #
     # @param payload [Hash] the JWT payload.
-    # @raise [JWT::DecodeError] if any claim is invalid.
+    # @param options [Array] the options for verifying the claims.
     # @return [void]
+    # @raise [JWT::DecodeError] if any claim is invalid.
     #
     # pkg:gem/jwt#lib/jwt/claims.rb:45
     def verify_payload!(payload, *options); end
@@ -179,15 +172,14 @@ class JWT::Claims::Audience
   # Initializes a new Audience instance.
   #
   # @param expected_audience [String, Array<String>] the expected audience(s) for the JWT token.
-  # @return [Audience] a new instance of Audience
   #
   # pkg:gem/jwt#lib/jwt/claims/audience.rb:10
   def initialize(expected_audience:); end
 
   # Verifies the audience claim ('aud') in the JWT token.
   #
-  # @param _args [Hash] additional arguments (not used).
   # @param context [Object] the context containing the JWT payload.
+  # @param _args [Hash] additional arguments (not used).
   # @raise [JWT::InvalidAudError] if the audience claim is invalid.
   # @return [nil]
   #
@@ -196,8 +188,6 @@ class JWT::Claims::Audience
 
   private
 
-  # Returns the value of attribute expected_audience.
-  #
   # pkg:gem/jwt#lib/jwt/claims/audience.rb:27
   def expected_audience; end
 end
@@ -209,15 +199,14 @@ class JWT::Claims::Crit
   # Initializes a new Crit instance.
   #
   # @param expected_crits [String] the expected crit header values for the JWT token.
-  # @return [Crit] a new instance of Crit
   #
   # pkg:gem/jwt#lib/jwt/claims/crit.rb:10
   def initialize(expected_crits:); end
 
   # Verifies the critical claim ('crit') in the JWT token header.
   #
-  # @param _args [Hash] additional arguments (not used).
   # @param context [Object] the context containing the JWT payload and header.
+  # @param _args [Hash] additional arguments (not used).
   # @raise [JWT::InvalidCritError] if the crit claim is invalid.
   # @return [nil]
   #
@@ -226,8 +215,6 @@ class JWT::Claims::Crit
 
   private
 
-  # Returns the value of attribute expected_crits.
-  #
   # pkg:gem/jwt#lib/jwt/claims/crit.rb:32
   def expected_crits; end
 end
@@ -246,8 +233,6 @@ module JWT::Claims::DecodeVerifier
   end
 end
 
-# @api private
-#
 # pkg:gem/jwt#lib/jwt/claims/decode_verifier.rb:14
 JWT::Claims::DecodeVerifier::VERIFIERS = T.let(T.unsafe(nil), Hash)
 
@@ -255,18 +240,9 @@ JWT::Claims::DecodeVerifier::VERIFIERS = T.let(T.unsafe(nil), Hash)
 #
 # pkg:gem/jwt#lib/jwt/claims.rb:32
 class JWT::Claims::Error < ::Struct
-  # Returns the value of attribute message
-  #
-  # @return [Object] the current value of message
-  #
   # pkg:gem/jwt#lib/jwt/claims.rb:32
   def message; end
 
-  # Sets the attribute message
-  #
-  # @param value [Object] the value to set the attribute message to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/jwt#lib/jwt/claims.rb:32
   def message=(_); end
 
@@ -295,15 +271,14 @@ class JWT::Claims::Expiration
   # Initializes a new Expiration instance.
   #
   # @param leeway [Integer] the amount of leeway (in seconds) to allow when validating the expiration time. Default: 0.
-  # @return [Expiration] a new instance of Expiration
   #
   # pkg:gem/jwt#lib/jwt/claims/expiration.rb:10
   def initialize(leeway:); end
 
   # Verifies the expiration claim ('exp') in the JWT token.
   #
-  # @param _args [Hash] additional arguments (not used).
   # @param context [Object] the context containing the JWT payload.
+  # @param _args [Hash] additional arguments (not used).
   # @raise [JWT::ExpiredSignature] if the token has expired.
   # @return [nil]
   #
@@ -312,8 +287,6 @@ class JWT::Claims::Expiration
 
   private
 
-  # Returns the value of attribute leeway.
-  #
   # pkg:gem/jwt#lib/jwt/claims/expiration.rb:29
   def leeway; end
 end
@@ -324,8 +297,8 @@ end
 class JWT::Claims::IssuedAt
   # Verifies the issued at claim ('iat') in the JWT token.
   #
-  # @param _args [Hash] additional arguments (not used).
   # @param context [Object] the context containing the JWT payload.
+  # @param _args [Hash] additional arguments (not used).
   # @raise [JWT::InvalidIatError] if the issued at claim is invalid.
   # @return [nil]
   #
@@ -340,15 +313,14 @@ class JWT::Claims::Issuer
   # Initializes a new Issuer instance.
   #
   # @param issuers [String, Symbol, Array<String, Symbol>] the expected issuer(s) for the JWT token.
-  # @return [Issuer] a new instance of Issuer
   #
   # pkg:gem/jwt#lib/jwt/claims/issuer.rb:10
   def initialize(issuers:); end
 
   # Verifies the issuer claim ('iss') in the JWT token.
   #
-  # @param _args [Hash] additional arguments (not used).
   # @param context [Object] the context containing the JWT payload.
+  # @param _args [Hash] additional arguments (not used).
   # @raise [JWT::InvalidIssuerError] if the issuer claim is invalid.
   # @return [nil]
   #
@@ -357,8 +329,6 @@ class JWT::Claims::Issuer
 
   private
 
-  # Returns the value of attribute issuers.
-  #
   # pkg:gem/jwt#lib/jwt/claims/issuer.rb:31
   def issuers; end
 end
@@ -370,15 +340,14 @@ class JWT::Claims::JwtId
   # Initializes a new JwtId instance.
   #
   # @param validator [#call] an object responding to `call` to validate the JWT ID.
-  # @return [JwtId] a new instance of JwtId
   #
   # pkg:gem/jwt#lib/jwt/claims/jwt_id.rb:10
   def initialize(validator:); end
 
   # Verifies the JWT ID claim ('jti') in the JWT token.
   #
-  # @param _args [Hash] additional arguments (not used).
   # @param context [Object] the context containing the JWT payload.
+  # @param _args [Hash] additional arguments (not used).
   # @raise [JWT::InvalidJtiError] if the JWT ID claim is invalid or missing.
   # @return [nil]
   #
@@ -387,8 +356,6 @@ class JWT::Claims::JwtId
 
   private
 
-  # Returns the value of attribute validator.
-  #
   # pkg:gem/jwt#lib/jwt/claims/jwt_id.rb:32
   def validator; end
 end
@@ -400,15 +367,14 @@ class JWT::Claims::NotBefore
   # Initializes a new NotBefore instance.
   #
   # @param leeway [Integer] the amount of leeway (in seconds) to allow when validating the 'nbf' claim. Defaults to 0.
-  # @return [NotBefore] a new instance of NotBefore
   #
   # pkg:gem/jwt#lib/jwt/claims/not_before.rb:10
   def initialize(leeway:); end
 
   # Verifies the 'nbf' (Not Before) claim in the JWT token.
   #
-  # @param _args [Hash] additional arguments (not used).
   # @param context [Object] the context containing the JWT payload.
+  # @param _args [Hash] additional arguments (not used).
   # @raise [JWT::ImmatureSignature] if the 'nbf' claim has not been reached.
   # @return [nil]
   #
@@ -417,8 +383,6 @@ class JWT::Claims::NotBefore
 
   private
 
-  # Returns the value of attribute leeway.
-  #
   # pkg:gem/jwt#lib/jwt/claims/not_before.rb:29
   def leeway; end
 end
@@ -439,8 +403,6 @@ class JWT::Claims::Numeric
 
   private
 
-  # @raise [InvalidPayload]
-  #
   # pkg:gem/jwt#lib/jwt/claims/numeric.rb:34
   def validate_is_numeric(payload, claim); end
 
@@ -460,15 +422,14 @@ class JWT::Claims::Required
   # Initializes a new Required instance.
   #
   # @param required_claims [Array<String>] the list of required claims.
-  # @return [Required] a new instance of Required
   #
   # pkg:gem/jwt#lib/jwt/claims/required.rb:10
   def initialize(required_claims:); end
 
   # Verifies that all required claims are present in the JWT payload.
   #
-  # @param _args [Hash] additional arguments (not used).
   # @param context [Object] the context containing the JWT payload.
+  # @param _args [Hash] additional arguments (not used).
   # @raise [JWT::MissingRequiredClaim] if any required claim is missing.
   # @return [nil]
   #
@@ -477,8 +438,6 @@ class JWT::Claims::Required
 
   private
 
-  # Returns the value of attribute required_claims.
-  #
   # pkg:gem/jwt#lib/jwt/claims/required.rb:30
   def required_claims; end
 end
@@ -490,15 +449,14 @@ class JWT::Claims::Subject
   # Initializes a new Subject instance.
   #
   # @param expected_subject [String] the expected subject for the JWT token.
-  # @return [Subject] a new instance of Subject
   #
   # pkg:gem/jwt#lib/jwt/claims/subject.rb:10
   def initialize(expected_subject:); end
 
   # Verifies the subject claim ('sub') in the JWT token.
   #
-  # @param _args [Hash] additional arguments (not used).
   # @param context [Object] the context containing the JWT payload.
+  # @param _args [Hash] additional arguments (not used).
   # @raise [JWT::InvalidSubError] if the subject claim is invalid.
   # @return [nil]
   #
@@ -507,8 +465,6 @@ class JWT::Claims::Subject
 
   private
 
-  # Returns the value of attribute expected_subject.
-  #
   # pkg:gem/jwt#lib/jwt/claims/subject.rb:27
   def expected_subject; end
 end
@@ -519,18 +475,9 @@ end
 #
 # pkg:gem/jwt#lib/jwt/claims/decode_verifier.rb:8
 class JWT::Claims::VerificationContext < ::Struct
-  # Returns the value of attribute payload
-  #
-  # @return [Object] the current value of payload
-  #
   # pkg:gem/jwt#lib/jwt/claims/decode_verifier.rb:8
   def payload; end
 
-  # Sets the attribute payload
-  #
-  # @param value [Object] the value to set the attribute payload to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/jwt#lib/jwt/claims/decode_verifier.rb:8
   def payload=(_); end
 
@@ -569,20 +516,14 @@ module JWT::Claims::Verifier
 
     private
 
-    # @api private
-    #
     # pkg:gem/jwt#lib/jwt/claims/verifier.rb:44
     def iterate_verifiers(*options); end
 
-    # @api private
-    #
     # pkg:gem/jwt#lib/jwt/claims/verifier.rb:54
     def verify_one!(context, verifier, options); end
   end
 end
 
-# @api private
-#
 # pkg:gem/jwt#lib/jwt/claims/verifier.rb:7
 JWT::Claims::Verifier::VERIFIERS = T.let(T.unsafe(nil), Hash)
 
@@ -612,22 +553,31 @@ end
 class JWT::Configuration::Container
   # Initializes a new Container instance and resets the configuration.
   #
-  # @return [Container] a new instance of Container
-  #
   # pkg:gem/jwt#lib/jwt/configuration/container.rb:23
   def initialize; end
 
-  # @return [DecodeConfiguration] the decode configuration.
+  # @!attribute [rw] decode
+  #   @return [DecodeConfiguration] the decode configuration.
+  # @!attribute [rw] jwk
+  #   @return [JwkConfiguration] the JWK configuration.
+  # @!attribute [rw] strict_base64_decoding
+  #   @return [Boolean] whether strict Base64 decoding is enabled.
   #
   # pkg:gem/jwt#lib/jwt/configuration/container.rb:16
   def decode; end
 
-  # @return [DecodeConfiguration] the decode configuration.
+  # @!attribute [rw] decode
+  #   @return [DecodeConfiguration] the decode configuration.
+  # @!attribute [rw] jwk
+  #   @return [JwkConfiguration] the JWK configuration.
+  # @!attribute [rw] strict_base64_decoding
+  #   @return [Boolean] whether strict Base64 decoding is enabled.
   #
   # pkg:gem/jwt#lib/jwt/configuration/container.rb:16
   def decode=(_arg0); end
 
-  # Returns the value of attribute deprecation_warnings.
+  # @!attribute [r] deprecation_warnings
+  #   @return [Symbol] the deprecation warnings setting.
   #
   # pkg:gem/jwt#lib/jwt/configuration/container.rb:20
   def deprecation_warnings; end
@@ -641,12 +591,22 @@ class JWT::Configuration::Container
   # pkg:gem/jwt#lib/jwt/configuration/container.rb:44
   def deprecation_warnings=(value); end
 
-  # @return [JwkConfiguration] the JWK configuration.
+  # @!attribute [rw] decode
+  #   @return [DecodeConfiguration] the decode configuration.
+  # @!attribute [rw] jwk
+  #   @return [JwkConfiguration] the JWK configuration.
+  # @!attribute [rw] strict_base64_decoding
+  #   @return [Boolean] whether strict Base64 decoding is enabled.
   #
   # pkg:gem/jwt#lib/jwt/configuration/container.rb:16
   def jwk; end
 
-  # @return [JwkConfiguration] the JWK configuration.
+  # @!attribute [rw] decode
+  #   @return [DecodeConfiguration] the decode configuration.
+  # @!attribute [rw] jwk
+  #   @return [JwkConfiguration] the JWK configuration.
+  # @!attribute [rw] strict_base64_decoding
+  #   @return [Boolean] whether strict Base64 decoding is enabled.
   #
   # pkg:gem/jwt#lib/jwt/configuration/container.rb:16
   def jwk=(_arg0); end
@@ -658,14 +618,22 @@ class JWT::Configuration::Container
   # pkg:gem/jwt#lib/jwt/configuration/container.rb:30
   def reset!; end
 
-  # @return [Boolean] whether strict Base64 decoding is enabled.
+  # @!attribute [rw] decode
+  #   @return [DecodeConfiguration] the decode configuration.
+  # @!attribute [rw] jwk
+  #   @return [JwkConfiguration] the JWK configuration.
+  # @!attribute [rw] strict_base64_decoding
+  #   @return [Boolean] whether strict Base64 decoding is enabled.
   #
   # pkg:gem/jwt#lib/jwt/configuration/container.rb:16
   def strict_base64_decoding; end
 
-  # Sets the attribute strict_base64_decoding
-  #
-  # @param value the value to set the attribute strict_base64_decoding to.
+  # @!attribute [rw] decode
+  #   @return [DecodeConfiguration] the decode configuration.
+  # @!attribute [rw] jwk
+  #   @return [JwkConfiguration] the JWK configuration.
+  # @!attribute [rw] strict_base64_decoding
+  #   @return [Boolean] whether strict Base64 decoding is enabled.
   #
   # pkg:gem/jwt#lib/jwt/configuration/container.rb:16
   def strict_base64_decoding=(_arg0); end
@@ -680,116 +648,584 @@ JWT::Configuration::Container::DEPRECATION_WARNINGS_VALUES = T.let(T.unsafe(nil)
 class JWT::Configuration::DecodeConfiguration
   # Initializes a new DecodeConfiguration instance with default settings.
   #
-  # @return [DecodeConfiguration] a new instance of DecodeConfiguration
-  #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:40
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:43
   def initialize; end
 
-  # @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def algorithms; end
 
-  # @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def algorithms=(_arg0); end
 
-  # @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
+  def enforce_hmac_key_length; end
+
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
+  #
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
+  def enforce_hmac_key_length=(_arg0); end
+
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
+  #
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def leeway; end
 
-  # @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def leeway=(_arg0); end
 
-  # @return [Array<String>] the list of required claims.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def required_claims; end
 
-  # Sets the attribute required_claims
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # @param value the value to set the attribute required_claims to.
-  #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def required_claims=(_arg0); end
 
   # @api private
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:54
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:58
   def to_h; end
 
-  # @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def verify_aud; end
 
-  # @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def verify_aud=(_arg0); end
 
-  # @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def verify_expiration; end
 
-  # @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def verify_expiration=(_arg0); end
 
-  # @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def verify_iat; end
 
-  # @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def verify_iat=(_arg0); end
 
-  # @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def verify_iss; end
 
-  # @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def verify_iss=(_arg0); end
 
-  # @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def verify_jti; end
 
-  # @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def verify_jti=(_arg0); end
 
-  # @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def verify_not_before; end
 
-  # @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def verify_not_before=(_arg0); end
 
-  # @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def verify_sub; end
 
-  # @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] verify_expiration
+  #   @return [Boolean] whether to verify the expiration claim.
+  # @!attribute [rw] verify_not_before
+  #   @return [Boolean] whether to verify the not before claim.
+  # @!attribute [rw] verify_iss
+  #   @return [Boolean] whether to verify the issuer claim.
+  # @!attribute [rw] verify_iat
+  #   @return [Boolean] whether to verify the issued at claim.
+  # @!attribute [rw] verify_jti
+  #   @return [Boolean] whether to verify the JWT ID claim.
+  # @!attribute [rw] verify_aud
+  #   @return [Boolean] whether to verify the audience claim.
+  # @!attribute [rw] verify_sub
+  #   @return [Boolean] whether to verify the subject claim.
+  # @!attribute [rw] leeway
+  #   @return [Integer] the leeway in seconds for time-based claims.
+  # @!attribute [rw] algorithms
+  #   @return [Array<String>] the list of acceptable algorithms.
+  # @!attribute [rw] required_claims
+  #   @return [Array<String>] the list of required claims.
+  # @!attribute [rw] enforce_hmac_key_length
+  #   @return [Boolean] whether to enforce minimum HMAC key lengths. false disables validation (default).
   #
-  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:28
+  # pkg:gem/jwt#lib/jwt/configuration/decode_configuration.rb:30
   def verify_sub=(_arg0); end
 end
 
@@ -797,24 +1233,15 @@ end
 #
 # pkg:gem/jwt#lib/jwt/configuration/jwk_configuration.rb:9
 class JWT::Configuration::JwkConfiguration
-  # @api private
-  # @return [JwkConfiguration] a new instance of JwkConfiguration
-  #
   # pkg:gem/jwt#lib/jwt/configuration/jwk_configuration.rb:10
   def initialize; end
 
-  # @api private
-  #
   # pkg:gem/jwt#lib/jwt/configuration/jwk_configuration.rb:25
   def kid_generator; end
 
-  # @api private
-  #
   # pkg:gem/jwt#lib/jwt/configuration/jwk_configuration.rb:25
   def kid_generator=(_arg0); end
 
-  # @api private
-  #
   # pkg:gem/jwt#lib/jwt/configuration/jwk_configuration.rb:14
   def kid_generator_type=(value); end
 end
@@ -827,11 +1254,10 @@ class JWT::Decode
   #
   # @param jwt [String] the JWT to decode.
   # @param key [String, Array<String>] the key(s) to use for verification.
-  # @param keyfinder [Proc] an optional key finder block to dynamically find the key for verification.
-  # @param options [Hash] additional options for decoding and verification.
   # @param verify [Boolean] whether to verify the token's signature.
+  # @param options [Hash] additional options for decoding and verification.
+  # @param keyfinder [Proc] an optional key finder block to dynamically find the key for verification.
   # @raise [JWT::DecodeError] if decoding or verification fails.
-  # @return [Decode] a new instance of Decode
   #
   # pkg:gem/jwt#lib/jwt/decode.rb:22
   def initialize(jwt, key, verify, options, &keyfinder); end
@@ -845,7 +1271,7 @@ class JWT::Decode
 
   private
 
-  # pkg:gem/jwt#lib/jwt/decode.rb:119
+  # pkg:gem/jwt#lib/jwt/decode.rb:125
   def alg_in_header; end
 
   # pkg:gem/jwt#lib/jwt/decode.rb:90
@@ -854,16 +1280,12 @@ class JWT::Decode
   # pkg:gem/jwt#lib/jwt/decode.rb:81
   def allowed_and_valid_algorithms; end
 
-  # @raise [JWT::DecodeError]
-  #
   # pkg:gem/jwt#lib/jwt/decode.rb:98
   def find_key(&keyfinder); end
 
   # pkg:gem/jwt#lib/jwt/decode.rb:85
   def given_algorithms; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/jwt#lib/jwt/decode.rb:115
   def none_algorithm?; end
 
@@ -873,23 +1295,18 @@ class JWT::Decode
   # pkg:gem/jwt#lib/jwt/decode.rb:66
   def set_key; end
 
-  # Returns the value of attribute token.
-  #
   # pkg:gem/jwt#lib/jwt/decode.rb:49
   def token; end
 
-  # @raise [JWT::DecodeError]
-  #
+  # pkg:gem/jwt#lib/jwt/decode.rb:121
+  def valid_token_header?; end
+
   # pkg:gem/jwt#lib/jwt/decode.rb:106
   def validate_segment_count!; end
 
-  # @raise [JWT::IncorrectAlgorithm]
-  #
   # pkg:gem/jwt#lib/jwt/decode.rb:59
   def verify_algo; end
 
-  # @raise [JWT::DecodeError]
-  #
   # pkg:gem/jwt#lib/jwt/decode.rb:51
   def verify_signature; end
 end
@@ -910,12 +1327,11 @@ class JWT::DecodeError < ::StandardError; end
 class JWT::Encode
   # Initializes a new Encode instance.
   #
-  # @option options
-  # @option options
-  # @option options
-  # @option options
   # @param options [Hash] the options for encoding the JWT token.
-  # @return [Encode] a new instance of Encode
+  # @option options [Hash] :payload the payload of the JWT token.
+  # @option options [Hash] :headers the headers of the JWT token.
+  # @option options [String] :key the key used to sign the JWT token.
+  # @option options [String] :algorithm the algorithm used to sign the JWT token.
   #
   # pkg:gem/jwt#lib/jwt/encode.rb:15
   def initialize(options); end
@@ -943,117 +1359,109 @@ class JWT::EncodeError < ::StandardError; end
 #   encoded_token = JWT::EncodedToken.new(token.jwt)
 #   encoded_token.verify_signature!(algorithm: 'HS256', key: 'secret')
 #   encoded_token.payload # => {'pay' => 'load'}
+# @private
 #
-# pkg:gem/jwt#lib/jwt/encoded_token.rb:14
+# pkg:gem/jwt#lib/jwt/encoded_token/claims_context.rb:7
 class JWT::EncodedToken
   # Initializes a new EncodedToken instance.
   #
   # @param jwt [String] the encoded JWT token.
   # @raise [ArgumentError] if the provided JWT is not a String.
-  # @return [EncodedToken] a new instance of EncodedToken
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:43
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:29
   def initialize(jwt); end
 
   # Returns the errors of the claims of the token.
-  #
   # @param options [Array<Symbol>, Hash] the claims to verify. By default, it checks the 'exp' claim.
   # @return [Array<Symbol>] the errors of the claims.
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:182
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:168
   def claim_errors(*options); end
 
   # Returns the encoded header of the JWT token.
   #
   # @return [String] the encoded header.
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:75
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:61
   def encoded_header; end
 
   # Sets or returns the encoded payload of the JWT token.
   #
   # @return [String] the encoded payload.
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:97
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:83
   def encoded_payload; end
 
   # Sets or returns the encoded payload of the JWT token.
   #
   # @return [String] the encoded payload.
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:97
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:83
   def encoded_payload=(_arg0); end
 
   # Returns the encoded signature of the JWT token.
   #
   # @return [String] the encoded signature.
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:63
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:49
   def encoded_signature; end
 
   # Returns the decoded header of the JWT token.
   #
   # @return [Hash] the header.
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:68
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:54
   def header; end
 
   # Returns the original token provided to the class.
-  #
   # @return [String] The JWT token.
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:37
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:23
   def jwt; end
 
   # Returns the payload of the JWT token. Access requires the signature and claims to have been verified.
   #
-  # @raise [JWT::DecodeError] if the signature has not been verified.
   # @return [Hash] the payload.
+  # @raise [JWT::DecodeError] if the signature has not been verified.
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:81
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:67
   def payload; end
 
   # Returns the decoded signature of the JWT token.
   #
   # @return [String] the decoded signature.
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:56
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:42
   def signature; end
 
   # Returns the signing input of the JWT token.
   #
   # @return [String] the signing input.
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:102
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:88
   def signing_input; end
 
-  # Returns the original token provided to the class.
-  #
-  # @return [String] The JWT token.
-  #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:193
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:179
   def to_s; end
 
   # Returns the payload of the JWT token without requiring the signature to have been verified.
-  #
   # @return [Hash] the payload.
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:90
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:76
   def unverified_payload; end
 
-  # @param claims [Array<Symbol>, Hash] the claims to verify (see {#verify_claims!}).
   # @param signature [Hash] the parameters for signature verification (see {#verify_signature!}).
+  # @param claims [Array<Symbol>, Hash] the claims to verify (see {#verify_claims!}).
   # @return [Boolean] true if the signature and claims are valid, false otherwise.
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:128
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:114
   def valid?(signature:, claims: T.unsafe(nil)); end
 
   # Returns whether the claims of the token are valid.
-  #
   # @param options [Array<Symbol>, Hash] the claims to verify. By default, it checks the 'exp' claim.
   # @return [Boolean] whether the claims are valid.
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:189
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:175
   def valid_claims?(*options); end
 
   # Checks if the signature of the JWT token is valid.
@@ -1061,31 +1469,30 @@ class JWT::EncodedToken
   # @param algorithm [String, Array<String>, Object, Array<Object>] the algorithm(s) to use for verification.
   # @param key [String, Array<String>, JWT::JWK::KeyBase, Array<JWT::JWK::KeyBase>] the key(s) to use for verification.
   # @param key_finder [#call] an object responding to `call` to find the key for verification.
-  # @raise [ArgumentError]
   # @return [Boolean] true if the signature is valid, false otherwise.
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:153
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:139
   def valid_signature?(algorithm: T.unsafe(nil), key: T.unsafe(nil), key_finder: T.unsafe(nil)); end
 
   # Verifies the token signature and claims.
   # By default it verifies the 'exp' claim.
   #
   # @example
-  #   encoded_token.verify!(signature: { algorithm: 'HS256', key: 'secret' }, claims: [:exp])
-  # @param claims [Array<Symbol>, Hash] the claims to verify (see {#verify_claims!}).
-  # @param signature [Hash] the parameters for signature verification (see {#verify_signature!}).
-  # @raise [JWT::DecodeError] if the signature or claim verification fails.
-  # @return [nil]
+  #  encoded_token.verify!(signature: { algorithm: 'HS256', key: 'secret' }, claims: [:exp])
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:116
+  # @param signature [Hash] the parameters for signature verification (see {#verify_signature!}).
+  # @param claims [Array<Symbol>, Hash] the claims to verify (see {#verify_claims!}).
+  # @return [nil]
+  # @raise [JWT::DecodeError] if the signature or claim verification fails.
+  #
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:102
   def verify!(signature:, claims: T.unsafe(nil)); end
 
   # Verifies the claims of the token.
-  #
   # @param options [Array<Symbol>, Hash] the claims to verify. By default, it checks the 'exp' claim.
   # @raise [JWT::DecodeError] if the claims are invalid.
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:170
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:156
   def verify_claims!(*options); end
 
   # Verifies the signature of the JWT token.
@@ -1093,65 +1500,57 @@ class JWT::EncodedToken
   # @param algorithm [String, Array<String>, Object, Array<Object>] the algorithm(s) to use for verification.
   # @param key [String, Array<String>] the key(s) to use for verification.
   # @param key_finder [#call] an object responding to `call` to find the key for verification.
+  # @return [nil]
   # @raise [JWT::VerificationError] if the signature verification fails.
   # @raise [ArgumentError] if neither key nor key_finder is provided, or if both are provided.
-  # @return [nil]
   #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:141
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:127
   def verify_signature!(algorithm:, key: T.unsafe(nil), key_finder: T.unsafe(nil)); end
 
   private
 
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:197
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:183
   def claims_options(options); end
 
-  # @raise [JWT::DecodeError]
-  #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:203
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:189
   def decode_payload; end
 
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:232
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:218
   def decoded_payload; end
 
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:226
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:212
   def parse(segment); end
 
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:218
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:204
   def parse_and_decode(segment); end
 
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:222
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:208
   def parse_unencoded(segment); end
 
-  # @return [Boolean]
-  #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:214
+  # pkg:gem/jwt#lib/jwt/encoded_token.rb:200
   def unencoded_payload?; end
 end
 
 # Allow access to the unverified payload for claim verification.
 #
-# @private
-#
-# pkg:gem/jwt#lib/jwt/encoded_token.rb:17
+# pkg:gem/jwt#lib/jwt/encoded_token/claims_context.rb:9
 class JWT::EncodedToken::ClaimsContext
   extend ::Forwardable
 
-  # @return [ClaimsContext] a new instance of ClaimsContext
-  #
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:22
+  # pkg:gem/jwt#lib/jwt/encoded_token/claims_context.rb:14
   def initialize(token); end
 
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:20
+  # pkg:gem/jwt#lib/jwt/encoded_token/claims_context.rb:12
   def header(*_arg0, **_arg1, &_arg2); end
 
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:26
+  # pkg:gem/jwt#lib/jwt/encoded_token/claims_context.rb:18
   def payload; end
 
-  # pkg:gem/jwt#lib/jwt/encoded_token.rb:20
+  # pkg:gem/jwt#lib/jwt/encoded_token/claims_context.rb:12
   def unverified_payload(*_arg0, **_arg1, &_arg2); end
 end
 
-# pkg:gem/jwt#lib/jwt/encoded_token.rb:31
+# pkg:gem/jwt#lib/jwt/encoded_token.rb:17
 JWT::EncodedToken::DEFAULT_CLAIMS = T.let(T.unsafe(nil), Array)
 
 # The ExpiredSignature class is raised when the JWT signature has expired.
@@ -1209,31 +1608,28 @@ class JWT::InvalidSubError < ::JWT::DecodeError; end
 # pkg:gem/jwt#lib/jwt/json.rb:7
 class JWT::JSON
   class << self
-    # @api private
-    #
     # pkg:gem/jwt#lib/jwt/json.rb:9
     def generate(data); end
 
-    # @api private
-    #
     # pkg:gem/jwt#lib/jwt/json.rb:13
     def parse(data); end
   end
 end
 
 # The JWA module contains all supported algorithms.
+# JSON Web Algorithms
 #
 # pkg:gem/jwt#lib/jwt/jwa/signing_algorithm.rb:5
 module JWT::JWA
   class << self
     # @api private
     #
-    # pkg:gem/jwt#lib/jwt/jwa.rb:66
+    # pkg:gem/jwt#lib/jwt/jwa.rb:38
     def create_signer(algorithm:, key:); end
 
     # @api private
     #
-    # pkg:gem/jwt#lib/jwt/jwa.rb:77
+    # pkg:gem/jwt#lib/jwt/jwa.rb:49
     def create_verifiers(algorithms:, keys:, preferred_algorithm:); end
 
     # pkg:gem/jwt#lib/jwt/jwa/signing_algorithm.rb:51
@@ -1243,20 +1639,18 @@ module JWT::JWA
     def register_algorithm(algo); end
 
     # @api private
-    # @raise [ArgumentError]
     #
-    # pkg:gem/jwt#lib/jwt/jwa.rb:48
+    # pkg:gem/jwt#lib/jwt/jwa.rb:20
     def resolve(algorithm); end
 
     # @api private
     #
-    # pkg:gem/jwt#lib/jwt/jwa.rb:59
+    # pkg:gem/jwt#lib/jwt/jwa.rb:31
     def resolve_and_sort(algorithms:, preferred_algorithm:); end
 
     # @api private
-    # @raise [error_class]
     #
-    # pkg:gem/jwt#lib/jwt/jwa.rb:88
+    # pkg:gem/jwt#lib/jwt/jwa.rb:60
     def validate_jwk_algorithms!(jwks, algorithms, error_class); end
 
     private
@@ -1273,13 +1667,9 @@ class JWT::JWA::Ecdsa
   include ::JWT::JWA::SigningAlgorithm
   extend ::JWT::JWA::SigningAlgorithm::ClassMethods
 
-  # @return [Ecdsa] a new instance of Ecdsa
-  #
   # pkg:gem/jwt#lib/jwt/jwa/ecdsa.rb:9
   def initialize(alg, digest); end
 
-  # @raise [IncorrectAlgorithm]
-  #
   # pkg:gem/jwt#lib/jwt/jwa/ecdsa.rb:14
   def sign(data:, signing_key:); end
 
@@ -1294,8 +1684,6 @@ class JWT::JWA::Ecdsa
   # pkg:gem/jwt#lib/jwt/jwa/ecdsa.rb:94
   def curve_by_name(name); end
 
-  # Returns the value of attribute digest.
-  #
   # pkg:gem/jwt#lib/jwt/jwa/ecdsa.rb:92
   def digest; end
 
@@ -1323,36 +1711,43 @@ class JWT::JWA::Hmac
   include ::JWT::JWA::SigningAlgorithm
   extend ::JWT::JWA::SigningAlgorithm::ClassMethods
 
-  # @return [Hmac] a new instance of Hmac
-  #
-  # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:9
+  # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:18
   def initialize(alg, digest); end
 
-  # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:14
+  # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:23
   def sign(data:, signing_key:); end
 
-  # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:25
+  # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:30
   def verify(data:, signature:, verification_key:); end
 
   private
 
-  # Returns the value of attribute digest.
-  #
-  # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:35
+  # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:43
   def digest; end
+
+  # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:45
+  def ensure_valid_key!(key); end
+
+  # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:50
+  def validate_key_length!(key); end
 end
+
+# Minimum key lengths for HMAC algorithms based on RFC 7518 Section 3.2.
+# Keys must be at least the size of the hash output to ensure sufficient
+# entropy for the algorithm's security level.
+#
+# pkg:gem/jwt#lib/jwt/jwa/hmac.rb:12
+JWT::JWA::Hmac::MIN_KEY_LENGTHS = T.let(T.unsafe(nil), Hash)
 
 # Copy of https://github.com/rails/rails/blob/v7.0.3.1/activesupport/lib/active_support/security_utils.rb
 #
-# pkg:gem/jwt#lib/jwt/jwa/hmac.rb:39
+# pkg:gem/jwt#lib/jwt/jwa/hmac.rb:61
 module JWT::JWA::Hmac::SecurityUtils
   private
 
   # :nocov:
   #
-  # @raise [ArgumentError]
-  #
-  # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:46
+  # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:68
   def fixed_length_secure_compare(a, b); end
 
   # Secure string comparison for strings of variable length.
@@ -1362,15 +1757,13 @@ module JWT::JWA::Hmac::SecurityUtils
   # the secret length. This should be considered when using secure_compare
   # to compare weak, short secrets to user input.
   #
-  # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:70
+  # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:92
   def secure_compare(a, b); end
 
   class << self
     # :nocov:
     #
-    # @raise [ArgumentError]
-    #
-    # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:62
+    # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:84
     def fixed_length_secure_compare(a, b); end
 
     # Secure string comparison for strings of variable length.
@@ -1380,7 +1773,7 @@ module JWT::JWA::Hmac::SecurityUtils
     # the secret length. This should be considered when using secure_compare
     # to compare weak, short secrets to user input.
     #
-    # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:73
+    # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:95
     def secure_compare(a, b); end
   end
 end
@@ -1392,8 +1785,6 @@ class JWT::JWA::None
   include ::JWT::JWA::SigningAlgorithm
   extend ::JWT::JWA::SigningAlgorithm::ClassMethods
 
-  # @return [None] a new instance of None
-  #
   # pkg:gem/jwt#lib/jwt/jwa/none.rb:9
   def initialize; end
 
@@ -1411,8 +1802,6 @@ class JWT::JWA::Ps
   include ::JWT::JWA::SigningAlgorithm
   extend ::JWT::JWA::SigningAlgorithm::ClassMethods
 
-  # @return [Ps] a new instance of Ps
-  #
   # pkg:gem/jwt#lib/jwt/jwa/ps.rb:9
   def initialize(alg); end
 
@@ -1424,8 +1813,6 @@ class JWT::JWA::Ps
 
   private
 
-  # Returns the value of attribute digest_algorithm.
-  #
   # pkg:gem/jwt#lib/jwt/jwa/ps.rb:33
   def digest_algorithm; end
 end
@@ -1437,8 +1824,6 @@ class JWT::JWA::Rsa
   include ::JWT::JWA::SigningAlgorithm
   extend ::JWT::JWA::SigningAlgorithm::ClassMethods
 
-  # @return [Rsa] a new instance of Rsa
-  #
   # pkg:gem/jwt#lib/jwt/jwa/rsa.rb:9
   def initialize(alg); end
 
@@ -1450,30 +1835,21 @@ class JWT::JWA::Rsa
 
   private
 
-  # Returns the value of attribute digest.
-  #
   # pkg:gem/jwt#lib/jwt/jwa/rsa.rb:33
   def digest; end
 end
 
 # @api private
 #
-# pkg:gem/jwt#lib/jwt/jwa.rb:33
+# pkg:gem/jwt#lib/jwt/jwa/signer_context.rb:6
 class JWT::JWA::SignerContext
-  # @api private
-  # @return [SignerContext] a new instance of SignerContext
-  #
-  # pkg:gem/jwt#lib/jwt/jwa.rb:36
+  # pkg:gem/jwt#lib/jwt/jwa/signer_context.rb:9
   def initialize(jwa:, key:); end
 
-  # @api private
-  #
-  # pkg:gem/jwt#lib/jwt/jwa.rb:34
+  # pkg:gem/jwt#lib/jwt/jwa/signer_context.rb:7
   def jwa; end
 
-  # @api private
-  #
-  # pkg:gem/jwt#lib/jwt/jwa.rb:41
+  # pkg:gem/jwt#lib/jwt/jwa/signer_context.rb:14
   def sign(*args, **kwargs); end
 end
 
@@ -1483,8 +1859,6 @@ end
 module JWT::JWA::SigningAlgorithm
   mixes_in_class_methods ::JWT::JWA::SigningAlgorithm::ClassMethods
 
-  # Returns the value of attribute alg.
-  #
   # pkg:gem/jwt#lib/jwt/jwa/signing_algorithm.rb:19
   def alg; end
 
@@ -1500,8 +1874,6 @@ module JWT::JWA::SigningAlgorithm
   # pkg:gem/jwt#lib/jwt/jwa/signing_algorithm.rb:29
   def sign(*_arg0); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/jwt#lib/jwt/jwa/signing_algorithm.rb:21
   def valid_alg?(alg_to_check); end
 
@@ -1509,8 +1881,6 @@ module JWT::JWA::SigningAlgorithm
   def verify(*_arg0); end
 
   class << self
-    # @private
-    #
     # pkg:gem/jwt#lib/jwt/jwa/signing_algorithm.rb:15
     def included(klass); end
   end
@@ -1534,8 +1904,6 @@ module JWT::JWA::Unsupported
     # pkg:gem/jwt#lib/jwt/jwa/unsupported.rb:10
     def sign(*_arg0); end
 
-    # @raise [JWT::VerificationError]
-    #
     # pkg:gem/jwt#lib/jwt/jwa/unsupported.rb:14
     def verify(*_arg0); end
   end
@@ -1543,22 +1911,15 @@ end
 
 # @api private
 #
-# pkg:gem/jwt#lib/jwt/jwa.rb:17
+# pkg:gem/jwt#lib/jwt/jwa/verifier_context.rb:6
 class JWT::JWA::VerifierContext
-  # @api private
-  # @return [VerifierContext] a new instance of VerifierContext
-  #
-  # pkg:gem/jwt#lib/jwt/jwa.rb:20
+  # pkg:gem/jwt#lib/jwt/jwa/verifier_context.rb:9
   def initialize(jwa:, keys:); end
 
-  # @api private
-  #
-  # pkg:gem/jwt#lib/jwt/jwa.rb:18
+  # pkg:gem/jwt#lib/jwt/jwa/verifier_context.rb:7
   def jwa; end
 
-  # @api private
-  #
-  # pkg:gem/jwt#lib/jwt/jwa.rb:25
+  # pkg:gem/jwt#lib/jwt/jwa/verifier_context.rb:14
   def verify(*args, **kwargs); end
 end
 
@@ -1593,13 +1954,9 @@ end
 #
 # pkg:gem/jwt#lib/jwt/jwk/ec.rb:8
 class JWT::JWK::EC < ::JWT::JWK::KeyBase
-  # @return [EC] a new instance of EC
-  #
   # pkg:gem/jwt#lib/jwt/jwk/ec.rb:17
   def initialize(key, params = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # @raise [ArgumentError]
-  #
   # pkg:gem/jwt#lib/jwt/jwk/ec.rb:68
   def []=(key, value); end
 
@@ -1618,8 +1975,6 @@ class JWT::JWK::EC < ::JWT::JWK::KeyBase
   # pkg:gem/jwt#lib/jwt/jwk/ec.rb:51
   def members; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/jwt#lib/jwt/jwk/ec.rb:35
   def private?; end
 
@@ -1634,8 +1989,6 @@ class JWT::JWK::EC < ::JWT::JWK::KeyBase
 
   private
 
-  # @raise [ArgumentError]
-  #
   # pkg:gem/jwt#lib/jwt/jwk/ec.rb:101
   def check_jwk_params!(key_params, params); end
 
@@ -1697,13 +2050,9 @@ JWT::JWK::EC::ZERO_BYTE = T.let(T.unsafe(nil), String)
 #
 # pkg:gem/jwt#lib/jwt/jwk/hmac.rb:6
 class JWT::JWK::HMAC < ::JWT::JWK::KeyBase
-  # @return [HMAC] a new instance of HMAC
-  #
   # pkg:gem/jwt#lib/jwt/jwk/hmac.rb:13
   def initialize(key, params = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # @raise [ArgumentError]
-  #
   # pkg:gem/jwt#lib/jwt/jwk/hmac.rb:64
   def []=(key, value); end
 
@@ -1721,8 +2070,6 @@ class JWT::JWK::HMAC < ::JWT::JWK::KeyBase
   # pkg:gem/jwt#lib/jwt/jwk/hmac.rb:54
   def members; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/jwt#lib/jwt/jwk/hmac.rb:31
   def private?; end
 
@@ -1737,8 +2084,6 @@ class JWT::JWK::HMAC < ::JWT::JWK::KeyBase
 
   private
 
-  # @raise [ArgumentError]
-  #
   # pkg:gem/jwt#lib/jwt/jwk/hmac.rb:89
   def check_jwk(keypair, params); end
 
@@ -1773,8 +2118,6 @@ JWT::JWK::HMAC::KTYS = T.let(T.unsafe(nil), Array)
 #
 # pkg:gem/jwt#lib/jwt/jwk/key_base.rb:6
 class JWT::JWK::KeyBase
-  # @return [KeyBase] a new instance of KeyBase
-  #
   # pkg:gem/jwt#lib/jwt/jwk/key_base.rb:12
   def initialize(options, params = T.unsafe(nil)); end
 
@@ -1796,16 +2139,12 @@ class JWT::JWK::KeyBase
   # pkg:gem/jwt#lib/jwt/jwk/key_base.rb:29
   def hash; end
 
-  # @raise [JWT::JWKError]
-  #
   # pkg:gem/jwt#lib/jwt/jwk/key_base.rb:61
   def jwa; end
 
   # pkg:gem/jwt#lib/jwt/jwk/key_base.rb:25
   def kid; end
 
-  # Returns the value of attribute parameters.
-  #
   # pkg:gem/jwt#lib/jwt/jwk/key_base.rb:69
   def parameters; end
 
@@ -1816,8 +2155,6 @@ class JWT::JWK::KeyBase
   def verify(**kwargs); end
 
   class << self
-    # @private
-    #
     # pkg:gem/jwt#lib/jwt/jwk/key_base.rb:7
     def inherited(klass); end
   end
@@ -1829,28 +2166,24 @@ end
 # pkg:gem/jwt#lib/jwt/jwk/key_finder.rb:7
 class JWT::JWK::KeyFinder
   # Initializes a new KeyFinder instance.
-  #
-  # @option options
-  # @option options
-  # @option options
-  # @param options [Hash] the options to create a KeyFinder with
-  # @return [KeyFinder] a new instance of KeyFinder
+  # @param [Hash] options the options to create a KeyFinder with
+  # @option options [Proc, JWT::JWK::Set] :jwks the jwks or a loader proc
+  # @option options [Boolean] :allow_nil_kid whether to allow nil kid
+  # @option options [Array] :key_fields the fields to use for key matching,
+  #                         the order of the fields are used to determine
+  #                         the priority of the keys.
   #
   # pkg:gem/jwt#lib/jwt/jwk/key_finder.rb:15
   def initialize(options); end
 
   # Returns the key for the given token
-  #
-  # @param token [JWT::EncodedToken] the token
-  # @raise [::JWT::DecodeError]
+  # @param [JWT::EncodedToken] token the token
   #
   # pkg:gem/jwt#lib/jwt/jwk/key_finder.rb:43
   def call(token); end
 
   # Returns the verification key for the given kid
-  #
-  # @param kid [String] the key id
-  # @raise [::JWT::DecodeError]
+  # @param [String] kid the key id
   #
   # pkg:gem/jwt#lib/jwt/jwk/key_finder.rb:30
   def key_for(kid, key_field = T.unsafe(nil)); end
@@ -1865,14 +2198,9 @@ end
 #
 # pkg:gem/jwt#lib/jwt/jwk/kid_as_key_digest.rb:6
 class JWT::JWK::KidAsKeyDigest
-  # @api private
-  # @return [KidAsKeyDigest] a new instance of KidAsKeyDigest
-  #
   # pkg:gem/jwt#lib/jwt/jwk/kid_as_key_digest.rb:7
   def initialize(jwk); end
 
-  # @api private
-  #
   # pkg:gem/jwt#lib/jwt/jwk/kid_as_key_digest.rb:11
   def generate; end
 end
@@ -1881,13 +2209,11 @@ end
 #
 # pkg:gem/jwt#lib/jwt/jwk/rsa.rb:6
 class JWT::JWK::RSA < ::JWT::JWK::KeyBase
-  # @return [RSA] a new instance of RSA
+  # https://www.rfc-editor.org/rfc/rfc3447#appendix-A.1.2
   #
   # pkg:gem/jwt#lib/jwt/jwk/rsa.rb:17
   def initialize(key, params = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # @raise [ArgumentError]
-  #
   # pkg:gem/jwt#lib/jwt/jwk/rsa.rb:68
   def []=(key, value); end
 
@@ -1903,8 +2229,6 @@ class JWT::JWK::RSA < ::JWT::JWK::KeyBase
   # pkg:gem/jwt#lib/jwt/jwk/rsa.rb:58
   def members; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/jwt#lib/jwt/jwk/rsa.rb:35
   def private?; end
 
@@ -1919,8 +2243,6 @@ class JWT::JWK::RSA < ::JWT::JWK::KeyBase
 
   private
 
-  # @raise [ArgumentError]
-  #
   # pkg:gem/jwt#lib/jwt/jwk/rsa.rb:94
   def check_jwk_params!(key_params, params); end
 
@@ -1966,8 +2288,6 @@ class JWT::JWK::RSA < ::JWT::JWK::KeyBase
 
     # :nocov:
     #
-    # @raise [JWT::JWKError]
-    #
     # pkg:gem/jwt#lib/jwt/jwk/rsa.rb:187
     def validate_rsa_parameters!(rsa_parameters); end
   end
@@ -1982,8 +2302,6 @@ JWT::JWK::RSA::KTY = T.let(T.unsafe(nil), String)
 # pkg:gem/jwt#lib/jwt/jwk/rsa.rb:9
 JWT::JWK::RSA::KTYS = T.let(T.unsafe(nil), Array)
 
-# https://www.rfc-editor.org/rfc/rfc3447#appendix-A.1.2
-#
 # pkg:gem/jwt#lib/jwt/jwk/rsa.rb:15
 JWT::JWK::RSA::RSA_ASN1_SEQUENCE = T.let(T.unsafe(nil), Array)
 
@@ -2007,8 +2325,6 @@ class JWT::JWK::Set
   include ::Enumerable
   extend ::Forwardable
 
-  # @return [Set] a new instance of Set
-  #
   # pkg:gem/jwt#lib/jwt/jwk/set.rb:15
   def initialize(jwks = T.unsafe(nil), options = T.unsafe(nil)); end
 
@@ -2042,8 +2358,6 @@ class JWT::JWK::Set
   # pkg:gem/jwt#lib/jwt/jwk/set.rb:74
   def filter!(&block); end
 
-  # Returns the value of attribute keys.
-  #
   # pkg:gem/jwt#lib/jwt/jwk/set.rb:13
   def keys; end
 
@@ -2078,16 +2392,12 @@ end
 #
 # pkg:gem/jwt#lib/jwt/jwk/thumbprint.rb:6
 class JWT::JWK::Thumbprint
-  # @return [Thumbprint] a new instance of Thumbprint
-  #
   # pkg:gem/jwt#lib/jwt/jwk/thumbprint.rb:9
   def initialize(jwk); end
 
   # pkg:gem/jwt#lib/jwt/jwk/thumbprint.rb:13
   def generate; end
 
-  # Returns the value of attribute jwk.
-  #
   # pkg:gem/jwt#lib/jwt/jwk/thumbprint.rb:7
   def jwk; end
 
@@ -2124,13 +2434,11 @@ class JWT::Token
   #
   # @param header [Hash] the header of the JWT token.
   # @param payload [Hash] the payload of the JWT token.
-  # @return [Token] a new instance of Token
   #
   # pkg:gem/jwt#lib/jwt/token.rb:22
   def initialize(payload:, header: T.unsafe(nil)); end
 
   # Returns the errors of the claims of the token.
-  #
   # @param options [Array<Symbol>, Hash] the claims to verify.
   # @return [Array<Symbol>] the errors of the claims.
   #
@@ -2172,8 +2480,8 @@ class JWT::Token
 
   # Returns the JWT token as a string.
   #
-  # @raise [JWT::EncodeError] if the token is not signed or other encoding issues
   # @return [String] the JWT token as a string.
+  # @raise [JWT::EncodeError] if the token is not signed or other encoding issues
   #
   # pkg:gem/jwt#lib/jwt/token.rb:76
   def jwt; end
@@ -2187,10 +2495,10 @@ class JWT::Token
 
   # Signs the JWT token.
   #
-  # @param algorithm [String, Object] the algorithm to use for signing.
   # @param key [String, JWT::JWK::KeyBase] the key to use for signing.
-  # @raise [JWT::EncodeError] if the token is already signed or other problems when signing
+  # @param algorithm [String, Object] the algorithm to use for signing.
   # @return [void]
+  # @raise [JWT::EncodeError] if the token is already signed or other problems when signing
   #
   # pkg:gem/jwt#lib/jwt/token.rb:94
   def sign!(key:, algorithm:); end
@@ -2210,17 +2518,13 @@ class JWT::Token
   def signing_input; end
 
   # Returns the JWT token as a string.
-  # Returns the JWT token as a string.
   #
-  # @raise [JWT::EncodeError] if the token is not signed or other encoding issues
-  # @return [String] the JWT token as a string.
   # @return [String] the JWT token as a string.
   #
   # pkg:gem/jwt#lib/jwt/token.rb:129
   def to_s; end
 
   # Returns whether the claims of the token are valid.
-  #
   # @param options [Array<Symbol>, Hash] the claims to verify.
   # @return [Boolean] whether the claims are valid.
   #
@@ -2228,7 +2532,6 @@ class JWT::Token
   def valid_claims?(*options); end
 
   # Verifies the claims of the token.
-  #
   # @param options [Array<Symbol>, Hash] the claims to verify.
   # @raise [JWT::DecodeError] if the claims are invalid.
   #
@@ -2273,9 +2576,6 @@ class JWT::VerificationError < ::JWT::DecodeError; end
 #
 # pkg:gem/jwt#lib/jwt/x5c_key_finder.rb:8
 class JWT::X5cKeyFinder
-  # @raise [ArgumentError]
-  # @return [X5cKeyFinder] a new instance of X5cKeyFinder
-  #
   # pkg:gem/jwt#lib/jwt/x5c_key_finder.rb:9
   def initialize(root_certificates, crls = T.unsafe(nil)); end
 

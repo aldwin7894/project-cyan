@@ -36,16 +36,12 @@ class Rack::MiniProfiler
   # options:
   # :auto_inject - should script be automatically injected on every html page (not xhr)
   #
-  # @return [MiniProfiler] a new instance of MiniProfiler
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler.rb:122
   def initialize(app, config = T.unsafe(nil)); end
 
   # pkg:gem/rack-mini-profiler#lib/mini_profiler.rb:419
   def action_parameters(env); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler.rb:149
   def advanced_debugging_enabled?; end
 
@@ -93,8 +89,6 @@ class Rack::MiniProfiler
   # pkg:gem/rack-mini-profiler#lib/mini_profiler.rb:423
   def inject_profiler(env, status, headers, body); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler.rb:414
   def matches_action?(action, env); end
 
@@ -118,8 +112,6 @@ class Rack::MiniProfiler
   # pkg:gem/rack-mini-profiler#lib/mini_profiler.rb:641
   def take_snapshot(env, start); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler.rb:635
   def take_snapshot?(path); end
 
@@ -164,38 +156,24 @@ class Rack::MiniProfiler
     # pkg:gem/rack-mini-profiler#lib/mini_profiler.rb:61
     def get_snapshot_custom_fields; end
 
-    # @return [Boolean]
-    #
     # pkg:gem/rack-mini-profiler#lib/mini_profiler.rb:27
     def patch_rails?; end
 
-    # @return [Boolean]
-    #
     # pkg:gem/rack-mini-profiler#lib/mini_profiler.rb:113
     def redact_sql_queries?; end
 
-    # @return [Boolean]
-    #
     # pkg:gem/rack-mini-profiler#lib/mini_profiler.rb:87
     def request_authorized?; end
 
     # pkg:gem/rack-mini-profiler#lib/mini_profiler.rb:35
     def reset_config; end
 
-    # @return [Boolean]
-    #
     # pkg:gem/rack-mini-profiler#lib/mini_profiler.rb:108
     def snapshots_transporter?; end
 
-    # Returns the value of attribute subscribe_sql_active_record.
-    #
     # pkg:gem/rack-mini-profiler#lib/mini_profiler.rb:25
     def subscribe_sql_active_record; end
 
-    # Sets the attribute subscribe_sql_active_record
-    #
-    # @param value the value to set the attribute subscribe_sql_active_record to.
-    #
     # pkg:gem/rack-mini-profiler#lib/mini_profiler.rb:25
     def subscribe_sql_active_record=(_arg0); end
   end
@@ -208,8 +186,6 @@ Rack::MiniProfiler::ASSET_VERSION = T.let(T.unsafe(nil), String)
 class Rack::MiniProfiler::AbstractStore
   # a list of tokens that are permitted to access profiler in explicit mode
   #
-  # @raise [NotImplementedError]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/abstract_store.rb:40
   def allowed_tokens; end
 
@@ -217,7 +193,6 @@ class Rack::MiniProfiler::AbstractStore
   def diagnostics(user); end
 
   # @param group_name [String]
-  # @raise [NotImplementedError]
   # @return [Array<Rack::MiniProfiler::TimerStruct::Page>] list of snapshots of the group. Blank array if the group doesn't exist.
   #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/abstract_store.rb:63
@@ -229,54 +204,33 @@ class Rack::MiniProfiler::AbstractStore
   #   2. `:best_score` => the duration of the best/fastest snapshot in the group (float)
   #   3. `:snapshots_count` => the number of snapshots in the group (integer)
   #
-  # @raise [NotImplementedError]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/abstract_store.rb:57
   def fetch_snapshots_overview; end
 
-  # @raise [NotImplementedError]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/abstract_store.rb:30
   def get_unviewed_ids(user); end
 
-  # @raise [NotImplementedError]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/abstract_store.rb:14
   def load(id); end
 
-  # @raise [NotImplementedError]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/abstract_store.rb:67
   def load_snapshot(id, group_name); end
 
-  # @raise [NotImplementedError]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/abstract_store.rb:48
   def push_snapshot(page_struct, group_name, config); end
 
-  # @raise [NotImplementedError]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/abstract_store.rb:10
   def save(page_struct); end
 
-  # @raise [NotImplementedError]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/abstract_store.rb:26
   def set_all_unviewed(user, ids); end
 
-  # @raise [NotImplementedError]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/abstract_store.rb:18
   def set_unviewed(user, id); end
 
-  # @raise [NotImplementedError]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/abstract_store.rb:22
   def set_viewed(user, id); end
 
-  # @raise [NotImplementedError]
-  # @return [Boolean]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/abstract_store.rb:44
   def should_take_snapshot?(period); end
 
@@ -315,52 +269,30 @@ end
 
 # pkg:gem/rack-mini-profiler#lib/mini_profiler/client_settings.rb:5
 class Rack::MiniProfiler::ClientSettings
-  # @return [ClientSettings] a new instance of ClientSettings
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/client_settings.rb:16
   def initialize(env, store, start); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/client_settings.rb:118
   def backtrace_default?; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/client_settings.rb:114
   def backtrace_full?; end
 
-  # Returns the value of attribute backtrace_level.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/client_settings.rb:14
   def backtrace_level; end
 
-  # Sets the attribute backtrace_level
-  #
-  # @param value the value to set the attribute backtrace_level to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/client_settings.rb:14
   def backtrace_level=(_arg0); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/client_settings.rb:122
   def backtrace_none?; end
 
-  # Returns the value of attribute disable_profiling.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/client_settings.rb:13
   def disable_profiling; end
 
-  # Sets the attribute disable_profiling
-  #
-  # @param value the value to set the attribute disable_profiling to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/client_settings.rb:13
   def disable_profiling=(_arg0); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/client_settings.rb:110
   def disable_profiling?; end
 
@@ -370,8 +302,6 @@ class Rack::MiniProfiler::ClientSettings
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/client_settings.rb:42
   def handle_cookie(result); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/client_settings.rb:90
   def has_valid_cookie?; end
 
@@ -393,91 +323,51 @@ Rack::MiniProfiler::ClientSettings::COOKIE_NAME = T.let(T.unsafe(nil), String)
 
 # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:5
 class Rack::MiniProfiler::Config
-  # Returns the value of attribute assets_url.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:96
   def assets_url; end
 
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:116
   def assets_url=(lmbda); end
 
-  # Returns the value of attribute authorization_mode.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def authorization_mode; end
 
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def authorization_mode=(mode); end
 
-  # Returns the value of attribute auto_inject.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def auto_inject; end
 
-  # Sets the attribute auto_inject
-  #
-  # @param value the value to set the attribute auto_inject to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def auto_inject=(_arg0); end
 
-  # Returns the value of attribute backtrace_ignores.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def backtrace_ignores; end
 
-  # Sets the attribute backtrace_ignores
-  #
-  # @param value the value to set the attribute backtrace_ignores to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def backtrace_ignores=(_arg0); end
 
-  # Returns the value of attribute backtrace_includes.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def backtrace_includes; end
 
-  # Sets the attribute backtrace_includes
-  #
-  # @param value the value to set the attribute backtrace_includes to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def backtrace_includes=(_arg0); end
 
-  # Returns the value of attribute backtrace_remove.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def backtrace_remove; end
 
-  # Sets the attribute backtrace_remove
-  #
-  # @param value the value to set the attribute backtrace_remove to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def backtrace_remove=(_arg0); end
 
-  # Returns the value of attribute backtrace_threshold_ms.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def backtrace_threshold_ms; end
 
-  # Sets the attribute backtrace_threshold_ms
-  #
-  # @param value the value to set the attribute backtrace_threshold_ms to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def backtrace_threshold_ms=(_arg0); end
 
-  # Returns the value of attribute base_url_path.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def base_url_path; end
 
-  # Sets the attribute base_url_path
-  #
-  # @param value the value to set the attribute base_url_path to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def base_url_path=(_arg0); end
 
@@ -491,111 +381,57 @@ class Rack::MiniProfiler::Config
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def collapse_results=(_arg0); end
 
-  # Returns the value of attribute content_security_policy_nonce.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def content_security_policy_nonce; end
 
-  # Sets the attribute content_security_policy_nonce
-  #
-  # @param value the value to set the attribute content_security_policy_nonce to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def content_security_policy_nonce=(_arg0); end
 
-  # Returns the value of attribute cookie_path.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def cookie_path; end
 
-  # Sets the attribute cookie_path
-  #
-  # @param value the value to set the attribute cookie_path to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def cookie_path=(_arg0); end
 
-  # Returns the value of attribute disable_caching.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def disable_caching; end
 
-  # Sets the attribute disable_caching
-  #
-  # @param value the value to set the attribute disable_caching to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def disable_caching=(_arg0); end
 
-  # Returns the value of attribute enable_advanced_debugging_tools.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def enable_advanced_debugging_tools; end
 
-  # Sets the attribute enable_advanced_debugging_tools
-  #
-  # @param value the value to set the attribute enable_advanced_debugging_tools to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def enable_advanced_debugging_tools=(_arg0); end
 
-  # Returns the value of attribute enable_hotwire_turbo_drive_support.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def enable_hotwire_turbo_drive_support; end
 
-  # Sets the attribute enable_hotwire_turbo_drive_support
-  #
-  # @param value the value to set the attribute enable_hotwire_turbo_drive_support to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def enable_hotwire_turbo_drive_support=(_arg0); end
 
-  # Returns the value of attribute enabled.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def enabled; end
 
-  # Sets the attribute enabled
-  #
-  # @param value the value to set the attribute enabled to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def enabled=(_arg0); end
 
-  # Returns the value of attribute flamegraph_ignore_gc.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def flamegraph_ignore_gc; end
 
-  # Sets the attribute flamegraph_ignore_gc
-  #
-  # @param value the value to set the attribute flamegraph_ignore_gc to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def flamegraph_ignore_gc=(_arg0); end
 
-  # Returns the value of attribute flamegraph_mode.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def flamegraph_mode; end
 
-  # Sets the attribute flamegraph_mode
-  #
-  # @param value the value to set the attribute flamegraph_mode to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def flamegraph_mode=(_arg0); end
 
-  # Returns the value of attribute flamegraph_sample_rate.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def flamegraph_sample_rate; end
 
-  # Sets the attribute flamegraph_sample_rate
-  #
-  # @param value the value to set the attribute flamegraph_sample_rate to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def flamegraph_sample_rate=(_arg0); end
 
@@ -612,15 +448,9 @@ class Rack::MiniProfiler::Config
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def html_container=(_arg0); end
 
-  # Returns the value of attribute logger.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def logger; end
 
-  # Sets the attribute logger
-  #
-  # @param value the value to set the attribute logger to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def logger=(_arg0); end
 
@@ -644,15 +474,9 @@ class Rack::MiniProfiler::Config
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def max_snapshots_per_group=(_arg0); end
 
-  # Returns the value of attribute max_sql_param_length.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def max_sql_param_length; end
 
-  # Sets the attribute max_sql_param_length
-  #
-  # @param value the value to set the attribute max_sql_param_length to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def max_sql_param_length=(_arg0); end
 
@@ -679,27 +503,15 @@ class Rack::MiniProfiler::Config
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def position=(_arg0); end
 
-  # Returns the value of attribute pre_authorize_cb.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def pre_authorize_cb; end
 
-  # Sets the attribute pre_authorize_cb
-  #
-  # @param value the value to set the attribute pre_authorize_cb to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def pre_authorize_cb=(_arg0); end
 
-  # Returns the value of attribute profile_parameter.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def profile_parameter; end
 
-  # Sets the attribute profile_parameter
-  #
-  # @param value the value to set the attribute profile_parameter to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def profile_parameter=(_arg0); end
 
@@ -743,39 +555,21 @@ class Rack::MiniProfiler::Config
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def show_trivial=(_arg0); end
 
-  # Returns the value of attribute skip_paths.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def skip_paths; end
 
-  # Sets the attribute skip_paths
-  #
-  # @param value the value to set the attribute skip_paths to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def skip_paths=(_arg0); end
 
-  # Returns the value of attribute skip_schema_queries.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def skip_schema_queries; end
 
-  # Sets the attribute skip_schema_queries
-  #
-  # @param value the value to set the attribute skip_schema_queries to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def skip_schema_queries=(_arg0); end
 
-  # Returns the value of attribute skip_sql_param_names.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def skip_sql_param_names; end
 
-  # Sets the attribute skip_sql_param_names
-  #
-  # @param value the value to set the attribute skip_sql_param_names to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def skip_sql_param_names=(_arg0); end
 
@@ -849,63 +643,33 @@ class Rack::MiniProfiler::Config
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def start_hidden=(_arg0); end
 
-  # Returns the value of attribute storage.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def storage; end
 
-  # Sets the attribute storage
-  #
-  # @param value the value to set the attribute storage to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def storage=(_arg0); end
 
-  # Returns the value of attribute storage_failure.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def storage_failure; end
 
-  # Sets the attribute storage_failure
-  #
-  # @param value the value to set the attribute storage_failure to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def storage_failure=(_arg0); end
 
-  # Returns the value of attribute storage_instance.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def storage_instance; end
 
-  # Sets the attribute storage_instance
-  #
-  # @param value the value to set the attribute storage_instance to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def storage_instance=(_arg0); end
 
-  # Returns the value of attribute storage_options.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def storage_options; end
 
-  # Sets the attribute storage_options
-  #
-  # @param value the value to set the attribute storage_options to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def storage_options=(_arg0); end
 
-  # Returns the value of attribute suppress_encoding.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def suppress_encoding; end
 
-  # Sets the attribute suppress_encoding
-  #
-  # @param value the value to set the attribute suppress_encoding to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def suppress_encoding=(_arg0); end
 
@@ -929,15 +693,9 @@ class Rack::MiniProfiler::Config
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def use_existing_jquery=(_arg0); end
 
-  # Returns the value of attribute user_provider.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def user_provider; end
 
-  # Sets the attribute user_provider
-  #
-  # @param value the value to set the attribute user_provider to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/config.rb:9
   def user_provider=(_arg0); end
 
@@ -958,112 +716,60 @@ end
 
 # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:3
 class Rack::MiniProfiler::Context
-  # @return [Context] a new instance of Context
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:7
   def initialize(opts = T.unsafe(nil)); end
 
-  # Returns the value of attribute current_timer.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:4
   def current_timer; end
 
-  # Sets the attribute current_timer
-  #
-  # @param value the value to set the attribute current_timer to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:4
   def current_timer=(_arg0); end
 
-  # Returns the value of attribute discard.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:4
   def discard; end
 
-  # Sets the attribute discard
-  #
-  # @param value the value to set the attribute discard to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:4
   def discard=(_arg0); end
 
-  # Returns the value of attribute full_backtrace.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:4
   def full_backtrace; end
 
-  # Sets the attribute full_backtrace
-  #
-  # @param value the value to set the attribute full_backtrace to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:4
   def full_backtrace=(_arg0); end
 
-  # Returns the value of attribute inject_js.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:4
   def inject_js; end
 
-  # Sets the attribute inject_js
-  #
-  # @param value the value to set the attribute inject_js to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:4
   def inject_js=(_arg0); end
 
-  # Returns the value of attribute measure.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:4
   def measure; end
 
-  # Sets the attribute measure
-  #
-  # @param value the value to set the attribute measure to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:4
   def measure=(_arg0); end
 
-  # Returns the value of attribute mpt_init.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:4
   def mpt_init; end
 
-  # Sets the attribute mpt_init
-  #
-  # @param value the value to set the attribute mpt_init to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:4
   def mpt_init=(_arg0); end
 
-  # Returns the value of attribute page_struct.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:4
   def page_struct; end
 
-  # Sets the attribute page_struct
-  #
-  # @param value the value to set the attribute page_struct to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:4
   def page_struct=(_arg0); end
 
-  # Returns the value of attribute skip_backtrace.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:4
   def skip_backtrace; end
 
-  # Sets the attribute skip_backtrace
-  #
-  # @param value the value to set the attribute skip_backtrace to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/context.rb:4
   def skip_backtrace=(_arg0); end
 end
 
 # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/file_store.rb:7
 class Rack::MiniProfiler::FileStore < ::Rack::MiniProfiler::AbstractStore
-  # @return [FileStore] a new instance of FileStore
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/file_store.rb:51
   def initialize(args = T.unsafe(nil)); end
 
@@ -1105,8 +811,6 @@ Rack::MiniProfiler::FileStore::EXPIRES_IN_SECONDS = T.let(T.unsafe(nil), Integer
 
 # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/file_store.rb:13
 class Rack::MiniProfiler::FileStore::FileCache
-  # @return [FileCache] a new instance of FileCache
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/file_store.rb:14
   def initialize(path, prefix); end
 
@@ -1124,8 +828,6 @@ end
 
 # pkg:gem/rack-mini-profiler#lib/mini_profiler/gc_profiler.rb:3
 class Rack::MiniProfiler::GCProfiler
-  # @return [GCProfiler] a new instance of GCProfiler
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/gc_profiler.rb:5
   def initialize; end
 
@@ -1150,13 +852,9 @@ end
 
 # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/memcache_store.rb:5
 class Rack::MiniProfiler::MemcacheStore < ::Rack::MiniProfiler::AbstractStore
-  # @return [MemcacheStore] a new instance of MemcacheStore
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/memcache_store.rb:10
   def initialize(args = T.unsafe(nil)); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/memcache_store.rb:21
   def alive?; end
 
@@ -1193,8 +891,6 @@ Rack::MiniProfiler::MemcacheStore::MAX_RETRIES = T.let(T.unsafe(nil), Integer)
 
 # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/memory_store.rb:7
 class Rack::MiniProfiler::MemoryStore < ::Rack::MiniProfiler::AbstractStore
-  # @return [MemoryStore] a new instance of MemoryStore
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/memory_store.rb:52
   def initialize(args = T.unsafe(nil)); end
 
@@ -1242,8 +938,6 @@ class Rack::MiniProfiler::MemoryStore < ::Rack::MiniProfiler::AbstractStore
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/memory_store.rb:106
   def set_viewed(user, id); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/memory_store.rb:146
   def should_take_snapshot?(period); end
 
@@ -1265,8 +959,6 @@ Rack::MiniProfiler::MemoryStore::CLEANUP_INTERVAL = T.let(T.unsafe(nil), Integer
 #
 # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/memory_store.rb:10
 class Rack::MiniProfiler::MemoryStore::CacheCleanupThread < ::Thread
-  # @return [CacheCleanupThread] a new instance of CacheCleanupThread
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/memory_store.rb:12
   def initialize(interval, cycle, store); end
 
@@ -1279,8 +971,6 @@ class Rack::MiniProfiler::MemoryStore::CacheCleanupThread < ::Thread
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/memory_store.rb:43
   def increment_cycle; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/memory_store.rb:20
   def should_cleanup?; end
 
@@ -1356,8 +1046,6 @@ end
 
 # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/redis_store.rb:8
 class Rack::MiniProfiler::RedisStore < ::Rack::MiniProfiler::AbstractStore
-  # @return [RedisStore] a new instance of RedisStore
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/redis_store.rb:14
   def initialize(args = T.unsafe(nil)); end
 
@@ -1387,8 +1075,6 @@ class Rack::MiniProfiler::RedisStore < ::Rack::MiniProfiler::AbstractStore
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/redis_store.rb:248
   def load_snapshot(id, group_name); end
 
-  # Returns the value of attribute prefix.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/redis_store.rb:10
   def prefix; end
 
@@ -1407,8 +1093,6 @@ class Rack::MiniProfiler::RedisStore < ::Rack::MiniProfiler::AbstractStore
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/redis_store.rb:60
   def set_viewed(user, id); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/storage/redis_store.rb:127
   def should_take_snapshot?(period); end
 
@@ -1466,40 +1150,24 @@ Rack::MiniProfiler::SOURCE_CODE_URI = T.let(T.unsafe(nil), String)
 
 # pkg:gem/rack-mini-profiler#lib/mini_profiler/snapshots_transporter.rb:3
 class Rack::MiniProfiler::SnapshotsTransporter
-  # @return [SnapshotsTransporter] a new instance of SnapshotsTransporter
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/snapshots_transporter.rb:30
   def initialize(config); end
 
-  # Returns the value of attribute buffer.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/snapshots_transporter.rb:27
   def buffer; end
 
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/snapshots_transporter.rb:51
   def flush_buffer; end
 
-  # Returns the value of attribute gzip_requests.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/snapshots_transporter.rb:28
   def gzip_requests; end
 
-  # Sets the attribute gzip_requests
-  #
-  # @param value the value to set the attribute gzip_requests to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/snapshots_transporter.rb:28
   def gzip_requests=(_arg0); end
 
-  # Returns the value of attribute max_buffer_size.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/snapshots_transporter.rb:28
   def max_buffer_size; end
 
-  # Sets the attribute max_buffer_size
-  #
-  # @param value the value to set the attribute max_buffer_size to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/snapshots_transporter.rb:28
   def max_buffer_size=(_arg0); end
 
@@ -1541,8 +1209,6 @@ module Rack::MiniProfiler::TimerStruct; end
 #
 # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/base.rb:9
 class Rack::MiniProfiler::TimerStruct::Base
-  # @return [Base] a new instance of Base
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/base.rb:11
   def initialize(attrs = T.unsafe(nil)); end
 
@@ -1566,8 +1232,6 @@ end
 #
 # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/client.rb:8
 class Rack::MiniProfiler::TimerStruct::Client < ::Rack::MiniProfiler::TimerStruct::Base
-  # @return [Client] a new instance of Client
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/client.rb:27
   def initialize(env = T.unsafe(nil)); end
 
@@ -1596,20 +1260,12 @@ end
 #
 # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/custom.rb:8
 class Rack::MiniProfiler::TimerStruct::Custom < ::Rack::MiniProfiler::TimerStruct::Base
-  # @return [Custom] a new instance of Custom
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/custom.rb:10
   def initialize(type, duration_ms, page, parent); end
 
-  # Returns the value of attribute parent.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/custom.rb:9
   def parent; end
 
-  # Sets the attribute parent
-  #
-  # @param value the value to set the attribute parent to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/custom.rb:9
   def parent=(_arg0); end
 end
@@ -1622,16 +1278,12 @@ end
 #
 # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/page.rb:12
 class Rack::MiniProfiler::TimerStruct::Page < ::Rack::MiniProfiler::TimerStruct::Base
-  # @return [Page] a new instance of Page
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/page.rb:60
   def initialize(env); end
 
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/page.rb:132
   def as_json(options = T.unsafe(nil)); end
 
-  # Returns the value of attribute attributes.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/page.rb:58
   def attributes; end
 
@@ -1675,8 +1327,6 @@ end
 
 # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/request.rb:6
 class Rack::MiniProfiler::TimerStruct::Request < ::Rack::MiniProfiler::TimerStruct::Base
-  # @return [Request] a new instance of Request
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/request.rb:16
   def initialize(name, page, parent); end
 
@@ -1695,15 +1345,9 @@ class Rack::MiniProfiler::TimerStruct::Request < ::Rack::MiniProfiler::TimerStru
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/request.rb:69
   def children; end
 
-  # Returns the value of attribute children_duration.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/request.rb:14
   def children_duration; end
 
-  # Sets the attribute children_duration
-  #
-  # @param value the value to set the attribute children_duration to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/request.rb:14
   def children_duration=(_arg0); end
 
@@ -1731,15 +1375,9 @@ class Rack::MiniProfiler::TimerStruct::Request < ::Rack::MiniProfiler::TimerStru
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/request.rb:49
   def name; end
 
-  # Returns the value of attribute parent.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/request.rb:14
   def parent; end
 
-  # Sets the attribute parent
-  #
-  # @param value the value to set the attribute parent to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/request.rb:14
   def parent=(_arg0); end
 
@@ -1754,15 +1392,9 @@ class Rack::MiniProfiler::TimerStruct::Request < ::Rack::MiniProfiler::TimerStru
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/request.rb:77
   def sql_timings; end
 
-  # Returns the value of attribute start.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/request.rb:14
   def start; end
 
-  # Sets the attribute start
-  #
-  # @param value the value to set the attribute start to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/request.rb:14
   def start=(_arg0); end
 
@@ -1777,20 +1409,12 @@ end
 
 # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/sql.rb:10
 class Rack::MiniProfiler::TimerStruct::Sql < ::Rack::MiniProfiler::TimerStruct::Base
-  # @return [Sql] a new instance of Sql
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/sql.rb:13
   def initialize(query, duration_ms, page, parent, params = T.unsafe(nil), skip_backtrace = T.unsafe(nil), full_backtrace = T.unsafe(nil), cached = T.unsafe(nil)); end
 
-  # Returns the value of attribute parent.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/sql.rb:11
   def parent; end
 
-  # Sets the attribute parent
-  #
-  # @param value the value to set the attribute parent to.
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler/timer_struct/sql.rb:11
   def parent=(_arg0); end
 
@@ -1866,8 +1490,6 @@ module Rack::MiniProfilerRails
     # pkg:gem/rack-mini-profiler#lib/mini_profiler_rails/railtie.rb:10
     def initialize!(app); end
 
-    # @return [Boolean]
-    #
     # pkg:gem/rack-mini-profiler#lib/mini_profiler_rails/railtie.rb:162
     def serves_static_assets?(app); end
 
@@ -1892,13 +1514,9 @@ module Rack::MiniProfilerRailsMethods
   # pkg:gem/rack-mini-profiler#lib/mini_profiler_rails/railtie_methods.rb:4
   def render_notification_handler(name, finish, start, name_as_description: T.unsafe(nil)); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler_rails/railtie_methods.rb:42
   def should_measure?; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-mini-profiler#lib/mini_profiler_rails/railtie_methods.rb:47
   def should_move?(child, node); end
 end
@@ -1909,8 +1527,6 @@ class SqlPatches
     # pkg:gem/rack-mini-profiler#lib/patches/sql_patches.rb:61
     def all_patch_files; end
 
-    # @return [Boolean]
-    #
     # pkg:gem/rack-mini-profiler#lib/patches/sql_patches.rb:4
     def correct_version?(required_version, klass); end
 
@@ -1923,16 +1539,12 @@ class SqlPatches
     # pkg:gem/rack-mini-profiler#lib/patches/sql_patches.rb:67
     def patch(patch_files = T.unsafe(nil)); end
 
-    # @return [Boolean]
-    #
     # pkg:gem/rack-mini-profiler#lib/patches/sql_patches.rb:26
     def patch_rails?; end
 
     # pkg:gem/rack-mini-profiler#lib/patches/sql_patches.rb:10
     def record_sql(statement, parameters = T.unsafe(nil), &block); end
 
-    # @return [Boolean]
-    #
     # pkg:gem/rack-mini-profiler#lib/patches/sql_patches.rb:17
     def should_measure?; end
 

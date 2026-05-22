@@ -19,29 +19,23 @@ module Discordrb::Webhooks; end
 #
 # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/builder.rb:7
 class Discordrb::Webhooks::Builder
-  # @return [Builder] a new instance of Builder
-  #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/builder.rb:8
   def initialize(content: T.unsafe(nil), username: T.unsafe(nil), avatar_url: T.unsafe(nil), tts: T.unsafe(nil), file: T.unsafe(nil), embeds: T.unsafe(nil), allowed_mentions: T.unsafe(nil)); end
 
   # Adds an embed to this message.
-  #
   # @param embed [Embed] The embed to add.
-  # @raise [ArgumentError]
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/builder.rb:47
   def <<(embed); end
 
   # Convenience method to add an embed using a block-style builder pattern
-  #
   # @example Add an embed to a message
   #   builder.add_embed do |embed|
-  #   embed.title = 'Testing'
-  #   embed.image = Discordrb::Webhooks::EmbedImage.new(url: 'https://i.imgur.com/PcMltU7.jpg')
+  #     embed.title = 'Testing'
+  #     embed.image = Discordrb::Webhooks::EmbedImage.new(url: 'https://i.imgur.com/PcMltU7.jpg')
   #   end
   # @param embed [Embed, nil] The embed to start the building process with, or nil if one should be created anew.
   # @return [Embed] The created embed.
-  # @yield [embed]
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/builder.rb:61
   def add_embed(embed = T.unsafe(nil)); end
@@ -60,7 +54,6 @@ class Discordrb::Webhooks::Builder
 
   # The URL of an image file to be used as an avatar. If this is not set, the default avatar from the webhook's
   # settings will be used instead.
-  #
   # @return [String] the avatar URL.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/builder.rb:30
@@ -68,21 +61,18 @@ class Discordrb::Webhooks::Builder
 
   # The URL of an image file to be used as an avatar. If this is not set, the default avatar from the webhook's
   # settings will be used instead.
-  #
   # @return [String] the avatar URL.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/builder.rb:30
   def avatar_url=(_arg0); end
 
   # The content of the message. May be 2000 characters long at most.
-  #
   # @return [String] the content of the message.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/builder.rb:20
   def content; end
 
   # The content of the message. May be 2000 characters long at most.
-  #
   # @return [String] the content of the message.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/builder.rb:20
@@ -100,9 +90,7 @@ class Discordrb::Webhooks::Builder
 
   # Sets a file to be sent together with the message. Mutually exclusive with embeds; a webhook message can contain
   # either a file to be sent or an embed.
-  #
   # @param file [File] A file to be sent.
-  # @raise [ArgumentError]
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/builder.rb:39
   def file=(file); end
@@ -118,14 +106,12 @@ class Discordrb::Webhooks::Builder
   def to_multipart_hash; end
 
   # Whether this message should use TTS or not. By default, it doesn't.
-  #
   # @return [true, false] the TTS status.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/builder.rb:34
   def tts; end
 
   # Whether this message should use TTS or not. By default, it doesn't.
-  #
   # @return [true, false] the TTS status.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/builder.rb:34
@@ -133,7 +119,6 @@ class Discordrb::Webhooks::Builder
 
   # The username the webhook will display as. If this is not set, the default username set in the webhook's settings
   # will be used instead.
-  #
   # @return [String] the username.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/builder.rb:25
@@ -141,7 +126,6 @@ class Discordrb::Webhooks::Builder
 
   # The username the webhook will display as. If this is not set, the default username set in the webhook's settings
   # will be used instead.
-  #
   # @return [String] the username.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/builder.rb:25
@@ -153,28 +137,24 @@ end
 # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/client.rb:10
 class Discordrb::Webhooks::Client
   # Create a new webhook
-  #
+  # @param url [String] The URL to post messages to.
   # @param id [Integer] The webhook's ID. Will only be used if `url` is not
   #   set.
   # @param token [String] The webhook's authorisation token. Will only be used
   #   if `url` is not set.
-  # @param url [String] The URL to post messages to.
-  # @return [Client] a new instance of Client
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/client.rb:17
   def initialize(url: T.unsafe(nil), id: T.unsafe(nil), token: T.unsafe(nil)); end
 
   # Delete this webhook.
-  #
-  # @note This is permanent and cannot be undone.
   # @param reason [String, nil] The reason this webhook was deleted.
   # @return [RestClient::Response] the response returned by Discord.
+  # @note This is permanent and cannot be undone.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/client.rb:73
   def delete(reason: T.unsafe(nil)); end
 
   # Delete a message created by this webhook.
-  #
   # @param message_id [String, Integer] The ID of the message to delete.
   # @return [RestClient::Response] the response returned by Discord.
   #
@@ -182,60 +162,55 @@ class Discordrb::Webhooks::Client
   def delete_message(message_id); end
 
   # Edit a message from this webhook.
-  #
-  # @example Edit a message via builder
-  #   client.edit_message(message_id) do |builder|
-  #   builder.add_embed do |e|
-  #   e.description = 'Hello World!'
-  #   end
-  #   end
-  # @example Edit message content
-  #   client.edit_message(message_id, content: 'goodbye world!')
-  # @note Not all builder options are available when editing.
-  # @param allowed_mentions [Hash]
+  # @param message_id [String, Integer] The ID of the message to edit.
   # @param builder [Builder, nil] The builder to start out with, or nil if one should be created anew.
   # @param content [String] The message content.
   # @param embeds [Array<Embed, Hash>]
-  # @param message_id [String, Integer] The ID of the message to edit.
+  # @param allowed_mentions [Hash]
   # @param thread_id [String, Integer, nil] The id of the thread in which the message resides
   # @return [RestClient::Response] the response returned by Discord.
-  # @yield [builder]
+  # @example Edit message content
+  #   client.edit_message(message_id, content: 'goodbye world!')
+  # @example Edit a message via builder
+  #   client.edit_message(message_id) do |builder|
+  #     builder.add_embed do |e|
+  #       e.description = 'Hello World!'
+  #     end
+  #   end
+  # @note Not all builder options are available when editing.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/client.rb:94
   def edit_message(message_id, builder: T.unsafe(nil), content: T.unsafe(nil), embeds: T.unsafe(nil), allowed_mentions: T.unsafe(nil), thread_id: T.unsafe(nil)); end
 
   # Executes the webhook this client points to with the given data.
-  #
-  # @example Execute the webhook by building a new message
-  #   client.execute do |builder|
-  #   builder.content = 'Testing'
-  #   builder.username = 'discordrb'
-  #   builder.add_embed do |embed|
-  #   embed.timestamp = Time.now
-  #   embed.title = 'Testing'
-  #   embed.image = Discordrb::Webhooks::EmbedImage.new(url: 'https://i.imgur.com/PcMltU7.jpg')
-  #   end
-  #   end
+  # @param builder [Builder, nil] The builder to start out with, or nil if one should be created anew.
+  # @param wait [true, false] Whether Discord should wait for the message to be successfully received by clients, or
+  #   whether it should return immediately after sending the message.
+  # @param thread_id [String, Integer, nil] The thread_id of the thread if a thread should be targeted for the webhook execution
+  # @yield [builder] Gives the builder to the block to add additional steps, or to do the entire building process.
+  # @yieldparam builder [Builder] The builder given as a parameter which is used as the initial step to start from.
   # @example Execute the webhook with an already existing builder
   #   builder = Discordrb::Webhooks::Builder.new # ...
   #   client.execute(builder)
-  # @param builder [Builder, nil] The builder to start out with, or nil if one should be created anew.
-  # @param thread_id [String, Integer, nil] The thread_id of the thread if a thread should be targeted for the webhook execution
-  # @param wait [true, false] Whether Discord should wait for the message to be successfully received by clients, or
-  #   whether it should return immediately after sending the message.
-  # @raise [TypeError]
+  # @example Execute the webhook by building a new message
+  #   client.execute do |builder|
+  #     builder.content = 'Testing'
+  #     builder.username = 'discordrb'
+  #     builder.add_embed do |embed|
+  #       embed.timestamp = Time.now
+  #       embed.title = 'Testing'
+  #       embed.image = Discordrb::Webhooks::EmbedImage.new(url: 'https://i.imgur.com/PcMltU7.jpg')
+  #     end
+  #   end
   # @return [RestClient::Response] the response returned by Discord.
-  # @yield [builder] Gives the builder to the block to add additional steps, or to do the entire building process.
-  # @yieldparam builder [Builder] The builder given as a parameter which is used as the initial step to start from.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/client.rb:42
   def execute(builder = T.unsafe(nil), wait = T.unsafe(nil), components = T.unsafe(nil), thread_id: T.unsafe(nil)); end
 
   # Modify this webhook's properties.
-  #
+  # @param name [String, nil] The default name.
   # @param avatar [String, #read, nil] The new avatar, in base64-encoded JPG format.
   # @param channel_id [String, Integer, nil] The channel to move the webhook to.
-  # @param name [String, nil] The default name.
   # @return [RestClient::Response] the response returned by Discord.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/client.rb:65
@@ -244,7 +219,6 @@ class Discordrb::Webhooks::Client
   private
 
   # Convert an avatar to API ready data.
-  #
   # @param avatar [String, #read] Avatar data.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/client.rb:118
@@ -268,56 +242,45 @@ end
 #
 # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:6
 class Discordrb::Webhooks::Embed
-  # @return [Embed] a new instance of Embed
-  #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:7
   def initialize(title: T.unsafe(nil), description: T.unsafe(nil), url: T.unsafe(nil), timestamp: T.unsafe(nil), colour: T.unsafe(nil), color: T.unsafe(nil), footer: T.unsafe(nil), image: T.unsafe(nil), thumbnail: T.unsafe(nil), video: T.unsafe(nil), provider: T.unsafe(nil), author: T.unsafe(nil), fields: T.unsafe(nil)); end
 
   # Add a field object to this embed.
-  #
   # @param field [EmbedField] The field to add.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:87
   def <<(field); end
 
   # Convenience method to add a field to the embed without having to create one manually.
-  #
+  # @see EmbedField
   # @example Add a field to an embed, conveniently
   #   embed.add_field(name: 'A field', value: "The field's content")
-  # @param inline [true, false] Whether the field should be inline
   # @param name [String] The field's name
   # @param value [String] The field's value
-  # @see EmbedField
+  # @param inline [true, false] Whether the field should be inline
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:98
   def add_field(name: T.unsafe(nil), value: T.unsafe(nil), inline: T.unsafe(nil)); end
 
+  # @see EmbedAuthor
   # @example Add a author to an embed
   #   embed.author = Discordrb::Webhooks::EmbedAuthor.new(name: 'meew0', url: 'https://github.com/meew0', icon_url: 'https://avatars2.githubusercontent.com/u/3662915?v=3&s=466')
   # @return [EmbedAuthor, nil] author for this embed
-  # @see EmbedAuthor
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:83
   def author; end
 
+  # @see EmbedAuthor
   # @example Add a author to an embed
   #   embed.author = Discordrb::Webhooks::EmbedAuthor.new(name: 'meew0', url: 'https://github.com/meew0', icon_url: 'https://avatars2.githubusercontent.com/u/3662915?v=3&s=466')
   # @return [EmbedAuthor, nil] author for this embed
-  # @see EmbedAuthor
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:83
   def author=(_arg0); end
 
-  # @return [Integer, nil] the colour of the bar to the side, in decimal form
-  #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:37
   def color; end
 
-  # Sets the colour of the bar to the side of the embed to something new.
-  #
-  # @param value [String, Integer, {Integer, Integer, Integer}, #to_i, nil] The colour in decimal, hexadecimal, R/G/B decimal, or nil to clear the embeds colour
-  #   form.
-  #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:60
   def color=(value); end
 
@@ -327,7 +290,6 @@ class Discordrb::Webhooks::Embed
   def colour; end
 
   # Sets the colour of the bar to the side of the embed to something new.
-  #
   # @param value [String, Integer, {Integer, Integer, Integer}, #to_i, nil] The colour in decimal, hexadecimal, R/G/B decimal, or nil to clear the embeds colour
   #   form.
   #
@@ -368,34 +330,34 @@ class Discordrb::Webhooks::Embed
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:65
   def footer=(_arg0); end
 
+  # @see EmbedImage
   # @example Add a image to an embed
   #   embed.image = Discordrb::Webhooks::EmbedImage.new(url: 'https://i.imgur.com/PcMltU7.jpg')
   # @return [EmbedImage, nil] image for this embed
-  # @see EmbedImage
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:71
   def image; end
 
+  # @see EmbedImage
   # @example Add a image to an embed
   #   embed.image = Discordrb::Webhooks::EmbedImage.new(url: 'https://i.imgur.com/PcMltU7.jpg')
   # @return [EmbedImage, nil] image for this embed
-  # @see EmbedImage
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:71
   def image=(_arg0); end
 
+  # @see EmbedThumbnail
   # @example Add a thumbnail to an embed
   #   embed.thumbnail = Discordrb::Webhooks::EmbedThumbnail.new(url: 'https://i.imgur.com/xTG3a1I.jpg')
   # @return [EmbedThumbnail, nil] thumbnail for this embed
-  # @see EmbedThumbnail
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:77
   def thumbnail; end
 
+  # @see EmbedThumbnail
   # @example Add a thumbnail to an embed
   #   embed.thumbnail = Discordrb::Webhooks::EmbedThumbnail.new(url: 'https://i.imgur.com/xTG3a1I.jpg')
   # @return [EmbedThumbnail, nil] thumbnail for this embed
-  # @see EmbedThumbnail
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:77
   def thumbnail=(_arg0); end
@@ -441,11 +403,9 @@ end
 # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:190
 class Discordrb::Webhooks::EmbedAuthor
   # Creates a new author object.
-  #
-  # @param icon_url [String, nil] The URL of the icon to be displayed next to the author.
   # @param name [String, nil] The name of the author.
   # @param url [String, nil] The URL the name should link to.
-  # @return [EmbedAuthor] a new instance of EmbedAuthor
+  # @param icon_url [String, nil] The URL of the icon to be displayed next to the author.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:204
   def initialize(name: T.unsafe(nil), url: T.unsafe(nil), icon_url: T.unsafe(nil)); end
@@ -491,11 +451,9 @@ end
 # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:221
 class Discordrb::Webhooks::EmbedField
   # Creates a new field object.
-  #
-  # @param inline [true, false] Whether the field should be displayed inline with other fields.
   # @param name [String, nil] The name of the field, displayed in bold at the top of the field.
   # @param value [String, nil] The value of the field, displayed in normal text below the name.
-  # @return [EmbedField] a new instance of EmbedField
+  # @param inline [true, false] Whether the field should be displayed inline with other fields.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:235
   def initialize(name: T.unsafe(nil), value: T.unsafe(nil), inline: T.unsafe(nil)); end
@@ -542,10 +500,8 @@ end
 # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:126
 class Discordrb::Webhooks::EmbedFooter
   # Creates a new footer object.
-  #
-  # @param icon_url [String, nil] The URL to an icon to be showed alongside the text.
   # @param text [String, nil] The text to be displayed in the footer.
-  # @return [EmbedFooter] a new instance of EmbedFooter
+  # @param icon_url [String, nil] The URL to an icon to be showed alongside the text.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:136
   def initialize(text: T.unsafe(nil), icon_url: T.unsafe(nil)); end
@@ -581,9 +537,7 @@ end
 # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:151
 class Discordrb::Webhooks::EmbedImage
   # Creates a new image object.
-  #
   # @param url [String, nil] The URL of the image.
-  # @return [EmbedImage] a new instance of EmbedImage
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:157
   def initialize(url: T.unsafe(nil)); end
@@ -610,9 +564,7 @@ end
 # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:171
 class Discordrb::Webhooks::EmbedThumbnail
   # Creates a new thumbnail object.
-  #
   # @param url [String, nil] The URL of the thumbnail.
-  # @return [EmbedThumbnail] a new instance of EmbedThumbnail
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/embeds.rb:177
   def initialize(url: T.unsafe(nil)); end
@@ -637,25 +589,20 @@ end
 #
 # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/modal.rb:4
 class Discordrb::Webhooks::Modal
-  # @return [Modal] a new instance of Modal
-  # @yield [_self]
-  # @yieldparam _self [Discordrb::Webhooks::Modal] the object that the method was called on
-  #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/modal.rb:60
   def initialize; end
 
   # Add a new ActionRow to the view
-  #
   # @yieldparam [RowBuilder]
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/modal.rb:68
   def row; end
 
-  # Returns the value of attribute rows.
-  #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/modal.rb:58
   def rows; end
 
+  # @!visibility private
+  #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/modal.rb:77
   def to_a; end
 end
@@ -671,26 +618,27 @@ Discordrb::Webhooks::Modal::COMPONENT_TYPES = T.let(T.unsafe(nil), Hash)
 #
 # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/modal.rb:14
 class Discordrb::Webhooks::Modal::RowBuilder
-  # @return [RowBuilder] a new instance of RowBuilder
+  # @!visibility private
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/modal.rb:22
   def initialize; end
 
   # Add a text input to this action row.
-  #
-  # @param custom_id [String] Custom IDs are used to pass state to the events that are raised from interactions.
-  #   There is a limit of 100 characters to each custom_id.
-  # @param label [String, nil] The text label for the field.
-  # @param max_length [Integer, nil] The maximum input length for a text input, min 1, max 4000.
-  # @param min_length [Integer, nil] The minimum input length for a text input, min 0, max 4000.
-  # @param placeholder [String, nil] Custom placeholder text if the input is empty, max 100 characters
-  # @param required [true, false, nil] Whether this component is required to be filled, default true.
   # @param style [Symbol, Integer] The text input's style type. See {TEXT_INPUT_STYLES}
+  # @param custom_id [String] Custom IDs are used to pass state to the events that are raised from interactions.
+  #  There is a limit of 100 characters to each custom_id.
+  # @param label [String, nil] The text label for the field.
+  # @param min_length [Integer, nil] The minimum input length for a text input, min 0, max 4000.
+  # @param max_length [Integer, nil] The maximum input length for a text input, min 1, max 4000.
+  # @param required [true, false, nil] Whether this component is required to be filled, default true.
   # @param value [String, nil] A pre-filled value for this component, max 4000 characters.
+  # @param placeholder [String, nil] Custom placeholder text if the input is empty, max 100 characters
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/modal.rb:36
   def text_input(style:, custom_id:, label: T.unsafe(nil), min_length: T.unsafe(nil), max_length: T.unsafe(nil), required: T.unsafe(nil), value: T.unsafe(nil), placeholder: T.unsafe(nil)); end
 
+  # @!visibility private
+  #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/modal.rb:53
   def to_h; end
 end
@@ -709,25 +657,20 @@ Discordrb::Webhooks::VERSION = T.let(T.unsafe(nil), String)
 #
 # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:4
 class Discordrb::Webhooks::View
-  # @return [View] a new instance of View
-  # @yield [_self]
-  # @yieldparam _self [Discordrb::Webhooks::View] the object that the method was called on
-  #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:174
   def initialize; end
 
   # Add a new ActionRow to the view
-  #
   # @yieldparam [RowBuilder]
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:182
   def row; end
 
-  # Returns the value of attribute rows.
-  #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:172
   def rows; end
 
+  # @!visibility private
+  #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:191
   def to_a; end
 end
@@ -738,7 +681,6 @@ end
 Discordrb::Webhooks::View::BUTTON_STYLES = T.let(T.unsafe(nil), Hash)
 
 # Component types.
-#
 # @see https://discord.com/developers/docs/interactions/message-components#component-types
 #
 # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:16
@@ -750,100 +692,85 @@ Discordrb::Webhooks::View::COMPONENT_TYPES = T.let(T.unsafe(nil), Hash)
 #
 # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:30
 class Discordrb::Webhooks::View::RowBuilder
-  # @return [RowBuilder] a new instance of RowBuilder
+  # @!visibility private
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:32
   def initialize; end
 
   # Add a button to this action row.
-  #
+  # @param style [Symbol, Integer] The button's style type. See {BUTTON_STYLES}
+  # @param label [String, nil] The text label for the button. Either a label or emoji must be provided.
+  # @param emoji [#to_h, String, Integer] An emoji ID, or unicode emoji to attach to the button. Can also be a object
+  #   that responds to `#to_h` which returns a hash in the format of `{ id: Integer, name: string }`.
   # @param custom_id [String] Custom IDs are used to pass state to the events that are raised from interactions.
   #   There is a limit of 100 characters to each custom_id.
   # @param disabled [true, false] Whether this button is disabled and shown as greyed out.
-  # @param emoji [#to_h, String, Integer] An emoji ID, or unicode emoji to attach to the button. Can also be a object
-  #   that responds to `#to_h` which returns a hash in the format of `{ id: Integer, name: string }`.
-  # @param label [String, nil] The text label for the button. Either a label or emoji must be provided.
-  # @param style [Symbol, Integer] The button's style type. See {BUTTON_STYLES}
   # @param url [String, nil] The URL, when using a link style button.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:45
   def button(style:, label: T.unsafe(nil), emoji: T.unsafe(nil), custom_id: T.unsafe(nil), disabled: T.unsafe(nil), url: T.unsafe(nil)); end
 
   # Add a select channel to this action row.
-  #
   # @param custom_id [String] Custom IDs are used to pass state to the events that are raised from interactions.
   #   There is a limit of 100 characters to each custom_id.
-  # @param disabled [true, false, nil] Grey out the component to make it unusable.
-  # @param max_values [Integer, nil] The maximum amount of values a user can select.
-  # @param min_values [Integer, nil] The minimum amount of values a user must select.
   # @param placeholder [String, nil] Default text to show when no entries are selected.
+  # @param min_values [Integer, nil] The minimum amount of values a user must select.
+  # @param max_values [Integer, nil] The maximum amount of values a user can select.
+  # @param disabled [true, false, nil] Grey out the component to make it unusable.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:117
   def channel_select(custom_id:, placeholder: T.unsafe(nil), min_values: T.unsafe(nil), max_values: T.unsafe(nil), disabled: T.unsafe(nil)); end
 
   # Add a select mentionable to this action row.
-  #
   # @param custom_id [String] Custom IDs are used to pass state to the events that are raised from interactions.
   #   There is a limit of 100 characters to each custom_id.
-  # @param disabled [true, false, nil] Grey out the component to make it unusable.
-  # @param max_values [Integer, nil] The maximum amount of values a user can select.
-  # @param min_values [Integer, nil] The minimum amount of values a user must select.
   # @param placeholder [String, nil] Default text to show when no entries are selected.
+  # @param min_values [Integer, nil] The minimum amount of values a user must select.
+  # @param max_values [Integer, nil] The maximum amount of values a user can select.
+  # @param disabled [true, false, nil] Grey out the component to make it unusable.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:106
   def mentionable_select(custom_id:, placeholder: T.unsafe(nil), min_values: T.unsafe(nil), max_values: T.unsafe(nil), disabled: T.unsafe(nil)); end
 
   # Add a select role to this action row.
-  #
   # @param custom_id [String] Custom IDs are used to pass state to the events that are raised from interactions.
   #   There is a limit of 100 characters to each custom_id.
-  # @param disabled [true, false, nil] Grey out the component to make it unusable.
-  # @param max_values [Integer, nil] The maximum amount of values a user can select.
-  # @param min_values [Integer, nil] The minimum amount of values a user must select.
   # @param placeholder [String, nil] Default text to show when no entries are selected.
+  # @param min_values [Integer, nil] The minimum amount of values a user must select.
+  # @param max_values [Integer, nil] The maximum amount of values a user can select.
+  # @param disabled [true, false, nil] Grey out the component to make it unusable.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:95
   def role_select(custom_id:, placeholder: T.unsafe(nil), min_values: T.unsafe(nil), max_values: T.unsafe(nil), disabled: T.unsafe(nil)); end
 
-  # Add a select string to this action row.
-  #
-  # @param custom_id [String] Custom IDs are used to pass state to the events that are raised from interactions.
-  #   There is a limit of 100 characters to each custom_id.
-  # @param disabled [true, false, nil] Grey out the component to make it unusable.
-  # @param max_values [Integer, nil] The maximum amount of values a user can select.
-  # @param min_values [Integer, nil] The minimum amount of values a user must select.
-  # @param options [Array<Hash>] Options that can be selected in this menu. Can also be provided via the yielded builder.
-  # @param placeholder [String, nil] Default text to show when no entries are selected.
-  # @yieldparam builder [SelectMenuBuilder]
-  #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:75
   def select_menu(custom_id:, options: T.unsafe(nil), placeholder: T.unsafe(nil), min_values: T.unsafe(nil), max_values: T.unsafe(nil), disabled: T.unsafe(nil)); end
 
   # Add a select string to this action row.
-  #
   # @param custom_id [String] Custom IDs are used to pass state to the events that are raised from interactions.
   #   There is a limit of 100 characters to each custom_id.
-  # @param disabled [true, false, nil] Grey out the component to make it unusable.
-  # @param max_values [Integer, nil] The maximum amount of values a user can select.
-  # @param min_values [Integer, nil] The minimum amount of values a user must select.
   # @param options [Array<Hash>] Options that can be selected in this menu. Can also be provided via the yielded builder.
   # @param placeholder [String, nil] Default text to show when no entries are selected.
+  # @param min_values [Integer, nil] The minimum amount of values a user must select.
+  # @param max_values [Integer, nil] The maximum amount of values a user can select.
+  # @param disabled [true, false, nil] Grey out the component to make it unusable.
   # @yieldparam builder [SelectMenuBuilder]
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:67
   def string_select(custom_id:, options: T.unsafe(nil), placeholder: T.unsafe(nil), min_values: T.unsafe(nil), max_values: T.unsafe(nil), disabled: T.unsafe(nil)); end
 
+  # @!visibility private
+  #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:122
   def to_h; end
 
   # Add a select user to this action row.
-  #
   # @param custom_id [String] Custom IDs are used to pass state to the events that are raised from interactions.
   #   There is a limit of 100 characters to each custom_id.
-  # @param disabled [true, false, nil] Grey out the component to make it unusable.
-  # @param max_values [Integer, nil] The maximum amount of values a user can select.
-  # @param min_values [Integer, nil] The minimum amount of values a user must select.
   # @param placeholder [String, nil] Default text to show when no entries are selected.
+  # @param min_values [Integer, nil] The minimum amount of values a user must select.
+  # @param max_values [Integer, nil] The maximum amount of values a user can select.
+  # @param disabled [true, false, nil] Grey out the component to make it unusable.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:84
   def user_select(custom_id:, placeholder: T.unsafe(nil), min_values: T.unsafe(nil), max_values: T.unsafe(nil), disabled: T.unsafe(nil)); end
@@ -853,23 +780,24 @@ end
 #
 # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:128
 class Discordrb::Webhooks::View::SelectMenuBuilder
-  # @return [SelectMenuBuilder] a new instance of SelectMenuBuilder
+  # @!visibility hidden
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:130
   def initialize(custom_id, options = T.unsafe(nil), placeholder = T.unsafe(nil), min_values = T.unsafe(nil), max_values = T.unsafe(nil), disabled = T.unsafe(nil), select_type: T.unsafe(nil)); end
 
   # Add an option to this select menu.
-  #
-  # @param default [true, false, nil] Whether this is the default selected option.
+  # @param label [String] The title of this option.
+  # @param value [String] The value that this option represents.
   # @param description [String, nil] An optional description of the option.
   # @param emoji [#to_h, String, Integer] An emoji ID, or unicode emoji to attach to the button. Can also be a object
   #   that responds to `#to_h` which returns a hash in the format of `{ id: Integer, name: string }`.
-  # @param label [String] The title of this option.
-  # @param value [String] The value that this option represents.
+  # @param default [true, false, nil] Whether this is the default selected option.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:147
   def option(label:, value:, description: T.unsafe(nil), emoji: T.unsafe(nil), default: T.unsafe(nil)); end
 
+  # @!visibility private
+  #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:159
   def to_h; end
 end

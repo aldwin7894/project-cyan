@@ -321,35 +321,25 @@ end
 
 # pkg:gem/orm_adapter#lib/orm_adapter/base.rb:2
 class OrmAdapter::Base
-  # @return [Base] a new instance of Base
-  #
   # pkg:gem/orm_adapter#lib/orm_adapter/base.rb:17
   def initialize(klass); end
 
   # Get a list of column/property/field names
-  #
-  # @raise [NotSupportedError]
   #
   # pkg:gem/orm_adapter#lib/orm_adapter/base.rb:22
   def column_names; end
 
   # Create a model using attributes
   #
-  # @raise [NotSupportedError]
-  #
   # pkg:gem/orm_adapter#lib/orm_adapter/base.rb:72
   def create!(attributes = T.unsafe(nil)); end
 
   # Destroy an instance by passing in the instance itself.
   #
-  # @raise [NotSupportedError]
-  #
   # pkg:gem/orm_adapter#lib/orm_adapter/base.rb:77
   def destroy(object); end
 
   # Find all models, optionally matching conditions, and specifying order
-  #
-  # @raise [NotSupportedError]
   # @see OrmAdapter::Base#find_first for how to specify order and conditions
   #
   # pkg:gem/orm_adapter#lib/orm_adapter/base.rb:67
@@ -372,8 +362,6 @@ class OrmAdapter::Base
   # * a single pair with :asc, or :desc as last, e.g. <tt>:order => [:name, :desc]</tt>
   # * an array of single args or pairs (with :asc or :desc as last), e.g. <tt>:order => [[:name, :asc], [:age, :desc]]</tt>
   #
-  # @raise [NotSupportedError]
-  #
   # pkg:gem/orm_adapter#lib/orm_adapter/base.rb:61
   def find_first(options = T.unsafe(nil)); end
 
@@ -381,8 +369,6 @@ class OrmAdapter::Base
   # This should comply with ActiveModel#to_key API, i.e.:
   #
   #   User.to_adapter.get(@user.to_key) == @user
-  #
-  # @raise [NotSupportedError]
   #
   # pkg:gem/orm_adapter#lib/orm_adapter/base.rb:40
   def get(id); end
@@ -392,13 +378,9 @@ class OrmAdapter::Base
   #
   #   User.to_adapter.get!(@user.to_key) == @user
   #
-  # @raise [NotSupportedError]
-  #
   # pkg:gem/orm_adapter#lib/orm_adapter/base.rb:31
   def get!(id); end
 
-  # Returns the value of attribute klass.
-  #
   # pkg:gem/orm_adapter#lib/orm_adapter/base.rb:3
   def klass; end
 
@@ -416,8 +398,6 @@ class OrmAdapter::Base
   # pkg:gem/orm_adapter#lib/orm_adapter/base.rb:104
   def normalize_order(order); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/orm_adapter#lib/orm_adapter/base.rb:83
   def valid_object?(object); end
 

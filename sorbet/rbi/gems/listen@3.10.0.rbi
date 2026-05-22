@@ -5,6 +5,14 @@
 # Please instead update this file by running `bin/tapioca gem listen`.
 
 
+# Listener implementation for BSD's `kqueue`.
+# @see http://www.freebsd.org/cgi/man.cgi?query=kqueue
+# @see https://github.com/mat813/rb-kqueue/blob/master/lib/rb-kqueue/queue.rb
+#
+# This class just aggregates configuration object to avoid Listener specs
+# from exploding with huge test setup blocks
+# Besides programming error exceptions like ArgumentError,
+# all public interface exceptions should be declared here and inherit from Listen::Error.
 # Code copied from https://github.com/celluloid/celluloid-fsm
 #
 # pkg:gem/listen#lib/listen/logger.rb:3
@@ -13,25 +21,15 @@ module Listen
     # pkg:gem/listen#lib/listen/logger.rb:19
     def adapter_warn(message); end
 
-    # Returns the value of attribute adapter_warn_behavior.
-    #
     # pkg:gem/listen#lib/listen/logger.rb:13
     def adapter_warn_behavior; end
 
-    # Sets the attribute adapter_warn_behavior
-    #
-    # @param value the value to set the attribute adapter_warn_behavior to.
-    #
     # pkg:gem/listen#lib/listen/logger.rb:13
     def adapter_warn_behavior=(_arg0); end
 
     # pkg:gem/listen#lib/listen/logger.rb:15
     def logger; end
 
-    # Sets the attribute logger
-    #
-    # @param value the value to set the attribute logger to.
-    #
     # pkg:gem/listen#lib/listen/logger.rb:12
     def logger=(_arg0); end
 
@@ -43,11 +41,14 @@ module Listen
     # Listens to file system modifications on a either single directory or
     # multiple directories.
     #
-    # @return [Listen::Listener] the listener
+    # @param (see Listen::Listener#new)
+    #
     # @yield [modified, added, removed] the changed files
-    # @yieldparam added [Array<String>] the list of added files
-    # @yieldparam modified [Array<String>] the list of modified files
-    # @yieldparam removed [Array<String>] the list of removed files
+    # @yieldparam [Array<String>] modified the list of modified files
+    # @yieldparam [Array<String>] added the list of added files
+    # @yieldparam [Array<String>] removed the list of removed files
+    #
+    # @return [Listen::Listener] the listener
     #
     # pkg:gem/listen#lib/listen.rb:29
     def to(*args, &block); end
@@ -109,8 +110,6 @@ class Listen::Adapter::BSD < ::Listen::Adapter::Base
   def _watch_for_new_file(event); end
 
   class << self
-    # @return [Boolean]
-    #
     # pkg:gem/listen#lib/listen/adapter/bsd.rb:28
     def usable?; end
   end
@@ -127,13 +126,9 @@ Listen::Adapter::BSD::OS_REGEXP = T.let(T.unsafe(nil), Regexp)
 
 # pkg:gem/listen#lib/listen/adapter/base.rb:10
 class Listen::Adapter::Base
-  # @return [Base] a new instance of Base
-  #
   # pkg:gem/listen#lib/listen/adapter/base.rb:16
   def initialize(config); end
 
-  # Returns the value of attribute config.
-  #
   # pkg:gem/listen#lib/listen/adapter/base.rb:11
   def config; end
 
@@ -142,16 +137,12 @@ class Listen::Adapter::Base
   # pkg:gem/listen#lib/listen/adapter/base.rb:33
   def configure; end
 
-  # Returns the value of attribute options.
-  #
   # pkg:gem/listen#lib/listen/adapter/base.rb:11
   def options; end
 
   # pkg:gem/listen#lib/listen/adapter/base.rb:65
   def start; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/adapter/base.rb:61
   def started?; end
 
@@ -176,8 +167,6 @@ class Listen::Adapter::Base
   def _timed(title); end
 
   class << self
-    # @return [Boolean]
-    #
     # pkg:gem/listen#lib/listen/adapter/base.rb:123
     def usable?; end
   end
@@ -190,28 +179,18 @@ Listen::Adapter::Base::DEFAULTS = T.let(T.unsafe(nil), Hash)
 
 # pkg:gem/listen#lib/listen/adapter/config.rb:7
 class Listen::Adapter::Config
-  # @return [Config] a new instance of Config
-  #
   # pkg:gem/listen#lib/listen/adapter/config.rb:10
   def initialize(directories, queue, silencer, adapter_options); end
 
-  # Returns the value of attribute adapter_options.
-  #
   # pkg:gem/listen#lib/listen/adapter/config.rb:8
   def adapter_options; end
 
-  # Returns the value of attribute directories.
-  #
   # pkg:gem/listen#lib/listen/adapter/config.rb:8
   def directories; end
 
-  # Returns the value of attribute queue.
-  #
   # pkg:gem/listen#lib/listen/adapter/config.rb:8
   def queue; end
 
-  # Returns the value of attribute silencer.
-  #
   # pkg:gem/listen#lib/listen/adapter/config.rb:8
   def silencer; end
 end
@@ -238,8 +217,6 @@ class Listen::Adapter::Darwin < ::Listen::Adapter::Base
   def _stop; end
 
   class << self
-    # @return [Boolean]
-    #
     # pkg:gem/listen#lib/listen/adapter/darwin.rb:25
     def usable?; end
   end
@@ -268,8 +245,6 @@ class Listen::Adapter::Linux < ::Listen::Adapter::Base
   # pkg:gem/listen#lib/listen/adapter/linux.rb:27
   def _configure(directory, &callback); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/adapter/linux.rb:97
   def _dir_event?(event); end
 
@@ -279,8 +254,6 @@ class Listen::Adapter::Linux < ::Listen::Adapter::Base
   # pkg:gem/listen#lib/listen/adapter/linux.rb:37
   def _run; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/adapter/linux.rb:76
   def _skip_event?(event); end
 
@@ -322,11 +295,11 @@ class Listen::Adapter::Polling < ::Listen::Adapter::Base
   def _run; end
 end
 
+# match every OS
+#
 # pkg:gem/listen#lib/listen/adapter/polling.rb:13
 Listen::Adapter::Polling::DEFAULTS = T.let(T.unsafe(nil), Hash)
 
-# match every OS
-#
 # pkg:gem/listen#lib/listen/adapter/polling.rb:11
 Listen::Adapter::Polling::OS_REGEXP = T.let(T.unsafe(nil), Regexp)
 
@@ -349,8 +322,6 @@ class Listen::Adapter::Windows < ::Listen::Adapter::Base
   def _run; end
 
   class << self
-    # @return [Boolean]
-    #
     # pkg:gem/listen#lib/listen/adapter/windows.rb:15
     def usable?; end
   end
@@ -366,13 +337,9 @@ Listen::Adapter::Windows::OS_REGEXP = T.let(T.unsafe(nil), Regexp)
 class Listen::Backend
   extend ::Forwardable
 
-  # @return [Backend] a new instance of Backend
-  #
   # pkg:gem/listen#lib/listen/backend.rb:15
   def initialize(directories, queue, silencer, config); end
 
-  # Returns the value of attribute min_delay_between_events.
-  #
   # pkg:gem/listen#lib/listen/backend.rb:34
   def min_delay_between_events; end
 
@@ -384,8 +351,6 @@ class Listen::Backend
 
   private
 
-  # Returns the value of attribute adapter.
-  #
   # pkg:gem/listen#lib/listen/backend.rb:38
   def adapter; end
 end
@@ -394,8 +359,6 @@ end
 #
 # pkg:gem/listen#lib/listen/change.rb:8
 class Listen::Change
-  # @return [Change] a new instance of Change
-  #
   # pkg:gem/listen#lib/listen/change.rb:27
   def initialize(config, record); end
 
@@ -404,8 +367,6 @@ class Listen::Change
   # pkg:gem/listen#lib/listen/change.rb:36
   def invalidate(type, rel_path, options); end
 
-  # Returns the value of attribute record.
-  #
   # pkg:gem/listen#lib/listen/change.rb:25
   def record; end
 end
@@ -414,16 +375,12 @@ end
 #
 # pkg:gem/listen#lib/listen/change.rb:10
 class Listen::Change::Config
-  # @return [Config] a new instance of Config
-  #
   # pkg:gem/listen#lib/listen/change.rb:11
   def initialize(queue, silencer); end
 
   # pkg:gem/listen#lib/listen/change.rb:20
   def queue(*args); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/change.rb:16
   def silenced?(path, type); end
 end
@@ -442,8 +399,6 @@ class Listen::Directory
     # pkg:gem/listen#lib/listen/directory.rb:82
     def _children(path); end
 
-    # @return [Boolean]
-    #
     # pkg:gem/listen#lib/listen/directory.rb:56
     def ascendant_of?(base, other); end
 
@@ -469,31 +424,21 @@ module Listen::Event; end
 
 # pkg:gem/listen#lib/listen/event/config.rb:5
 class Listen::Event::Config
-  # @return [Config] a new instance of Config
-  #
   # pkg:gem/listen#lib/listen/event/config.rb:8
   def initialize(listener, event_queue, queue_optimizer, wait_for_delay, &block); end
 
   # pkg:gem/listen#lib/listen/event/config.rb:26
   def call(*args); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/event/config.rb:30
   def callable?; end
 
-  # Returns the value of attribute event_queue.
-  #
   # pkg:gem/listen#lib/listen/event/config.rb:6
   def event_queue; end
 
-  # Returns the value of attribute listener.
-  #
   # pkg:gem/listen#lib/listen/event/config.rb:6
   def listener; end
 
-  # Returns the value of attribute min_delay_between_events.
-  #
   # pkg:gem/listen#lib/listen/event/config.rb:6
   def min_delay_between_events; end
 
@@ -509,27 +454,23 @@ class Listen::Event::Loop
   include ::Listen::FSM
   extend ::Listen::FSM::ClassMethods
 
-  # @return [Loop] a new instance of Loop
-  #
   # pkg:gem/listen#lib/listen/event/loop.rb:22
   def initialize(config); end
 
   # pkg:gem/listen#lib/listen/event/loop.rb:60
   def pause; end
 
+  # @raises Error::NotStarted if background thread hasn't started in MAX_STARTUP_SECONDS
+  #
   # pkg:gem/listen#lib/listen/event/loop.rb:42
   def start; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/event/loop.rb:35
   def started?; end
 
   # pkg:gem/listen#lib/listen/event/loop.rb:65
   def stop; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/event/loop.rb:72
   def stopped?; end
 
@@ -551,15 +492,11 @@ Listen::Event::Loop::Error = Listen::Error
 # pkg:gem/listen#lib/listen/event/loop.rb:39
 Listen::Event::Loop::MAX_STARTUP_SECONDS = T.let(T.unsafe(nil), Float)
 
-# for backward compatibility
-#
 # pkg:gem/listen#lib/listen/event/loop.rb:14
 Listen::Event::Loop::NotStarted = Listen::Error::NotStarted
 
 # pkg:gem/listen#lib/listen/event/processor.rb:7
 class Listen::Event::Processor
-  # @return [Processor] a new instance of Processor
-  #
   # pkg:gem/listen#lib/listen/event/processor.rb:8
   def initialize(config, reasons); end
 
@@ -606,8 +543,6 @@ class Listen::Event::Processor
   # pkg:gem/listen#lib/listen/event/processor.rb:51
   def _wait_until_no_longer_paused; end
 
-  # Returns the value of attribute config.
-  #
   # pkg:gem/listen#lib/listen/event/processor.rb:125
   def config; end
 end
@@ -619,8 +554,6 @@ class Listen::Event::Processor::Stopped < ::RuntimeError; end
 class Listen::Event::Queue
   extend ::Forwardable
 
-  # @return [Queue] a new instance of Queue
-  #
   # pkg:gem/listen#lib/listen/event/queue.rb:20
   def initialize(config); end
 
@@ -644,13 +577,9 @@ end
 
 # pkg:gem/listen#lib/listen/event/queue.rb:10
 class Listen::Event::Queue::Config
-  # @return [Config] a new instance of Config
-  #
   # pkg:gem/listen#lib/listen/event/queue.rb:11
   def initialize(relative); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/event/queue.rb:15
   def relative?; end
 end
@@ -726,26 +655,18 @@ end
 
 # pkg:gem/listen#lib/listen/fsm.rb:110
 class Listen::FSM::State
-  # @return [State] a new instance of State
-  #
   # pkg:gem/listen#lib/listen/fsm.rb:113
   def initialize(name, transitions, &block); end
 
   # pkg:gem/listen#lib/listen/fsm.rb:121
   def call(obj); end
 
-  # Returns the value of attribute name.
-  #
   # pkg:gem/listen#lib/listen/fsm.rb:111
   def name; end
 
-  # Returns the value of attribute transitions.
-  #
   # pkg:gem/listen#lib/listen/fsm.rb:111
   def transitions; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/fsm.rb:125
   def valid_transition?(new_state); end
 end
@@ -756,8 +677,6 @@ class Listen::File
     # pkg:gem/listen#lib/listen/file.rb:10
     def change(record, rel_path); end
 
-    # @return [Boolean]
-    #
     # pkg:gem/listen#lib/listen/file.rb:86
     def inaccurate_mac_time?(stat); end
   end
@@ -770,14 +689,13 @@ class Listen::Listener
 
   # Initializes the directories listener.
   #
+  # @param [String] directory the directories to listen to
+  # @param [Hash] options the listen options (see Listen::Listener::Options)
   #
-  # @param directory [String] the directories to listen to
-  # @param options [Hash] the listen options (see Listen::Listener::Options)
-  # @return [Listener] a new instance of Listener
   # @yield [modified, added, removed] the changed files
-  # @yieldparam added [Array<String>] the list of added files
-  # @yieldparam modified [Array<String>] the list of modified files
-  # @yieldparam removed [Array<String>] the list of removed files
+  # @yieldparam [Array<String>] modified the list of modified files
+  # @yieldparam [Array<String>] added the list of added files
+  # @yieldparam [Array<String>] removed the list of removed files
   #
   # pkg:gem/listen#lib/listen/listener.rb:37
   def initialize(*dirs, &block); end
@@ -796,14 +714,10 @@ class Listen::Listener
   # pkg:gem/listen#lib/listen/listener.rb:107
   def pause; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/listener.rb:116
   def paused?; end
 
   # processing means callbacks are called
-  #
-  # @return [Boolean]
   #
   # pkg:gem/listen#lib/listen/listener.rb:112
   def processing?; end
@@ -819,16 +733,12 @@ class Listen::Listener
   # pkg:gem/listen#lib/listen/listener.rb:102
   def stop; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/listener.rb:120
   def stopped?; end
 end
 
 # pkg:gem/listen#lib/listen/listener/config.rb:5
 class Listen::Listener::Config
-  # @return [Config] a new instance of Config
-  #
   # pkg:gem/listen#lib/listen/listener/config.rb:17
   def initialize(opts); end
 
@@ -838,18 +748,12 @@ class Listen::Listener::Config
   # pkg:gem/listen#lib/listen/listener/config.rb:35
   def adapter_select_options; end
 
-  # Returns the value of attribute min_delay_between_events.
-  #
   # pkg:gem/listen#lib/listen/listener/config.rb:28
   def min_delay_between_events; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/listener/config.rb:24
   def relative?; end
 
-  # Returns the value of attribute silencer_rules.
-  #
   # pkg:gem/listen#lib/listen/listener/config.rb:28
   def silencer_rules; end
 end
@@ -867,8 +771,6 @@ end
 
 # pkg:gem/listen#lib/listen/options.rb:4
 class Listen::Options
-  # @return [Options] a new instance of Options
-  #
   # pkg:gem/listen#lib/listen/options.rb:5
   def initialize(opts, defaults); end
 
@@ -877,16 +779,12 @@ class Listen::Options
 
   private
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/options.rb:15
   def respond_to_missing?(name, *_); end
 end
 
 # pkg:gem/listen#lib/listen/queue_optimizer.rb:4
 class Listen::QueueOptimizer
-  # @return [QueueOptimizer] a new instance of QueueOptimizer
-  #
   # pkg:gem/listen#lib/listen/queue_optimizer.rb:32
   def initialize(config); end
 
@@ -913,44 +811,33 @@ class Listen::QueueOptimizer
   # pkg:gem/listen#lib/listen/queue_optimizer.rb:42
   def _squash_changes(changes); end
 
-  # Returns the value of attribute config.
-  #
   # pkg:gem/listen#lib/listen/queue_optimizer.rb:38
   def config; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/queue_optimizer.rb:107
   def editor_modified?(changes); end
 end
 
 # pkg:gem/listen#lib/listen/queue_optimizer.rb:5
 class Listen::QueueOptimizer::Config
-  # @return [Config] a new instance of Config
-  #
   # pkg:gem/listen#lib/listen/queue_optimizer.rb:6
   def initialize(adapter_class, silencer); end
 
   # pkg:gem/listen#lib/listen/queue_optimizer.rb:19
   def debug(*args, &block); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/queue_optimizer.rb:11
   def exist?(path); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/queue_optimizer.rb:15
   def silenced?(path, type); end
 end
 
 # @private api
+# @private api
 #
 # pkg:gem/listen#lib/listen/record/entry.rb:5
 class Listen::Record
-  # @return [Record] a new instance of Record
-  #
   # pkg:gem/listen#lib/listen/record.rb:13
   def initialize(directory, silencer); end
 
@@ -992,8 +879,6 @@ class Listen::Record
   # pkg:gem/listen#lib/listen/record.rb:82
   def _fast_update_file(dirname, basename, data); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/record.rb:74
   def empty_dirname?(dirname); end
 
@@ -1008,8 +893,6 @@ class Listen::Record::Entry
   # file: "/home/me/watched_dir", "app/models", "foo.rb"
   # dir, "/home/me/watched_dir", "."
   #
-  # @return [Entry] a new instance of Entry
-  #
   # pkg:gem/listen#lib/listen/record/entry.rb:10
   def initialize(root, relative, name = T.unsafe(nil)); end
 
@@ -1019,8 +902,6 @@ class Listen::Record::Entry
   # pkg:gem/listen#lib/listen/record/entry.rb:25
   def meta; end
 
-  # Returns the value of attribute name.
-  #
   # pkg:gem/listen#lib/listen/record/entry.rb:16
   def name; end
 
@@ -1035,13 +916,9 @@ class Listen::Record::Entry
   # pkg:gem/listen#lib/listen/record/entry.rb:34
   def record_dir_key; end
 
-  # Returns the value of attribute relative.
-  #
   # pkg:gem/listen#lib/listen/record/entry.rb:16
   def relative; end
 
-  # Returns the value of attribute root.
-  #
   # pkg:gem/listen#lib/listen/record/entry.rb:16
   def root; end
 
@@ -1050,8 +927,6 @@ class Listen::Record::Entry
 
   private
 
-  # @raise [Errno::ENOTDIR]
-  #
   # pkg:gem/listen#lib/listen/record/entry.rb:54
   def _entries(dir); end
 
@@ -1061,7 +936,7 @@ end
 
 # pkg:gem/listen#lib/listen/record/symlink_detector.rb:9
 class Listen::Record::SymlinkDetector
-  # @return [SymlinkDetector] a new instance of SymlinkDetector
+  # for backward compatibility
   #
   # pkg:gem/listen#lib/listen/record/symlink_detector.rb:24
   def initialize; end
@@ -1077,14 +952,10 @@ class Listen::Record::SymlinkDetector
 
   private
 
-  # @raise [::Listen::Error::SymlinkLoop]
-  #
   # pkg:gem/listen#lib/listen/record/symlink_detector.rb:41
   def _fail(symlinked, real_path); end
 end
 
-# for backward compatibility
-#
 # pkg:gem/listen#lib/listen/record/symlink_detector.rb:22
 Listen::Record::SymlinkDetector::Error = Listen::Error
 
@@ -1096,8 +967,6 @@ Listen::Record::SymlinkDetector::SYMLINK_LOOP_ERROR = T.let(T.unsafe(nil), Strin
 
 # pkg:gem/listen#lib/listen/silencer.rb:4
 class Listen::Silencer
-  # @return [Silencer] a new instance of Silencer
-  #
   # pkg:gem/listen#lib/listen/silencer.rb:67
   def initialize(**options); end
 
@@ -1126,31 +995,23 @@ class Listen::Silencer
   # pkg:gem/listen#lib/listen/silencer.rb:65
   def only_patterns=(_arg0); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/silencer.rb:77
   def silenced?(relative_path, type); end
 
   private
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/silencer.rb:85
   def _ignore?(path); end
 
   # pkg:gem/listen#lib/listen/silencer.rb:93
   def _init_ignores(ignores, overrides); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/listen#lib/listen/silencer.rb:89
   def _only?(path); end
 end
 
 # pkg:gem/listen#lib/listen/silencer/controller.rb:5
 class Listen::Silencer::Controller
-  # @return [Controller] a new instance of Controller
-  #
   # pkg:gem/listen#lib/listen/silencer/controller.rb:6
   def initialize(silencer, default_options); end
 

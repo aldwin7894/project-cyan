@@ -23,6 +23,11 @@ module BaseHealthCheck
   def create_error(check_type, error_message); end
 end
 
+# Copyright (c) 2010-2013 Ian Heggie, released under the MIT license.
+# See MIT-LICENSE for details.
+# Copyright (c) 2010-2013 Ian Heggie, released under the MIT license.
+# See MIT-LICENSE for details.
+#
 # pkg:gem/health_check#lib/health_check.rb:4
 module HealthCheck
   # pkg:gem/health_check#lib/health_check.rb:39
@@ -305,9 +310,6 @@ module HealthCheck
     # pkg:gem/health_check#lib/health_check.rb:83
     def redis_url=(val); end
 
-    # @yield [_self]
-    # @yieldparam _self [HealthCheck] the object that the method was called on
-    #
     # pkg:gem/health_check#lib/health_check.rb:113
     def setup; end
 
@@ -388,8 +390,6 @@ class HealthCheck::HealthCheckController < ::ActionController::Base
 
   # turn cookies for CSRF off
   #
-  # @return [Boolean]
-  #
   # pkg:gem/health_check#lib/health_check/health_check_controller.rb:82
   def protect_against_forgery?; end
 
@@ -438,8 +438,6 @@ end
 
 # pkg:gem/health_check#lib/health_check/middleware_health_check.rb:6
 class HealthCheck::MiddlewareHealthcheck
-  # @return [MiddlewareHealthcheck] a new instance of MiddlewareHealthcheck
-  #
   # pkg:gem/health_check#lib/health_check/middleware_health_check.rb:8
   def initialize(app); end
 
@@ -460,8 +458,6 @@ end
 
 # pkg:gem/health_check#lib/health_check/middleware_health_check.rb:88
 class HealthCheck::MiddlewareHealthcheck::Request < ::Rack::Auth::AbstractRequest
-  # @return [Boolean]
-  #
   # pkg:gem/health_check#lib/health_check/middleware_health_check.rb:89
   def basic?; end
 
@@ -588,8 +584,6 @@ class HealthCheck::Utils
     # pkg:gem/health_check#lib/health_check/utils.rb:117
     def get_migration_version(dir = T.unsafe(nil)); end
 
-    # @return [Boolean]
-    #
     # pkg:gem/health_check#lib/health_check/utils.rb:109
     def mailer_configured?; end
 

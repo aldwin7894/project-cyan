@@ -21,8 +21,6 @@ module RequestStore
     # pkg:gem/request_store#lib/request_store.rb:42
     def []=(key, value); end
 
-    # @return [Boolean]
-    #
     # pkg:gem/request_store#lib/request_store.rb:26
     def active?; end
 
@@ -38,8 +36,6 @@ module RequestStore
     # pkg:gem/request_store#lib/request_store.rb:22
     def end!; end
 
-    # @return [Boolean]
-    #
     # pkg:gem/request_store#lib/request_store.rb:46
     def exist?(key); end
 
@@ -62,8 +58,6 @@ end
 
 # pkg:gem/request_store#lib/request_store/middleware.rb:11
 class RequestStore::Middleware
-  # @return [Middleware] a new instance of Middleware
-  #
   # pkg:gem/request_store#lib/request_store/middleware.rb:12
   def initialize(app); end
 

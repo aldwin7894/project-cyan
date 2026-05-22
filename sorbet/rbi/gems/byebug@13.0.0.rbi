@@ -5,6 +5,18 @@
 # Please instead update this file by running `bin/tapioca gem byebug`.
 
 
+# Main Container for all of Byebug's code
+#
+#
+# Main debugger's container module. Everything is defined under this module
+#
+#
+# Namespace for all of byebug's code
+#
+#
+# Remote debugging functionality.
+#
+#
 # Reopen main module to define the library version
 #
 # pkg:gem/byebug#lib/byebug/attacher.rb:6

@@ -7,8 +7,6 @@
 
 # pkg:gem/vite_ruby#lib/vite_ruby.rb:18
 class ViteRuby
-  # @return [ViteRuby] a new instance of ViteRuby
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby.rb:70
   def initialize(**config_options); end
 
@@ -35,8 +33,6 @@ class ViteRuby
   # Public: Returns true if the Vite development server is currently running.
   # NOTE: Checks only once every second since every lookup calls this method.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby.rb:86
   def dev_server_running?; end
 
@@ -57,10 +53,6 @@ class ViteRuby
   # pkg:gem/vite_ruby#lib/vite_ruby.rb:74
   def logger; end
 
-  # Sets the attribute logger
-  #
-  # @param value the value to set the attribute logger to.
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby.rb:68
   def logger=(_arg0); end
 
@@ -76,8 +68,6 @@ class ViteRuby
 
   # Public: The proxy for assets should only run in development mode.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby.rb:109
   def run_proxy?; end
 
@@ -87,18 +77,32 @@ class ViteRuby
     # pkg:gem/vite_ruby#lib/vite_ruby.rb:43
     def bootstrap; end
 
+    # Internal: Helper to run commands related with Vite.
+    #
     # pkg:gem/vite_ruby#lib/vite_ruby.rb:35
     def commands(*_arg0, **_arg1, &_arg2); end
 
+    # Public: Current instance configuration for Vite.
+    #
     # pkg:gem/vite_ruby#lib/vite_ruby.rb:35
     def config(*_arg0, **_arg1, &_arg2); end
 
+    # Public: Allows overriding the configuration for this instance.
+    #
     # pkg:gem/vite_ruby#lib/vite_ruby.rb:35
     def configure(*_arg0, **_arg1, &_arg2); end
 
+    # Public: Returns a digest of all the watched files, allowing to detect
+    # changes. Useful to perform version checks in single-page applications.
+    #
     # pkg:gem/vite_ruby#lib/vite_ruby.rb:35
     def digest(*_arg0, **_arg1, &_arg2); end
 
+    # Public: Additional environment variables to pass to Vite.
+    #
+    # Example:
+    #   ViteRuby.env['VITE_RUBY_CONFIG_PATH'] = 'config/alternate_vite.json'
+    #
     # pkg:gem/vite_ruby#lib/vite_ruby.rb:35
     def env(*_arg0, **_arg1, &_arg2); end
 
@@ -124,159 +128,77 @@ class ViteRuby
     # pkg:gem/vite_ruby#lib/vite_ruby.rb:53
     def reload_with(**config_options); end
 
+    # Internal: Executes the vite binary.
+    #
     # pkg:gem/vite_ruby#lib/vite_ruby.rb:35
     def run(*_arg0, **_arg1, &_arg2); end
 
+    # Public: The proxy for assets should only run in development mode.
+    #
     # pkg:gem/vite_ruby#lib/vite_ruby.rb:35
     def run_proxy?(*_arg0, **_arg1, &_arg2); end
   end
 end
 
-# Internal: Value object with information about the last build.
-#
 # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:7
 class ViteRuby::Build < ::Struct
-  # Returns the value of attribute current_digest
-  #
-  # @return [Object] the current value of current_digest
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:7
   def current_digest; end
 
-  # Sets the attribute current_digest
-  #
-  # @param value [Object] the value to set the attribute current_digest to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:7
   def current_digest=(_); end
 
-  # Returns the value of attribute digest
-  #
-  # @return [Object] the current value of digest
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:7
   def digest; end
 
-  # Sets the attribute digest
-  #
-  # @param value [Object] the value to set the attribute digest to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:7
   def digest=(_); end
 
-  # Returns the value of attribute errors
-  #
-  # @return [Object] the current value of errors
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:7
   def errors; end
 
-  # Sets the attribute errors
-  #
-  # @param value [Object] the value to set the attribute errors to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:7
   def errors=(_); end
 
-  # Internal: A build is considered fresh if watched files have not changed, or
-  # the last failed build happened recently.
-  #
-  # @return [Boolean]
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:43
   def fresh?; end
 
-  # Returns the value of attribute last_build_path
-  #
-  # @return [Object] the current value of last_build_path
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:7
   def last_build_path; end
 
-  # Sets the attribute last_build_path
-  #
-  # @param value [Object] the value to set the attribute last_build_path to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:7
   def last_build_path=(_); end
 
-  # Internal: To avoid cascading build failures, if the last build failed and it
-  # happened within a short time window, a new build should not be triggered.
-  #
-  # @return [Boolean]
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:49
   def retry_failed?; end
 
-  # Internal: A build is considered stale when watched files have changed since
-  # the last build, or when a certain time has ellapsed in case of failure.
-  #
-  # @return [Boolean]
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:37
   def stale?; end
 
-  # Returns the value of attribute success
-  #
-  # @return [Object] the current value of success
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:7
   def success; end
 
-  # Sets the attribute success
-  #
-  # @param value [Object] the value to set the attribute success to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:7
   def success=(_); end
 
-  # Returns the value of attribute timestamp
-  #
-  # @return [Object] the current value of timestamp
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:7
   def timestamp; end
 
-  # Sets the attribute timestamp
-  #
-  # @param value [Object] the value to set the attribute timestamp to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:7
   def timestamp=(_); end
 
-  # Internal: Returns a JSON string with the metadata of the build.
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:73
   def to_json(*_args); end
 
-  # Returns the value of attribute vite_ruby
-  #
-  # @return [Object] the current value of vite_ruby
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:7
   def vite_ruby; end
 
-  # Sets the attribute vite_ruby
-  #
-  # @param value [Object] the value to set the attribute vite_ruby to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:7
   def vite_ruby=(_); end
 
-  # Internal: Returns a new build with the specified result.
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:56
   def with_result(**attrs); end
 
-  # Internal: Writes the result of the new build to a local file.
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:68
   def write_to_cache; end
 
@@ -284,8 +206,6 @@ class ViteRuby::Build < ::Struct
     # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:7
     def [](*_arg0); end
 
-    # Internal: Combines information from a previous build with the current digest.
-    #
     # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:10
     def from_previous(last_build_path, current_digest); end
 
@@ -303,13 +223,9 @@ class ViteRuby::Build < ::Struct
 
     private
 
-    # Internal: To make it evident that there's no last build in error messages.
-    #
     # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:30
     def default_metadata; end
 
-    # Internal: Reads metadata recorded on the last build, if it exists.
-    #
     # pkg:gem/vite_ruby#lib/vite_ruby/build.rb:21
     def parse_metadata(pathname); end
   end
@@ -321,8 +237,6 @@ end
 class ViteRuby::Builder
   extend ::Forwardable
 
-  # @return [Builder] a new instance of Builder
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:7
   def initialize(vite_ruby); end
 
@@ -426,8 +340,8 @@ module ViteRuby::CLI::FileUtils
   class << self
     # Adds a new line at the bottom of the file.
     #
-    # @api private
     # @since 1.2.11
+    # @api private
     #
     # pkg:gem/vite_ruby#lib/vite_ruby/cli/file_utils.rb:34
     def append(path, contents); end
@@ -441,76 +355,76 @@ module ViteRuby::CLI::FileUtils
 
     # Copies source into destination.
     #
-    # @api private
     # @since 1.2.11
+    # @api private
     #
     # pkg:gem/vite_ruby#lib/vite_ruby/cli/file_utils.rb:25
     def cp(source, destination); end
 
     # Inject `contents` in `path` after `target`.
     #
-    # @api private
     # @since 1.2.11
+    # @api private
     #
     # pkg:gem/vite_ruby#lib/vite_ruby/cli/file_utils.rb:74
     def inject_line_after(path, target, contents); end
 
     # Inject `contents` in `path` after last `target`.
     #
-    # @api private
     # @since 1.2.11
+    # @api private
     #
     # pkg:gem/vite_ruby#lib/vite_ruby/cli/file_utils.rb:82
     def inject_line_after_last(path, target, contents); end
 
     # Inject `contents` in `path` before `target`.
     #
-    # @api private
     # @since 1.2.11
+    # @api private
     #
     # pkg:gem/vite_ruby#lib/vite_ruby/cli/file_utils.rb:66
     def inject_line_before(path, target, contents); end
 
     # Replace first line in `path` that contains `target` with `replacement`.
     #
-    # @api private
     # @since 1.2.11
+    # @api private
     #
     # pkg:gem/vite_ruby#lib/vite_ruby/cli/file_utils.rb:55
     def replace_first_line(path, target, replacement); end
 
     # Creates a new file or rewrites the contents of an existing file.
     #
-    # @api private
     # @since 1.2.11
+    # @api private
     #
     # pkg:gem/vite_ruby#lib/vite_ruby/cli/file_utils.rb:14
     def write(path, *content); end
 
     private
 
-    # @api private
     # @since 1.2.11
+    # @api private
     #
     # pkg:gem/vite_ruby#lib/vite_ruby/cli/file_utils.rb:129
     def _inject_line_after(path, target, contents, finder); end
 
-    # @api private
     # @since 1.2.11
+    # @api private
     #
     # pkg:gem/vite_ruby#lib/vite_ruby/cli/file_utils.rb:117
     def _inject_line_before(path, target, contents, finder); end
 
-    # @api private
     # @since 1.2.11
+    # @api private
     #
     # pkg:gem/vite_ruby#lib/vite_ruby/cli/file_utils.rb:103
     def index(content, path, target); end
 
     # Creates all parent directories for the given file path.
     #
-    # @api private
     # @since 1.2.11
+    # @api private
     #
     # pkg:gem/vite_ruby#lib/vite_ruby/cli/file_utils.rb:92
     def mkdir_p(path); end
@@ -520,8 +434,8 @@ module ViteRuby::CLI::FileUtils
     # pkg:gem/vite_ruby#lib/vite_ruby/cli/file_utils.rb:97
     def read_lines(path); end
 
-    # @api private
     # @since 1.2.11
+    # @api private
     #
     # pkg:gem/vite_ruby#lib/vite_ruby/cli/file_utils.rb:110
     def rindex(content, path, target); end
@@ -624,8 +538,6 @@ ViteRuby::CLI::Install::TEMPLATES_PATH = T.let(T.unsafe(nil), Pathname)
 
 # pkg:gem/vite_ruby#lib/vite_ruby/cli/ssr.rb:3
 class ViteRuby::CLI::SSR < ::ViteRuby::CLI::Vite
-  # @raise [ArgumentError]
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/cli/ssr.rb:10
   def call(mode:, inspect: T.unsafe(nil), trace_deprecation: T.unsafe(nil)); end
 end
@@ -670,8 +582,6 @@ end
 class ViteRuby::CLI::Vite < ::Dry::CLI::Command
   extend ::Dry::CLI::Command::ClassMethods
 
-  # @yield [args]
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/cli/vite.rb:19
   def call(mode:, args: T.unsafe(nil), clobber: T.unsafe(nil), node_options: T.unsafe(nil), inspect: T.unsafe(nil), trace_deprecation: T.unsafe(nil), **boolean_opts); end
 
@@ -699,8 +609,6 @@ ViteRuby::COMPANION_LIBRARIES = T.let(T.unsafe(nil), Hash)
 class ViteRuby::Commands
   extend ::Forwardable
 
-  # @return [Commands] a new instance of Commands
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/commands.rb:6
   def initialize(vite_ruby); end
 
@@ -732,14 +640,10 @@ class ViteRuby::Commands
 
   # Internal: Checks if the npm version is 6 or lower.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/commands.rb:39
   def legacy_npm_version?; end
 
   # Internal: Checks if the yarn version is 1.x.
-  #
-  # @return [Boolean]
   #
   # pkg:gem/vite_ruby#lib/vite_ruby/commands.rb:44
   def legacy_yarn_version?; end
@@ -784,8 +688,6 @@ module ViteRuby::CompatibilityCheck
     # Internal: Returns true unless the check is performed and does not meet the
     # requirement.
     #
-    # @return [Boolean]
-    #
     # pkg:gem/vite_ruby#lib/vite_ruby/compatibility_check.rb:38
     def compatible_plugin?(npm_req, ruby_req); end
 
@@ -808,8 +710,6 @@ end
 class ViteRuby::Config
   extend ::ViteRails::Config
 
-  # @return [Config] a new instance of Config
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:118
   def initialize(attrs); end
 
@@ -1038,8 +938,6 @@ ViteRuby::DEFAULT_VITE_VERSION = T.let(T.unsafe(nil), String)
 class ViteRuby::DevServerProxy < ::Rack::Proxy
   extend ::Forwardable
 
-  # @return [DevServerProxy] a new instance of DevServerProxy
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/dev_server_proxy.rb:10
   def initialize(app = T.unsafe(nil), options = T.unsafe(nil)); end
 
@@ -1059,8 +957,6 @@ class ViteRuby::DevServerProxy < ::Rack::Proxy
   # NOTE: When using an empty 'public_output_dir', we need to rely on a
   # filesystem check to check whether Vite should serve the request.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/dev_server_proxy.rb:64
   def file_in_vite_root?(path); end
 
@@ -1073,8 +969,6 @@ class ViteRuby::DevServerProxy < ::Rack::Proxy
   # pkg:gem/vite_ruby#lib/vite_ruby/dev_server_proxy.rb:32
   def rewrite_uri_for_vite(env); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/dev_server_proxy.rb:55
   def vite_should_handle?(env); end
 
@@ -1138,8 +1032,6 @@ end
 class ViteRuby::Manifest
   extend ::Forwardable
 
-  # @return [Manifest] a new instance of Manifest
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/manifest.rb:13
   def initialize(vite_ruby); end
 
@@ -1238,8 +1130,6 @@ class ViteRuby::Manifest
 
   # Internal: Raises a detailed message when an entry is missing in the manifest.
   #
-  # @raise [ViteRuby::MissingEntrypointError]
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/manifest.rb:233
   def missing_entry_error(name, **options); end
 
@@ -1262,8 +1152,6 @@ class ViteRuby::Manifest
 
   # Internal: Resolves the manifest entry name for the specified resource.
   #
-  # @raise [ArgumentError]
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/manifest.rb:182
   def resolve_entry_name(name, type: T.unsafe(nil)); end
 
@@ -1279,8 +1167,6 @@ class ViteRuby::Manifest
 
   # NOTE: Auto compilation is convenient when running tests, when the developer
   # won't focus on the frontend, or when running the Vite server is not desired.
-  #
-  # @return [Boolean]
   #
   # pkg:gem/vite_ruby#lib/vite_ruby/manifest.rb:123
   def should_build?; end
@@ -1308,28 +1194,18 @@ ViteRuby::Manifest::FS_PREFIX = T.let(T.unsafe(nil), String)
 #
 # pkg:gem/vite_ruby#lib/vite_ruby/missing_entrypoint_error.rb:7
 class ViteRuby::MissingEntrypointError < ::ViteRuby::Error
-  # @return [MissingEntrypointError] a new instance of MissingEntrypointError
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/missing_entrypoint_error.rb:10
   def initialize(file_name:, last_build:, manifest:, config:); end
 
-  # Returns the value of attribute config.
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/missing_entrypoint_error.rb:8
   def config; end
 
-  # Returns the value of attribute file_name.
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/missing_entrypoint_error.rb:8
   def file_name; end
 
-  # Returns the value of attribute last_build.
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/missing_entrypoint_error.rb:8
   def last_build; end
 
-  # Returns the value of attribute manifest.
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/missing_entrypoint_error.rb:8
   def manifest; end
 
@@ -1350,8 +1226,6 @@ ViteRuby::MissingEntrypointError::NO_AUTO_BUILD_CAUSES = T.let(T.unsafe(nil), St
 #
 # pkg:gem/vite_ruby#lib/vite_ruby/missing_executable_error.rb:4
 class ViteRuby::MissingExecutableError < ::ViteRuby::Error
-  # @return [MissingExecutableError] a new instance of MissingExecutableError
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/missing_executable_error.rb:5
   def initialize(error = T.unsafe(nil)); end
 end
@@ -1362,8 +1236,6 @@ end
 class ViteRuby::Runner
   extend ::Forwardable
 
-  # @return [Runner] a new instance of Runner
-  #
   # pkg:gem/vite_ruby#lib/vite_ruby/runner.rb:5
   def initialize(vite_ruby); end
 

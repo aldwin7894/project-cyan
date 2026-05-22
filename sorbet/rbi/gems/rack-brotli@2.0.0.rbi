@@ -37,8 +37,6 @@ class Rack::Brotli::Deflater
   #              - 'lgwin'
   #              - 'lgblock'
   #
-  # @return [Deflater] a new instance of Deflater
-  #
   # pkg:gem/rack-brotli#lib/rack/brotli/deflater.rb:25
   def initialize(app, options = T.unsafe(nil)); end
 
@@ -49,8 +47,6 @@ class Rack::Brotli::Deflater
 
   # Whether the body should be compressed.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/rack-brotli#lib/rack/brotli/deflater.rb:115
   def should_deflate?(env, status, headers, body); end
 end
@@ -59,8 +55,6 @@ end
 #
 # pkg:gem/rack-brotli#lib/rack/brotli/deflater.rb:68
 class Rack::Brotli::Deflater::BrotliStream
-  # @return [BrotliStream] a new instance of BrotliStream
-  #
   # pkg:gem/rack-brotli#lib/rack/brotli/deflater.rb:72
   def initialize(body, sync, br_options); end
 

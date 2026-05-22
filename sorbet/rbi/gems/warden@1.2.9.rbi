@@ -12,14 +12,14 @@ module Warden
     #
     # To setup warden in test mode call the +test_mode!+ method on warden
     #
+    # @example
+    #   Warden.test_mode!
+    #
     # This will provide a number of methods.
     # Warden.on_next_request(&blk) - captures a block which is yielded the warden proxy on the next request
     # Warden.test_reset! - removes any captured blocks that would have been executed on the next request
     #
     # Warden.test_reset! should be called in after blocks for rspec, or teardown methods for Test::Unit
-    #
-    # @example
-    #   Warden.test_mode!
     #
     # pkg:gem/warden#lib/warden.rb:34
     def test_mode!; end
@@ -31,8 +31,6 @@ end
 #
 # pkg:gem/warden#lib/warden/config.rb:7
 class Warden::Config < ::Hash
-  # @return [Config] a new instance of Config
-  #
   # pkg:gem/warden#lib/warden/config.rb:37
   def initialize(other = T.unsafe(nil)); end
 
@@ -84,8 +82,6 @@ class Warden::Config < ::Hash
   # pkg:gem/warden#lib/warden/config.rb:53
   def silence_missing_strategies!; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/warden#lib/warden/config.rb:57
   def silence_missing_strategies?; end
 
@@ -188,8 +184,6 @@ module Warden::Hooks
   #
   # :api: public
   #
-  # @raise [BlockNotGiven]
-  #
   # pkg:gem/warden#lib/warden/hooks.rb:138
   def after_failed_fetch(options = T.unsafe(nil), method = T.unsafe(nil), &block); end
 
@@ -237,8 +231,6 @@ module Warden::Hooks
   #
   # :api: public
   #
-  # @raise [BlockNotGiven]
-  #
   # pkg:gem/warden#lib/warden/hooks.rb:53
   def after_set_user(options = T.unsafe(nil), method = T.unsafe(nil), &block); end
 
@@ -264,8 +256,6 @@ module Warden::Hooks
   #
   # :api: public
   #
-  # @raise [BlockNotGiven]
-  #
   # pkg:gem/warden#lib/warden/hooks.rb:110
   def before_failure(options = T.unsafe(nil), method = T.unsafe(nil), &block); end
 
@@ -287,8 +277,6 @@ module Warden::Hooks
   #
   # :api: public
   #
-  # @raise [BlockNotGiven]
-  #
   # pkg:gem/warden#lib/warden/hooks.rb:166
   def before_logout(options = T.unsafe(nil), method = T.unsafe(nil), &block); end
 
@@ -306,8 +294,6 @@ module Warden::Hooks
   #   end
   #
   # :api: public
-  #
-  # @raise [BlockNotGiven]
   #
   # pkg:gem/warden#lib/warden/hooks.rb:191
   def on_request(options = T.unsafe(nil), method = T.unsafe(nil), &block); end
@@ -344,9 +330,6 @@ class Warden::Manager
   # configure the Warden::Manager.
   # :api: public
   #
-  # @return [Manager] a new instance of Manager
-  # @yield [@config]
-  #
   # pkg:gem/warden#lib/warden/manager.rb:19
   def initialize(app, options = T.unsafe(nil)); end
 
@@ -362,15 +345,9 @@ class Warden::Manager
   # pkg:gem/warden#lib/warden/manager.rb:30
   def call(env); end
 
-  # Returns the value of attribute config.
-  #
   # pkg:gem/warden#lib/warden/manager.rb:14
   def config; end
 
-  # Sets the attribute config
-  #
-  # @param value the value to set the attribute config to.
-  #
   # pkg:gem/warden#lib/warden/manager.rb:14
   def config=(_arg0); end
 
@@ -386,8 +363,6 @@ class Warden::Manager
   # pkg:gem/warden#lib/warden/manager.rb:97
   def handle_chain_result(status, result, env); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/warden#lib/warden/manager.rb:105
   def intercept_401?(env); end
 
@@ -443,8 +418,6 @@ module Warden::Mixins::Common
   # pkg:gem/warden#lib/warden/mixins/common.rb:32
   def params; end
 
-  # Convenience method to access the session
-  # :api: public
   # Alias :session to :raw_session since the former will be user API for storing scoped data.
   #
   # pkg:gem/warden#lib/warden/mixins/common.rb:14
@@ -458,7 +431,6 @@ module Warden::Mixins::Common
 
   # Resets the session.  By using this non-hash like sessions can
   # be cleared by overwriting this method in a plugin
-  #
   # @api overwritable
   #
   # pkg:gem/warden#lib/warden/mixins/common.rb:39
@@ -486,15 +458,11 @@ class Warden::Proxy
   include ::Warden::Mixins::Common
   extend ::Forwardable
 
-  # @return [Proxy] a new instance of Proxy
-  #
   # pkg:gem/warden#lib/warden/proxy.rb:28
   def initialize(env, manager); end
 
   # Check to see if this is an asset request
   # :api: public
-  #
-  # @return [Boolean]
   #
   # pkg:gem/warden#lib/warden/proxy.rb:314
   def asset_request?; end
@@ -533,8 +501,6 @@ class Warden::Proxy
   # authenticated, and the second relies on already performed ones.
   # :api: public
   #
-  # @return [Boolean]
-  #
   # pkg:gem/warden#lib/warden/proxy.rb:119
   def authenticate?(*args); end
 
@@ -549,8 +515,6 @@ class Warden::Proxy
   #   env['warden'].authenticated?(:admin)
   #
   # :api: public
-  #
-  # @return [Boolean]
   #
   # pkg:gem/warden#lib/warden/proxy.rb:149
   def authenticated?(scope = T.unsafe(nil)); end
@@ -597,8 +561,6 @@ class Warden::Proxy
 
   # Check to see if the custom failure flag has been set
   # :api: public
-  #
-  # @return [Boolean]
   #
   # pkg:gem/warden#lib/warden/proxy.rb:304
   def custom_failure?; end
@@ -694,8 +656,6 @@ class Warden::Proxy
   #
   # :api: public
   #
-  # @raise [NotAuthenticated]
-  #
   # pkg:gem/warden#lib/warden/proxy.rb:244
   def session(scope = T.unsafe(nil)); end
 
@@ -726,8 +686,6 @@ class Warden::Proxy
 
   # Same API as authenticated?, but returns false when authenticated.
   # :api: public
-  #
-  # @return [Boolean]
   #
   # pkg:gem/warden#lib/warden/proxy.rb:157
   def unauthenticated?(scope = T.unsafe(nil)); end
@@ -806,9 +764,8 @@ Warden::Proxy::ENV_SESSION_OPTIONS = T.let(T.unsafe(nil), String)
 Warden::Proxy::ENV_WARDEN_ERRORS = T.let(T.unsafe(nil), String)
 
 # Lifted from DataMapper's dm-validations plugin :)
-#
 # @author Guy van den Berg
-# @since DM 0.9
+# @since  DM 0.9
 #
 # pkg:gem/warden#lib/warden/errors.rb:8
 class Warden::Proxy::Errors
@@ -817,69 +774,49 @@ class Warden::Proxy::Errors
   # Add a authentication error. Use the field_name :general if the errors does
   # not apply to a specific field of the Resource.
   #
-  # @param field_name [Symbol] the name of the field that caused the error
-  # @param message [String] the message to add
-  # @since DM 0.9
+  # @param <Symbol> field_name the name of the field that caused the error
+  # @param <String> message    the message to add
   #
   # pkg:gem/warden#lib/warden/errors.rb:22
   def add(field_name, message); end
 
   # Clear existing authentication errors.
   #
-  # @since DM 0.9
-  #
   # pkg:gem/warden#lib/warden/errors.rb:13
   def clear!; end
 
-  # @since DM 0.9
-  #
   # pkg:gem/warden#lib/warden/errors.rb:41
   def each; end
 
-  # @return [Boolean]
-  # @since DM 0.9
-  #
   # pkg:gem/warden#lib/warden/errors.rb:48
   def empty?; end
 
   # Collect all errors into a single list.
   #
-  # @since DM 0.9
-  #
   # pkg:gem/warden#lib/warden/errors.rb:27
   def full_messages; end
 
-  # @since DM 0.9
-  #
   # pkg:gem/warden#lib/warden/errors.rb:52
   def method_missing(meth, *args, &block); end
 
   # Return authentication errors for a particular field_name.
   #
-  # @param field_name [Symbol] the name of the field you want an error for
-  # @since DM 0.9
+  # @param <Symbol> field_name the name of the field you want an error for
   #
   # pkg:gem/warden#lib/warden/errors.rb:36
   def on(field_name); end
 
   private
 
-  # @return [Boolean]
-  # @since DM 0.9
-  #
   # pkg:gem/warden#lib/warden/errors.rb:61
   def blank?(thing); end
 
-  # @since DM 0.9
-  #
   # pkg:gem/warden#lib/warden/errors.rb:57
   def errors; end
 end
 
 # pkg:gem/warden#lib/warden/session_serializer.rb:4
 class Warden::SessionSerializer
-  # @return [SessionSerializer] a new instance of SessionSerializer
-  #
   # pkg:gem/warden#lib/warden/session_serializer.rb:7
   def initialize(env); end
 
@@ -889,8 +826,6 @@ class Warden::SessionSerializer
   # pkg:gem/warden#lib/warden/session_serializer.rb:19
   def deserialize(key); end
 
-  # Returns the value of attribute env.
-  #
   # pkg:gem/warden#lib/warden/session_serializer.rb:5
   def env; end
 
@@ -911,8 +846,6 @@ class Warden::SessionSerializer
   # pkg:gem/warden#lib/warden/session_serializer.rb:23
   def store(user, scope); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/warden#lib/warden/session_serializer.rb:40
   def stored?(scope); end
 end
@@ -981,8 +914,6 @@ class Warden::Strategies::Base
 
   # :api: private
   #
-  # @return [Base] a new instance of Base
-  #
   # pkg:gem/warden#lib/warden/strategies/base.rb:44
   def initialize(env, scope = T.unsafe(nil)); end
 
@@ -1048,8 +979,6 @@ class Warden::Strategies::Base
   # Checks to see if a strategy was halted
   # :api: public
   #
-  # @return [Boolean]
-  #
   # pkg:gem/warden#lib/warden/strategies/base.rb:99
   def halted?; end
 
@@ -1077,8 +1006,6 @@ class Warden::Strategies::Base
 
   # Returns if this strategy was already performed.
   # :api: private
-  #
-  # @return [Boolean]
   #
   # pkg:gem/warden#lib/warden/strategies/base.rb:61
   def performed?; end
@@ -1119,8 +1046,6 @@ class Warden::Strategies::Base
   # Checks to see if a strategy should result in a permanent login
   # :api: public
   #
-  # @return [Boolean]
-  #
   # pkg:gem/warden#lib/warden/strategies/base.rb:105
   def store?; end
 
@@ -1137,8 +1062,6 @@ class Warden::Strategies::Base
   def success!(user, message = T.unsafe(nil)); end
 
   # Returns true only if the result is a success and a user was assigned.
-  #
-  # @return [Boolean]
   #
   # pkg:gem/warden#lib/warden/strategies/base.rb:114
   def successful?; end
@@ -1158,8 +1081,6 @@ class Warden::Strategies::Base
   # Overwrite with your own logic
   # :api: overwritable
   #
-  # @return [Boolean]
-  #
   # pkg:gem/warden#lib/warden/strategies/base.rb:75
   def valid?; end
 end
@@ -1175,9 +1096,8 @@ module Warden::Test; end
 module Warden::Test::Helpers
   # A helper method that will perform a login of a user in warden for the next request.
   # Provide it the same options as you would to Warden::Proxy#set_user
-  #
-  # @api public
   # @see Warden::Proxy#set_user
+  # @api public
   #
   # pkg:gem/warden#lib/warden/test/helpers.rb:18
   def login_as(user, opts = T.unsafe(nil)); end
@@ -1185,16 +1105,13 @@ module Warden::Test::Helpers
   # Logs out a user from the session.
   # Without arguments, all users will be logged out
   # Provide a list of scopes to only log out users with that scope.
-  #
-  # @api public
   # @see Warden::Proxy#logout
+  # @api public
   #
   # pkg:gem/warden#lib/warden/test/helpers.rb:30
   def logout(*scopes); end
 
   class << self
-    # @private
-    #
     # pkg:gem/warden#lib/warden/test/helpers.rb:10
     def included(_base); end
   end
@@ -1206,7 +1123,6 @@ end
 # pkg:gem/warden#lib/warden/test/mock.rb:10
 module Warden::Test::Mock
   # A helper method that provides the warden object by mocking the env variable.
-  #
   # @api public
   #
   # pkg:gem/warden#lib/warden/test/mock.rb:17
@@ -1221,8 +1137,6 @@ module Warden::Test::Mock
   def env; end
 
   class << self
-    # @private
-    #
     # pkg:gem/warden#lib/warden/test/mock.rb:11
     def included(_base); end
   end
@@ -1230,20 +1144,12 @@ end
 
 # pkg:gem/warden#lib/warden/test/mock.rb:56
 class Warden::Test::Mock::Session
-  # @return [Session] a new instance of Session
-  #
   # pkg:gem/warden#lib/warden/test/mock.rb:58
   def initialize(app, _configs = T.unsafe(nil)); end
 
-  # Returns the value of attribute app.
-  #
   # pkg:gem/warden#lib/warden/test/mock.rb:57
   def app; end
 
-  # Sets the attribute app
-  #
-  # @param value the value to set the attribute app to.
-  #
   # pkg:gem/warden#lib/warden/test/mock.rb:57
   def app=(_arg0); end
 
@@ -1254,31 +1160,27 @@ end
 # pkg:gem/warden#lib/warden/test/warden_helpers.rb:7
 module Warden::Test::WardenHelpers
   # A container for the on_next_request items.
-  #
   # @api private
   #
   # pkg:gem/warden#lib/warden/test/warden_helpers.rb:38
   def _on_next_request; end
 
   # Returns list of regex objects that match paths expected to be an asset
-  #
-  # @api public
   # @see Warden::Proxy#asset_request?
+  # @api public
   #
   # pkg:gem/warden#lib/warden/test/warden_helpers.rb:11
   def asset_paths; end
 
   # Sets list of regex objects that match paths expected to be an asset
-  #
-  # @api public
   # @see Warden::Proxy#asset_request?
+  # @api public
   #
   # pkg:gem/warden#lib/warden/test/warden_helpers.rb:18
   def asset_paths=(*vals); end
 
   # Adds a block to be executed on the next request when the stack reaches warden.
   # The warden proxy is yielded to the block
-  #
   # @api public
   #
   # pkg:gem/warden#lib/warden/test/warden_helpers.rb:25
@@ -1286,7 +1188,6 @@ module Warden::Test::WardenHelpers
 
   # resets wardens tests
   # any blocks queued to execute will be removed
-  #
   # @api public
   #
   # pkg:gem/warden#lib/warden/test/warden_helpers.rb:32

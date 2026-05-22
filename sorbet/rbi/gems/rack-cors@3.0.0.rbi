@@ -10,8 +10,6 @@ module Rack; end
 
 # pkg:gem/rack-cors#lib/rack/cors/resources/cors_misconfiguration_error.rb:4
 class Rack::Cors
-  # @return [Cors] a new instance of Cors
-  #
   # pkg:gem/rack-cors#lib/rack/cors.rb:29
   def initialize(app, opts = T.unsafe(nil), &block); end
 
@@ -21,8 +19,6 @@ class Rack::Cors
   # pkg:gem/rack-cors#lib/rack/cors.rb:66
   def call(env); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-cors#lib/rack/cors.rb:52
   def debug?; end
 
@@ -56,6 +52,8 @@ end
 # pkg:gem/rack-cors#lib/rack/cors.rb:27
 Rack::Cors::DEFAULT_VARY_HEADERS = T.let(T.unsafe(nil), Array)
 
+# retaining the old key for backwards compatibility
+#
 # pkg:gem/rack-cors#lib/rack/cors.rb:23
 Rack::Cors::ENV_KEY = T.let(T.unsafe(nil), String)
 
@@ -88,115 +86,60 @@ Rack::Cors::REQUEST_METHOD = T.let(T.unsafe(nil), String)
 
 # pkg:gem/rack-cors#lib/rack/cors/resources/cors_misconfiguration_error.rb:5
 class Rack::Cors::Resource
-  # @raise [CorsMisconfigurationError]
-  # @return [Resource] a new instance of Resource
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:12
   def initialize(public_resource, path, opts = T.unsafe(nil)); end
 
-  # Returns the value of attribute credentials.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def credentials; end
 
-  # Sets the attribute credentials
-  #
-  # @param value the value to set the attribute credentials to.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def credentials=(_arg0); end
 
-  # Returns the value of attribute expose.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def expose; end
 
-  # Sets the attribute expose
-  #
-  # @param value the value to set the attribute expose to.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def expose=(_arg0); end
 
-  # Returns the value of attribute headers.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def headers; end
 
-  # Sets the attribute headers
-  #
-  # @param value the value to set the attribute headers to.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def headers=(_arg0); end
 
-  # Returns the value of attribute if_proc.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def if_proc; end
 
-  # Sets the attribute if_proc
-  #
-  # @param value the value to set the attribute if_proc to.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def if_proc=(_arg0); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:43
   def match?(path, env); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:39
   def matches_path?(path); end
 
-  # Returns the value of attribute max_age.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def max_age; end
 
-  # Sets the attribute max_age
-  #
-  # @param value the value to set the attribute max_age to.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def max_age=(_arg0); end
 
-  # Returns the value of attribute methods.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def methods; end
 
-  # Sets the attribute methods
-  #
-  # @param value the value to set the attribute methods to.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def methods=(_arg0); end
 
-  # Returns the value of attribute path.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def path; end
 
-  # Sets the attribute path
-  #
-  # @param value the value to set the attribute path to.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def path=(_arg0); end
 
-  # Returns the value of attribute pattern.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def pattern; end
 
-  # Sets the attribute pattern
-  #
-  # @param value the value to set the attribute pattern to.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def pattern=(_arg0); end
 
@@ -206,22 +149,14 @@ class Rack::Cors::Resource
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:61
   def to_headers(env); end
 
-  # Returns the value of attribute vary_headers.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def vary_headers; end
 
-  # Sets the attribute vary_headers
-  #
-  # @param value the value to set the attribute vary_headers to.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:10
   def vary_headers=(_arg0); end
 
   protected
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:90
   def allow_headers?(request_headers); end
 
@@ -237,8 +172,6 @@ class Rack::Cors::Resource
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:78
   def origin_for_response_header(origin); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resource.rb:74
   def public_resource?; end
 
@@ -260,13 +193,9 @@ end
 
 # pkg:gem/rack-cors#lib/rack/cors/resources.rb:7
 class Rack::Cors::Resources
-  # @return [Resources] a new instance of Resources
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resources.rb:10
   def initialize; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resources.rb:39
   def allow_origin?(source, env = T.unsafe(nil)); end
 
@@ -276,8 +205,6 @@ class Rack::Cors::Resources
   # pkg:gem/rack-cors#lib/rack/cors/resources.rb:16
   def origins(*args, &blk); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resources.rb:35
   def public_resources?; end
 
@@ -287,8 +214,6 @@ class Rack::Cors::Resources
   # pkg:gem/rack-cors#lib/rack/cors/resources.rb:57
   def resource_for_path(path); end
 
-  # Returns the value of attribute resources.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/resources.rb:8
   def resources; end
 end
@@ -298,52 +223,30 @@ class Rack::Cors::Result
   # pkg:gem/rack-cors#lib/rack/cors/result.rb:51
   def append_header(headers); end
 
-  # Returns the value of attribute hit.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/result.rb:15
   def hit; end
 
-  # Sets the attribute hit
-  #
-  # @param value the value to set the attribute hit to.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/result.rb:15
   def hit=(_arg0); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-cors#lib/rack/cors/result.rb:17
   def hit?; end
 
   # pkg:gem/rack-cors#lib/rack/cors/result.rb:25
   def miss(reason); end
 
-  # Returns the value of attribute miss_reason.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/result.rb:15
   def miss_reason; end
 
-  # Sets the attribute miss_reason
-  #
-  # @param value the value to set the attribute miss_reason to.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/result.rb:15
   def miss_reason=(_arg0); end
 
-  # Returns the value of attribute preflight.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/result.rb:15
   def preflight; end
 
-  # Sets the attribute preflight
-  #
-  # @param value the value to set the attribute preflight to.
-  #
   # pkg:gem/rack-cors#lib/rack/cors/result.rb:15
   def preflight=(_arg0); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rack-cors#lib/rack/cors/result.rb:21
   def preflight?; end
 

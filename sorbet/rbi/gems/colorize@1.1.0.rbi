@@ -40,8 +40,6 @@ module Colorize::ClassMethods
   # pkg:gem/colorize#lib/colorize/class_methods.rb:150
   def color_codes; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/colorize#lib/colorize/class_methods.rb:225
   def color_exist?(color); end
 
@@ -136,8 +134,6 @@ module Colorize::InstanceMethods
   def colorize(params); end
 
   # Return true if string is colorized
-  #
-  # @return [Boolean]
   #
   # pkg:gem/colorize#lib/colorize/instance_methods.rb:43
   def colorized?; end

@@ -26,7 +26,7 @@ module FileUtils
   # pkg:gem/rake#lib/rake/file_utils.rb:103
   def ruby(*args, **options, &block); end
 
-  # Attempt to do a normal file link, but fall back to a copy if the link
+  #  Attempt to do a normal file link, but fall back to a copy if the link
   #  fails.
   #
   # pkg:gem/rake#lib/rake/file_utils.rb:115
@@ -112,6 +112,29 @@ class Module
   def rake_extension(method); end
 end
 
+# --
+# Copyright 2003-2010 by Jim Weirich (jim.weirich@gmail.com)
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+# ++
+# :stopdoc:
+#
 # pkg:gem/rake#lib/rake.rb:24
 module Rake
   extend ::FileUtils::StreamUtils_
@@ -188,8 +211,6 @@ class Rake::Application
   include ::Rake::TraceOutput
 
   # Initialize a Rake::Application object.
-  #
-  # @return [Application] a new instance of Application
   #
   # pkg:gem/rake#lib/rake/application.rb:50
   def initialize; end
@@ -288,8 +309,6 @@ class Rake::Application
   # pkg:gem/rake#lib/rake/application.rb:669
   def handle_options(argv); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/application.rb:256
   def has_cause?(ex); end
 
@@ -432,8 +451,6 @@ class Rake::Application
   # We will truncate output if we are outputting to a TTY or if we've been
   # given an explicit column width to honor
   #
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/application.rb:318
   def truncate_output?; end
 
@@ -444,18 +461,12 @@ class Rake::Application
 
   # True if we are outputting to TTY, false otherwise
   #
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/application.rb:312
   def tty_output?; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/application.rb:386
   def unix?; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/application.rb:391
   def windows?; end
 
@@ -465,8 +476,6 @@ class Rake::Application
   def glob(path, &block); end
 
   # Does the exception have a task invocation chain?
-  #
-  # @return [Boolean]
   #
   # pkg:gem/rake#lib/rake/application.rb:292
   def has_chain?(exception); end
@@ -876,8 +885,6 @@ end
 class Rake::FileCreationTask < ::Rake::FileTask
   # Is this file task needed?  Yes if it doesn't exist.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/file_creation_task.rb:14
   def needed?; end
 
@@ -916,10 +923,6 @@ class Rake::FileList
   #     fl.exclude(/\bCVS\b/)
   #   end
   #
-  # @return [FileList] a new instance of FileList
-  # @yield [_self]
-  # @yieldparam _self [Rake::FileList] the object that the method was called on
-  #
   # pkg:gem/rake#lib/rake/file_list.rb:99
   def initialize(*patterns); end
 
@@ -954,13 +957,6 @@ class Rake::FileList
   # pkg:gem/rake#lib/rake/file_list.rb:76
   def []=(*args, &block); end
 
-  # Add file names defined by glob patterns to the file list.  If an array
-  # is given, add each element of the array.
-  #
-  # Example:
-  #   file_list.include("*.java", "*.cfg")
-  #   file_list.include %w( math.c lib.h *.o )
-  #
   # pkg:gem/rake#lib/rake/file_list.rb:128
   def add(*filenames); end
 
@@ -1123,8 +1119,6 @@ class Rake::FileList
   # confusion. If you were using "FileList#exclude?" in your user
   # code, you will need to update.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/file_list.rb:364
   def excluded_from_list?(fn); end
 
@@ -1251,8 +1245,6 @@ class Rake::FileList
 
   # Lie about our class.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/file_list.rb:187
   def is_a?(klass); end
 
@@ -1262,10 +1254,6 @@ class Rake::FileList
   # pkg:gem/rake#lib/rake/file_list.rb:76
   def keep_if(*args, &block); end
 
-  # Lie about our class.
-  #
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/file_list.rb:190
   def kind_of?(klass); end
 
@@ -1586,8 +1574,6 @@ class Rake::FileTask < ::Rake::Task
   # Is this file task needed?  Yes if it doesn't exist, or if its time stamp
   # is out of date.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/file_task.rb:16
   def needed?; end
 
@@ -1599,8 +1585,6 @@ class Rake::FileTask < ::Rake::Task
   private
 
   # Are there any prerequisites with a later time than the given time stamp?
-  #
-  # @return [Boolean]
   #
   # pkg:gem/rake#lib/rake/file_task.rb:36
   def out_of_date?(stamp); end
@@ -1711,8 +1695,6 @@ module Rake::FileUtilsExt
   # +optdecl+.  An ArgumentError exception is thrown if non-declared
   # options are found.
   #
-  # @raise [ArgumentError]
-  #
   # pkg:gem/rake#lib/rake/file_utils_ext.rb:124
   def rake_check_options(options, *optdecl); end
 
@@ -1787,27 +1769,15 @@ module Rake::FileUtilsExt
   def when_writing(msg = T.unsafe(nil)); end
 
   class << self
-    # Returns the value of attribute nowrite_flag.
-    #
     # pkg:gem/rake#lib/rake/file_utils_ext.rb:14
     def nowrite_flag; end
 
-    # Sets the attribute nowrite_flag
-    #
-    # @param value the value to set the attribute nowrite_flag to.
-    #
     # pkg:gem/rake#lib/rake/file_utils_ext.rb:14
     def nowrite_flag=(_arg0); end
 
-    # Returns the value of attribute verbose_flag.
-    #
     # pkg:gem/rake#lib/rake/file_utils_ext.rb:14
     def verbose_flag; end
 
-    # Sets the attribute verbose_flag
-    #
-    # @param value the value to set the attribute verbose_flag to.
-    #
     # pkg:gem/rake#lib/rake/file_utils_ext.rb:14
     def verbose_flag=(_arg0); end
   end
@@ -1828,8 +1798,6 @@ class Rake::InvocationChain < ::Rake::LinkedList
   def append(invocation); end
 
   # Is the invocation already in the chain?
-  #
-  # @return [Boolean]
   #
   # pkg:gem/rake#lib/rake/invocation_chain.rb:9
   def member?(invocation); end
@@ -1862,8 +1830,6 @@ class Rake::InvocationChain::EmptyInvocationChain < ::Rake::LinkedList::EmptyLin
   # pkg:gem/rake#lib/rake/invocation_chain.rb:46
   def append(invocation); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/invocation_chain.rb:42
   def member?(obj); end
 
@@ -1923,8 +1889,6 @@ end
 class Rake::LinkedList
   include ::Enumerable
 
-  # @return [LinkedList] a new instance of LinkedList
-  #
   # pkg:gem/rake#lib/rake/linked_list.rb:84
   def initialize(head, tail = T.unsafe(nil)); end
 
@@ -1949,13 +1913,9 @@ class Rake::LinkedList
   # object not empty by default
   # You should consider overriding this method if you implement your own .make method
   #
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/linked_list.rb:20
   def empty?; end
 
-  # Returns the value of attribute head.
-  #
   # pkg:gem/rake#lib/rake/linked_list.rb:8
   def head; end
 
@@ -1964,8 +1924,6 @@ class Rake::LinkedList
   # pkg:gem/rake#lib/rake/linked_list.rb:42
   def inspect; end
 
-  # Returns the value of attribute tail.
-  #
   # pkg:gem/rake#lib/rake/linked_list.rb:8
   def tail; end
 
@@ -2005,13 +1963,9 @@ Rake::LinkedList::EMPTY = T.let(T.unsafe(nil), Rake::LinkedList::EmptyLinkedList
 #
 # pkg:gem/rake#lib/rake/linked_list.rb:95
 class Rake::LinkedList::EmptyLinkedList < ::Rake::LinkedList
-  # @return [EmptyLinkedList] a new instance of EmptyLinkedList
-  #
   # pkg:gem/rake#lib/rake/linked_list.rb:98
   def initialize; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/linked_list.rb:101
   def empty?; end
 
@@ -2040,8 +1994,6 @@ class Rake::NameSpace
   # Create a namespace lookup object using the given task manager
   # and the list of scopes.
   #
-  # @return [NameSpace] a new instance of NameSpace
-  #
   # pkg:gem/rake#lib/rake/name_space.rb:12
   def initialize(task_manager, scope_list); end
 
@@ -2065,243 +2017,123 @@ end
 #
 # pkg:gem/rake#lib/rake/options.rb:8
 class Rake::Options
-  # Returns the value of attribute always_multitask.
-  #
   # pkg:gem/rake#lib/rake/options.rb:9
   def always_multitask; end
 
-  # Sets the attribute always_multitask
-  #
-  # @param value the value to set the attribute always_multitask to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:9
   def always_multitask=(_arg0); end
 
-  # Returns the value of attribute backtrace.
-  #
   # pkg:gem/rake#lib/rake/options.rb:10
   def backtrace; end
 
-  # Sets the attribute backtrace
-  #
-  # @param value the value to set the attribute backtrace to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:10
   def backtrace=(_arg0); end
 
-  # Returns the value of attribute build_all.
-  #
   # pkg:gem/rake#lib/rake/options.rb:11
   def build_all; end
 
-  # Sets the attribute build_all
-  #
-  # @param value the value to set the attribute build_all to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:11
   def build_all=(_arg0); end
 
-  # Returns the value of attribute dryrun.
-  #
   # pkg:gem/rake#lib/rake/options.rb:12
   def dryrun; end
 
-  # Sets the attribute dryrun
-  #
-  # @param value the value to set the attribute dryrun to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:12
   def dryrun=(_arg0); end
 
-  # Returns the value of attribute ignore_deprecate.
-  #
   # pkg:gem/rake#lib/rake/options.rb:13
   def ignore_deprecate; end
 
-  # Sets the attribute ignore_deprecate
-  #
-  # @param value the value to set the attribute ignore_deprecate to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:13
   def ignore_deprecate=(_arg0); end
 
-  # Returns the value of attribute ignore_system.
-  #
   # pkg:gem/rake#lib/rake/options.rb:14
   def ignore_system; end
 
-  # Sets the attribute ignore_system
-  #
-  # @param value the value to set the attribute ignore_system to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:14
   def ignore_system=(_arg0); end
 
-  # Returns the value of attribute job_stats.
-  #
   # pkg:gem/rake#lib/rake/options.rb:15
   def job_stats; end
 
-  # Sets the attribute job_stats
-  #
-  # @param value the value to set the attribute job_stats to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:15
   def job_stats=(_arg0); end
 
-  # Returns the value of attribute load_system.
-  #
   # pkg:gem/rake#lib/rake/options.rb:16
   def load_system; end
 
-  # Sets the attribute load_system
-  #
-  # @param value the value to set the attribute load_system to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:16
   def load_system=(_arg0); end
 
-  # Returns the value of attribute nosearch.
-  #
   # pkg:gem/rake#lib/rake/options.rb:17
   def nosearch; end
 
-  # Sets the attribute nosearch
-  #
-  # @param value the value to set the attribute nosearch to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:17
   def nosearch=(_arg0); end
 
-  # Returns the value of attribute rakelib.
-  #
   # pkg:gem/rake#lib/rake/options.rb:18
   def rakelib; end
 
-  # Sets the attribute rakelib
-  #
-  # @param value the value to set the attribute rakelib to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:18
   def rakelib=(_arg0); end
 
-  # Returns the value of attribute show_all_tasks.
-  #
   # pkg:gem/rake#lib/rake/options.rb:19
   def show_all_tasks; end
 
-  # Sets the attribute show_all_tasks
-  #
-  # @param value the value to set the attribute show_all_tasks to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:19
   def show_all_tasks=(_arg0); end
 
-  # Returns the value of attribute show_prereqs.
-  #
   # pkg:gem/rake#lib/rake/options.rb:20
   def show_prereqs; end
 
-  # Sets the attribute show_prereqs
-  #
-  # @param value the value to set the attribute show_prereqs to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:20
   def show_prereqs=(_arg0); end
 
-  # Returns the value of attribute show_task_pattern.
-  #
   # pkg:gem/rake#lib/rake/options.rb:21
   def show_task_pattern; end
 
-  # Sets the attribute show_task_pattern
-  #
-  # @param value the value to set the attribute show_task_pattern to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:21
   def show_task_pattern=(_arg0); end
 
-  # Returns the value of attribute show_tasks.
-  #
   # pkg:gem/rake#lib/rake/options.rb:22
   def show_tasks; end
 
-  # Sets the attribute show_tasks
-  #
-  # @param value the value to set the attribute show_tasks to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:22
   def show_tasks=(_arg0); end
 
-  # Returns the value of attribute silent.
-  #
   # pkg:gem/rake#lib/rake/options.rb:23
   def silent; end
 
-  # Sets the attribute silent
-  #
-  # @param value the value to set the attribute silent to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:23
   def silent=(_arg0); end
 
-  # Returns the value of attribute suppress_backtrace_pattern.
-  #
   # pkg:gem/rake#lib/rake/options.rb:24
   def suppress_backtrace_pattern; end
 
-  # Sets the attribute suppress_backtrace_pattern
-  #
-  # @param value the value to set the attribute suppress_backtrace_pattern to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:24
   def suppress_backtrace_pattern=(_arg0); end
 
-  # Returns the value of attribute thread_pool_size.
-  #
   # pkg:gem/rake#lib/rake/options.rb:25
   def thread_pool_size; end
 
-  # Sets the attribute thread_pool_size
-  #
-  # @param value the value to set the attribute thread_pool_size to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:25
   def thread_pool_size=(_arg0); end
 
-  # Returns the value of attribute trace.
-  #
   # pkg:gem/rake#lib/rake/options.rb:26
   def trace; end
 
-  # Sets the attribute trace
-  #
-  # @param value the value to set the attribute trace to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:26
   def trace=(_arg0); end
 
-  # Returns the value of attribute trace_output.
-  #
   # pkg:gem/rake#lib/rake/options.rb:27
   def trace_output; end
 
-  # Sets the attribute trace_output
-  #
-  # @param value the value to set the attribute trace_output to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:27
   def trace_output=(_arg0); end
 
-  # Returns the value of attribute trace_rules.
-  #
   # pkg:gem/rake#lib/rake/options.rb:28
   def trace_rules; end
 
-  # Sets the attribute trace_rules
-  #
-  # @param value the value to set the attribute trace_rules to.
-  #
   # pkg:gem/rake#lib/rake/options.rb:28
   def trace_rules=(_arg0); end
 end
@@ -2337,8 +2169,6 @@ end
 class Rake::Promise
   # Create a promise to do the chore specified by the block.
   #
-  # @return [Promise] a new instance of Promise
-  #
   # pkg:gem/rake#lib/rake/promise.rb:17
   def initialize(args, &block); end
 
@@ -2370,8 +2200,6 @@ class Rake::Promise
 
   # Are we done with the promise
   #
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/promise.rb:83
   def complete?; end
 
@@ -2382,14 +2210,10 @@ class Rake::Promise
 
   # Did the promise throw an error
   #
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/promise.rb:78
   def error?; end
 
   # Do we have a result for the promise
-  #
-  # @return [Boolean]
   #
   # pkg:gem/rake#lib/rake/promise.rb:73
   def result?; end
@@ -2407,24 +2231,18 @@ Rake::Promise::NOT_SET = T.let(T.unsafe(nil), Object)
 #
 # pkg:gem/rake#lib/rake/pseudo_status.rb:6
 class Rake::PseudoStatus
-  # @return [PseudoStatus] a new instance of PseudoStatus
-  #
   # pkg:gem/rake#lib/rake/pseudo_status.rb:9
   def initialize(code = T.unsafe(nil)); end
 
   # pkg:gem/rake#lib/rake/pseudo_status.rb:17
   def >>(n); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/pseudo_status.rb:25
   def exited?; end
 
   # pkg:gem/rake#lib/rake/pseudo_status.rb:7
   def exitstatus; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/pseudo_status.rb:21
   def stopped?; end
 
@@ -2436,8 +2254,6 @@ end
 #
 # pkg:gem/rake#lib/rake/rule_recursion_overflow_error.rb:5
 class Rake::RuleRecursionOverflowError < ::StandardError
-  # @return [RuleRecursionOverflowError] a new instance of RuleRecursionOverflowError
-  #
   # pkg:gem/rake#lib/rake/rule_recursion_overflow_error.rb:6
   def initialize(*args); end
 
@@ -2496,8 +2312,6 @@ end
 class Rake::Task
   # Create a task named +task_name+ with no actions or prerequisites. Use
   # +enhance+ to add actions and prerequisites.
-  #
-  # @return [Task] a new instance of Task
   #
   # pkg:gem/rake#lib/rake/task.rb:99
   def initialize(task_name, app); end
@@ -2639,8 +2453,6 @@ class Rake::Task
 
   # Is this task needed?
   #
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/task.rb:286
   def needed?; end
 
@@ -2649,8 +2461,6 @@ class Rake::Task
   # pkg:gem/rake#lib/rake/task.rb:21
   def order_only_prerequisites; end
 
-  # List of prerequisites for a task.
-  #
   # pkg:gem/rake#lib/rake/task.rb:18
   def prereqs; end
 
@@ -2686,6 +2496,8 @@ class Rake::Task
   # pkg:gem/rake#lib/rake/task.rb:93
   def source; end
 
+  # List of sources for task.
+  #
   # pkg:gem/rake#lib/rake/task.rb:52
   def sources; end
 
@@ -2795,8 +2607,6 @@ class Rake::Task
 
     # TRUE if the task name is already defined.
     #
-    # @return [Boolean]
-    #
     # pkg:gem/rake#lib/rake/task.rb:409
     def task_defined?(task_name); end
 
@@ -2820,8 +2630,6 @@ class Rake::TaskArguments
 
   # Create a TaskArgument object with a list of argument +names+ and a set
   # of associated +values+.  +parent+ is the parent argument object.
-  #
-  # @return [TaskArguments] a new instance of TaskArguments
   #
   # pkg:gem/rake#lib/rake/task_arguments.rb:15
   def initialize(names, values, parent = T.unsafe(nil)); end
@@ -2849,18 +2657,12 @@ class Rake::TaskArguments
 
   # Returns true if +key+ is one of the arguments
   #
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/task_arguments.rb:88
   def has_key?(key); end
 
   # pkg:gem/rake#lib/rake/task_arguments.rb:79
   def inspect; end
 
-  # Returns true if +key+ is one of the arguments
-  #
-  # @return [Boolean]
-  #
   # pkg:gem/rake#lib/rake/task_arguments.rb:91
   def key?(key); end
 
@@ -2909,17 +2711,6 @@ class Rake::TaskArguments
 
   # pkg:gem/rake#lib/rake/task_arguments.rb:103
   def lookup(name); end
-end
-
-# Base class for Task Libraries.
-#
-# pkg:gem/rake#lib/rake/tasklib.rb:7
-class Rake::TaskLib
-  include ::Rake::Cloneable
-  include ::FileUtils::StreamUtils_
-  include ::FileUtils
-  include ::Rake::FileUtilsExt
-  include ::Rake::DSL
 end
 
 # The TaskManager module is a mixin for managing tasks.
@@ -3096,8 +2887,6 @@ class Rake::ThreadHistoryDisplay
   include ::Rake::PrivateReader
   extend ::Rake::PrivateReader::ClassMethods
 
-  # @return [ThreadHistoryDisplay] a new instance of ThreadHistoryDisplay
-  #
   # pkg:gem/rake#lib/rake/thread_history_display.rb:11
   def initialize(stats); end
 
@@ -3123,8 +2912,6 @@ end
 class Rake::ThreadPool
   # Creates a ThreadPool object.  The +thread_count+ parameter is the size
   # of the pool.
-  #
-  # @return [ThreadPool] a new instance of ThreadPool
   #
   # pkg:gem/rake#lib/rake/thread_pool.rb:12
   def initialize(thread_count); end
@@ -3226,8 +3013,6 @@ module Rake::Win32
   class << self
     # True if running on a windows system.
     #
-    # @return [Boolean]
-    #
     # pkg:gem/rake#lib/rake/win32.rb:11
     def windows?; end
   end
@@ -3240,20 +3025,106 @@ RakeFileUtils = Rake::FileUtilsExt
 class String
   include ::Comparable
 
+  # Replace the file extension with +newext+.  If there is no extension on
+  # the string, append the new extension to the end.  If the new extension
+  # is not given, or is the empty string, remove any existing extension.
+  #
+  # +ext+ is a user added method for the String class.
+  #
+  # This String extension comes from Rake
+  #
   # pkg:gem/rake#lib/rake/ext/string.rb:14
   def ext(newext = T.unsafe(nil)); end
 
+  # Map the path according to the given specification.  The specification
+  # controls the details of the mapping.  The following special patterns are
+  # recognized:
+  #
+  # <tt>%p</tt> :: The complete path.
+  # <tt>%f</tt> :: The base file name of the path, with its file extension,
+  #                but without any directories.
+  # <tt>%n</tt> :: The file name of the path without its file extension.
+  # <tt>%d</tt> :: The directory list of the path.
+  # <tt>%x</tt> :: The file extension of the path.  An empty string if there
+  #                is no extension.
+  # <tt>%X</tt> :: Everything *but* the file extension.
+  # <tt>%s</tt> :: The alternate file separator if defined, otherwise use #
+  #                the standard file separator.
+  # <tt>%%</tt> :: A percent sign.
+  #
+  # The <tt>%d</tt> specifier can also have a numeric prefix (e.g. '%2d').
+  # If the number is positive, only return (up to) +n+ directories in the
+  # path, starting from the left hand side.  If +n+ is negative, return (up
+  # to) +n+ directories from the right hand side of the path.
+  #
+  # Examples:
+  #
+  #   'a/b/c/d/file.txt'.pathmap("%2d")   => 'a/b'
+  #   'a/b/c/d/file.txt'.pathmap("%-2d")  => 'c/d'
+  #
+  # Also the <tt>%d</tt>, <tt>%p</tt>, <tt>%f</tt>, <tt>%n</tt>,
+  # <tt>%x</tt>, and <tt>%X</tt> operators can take a pattern/replacement
+  # argument to perform simple string substitutions on a particular part of
+  # the path.  The pattern and replacement are separated by a comma and are
+  # enclosed by curly braces.  The replacement spec comes after the %
+  # character but before the operator letter.  (e.g. "%{old,new}d").
+  # Multiple replacement specs should be separated by semi-colons (e.g.
+  # "%{old,new;src,bin}d").
+  #
+  # Regular expressions may be used for the pattern, and back refs may be
+  # used in the replacement text.  Curly braces, commas and semi-colons are
+  # excluded from both the pattern and replacement text (let's keep parsing
+  # reasonable).
+  #
+  # For example:
+  #
+  #    "src/org/onestepback/proj/A.java".pathmap("%{^src,class}X.class")
+  #
+  # returns:
+  #
+  #    "class/org/onestepback/proj/A.class"
+  #
+  # If the replacement text is '*', then a block may be provided to perform
+  # some arbitrary calculation for the replacement.
+  #
+  # For example:
+  #
+  #   "/path/to/file.TXT".pathmap("%X%{.*,*}x") { |ext|
+  #      ext.downcase
+  #   }
+  #
+  # Returns:
+  #
+  #  "/path/to/file.txt"
+  #
+  # This String extension comes from Rake
+  #
   # pkg:gem/rake#lib/rake/ext/string.rb:138
   def pathmap(spec = T.unsafe(nil), &block); end
 
   protected
 
+  # Explode a path into individual components.  Used by +pathmap+.
+  #
+  # This String extension comes from Rake
+  #
   # pkg:gem/rake#lib/rake/ext/string.rb:27
   def pathmap_explode; end
 
+  # Extract a partial path from the path.  Include +n+ directories from the
+  # front end (left hand side) if +n+ is positive.  Include |+n+|
+  # directories from the back end (right hand side) if +n+ is negative.
+  #
+  # This String extension comes from Rake
+  #
   # pkg:gem/rake#lib/rake/ext/string.rb:41
   def pathmap_partial(n); end
 
+  # Perform the pathmap replacement operations on the given path. The
+  # patterns take the form 'pat1,rep1;pat2,rep2...'.
+  #
+  # This String extension comes from Rake
+  #
   # pkg:gem/rake#lib/rake/ext/string.rb:59
   def pathmap_replace(patterns, &block); end
 end

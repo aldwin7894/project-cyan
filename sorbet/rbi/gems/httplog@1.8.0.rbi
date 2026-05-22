@@ -20,15 +20,9 @@ module HttpLog
     # pkg:gem/httplog#lib/httplog/http_log.rb:18
     def configuration; end
 
-    # Sets the attribute configuration
-    #
-    # @param value the value to set the attribute configuration to.
-    #
     # pkg:gem/httplog#lib/httplog/http_log.rb:16
     def configuration=(_arg0); end
 
-    # @yield [configuration]
-    #
     # pkg:gem/httplog#lib/httplog/http_log.rb:27
     def configure; end
 
@@ -59,13 +53,9 @@ module HttpLog
     # pkg:gem/httplog#lib/httplog/http_log.rb:87
     def log_status(status); end
 
-    # @return [Boolean]
-    #
     # pkg:gem/httplog#lib/httplog/http_log.rb:57
     def masked_body_url?(url); end
 
-    # @raise [BodyParsingError]
-    #
     # pkg:gem/httplog#lib/httplog/http_log.rb:115
     def parse_body(body, mask_body, encoding, content_type); end
 
@@ -75,8 +65,6 @@ module HttpLog
     # pkg:gem/httplog#lib/httplog/http_log.rb:173
     def transform_response_code(response_code_name); end
 
-    # @return [Boolean]
-    #
     # pkg:gem/httplog#lib/httplog/http_log.rb:51
     def url_approved?(url); end
 
@@ -118,8 +106,6 @@ module HttpLog
     # pkg:gem/httplog#lib/httplog/http_log.rb:315
     def string_classes; end
 
-    # @return [Boolean]
-    #
     # pkg:gem/httplog#lib/httplog/http_log.rb:346
     def text_based?(content_type); end
 
@@ -133,321 +119,164 @@ class HttpLog::BodyParsingError < ::StandardError; end
 
 # pkg:gem/httplog#lib/httplog/configuration.rb:4
 class HttpLog::Configuration
-  # @return [Configuration] a new instance of Configuration
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:30
   def initialize; end
 
-  # Returns the value of attribute color.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def color; end
 
-  # Sets the attribute color
-  #
-  # @param value the value to set the attribute color to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def color=(_arg0); end
 
-  # Returns the value of attribute compact_log.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def compact_log; end
 
-  # Sets the attribute compact_log
-  #
-  # @param value the value to set the attribute compact_log to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def compact_log=(_arg0); end
 
-  # Returns the value of attribute enabled.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def enabled; end
 
-  # Sets the attribute enabled
-  #
-  # @param value the value to set the attribute enabled to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def enabled=(_arg0); end
 
-  # Returns the value of attribute filter_parameters.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def filter_parameters; end
 
-  # Sets the attribute filter_parameters
-  #
-  # @param value the value to set the attribute filter_parameters to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def filter_parameters=(_arg0); end
 
-  # Returns the value of attribute graylog_formatter.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def graylog_formatter; end
 
-  # Sets the attribute graylog_formatter
-  #
-  # @param value the value to set the attribute graylog_formatter to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def graylog_formatter=(_arg0); end
 
-  # Returns the value of attribute json_log.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def json_log; end
 
-  # Sets the attribute json_log
-  #
-  # @param value the value to set the attribute json_log to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def json_log=(_arg0); end
 
-  # Returns the value of attribute json_parser.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def json_parser; end
 
-  # Sets the attribute json_parser
-  #
-  # @param value the value to set the attribute json_parser to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def json_parser=(_arg0); end
 
-  # Returns the value of attribute log_benchmark.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def log_benchmark; end
 
-  # Sets the attribute log_benchmark
-  #
-  # @param value the value to set the attribute log_benchmark to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def log_benchmark=(_arg0); end
 
-  # Returns the value of attribute log_connect.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def log_connect; end
 
-  # Sets the attribute log_connect
-  #
-  # @param value the value to set the attribute log_connect to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def log_connect=(_arg0); end
 
-  # Returns the value of attribute log_data.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def log_data; end
 
-  # Sets the attribute log_data
-  #
-  # @param value the value to set the attribute log_data to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def log_data=(_arg0); end
 
-  # Returns the value of attribute log_headers.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def log_headers; end
 
-  # Sets the attribute log_headers
-  #
-  # @param value the value to set the attribute log_headers to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def log_headers=(_arg0); end
 
-  # Returns the value of attribute log_request.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def log_request; end
 
-  # Sets the attribute log_request
-  #
-  # @param value the value to set the attribute log_request to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def log_request=(_arg0); end
 
-  # Returns the value of attribute log_response.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def log_response; end
 
-  # Sets the attribute log_response
-  #
-  # @param value the value to set the attribute log_response to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def log_response=(_arg0); end
 
-  # Returns the value of attribute log_status.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def log_status; end
 
-  # Sets the attribute log_status
-  #
-  # @param value the value to set the attribute log_status to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def log_status=(_arg0); end
 
-  # Returns the value of attribute logger.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def logger; end
 
-  # Sets the attribute logger
-  #
-  # @param value the value to set the attribute logger to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def logger=(_arg0); end
 
-  # Returns the value of attribute logger_method.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def logger_method; end
 
-  # Sets the attribute logger_method
-  #
-  # @param value the value to set the attribute logger_method to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def logger_method=(_arg0); end
 
-  # Returns the value of attribute prefix.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def prefix; end
 
-  # Sets the attribute prefix
-  #
-  # @param value the value to set the attribute prefix to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def prefix=(_arg0); end
 
-  # Returns the value of attribute prefix_data_lines.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def prefix_data_lines; end
 
-  # Sets the attribute prefix_data_lines
-  #
-  # @param value the value to set the attribute prefix_data_lines to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def prefix_data_lines=(_arg0); end
 
-  # Returns the value of attribute prefix_line_numbers.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def prefix_line_numbers; end
 
-  # Sets the attribute prefix_line_numbers
-  #
-  # @param value the value to set the attribute prefix_line_numbers to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def prefix_line_numbers=(_arg0); end
 
-  # Returns the value of attribute prefix_response_lines.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def prefix_response_lines; end
 
-  # Sets the attribute prefix_response_lines
-  #
-  # @param value the value to set the attribute prefix_response_lines to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def prefix_response_lines=(_arg0); end
 
-  # Returns the value of attribute severity.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def severity; end
 
-  # Sets the attribute severity
-  #
-  # @param value the value to set the attribute severity to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def severity=(_arg0); end
 
-  # Returns the value of attribute url_allowlist_pattern.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def url_allowlist_pattern; end
 
-  # Sets the attribute url_allowlist_pattern
-  #
-  # @param value the value to set the attribute url_allowlist_pattern to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def url_allowlist_pattern=(_arg0); end
 
-  # Returns the value of attribute url_denylist_pattern.
   # Backward compatibility aliases to version prior to 1.7.2
   #
   # pkg:gem/httplog#lib/httplog/configuration.rb:58
   def url_blacklist_pattern; end
 
-  # Sets the attribute url_denylist_pattern
-  #
-  # @param value the value to set the attribute url_denylist_pattern to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:59
   def url_blacklist_pattern=(_arg0); end
 
-  # Returns the value of attribute url_denylist_pattern.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def url_denylist_pattern; end
 
-  # Sets the attribute url_denylist_pattern
-  #
-  # @param value the value to set the attribute url_denylist_pattern to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def url_denylist_pattern=(_arg0); end
 
-  # Returns the value of attribute url_masked_body_pattern.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def url_masked_body_pattern; end
 
-  # Sets the attribute url_masked_body_pattern
-  #
-  # @param value the value to set the attribute url_masked_body_pattern to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:5
   def url_masked_body_pattern=(_arg0); end
 
-  # Returns the value of attribute url_allowlist_pattern.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:60
   def url_whitelist_pattern; end
 
-  # Sets the attribute url_allowlist_pattern
-  #
-  # @param value the value to set the attribute url_allowlist_pattern to.
-  #
   # pkg:gem/httplog#lib/httplog/configuration.rb:61
   def url_whitelist_pattern=(_arg0); end
 end

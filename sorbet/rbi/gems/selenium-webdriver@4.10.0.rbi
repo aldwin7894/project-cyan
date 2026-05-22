@@ -5,6 +5,2065 @@
 # Please instead update this file by running `bin/tapioca gem selenium-webdriver`.
 
 
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# TODO: Deprecated; Delete after 4.0 release
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# TODO: Deprecated; Delete after 4.0 release
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
+# A credential stored in a virtual authenticator.
+# @see https://w3c.github.io/webauthn/#credential-parameters
+#
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
+# Options for the creation of virtual authenticators.
+# @see http://w3c.github.io/webauthn/#sctn-automation
+#
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# Licensed to the Software Freedom Conservancy (SFC) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/atoms.rb:20
 module Selenium; end
 
@@ -13,24 +2072,33 @@ module Selenium::WebDriver
   class << self
     # Create a new Driver instance with the correct bridge for the given browser
     #
-    # One special argument is not passed on to the bridges, :listener.
-    # You can pass a listener for this option to get notified of WebDriver events.
-    # The passed object must respond to #call or implement the methods from AbstractEventListener.
+    # @overload for(browser)
+    #   @param [:ie, :internet_explorer, :edge, :remote, :chrome, :firefox, :ff, :safari] browser The browser to
+    #     create the driver for
+    # @overload for(browser, opts)
+    #   @param [:ie, :internet_explorer, :edge, :remote, :chrome, :firefox, :ff, :safari] browser The browser to
+    #     create the driver for
+    #   @param [Hash] opts Options passed to Driver.new
+    #
+    # @return [Driver]
+    #
+    # @see Selenium::WebDriver::Remote::Driver
+    # @see Selenium::WebDriver::Firefox::Driver
+    # @see Selenium::WebDriver::IE::Driver
+    # @see Selenium::WebDriver::Edge::Driver
+    # @see Selenium::WebDriver::Chrome::Driver
+    # @see Selenium::WebDriver::Safari::Driver
     #
     # @example
     #
     #   WebDriver.for :firefox, profile: 'some-profile'
     #   WebDriver.for :firefox, profile: Profile.new
     #   WebDriver.for :remote,  url: "http://localhost:4444/wd/hub", capabilities: caps
-    # @overload for
-    # @overload for
-    # @return [Driver]
-    # @see Selenium::WebDriver::Chrome::Driver
-    # @see Selenium::WebDriver::Edge::Driver
-    # @see Selenium::WebDriver::Firefox::Driver
-    # @see Selenium::WebDriver::IE::Driver
-    # @see Selenium::WebDriver::Remote::Driver
-    # @see Selenium::WebDriver::Safari::Driver
+    #
+    # One special argument is not passed on to the bridges, :listener.
+    # You can pass a listener for this option to get notified of WebDriver events.
+    # The passed object must respond to #call or implement the methods from AbstractEventListener.
+    #
     # @see Selenium::WebDriver::Support::AbstractEventListener
     #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:87
@@ -61,13 +2129,13 @@ class Selenium::WebDriver::ActionBuilder
   # the mouse is moving. Keep in mind that pauses must be added for other devices in order to line up the actions
   # correctly when using asynchronous.
   #
-  # @param async [Boolean] Whether to perform the actions asynchronously per device.
-  # @param bridge [Selenium::WebDriver::Remote::Bridge] the bridge for the current driver instance.
-  # @param deprecated_async [Boolean] Whether to perform the actions asynchronously per device.
+  # @param [Selenium::WebDriver::Remote::Bridge] bridge the bridge for the current driver instance.
+  # @param [Selenium::WebDriver::Interactions::PointerInput] deprecated_mouse PointerInput for the mouse.
+  # @param [Selenium::WebDriver::Interactions::KeyInput] deprecated_keyboard KeyInput for the keyboard.
+  # @param [Boolean] deprecated_async Whether to perform the actions asynchronously per device.
   #   Defaults to false for backwards compatibility.
-  # @param deprecated_keyboard [Selenium::WebDriver::Interactions::KeyInput] KeyInput for the keyboard.
-  # @param deprecated_mouse [Selenium::WebDriver::Interactions::PointerInput] PointerInput for the mouse.
-  # @param devices [Array<Selenium::WebDriver::Interactions::InputDevices>] list of valid sources of input.
+  # @param [Array<Selenium::WebDriver::Interactions::InputDevices>] devices list of valid sources of input.
+  # @param [Boolean] async Whether to perform the actions asynchronously per device.
   # @return [ActionBuilder] A self reference.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:45
@@ -77,9 +2145,10 @@ class Selenium::WebDriver::ActionBuilder
   #
   # @example Add a key input device
   #
-  #   builder = device.action
-  #   builder.add_key_input('keyboard2')
-  # @param name [String] name for the device
+  #    builder = device.action
+  #    builder.add_key_input('keyboard2')
+  #
+  # @param [String] name name for the device
   # @return [Interactions::KeyInput] The key input added
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:84
@@ -89,10 +2158,11 @@ class Selenium::WebDriver::ActionBuilder
   #
   # @example Add a touch pointer input device
   #
-  #   builder = device.action
-  #   builder.add_pointer_input('touch', :touch)
-  # @param kind [Symbol] kind of pointer device to create
-  # @param name [String] name for the device
+  #    builder = device.action
+  #    builder.add_pointer_input('touch', :touch)
+  #
+  # @param [String] name name for the device
+  # @param [Symbol] kind kind of pointer device to create
   # @return [Interactions::PointerInput] The pointer input added
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:68
@@ -102,9 +2172,10 @@ class Selenium::WebDriver::ActionBuilder
   #
   # @example Add a wheel input device
   #
-  #   builder = device.action
-  #   builder.add_wheel_input('wheel2')
-  # @param name [String] name for the device
+  #    builder = device.action
+  #    builder.add_wheel_input('wheel2')
+  #
+  # @param [String] name name for the device
   # @return [Interactions::WheelInput] The wheel input added
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:100
@@ -117,15 +2188,14 @@ class Selenium::WebDriver::ActionBuilder
 
   # Retrieves the input device for the given name or type
   #
-  # @param name [String] name of the input device
-  # @param type [String] name of the input device
-  # @raise [ArgumentError]
+  # @param [String] name name of the input device
+  # @param [String] type name of the input device
   # @return [Selenium::WebDriver::Interactions::InputDevice] input device with given name or type
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:112
   def device(name: T.unsafe(nil), type: T.unsafe(nil)); end
 
-  # Returns the value of attribute devices.
+  # Actions specific to wheel inputs
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:27
   def devices; end
@@ -146,8 +2216,9 @@ class Selenium::WebDriver::ActionBuilder
   #   keyboard = action_builder.key_input
   #   el = driver.find_element(id: "some_id")
   #   driver.action.click(el).pause(keyboard).pause(keyboard).pause(keyboard).send_keys('keys').perform
-  # @param device [InputDevice] Input device to pause
-  # @param duration [Float] Duration to pause
+  #
+  # @param [InputDevice] device Input device to pause
+  # @param [Float] duration Duration to pause
   # @return [ActionBuilder] A self reference.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:166
@@ -161,9 +2232,10 @@ class Selenium::WebDriver::ActionBuilder
   #   keyboard = action_builder.key_input
   #   el = driver.find_element(id: "some_id")
   #   driver.action.click(el).pauses(keyboard, 3).send_keys('keys').perform
-  # @param device [InputDevice] Input device to pause
-  # @param duration [Float] Duration to pause
-  # @param number [Integer] of pauses to add for the device
+  #
+  # @param [InputDevice] device Input device to pause
+  # @param [Integer] number of pauses to add for the device
+  # @param [Float] duration Duration to pause
   # @return [ActionBuilder] A self reference.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:188
@@ -197,14 +2269,12 @@ class Selenium::WebDriver::ActionBuilder
 
   # Adds an InputDevice
   #
-  # @raise [TypeError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:241
   def add_input(device); end
 
   # Adds pauses for all devices but the given devices
   #
-  # @param action_devices [Array[InputDevice]] Array of Input Devices performing an action in this tick.
+  # @param [Array[InputDevice]] action_devices Array of Input Devices performing an action in this tick.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:231
   def tick(*action_devices); end
@@ -212,8 +2282,6 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/alert.rb:22
 class Selenium::WebDriver::Alert
-  # @return [Alert] a new instance of Alert
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/alert.rb:23
   def initialize(bridge); end
 
@@ -243,8 +2311,6 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi.rb:22
 class Selenium::WebDriver::BiDi
-  # @return [BiDi] a new instance of BiDi
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi.rb:27
   def initialize(url:); end
 
@@ -257,8 +2323,6 @@ class Selenium::WebDriver::BiDi
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi.rb:51
   def error_message(message); end
 
-  # @raise [Error::WebDriverError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi.rb:43
   def send_cmd(method, **params); end
 
@@ -268,64 +2332,36 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:23
 class Selenium::WebDriver::BiDi::BaseLogEntry
-  # @return [BaseLogEntry] a new instance of BaseLogEntry
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:26
   def initialize(level:, text:, timestamp:, stack_trace:); end
 
-  # Returns the value of attribute level.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:24
   def level; end
 
-  # Sets the attribute level
-  #
-  # @param value the value to set the attribute level to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:24
   def level=(_arg0); end
 
-  # Returns the value of attribute stack_trace.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:24
   def stack_trace; end
 
-  # Sets the attribute stack_trace
-  #
-  # @param value the value to set the attribute stack_trace to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:24
   def stack_trace=(_arg0); end
 
-  # Returns the value of attribute text.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:24
   def text; end
 
-  # Sets the attribute text
-  #
-  # @param value the value to set the attribute text to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:24
   def text=(_arg0); end
 
-  # Returns the value of attribute timestamp.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:24
   def timestamp; end
 
-  # Sets the attribute timestamp
-  #
-  # @param value the value to set the attribute timestamp to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:24
   def timestamp=(_arg0); end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context.rb:26
 class Selenium::WebDriver::BiDi::BrowsingContext
-  # @return [BrowsingContext] a new instance of BrowsingContext
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context.rb:35
   def initialize(driver:, browsing_context_id: T.unsafe(nil), type: T.unsafe(nil), reference_context: T.unsafe(nil)); end
 
@@ -335,15 +2371,9 @@ class Selenium::WebDriver::BiDi::BrowsingContext
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context.rb:65
   def get_tree(max_depth: T.unsafe(nil)); end
 
-  # Returns the value of attribute id.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context.rb:27
   def id; end
 
-  # Sets the attribute id
-  #
-  # @param value the value to set the attribute id to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context.rb:27
   def id=(_arg0); end
 
@@ -361,120 +2391,66 @@ Selenium::WebDriver::BiDi::BrowsingContext::READINESS_STATE = T.let(T.unsafe(nil
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:23
 class Selenium::WebDriver::BiDi::BrowsingContextInfo
-  # @return [BrowsingContextInfo] a new instance of BrowsingContextInfo
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:26
   def initialize(id:, url:, children:, parent_context:); end
 
-  # Returns the value of attribute children.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:24
   def children; end
 
-  # Sets the attribute children
-  #
-  # @param value the value to set the attribute children to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:24
   def children=(_arg0); end
 
-  # Returns the value of attribute id.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:24
   def id; end
 
-  # Sets the attribute id
-  #
-  # @param value the value to set the attribute id to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:24
   def id=(_arg0); end
 
-  # Returns the value of attribute parent_browsing_context.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:24
   def parent_browsing_context; end
 
-  # Sets the attribute parent_browsing_context
-  #
-  # @param value the value to set the attribute parent_browsing_context to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:24
   def parent_browsing_context=(_arg0); end
 
-  # Returns the value of attribute url.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:24
   def url; end
 
-  # Sets the attribute url
-  #
-  # @param value the value to set the attribute url to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:24
   def url=(_arg0); end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/console_log_entry.rb:23
 class Selenium::WebDriver::BiDi::ConsoleLogEntry < ::Selenium::WebDriver::BiDi::GenericLogEntry
-  # @return [ConsoleLogEntry] a new instance of ConsoleLogEntry
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/console_log_entry.rb:26
   def initialize(method:, realm:, args:, **opts); end
 
-  # Returns the value of attribute args.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/console_log_entry.rb:24
   def args; end
 
-  # Sets the attribute args
-  #
-  # @param value the value to set the attribute args to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/console_log_entry.rb:24
   def args=(_arg0); end
 
-  # Returns the value of attribute method.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/console_log_entry.rb:24
   def method; end
 
-  # Sets the attribute method
-  #
-  # @param value the value to set the attribute method to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/console_log_entry.rb:24
   def method=(_arg0); end
 
-  # Returns the value of attribute realm.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/console_log_entry.rb:24
   def realm; end
 
-  # Sets the attribute realm
-  #
-  # @param value the value to set the attribute realm to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/console_log_entry.rb:24
   def realm=(_arg0); end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/filter_by.rb:23
 class Selenium::WebDriver::BiDi::FilterBy
-  # @return [FilterBy] a new instance of FilterBy
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/filter_by.rb:26
   def initialize(level); end
 
-  # Returns the value of attribute level.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/filter_by.rb:24
   def level; end
 
-  # Sets the attribute level
-  #
-  # @param value the value to set the attribute level to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/filter_by.rb:24
   def level=(_arg0); end
 
@@ -486,48 +2462,30 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/generic_log_entry.rb:23
 class Selenium::WebDriver::BiDi::GenericLogEntry < ::Selenium::WebDriver::BiDi::BaseLogEntry
-  # @return [GenericLogEntry] a new instance of GenericLogEntry
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/generic_log_entry.rb:26
   def initialize(level:, text:, timestamp:, type:, stack_trace:); end
 
-  # Returns the value of attribute type.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/generic_log_entry.rb:24
   def type; end
 
-  # Sets the attribute type
-  #
-  # @param value the value to set the attribute type to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/generic_log_entry.rb:24
   def type=(_arg0); end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/javascript_log_entry.rb:23
 class Selenium::WebDriver::BiDi::JavascriptLogEntry < ::Selenium::WebDriver::BiDi::GenericLogEntry
-  # @return [JavascriptLogEntry] a new instance of JavascriptLogEntry
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/javascript_log_entry.rb:26
   def initialize(level:, text:, timestamp:, type:, stack_trace:); end
 
-  # Returns the value of attribute type.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/javascript_log_entry.rb:24
   def type; end
 
-  # Sets the attribute type
-  #
-  # @param value the value to set the attribute type to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/javascript_log_entry.rb:24
   def type=(_arg0); end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log_inspector.rb:31
 class Selenium::WebDriver::BiDi::LogInspector
-  # @return [LogInspector] a new instance of LogInspector
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log_inspector.rb:43
   def initialize(driver, browsing_context_ids = T.unsafe(nil)); end
 
@@ -548,13 +2506,9 @@ class Selenium::WebDriver::BiDi::LogInspector
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log_inspector.rb:98
   def check_valid_filter(filter_by); end
 
-  # @yield [event]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log_inspector.rb:104
   def console_log_events(params, filter_by); end
 
-  # @yield [event]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log_inspector.rb:124
   def javascript_log_events(params, filter_by); end
 
@@ -570,40 +2524,24 @@ Selenium::WebDriver::BiDi::LogInspector::LOG_LEVEL = T.let(T.unsafe(nil), Hash)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/navigate_result.rb:23
 class Selenium::WebDriver::BiDi::NavigateResult
-  # @return [NavigateResult] a new instance of NavigateResult
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/navigate_result.rb:26
   def initialize(url:, navigation_id:); end
 
-  # Returns the value of attribute navigation_id.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/navigate_result.rb:24
   def navigation_id; end
 
-  # Sets the attribute navigation_id
-  #
-  # @param value the value to set the attribute navigation_id to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/navigate_result.rb:24
   def navigation_id=(_arg0); end
 
-  # Returns the value of attribute url.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/navigate_result.rb:24
   def url; end
 
-  # Sets the attribute url
-  #
-  # @param value the value to set the attribute url to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/navigate_result.rb:24
   def url=(_arg0); end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:23
 class Selenium::WebDriver::BiDi::Session
-  # @return [Session] a new instance of Session
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:26
   def initialize(bidi); end
 
@@ -619,33 +2557,15 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:24
 class Selenium::WebDriver::BiDi::Session::Status < ::Struct
-  # Returns the value of attribute message
-  #
-  # @return [Object] the current value of message
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:24
   def message; end
 
-  # Sets the attribute message
-  #
-  # @param value [Object] the value to set the attribute message to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:24
   def message=(_); end
 
-  # Returns the value of attribute ready
-  #
-  # @return [Object] the current value of ready
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:24
   def ready; end
 
-  # Sets the attribute ready
-  #
-  # @param value [Object] the value to set the attribute ready to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:24
   def ready=(_); end
 
@@ -671,102 +2591,62 @@ end
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:26
 class Selenium::WebDriver::ChildProcess
-  # @api private
-  # @return [ChildProcess] a new instance of ChildProcess
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:41
   def initialize(*command); end
 
-  # @api private
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:79
   def alive?; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:34
   def detach; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:34
   def detach=(_arg0); end
 
-  # @api private
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:83
   def exited?; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:48
   def io; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:35
   def io=(_arg0); end
 
-  # @api private
-  # @raise [TimeoutError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:96
   def poll_for_exit(timeout); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:52
   def start; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:63
   def stop(timeout = T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:105
   def wait; end
 
   private
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:117
   def kill(pid); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:113
   def terminate(pid); end
 
   class << self
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:37
     def build(*command); end
   end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:32
 Selenium::WebDriver::ChildProcess::POLL_INTERVAL = T.let(T.unsafe(nil), Float)
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:30
 Selenium::WebDriver::ChildProcess::SIGKILL = T.let(T.unsafe(nil), String)
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:29
 Selenium::WebDriver::ChildProcess::SIGTERM = T.let(T.unsafe(nil), String)
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:27
 class Selenium::WebDriver::ChildProcess::TimeoutError < ::StandardError; end
 
@@ -782,28 +2662,20 @@ module Selenium::WebDriver::Chrome
 end
 
 # Driver implementation for Chrome.
-#
 # @api private
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/driver.rb:30
 class Selenium::WebDriver::Chrome::Driver < ::Selenium::WebDriver::Chromium::Driver
   include ::Selenium::WebDriver::LocalDriver
 
-  # @api private
-  # @return [Driver] a new instance of Driver
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/driver.rb:33
   def initialize(capabilities: T.unsafe(nil), options: T.unsafe(nil), service: T.unsafe(nil), url: T.unsafe(nil), **opts); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/driver.rb:38
   def browser; end
 
   private
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/driver.rb:44
   def devtools_address; end
 end
@@ -857,26 +2729,19 @@ Selenium::WebDriver::Chrome::Service::SHUTDOWN_SUPPORTED = T.let(T.unsafe(nil), 
 module Selenium::WebDriver::Chromium; end
 
 # Driver implementation for Chrome.
-#
 # @api private
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/driver.rb:28
 class Selenium::WebDriver::Chromium::Driver < ::Selenium::WebDriver::Driver
   protected
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/driver.rb:48
   def devtools_url; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/driver.rb:55
   def devtools_version; end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/driver.rb:29
 Selenium::WebDriver::Chromium::Driver::EXTENSIONS = T.let(T.unsafe(nil), Array)
 
@@ -938,23 +2803,23 @@ class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
   # @example
   #   options = Selenium::WebDriver::Chrome::Options.new(args: ['start-maximized', 'user-data-dir=/tmp/temp_profile'])
   #   driver = Selenium::WebDriver.for(:chrome, capabilities: options)
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @param opts [Hash] the pre-defined options to create the Chrome::Options with
-  # @param profile [Profile] An instance of a Chrome::Profile Class
-  # @return [Options] a new instance of Options
+  #
+  # @param [Profile] profile An instance of a Chrome::Profile Class
+  # @param [Hash] opts the pre-defined options to create the Chrome::Options with
+  # @option opts [Array] encoded_extensions List of extensions that do not need to be Base64 encoded
+  # @option opts [Array<String>] args List of command-line arguments to use when starting Chrome
+  # @option opts [String] binary Path to the Chrome executable to use
+  # @option opts [Hash] prefs A hash with each entry consisting of the name of the preference and its value
+  # @option opts [Array<String>] extensions A list of paths to (.crx) Chrome extensions to install on startup
+  # @option opts [Hash] options A hash for raw options
+  # @option opts [Hash] emulation A hash for raw emulation options
+  # @option opts [Hash] local_state A hash for the Local State file in the user data folder
+  # @option opts [Boolean] detach whether browser is closed when the driver is sent the quit command
+  # @option opts [String] debugger_address address of a Chrome debugger server to connect to
+  # @option opts [Array<String>] exclude_switches command line switches to exclude
+  # @option opts [String] minidump_path Directory to store Chrome minidumps (linux only)
+  # @option opts [Hash] perf_logging_prefs A hash for performance logging preferences
+  # @option opts [Array<String>] window_types A list of window types to appear in the list of window handles
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:70
   def initialize(profile: T.unsafe(nil), **opts); end
@@ -964,7 +2829,8 @@ class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
   # @example Start Chrome maximized
   #   options = Selenium::WebDriver::Chrome::Options.new
   #   options.add_argument('start-maximized')
-  # @param arg [String] The command-line argument to add
+  #
+  # @param [String] arg The command-line argument to add
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:143
   def add_argument(arg); end
@@ -973,16 +2839,18 @@ class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
   #
   # see: http://chromedriver.chromium.org/mobile-emulation
   #
-  # @example Start Chrome in mobile emulation mode by device metrics
-  #   options = Selenium::WebDriver::Chrome::Options.new
-  #   options.add_emulation(device_metrics: {width: 400, height: 800, pixelRatio: 1, touch: true})
   # @example Start Chrome in mobile emulation mode by device name
   #   options = Selenium::WebDriver::Chrome::Options.new
   #   options.add_emulation(device_name: 'iPhone 6')
-  # @option opts
-  # @option opts
-  # @option opts
-  # @param opts [Hash] the pre-defined options for adding mobile emulation values
+  #
+  # @example Start Chrome in mobile emulation mode by device metrics
+  #   options = Selenium::WebDriver::Chrome::Options.new
+  #   options.add_emulation(device_metrics: {width: 400, height: 800, pixelRatio: 1, touch: true})
+  #
+  # @param [Hash] opts the pre-defined options for adding mobile emulation values
+  # @option opts [String] :device_name A valid device name from the Chrome DevTools Emulation panel
+  # @option opts [Hash] :device_metrics Hash containing width, height, pixelRatio, touch
+  # @option opts [String] :user_agent Full user agent
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:199
   def add_emulation(**opts); end
@@ -992,7 +2860,8 @@ class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
   # @example
   #   options = Selenium::WebDriver::Chrome::Options.new
   #   options.add_encoded_extension(encoded_string)
-  # @param encoded [String] The Base64-encoded string of the .crx file
+  #
+  # @param [String] encoded The Base64-encoded string of the .crx file
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:129
   def add_encoded_extension(encoded); end
@@ -1002,7 +2871,8 @@ class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
   # @example
   #   options = Selenium::WebDriver::Chrome::Options.new
   #   options.add_extension('/path/to/extension.crx')
-  # @param path [String] The local path to the .crx file
+  #
+  # @param [String] path The local path to the .crx file
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:100
   def add_extension(path); end
@@ -1012,20 +2882,22 @@ class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
   # @example Set the default homepage
   #   options = Selenium::WebDriver::Chrome::Options.new
   #   options.add_preference('homepage', 'http://www.seleniumhq.com/')
-  # @param name [String] Key of the preference
-  # @param value [Boolean, String, Integer] Value of the preference
+  #
+  # @param [String] name Key of the preference
+  # @param [Boolean, String, Integer] value Value of the preference
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:158
   def add_preference(name, value); end
 
   # Enables mobile browser use on Android.
   #
-  # @param activity [String] Name of the Activity hosting the WebView (Not available on Chrome Apps).
-  # @param package [String] The package name of the Chrome or WebView app.
-  # @param serial_number [String] The device serial number on which to launch the Chrome or WebView app.
-  # @param use_running_app [String] When true uses an already-running Chrome or WebView app,
-  #   instead of launching the app with a clear data directory.
   # @see https://chromedriver.chromium.org/getting-started/getting-started---android
+  #
+  # @param [String] package The package name of the Chrome or WebView app.
+  # @param [String] serial_number The device serial number on which to launch the Chrome or WebView app.
+  # @param [String] use_running_app When true uses an already-running Chrome or WebView app,
+  #   instead of launching the app with a clear data directory.
+  # @param [String] activity Name of the Activity hosting the WebView (Not available on Chrome Apps).
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:215
   def enable_android(package: T.unsafe(nil), serial_number: T.unsafe(nil), use_running_app: T.unsafe(nil), activity: T.unsafe(nil)); end
@@ -1041,7 +2913,8 @@ class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
   #   extensions = ['/path/to/extension.crx', '/path/to/other.crx']
   #   options = Selenium::WebDriver::Chrome::Options.new
   #   options.extensions = extensions
-  # @param extensions [Array<String>] A list of paths to (.crx) Chrome extensions to install on startup
+  #
+  # @param [Array<String>] extensions A list of paths to (.crx) Chrome extensions to install on startup
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:115
   def extensions=(extensions); end
@@ -1058,27 +2931,15 @@ class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:173
   def headless!; end
 
-  # Returns the value of attribute logging_prefs.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:24
   def logging_prefs; end
 
-  # Sets the attribute logging_prefs
-  #
-  # @param value the value to set the attribute logging_prefs to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:24
   def logging_prefs=(_arg0); end
 
-  # Returns the value of attribute profile.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:24
   def profile; end
 
-  # Sets the attribute profile
-  #
-  # @param value the value to set the attribute profile to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:24
   def profile=(_arg0); end
 
@@ -1087,8 +2948,6 @@ class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:240
   def binary_path; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:255
   def camelize?(key); end
 
@@ -1098,8 +2957,6 @@ class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:224
   def process_browser_options(browser_options); end
 
-  # @raise [Error::WebDriverError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:248
   def validate_extension(path); end
 end
@@ -1116,8 +2973,6 @@ class Selenium::WebDriver::Chromium::Profile
   include ::Selenium::WebDriver::ProfileHelper
   extend ::Selenium::WebDriver::ProfileHelper::ClassMethods
 
-  # @return [Profile] a new instance of Profile
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/profile.rb:30
   def initialize(model = T.unsafe(nil)); end
 
@@ -1134,8 +2989,6 @@ class Selenium::WebDriver::Chromium::Profile
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/profile.rb:43
   def add_encoded_extension(encoded); end
 
-  # @raise [Error::WebDriverError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/profile.rb:37
   def add_extension(path); end
 
@@ -1173,9 +3026,6 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:27
 class Selenium::WebDriver::Credential
-  # @raise [ArgumentError]
-  # @return [Credential] a new instance of Credential
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:59
   def initialize(id:, resident_credential:, rp_id:, private_key:, **opts); end
 
@@ -1184,38 +3034,24 @@ class Selenium::WebDriver::Credential
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:74
   def as_json(*_arg0); end
 
-  # Returns the value of attribute id.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:56
   def id; end
 
-  # Returns the value of attribute private_key.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:56
   def private_key; end
 
-  # Returns the value of attribute resident_credential.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:56
   def resident_credential; end
 
-  # Returns the value of attribute resident_credential.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:57
   def resident_credential?; end
 
-  # Returns the value of attribute rp_id.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:56
   def rp_id; end
 
-  # Returns the value of attribute sign_count.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:56
   def sign_count; end
 
-  # Returns the value of attribute user_handle.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:56
   def user_handle; end
 
@@ -1239,8 +3075,6 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:22
 class Selenium::WebDriver::DevTools
-  # @return [DevTools] a new instance of DevTools
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:31
   def initialize(url:); end
 
@@ -1253,8 +3087,6 @@ class Selenium::WebDriver::DevTools
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:54
   def method_missing(method, *_args); end
 
-  # @raise [Error::WebDriverError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:45
   def send_cmd(method, **params); end
 
@@ -1263,8 +3095,6 @@ class Selenium::WebDriver::DevTools
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:91
   def error_message(error); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:77
   def respond_to_missing?(method, *_args); end
 
@@ -1274,144 +3104,78 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:23
 class Selenium::WebDriver::DevTools::ConsoleEvent
-  # @return [ConsoleEvent] a new instance of ConsoleEvent
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:26
   def initialize(type:, timestamp:, args:); end
 
-  # Returns the value of attribute args.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:24
   def args; end
 
-  # Sets the attribute args
-  #
-  # @param value the value to set the attribute args to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:24
   def args=(_arg0); end
 
-  # Returns the value of attribute timestamp.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:24
   def timestamp; end
 
-  # Sets the attribute timestamp
-  #
-  # @param value the value to set the attribute timestamp to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:24
   def timestamp=(_arg0); end
 
-  # Returns the value of attribute type.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:24
   def type; end
 
-  # Sets the attribute type
-  #
-  # @param value the value to set the attribute type to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:24
   def type=(_arg0); end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:23
 class Selenium::WebDriver::DevTools::ExceptionEvent
-  # @return [ExceptionEvent] a new instance of ExceptionEvent
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:26
   def initialize(description:, timestamp:, stacktrace:); end
 
-  # Returns the value of attribute description.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:24
   def description; end
 
-  # Sets the attribute description
-  #
-  # @param value the value to set the attribute description to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:24
   def description=(_arg0); end
 
-  # Returns the value of attribute stacktrace.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:24
   def stacktrace; end
 
-  # Sets the attribute stacktrace
-  #
-  # @param value the value to set the attribute stacktrace to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:24
   def stacktrace=(_arg0); end
 
-  # Returns the value of attribute timestamp.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:24
   def timestamp; end
 
-  # Sets the attribute timestamp
-  #
-  # @param value the value to set the attribute timestamp to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:24
   def timestamp=(_arg0); end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:23
 class Selenium::WebDriver::DevTools::MutationEvent
-  # @return [MutationEvent] a new instance of MutationEvent
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:26
   def initialize(element:, attribute_name:, current_value:, old_value:); end
 
-  # Returns the value of attribute attribute_name.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:24
   def attribute_name; end
 
-  # Sets the attribute attribute_name
-  #
-  # @param value the value to set the attribute attribute_name to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:24
   def attribute_name=(_arg0); end
 
-  # Returns the value of attribute current_value.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:24
   def current_value; end
 
-  # Sets the attribute current_value
-  #
-  # @param value the value to set the attribute current_value to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:24
   def current_value=(_arg0); end
 
-  # Returns the value of attribute element.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:24
   def element; end
 
-  # Sets the attribute element
-  #
-  # @param value the value to set the attribute element to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:24
   def element=(_arg0); end
 
-  # Returns the value of attribute old_value.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:24
   def old_value; end
 
-  # Sets the attribute old_value
-  #
-  # @param value the value to set the attribute old_value to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:24
   def old_value=(_arg0); end
 end
@@ -1421,90 +3185,56 @@ end
 # canceling requests midst interception.
 #
 # You should not be using this class directly, use Driver#intercept instead.
-#
 # @api private
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:32
 class Selenium::WebDriver::DevTools::NetworkInterceptor
-  # @api private
-  # @return [NetworkInterceptor] a new instance of NetworkInterceptor
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:41
   def initialize(devtools); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:46
   def intercept(&block); end
 
   private
 
-  # @api private
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:167
   def cancelled?(network_id); end
 
   # Ensure usage of cancelled_requests is thread-safe via synchronization!
   #
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:67
   def cancelled_requests; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:127
   def continue_request(id); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:130
   def continue_response(id); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:57
   def devtools; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:57
   def devtools=(_arg0); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:155
   def fetch_response_body(id); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:97
   def intercept_request(id, params, &block); end
 
-  # @api private
-  # @yield [mutable]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:112
   def intercept_response(id, params); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:57
   def lock; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:57
   def lock=(_arg0); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:132
   def mutate_request(request); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:144
   def mutate_response(response); end
 
@@ -1512,32 +3242,21 @@ class Selenium::WebDriver::DevTools::NetworkInterceptor
   # because its keys are interception job identifiers and they should be
   # unique within a devtools session.
   #
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:62
   def pending_response_requests; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:77
   def request_paused(data, &block); end
 
   # The presence of any of these fields indicate we're at the response stage.
-  #
-  # @api private
-  # @return [Boolean]
   # @see https://chromedevtools.github.io/devtools-protocol/tot/Fetch/#event-requestPaused
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:93
   def response?(params); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:71
   def track_cancelled_request(data); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:161
   def with_cancellable_request(network_id); end
 end
@@ -1545,23 +3264,17 @@ end
 # CDP fails to get body on certain responses (301) and raises:
 # "Can only get response body on requests captured after headers received."
 #
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:35
 Selenium::WebDriver::DevTools::NetworkInterceptor::CANNOT_GET_BODY_ON_REDIRECT_ERROR_CODE = T.let(T.unsafe(nil), String)
 
 # CDP fails to operate with intercepted requests.
 # Typical reason is browser cancelling intercepted requests/responses.
 #
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:39
 Selenium::WebDriver::DevTools::NetworkInterceptor::INVALID_INTERCEPTION_ID_ERROR_CODE = T.let(T.unsafe(nil), String)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:23
 class Selenium::WebDriver::DevTools::PinnedScript
-  # @return [PinnedScript] a new instance of PinnedScript
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:26
   def initialize(script); end
 
@@ -1570,27 +3283,15 @@ class Selenium::WebDriver::DevTools::PinnedScript
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:35
   def callable; end
 
-  # Returns the value of attribute devtools_identifier.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:24
   def devtools_identifier; end
 
-  # Sets the attribute devtools_identifier
-  #
-  # @param value the value to set the attribute devtools_identifier to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:24
   def devtools_identifier=(_arg0); end
 
-  # Returns the value of attribute key.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:24
   def key; end
 
-  # Sets the attribute key
-  #
-  # @param value the value to set the attribute key to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:24
   def key=(_arg0); end
 
@@ -1599,15 +3300,9 @@ class Selenium::WebDriver::DevTools::PinnedScript
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:51
   def remove; end
 
-  # Returns the value of attribute script.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:24
   def script; end
 
-  # Sets the attribute script
-  #
-  # @param value the value to set the attribute script to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:24
   def script=(_arg0); end
 
@@ -1619,73 +3314,44 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:23
 class Selenium::WebDriver::DevTools::Request
-  # @return [Request] a new instance of Request
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:42
   def initialize(id:, url:, method:, headers:, post_data:); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:50
   def ==(other); end
 
-  # Returns the value of attribute headers.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:24
   def headers; end
 
-  # Sets the attribute headers
-  #
-  # @param value the value to set the attribute headers to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:24
   def headers=(_arg0); end
 
-  # Returns the value of attribute id.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:25
   def id; end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:59
   def inspect; end
 
-  # Returns the value of attribute method.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:24
   def method; end
 
-  # Sets the attribute method
-  #
-  # @param value the value to set the attribute method to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:24
   def method=(_arg0); end
 
-  # Returns the value of attribute post_data.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:24
   def post_data; end
 
-  # Sets the attribute post_data
-  #
-  # @param value the value to set the attribute post_data to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:24
   def post_data=(_arg0); end
 
-  # Returns the value of attribute url.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:24
   def url; end
 
-  # Sets the attribute url
-  #
-  # @param value the value to set the attribute url to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:24
   def url=(_arg0); end
 
   class << self
     # Creates request from DevTools message.
-    #
     # @api private
     #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:32
@@ -1695,52 +3361,30 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:23
 class Selenium::WebDriver::DevTools::Response
-  # @return [Response] a new instance of Response
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:43
   def initialize(id:, code:, body:, headers:); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:50
   def ==(other); end
 
-  # Returns the value of attribute body.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:24
   def body; end
 
-  # Sets the attribute body
-  #
-  # @param value the value to set the attribute body to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:24
   def body=(_arg0); end
 
-  # Returns the value of attribute code.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:24
   def code; end
 
-  # Sets the attribute code
-  #
-  # @param value the value to set the attribute code to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:24
   def code=(_arg0); end
 
-  # Returns the value of attribute headers.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:24
   def headers; end
 
-  # Sets the attribute headers
-  #
-  # @param value the value to set the attribute headers to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:24
   def headers=(_arg0); end
 
-  # Returns the value of attribute id.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:25
   def id; end
 
@@ -1749,7 +3393,6 @@ class Selenium::WebDriver::DevTools::Response
 
   class << self
     # Creates response from DevTools message.
-    #
     # @api private
     #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:32
@@ -1759,33 +3402,15 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
 class Selenium::WebDriver::Dimension < ::Struct
-  # Returns the value of attribute height
-  #
-  # @return [Object] the current value of height
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
   def height; end
 
-  # Sets the attribute height
-  #
-  # @param value [Object] the value to set the attribute height to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
   def height=(_); end
 
-  # Returns the value of attribute width
-  #
-  # @return [Object] the current value of width
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
   def width; end
 
-  # Sets the attribute width
-  #
-  # @param value [Object] the value to set the attribute width to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
   def width=(_); end
 
@@ -1809,10 +3434,10 @@ end
 
 # The main class through which you control the browser.
 #
-# @see Navigation
-# @see Options
 # @see SearchContext
+# @see Navigation
 # @see TargetLocator
+# @see Options
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:31
 class Selenium::WebDriver::Driver
@@ -1823,7 +3448,6 @@ class Selenium::WebDriver::Driver
   # End users should use Selenium::WebDriver.for instead of using this directly.
   #
   # @api private
-  # @return [Driver] a new instance of Driver
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:71
   def initialize(bridge: T.unsafe(nil), listener: T.unsafe(nil), **opts); end
@@ -1831,13 +3455,13 @@ class Selenium::WebDriver::Driver
   # Get the first element matching the given selector. If given a
   # String or Symbol, it will be used as the id of the element.
   #
+  # @param  [String,Hash] sel id or selector
+  # @return [WebDriver::Element]
+  #
   # Examples:
   #
   #   driver['someElementId']    #=> #<WebDriver::Element:0x1011c3b88>
   #   driver[:tag_name => 'div'] #=> #<WebDriver::Element:0x1011c3b88>
-  #
-  # @param sel [String, Hash] id or selector
-  # @return [WebDriver::Element]
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:288
   def [](sel); end
@@ -1854,7 +3478,7 @@ class Selenium::WebDriver::Driver
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:252
   def add_virtual_authenticator(options); end
 
-  # driver.all(class: 'bar') #=> [#<WebDriver::Element:0x1011c3b88, ...]
+  #   driver.all(class: 'bar') #=> [#<WebDriver::Element:0x1011c3b88, ...]
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:268
   def all(*args); end
@@ -1884,23 +3508,30 @@ class Selenium::WebDriver::Driver
   # invoking the provided callback. This callback is always injected into the
   # executed function as the last argument.
   #
-  # @param args [WebDriver::Element, Integer, Float, Boolean, NilClass, String, Array] Arguments to the script. May be empty.
-  # @param script [String] JavaScript source to execute
-  # @return [WebDriver::Element, Integer, Float, Boolean, NilClass, String, Array]
+  # @param [String] script
+  #   JavaScript source to execute
+  # @param [WebDriver::Element,Integer, Float, Boolean, NilClass, String, Array] args
+  #   Arguments to the script. May be empty.
+  #
+  # @return [WebDriver::Element,Integer,Float,Boolean,NilClass,String,Array]
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:243
   def execute_async_script(script, *args); end
 
   # Execute the given JavaScript
   #
-  # @param args [WebDriver::Element, Integer, Float, Boolean, NilClass, String, Array] Arguments will be available in the given script in the 'arguments' pseudo-array.
-  # @param script [String] JavaScript source to execute
-  # @return [WebDriver::Element, Integer, Float, Boolean, NilClass, String, Array] The value returned from the script.
+  # @param [String] script
+  #   JavaScript source to execute
+  # @param [WebDriver::Element, Integer, Float, Boolean, NilClass, String, Array] args
+  #   Arguments will be available in the given script in the 'arguments' pseudo-array.
+  #
+  # @return [WebDriver::Element,Integer,Float,Boolean,NilClass,String,Array]
+  #   The value returned from the script.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:224
   def execute_script(script, *args); end
 
-  # driver.first(id: 'foo')
+  #   driver.first(id: 'foo')
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:262
   def first(*args); end
@@ -1943,12 +3574,6 @@ class Selenium::WebDriver::Driver
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:307
   def ref; end
 
-  # Execute the given JavaScript
-  #
-  # @param args [WebDriver::Element, Integer, Float, Boolean, NilClass, String, Array] Arguments will be available in the given script in the 'arguments' pseudo-array.
-  # @param script [String] JavaScript source to execute
-  # @return [WebDriver::Element, Integer, Float, Boolean, NilClass, String, Array] The value returned from the script.
-  #
   #   driver.script('function() { ... };')
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:274
@@ -1995,8 +3620,6 @@ class Selenium::WebDriver::Driver
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:342
   def add_extensions(browser); end
 
-  # Returns the value of attribute bridge.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:313
   def bridge; end
 
@@ -2014,14 +3637,22 @@ class Selenium::WebDriver::Driver
 
   class << self
     # @api private
-    # @return [Driver]
+    #
     # @see Selenium::WebDriver.for
+    #
+    # @return [Driver]
     #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:44
     def for(browser, opts = T.unsafe(nil)); end
   end
 end
 
+# @api private
+#
+#
+# @api private
+#
+#
 # @api private
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_web_storage.rb:26
@@ -2031,7 +3662,7 @@ module Selenium::WebDriver::DriverExtensions; end
 module Selenium::WebDriver::DriverExtensions::DownloadsFiles
   # Sets download path for Chromium.
   #
-  # @param path [String]
+  # @param [String] path
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/downloads_files.rb:30
   def download_path=(path); end
@@ -2056,8 +3687,8 @@ end
 module Selenium::WebDriver::DriverExtensions::HasAddons
   # Installs addon.
   #
-  # @param path [String] Full path to addon file
-  # @param temporary [Boolean]
+  # @param [String] path Full path to addon file
+  # @param [Boolean] temporary
   # @return [String] identifier of installed addon
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_addons.rb:32
@@ -2065,7 +3696,7 @@ module Selenium::WebDriver::DriverExtensions::HasAddons
 
   # Uninstalls addon.
   #
-  # @param id [String] Identifier of installed addon
+  # @param [String] id Identifier of installed addon
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_addons.rb:42
   def uninstall_addon(id); end
@@ -2084,7 +3715,8 @@ module Selenium::WebDriver::DriverExtensions::HasApplePermissions
   #
   # @example
   #   driver.permissions = {'getUserMedia' => true}
-  # @param permissions [Hash<Symbol, Boolean>]
+  #
+  # @param [Hash<Symbol, Boolean>] permissions
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_apple_permissions.rb:43
   def permissions=(permissions); end
@@ -2099,12 +3731,14 @@ module Selenium::WebDriver::DriverExtensions::HasAuthentication
   #
   # @example Authenticate any request
   #   driver.register(username: 'admin', password: '123456')
+  #
   # @example Authenticate based on URL
   #   driver.register(username: 'admin1', password: '123456', uri: /mysite1\.com/)
   #   driver.register(username: 'admin2', password: '123456', uri: /mysite2\.com/)
-  # @param password [String]
-  # @param uri [Regexp] to associate the credentials with
-  # @param username [String]
+  #
+  # @param [String] username
+  # @param [String] password
+  # @param [Regexp] uri to associate the credentials with
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_authentication.rb:42
   def register(username:, password:, uri: T.unsafe(nil)); end
@@ -2149,7 +3783,7 @@ module Selenium::WebDriver::DriverExtensions::HasCasting
 
   # Sets a specific sink, using its name, as a Cast session receiver target.
   #
-  # @param name [String] the sink to use as the target
+  # @param [String] name the sink to use as the target
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_casting.rb:40
   def cast_sink_to_use=(name); end
@@ -2163,21 +3797,21 @@ module Selenium::WebDriver::DriverExtensions::HasCasting
 
   # Starts a tab mirroring session on a specific receiver target.
   #
-  # @param name [String] the sink to use as the target
+  # @param [String] name the sink to use as the target
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_casting.rb:60
   def start_cast_desktop_mirroring(name); end
 
   # Starts a tab mirroring session on a specific receiver target.
   #
-  # @param name [String] the sink to use as the target
+  # @param [String] name the sink to use as the target
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_casting.rb:50
   def start_cast_tab_mirroring(name); end
 
   # Stops the existing Cast session on a specific receiver target.
   #
-  # @param name [String] the sink to stop the Cast session
+  # @param [String] name the sink to stop the Cast session
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_casting.rb:80
   def stop_casting(name); end
@@ -2192,7 +3826,7 @@ module Selenium::WebDriver::DriverExtensions::HasContext
   #         a `with` statement. The state of the context on the server is
   #         saved before entering the block, and restored upon exiting it.
   #
-  # @param value [String] which context gets set (either 'chrome' or 'content')
+  # @param [String] value which context gets set (either 'chrome' or 'content')
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_context.rb:32
   def context=(value); end
@@ -2205,6 +3839,7 @@ module Selenium::WebDriver::DriverExtensions::HasDebugger
   # @example
   #   driver.attach_debugger
   #   driver.execute_script('debugger')
+  #
   # @return [Hash]
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_debugger.rb:34
@@ -2225,7 +3860,7 @@ end
 module Selenium::WebDriver::DriverExtensions::HasLaunching
   # Launches Chromium app specified by id.
   #
-  # @param id [String]
+  # @param [String] id
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_launching.rb:30
   def launch_app(id); end
@@ -2233,18 +3868,12 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_location.rb:24
 module Selenium::WebDriver::DriverExtensions::HasLocation
-  # @raise [Error::UnsupportedOperationError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_location.rb:25
   def location; end
 
-  # @raise [Error::UnsupportedOperationError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_location.rb:29
   def location=(*_arg0); end
 
-  # @raise [Error::UnsupportedOperationError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_location.rb:32
   def set_location; end
 end
@@ -2260,24 +3889,26 @@ module Selenium::WebDriver::DriverExtensions::HasLogEvents
   # This currently relies on DevTools so is only supported in
   # Chromium browsers.
   #
-  # @example Collect DOM mutations
-  #   mutations = []
-  #   driver.on_log_event(:mutation) do |event|
-  #   mutations.push(event)
-  #   end
-  # @example Collect JavaScript exceptions
-  #   exceptions = []
-  #   driver.on_log_event(:exception) do |event|
-  #   exceptions.push(event)
-  #   end
   # @example Collect console messages
   #   logs = []
   #   driver.on_log_event(:console) do |event|
-  #   logs.push(event)
+  #     logs.push(event)
   #   end
-  # @param block [#call] which is called when event happens
-  # @param kind [Symbol] :console, :exception or :mutation
-  # @raise [Error::WebDriverError]
+  #
+  # @example Collect JavaScript exceptions
+  #   exceptions = []
+  #   driver.on_log_event(:exception) do |event|
+  #     exceptions.push(event)
+  #   end
+  #
+  # @example Collect DOM mutations
+  #   mutations = []
+  #   driver.on_log_event(:mutation) do |event|
+  #     mutations.push(event)
+  #   end
+  #
+  # @param [Symbol] kind :console, :exception or :mutation
+  # @param [#call] block which is called when event happens
   # @yieldparam [DevTools::ConsoleEvent, DevTools::ExceptionEvent, DevTools::MutationEvent]
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_log_events.rb:59
@@ -2329,12 +3960,12 @@ module Selenium::WebDriver::DriverExtensions::HasNetworkConditions
 
   # Sets network conditions
   #
-  # @option conditions
-  # @option conditions
-  # @option conditions
-  # @option conditions
-  # @option conditions
-  # @param conditions [Hash]
+  # @param [Hash] conditions
+  # @option conditions [Integer] :latency
+  # @option conditions [Integer] :throughput
+  # @option conditions [Integer] :upload_throughput
+  # @option conditions [Integer] :download_throughput
+  # @option conditions [Boolean] :offline
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_network_conditions.rb:45
   def network_conditions=(conditions); end
@@ -2342,13 +3973,9 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_network_connection.rb:24
 module Selenium::WebDriver::DriverExtensions::HasNetworkConnection
-  # @raise [Error::UnsupportedOperationError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_network_connection.rb:25
   def network_connection_type; end
 
-  # @raise [Error::UnsupportedOperationError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_network_connection.rb:30
   def network_connection_type=(*_arg0); end
 end
@@ -2361,31 +3988,35 @@ module Selenium::WebDriver::DriverExtensions::HasNetworkInterception
   #
   # @example Log requests and pass through
   #   driver.intercept do |request, &continue|
-  #   puts "#{request.method} #{request.url}"
-  #   continue.call(request)
+  #     puts "#{request.method} #{request.url}"
+  #     continue.call(request)
   #   end
-  # @example Log responses and pass through
-  #   driver.intercept do |request, &continue|
-  #   continue.call(request) do |response|
-  #   puts "#{response.code} #{response.body}"
-  #   end
-  #   end
-  # @example Mutate specific response
-  #   driver.intercept do |request, &continue|
-  #   continue.call(request) do |response|
-  #   response.body << 'Added by Selenium!' if request.url.include?('/myurl')
-  #   end
-  #   end
+  #
   # @example Stub requests for images
   #   driver.intercept do |request, &continue|
-  #   if request.url.match?(/\.png$/)
-  #   request.url = 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Selenium_Logo.png'
+  #     if request.url.match?(/\.png$/)
+  #       request.url = 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Selenium_Logo.png'
+  #     end
+  #     continue.call(request)
   #   end
-  #   continue.call(request)
+  #
+  # @example Log responses and pass through
+  #   driver.intercept do |request, &continue|
+  #     continue.call(request) do |response|
+  #       puts "#{response.code} #{response.body}"
+  #     end
   #   end
-  # @param block [Proc] which is called when request is intercepted
-  # @yieldparam continue [Proc] block which proceeds with the request and optionally yields response
-  # @yieldparam request [DevTools::Request]
+  #
+  # @example Mutate specific response
+  #   driver.intercept do |request, &continue|
+  #     continue.call(request) do |response|
+  #       response.body << 'Added by Selenium!' if request.url.include?('/myurl')
+  #     end
+  #   end
+  #
+  # @param [Proc] block which is called when request is intercepted
+  # @yieldparam [DevTools::Request] request
+  # @yieldparam [Proc] continue block which proceeds with the request and optionally yields response
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_network_interception.rb:62
   def intercept(&block); end
@@ -2395,15 +4026,15 @@ end
 module Selenium::WebDriver::DriverExtensions::HasPermissions
   # Set one permission.
   #
-  # @param name [String] which permission to set
-  # @param value [String] what to set the permission to
+  # @param [String] name which permission to set
+  # @param [String] value what to set the permission to
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_permissions.rb:31
   def add_permission(name, value); end
 
   # Set multiple permissions.
   #
-  # @param opt [Hash] key/value pairs to set permissions
+  # @param [Hash] opt key/value pairs to set permissions
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_permissions.rb:41
   def add_permissions(opt); end
@@ -2420,7 +4051,8 @@ module Selenium::WebDriver::DriverExtensions::HasPinnedScripts
   #   driver.execute_script(script)
   #   # navigate to a new page
   #   driver.execute_script(script)
-  # @param script [String]
+  #
+  # @param [String] script
   # @return [DevTools::PinnedScript]
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_pinned_scripts.rb:49
@@ -2435,63 +4067,54 @@ module Selenium::WebDriver::DriverExtensions::HasPinnedScripts
 
   # Unpins script making it undefined for the subsequent calls.
   #
-  # @param script [DevTools::PinnedScript]
+  # @param [DevTools::PinnedScript] script
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_pinned_scripts.rb:67
   def unpin_script(script); end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_session_id.rb:27
 module Selenium::WebDriver::DriverExtensions::HasSessionId
-  # @api public
   # @return [String] the session id
+  # @api public
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_session_id.rb:33
   def session_id; end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_web_storage.rb:27
 module Selenium::WebDriver::DriverExtensions::HasWebStorage
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_web_storage.rb:28
   def local_storage; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_web_storage.rb:32
   def session_storage; end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/prints_page.rb:23
 module Selenium::WebDriver::DriverExtensions::PrintsPage
   # Return a Base64 encoded Print Page as a string
   #
-  # @api public
   # @see https://w3c.github.io/webdriver/#print-page
+  #
+  # @api public
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/prints_page.rb:50
   def print_page(**options); end
 
   # Save a page as a PDF to the given path
   #
-  # @api public
   # @example Save Printed Page
   #   driver.save_print_page('../printed_page.pdf')
-  # @param path [String] to where the pdf should be saved
+  #
+  # @param [String] path to where the pdf should be saved
+  #
+  # @api public
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/prints_page.rb:35
   def save_print_page(path, **options); end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/uploads_files.rb:27
 module Selenium::WebDriver::DriverExtensions::UploadsFiles
   # Set the file detector to pass local files to a remote WebDriver.
@@ -2515,7 +4138,6 @@ module Selenium::WebDriver::DriverExtensions::UploadsFiles
   # By default, no file detection is performed.
   #
   # @api public
-  # @raise [ArgumentError]
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/uploads_files.rb:52
   def file_detector=(detector); end
@@ -2541,28 +4163,20 @@ module Selenium::WebDriver::Edge
 end
 
 # Driver implementation for Microsoft Edge.
-#
 # @api private
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/driver.rb:30
 class Selenium::WebDriver::Edge::Driver < ::Selenium::WebDriver::Chromium::Driver
   include ::Selenium::WebDriver::LocalDriver
 
-  # @api private
-  # @return [Driver] a new instance of Driver
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/driver.rb:33
   def initialize(capabilities: T.unsafe(nil), options: T.unsafe(nil), service: T.unsafe(nil), url: T.unsafe(nil), **opts); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/driver.rb:38
   def browser; end
 
   private
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/driver.rb:44
   def devtools_address; end
 end
@@ -2631,7 +4245,6 @@ class Selenium::WebDriver::Element
   # Creates a new Element
   #
   # @api private
-  # @return [Element] a new instance of Element
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:34
   def initialize(bridge, id); end
@@ -2639,34 +4252,7 @@ class Selenium::WebDriver::Element
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:43
   def ==(other); end
 
-  # This method attempts to provide the most likely desired current value for the attribute
-  # of the element, even when that desired value is actually a JavaScript property.
-  # It is implemented with a custom JavaScript atom. To obtain the exact value of the attribute or property,
-  # use #dom_attribute or #property methods respectively.
-  #
-  # More exactly, this method will return the value of the property with the given name,
-  # if it exists. If it does not, then the value of the attribute with the given name is returned.
-  # If neither exists, null is returned.
-  #
-  # The "style" attribute is converted as best can be to a text representation with a trailing semicolon.
-  #
-  # The following are deemed to be "boolean" attributes, and will return either "true" or "false":
-  #
-  # async, autofocus, autoplay, checked, compact, complete, controls, declare, defaultchecked,
-  # defaultselected, defer, disabled, draggable, ended, formnovalidate, hidden, indeterminate,
-  # iscontenteditable, ismap, itemscope, loop, multiple, muted, nohref, noresize, noshade, novalidate,
-  # nowrap, open, paused, pubdate, readonly, required, reversed, scoped, seamless, seeking,
-  # selected, spellcheck, truespeed, willvalidate
-  #
-  # Finally, the following commonly mis-capitalized attribute/property names are evaluated as expected:
-  #
-  # When the value of "class" is requested, the "className" property is returned.
-  # When the value of "readonly" is requested, the "readOnly" property is returned.
-  #
-  # @param name [String] attribute name
-  # @return [String, nil] attribute value
-  # @see #dom_attribute
-  # @see #property element['class'] or element[:class] #=> "someclass"
+  #   element['class'] or element[:class] #=> "someclass"
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:347
   def [](name); end
@@ -2678,7 +4264,7 @@ class Selenium::WebDriver::Element
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:179
   def accessible_name; end
 
-  # element.all(class: 'bar')
+  #   element.all(class: 'bar')
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:342
   def all(*args); end
@@ -2721,8 +4307,9 @@ class Selenium::WebDriver::Element
   # When the value of "class" is requested, the "className" property is returned.
   # When the value of "readonly" is requested, the "readOnly" property is returned.
   #
-  # @param name [String] attribute name
+  # @param [String] name attribute name
   # @return [String, nil] attribute value
+  #
   # @see #dom_attribute
   # @see #property
   #
@@ -2757,9 +4344,10 @@ class Selenium::WebDriver::Element
   #
   # @example Click on a button
   #
-  #   driver.find_element(tag_name: "button").click
+  #    driver.find_element(tag_name: "button").click
+  #
   # @raise [StaleElementReferenceError] if the element no longer exists as
-  #   defined
+  #  defined
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:76
   def click; end
@@ -2790,8 +4378,9 @@ class Selenium::WebDriver::Element
   #
   # If the attribute is not set, nil is returned.
   #
-  # @param name [String] attribute name
+  # @param [String] name attribute name
   # @return [String, nil] attribute value
+  #
   # @see #attribute
   # @see #property
   #
@@ -2808,7 +4397,7 @@ class Selenium::WebDriver::Element
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:46
   def eql?(other); end
 
-  # element.first(id: 'foo')
+  #   element.first(id: 'foo')
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:336
   def first(*args); end
@@ -2838,7 +4427,7 @@ class Selenium::WebDriver::Element
   # even if this has been modified after the page has been loaded.
   # If the value is not set, nil is returned.
   #
-  # @param name [String] property name
+  # @param [String] name property name
   # @return [String, nil] property value
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:159
@@ -2864,29 +4453,19 @@ class Selenium::WebDriver::Element
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:242
   def selected?; end
 
-  # Send keystrokes to this element
-  #
-  # Examples:
-  #
-  #     element.send_keys "foo"                     #=> value: 'foo'
-  #     element.send_keys "tet", :arrow_left, "s"   #=> value: 'test'
-  #     element.send_keys [:control, 'a'], :space   #=> value: ' '
-  #
-  # @param args [String, Symbol, Array] keystrokes to send
-  # @see Keys::KEYS
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:210
   def send_key(*args); end
 
   # Send keystrokes to this element
   #
+  # @param [String, Symbol, Array] args keystrokes to send
+  #
   # Examples:
   #
   #     element.send_keys "foo"                     #=> value: 'foo'
   #     element.send_keys "tet", :arrow_left, "s"   #=> value: 'test'
   #     element.send_keys [:control, 'a'], :space   #=> value: ' '
   #
-  # @param args [String, Symbol, Array] keystrokes to send
   # @see Keys::KEYS
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:207
@@ -2906,15 +4485,6 @@ class Selenium::WebDriver::Element
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:316
   def size; end
 
-  # Get the value of the given CSS property
-  #
-  # Note that shorthand CSS properties (e.g. background, font, border, border-top, margin,
-  # margin-top, padding, padding-top, list-style, outline, pause, cue) are not returned,
-  # in accordance with the DOM CSS2 specification - you should directly access the longhand
-  # properties (e.g. background-color) to access the desired values.
-  #
-  # @see http://www.w3.org/TR/DOM-Level-2-Style/css.html#CSS-CSSStyleDeclaration
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:278
   def style(prop); end
 
@@ -2927,7 +4497,8 @@ class Selenium::WebDriver::Element
   #
   # @example Get the tagname of an INPUT element(returns "input")
   #
-  #   driver.find_element(xpath: "//input").tag_name
+  #    driver.find_element(xpath: "//input").tag_name
+  #
   # @return [String] The tag name of this element.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:90
@@ -2941,25 +4512,21 @@ class Selenium::WebDriver::Element
   def text; end
 
   # Convert to a WebElement JSON Object for transmission over the wire.
+  # @see https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#basic-terms-and-concepts
   #
   # @api private
-  # @see https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#basic-terms-and-concepts
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:365
   def to_json(*_arg0); end
 
   private
 
-  # Returns the value of attribute bridge.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:381
   def bridge; end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:390
   def screenshot; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:383
   def selectable?; end
 end
@@ -2971,8 +4538,7 @@ Selenium::WebDriver::Element::ELEMENT_KEY = T.let(T.unsafe(nil), String)
 module Selenium::WebDriver::Error
   class << self
     # Returns exception from its string representation.
-    #
-    # @param error [String, nil]
+    # @param [String, nil] error
     #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:28
     def for_error(error); end
@@ -3025,8 +4591,6 @@ class Selenium::WebDriver::Error::InvalidElementStateError < ::Selenium::WebDriv
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:146
 class Selenium::WebDriver::Error::InvalidSelectorError < ::Selenium::WebDriver::Error::WebDriverError
-  # @return [InvalidSelectorError] a new instance of InvalidSelectorError
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:147
   def initialize(msg = T.unsafe(nil)); end
 end
@@ -3063,8 +4627,6 @@ class Selenium::WebDriver::Error::NoSuchCookieError < ::Selenium::WebDriver::Err
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:235
 class Selenium::WebDriver::Error::NoSuchDriverError < ::Selenium::WebDriver::Error::WebDriverError
-  # @return [NoSuchDriverError] a new instance of NoSuchDriverError
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:236
   def initialize(msg = T.unsafe(nil)); end
 end
@@ -3073,8 +4635,6 @@ end
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:46
 class Selenium::WebDriver::Error::NoSuchElementError < ::Selenium::WebDriver::Error::WebDriverError
-  # @return [NoSuchElementError] a new instance of NoSuchElementError
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:47
   def initialize(msg = T.unsafe(nil)); end
 end
@@ -3105,8 +4665,6 @@ class Selenium::WebDriver::Error::ScriptTimeoutError < ::Selenium::WebDriver::Er
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/server_error.rb:23
 class Selenium::WebDriver::Error::ServerError < ::StandardError
-  # @return [ServerError] a new instance of ServerError
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/server_error.rb:24
   def initialize(response); end
 end
@@ -3120,8 +4678,6 @@ class Selenium::WebDriver::Error::SessionNotCreatedError < ::Selenium::WebDriver
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:68
 class Selenium::WebDriver::Error::StaleElementReferenceError < ::Selenium::WebDriver::Error::WebDriverError
-  # @return [StaleElementReferenceError] a new instance of StaleElementReferenceError
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:69
   def initialize(msg = T.unsafe(nil)); end
 end
@@ -3175,35 +4731,21 @@ class Selenium::WebDriver::Error::WebDriverError < ::StandardError; end
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/file_reaper.rb:26
 module Selenium::WebDriver::FileReaper
   class << self
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/file_reaper.rb:39
     def <<(file); end
 
-    # @api private
-    # @raise [Error::WebDriverError]
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/file_reaper.rb:43
     def reap(file); end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/file_reaper.rb:51
     def reap!; end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/file_reaper.rb:28
     def reap=(_arg0); end
 
-    # @api private
-    # @return [Boolean]
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/file_reaper.rb:30
     def reap?; end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/file_reaper.rb:34
     def tmp_files; end
   end
@@ -3239,39 +4781,27 @@ Selenium::WebDriver::Firefox::DEFAULT_SECURE_SSL = T.let(T.unsafe(nil), FalseCla
 Selenium::WebDriver::Firefox::DEVTOOLS_VERSION = T.let(T.unsafe(nil), Integer)
 
 # Driver implementation for Firefox using GeckoDriver.
-#
 # @api private
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/driver.rb:28
 class Selenium::WebDriver::Firefox::Driver < ::Selenium::WebDriver::Driver
   include ::Selenium::WebDriver::LocalDriver
 
-  # @api private
-  # @return [Driver] a new instance of Driver
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/driver.rb:41
   def initialize(capabilities: T.unsafe(nil), options: T.unsafe(nil), service: T.unsafe(nil), url: T.unsafe(nil), **opts); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/driver.rb:46
   def browser; end
 
   private
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/driver.rb:52
   def devtools_url; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/driver.rb:63
   def devtools_version; end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/driver.rb:29
 Selenium::WebDriver::Firefox::Driver::EXTENSIONS = T.let(T.unsafe(nil), Array)
 
@@ -3279,54 +4809,33 @@ Selenium::WebDriver::Firefox::Driver::EXTENSIONS = T.let(T.unsafe(nil), Array)
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/extension.rb:27
 class Selenium::WebDriver::Firefox::Extension
-  # @api private
-  # @raise [Error::WebDriverError]
-  # @return [Extension] a new instance of Extension
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/extension.rb:30
   def initialize(path); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/extension.rb:37
   def write_to(extensions_dir); end
 
   private
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/extension.rb:93
   def applications_gecko_id(manifest); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/extension.rb:50
   def create_root; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/extension.rb:97
   def name_and_version(manifest); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/extension.rb:63
   def read_id(directory); end
 
-  # @api private
-  # @raise [Error::WebDriverError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/extension.rb:67
   def read_id_from_install_rdf(directory); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/extension.rb:85
   def read_id_from_manifest_json(directory); end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/extension.rb:28
 Selenium::WebDriver::Firefox::Extension::NAMESPACE = T.let(T.unsafe(nil), String)
 
@@ -3361,14 +4870,14 @@ class Selenium::WebDriver::Firefox::Options < ::Selenium::WebDriver::Options
   # @example
   #   options = Selenium::WebDriver::Firefox::Options.new(args: ['--host=127.0.0.1'])
   #   driver = Selenium::WebDriver.for :firefox, capabilities: options
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @param opts [Hash] the pre-defined options to create the Firefox::Options with
-  # @return [Options] a new instance of Options
+  #
+  # @param [Hash] opts the pre-defined options to create the Firefox::Options with
+  # @option opts [String] :binary Path to the Firefox executable to use
+  # @option opts [Array<String>] :args List of command-line arguments to use when starting geckodriver
+  # @option opts [Profile, String] :profile Encoded profile string or Profile instance
+  # @option opts [String, Symbol] :log_level Log level for geckodriver
+  # @option opts [Hash] :prefs A hash with each entry consisting of the key of the preference and its value
+  # @option opts [Hash] :options A hash for raw options
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:59
   def initialize(log_level: T.unsafe(nil), **opts); end
@@ -3378,7 +4887,8 @@ class Selenium::WebDriver::Firefox::Options < ::Selenium::WebDriver::Options
   # @example Start geckodriver on a specific host
   #   options = Selenium::WebDriver::Firefox::Options.new
   #   options.add_argument('--host=127.0.0.1')
-  # @param arg [String] The command-line argument to add
+  #
+  # @param [String] arg The command-line argument to add
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:83
   def add_argument(arg); end
@@ -3388,32 +4898,28 @@ class Selenium::WebDriver::Firefox::Options < ::Selenium::WebDriver::Options
   # @example Set the default homepage
   #   options = Selenium::WebDriver::Firefox::Options.new
   #   options.add_preference('browser.startup.homepage', 'http://www.seleniumhq.com/')
-  # @param name [String] Key of the preference
-  # @param value [Boolean, String, Integer] Value of the preference
+  #
+  # @param [String] name Key of the preference
+  # @param [Boolean, String, Integer] value Value of the preference
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:98
   def add_preference(name, value); end
 
-  # Returns the value of attribute debugger_address.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:24
   def debugger_address; end
 
-  # Sets the attribute debugger_address
-  #
-  # @param value the value to set the attribute debugger_address to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:24
   def debugger_address=(_arg0); end
 
   # Enables mobile browser use on Android.
   #
-  # @param activity [String] The fully qualified class name of the activity to be launched.
-  # @param intent_arguments [Array] Arguments to launch the intent with.
-  # @param package [String] The package name of the Chrome or WebView app.
-  # @param serial_number [String] The serial number of the device on which to launch the application.
-  #   If not specified and multiple devices are attached, an error will be returned.
   # @see https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions#android
+  #
+  # @param [String] package The package name of the Chrome or WebView app.
+  # @param [String] serial_number The serial number of the device on which to launch the application.
+  #   If not specified and multiple devices are attached, an error will be returned.
+  # @param [String] activity The fully qualified class name of the activity to be launched.
+  # @param [Array] intent_arguments Arguments to launch the intent with.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:156
   def enable_android(package: T.unsafe(nil), serial_number: T.unsafe(nil), activity: T.unsafe(nil), intent_arguments: T.unsafe(nil)); end
@@ -3444,18 +4950,18 @@ class Selenium::WebDriver::Firefox::Options < ::Selenium::WebDriver::Options
   #   profile = Selenium::WebDriver::Firefox::Profile.new
   #   options = Selenium::WebDriver::Firefox::Options.new
   #   options.profile = profile
+  #
   # @example Use existing profile
   #   options = Selenium::WebDriver::Firefox::Options.new
   #   options.profile = 'myprofile'
-  # @param profile [Profile, String] Profile to be used
+  #
+  # @param [Profile, String] profile Profile to be used
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:132
   def profile=(profile); end
 
   private
 
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:183
   def camelize?(key); end
 
@@ -3491,7 +4997,6 @@ class Selenium::WebDriver::Firefox::Profile
   #   profile['network.proxy.http_port'] = 9090
   #
   #   driver = Selenium::WebDriver.for :firefox, :profile => profile
-  # @return [Profile] a new instance of Profile
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profile.rb:68
   def initialize(model = T.unsafe(nil)); end
@@ -3515,38 +5020,24 @@ class Selenium::WebDriver::Firefox::Profile
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profile.rb:75
   def layout_on_disk; end
 
-  # Sets the attribute load_no_focus_lib
-  #
-  # @param value the value to set the attribute load_no_focus_lib to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profile.rb:37
   def load_no_focus_lib=(_arg0); end
 
-  # Returns the value of attribute log_file.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profile.rb:36
   def log_file; end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profile.rb:110
   def log_file=(file); end
 
-  # Returns the value of attribute name.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profile.rb:36
   def name; end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profile.rb:106
   def port=(port); end
 
-  # @raise [TypeError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profile.rb:123
   def proxy=(proxy); end
 
-  # Sets the attribute secure_ssl
-  #
-  # @param value the value to set the attribute secure_ssl to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profile.rb:37
   def secure_ssl=(_arg0); end
 
@@ -3583,8 +5074,6 @@ class Selenium::WebDriver::Firefox::Profile
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profile.rb:51
     def decoded(json); end
 
-    # @raise [Error::WebDriverError]
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profile.rb:44
     def from_name(name); end
 
@@ -3603,31 +5092,20 @@ Selenium::WebDriver::Firefox::Profile::VALID_PREFERENCE_TYPES = T.let(T.unsafe(n
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profiles_ini.rb:24
 class Selenium::WebDriver::Firefox::ProfilesIni
-  # @api private
-  # @return [ProfilesIni] a new instance of ProfilesIni
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profiles_ini.rb:25
   def initialize; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profiles_ini.rb:32
   def [](name); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profiles_ini.rb:37
   def refresh; end
 
   private
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profiles_ini.rb:44
   def parse; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profiles_ini.rb:66
   def path_for(name, is_relative, path); end
 end
@@ -3655,25 +5133,16 @@ Selenium::WebDriver::Firefox::Service::SHUTDOWN_SUPPORTED = T.let(T.unsafe(nil),
 module Selenium::WebDriver::Firefox::Util
   private
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/util.rb:27
   def app_data_path; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/util.rb:40
   def stringified?(str); end
 
   class << self
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/util.rb:27
     def app_data_path; end
 
-    # @api private
-    # @return [Boolean]
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/util.rb:40
     def stringified?(str); end
   end
@@ -3688,7 +5157,6 @@ class Selenium::WebDriver::HTML5::LocalStorage
   include ::Selenium::WebDriver::HTML5::SharedWebStorage
 
   # @api private
-  # @return [LocalStorage] a new instance of LocalStorage
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/html5/local_storage.rb:29
   def initialize(bridge); end
@@ -3718,7 +5186,6 @@ class Selenium::WebDriver::HTML5::SessionStorage
   include ::Selenium::WebDriver::HTML5::SharedWebStorage
 
   # @api private
-  # @return [SessionStorage] a new instance of SessionStorage
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/html5/session_storage.rb:55
   def initialize(bridge); end
@@ -3750,28 +5217,18 @@ module Selenium::WebDriver::HTML5::SharedWebStorage
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/html5/shared_web_storage.rb:43
   def each; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/html5/shared_web_storage.rb:39
   def empty?; end
 
-  # @raise [KeyError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/html5/shared_web_storage.rb:32
   def fetch(key); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/html5/shared_web_storage.rb:30
   def has_key?(key); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/html5/shared_web_storage.rb:26
   def key?(key); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/html5/shared_web_storage.rb:29
   def member?(key); end
 end
@@ -3781,27 +5238,19 @@ module Selenium::WebDriver::IE; end
 
 # Driver implementation for Internet Explorer supporting
 # both OSS and W3C dialects of JSON wire protocol.
-#
 # @api private
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/driver.rb:29
 class Selenium::WebDriver::IE::Driver < ::Selenium::WebDriver::Driver
   include ::Selenium::WebDriver::LocalDriver
 
-  # @api private
-  # @return [Driver] a new instance of Driver
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/driver.rb:34
   def initialize(capabilities: T.unsafe(nil), options: T.unsafe(nil), service: T.unsafe(nil), url: T.unsafe(nil), **opts); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/driver.rb:39
   def browser; end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/driver.rb:30
 Selenium::WebDriver::IE::Driver::EXTENSIONS = T.let(T.unsafe(nil), Array)
 
@@ -3812,41 +5261,40 @@ class Selenium::WebDriver::IE::Options < ::Selenium::WebDriver::Options
   # @example
   #   options = Selenium::WebDriver::IE::Options.new(args: ['--host=127.0.0.1'])
   #   driver = Selenium::WebDriver.for(:ie, capabilities: options)
+  #
   # @example
   #   options = Selenium::WebDriver::IE::Options.new
   #   options.element_scroll_behavior = Selenium::WebDriver::IE::Options::SCROLL_BOTTOM
   #   driver = Selenium::WebDriver.for(:ie, capabilities: options)
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @param opts [Hash] the pre-defined options
-  # @return [Options] a new instance of Options
+  #
+  # @param [Hash] opts the pre-defined options
+  # @option opts [Array<String>] args
+  # @option opts [Integer] browser_attach_timeout
+  # @option opts [Integer] element_scroll_behavior Either SCROLL_TOP or SCROLL_BOTTOM
+  # @option opts [Boolean] full_page_screenshot
+  # @option opts [Boolean] ensure_clean_session
+  # @option opts [Integer] file_upload_dialog_timeout
+  # @option opts [Boolean] force_create_process_api
+  # @option opts [Boolean] force_shell_windows_api
+  # @option opts [Boolean] ignore_protected_mode_settings
+  # @option opts [Boolean] ignore_zoom_level
+  # @option opts [String] initial_browser_url
+  # @option opts [Boolean] native_events
+  # @option opts [Boolean] persistent_hover
+  # @option opts [Boolean] require_window_focus
+  # @option opts [Boolean] use_per_process_proxy
+  # @option opts [Boolean] validate_cookie_document_type
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/options.rb:81
   def initialize(**opts); end
 
   # Add a command-line argument to use when starting Internet Explorer.
   #
-  # @param arg [String] The command-line argument to add
+  # @param [String] arg The command-line argument to add
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/options.rb:94
   def add_argument(arg); end
 
-  # Returns the value of attribute args.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/options.rb:48
   def args; end
 
@@ -3921,45 +5369,27 @@ end
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:32
 class Selenium::WebDriver::Interactions::InputDevice
-  # @api private
-  # @return [InputDevice] a new instance of InputDevice
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:35
   def initialize(name = T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:33
   def actions; end
 
-  # @api private
-  # @raise [TypeError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:40
   def add_action(action); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:46
   def clear_actions; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:50
   def create_pause(duration = T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:54
   def encode; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:33
   def name; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:33
   def type; end
 end
@@ -3971,20 +5401,12 @@ end
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interaction.rb:30
 class Selenium::WebDriver::Interactions::Interaction
-  # @api private
-  # @return [Interaction] a new instance of Interaction
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interaction.rb:33
   def initialize(source); end
 
-  # @api private
-  # @raise [NotImplementedError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interaction.rb:37
   def assert_source(_source); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interaction.rb:31
   def type; end
 end
@@ -3998,31 +5420,20 @@ Selenium::WebDriver::Interactions::KEY = T.let(T.unsafe(nil), Symbol)
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:29
 class Selenium::WebDriver::Interactions::KeyInput < ::Selenium::WebDriver::Interactions::InputDevice
-  # @api private
-  # @return [KeyInput] a new instance of KeyInput
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:32
   def initialize(name = T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:37
   def create_key_down(key); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:41
   def create_key_up(key); end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:30
 Selenium::WebDriver::Interactions::KeyInput::SUBTYPES = T.let(T.unsafe(nil), Hash)
 
 # Backward compatibility in case anyone called this directly
-#
-# @api private
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:46
 class Selenium::WebDriver::Interactions::KeyInput::TypingInteraction < ::Selenium::WebDriver::Interactions::TypingInteraction; end
@@ -4037,9 +5448,6 @@ Selenium::WebDriver::Interactions::NONE = T.let(T.unsafe(nil), Symbol)
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/none_input.rb:30
 class Selenium::WebDriver::Interactions::NoneInput < ::Selenium::WebDriver::Interactions::InputDevice
-  # @api private
-  # @return [NoneInput] a new instance of NoneInput
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/none_input.rb:31
   def initialize(name = T.unsafe(nil)); end
 end
@@ -4054,20 +5462,12 @@ Selenium::WebDriver::Interactions::POINTER = T.let(T.unsafe(nil), Symbol)
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pause.rb:30
 class Selenium::WebDriver::Interactions::Pause < ::Selenium::WebDriver::Interactions::Interaction
-  # @api private
-  # @return [Pause] a new instance of Pause
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pause.rb:31
   def initialize(source, duration = T.unsafe(nil)); end
 
-  # @api private
-  # @raise [TypeError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pause.rb:37
   def assert_source(source); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pause.rb:41
   def encode; end
 end
@@ -4078,35 +5478,23 @@ end
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_cancel.rb:29
 class Selenium::WebDriver::Interactions::PointerCancel < ::Selenium::WebDriver::Interactions::Interaction
-  # @api private
-  # @return [PointerCancel] a new instance of PointerCancel
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_cancel.rb:30
   def initialize(source); end
 
-  # @api private
-  # @raise [TypeError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_cancel.rb:35
   def assert_source(source); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_cancel.rb:39
   def encode; end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_event_properties.rb:23
 module Selenium::WebDriver::Interactions::PointerEventProperties
-  # @raise [ArgumentError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_event_properties.rb:34
   def process_opts; end
 
   private
 
-  # @raise [TypeError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_event_properties.rb:48
   def assert_number(num, min, max = T.unsafe(nil)); end
 end
@@ -4120,51 +5508,31 @@ Selenium::WebDriver::Interactions::PointerEventProperties::VALID = T.let(T.unsaf
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:29
 class Selenium::WebDriver::Interactions::PointerInput < ::Selenium::WebDriver::Interactions::InputDevice
-  # @api private
-  # @return [PointerInput] a new instance of PointerInput
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:34
   def initialize(kind, name: T.unsafe(nil)); end
 
-  # @api private
-  # @raise [TypeError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:46
   def assert_kind(pointer); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:64
   def create_pointer_cancel; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:56
   def create_pointer_down(button, **opts); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:52
   def create_pointer_move(duration: T.unsafe(nil), x: T.unsafe(nil), y: T.unsafe(nil), origin: T.unsafe(nil), **opts); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:60
   def create_pointer_up(button, **opts); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:40
   def encode; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:32
   def kind; end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:30
 Selenium::WebDriver::Interactions::PointerInput::KIND = T.let(T.unsafe(nil), Hash)
 
@@ -4176,36 +5544,22 @@ Selenium::WebDriver::Interactions::PointerInput::KIND = T.let(T.unsafe(nil), Has
 class Selenium::WebDriver::Interactions::PointerMove < ::Selenium::WebDriver::Interactions::Interaction
   include ::Selenium::WebDriver::Interactions::PointerEventProperties
 
-  # @api private
-  # @return [PointerMove] a new instance of PointerMove
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_move.rb:36
   def initialize(source, duration, x, y, **opts); end
 
-  # @api private
-  # @raise [TypeError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_move.rb:46
   def assert_source(source); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_move.rb:50
   def encode; end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_move.rb:34
 Selenium::WebDriver::Interactions::PointerMove::ORIGINS = T.let(T.unsafe(nil), Array)
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_move.rb:33
 Selenium::WebDriver::Interactions::PointerMove::POINTER = T.let(T.unsafe(nil), Symbol)
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_move.rb:32
 Selenium::WebDriver::Interactions::PointerMove::VIEWPORT = T.let(T.unsafe(nil), Symbol)
 
@@ -4217,44 +5571,27 @@ Selenium::WebDriver::Interactions::PointerMove::VIEWPORT = T.let(T.unsafe(nil), 
 class Selenium::WebDriver::Interactions::PointerPress < ::Selenium::WebDriver::Interactions::Interaction
   include ::Selenium::WebDriver::Interactions::PointerEventProperties
 
-  # @api private
-  # @return [PointerPress] a new instance of PointerPress
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_press.rb:44
   def initialize(source, direction, button, **opts); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_press.rb:52
   def encode; end
 
   private
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_press.rb:62
   def assert_button(button); end
 
-  # @api private
-  # @raise [ArgumentError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_press.rb:77
   def assert_direction(direction); end
 
-  # @api private
-  # @raise [TypeError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_press.rb:58
   def assert_source(source); end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_press.rb:32
 Selenium::WebDriver::Interactions::PointerPress::BUTTONS = T.let(T.unsafe(nil), Hash)
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_press.rb:42
 Selenium::WebDriver::Interactions::PointerPress::DIRECTIONS = T.let(T.unsafe(nil), Hash)
 
@@ -4264,21 +5601,12 @@ Selenium::WebDriver::Interactions::PointerPress::DIRECTIONS = T.let(T.unsafe(nil
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll.rb:29
 class Selenium::WebDriver::Interactions::Scroll < ::Selenium::WebDriver::Interactions::Interaction
-  # @api private
-  # @raise [ArgumentError]
-  # @return [Scroll] a new instance of Scroll
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll.rb:30
   def initialize(source:, origin: T.unsafe(nil), duration: T.unsafe(nil), **opts); end
 
-  # @api private
-  # @raise [TypeError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll.rb:43
   def assert_source(source); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll.rb:47
   def encode; end
 end
@@ -4289,31 +5617,18 @@ end
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/typing_interaction.rb:29
 class Selenium::WebDriver::Interactions::TypingInteraction < ::Selenium::WebDriver::Interactions::Interaction
-  # @api private
-  # @return [TypingInteraction] a new instance of TypingInteraction
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/typing_interaction.rb:32
   def initialize(source, type, key); end
 
-  # @api private
-  # @raise [TypeError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/typing_interaction.rb:38
   def assert_source(source); end
 
-  # @api private
-  # @raise [TypeError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/typing_interaction.rb:42
   def assert_type(type); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/typing_interaction.rb:48
   def encode; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/typing_interaction.rb:30
   def type; end
 end
@@ -4327,14 +5642,9 @@ Selenium::WebDriver::Interactions::WHEEL = T.let(T.unsafe(nil), Symbol)
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_input.rb:29
 class Selenium::WebDriver::Interactions::WheelInput < ::Selenium::WebDriver::Interactions::InputDevice
-  # @api private
-  # @return [WheelInput] a new instance of WheelInput
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_input.rb:30
   def initialize(name = T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_input.rb:35
   def create_scroll(**opts); end
 end
@@ -4347,13 +5657,20 @@ module Selenium::WebDriver::KeyActions
   #
   # @example Press a key
   #
-  #   driver.action.key_down(:control).perform
+  #    driver.action.key_down(:control).perform
+  #
   # @example Press a key on an element
   #
-  #   el = driver.find_element(id: "some_id")
-  #   driver.action.key_down(el, :shift).perform
-  # @overload key_down
-  # @overload key_down
+  #    el = driver.find_element(id: "some_id")
+  #    driver.action.key_down(el, :shift).perform
+  #
+  # @overload key_down(key, device: nil)
+  #   @param [Symbol, String] key The key to press
+  #   @param [Symbol, String] device Optional name of the KeyInput device to press the key on
+  # @overload key_down(element, key, device: nil)
+  #   @param [Element] element An optional element to move to first
+  #   @param [Symbol, String] key The key to press
+  #   @param [Symbol, String] device Optional name of the KeyInput device to press the key on
   # @return [ActionBuilder] A self reference
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_actions.rb:47
@@ -4365,12 +5682,19 @@ module Selenium::WebDriver::KeyActions
   # @example Release a key
   #
   #   driver.action.key_up(:shift).perform
+  #
   # @example Release a key from an element
   #
   #   el = driver.find_element(id: "some_id")
   #   driver.action.key_up(el, :alt).perform
-  # @overload key_up
-  # @overload key_up
+  #
+  # @overload key_up(key, device: nil)
+  #   @param [Symbol, String] key The key to press
+  #   @param [Symbol, String] device Optional name of the KeyInput device to press the key on
+  # @overload key_up(element, key, device: nil)
+  #   @param [Element] element An optional element to move to first
+  #   @param [Symbol, String] key The key to release
+  #   @param [Symbol, String] device Optional name of the KeyInput device to release the key on
   # @return [ActionBuilder] A self reference
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_actions.rb:74
@@ -4386,11 +5710,18 @@ module Selenium::WebDriver::KeyActions
   #
   #   el = driver.find_element(id: "some_id")
   #   driver.action.send_keys(el, "help").perform
+  #
   # @example Send the text "help" to the currently focused element
   #
   #   driver.action.send_keys("help").perform
-  # @overload send_keys
-  # @overload send_keys
+  #
+  # @overload send_keys(keys, device: nil)
+  #   @param [Array, Symbol, String] keys The key(s) to press and release
+  #   @param [Symbol, String] device Optional name of the KeyInput device to press and release the keys on
+  # @overload send_keys(element, keys, device: nil)
+  #   @param [Element] element An optional element to move to first
+  #   @param [Array, Symbol, String] keys The key(s) to press and release
+  #   @param [Symbol, String] device Optional name of the KeyInput device to press and release the keys on
   # @return [ActionBuilder] A self reference
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_actions.rb:104
@@ -4399,13 +5730,22 @@ module Selenium::WebDriver::KeyActions
   private
 
   # @api private
-  # @option args
-  # @option args
-  # @overload key_down
-  # @overload key_down
-  # @param action [Symbol] The name of the key action to perform
-  # @param args [Array]
-  # @param device [Symbol, String] optional name of the KeyInput device to press the key on
+  #
+  # @overload key_down(key, action: nil, device: nil)
+  #   @param [Symbol, String] key The key to press
+  #   @param [Symbol] action The name of the key action to perform
+  #   @param [Symbol, String] device Optional name of the KeyInput device to press the key on
+  # @overload key_down(element, key, action: nil, device: nil)
+  #   @param [Element] element An optional element to move to first
+  #   @param [Symbol, String] key The key to press
+  #   @param [Symbol] action The name of the key action to perform
+  #   @param [Symbol, String] device Optional name of the KeyInput device to press the key on
+  #
+  # @param [Array] args
+  # @option args [Element] element An optional element to move to first
+  # @option args [Symbol, String] key The key to perform the action with
+  # @param [Symbol] action The name of the key action to perform
+  # @param [Symbol, String] device optional name of the KeyInput device to press the key on
   # @return [ActionBuilder] A self reference
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_actions.rb:136
@@ -4419,7 +5759,6 @@ end
 module Selenium::WebDriver::Keys
   class << self
     # @api private
-    # @raise [Error::UnsupportedOperationError]
     #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/keys.rb:114
     def [](key); end
@@ -4444,8 +5783,6 @@ Selenium::WebDriver::Keys::KEYS = T.let(T.unsafe(nil), Hash)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/local_driver.rb:22
 module Selenium::WebDriver::LocalDriver
-  # @raise [ArgumentError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/local_driver.rb:23
   def initialize_local_driver(capabilities, options, service, url); end
 
@@ -4455,29 +5792,21 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/log_entry.rb:22
 class Selenium::WebDriver::LogEntry
-  # @return [LogEntry] a new instance of LogEntry
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/log_entry.rb:25
   def initialize(level, timestamp, message); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/log_entry.rb:31
   def as_json(*_arg0); end
 
-  # Returns the value of attribute level.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/log_entry.rb:23
   def level; end
 
-  # Returns the value of attribute message.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/log_entry.rb:23
   def message; end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/log_entry.rb:43
   def time; end
 
-  # Returns the value of attribute timestamp.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/log_entry.rb:23
   def timestamp; end
 
@@ -4487,8 +5816,10 @@ end
 
 # @example Enable full logging
 #   Selenium::WebDriver.logger.level = :debug
+#
 # @example Log to file
 #   Selenium::WebDriver.logger.output = 'selenium.log'
+#
 # @example Use logger manually
 #   Selenium::WebDriver.logger.info('This is info message')
 #   Selenium::WebDriver.logger.warn('This is warning message')
@@ -4497,15 +5828,14 @@ end
 class Selenium::WebDriver::Logger
   extend ::Forwardable
 
-  # @param progname [String] Allow child projects to use Selenium's Logger pattern
-  # @return [Logger] a new instance of Logger
+  # @param [String] progname Allow child projects to use Selenium's Logger pattern
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:51
   def initialize(progname = T.unsafe(nil), default_level: T.unsafe(nil), ignored: T.unsafe(nil), allowed: T.unsafe(nil)); end
 
   # Will only log the provided ID.
   #
-  # @param ids [Array, Symbol]
+  # @param [Array, Symbol] ids
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:106
   def allow(ids); end
@@ -4516,8 +5846,8 @@ class Selenium::WebDriver::Logger
   # Used to supply information of interest for debugging a problem
   # Overrides default #debug to skip ignored messages by provided id
   #
-  # @param id [Symbol, Array<Sybmol>]
-  # @param message [String]
+  # @param [String] message
+  # @param [Symbol, Array<Sybmol>] id
   # @yield see #deprecate
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:118
@@ -4528,10 +5858,10 @@ class Selenium::WebDriver::Logger
 
   # Marks code as deprecated with/without replacement.
   #
-  # @param id [Symbol, Array<Symbol>]
-  # @param new [String, nil]
-  # @param old [String]
-  # @param reference [String]
+  # @param [String] old
+  # @param [String, nil] new
+  # @param [Symbol, Array<Symbol>] id
+  # @param [String] reference
   # @yield appends additional message to end of provided template
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:164
@@ -4539,8 +5869,8 @@ class Selenium::WebDriver::Logger
 
   # Used to supply information that suggests an error occurred
   #
-  # @param id [Symbol, Array<Sybmol>]
-  # @param message [String]
+  # @param [String] message
+  # @param [Symbol, Array<Sybmol>] id
   # @yield see #deprecate
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:140
@@ -4557,15 +5887,15 @@ class Selenium::WebDriver::Logger
 
   # Will not log the provided ID.
   #
-  # @param ids [Array, Symbol]
+  # @param [Array, Symbol] ids
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:97
   def ignore(*ids); end
 
   # Used to supply information of general interest
   #
-  # @param id [Symbol, Array<Sybmol>]
-  # @param message [String]
+  # @param [String] message
+  # @param [Symbol, Array<Sybmol>] id
   # @yield see #deprecate
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:129
@@ -4595,15 +5925,15 @@ class Selenium::WebDriver::Logger
 
   # Changes logger output to a new IO.
   #
-  # @param io [String]
+  # @param [String] io
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:73
   def output=(io); end
 
   # Used to supply information that suggests action be taken by user
   #
-  # @param id [Symbol, Array<Sybmol>]
-  # @param message [String]
+  # @param [String] message
+  # @param [Symbol, Array<Sybmol>] id
   # @yield see #deprecate
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:151
@@ -4624,7 +5954,6 @@ end
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logs.rb:22
 class Selenium::WebDriver::Logs
   # @api private
-  # @return [Logs] a new instance of Logs
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logs.rb:27
   def initialize(bridge); end
@@ -4639,20 +5968,20 @@ end
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:22
 class Selenium::WebDriver::Manager
   # @api private
-  # @return [Manager] a new instance of Manager
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:27
   def initialize(bridge); end
 
   # Add a cookie to the browser
   #
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @param opts [Hash] the options to create a cookie with.
+  # @param [Hash] opts the options to create a cookie with.
+  # @option opts [String] :name A name
+  # @option opts [String] :value A value
+  # @option opts [String] :path ('/') A path
+  # @option opts [String] :secure (false) A boolean
+  # @option opts [String] :same_site (Strict or Lax) currently supported only in chrome 80+ versions
+  # @option opts [Time,DateTime,Numeric,nil] :expires (nil) Expiry date, either as a Time, DateTime, or seconds since epoch.
+  #
   # @raise [ArgumentError] if :name or :value is not specified
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:45
@@ -4667,7 +5996,7 @@ class Selenium::WebDriver::Manager
 
   # Get the cookie with the given name
   #
-  # @param name [String] the name of the cookie
+  # @param [String] name the name of the cookie
   # @return [Hash, nil] the cookie, or nil if it wasn't found.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:71
@@ -4680,7 +6009,7 @@ class Selenium::WebDriver::Manager
 
   # Delete the cookie with the given name
   #
-  # @param name [String] the name of the cookie to delete
+  # @param [String] name the name of the cookie to delete
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:81
   def delete_cookie(name); end
@@ -4711,8 +6040,6 @@ Selenium::WebDriver::Manager::SECONDS_PER_DAY = T.let(T.unsafe(nil), Float)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/navigation.rb:22
 class Selenium::WebDriver::Navigation
-  # @return [Navigation] a new instance of Navigation
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/navigation.rb:23
   def initialize(bridge); end
 
@@ -4739,8 +6066,6 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:22
 class Selenium::WebDriver::Options
-  # @return [Options] a new instance of Options
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:69
   def initialize(**opts); end
 
@@ -4752,8 +6077,9 @@ class Selenium::WebDriver::Options
   # @example Leave Chrome open when chromedriver is killed
   #   options = Selenium::WebDriver::Chrome::Options.new
   #   options.add_option(:detach, true)
-  # @param name [String, Symbol] Name of the option
-  # @param value [Boolean, String, Integer] Value of the option
+  #
+  # @param [String, Symbol] name Name of the option
+  # @param [Boolean, String, Integer] value Value of the option
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:87
   def add_option(name, value = T.unsafe(nil)); end
@@ -4766,15 +6092,9 @@ class Selenium::WebDriver::Options
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:104
   def eql?(other); end
 
-  # Returns the value of attribute options.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:67
   def options; end
 
-  # Sets the attribute options
-  #
-  # @param value the value to set the attribute options to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:67
   def options=(_arg0); end
 
@@ -4783,13 +6103,9 @@ class Selenium::WebDriver::Options
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:194
   def camel_case(str); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:158
   def camelize?(_key); end
 
-  # @raise [TypeError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:186
   def convert_json_key(key, camelize: T.unsafe(nil)); end
 
@@ -4805,8 +6121,6 @@ class Selenium::WebDriver::Options
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:147
   def process_w3c_options(options); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:143
   def w3c?(key); end
 
@@ -4814,8 +6128,6 @@ class Selenium::WebDriver::Options
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:30
     def chrome(**opts); end
 
-    # Returns the value of attribute driver_path.
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:28
     def driver_path; end
 
@@ -4851,284 +6163,166 @@ Selenium::WebDriver::Options::W3C_OPTIONS = T.let(T.unsafe(nil), Array)
 module Selenium::WebDriver::Platform
   private
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:147
   def assert_executable(path); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:141
   def assert_file(path); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:65
   def bitsize; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:53
   def ci; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:110
   def cygwin?; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:122
   def cygwin_path(path, **opts); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:33
   def engine; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:155
   def exit_hook; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:161
   def find_binary(*binary_names); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:181
   def find_in_program_files(*binary_names); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:29
   def home; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:222
   def interfaces; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:206
   def ip; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:77
   def jruby?; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:97
   def linux?; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:198
   def localhost; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:93
   def mac?; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:137
   def make_writable(file); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:114
   def null_device; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:37
   def os; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:85
   def ruby_version; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:81
   def truffleruby?; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:129
   def unix_path(path); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:89
   def windows?; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:133
   def windows_path(path); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:118
   def wrap_in_quotes_if_necessary(str); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:101
   def wsl?; end
 
   class << self
-    # @api private
-    # @raise [Error::WebDriverError]
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:147
     def assert_executable(path); end
 
-    # @api private
-    # @raise [Error::WebDriverError]
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:141
     def assert_file(path); end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:65
     def bitsize; end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:53
     def ci; end
 
-    # @api private
-    # @return [Boolean]
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:110
     def cygwin?; end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:122
     def cygwin_path(path, **opts); end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:33
     def engine; end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:155
     def exit_hook; end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:161
     def find_binary(*binary_names); end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:181
     def find_in_program_files(*binary_names); end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:29
     def home; end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:222
     def interfaces; end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:206
     def ip; end
 
-    # @api private
-    # @return [Boolean]
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:77
     def jruby?; end
 
-    # @api private
-    # @return [Boolean]
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:97
     def linux?; end
 
-    # @api private
-    # @raise [Error::WebDriverError]
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:198
     def localhost; end
 
-    # @api private
-    # @return [Boolean]
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:93
     def mac?; end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:137
     def make_writable(file); end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:114
     def null_device; end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:37
     def os; end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:85
     def ruby_version; end
 
-    # @api private
-    # @return [Boolean]
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:81
     def truffleruby?; end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:129
     def unix_path(path); end
 
-    # @api private
-    # @return [Boolean]
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:89
     def windows?; end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:133
     def windows_path(path); end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:118
     def wrap_in_quotes_if_necessary(str); end
 
-    # @api private
-    # @return [Boolean]
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:101
     def wsl?; end
   end
@@ -5136,33 +6330,15 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:33
 class Selenium::WebDriver::Point < ::Struct
-  # Returns the value of attribute x
-  #
-  # @return [Object] the current value of x
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:33
   def x; end
 
-  # Sets the attribute x
-  #
-  # @param value [Object] the value to set the attribute x to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:33
   def x=(_); end
 
-  # Returns the value of attribute y
-  #
-  # @return [Object] the current value of y
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:33
   def y; end
 
-  # Sets the attribute y
-  #
-  # @param value [Object] the value to set the attribute y to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:33
   def y=(_); end
 
@@ -5192,16 +6368,18 @@ module Selenium::WebDriver::PointerActions
   #
   # When no element is passed, the current mouse position will be clicked.
   #
-  # @example Clicking at the current mouse position
-  #
-  #   driver.action.click.perform
   # @example Clicking on an element
   #
-  #   el = driver.find_element(id: "some_id")
-  #   driver.action.click(el).perform
-  # @param device [Symbol || String] optional name of the PointerInput device with the button
+  #    el = driver.find_element(id: "some_id")
+  #    driver.action.click(el).perform
+  #
+  # @example Clicking at the current mouse position
+  #
+  #    driver.action.click.perform
+  #
+  # @param [Selenium::WebDriver::Element] element An optional element to click.
+  # @param [Symbol || String] device optional name of the PointerInput device with the button
   #   that will be clicked
-  # @param element [Selenium::WebDriver::Element] An optional element to click.
   # @return [ActionBuilder] A self reference.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:227
@@ -5214,10 +6392,11 @@ module Selenium::WebDriver::PointerActions
   #
   # @example Clicking and holding on some element
   #
-  #   el = driver.find_element(id: "some_id")
-  #   driver.action.click_and_hold(el).perform
-  # @param device [Symbol || String] optional name of the PointerInput device to click with
-  # @param element [Selenium::WebDriver::Element] the element to move to and click.
+  #    el = driver.find_element(id: "some_id")
+  #    driver.action.click_and_hold(el).perform
+  #
+  # @param [Selenium::WebDriver::Element] element the element to move to and click.
+  # @param [Symbol || String] device optional name of the PointerInput device to click with
   # @return [ActionBuilder] A self reference.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:181
@@ -5232,12 +6411,14 @@ module Selenium::WebDriver::PointerActions
   #
   #   el = driver.find_element(id: "some_id")
   #   driver.action.context_click(el).perform
+  #
   # @example Context-clicking at the current mouse position
   #
-  #   driver.action.context_click.perform
-  # @param device [Symbol || String] optional name of the PointerInput device with the button
+  #    driver.action.context_click.perform
+  #
+  # @param [Selenium::WebDriver::Element] element An element to context click.
+  # @param [Symbol || String] device optional name of the PointerInput device with the button
   #   that will be context-clicked
-  # @param element [Selenium::WebDriver::Element] An element to context click.
   # @return [ActionBuilder] A self reference.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:284
@@ -5249,9 +6430,8 @@ module Selenium::WebDriver::PointerActions
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:30
   def default_move_duration; end
 
-  # Sets the attribute default_move_duration
-  #
-  # @param value the value to set the attribute default_move_duration to.
+  # By default this is set to 250ms in the ActionBuilder constructor
+  # It can be overridden with default_move_duration=
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:23
   def default_move_duration=(_arg0); end
@@ -5264,14 +6444,16 @@ module Selenium::WebDriver::PointerActions
   #
   # @example Double-click an element
   #
-  #   el = driver.find_element(id: "some_id")
-  #   driver.action.double_click(el).perform
+  #    el = driver.find_element(id: "some_id")
+  #    driver.action.double_click(el).perform
+  #
   # @example Double-clicking at the current mouse position
   #
-  #   driver.action.double_click.perform
-  # @param device [Symbol || String] optional name of the PointerInput device with the button
+  #    driver.action.double_click.perform
+  #
+  # @param [Selenium::WebDriver::Element] element An optional element to move to.
+  # @param [Symbol || String] device optional name of the PointerInput device with the button
   #   that will be double-clicked
-  # @param element [Selenium::WebDriver::Element] An optional element to move to.
   # @return [ActionBuilder] A self reference.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:256
@@ -5286,11 +6468,12 @@ module Selenium::WebDriver::PointerActions
   #   el1 = driver.find_element(id: "some_id1")
   #   el2 = driver.find_element(id: "some_id2")
   #   driver.action.drag_and_drop(el1, el2).perform
-  # @param device [Symbol || String] optional name of the PointerInput device with the button
-  #   that will perform the drag and drop
-  # @param source [Selenium::WebDriver::Element] element to emulate button down at.
-  # @param target [Selenium::WebDriver::Element] element to move to and release the
+  #
+  # @param [Selenium::WebDriver::Element] source element to emulate button down at.
+  # @param [Selenium::WebDriver::Element] target element to move to and release the
   #   mouse at.
+  # @param [Symbol || String] device optional name of the PointerInput device with the button
+  #   that will perform the drag and drop
   # @return [ActionBuilder] A self reference.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:307
@@ -5303,11 +6486,12 @@ module Selenium::WebDriver::PointerActions
   #
   #   el = driver.find_element(id: "some_id1")
   #   driver.action.drag_and_drop_by(el, 100, 100).perform
-  # @param device [Symbol || String] optional name of the PointerInput device with the button
+  #
+  # @param [Selenium::WebDriver::Element] source Element to emulate button down at.
+  # @param [Integer] right_by horizontal move offset.
+  # @param [Integer] down_by vertical move offset.
+  # @param [Symbol || String] device optional name of the PointerInput device with the button
   #   that will perform the drag and drop
-  # @param down_by [Integer] vertical move offset.
-  # @param right_by [Integer] horizontal move offset.
-  # @param source [Selenium::WebDriver::Element] Element to emulate button down at.
   # @return [ActionBuilder] A self reference.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:331
@@ -5320,12 +6504,13 @@ module Selenium::WebDriver::PointerActions
   #
   # @example Move the pointer to a certain offset from its current position
   #
-  #   driver.action.move_by(100, 100).perform
-  # @param device [Symbol || String] optional name of the PointerInput device to move
-  # @param down_by [Integer] vertical offset. A negative value means moving the pointer up.
-  # @param right_by [Integer] horizontal offset. A negative value means moving the pointer left.
-  # @raise [MoveTargetOutOfBoundsError] if the provided offset is outside the document's boundaries.
+  #    driver.action.move_by(100, 100).perform
+  #
+  # @param [Integer] right_by horizontal offset. A negative value means moving the pointer left.
+  # @param [Integer] down_by vertical offset. A negative value means moving the pointer up.
+  # @param [Symbol || String] device optional name of the PointerInput device to move
   # @return [ActionBuilder] A self reference.
+  # @raise [MoveTargetOutOfBoundsError] if the provided offset is outside the document's boundaries.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:126
   def move_by(right_by, down_by, device: T.unsafe(nil), duration: T.unsafe(nil), **opts); end
@@ -5338,20 +6523,22 @@ module Selenium::WebDriver::PointerActions
   #
   # When using offsets, both coordinates need to be passed.
   #
-  # @example
-  #
-  #   el = driver.find_element(id: "some_id")
-  #   driver.action.move_to(el, 100, 100).perform
   # @example Move the pointer to element
   #
   #   el = driver.find_element(id: "some_id")
   #   driver.action.move_to(el).perform
-  # @param device [Symbol || String] optional name of the PointerInput device to move.
-  # @param down_by [Integer] Optional offset from the in-view center of the
-  #   element. A negative value means coordinates to the top of the center.
-  # @param element [Selenium::WebDriver::Element] to move to.
-  # @param right_by [Integer] Optional offset from the in-view center of the
+  #
+  # @example
+  #
+  #   el = driver.find_element(id: "some_id")
+  #   driver.action.move_to(el, 100, 100).perform
+  #
+  # @param [Selenium::WebDriver::Element] element to move to.
+  # @param [Integer] right_by Optional offset from the in-view center of the
   #   element. A negative value means coordinates to the left of the center.
+  # @param [Integer] down_by Optional offset from the in-view center of the
+  #   element. A negative value means coordinates to the top of the center.
+  # @param [Symbol || String] device optional name of the PointerInput device to move.
   # @return [ActionBuilder] A self reference.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:98
@@ -5364,12 +6551,13 @@ module Selenium::WebDriver::PointerActions
   #
   # @example Move the pointer to a certain position in the viewport
   #
-  #   driver.action.move_to_location(100, 100).perform
-  # @param device [Symbol || String] optional name of the PointerInput device to move
-  # @param x [Integer] horizontal position. Equivalent to a css 'left' value.
-  # @param y [Integer] vertical position. Equivalent to a css 'top' value.
-  # @raise [MoveTargetOutOfBoundsError] if the provided x or y value is outside the document's boundaries.
+  #    driver.action.move_to_location(100, 100).perform
+  #
+  # @param [Integer] x horizontal position. Equivalent to a css 'left' value.
+  # @param [Integer] y vertical position. Equivalent to a css 'top' value.
+  # @param [Symbol || String] device optional name of the PointerInput device to move
   # @return [ActionBuilder] A self reference.
+  # @raise [MoveTargetOutOfBoundsError] if the provided x or y value is outside the document's boundaries.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:154
   def move_to_location(x, y, device: T.unsafe(nil), duration: T.unsafe(nil), **opts); end
@@ -5380,9 +6568,10 @@ module Selenium::WebDriver::PointerActions
   #
   # @example Clicking and holding at the current location
   #
-  #   driver.action.pointer_down(:left).perform
-  # @param button [Selenium::WebDriver::Interactions::PointerPress::BUTTONS] the button to press.
-  # @param device [Symbol || String] optional name of the PointerInput device with the button
+  #    driver.action.pointer_down(:left).perform
+  #
+  # @param [Selenium::WebDriver::Interactions::PointerPress::BUTTONS] button the button to press.
+  # @param [Symbol || String] device optional name of the PointerInput device with the button
   #   that will be pressed
   # @return [ActionBuilder] A self reference.
   #
@@ -5393,9 +6582,10 @@ module Selenium::WebDriver::PointerActions
   #
   # @example Releasing a button after clicking and holding
   #
-  #   driver.action.pointer_down(:left).pointer_up(:left).perform
-  # @param button [Selenium::WebDriver::Interactions::PointerPress::BUTTONS] the button to release.
-  # @param device [Symbol || String] optional name of the PointerInput device with the button that will
+  #    driver.action.pointer_down(:left).pointer_up(:left).perform
+  #
+  # @param [Selenium::WebDriver::Interactions::PointerPress::BUTTONS] button the button to release.
+  # @param [Symbol || String] device optional name of the PointerInput device with the button that will
   #   be released
   # @return [ActionBuilder] A self reference.
   #
@@ -5406,9 +6596,10 @@ module Selenium::WebDriver::PointerActions
   #
   # @example Releasing an element after clicking and holding it
   #
-  #   el = driver.find_element(id: "some_id")
-  #   driver.action.click_and_hold(el).release.perform
-  # @param device [Symbol || String] optional name of the PointerInput device with the button
+  #    el = driver.find_element(id: "some_id")
+  #    driver.action.click_and_hold(el).release.perform
+  #
+  # @param [Symbol || String] device optional name of the PointerInput device with the button
   #   that will be released
   # @return [ActionBuilder] A self reference.
   #
@@ -5430,8 +6621,6 @@ class Selenium::WebDriver::PortProber
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/port_prober.rb:23
     def above(port); end
 
-    # @return [Boolean]
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/port_prober.rb:33
     def free?(port); end
   end
@@ -5440,72 +6629,49 @@ end
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/port_prober.rb:28
 Selenium::WebDriver::PortProber::IGNORED_ERRORS = T.let(T.unsafe(nil), Array)
 
+# @api private
+#
 # Common methods for Chrome::Profile and Firefox::Profile
 # Includers must implement #layout_on_disk
-#
-# @api private
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/profile_helper.rb:29
 module Selenium::WebDriver::ProfileHelper
   mixes_in_class_methods ::Selenium::WebDriver::ProfileHelper::ClassMethods
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/profile_helper.rb:42
   def as_json(*_arg0); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/profile_helper.rb:38
   def encoded; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/profile_helper.rb:46
   def to_json(*_arg0); end
 
   private
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/profile_helper.rb:52
   def create_tmp_copy(directory); end
 
-  # @api private
-  # @raise [Errno::ENOENT]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/profile_helper.rb:63
   def verify_model(model); end
 
   class << self
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/profile_helper.rb:34
     def decoded(json); end
 
-    # @api private
-    # @private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/profile_helper.rb:30
     def included(base); end
   end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/profile_helper.rb:72
 module Selenium::WebDriver::ProfileHelper::ClassMethods
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/profile_helper.rb:73
   def from_json(json); end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/proxy.rb:22
 class Selenium::WebDriver::Proxy
-  # @raise [ArgumentError]
-  # @return [Proxy] a new instance of Proxy
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/proxy.rb:58
   def initialize(opts = T.unsafe(nil)); end
 
@@ -5601,63 +6767,27 @@ Selenium::WebDriver::Proxy::TYPES = T.let(T.unsafe(nil), Hash)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
 class Selenium::WebDriver::Rectangle < ::Struct
-  # Returns the value of attribute height
-  #
-  # @return [Object] the current value of height
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
   def height; end
 
-  # Sets the attribute height
-  #
-  # @param value [Object] the value to set the attribute height to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
   def height=(_); end
 
-  # Returns the value of attribute width
-  #
-  # @return [Object] the current value of width
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
   def width; end
 
-  # Sets the attribute width
-  #
-  # @param value [Object] the value to set the attribute width to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
   def width=(_); end
 
-  # Returns the value of attribute x
-  #
-  # @return [Object] the current value of x
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
   def x; end
 
-  # Sets the attribute x
-  #
-  # @param value [Object] the value to set the attribute x to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
   def x=(_); end
 
-  # Returns the value of attribute y
-  #
-  # @return [Object] the current value of y
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
   def y; end
 
-  # Sets the attribute y
-  #
-  # @param value [Object] the value to set the attribute y to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
   def y=(_); end
 
@@ -5683,7 +6813,6 @@ end
 module Selenium::WebDriver::Remote; end
 
 # https://w3c.github.io/webdriver/#endpoints
-#
 # @api private
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:23
@@ -5691,625 +6820,391 @@ class Selenium::WebDriver::Remote::Bridge
   include ::Selenium::WebDriver::Atoms
 
   # Initializes the bridge with the given server URL
-  #
+  # @param [String, URI] url url for the remote server
+  # @param [Object] http_client an HTTP client instance that implements the same protocol as Http::Default
   # @api private
-  # @param http_client [Object] an HTTP client instance that implements the same protocol as Http::Default
-  # @param url [String, URI] url for the remote server
-  # @return [Bridge] a new instance of Bridge
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:39
   def initialize(url:, http_client: T.unsafe(nil)); end
 
   # alerts
   #
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:113
   def accept_alert; end
 
   # actions
   #
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:372
   def action(async: T.unsafe(nil), devices: T.unsafe(nil), duration: T.unsafe(nil)); end
 
-  # actions
-  #
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:375
   def actions(async: T.unsafe(nil), devices: T.unsafe(nil), duration: T.unsafe(nil)); end
 
   # finding elements
   #
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:519
   def active_element; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:348
   def add_cookie(cookie); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:579
   def add_credential(credential, id); end
 
   # virtual-authenticator
   #
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:570
   def add_virtual_authenticator(options); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:121
   def alert=(keys); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:125
   def alert_text; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:82
   def browser; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:30
   def capabilities; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:418
   def clear_element(element); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:294
   def clear_local_storage; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:318
   def clear_session_storage; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:389
   def click_element(element); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:193
   def close; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:356
   def cookie(name); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:360
   def cookies; end
 
   # Creates session.
   #
-  # @api private
-  # @raise [Error::WebDriverError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:52
   def create_session(capabilities); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:583
   def credentials(authenticator_id); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:364
   def delete_all_cookies; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:352
   def delete_cookie(name); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:117
   def dismiss_alert; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:463
   def element_aria_label(element); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:459
   def element_aria_role(element); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:446
   def element_attribute(element, name); end
 
-  # @api private
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:506
   def element_displayed?(element); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:451
   def element_dom_attribute(element, name); end
 
-  # @api private
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:498
   def element_enabled?(element); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:475
   def element_location(element); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:487
   def element_location_once_scrolled_into_view(element); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:455
   def element_property(element, name); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:481
   def element_rect(element); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:270
   def element_screenshot(element); end
 
-  # @api private
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:502
   def element_selected?(element); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:492
   def element_size(element); end
 
   # element properties
   #
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:442
   def element_tag_name(element); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:471
   def element_text(element); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:467
   def element_value(element); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:511
   def element_value_of_css_property(element, prop); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:335
   def execute_async_script(script, *args); end
 
   # javascript execution
   #
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:330
   def execute_script(script, *args); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:29
   def file_detector; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:29
   def file_detector=(_arg0); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:525
   def find_element_by(how, what, parent_ref = T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:543
   def find_elements_by(how, what, parent_ref = T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:242
   def full_screen_window; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:93
   def get(url); end
 
   # navigation
   #
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:133
   def go_back; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:137
   def go_forward; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:29
   def http; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:29
   def http=(_arg0); end
 
   # HTML 5
   #
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:278
   def local_storage_item(key, value = T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:290
   def local_storage_keys; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:298
   def local_storage_size; end
 
   # cookies
   #
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:344
   def manage; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:233
   def maximize_window(handle = T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:229
   def minimize_window; end
 
   # Create a new top-level browsing context
   # https://w3c.github.io/webdriver/#new-window
-  #
-  # @api private
   # @param type [String] Supports two values: 'tab' and 'window'.
-  #   Use 'tab' if you'd like the new window to share an OS-level window
-  #   with the current browsing context.
-  #   Use 'window' otherwise
+  #  Use 'tab' if you'd like the new window to share an OS-level window
+  #  with the current browsing context.
+  #  Use 'window' otherwise
   # @return [Hash] Containing 'handle' with the value of the window handle
-  #   and 'type' with the value of the created window type
+  #  and 'type' with the value of the created window type
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:163
   def new_window(type); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:149
   def page_source; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:385
   def print_page(options = T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:186
   def quit; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:197
   def refresh; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:381
   def release_actions; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:591
   def remove_all_credentials(authenticator_id); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:587
   def remove_credential(credential_id, authenticator_id); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:286
   def remove_local_storage_item(key); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:310
   def remove_session_storage_item(key); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:575
   def remove_virtual_authenticator(id); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:246
   def reposition_window(x, y); end
 
-  # @api private
-  # @raise [Error::WebDriverError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:213
   def resize_window(width, height, handle = T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:266
   def screenshot; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:377
   def send_actions(data); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:393
   def send_keys_to_element(element, keys); end
 
   # Returns the current session ID.
   #
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:78
   def session_id; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:302
   def session_storage_item(key, value = T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:314
   def session_storage_keys; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:322
   def session_storage_size; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:255
   def set_window_rect(x: T.unsafe(nil), y: T.unsafe(nil), width: T.unsafe(nil), height: T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:561
   def shadow_root(element); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:89
   def status; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:422
   def submit_element(element); end
 
-  # finding elements
-  #
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:523
   def switch_to_active_element; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:180
   def switch_to_default_content; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:171
   def switch_to_frame(id); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:176
   def switch_to_parent_frame; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:167
   def switch_to_window(name); end
 
   # timeouts
   #
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:101
   def timeouts; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:105
   def timeouts=(timeouts); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:145
   def title; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:408
   def upload(local_file); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:141
   def url; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:595
   def user_verified(verified, authenticator_id); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:209
   def window_handle; end
 
   # window handling
   #
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:205
   def window_handles; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:250
   def window_position; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:261
   def window_rect; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:219
   def window_size(handle = T.unsafe(nil)); end
 
   private
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:627
   def commands(command); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:661
   def convert_locator(how, what); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:648
   def element_id_from(id); end
 
   # Escapes invalid characters in CSS selector.
-  #
-  # @api private
   # @see https://mathiasbynens.be/notes/css-escapes
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:691
   def escape_css(string); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:623
   def escaper; end
 
   # executes a command on the remote server.
   #
-  # @api private
   # @return [WebDriver::Remote::Response]
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:607
   def execute(command, opts = T.unsafe(nil), command_hash = T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:656
   def prepare_capabilities_payload(capabilities); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:652
   def shadow_root_id_from(id); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:631
   def unwrap_script_result(arg); end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge/commands.rb:29
 Selenium::WebDriver::Remote::Bridge::COMMANDS = T.let(T.unsafe(nil), Hash)
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:686
 Selenium::WebDriver::Remote::Bridge::ESCAPE_CSS_REGEXP = T.let(T.unsafe(nil), Regexp)
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:27
 Selenium::WebDriver::Remote::Bridge::PORT = T.let(T.unsafe(nil), Integer)
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:184
 Selenium::WebDriver::Remote::Bridge::QUIT_ERRORS = T.let(T.unsafe(nil), Array)
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:687
 Selenium::WebDriver::Remote::Bridge::UNICODE_CODE_POINT = T.let(T.unsafe(nil), Integer)
 
@@ -6318,19 +7213,14 @@ Selenium::WebDriver::Remote::Bridge::UNICODE_CODE_POINT = T.let(T.unsafe(nil), I
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:28
 class Selenium::WebDriver::Remote::Capabilities
+  # @param [Hash] opts
+  # @option :browser_name             [String] required browser name
+  # @option :browser_version          [String] required browser version number
+  # @option :platform_name            [Symbol] one of :any, :win, :mac, or :x
+  # @option :accept_insecure_certs    [Boolean] does the driver accept insecure SSL certifications?
+  # @option :proxy                    [Selenium::WebDriver::Proxy, Hash] proxy configuration
+  #
   # @api public
-  # @option :accept_insecure_certs
-  # @option :browser_name
-  # @option :browser_version
-  # @option :platform_name
-  # @option :proxy
-  # @param :accept_insecure_certs [Hash] a customizable set of options
-  # @param :browser_name [Hash] a customizable set of options
-  # @param :browser_version [Hash] a customizable set of options
-  # @param :platform_name [Hash] a customizable set of options
-  # @param :proxy [Hash] a customizable set of options
-  # @param opts [Hash]
-  # @return [Capabilities] a new instance of Capabilities
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:199
   def initialize(opts = T.unsafe(nil)); end
@@ -6466,8 +7356,6 @@ class Selenium::WebDriver::Remote::Capabilities
 
   protected
 
-  # Returns the value of attribute capabilities.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:298
   def capabilities; end
 
@@ -6535,7 +7423,6 @@ end
 Selenium::WebDriver::Remote::Capabilities::KNOWN = T.let(T.unsafe(nil), Array)
 
 # Driver implementation for remote server.
-#
 # @api private
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/driver.rb:28
@@ -6543,28 +7430,17 @@ class Selenium::WebDriver::Remote::Driver < ::Selenium::WebDriver::Driver
   include ::Selenium::WebDriver::DriverExtensions::UploadsFiles
   include ::Selenium::WebDriver::DriverExtensions::HasSessionId
 
-  # @api private
-  # @raise [ArgumentError]
-  # @return [Driver] a new instance of Driver
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/driver.rb:32
   def initialize(capabilities: T.unsafe(nil), options: T.unsafe(nil), service: T.unsafe(nil), url: T.unsafe(nil), **opts); end
 
   private
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/driver.rb:43
   def devtools_url; end
 
-  # @api private
-  # @raise [Error::WebDriverError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/driver.rb:47
   def devtools_version; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/driver.rb:54
   def process_options(options, capabilities); end
 end
@@ -6583,10 +7459,6 @@ class Selenium::WebDriver::Remote::Http::Common
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/common.rb:35
   def quit_errors; end
 
-  # Sets the attribute server_url
-  #
-  # @param value the value to set the attribute server_url to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/common.rb:33
   def server_url=(_arg0); end
 
@@ -6595,25 +7467,21 @@ class Selenium::WebDriver::Remote::Http::Common
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/common.rb:74
   def create_response(code, body, content_type); end
 
-  # @raise [NotImplementedError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/common.rb:70
   def request(*_arg0); end
 
-  # @raise [Error::WebDriverError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/common.rb:64
   def server_url; end
 end
 
+# same as chromium/gecko
+#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/common.rb:26
 Selenium::WebDriver::Remote::Http::Common::CONTENT_TYPE = T.let(T.unsafe(nil), String)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/common.rb:27
 Selenium::WebDriver::Remote::Http::Common::DEFAULT_HEADERS = T.let(T.unsafe(nil), Hash)
 
-# same as chromium/gecko
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/common.rb:25
 Selenium::WebDriver::Remote::Http::Common::MAX_REDIRECTS = T.let(T.unsafe(nil), Integer)
 
@@ -6624,91 +7492,57 @@ class Selenium::WebDriver::Remote::Http::Default < ::Selenium::WebDriver::Remote
   # Initializes object.
   # Warning: Setting {#open_timeout} to non-nil values will cause a separate thread to spawn.
   # Debuggers that freeze the process will not be able to evaluate any operations if that happens.
-  #
-  # @api private
-  # @param open_timeout [Numeric] - Open timeout to apply to HTTP client.
-  # @param read_timeout [Numeric] - Read timeout (seconds) to apply to HTTP client.
-  # @return [Default] a new instance of Default
+  # @param [Numeric] open_timeout - Open timeout to apply to HTTP client.
+  # @param [Numeric] read_timeout - Read timeout (seconds) to apply to HTTP client.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:38
   def initialize(open_timeout: T.unsafe(nil), read_timeout: T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:44
   def close; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:31
   def open_timeout; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:31
   def open_timeout=(_arg0); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:29
   def proxy=(_arg0); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:31
   def read_timeout; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:31
   def read_timeout=(_arg0); end
 
   private
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:50
   def http; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:122
   def new_http_client; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:108
   def new_request_for(verb, url, headers, payload); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:138
   def proxy; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:72
   def request(verb, url, headers, payload, redirects = T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:118
   def response_for(request); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:66
   def start(http); end
 
-  # @api private
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:150
   def use_proxy?; end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:70
 Selenium::WebDriver::Remote::Http::Default::MAX_RETRIES = T.let(T.unsafe(nil), Integer)
 
@@ -6716,52 +7550,32 @@ Selenium::WebDriver::Remote::Http::Default::MAX_RETRIES = T.let(T.unsafe(nil), I
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:27
 class Selenium::WebDriver::Remote::Response
-  # @api private
-  # @return [Response] a new instance of Response
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:30
   def initialize(code, payload = T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:48
   def [](key); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:28
   def code; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:37
   def error; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:28
   def payload; end
 
   private
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:62
   def add_backtrace(ex, server_trace); end
 
-  # @api private
-  # @raise [Error::ServerError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:54
   def assert_ok; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:75
   def backtrace_from_remote(server_trace); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:92
   def process_error; end
 end
@@ -6769,8 +7583,6 @@ end
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari.rb:22
 module Selenium::WebDriver::Safari
   class << self
-    # @raise [Error::WebDriverError]
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari.rb:49
     def path; end
 
@@ -6783,47 +7595,31 @@ module Selenium::WebDriver::Safari
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari.rb:35
     def technology_preview!; end
 
-    # @return [Boolean]
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari.rb:40
     def technology_preview?; end
 
-    # Returns the value of attribute use_technology_preview.
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari.rb:29
     def use_technology_preview; end
 
-    # Sets the attribute use_technology_preview
-    #
-    # @param value the value to set the attribute use_technology_preview to.
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari.rb:29
     def use_technology_preview=(_arg0); end
   end
 end
 
 # Driver implementation for Safari.
-#
 # @api private
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/driver.rb:28
 class Selenium::WebDriver::Safari::Driver < ::Selenium::WebDriver::Driver
   include ::Selenium::WebDriver::LocalDriver
 
-  # @api private
-  # @return [Driver] a new instance of Driver
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/driver.rb:35
   def initialize(capabilities: T.unsafe(nil), options: T.unsafe(nil), service: T.unsafe(nil), url: T.unsafe(nil), **opts); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/driver.rb:40
   def browser; end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/driver.rb:29
 Selenium::WebDriver::Safari::Driver::EXTENSIONS = T.let(T.unsafe(nil), Array)
 
@@ -6849,23 +7645,15 @@ Selenium::WebDriver::Safari::Features::SAFARI_COMMANDS = T.let(T.unsafe(nil), Ha
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/options.rb:23
 class Selenium::WebDriver::Safari::Options < ::Selenium::WebDriver::Options
-  # @raise [ArgumentError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/options.rb:31
   def add_option(name, value = T.unsafe(nil)); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/options.rb:38
   def as_json(*_arg0); end
 
-  # Returns the value of attribute options.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/options.rb:24
   def options; end
 
-  # Sets the attribute options
-  #
-  # @param value the value to set the attribute options to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/options.rb:24
   def options=(_arg0); end
 end
@@ -6880,14 +7668,9 @@ Selenium::WebDriver::Safari::Options::CAPABILITIES = T.let(T.unsafe(nil), Hash)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/service.rb:23
 class Selenium::WebDriver::Safari::Service < ::Selenium::WebDriver::Service
-  # @raise [Error::WebDriverError]
-  # @return [Service] a new instance of Service
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/service.rb:28
   def initialize(path: T.unsafe(nil), port: T.unsafe(nil), log: T.unsafe(nil), args: T.unsafe(nil)); end
 
-  # @raise [Error::WebDriverError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/service.rb:34
   def log=(*_arg0); end
 end
@@ -6910,17 +7693,21 @@ module Selenium::WebDriver::SearchContext
   # the entire document, not just the children of this current node. Use
   # ".//" to limit your search to the children of the receiving Element.
   #
-  # @overload find_element
-  # @overload find_element
-  # @raise [Error::NoSuchElementError] if the element doesn't exist
+  # @overload find_element(how, what)
+  #   @param [Symbol, String] how The method to find the element by
+  #   @param [String] what The locator to use
+  # @overload find_element(opts)
+  #   @param [Hash] opts Find options
+  #   @option opts [Symbol] :how Key named after the method to find the element by, containing the locator
   # @return [Element]
+  #
+  # @raise [Error::NoSuchElementError] if the element doesn't exist
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/search_context.rb:57
   def find_element(*args); end
 
   # Find all elements matching the given arguments
   #
-  # @raise [ArgumentError]
   # @see SearchContext#find_element
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/search_context.rb:72
@@ -6939,24 +7726,18 @@ Selenium::WebDriver::SearchContext::FINDERS = T.let(T.unsafe(nil), Hash)
 
 # Wrapper for getting information from the Selenium Manager binaries.
 # This implementation is still in beta, and may change.
-#
 # @api private
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/selenium_manager.rb:29
 class Selenium::WebDriver::SeleniumManager
   class << self
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/selenium_manager.rb:33
     def bin_path; end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/selenium_manager.rb:31
     def bin_path=(_arg0); end
 
-    # @api private
-    # @param options [Options] browser options.
+    # @param [Options] options browser options.
     # @return [String] the path to the correct driver.
     #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/selenium_manager.rb:39
@@ -6964,19 +7745,14 @@ class Selenium::WebDriver::SeleniumManager
 
     private
 
-    # @api private
     # @return [String] the path to the correct selenium manager
     #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/selenium_manager.rb:73
     def binary; end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/selenium_manager.rb:54
     def generate_command(binary, options); end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/selenium_manager.rb:100
     def run(*command); end
   end
@@ -6990,77 +7766,43 @@ class Selenium::WebDriver::Service
   # End users should use a class method for the desired driver, rather than using this directly.
   #
   # @api private
-  # @raise [Error::WebDriverError]
-  # @return [Service] a new instance of Service
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:69
   def initialize(path: T.unsafe(nil), port: T.unsafe(nil), log: T.unsafe(nil), args: T.unsafe(nil)); end
 
-  # Returns the value of attribute args.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
   def args; end
 
-  # Sets the attribute args
-  #
-  # @param value the value to set the attribute args to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
   def args=(_arg0); end
 
-  # Returns the value of attribute executable_path.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
   def executable_path; end
 
-  # Sets the attribute executable_path
-  #
-  # @param value the value to set the attribute executable_path to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
   def executable_path=(_arg0); end
 
-  # Returns the value of attribute args.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:61
   def extra_args; end
 
-  # Returns the value of attribute host.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
   def host; end
 
-  # Sets the attribute host
-  #
-  # @param value the value to set the attribute host to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
   def host=(_arg0); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:90
   def launch; end
 
-  # Returns the value of attribute log.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
   def log; end
 
-  # Sets the attribute log
-  #
-  # @param value the value to set the attribute log to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
   def log=(_arg0); end
 
-  # Returns the value of attribute port.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
   def port; end
 
-  # Sets the attribute port
-  #
-  # @param value the value to set the attribute port to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
   def port=(_arg0); end
 
@@ -7076,8 +7818,6 @@ class Selenium::WebDriver::Service
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:31
     def chrome(**opts); end
 
-    # Returns the value of attribute driver_path.
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:29
     def driver_path; end
 
@@ -7117,100 +7857,61 @@ class Selenium::WebDriver::ServiceManager
   # End users should use a class method for the desired driver, rather than using this directly.
   #
   # @api private
-  # @raise [Error::WebDriverError]
-  # @return [ServiceManager] a new instance of ServiceManager
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:39
   def initialize(config); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:50
   def start; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:62
   def stop; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:74
   def uri; end
 
   private
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:80
   def build_process(*command); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:135
   def cannot_connect_error_text; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:89
   def connect_to_server; end
 
-  # @api private
-  # @raise [Error::WebDriverError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:128
   def connect_until_stable; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:98
   def find_free_port; end
 
-  # @api private
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:124
   def process_exited?; end
 
-  # @api private
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:120
   def process_running?; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:139
   def socket_lock; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:102
   def start_process; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:107
   def stop_process; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:113
   def stop_server; end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:30
 Selenium::WebDriver::ServiceManager::SOCKET_LOCK_TIMEOUT = T.let(T.unsafe(nil), Integer)
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:29
 Selenium::WebDriver::ServiceManager::START_TIMEOUT = T.let(T.unsafe(nil), Integer)
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:31
 Selenium::WebDriver::ServiceManager::STOP_TIMEOUT = T.let(T.unsafe(nil), Integer)
 
@@ -7221,7 +7922,6 @@ class Selenium::WebDriver::ShadowRoot
   # Creates a new shadow root
   #
   # @api private
-  # @return [ShadowRoot] a new instance of ShadowRoot
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/shadow_root.rb:33
   def initialize(bridge, id); end
@@ -7252,17 +7952,15 @@ class Selenium::WebDriver::ShadowRoot
   def ref; end
 
   # Convert to a ShadowRoot JSON Object for transmission over the wire.
+  # @see https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#basic-terms-and-concepts
   #
   # @api private
-  # @see https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol#basic-terms-and-concepts
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/shadow_root.rb:67
   def to_json(*_arg0); end
 
   private
 
-  # Returns the value of attribute bridge.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/shadow_root.rb:83
   def bridge; end
 end
@@ -7274,55 +7972,35 @@ Selenium::WebDriver::ShadowRoot::ROOT_KEY = T.let(T.unsafe(nil), String)
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:26
 class Selenium::WebDriver::SocketLock
-  # @api private
-  # @return [SocketLock] a new instance of SocketLock
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:27
   def initialize(port, timeout); end
 
   # Attempt to acquire a lock on the given port. Control is yielded to an
   # execution block if the lock could be successfully obtained.
   #
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:38
   def locked; end
 
   private
 
-  # @api private
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:68
   def can_lock?; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:60
   def current_time; end
 
-  # @api private
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:77
   def did_lock?; end
 
-  # @api private
-  # @raise [Error::WebDriverError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:50
   def lock; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:64
   def release; end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_poller.rb:25
 class Selenium::WebDriver::SocketPoller
-  # @return [SocketPoller] a new instance of SocketPoller
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_poller.rb:26
   def initialize(host, port, timeout = T.unsafe(nil), interval = T.unsafe(nil)); end
 
@@ -7344,8 +8022,6 @@ class Selenium::WebDriver::SocketPoller
 
   private
 
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_poller.rb:105
   def conn_completed?(sock); end
 
@@ -7355,13 +8031,9 @@ class Selenium::WebDriver::SocketPoller
   # we use a plain TCPSocket here since JRuby has issues closing socket
   # see https://github.com/jruby/jruby/issues/5709
   #
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_poller.rb:78
   def listening?; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_poller.rb:101
   def socket_writable?(sock); end
 
@@ -7387,17 +8059,17 @@ module Selenium::WebDriver::Support; end
 # @example
 #
 #   class NavigationListener < Selenium::WebDriver::Support::AbstractEventListener
-#   def initialize(log)
-#   @log = log
-#   end
+#     def initialize(log)
+#       @log = log
+#     end
 #
-#   def before_navigate_to(url, driver)
-#   @log.info "navigating to #{url}"
-#   end
+#     def before_navigate_to(url, driver)
+#       @log.info "navigating to #{url}"
+#     end
 #
-#   def after_navigate_to(url, driver)
-#   @log.info "done navigating to #{url}"
-#   end
+#     def after_navigate_to(url, driver)
+#       @log.info "done navigating to #{url}"
+#     end
 #   end
 #
 #   listener = NavigationListener.new(logger)
@@ -7462,8 +8134,6 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/block_event_listener.rb:23
 class Selenium::WebDriver::Support::BlockEventListener
-  # @return [BlockEventListener] a new instance of BlockEventListener
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/block_event_listener.rb:24
   def initialize(callback); end
 
@@ -7473,29 +8143,21 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/color.rb:23
 class Selenium::WebDriver::Support::Color
-  # @return [Color] a new instance of Color
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/color.rb:112
   def initialize(red, green, blue, alpha = T.unsafe(nil)); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/color.rb:119
   def ==(other); end
 
-  # Returns the value of attribute alpha.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/color.rb:48
   def alpha; end
 
-  # Returns the value of attribute blue.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/color.rb:48
   def blue; end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/color.rb:125
   def eql?(other); end
 
-  # Returns the value of attribute green.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/color.rb:48
   def green; end
 
@@ -7505,8 +8167,6 @@ class Selenium::WebDriver::Support::Color
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/color.rb:140
   def hex; end
 
-  # Returns the value of attribute red.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/color.rb:48
   def red; end
 
@@ -7564,86 +8224,53 @@ end
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/event_firing_bridge.rb:27
 class Selenium::WebDriver::Support::EventFiringBridge
-  # @api private
-  # @return [EventFiringBridge] a new instance of EventFiringBridge
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/event_firing_bridge.rb:28
   def initialize(delegate, listener); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/event_firing_bridge.rb:62
   def clear_element(ref); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/event_firing_bridge.rb:56
   def click_element(ref); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/event_firing_bridge.rb:100
   def close; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/event_firing_bridge.rb:90
   def execute_script(script, *args); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/event_firing_bridge.rb:74
   def find_element_by(how, what, parent = T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/event_firing_bridge.rb:82
   def find_elements_by(how, what, parent = T.unsafe(nil)); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/event_firing_bridge.rb:38
   def get(url); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/event_firing_bridge.rb:50
   def go_back; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/event_firing_bridge.rb:44
   def go_forward; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/event_firing_bridge.rb:96
   def quit; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/event_firing_bridge.rb:68
   def send_keys_to_element(ref, keys); end
 
   private
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/event_firing_bridge.rb:106
   def create_element(ref); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/event_firing_bridge.rb:115
   def dispatch(name, *args); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/event_firing_bridge.rb:111
   def driver; end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/event_firing_bridge.rb:123
   def method_missing(meth, *args, &blk); end
 end
@@ -7652,28 +8279,19 @@ end
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/relative_locator.rb:27
 class Selenium::WebDriver::Support::RelativeLocator
-  # @api private
-  # @return [RelativeLocator] a new instance of RelativeLocator
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/relative_locator.rb:30
   def initialize(locator); end
 
-  # @api private
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/relative_locator.rb:34
   def as_json; end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/relative_locator.rb:28
 Selenium::WebDriver::Support::RelativeLocator::KEYS = T.let(T.unsafe(nil), Array)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:23
 class Selenium::WebDriver::Support::Select
-  # @param element [Element] The select element to use
-  # @raise [ArgumentError]
-  # @return [Select] a new instance of Select
+  # @param [Element] element The select element to use
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:28
   def initialize(element); end
@@ -7687,9 +8305,10 @@ class Selenium::WebDriver::Support::Select
 
   # Deselect options by visible text, index or value.
   #
-  # @param how [:text, :index, :value] How to find the option
-  # @param what [String] What value to find the option by.
+  # @param [:text, :index, :value] how How to find the option
+  # @param [String] what What value to find the option by.
   # @raise [Error::UnsupportedOperationError] if the element does not support multiple selections.
+  #
   # @see Select#select_by
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:124
@@ -7739,8 +8358,8 @@ class Selenium::WebDriver::Support::Select
   # When selecting by :index, selects the option at the given index. This is done by examining the "index" attribute of an
   # element, and not merely by counting.
   #
-  # @param how [:text, :index, :value] How to find the option
-  # @param what [String] What value to find the option by.
+  # @param [:text, :index, :value] how How to find the option
+  # @param [String] what What value to find the option by.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:101
   def select_by(how, what); end
@@ -7754,18 +8373,12 @@ class Selenium::WebDriver::Support::Select
 
   private
 
-  # @raise [Error::UnsupportedOperationError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:207
   def deselect_by_index(index); end
 
-  # @raise [Error::UnsupportedOperationError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:187
   def deselect_by_text(text); end
 
-  # @raise [Error::UnsupportedOperationError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:197
   def deselect_by_value(value); end
 
@@ -7784,23 +8397,15 @@ class Selenium::WebDriver::Support::Select
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:266
   def find_by_value(value); end
 
-  # @raise [Error::NoSuchElementError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:171
   def select_by_index(index); end
 
-  # @raise [Error::NoSuchElementError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:163
   def select_by_text(text); end
 
-  # @raise [Error::NoSuchElementError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:179
   def select_by_value(value); end
 
-  # @raise [Error::UnsupportedOperationError]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:217
   def select_option(option); end
 
@@ -7821,10 +8426,11 @@ module Selenium::WebDriver::TakesScreenshot
 
   # Return a PNG screenshot in the given format as a string
   #
-  # @api public
-  # @param format [:base64, :png]
-  # @param full_page [Boolean] allows taking full page screenshots if supported
+  # @param [:base64, :png] format
+  # @param [Boolean] full_page allows taking full page screenshots if supported
   # @return String screenshot
+  #
+  # @api public
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/takes_screenshot.rb:51
   def screenshot_as(format, full_page: T.unsafe(nil)); end
@@ -7833,7 +8439,6 @@ end
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/target_locator.rb:22
 class Selenium::WebDriver::TargetLocator
   # @api private
-  # @return [TargetLocator] a new instance of TargetLocator
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/target_locator.rb:27
   def initialize(bridge); end
@@ -7863,7 +8468,6 @@ class Selenium::WebDriver::TargetLocator
   # Switch to a new top-level browsing context
   #
   # @param type either :tab or :window
-  # @raise [ArgumentError]
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/target_locator.rb:53
   def new_window(type = T.unsafe(nil)); end
@@ -7878,7 +8482,8 @@ class Selenium::WebDriver::TargetLocator
   # If given a block, this method will switch back to the original window after
   # block execution.
   #
-  # @param id A window handle, obtained through Driver#window_handles
+  # @param id
+  #   A window handle, obtained through Driver#window_handles
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/target_locator.rb:84
   def window(id); end
@@ -7886,8 +8491,6 @@ end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/timeouts.rb:22
 class Selenium::WebDriver::Timeouts
-  # @return [Timeouts] a new instance of Timeouts
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/timeouts.rb:23
   def initialize(bridge); end
 
@@ -7925,16 +8528,9 @@ class Selenium::WebDriver::Timeouts
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/timeouts.rb:59
   def script=(seconds); end
 
-  # Gets the amount of time to wait for an asynchronous script to finish
-  # execution before throwing an error.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/timeouts.rb:51
   def script_timeout; end
 
-  # Sets the amount of time to wait for an asynchronous script to finish
-  # execution before throwing an error. If the timeout is negative, then the
-  # script will be allowed to run indefinitely.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/timeouts.rb:62
   def script_timeout=(seconds); end
 end
@@ -7947,8 +8543,6 @@ class Selenium::WebDriver::VirtualAuthenticator
   # api private
   # Use `Driver#add_virtual_authenticator`
   #
-  # @return [VirtualAuthenticator] a new instance of VirtualAuthenticator
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator.rb:30
   def initialize(bridge, authenticator_id, options); end
 
@@ -7958,8 +8552,6 @@ class Selenium::WebDriver::VirtualAuthenticator
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator.rb:42
   def credentials; end
 
-  # Returns the value of attribute options.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator.rb:23
   def options; end
 
@@ -7975,17 +8567,12 @@ class Selenium::WebDriver::VirtualAuthenticator
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator.rb:58
   def user_verified=(verified); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator.rb:67
   def valid?; end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:27
 class Selenium::WebDriver::VirtualAuthenticatorOptions
-  # @raise [ArgumentError]
-  # @return [VirtualAuthenticatorOptions] a new instance of VirtualAuthenticatorOptions
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:37
   def initialize(**opts); end
 
@@ -7994,95 +8581,51 @@ class Selenium::WebDriver::VirtualAuthenticatorOptions
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:52
   def as_json(*_arg0); end
 
-  # Returns the value of attribute protocol.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
   def protocol; end
 
-  # Sets the attribute protocol
-  #
-  # @param value the value to set the attribute protocol to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
   def protocol=(_arg0); end
 
-  # Returns the value of attribute resident_key.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
   def resident_key; end
 
-  # Sets the attribute resident_key
-  #
-  # @param value the value to set the attribute resident_key to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
   def resident_key=(_arg0); end
 
-  # Returns the value of attribute resident_key.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:32
   def resident_key?; end
 
-  # Returns the value of attribute transport.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
   def transport; end
 
-  # Sets the attribute transport
-  #
-  # @param value the value to set the attribute transport to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
   def transport=(_arg0); end
 
-  # Returns the value of attribute user_consenting.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
   def user_consenting; end
 
-  # Sets the attribute user_consenting
-  #
-  # @param value the value to set the attribute user_consenting to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
   def user_consenting=(_arg0); end
 
-  # Returns the value of attribute user_consenting.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:34
   def user_consenting?; end
 
-  # Returns the value of attribute user_verification.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
   def user_verification; end
 
-  # Sets the attribute user_verification
-  #
-  # @param value the value to set the attribute user_verification to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
   def user_verification=(_arg0); end
 
-  # Returns the value of attribute user_verification.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:33
   def user_verification?; end
 
-  # Returns the value of attribute user_verified.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
   def user_verified; end
 
-  # Sets the attribute user_verified
-  #
-  # @param value the value to set the attribute user_verified to.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
   def user_verified=(_arg0); end
 
-  # Returns the value of attribute user_verified.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:35
   def user_verified?; end
 end
@@ -8097,12 +8640,11 @@ Selenium::WebDriver::VirtualAuthenticatorOptions::TRANSPORT = T.let(T.unsafe(nil
 class Selenium::WebDriver::Wait
   # Create a new Wait instance
   #
-  # @option opts
-  # @option opts
-  # @option opts
-  # @option opts
-  # @param opts [Hash] Options for this instance
-  # @return [Wait] a new instance of Wait
+  # @param [Hash] opts Options for this instance
+  # @option opts [Numeric] :timeout (5) Seconds to wait before timing out.
+  # @option opts [Numeric] :interval (0.2) Seconds to sleep between polls.
+  # @option opts [String] :message Exception mesage if timed out.
+  # @option opts [Array, Exception] :ignore Exceptions to ignore while polling (default: Error::NoSuchElementError)
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/wait.rb:36
   def initialize(opts = T.unsafe(nil)); end
@@ -8129,8 +8671,6 @@ Selenium::WebDriver::Wait::DEFAULT_TIMEOUT = T.let(T.unsafe(nil), Integer)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:24
 class Selenium::WebDriver::WebSocketConnection
-  # @return [WebSocketConnection] a new instance of WebSocketConnection
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:35
   def initialize(url:); end
 
@@ -8200,9 +8740,8 @@ module Selenium::WebDriver::WheelActions
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_actions.rb:30
   def default_scroll_duration; end
 
-  # Sets the attribute default_scroll_duration
-  #
-  # @param value the value to set the attribute default_scroll_duration to.
+  # By default this is set to 250ms in the ActionBuilder constructor
+  # It can be overridden with default_scroll_duration=
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_actions.rb:23
   def default_scroll_duration=(_arg0); end
@@ -8210,10 +8749,11 @@ module Selenium::WebDriver::WheelActions
   # Scrolls by provided amounts with the origin in the top left corner of the viewport.
   #
   # @example Scroll viewport by a specified amount
-  #   el = driver.find_element(id: "some_id")
-  #   driver.action.scroll_by(100, 200).perform
-  # @param delta_x [Integer] Distance along X axis to scroll using the wheel. A negative value scrolls left.
-  # @param delta_y [Integer] Distance along Y axis to scroll using the wheel. A negative value scrolls up.
+  #    el = driver.find_element(id: "some_id")
+  #    driver.action.scroll_by(100, 200).perform
+  #
+  # @param [Integer] delta_x Distance along X axis to scroll using the wheel. A negative value scrolls left.
+  # @param [Integer] delta_y Distance along Y axis to scroll using the wheel. A negative value scrolls up.
   # @return [Selenium::WebDriver::WheelActions] A self reference.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_actions.rb:57
@@ -8226,21 +8766,24 @@ module Selenium::WebDriver::WheelActions
   #   be scrolled to the bottom of the viewport.
   #
   # @example Scroll from element by a specified amount
-  #   el = driver.find_element(id: "some_id")
-  #   origin = WheelActions::ScrollOrigin.element(el)
-  #   driver.action.scroll_from(origin, 0, 200).perform
+  #    el = driver.find_element(id: "some_id")
+  #    origin = WheelActions::ScrollOrigin.element(el)
+  #    driver.action.scroll_from(origin, 0, 200).perform
+  #
   # @example Scroll from element by a specified amount with an offset
-  #   el = driver.find_element(id: "some_id")
-  #   origin = WheelActions::ScrollOrigin.element(el, 10, 10)
-  #   driver.action.scroll_from(origin, 100, 200).perform
+  #    el = driver.find_element(id: "some_id")
+  #    origin = WheelActions::ScrollOrigin.element(el, 10, 10)
+  #    driver.action.scroll_from(origin, 100, 200).perform
+  #
   # @example Scroll viewport by a specified amount with an offset
-  #   origin = WheelActions::ScrollOrigin.viewport(10, 10)
-  #   driver.action.scroll_from(origin, 0, 200).perform
-  # @param delta_x [Integer] Distance along X axis to scroll using the wheel. A negative value scrolls left.
-  # @param delta_y [Integer] Distance along Y axis to scroll using the wheel. A negative value scrolls up.
-  # @param scroll_origin [ScrollOrigin] Where scroll originates (viewport or element center) plus provided offsets.
-  # @raise [Error::MoveTargetOutOfBoundsError] If the origin with offset is outside the viewport.
+  #    origin = WheelActions::ScrollOrigin.viewport(10, 10)
+  #    driver.action.scroll_from(origin, 0, 200).perform
+  #
+  # @param [ScrollOrigin] scroll_origin Where scroll originates (viewport or element center) plus provided offsets.
+  # @param [Integer] delta_x Distance along X axis to scroll using the wheel. A negative value scrolls left.
+  # @param [Integer] delta_y Distance along Y axis to scroll using the wheel. A negative value scrolls up.
   # @return [Selenium::WebDriver::WheelActions] A self reference.
+  # @raise [Error::MoveTargetOutOfBoundsError] If the origin with offset is outside the viewport.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_actions.rb:87
   def scroll_from(scroll_origin, delta_x, delta_y, device: T.unsafe(nil)); end
@@ -8248,9 +8791,10 @@ module Selenium::WebDriver::WheelActions
   # If the element is outside the viewport, scrolls the bottom of the element to the bottom of the viewport.
   #
   # @example Scroll to element
-  #   el = driver.find_element(id: "some_id")
-  #   driver.action.scroll_to(element).perform
-  # @param Which [Object] element to scroll into the viewport.
+  #    el = driver.find_element(id: "some_id")
+  #    driver.action.scroll_to(element).perform
+  #
+  # @param [Object] Which element to scroll into the viewport.
   # @return [Selenium::WebDriver::WheelActions] A self reference.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_actions.rb:43
@@ -8268,25 +8812,17 @@ end
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll_origin.rb:23
 class Selenium::WebDriver::WheelActions::ScrollOrigin
   # Use a static method to access
-  #
   # @api private
-  # @return [ScrollOrigin] a new instance of ScrollOrigin
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll_origin.rb:40
   def initialize(origin, x_offset, y_offset); end
 
-  # Returns the value of attribute origin.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll_origin.rb:34
   def origin; end
 
-  # Returns the value of attribute x_offset.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll_origin.rb:34
   def x_offset; end
 
-  # Returns the value of attribute y_offset.
-  #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll_origin.rb:34
   def y_offset; end
 
@@ -8302,7 +8838,6 @@ end
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/window.rb:22
 class Selenium::WebDriver::Window
   # @api private
-  # @return [Window] a new instance of Window
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/window.rb:27
   def initialize(bridge); end
@@ -8340,7 +8875,7 @@ class Selenium::WebDriver::Window
 
   # Move the current window to the given position.
   #
-  # @param point [Selenium::WebDriver::Point, #x and #y] The new position.
+  # @param [Selenium::WebDriver::Point, #x and #y] point The new position.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/window.rb:62
   def position=(point); end
@@ -8354,7 +8889,7 @@ class Selenium::WebDriver::Window
 
   # Sets the current window rect to the given point and position.
   #
-  # @param rectangle [Selenium::WebDriver::Rectangle, #x, #y, #width, #height] The new rect.
+  # @param [Selenium::WebDriver::Rectangle, #x, #y, #width, #height] rectangle The new rect.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/window.rb:87
   def rect=(rectangle); end
@@ -8363,8 +8898,8 @@ class Selenium::WebDriver::Window
   #
   # @example Maximize the window.
   #
-  #   max_width, max_height = driver.execute_script("return [window.screen.availWidth, window.screen.availHeight];")
-  #   driver.manage.window.resize_to(max_width, max_height)
+  #    max_width, max_height = driver.execute_script("return [window.screen.availWidth, window.screen.availHeight];")
+  #    driver.manage.window.resize_to(max_width, max_height)
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/window.rb:118
   def resize_to(width, height); end
@@ -8378,7 +8913,7 @@ class Selenium::WebDriver::Window
 
   # Resize the current window to the given dimension.
   #
-  # @param dimension [Selenium::WebDriver::Dimension, #width and #height] The new size.
+  # @param [Selenium::WebDriver::Dimension, #width and #height] dimension The new size.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/window.rb:37
   def size=(dimension); end
@@ -8389,36 +8924,24 @@ end
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/zipper.rb:31
 module Selenium::WebDriver::Zipper
   class << self
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/zipper.rb:35
     def unzip(path); end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/zipper.rb:52
     def zip(path); end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/zipper.rb:63
     def zip_file(path); end
 
     private
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/zipper.rb:82
     def add_zip_entry(zip, file, entry_name); end
 
-    # @api private
-    #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/zipper.rb:74
     def with_tmp_zip(&blk); end
   end
 end
 
-# @api private
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/zipper.rb:32
 Selenium::WebDriver::Zipper::EXTENSIONS = T.let(T.unsafe(nil), Array)

@@ -13,6 +13,7 @@ gem:
     - ruby-lsp-rails
     - prism
     - rdoc
+    - matrix
 dsl:
 annotations:
   typed_overrides:

@@ -22,8 +22,6 @@ class GenePool
   #   close_proc    - The process or method used to close a pooled instance when it is removed.
   #     Defaults to :close.  Set to nil for no-op or a symbol for a method or a proc that takes an argument for the instance.
   #
-  # @return [GenePool] a new instance of GenePool
-  #
   # pkg:gem/gene_pool#lib/gene_pool.rb:24
   def initialize(options = T.unsafe(nil), &connect_block); end
 
@@ -57,32 +55,18 @@ class GenePool
   # pkg:gem/gene_pool#lib/gene_pool.rb:226
   def each; end
 
-  # Returns the value of attribute logger.
-  #
   # pkg:gem/gene_pool#lib/gene_pool.rb:9
   def logger; end
 
-  # Sets the attribute logger
-  #
-  # @param value the value to set the attribute logger to.
-  #
   # pkg:gem/gene_pool#lib/gene_pool.rb:9
   def logger=(_arg0); end
 
-  # Returns the value of attribute name.
-  #
   # pkg:gem/gene_pool#lib/gene_pool.rb:9
   def name; end
 
-  # Sets the attribute name
-  #
-  # @param value the value to set the attribute name to.
-  #
   # pkg:gem/gene_pool#lib/gene_pool.rb:9
   def name=(_arg0); end
 
-  # Returns the value of attribute pool_size.
-  #
   # pkg:gem/gene_pool#lib/gene_pool.rb:10
   def pool_size; end
 
@@ -105,30 +89,18 @@ class GenePool
   # pkg:gem/gene_pool#lib/gene_pool.rb:50
   def size; end
 
-  # Returns the value of attribute timeout_class.
-  #
   # pkg:gem/gene_pool#lib/gene_pool.rb:9
   def timeout_class; end
 
-  # Sets the attribute timeout_class
-  #
-  # @param value the value to set the attribute timeout_class to.
-  #
   # pkg:gem/gene_pool#lib/gene_pool.rb:9
   def timeout_class=(_arg0); end
 
   # pkg:gem/gene_pool#lib/gene_pool.rb:271
   def to_s; end
 
-  # Returns the value of attribute warn_timeout.
-  #
   # pkg:gem/gene_pool#lib/gene_pool.rb:9
   def warn_timeout; end
 
-  # Sets the attribute warn_timeout
-  #
-  # @param value the value to set the attribute warn_timeout to.
-  #
   # pkg:gem/gene_pool#lib/gene_pool.rb:9
   def warn_timeout=(_arg0); end
 
@@ -166,8 +138,6 @@ class GenePool
   # pkg:gem/gene_pool#lib/gene_pool.rb:306
   def setup_mutex; end
 
-  # @raise [@timeout_class]
-  #
   # pkg:gem/gene_pool#lib/gene_pool.rb:314
   def wait_mutex(start_time); end
 end

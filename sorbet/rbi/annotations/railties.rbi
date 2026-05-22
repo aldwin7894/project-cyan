@@ -21,6 +21,10 @@ module Rails
     sig { returns(ActiveSupport::ErrorReporter) }
     def error; end
 
+    # @version >= 8.1.0.beta1
+    sig { returns(ActiveSupport::EventReporter) }
+    def event; end
+
     # @version >= 7.1.0.rc1
     sig { returns(T.all(ActiveSupport::BroadcastLogger, ActiveSupport::TaggedLogging)) }
     def logger; end
@@ -60,6 +64,11 @@ end
 class Rails::Railtie
   sig { params(block: T.proc.bind(Rails::Railtie).void).void }
   def configure(&block); end
+
+  class << self
+    sig { params(block: T.proc.bind(Rake::DSL).params(app: Rails::Application).void).void }
+    def rake_tasks(&block); end
+  end
 end
 
 class Rails::Railtie::Configuration

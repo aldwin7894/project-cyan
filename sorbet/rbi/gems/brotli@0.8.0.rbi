@@ -66,32 +66,21 @@ class Brotli::Error < ::StandardError; end
 
 # pkg:gem/brotli#lib/brotli/reader.rb:4
 class Brotli::Reader
-  # @raise [ArgumentError]
-  # @return [Reader] a new instance of Reader
-  #
   # pkg:gem/brotli#lib/brotli/reader.rb:7
   def initialize(io, options = T.unsafe(nil), **kwargs); end
 
   # pkg:gem/brotli#lib/brotli/reader.rb:65
   def close; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/brotli#lib/brotli/reader.rb:80
   def closed?; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/brotli#lib/brotli/reader.rb:56
   def eof?; end
 
-  # @raise [ArgumentError]
-  #
   # pkg:gem/brotli#lib/brotli/reader.rb:17
   def read(length = T.unsafe(nil), outbuf = T.unsafe(nil)); end
 
-  # @raise [ArgumentError]
-  #
   # pkg:gem/brotli#lib/brotli/reader.rb:38
   def readpartial(maxlen, outbuf = T.unsafe(nil)); end
 
@@ -103,8 +92,6 @@ class Brotli::Reader
   # pkg:gem/brotli#lib/brotli/reader.rb:110
   def drain_stream; end
 
-  # @raise [Error]
-  #
   # pkg:gem/brotli#lib/brotli/reader.rb:86
   def ensure_open; end
 
@@ -138,17 +125,12 @@ Brotli::VERSION = T.let(T.unsafe(nil), String)
 
 # pkg:gem/brotli#lib/brotli/writer.rb:4
 class Brotli::Writer
-  # @raise [ArgumentError]
-  # @return [Writer] a new instance of Writer
-  #
   # pkg:gem/brotli#lib/brotli/writer.rb:5
   def initialize(io, options = T.unsafe(nil), **kwargs); end
 
   # pkg:gem/brotli#lib/brotli/writer.rb:36
   def close; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/brotli#lib/brotli/writer.rb:53
   def closed?; end
 
@@ -166,8 +148,6 @@ class Brotli::Writer
   # pkg:gem/brotli#lib/brotli/writer.rb:77
   def coerce_string(value); end
 
-  # @raise [Error]
-  #
   # pkg:gem/brotli#lib/brotli/writer.rb:59
   def ensure_open; end
 

@@ -90,10 +90,6 @@ class MIME::Type
   #
   # Yields the newly constructed +self+ object.
   #
-  # @return [Type] a new instance of Type
-  # @yield [_self]
-  # @yieldparam _self [MIME::Type] the object that the method was called on
-  #
   # pkg:gem/mime-types#lib/mime/type.rb:133
   def initialize(content_type); end
 
@@ -137,8 +133,6 @@ class MIME::Type
   # formats. This method returns +false+ when the MIME::Type encoding is
   # set to <tt>base64</tt>.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/mime-types#lib/mime/type.rb:516
   def ascii?; end
 
@@ -146,15 +140,11 @@ class MIME::Type
   # formats. This method returns +true+ when the MIME::Type encoding is set
   # to <tt>base64</tt>.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/mime-types#lib/mime/type.rb:509
   def binary?; end
 
   # Returns +true+ if the MIME::Type specifies an extension list,
   # indicating that it is a complete MIME::Type.
-  #
-  # @return [Boolean]
   #
   # pkg:gem/mime-types#lib/mime/type.rb:526
   def complete?; end
@@ -196,8 +186,6 @@ class MIME::Type
   # pkg:gem/mime-types#lib/mime/type.rb:560
   def encode_with(coder); end
 
-  # Returns the value of attribute encoding.
-  #
   # pkg:gem/mime-types#lib/mime/type.rb:377
   def encoding; end
 
@@ -206,8 +194,6 @@ class MIME::Type
 
   # Returns +true+ if the +other+ object is a MIME::Type and the content types
   # match.
-  #
-  # @return [Boolean]
   #
   # pkg:gem/mime-types#lib/mime/type.rb:240
   def eql?(other); end
@@ -286,8 +272,6 @@ class MIME::Type
   # Indicates that a MIME type is like another type. This differs from
   # <tt>==</tt> because <tt>x-</tt> prefixes are removed for this comparison.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/mime-types#lib/mime/type.rb:174
   def like?(other); end
 
@@ -310,10 +294,6 @@ class MIME::Type
   # pkg:gem/mime-types#lib/mime/type.rb:417
   def obsolete=(value); end
 
-  # Returns +true+ if the media type is obsolete.
-  #
-  # :attr_accessor: obsolete
-  #
   # pkg:gem/mime-types#lib/mime/type.rb:414
   def obsolete?; end
 
@@ -343,8 +323,6 @@ class MIME::Type
   def provisional=(value); end
 
   # Indicates whether the MIME type's registration with IANA is provisional.
-  #
-  # @return [Boolean]
   #
   # pkg:gem/mime-types#lib/mime/type.rb:502
   def provisional?; end
@@ -377,10 +355,6 @@ class MIME::Type
   # pkg:gem/mime-types#lib/mime/type.rb:485
   def registered=(value); end
 
-  # Indicates whether the MIME type has been registered with IANA.
-  #
-  # :attr_accessor: registered
-  #
   # pkg:gem/mime-types#lib/mime/type.rb:482
   def registered?; end
 
@@ -394,8 +368,6 @@ class MIME::Type
   # pkg:gem/mime-types#lib/mime/type.rb:521
   def signature=(_arg0); end
 
-  # Indicateswhether the MIME type is declared as a signature type.
-  #
   # pkg:gem/mime-types#lib/mime/type.rb:522
   def signature?; end
 
@@ -445,10 +417,6 @@ class MIME::Type
   # pkg:gem/mime-types#lib/mime/type.rb:403
   def use_instead; end
 
-  # Sets the attribute use_instead
-  #
-  # @param value the value to set the attribute use_instead to.
-  #
   # pkg:gem/mime-types#lib/mime/type.rb:408
   def use_instead=(_arg0); end
 
@@ -457,8 +425,6 @@ class MIME::Type
   # pkg:gem/mime-types#lib/mime/type.rb:471
   def xref_urls; end
 
-  # Returns the value of attribute xrefs.
-  #
   # pkg:gem/mime-types#lib/mime/type.rb:463
   def xrefs; end
 
@@ -557,8 +523,6 @@ MIME::Type::BINARY_ENCODINGS = T.let(T.unsafe(nil), Array)
 #
 # pkg:gem/mime-types#lib/mime/type/columnar.rb:15
 class MIME::Type::Columnar < ::MIME::Type
-  # @return [Columnar] a new instance of Columnar
-  #
   # pkg:gem/mime-types#lib/mime/type/columnar.rb:16
   def initialize(container, content_type, extensions); end
 
@@ -651,8 +615,6 @@ MIME::Type::I18N_RE = T.let(T.unsafe(nil), Regexp)
 class MIME::Type::InvalidContentType < ::ArgumentError
   # :stopdoc:
   #
-  # @return [InvalidContentType] a new instance of InvalidContentType
-  #
   # pkg:gem/mime-types#lib/mime/type.rb:74
   def initialize(type_string); end
 
@@ -665,8 +627,6 @@ end
 # pkg:gem/mime-types#lib/mime/type.rb:85
 class MIME::Type::InvalidEncoding < ::ArgumentError
   # :stopdoc:
-  #
-  # @return [InvalidEncoding] a new instance of InvalidEncoding
   #
   # pkg:gem/mime-types#lib/mime/type.rb:87
   def initialize(encoding); end
@@ -746,8 +706,6 @@ class MIME::Types
 
   # Creates a new MIME::Types registry.
   #
-  # @return [Types] a new instance of Types
-  #
   # pkg:gem/mime-types#lib/mime/types.rb:72
   def initialize; end
 
@@ -780,8 +738,6 @@ class MIME::Types
   # pkg:gem/mime-types#lib/mime/types.rb:122
   def [](type_id, complete: T.unsafe(nil), registered: T.unsafe(nil)); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/mime-types#lib/mime/types.rb:198
   def __fully_loaded?; end
 
@@ -814,19 +770,6 @@ class MIME::Types
   # pkg:gem/mime-types#lib/mime/types.rb:82
   def inspect; end
 
-  # Return the list of MIME::Types which belongs to the file based on its
-  # filename extension. If there is no extension, the filename will be used
-  # as the matching criteria on its own.
-  #
-  # This will always return a merged, flatten, priority sorted, unique array.
-  #
-  #   puts MIME::Types.type_for('citydesk.xml')
-  #     => [application/xml, text/xml]
-  #   puts MIME::Types.type_for('citydesk.gif')
-  #     => [image/gif]
-  #   puts MIME::Types.type_for(%w(citydesk.xml citydesk.gif))
-  #     => [application/xml, image/gif, text/xml]
-  #
   # pkg:gem/mime-types#lib/mime/types.rb:159
   def of(filename); end
 
@@ -896,16 +839,12 @@ class MIME::Types
     # pkg:gem/mime-types#lib/mime/types/logger.rb:13
     def logger; end
 
-    # :nodoc
-    #
     # pkg:gem/mime-types#lib/mime/types/logger.rb:16
     def logger=(logger); end
 
     # pkg:gem/mime-types#lib/mime/types/registry.rb:9
     def new(*_arg0); end
 
-    # MIME::Types#type_for against the default MIME::Types registry.
-    #
     # pkg:gem/mime-types#lib/mime/types/registry.rb:38
     def of(filename); end
 
@@ -916,8 +855,6 @@ class MIME::Types
 
     private
 
-    # @return [Boolean]
-    #
     # pkg:gem/mime-types#lib/mime/types/deprecations.rb:50
     def __deprecation_logged?(message, once); end
 
@@ -927,8 +864,6 @@ class MIME::Types
     # pkg:gem/mime-types#lib/mime/types/registry.rb:57
     def __types__; end
 
-    # @return [Boolean]
-    #
     # pkg:gem/mime-types#lib/mime/types/registry.rb:47
     def lazy_load?; end
 
@@ -943,43 +878,17 @@ class MIME::Types
   end
 end
 
-# Caching of MIME::Types registries is advisable if you will be loading
-# the default registry relatively frequently. With the class methods on
-# MIME::Types::Cache, any MIME::Types registry can be marshaled quickly
-# and easily.
-#
-# The cache is invalidated on a per-data-version basis; a cache file for
-# version 3.2015.1118 will not be reused with version 3.2015.1201.
-#
 # pkg:gem/mime-types#lib/mime/types/cache.rb:3
 class MIME::Types::Cache < ::Struct
-  # Returns the value of attribute data
-  #
-  # @return [Object] the current value of data
-  #
   # pkg:gem/mime-types#lib/mime/types/cache.rb:3
   def data; end
 
-  # Sets the attribute data
-  #
-  # @param value [Object] the value to set the attribute data to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/mime-types#lib/mime/types/cache.rb:3
   def data=(_); end
 
-  # Returns the value of attribute version
-  #
-  # @return [Object] the current value of version
-  #
   # pkg:gem/mime-types#lib/mime/types/cache.rb:3
   def version; end
 
-  # Sets the attribute version
-  #
-  # @param value [Object] the value to set the attribute version to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/mime-types#lib/mime/types/cache.rb:3
   def version=(_); end
 
@@ -1032,8 +941,6 @@ end
 #
 # pkg:gem/mime-types#lib/mime/types/_columnar.rb:12
 module MIME::Types::Columnar
-  # @return [Boolean]
-  #
   # pkg:gem/mime-types#lib/mime/types/_columnar.rb:21
   def __fully_loaded?; end
 
@@ -1107,8 +1014,6 @@ MIME::Types::Columnar::LOAD_MUTEX = T.let(T.unsafe(nil), Thread::Mutex)
 #
 # pkg:gem/mime-types#lib/mime/types/container.rb:11
 class MIME::Types::Container
-  # @return [Container] a new instance of Container
-  #
   # pkg:gem/mime-types#lib/mime/types/container.rb:12
   def initialize(hash = T.unsafe(nil)); end
 
@@ -1136,8 +1041,6 @@ class MIME::Types::Container
   # pkg:gem/mime-types#lib/mime/types/container.rb:67
   def each_value(&block); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/mime-types#lib/mime/types/container.rb:71
   def empty?; end
 
@@ -1176,15 +1079,9 @@ class MIME::Types::Container
 
   protected
 
-  # Returns the value of attribute container.
-  #
   # pkg:gem/mime-types#lib/mime/types/container.rb:114
   def container; end
 
-  # Sets the attribute container
-  #
-  # @param value the value to set the attribute container to.
-  #
   # pkg:gem/mime-types#lib/mime/types/container.rb:114
   def container=(_arg0); end
 
@@ -1211,8 +1108,6 @@ MIME::Types::Container::EMPTY_SET = T.let(T.unsafe(nil), Set)
 class MIME::Types::Loader
   # Creates a Loader object that can be used to load MIME::Types registries
   # into memory, using YAML, JSON, or Columnar registry format loaders.
-  #
-  # @return [Loader] a new instance of Loader
   #
   # pkg:gem/mime-types#lib/mime/types/loader.rb:31
   def initialize(path = T.unsafe(nil), container = T.unsafe(nil)); end
@@ -1307,8 +1202,6 @@ class MIME::Types::Loader
 
     private
 
-    # @return [Boolean]
-    #
     # pkg:gem/mime-types#lib/mime/types/loader.rb:137
     def old_yaml?; end
 
@@ -1319,8 +1212,6 @@ end
 
 # pkg:gem/mime-types#lib/mime/types/logger.rb:46
 class MIME::Types::NullLogger < ::Logger
-  # @return [NullLogger] a new instance of NullLogger
-  #
   # pkg:gem/mime-types#lib/mime/types/logger.rb:47
   def initialize(*_arg0); end
 
@@ -1344,16 +1235,12 @@ MIME::Types::VERSION = T.let(T.unsafe(nil), String)
 
 # pkg:gem/mime-types#lib/mime/types/logger.rb:26
 class MIME::Types::WarnLogger < ::Logger
-  # @return [WarnLogger] a new instance of WarnLogger
-  #
   # pkg:gem/mime-types#lib/mime/types/logger.rb:39
   def initialize(*_arg0); end
 end
 
 # pkg:gem/mime-types#lib/mime/types/logger.rb:27
 class MIME::Types::WarnLogger::WarnLogDevice < ::Logger::LogDevice
-  # @return [WarnLogDevice] a new instance of WarnLogDevice
-  #
   # pkg:gem/mime-types#lib/mime/types/logger.rb:28
   def initialize(*_arg0); end
 

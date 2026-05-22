@@ -172,14 +172,15 @@ class Hash
   def _deep_transform_keys_in_object(object, &block); end
 end
 
+# @api private
+#
+#
 # See Sidekiq gem for more details
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:8
 module Sidekiq; end
 
 # See Sidekiq::Api
-#
-# @api private
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:72
 class Sidekiq::JobRecord
@@ -188,22 +189,17 @@ end
 
 # Provides extensions for unlocking jobs that are removed and deleted
 #
-# @api private
 # @author Mikael Henriksson <mikael@mhenrixon.com>
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:78
 module Sidekiq::JobRecord::UniqueExtension
   # Wraps the original method to ensure locks for the job are deleted
   #
-  # @api private
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:82
   def delete; end
 end
 
 # See Sidekiq::Api
-#
-# @api private
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:112
 class Sidekiq::JobSet < ::Sidekiq::SortedSet
@@ -212,31 +208,26 @@ end
 
 # Provides extensions for unlocking jobs that are removed and deleted
 #
-# @api private
 # @author Mikael Henriksson <mikael@mhenrixon.com>
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:118
 module Sidekiq::JobSet::UniqueExtension
   # Wraps the original method to ensure locks for the job are deleted
   #
-  # @api private
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:122
   def clear; end
 
   # Wraps the original method to ensure locks for the job are deleted
   #
-  # @api private
-  # @param name [String] the name of the key
-  # @param value [String] a sidekiq job hash
+  #
+  # @param [String] name the name of the key
+  # @param [String] value a sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:134
   def delete_by_value(name, value); end
 end
 
 # See Sidekiq::Api
-#
-# @api private
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:92
 class Sidekiq::Queue
@@ -245,22 +236,17 @@ end
 
 # Provides extensions for unlocking jobs that are removed and deleted
 #
-# @api private
 # @author Mikael Henriksson <mikael@mhenrixon.com>
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:98
 module Sidekiq::Queue::UniqueExtension
   # Wraps the original method to ensure locks for the job are deleted
   #
-  # @api private
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:102
   def clear; end
 end
 
 # See Sidekiq::Api
-#
-# @api private
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:47
 class Sidekiq::ScheduledSet < ::Sidekiq::JobSet
@@ -269,24 +255,21 @@ end
 
 # Provides extensions for unlocking jobs that are removed and deleted
 #
-# @api private
 # @author Mikael Henriksson <mikael@mhenrixon.com>
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:53
 module Sidekiq::ScheduledSet::UniqueExtension
   # Wraps the original method to ensure locks for the job are deleted
   #
-  # @api private
-  # @param job_id [String] the Sidekiq JID
-  # @param score [Integer, Float] the score in the scheduled set
+  #
+  # @param [Integer, Float] score the score in the scheduled set
+  # @param [String] job_id the Sidekiq JID
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:61
   def delete(score, job_id); end
 end
 
 # See Sidekiq::Api
-#
-# @api private
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:10
 class Sidekiq::SortedEntry < ::Sidekiq::JobRecord
@@ -295,14 +278,13 @@ end
 
 # Provides extensions for unlocking jobs that are removed and deleted
 #
-# @api private
 # @author Mikael Henriksson <mikael@mhenrixon.com>
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:16
 module Sidekiq::SortedEntry::UniqueExtension
   # Wraps the original method to ensure locks for the job are deleted
   #
-  # @api private
+  #
   # @return [Hash] the deleted sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:23
@@ -312,13 +294,18 @@ module Sidekiq::SortedEntry::UniqueExtension
 
   # Wraps the original method to ensure locks for the job are deleted
   #
-  # @api private
-  # @yieldparam message [Hash] the sidekiq job hash
+  #
+  # @yieldparam [Hash] message the sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_ext.rb:35
   def remove_job; end
 end
 
+# Module with constants to avoid string duplication
+#
+# @author Mikael Henriksson <mikael@mhenrixon.com>
+#
+#
 # Contains configuration and utility methods that belongs top level
 #
 # @author Mikael Henriksson <mikael@mhenrixon.com>
@@ -333,6 +320,7 @@ module SidekiqUniqueJobs
 
   # The current configuration (See: {.configure} on how to configure)
   #
+  #
   # @return [SidekiqUniqueJobs::Config] the gem configuration
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:19
@@ -341,13 +329,12 @@ module SidekiqUniqueJobs
   # Configure the gem
   #
   # This is usually called once at startup of an application
-  #
-  # @option options
-  # @option options
-  # @option options
-  # @option options
-  # @option options
-  # @param options [Hash] global gem options
+  # @param [Hash] options global gem options
+  # @option options [Integer] :lock_timeout (default is 0)
+  # @option options [Integer] :lock_ttl (default is 0)
+  # @option options [true,false] :enabled (default is true)
+  # @option options [String] :lock_prefix (default is 'uniquejobs')
+  # @option options [Logger] :logger (default is Sidekiq.logger)
   # @yield control to the caller when given block
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:185
@@ -363,8 +350,10 @@ module SidekiqUniqueJobs
 
   # Disable SidekiqUniuqeJobs either temporarily in a block or for good
   #
+  #
   # @return [false] when not given a block
   # @return [true, false] the previous value of enable when given a block
+  #
   # @yieldreturn [void] temporarily disable sidekiq unique jobs while executing a block of code
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:135
@@ -380,8 +369,10 @@ module SidekiqUniqueJobs
 
   # Enable SidekiqUniuqeJobs either temporarily in a block or for good
   #
+  #
   # @return [true] when not given a block
   # @return [true, false] the previous value of enable when given a block
+  #
   # @yieldreturn [void] temporarily enable sidekiq unique jobs while executing a block of code
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:123
@@ -397,12 +388,14 @@ module SidekiqUniqueJobs
 
   # Returns the current redis version
   #
+  #
   # @return [String] a string like `5.0.2`
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:201
   def fetch_redis_version; end
 
   # The current locks
+  #
   #
   # @return [Hash<Symbol, SidekiqUniqueJobs::BaseLock>] the configured locks
   #
@@ -411,6 +404,7 @@ module SidekiqUniqueJobs
 
   # The current logger
   #
+  #
   # @return [Logger] the configured logger
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:49
@@ -418,13 +412,15 @@ module SidekiqUniqueJobs
 
   # Set a new logger
   #
-  # @param other [Logger] another logger
+  # @param [Logger] other another logger
+  #
   # @return [Logger] the new logger
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:70
   def logger=(other); end
 
   # Check if logging is enabled
+  #
   #
   # @return [true, false]
   #
@@ -433,12 +429,14 @@ module SidekiqUniqueJobs
 
   # Current time
   #
+  #
   # @return [Time]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:221
   def now; end
 
   # Current time as float
+  #
   #
   # @return [Float]
   #
@@ -447,13 +445,16 @@ module SidekiqUniqueJobs
 
   # Yields notification stack for sidekiq unique jobs to configure notifications
   #
+  #
   # @return [void] <description>
-  # @yieldparam x [Reflections] used to configure notifications
+  #
+  # @yieldparam [Reflections] x used to configure notifications
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:302
   def reflect; end
 
   # Collection with notifications
+  #
   #
   # @return [Reflections]
   #
@@ -461,6 +462,7 @@ module SidekiqUniqueJobs
   def reflections; end
 
   # Resets configuration to deafult
+  #
   #
   # @return [SidekiqUniqueJobs::Config] a default gem configuration
   #
@@ -477,13 +479,13 @@ module SidekiqUniqueJobs
 
   # The current strategies
   #
+  #
   # @return [Hash<Symbol, SidekiqUniqueJobs::Strategy>] the configured locks
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:29
   def strategies; end
 
   # Toggles enabled on or off
-  #
   #
   # @api private
   #
@@ -492,8 +494,10 @@ module SidekiqUniqueJobs
 
   # Temporarily use another configuration and reset to the old config after yielding
   #
-  # @param tmp_config [Hash] the temporary configuration to use
+  # @param [Hash] tmp_config the temporary configuration to use
+  #
   # @return [void]
+  #
   # @yield control to the caller
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:92
@@ -501,7 +505,8 @@ module SidekiqUniqueJobs
 
   # Checks that the worker is valid with the given options
   #
-  # @param options [Hash] the `sidekiq_options` to validate
+  # @param [Hash] options the `sidekiq_options` to validate
+  #
   # @return [Boolean]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:232
@@ -509,13 +514,15 @@ module SidekiqUniqueJobs
 
   # Checks that the worker is valid with the given options
   #
-  # @param options [Hash] the `sidekiq_options` to validate
+  # @param [Hash] options the `sidekiq_options` to validate
+  #
   # @raise [InvalidWorker] when {#validate_worker} returns false or nil
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:246
   def validate_worker!(options); end
 
   # The current gem version
+  #
   #
   # @return [String] the current gem version
   #
@@ -525,6 +532,7 @@ module SidekiqUniqueJobs
   class << self
     # The current configuration (See: {.configure} on how to configure)
     #
+    #
     # @return [SidekiqUniqueJobs::Config] the gem configuration
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:19
@@ -533,13 +541,12 @@ module SidekiqUniqueJobs
     # Configure the gem
     #
     # This is usually called once at startup of an application
-    #
-    # @option options
-    # @option options
-    # @option options
-    # @option options
-    # @option options
-    # @param options [Hash] global gem options
+    # @param [Hash] options global gem options
+    # @option options [Integer] :lock_timeout (default is 0)
+    # @option options [Integer] :lock_ttl (default is 0)
+    # @option options [true,false] :enabled (default is true)
+    # @option options [String] :lock_prefix (default is 'uniquejobs')
+    # @option options [Logger] :logger (default is Sidekiq.logger)
     # @yield control to the caller when given block
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:185
@@ -555,8 +562,10 @@ module SidekiqUniqueJobs
 
     # Disable SidekiqUniuqeJobs either temporarily in a block or for good
     #
+    #
     # @return [false] when not given a block
     # @return [true, false] the previous value of enable when given a block
+    #
     # @yieldreturn [void] temporarily disable sidekiq unique jobs while executing a block of code
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:135
@@ -572,8 +581,10 @@ module SidekiqUniqueJobs
 
     # Enable SidekiqUniuqeJobs either temporarily in a block or for good
     #
+    #
     # @return [true] when not given a block
     # @return [true, false] the previous value of enable when given a block
+    #
     # @yieldreturn [void] temporarily enable sidekiq unique jobs while executing a block of code
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:123
@@ -589,12 +600,14 @@ module SidekiqUniqueJobs
 
     # Returns the current redis version
     #
+    #
     # @return [String] a string like `5.0.2`
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:201
     def fetch_redis_version; end
 
     # The current locks
+    #
     #
     # @return [Hash<Symbol, SidekiqUniqueJobs::BaseLock>] the configured locks
     #
@@ -603,6 +616,7 @@ module SidekiqUniqueJobs
 
     # The current logger
     #
+    #
     # @return [Logger] the configured logger
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:49
@@ -610,13 +624,15 @@ module SidekiqUniqueJobs
 
     # Set a new logger
     #
-    # @param other [Logger] another logger
+    # @param [Logger] other another logger
+    #
     # @return [Logger] the new logger
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:70
     def logger=(other); end
 
     # Check if logging is enabled
+    #
     #
     # @return [true, false]
     #
@@ -625,12 +641,14 @@ module SidekiqUniqueJobs
 
     # Current time
     #
+    #
     # @return [Time]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:221
     def now; end
 
     # Current time as float
+    #
     #
     # @return [Float]
     #
@@ -639,13 +657,16 @@ module SidekiqUniqueJobs
 
     # Yields notification stack for sidekiq unique jobs to configure notifications
     #
+    #
     # @return [void] <description>
-    # @yieldparam x [Reflections] used to configure notifications
+    #
+    # @yieldparam [Reflections] x used to configure notifications
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:302
     def reflect; end
 
     # Collection with notifications
+    #
     #
     # @return [Reflections]
     #
@@ -653,6 +674,7 @@ module SidekiqUniqueJobs
     def reflections; end
 
     # Resets configuration to deafult
+    #
     #
     # @return [SidekiqUniqueJobs::Config] a default gem configuration
     #
@@ -669,13 +691,13 @@ module SidekiqUniqueJobs
 
     # The current strategies
     #
+    #
     # @return [Hash<Symbol, SidekiqUniqueJobs::Strategy>] the configured locks
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:29
     def strategies; end
 
     # Toggles enabled on or off
-    #
     #
     # @api private
     #
@@ -684,8 +706,10 @@ module SidekiqUniqueJobs
 
     # Temporarily use another configuration and reset to the old config after yielding
     #
-    # @param tmp_config [Hash] the temporary configuration to use
+    # @param [Hash] tmp_config the temporary configuration to use
+    #
     # @return [void]
+    #
     # @yield control to the caller
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:92
@@ -693,8 +717,8 @@ module SidekiqUniqueJobs
 
     # Checks that the worker is valid with the given options
     #
-    # @param options [Hash] the `sidekiq_options` to validate
-    # @raise [NotUniqueWorker]
+    # @param [Hash] options the `sidekiq_options` to validate
+    #
     # @return [Boolean]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:232
@@ -702,13 +726,15 @@ module SidekiqUniqueJobs
 
     # Checks that the worker is valid with the given options
     #
-    # @param options [Hash] the `sidekiq_options` to validate
+    # @param [Hash] options the `sidekiq_options` to validate
+    #
     # @raise [InvalidWorker] when {#validate_worker} returns false or nil
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_unique_jobs.rb:246
     def validate_worker!(options); end
 
     # The current gem version
+    #
     #
     # @return [String] the current gem version
     #
@@ -739,26 +765,26 @@ class SidekiqUniqueJobs::BatchDelete
 
   # Initialize a new batch delete instance
   #
-  # @param conn [Redis] the connection to use for deletion
-  # @param digests [Array<String>] the digests to delete
-  # @return [BatchDelete] a new instance of BatchDelete
+  # @param [Array<String>] digests the digests to delete
+  # @param [Redis] conn the connection to use for deletion
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/batch_delete.rb:57
   def initialize(digests, conn); end
 
   # Executes a batch deletion of the provided digests
-  #
   # @note Just wraps batch_delete to be able to provide no connection
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/batch_delete.rb:71
   def call; end
 
-  # Returns the value of attribute conn.
+  # @!attribute [r] conn
+  #   @return [Redis, RedisConnection, ConnectionPool] a redis connection
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/batch_delete.rb:37
   def conn; end
 
-  # Returns the value of attribute digests.
+  # @!attribute [r] digests
+  #   @return [Array<String>] a collection of digests to be deleted
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/batch_delete.rb:33
   def digests; end
@@ -766,6 +792,7 @@ class SidekiqUniqueJobs::BatchDelete
   private
 
   # Does the actual batch deletion
+  #
   #
   # @return [Integer] the number of deleted digests
   #
@@ -784,8 +811,9 @@ class SidekiqUniqueJobs::BatchDelete
   class << self
     # Executes a batch deletion of the provided digests
     #
-    # @param conn [Redis] the connection to use for deletion
-    # @param digests [Array<String>] the digests to delete
+    # @param [Array<String>] digests the digests to delete
+    # @param [Redis] conn the connection to use for deletion
+    #
     # @return [void]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/batch_delete.rb:47
@@ -818,17 +846,16 @@ SidekiqUniqueJobs::CREATED_AT = T.let(T.unsafe(nil), String)
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/changelog.rb:9
 class SidekiqUniqueJobs::Changelog < ::SidekiqUniqueJobs::Redis::SortedSet
-  # @return [Changelog] a new instance of Changelog
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/changelog.rb:10
   def initialize; end
 
   # Adds a new changelog entry
   #
-  # @param digest [String] a unique digest
-  # @param job_id [String] a Sidekiq JID
-  # @param message [String] a descriptive message about the entry
-  # @param script [String] the name of the script adding the entry
+  # @param [String] message a descriptive message about the entry
+  # @param [String] digest a unique digest
+  # @param [String] job_id a Sidekiq JID
+  # @param [String] script the name of the script adding the entry
+  #
   # @return [void]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/changelog.rb:24
@@ -836,8 +863,9 @@ class SidekiqUniqueJobs::Changelog < ::SidekiqUniqueJobs::Redis::SortedSet
 
   # The change log entries
   #
-  # @param count [Integer] the number of matches to return
-  # @param pattern [String] the pattern to match
+  # @param [String] pattern the pattern to match
+  # @param [Integer] count the number of matches to return
+  #
   # @return [Array<Hash>] an array of entries
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/changelog.rb:37
@@ -845,10 +873,11 @@ class SidekiqUniqueJobs::Changelog < ::SidekiqUniqueJobs::Redis::SortedSet
 
   # Paginate the changelog entries
   #
-  # @param cursor [Integer] the cursor for this iteration
-  # @param page_size [Integer] 100 the number of matches to return
-  # @param pattern [String] "*" the pattern to match
-  # @return [Array<Integer, Integer, Array<Hash>] the total size, next cursor and changelog entries] Array<Integer, Integer, Array<Hash>] the total size, next cursor and changelog entries
+  # @param [Integer] cursor the cursor for this iteration
+  # @param [String] pattern "*" the pattern to match
+  # @param [Integer] page_size 100 the number of matches to return
+  #
+  # @return [Array<Integer, Integer, Array<Hash>] the total size, next cursor and changelog entries
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/changelog.rb:52
   def page(cursor: T.unsafe(nil), pattern: T.unsafe(nil), page_size: T.unsafe(nil)); end
@@ -899,8 +928,6 @@ end
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:35
 class SidekiqUniqueJobs::Config < ::Concurrent::MutableStruct::ThreadSafeConfig
-  # @return [Config] a new instance of Config
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:36
   def initialize(*_arg0); end
 
@@ -908,9 +935,12 @@ class SidekiqUniqueJobs::Config < ::Concurrent::MutableStruct::ThreadSafeConfig
   #
   # @example Add a custom lock
   #   add_lock(:my_lock, CustomLocks::MyLock)
-  # @param klass [Class] the class describing the lock
-  # @param name [String, Symbol] the name of the lock
+  #
   # @raise DuplicateLock when the name already exists
+  #
+  # @param [String, Symbol] name the name of the lock
+  # @param [Class] klass the class describing the lock
+  #
   # @return [void]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:299
@@ -920,14 +950,17 @@ class SidekiqUniqueJobs::Config < ::Concurrent::MutableStruct::ThreadSafeConfig
   #
   # @example Add a custom strategy
   #   add_lock(:my_strategy, CustomStrategies::MyStrategy)
-  # @param klass [Class] the class describing the strategy
-  # @param name [String] the name of the custom strategy
+  #
   # @raise [DuplicateStrategy] when the name already exists
+  #
+  # @param [String] name the name of the custom strategy
+  # @param [Class] klass the class describing the strategy
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:318
   def add_strategy(name, klass); end
 
   # Memoized variable to get the class name
+  #
   #
   # @return [String] name of the class
   #
@@ -935,34 +968,37 @@ class SidekiqUniqueJobs::Config < ::Concurrent::MutableStruct::ThreadSafeConfig
   def class_name; end
 
   # Default Lock Timeout
-  #
   # @deprecated
+  #
+  #
   # @return [nil, Integer] configured value or nil
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:270
   def default_lock_timeout; end
 
   # Set new value for default_lock_timeout
-  #
   # @deprecated
-  # @param obj [Integer] value to set (seconds)
+  #
+  # @param [Integer] obj value to set (seconds)
+  #
   # @return [Integer]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:245
   def default_lock_timeout=(obj); end
 
   # Default lock TTL (Time To Live)
-  #
   # @deprecated
+  #
   # @return [nil, Integer] configured value or nil
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:257
   def default_lock_ttl; end
 
   # Set the default_lock_ttl
-  #
   # @deprecated
-  # @param obj [Integer] value to set (seconds)
+  #
+  # @param [Integer] obj value to set (seconds)
+  #
   # @return [<type>] <description>
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:231
@@ -970,7 +1006,8 @@ class SidekiqUniqueJobs::Config < ::Concurrent::MutableStruct::ThreadSafeConfig
 
   # Sets digest_algorithm to either :modern or :legacy
   #
-  # @param value [Symbol]
+  # @param [Symbol] value
+  #
   # @return [Symbol] the new value
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:333
@@ -1016,27 +1053,27 @@ class SidekiqUniqueJobs::Config < ::Concurrent::MutableStruct::ThreadSafeConfig
     #   lock_prefix: "uniquejobs",
     #   logger: #<Sidekiq::Logger:0x00007f81e096b0e0 @level=1 ...>,
     #   locks: {
-    #   around_perform: SidekiqUniqueJobs::Lock::WhileExecuting,
-    #   while_busy: SidekiqUniqueJobs::Lock::WhileExecuting,
-    #   while_executing: SidekiqUniqueJobs::Lock::WhileExecuting,
-    #   while_working: SidekiqUniqueJobs::Lock::WhileExecuting,
-    #   while_executing_reject: SidekiqUniqueJobs::Lock::WhileExecutingReject,
-    #   until_executing: SidekiqUniqueJobs::Lock::UntilExecuting,
-    #   while_enqueued: SidekiqUniqueJobs::Lock::UntilExecuting,
-    #   until_expired: SidekiqUniqueJobs::Lock::UntilExpired,
-    #   until_completed: SidekiqUniqueJobs::Lock::UntilExecuted,
-    #   until_executed: SidekiqUniqueJobs::Lock::UntilExecuted,
-    #   until_performed: SidekiqUniqueJobs::Lock::UntilExecuted,
-    #   until_processed: SidekiqUniqueJobs::Lock::UntilExecuted,
-    #   until_and_while_executing: SidekiqUniqueJobs::Lock::UntilAndWhileExecuting,
-    #   until_successfully_completed: SidekiqUniqueJobs::Lock::UntilExecuted
+    #     around_perform: SidekiqUniqueJobs::Lock::WhileExecuting,
+    #     while_busy: SidekiqUniqueJobs::Lock::WhileExecuting,
+    #     while_executing: SidekiqUniqueJobs::Lock::WhileExecuting,
+    #     while_working: SidekiqUniqueJobs::Lock::WhileExecuting,
+    #     while_executing_reject: SidekiqUniqueJobs::Lock::WhileExecutingReject,
+    #     until_executing: SidekiqUniqueJobs::Lock::UntilExecuting,
+    #     while_enqueued: SidekiqUniqueJobs::Lock::UntilExecuting,
+    #     until_expired: SidekiqUniqueJobs::Lock::UntilExpired,
+    #     until_completed: SidekiqUniqueJobs::Lock::UntilExecuted,
+    #     until_executed: SidekiqUniqueJobs::Lock::UntilExecuted,
+    #     until_performed: SidekiqUniqueJobs::Lock::UntilExecuted,
+    #     until_processed: SidekiqUniqueJobs::Lock::UntilExecuted,
+    #     until_and_while_executing: SidekiqUniqueJobs::Lock::UntilAndWhileExecuting,
+    #     until_successfully_completed: SidekiqUniqueJobs::Lock::UntilExecuted
     #   },
     #   strategies: {
-    #   log: SidekiqUniqueJobs::OnConflict::Log,
-    #   raise: SidekiqUniqueJobs::OnConflict::Raise,
-    #   reject: SidekiqUniqueJobs::OnConflict::Reject,
-    #   replace: SidekiqUniqueJobs::OnConflict::Replace,
-    #   reschedule: SidekiqUniqueJobs::OnConflict::Reschedule
+    #     log: SidekiqUniqueJobs::OnConflict::Log,
+    #     raise: SidekiqUniqueJobs::OnConflict::Raise,
+    #     reject: SidekiqUniqueJobs::OnConflict::Reject,
+    #     replace: SidekiqUniqueJobs::OnConflict::Replace,
+    #     reschedule: SidekiqUniqueJobs::OnConflict::Reschedule
     #   },
     #   debug_lua: false,
     #   max_history: 1000,
@@ -1045,6 +1082,8 @@ class SidekiqUniqueJobs::Config < ::Concurrent::MutableStruct::ThreadSafeConfig
     #   lock_info: false,
     #   raise_on_config_error: false,
     #   }>
+    #
+    #
     # @return [SidekiqUniqueJobs::Config] a default configuration
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:196
@@ -1067,7 +1106,7 @@ SidekiqUniqueJobs::Config::DIGEST_ALGORITHM = T.let(T.unsafe(nil), Symbol)
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:108
 SidekiqUniqueJobs::Config::ENABLED = T.let(T.unsafe(nil), TrueClass)
 
-# @return [Hash<Symbol, SidekiqUniqueJobs::Lock::BaseLock] all available default locks] Hash<Symbol, SidekiqUniqueJobs::Lock::BaseLock] all available default locks
+# @return [Hash<Symbol, SidekiqUniqueJobs::Lock::BaseLock] all available default locks
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:77
 SidekiqUniqueJobs::Config::LOCKS = T.let(T.unsafe(nil), Hash)
@@ -1077,22 +1116,22 @@ SidekiqUniqueJobs::Config::LOCKS = T.let(T.unsafe(nil), Hash)
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:147
 SidekiqUniqueJobs::Config::LOCKSMITH_EXECUTOR = T.let(T.unsafe(nil), T.untyped)
 
-# @return [Hash<Symbol, SidekiqUniqueJobs::Lock::BaseLock] all available fulltime locks] Hash<Symbol, SidekiqUniqueJobs::Lock::BaseLock] all available fulltime locks
+# @return [Hash<Symbol, SidekiqUniqueJobs::Lock::BaseLock] all available fulltime locks
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:50
 SidekiqUniqueJobs::Config::LOCKS_FROM_PUSH_TO_PROCESSED = T.let(T.unsafe(nil), Hash)
 
-# @return [Hash<Symbol, SidekiqUniqueJobs::Lock::BaseLock] all available runtime/client locks] Hash<Symbol, SidekiqUniqueJobs::Lock::BaseLock] all available runtime/client locks
+# @return [Hash<Symbol, SidekiqUniqueJobs::Lock::BaseLock] all available runtime/client locks
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:67
 SidekiqUniqueJobs::Config::LOCKS_WHEN_BUSY = T.let(T.unsafe(nil), Hash)
 
-# @return [Hash<Symbol, SidekiqUniqueJobs::Lock::BaseLock] all available queued locks] Hash<Symbol, SidekiqUniqueJobs::Lock::BaseLock] all available queued locks
+# @return [Hash<Symbol, SidekiqUniqueJobs::Lock::BaseLock] all available queued locks
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:43
 SidekiqUniqueJobs::Config::LOCKS_WHILE_ENQUEUED = T.let(T.unsafe(nil), Hash)
 
-# @return [Hash<Symbol, SidekiqUniqueJobs::Lock::BaseLock] all available locks without unlock] Hash<Symbol, SidekiqUniqueJobs::Lock::BaseLock] all available locks without unlock
+# @return [Hash<Symbol, SidekiqUniqueJobs::Lock::BaseLock] all available locks without unlock
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:61
 SidekiqUniqueJobs::Config::LOCKS_WITHOUT_UNLOCK = T.let(T.unsafe(nil), Hash)
@@ -1107,7 +1146,7 @@ SidekiqUniqueJobs::Config::LOCK_TIMEOUT = T.let(T.unsafe(nil), Integer)
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:102
 SidekiqUniqueJobs::Config::LOCK_TTL = T.let(T.unsafe(nil), T.untyped)
 
-# @return [true, false] by default false (don't disable logger)
+# @return [true,false] by default false (don't disable logger)
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:105
 SidekiqUniqueJobs::Config::LOGGER_ENABLED = T.let(T.unsafe(nil), TrueClass)
@@ -1167,7 +1206,7 @@ SidekiqUniqueJobs::Config::REAPER_TIMEOUT = T.let(T.unsafe(nil), Integer)
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:141
 SidekiqUniqueJobs::Config::REDIS_VERSION = T.let(T.unsafe(nil), String)
 
-# @return [Hash<Symbol, SidekiqUniqueJobs::OnConflict::Strategy] all available default strategies] Hash<Symbol, SidekiqUniqueJobs::OnConflict::Strategy] all available default strategies
+# @return [Hash<Symbol, SidekiqUniqueJobs::OnConflict::Strategy] all available default strategies
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:86
 SidekiqUniqueJobs::Config::STRATEGIES = T.let(T.unsafe(nil), Hash)
@@ -1183,8 +1222,6 @@ SidekiqUniqueJobs::Config::USE_LOCK_INFO = T.let(T.unsafe(nil), FalseClass)
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/exceptions.rb:15
 class SidekiqUniqueJobs::Conflict < ::SidekiqUniqueJobs::UniqueJobsError
-  # @return [Conflict] a new instance of Conflict
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/exceptions.rb:16
   def initialize(item); end
 end
@@ -1196,15 +1233,12 @@ end
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/connection.rb:7
 module SidekiqUniqueJobs::Connection
   # Creates a connection to redis
-  #
   # @return [Sidekiq::RedisConnection] a connection to redis
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/connection.rb:14
   def redis(_r_pool = T.unsafe(nil), &block); end
 
   class << self
-    # @private
-    #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/connection.rb:8
     def included(base); end
   end
@@ -1225,7 +1259,9 @@ class SidekiqUniqueJobs::Deprecation
   class << self
     # Mute warnings from this gem in a threaded context
     #
+    #
     # @return [void] <description>
+    #
     # @yieldreturn [void]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/deprecation.rb:17
@@ -1233,14 +1269,16 @@ class SidekiqUniqueJobs::Deprecation
 
     # Check if deprecation warnings have been muted
     #
-    # @return [true, false]
+    #
+    # @return [true,false]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/deprecation.rb:31
     def muted?; end
 
     # Warn about deprecation
     #
-    # @param msg [String] a descriptive reason for why the deprecation
+    # @param [String] msg a descriptive reason for why the deprecation
+    #
     # @return [void]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/deprecation.rb:42
@@ -1248,7 +1286,8 @@ class SidekiqUniqueJobs::Deprecation
 
     # Warn about deprecation and provide a context
     #
-    # @param msg [String] a descriptive reason for why the deprecation
+    # @param [String] msg a descriptive reason for why the deprecation
+    #
     # @return [void]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/deprecation.rb:56
@@ -1262,14 +1301,12 @@ end
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/digests.rb:9
 class SidekiqUniqueJobs::Digests < ::SidekiqUniqueJobs::Redis::SortedSet
-  # @return [Digests] a new instance of Digests
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/digests.rb:20
   def initialize(digests_key = T.unsafe(nil)); end
 
   # Adds a digest
   #
-  # @param digest [String] the digest to add
+  # @param [String] digest the digest to add
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/digests.rb:29
   def add(digest); end
@@ -1277,7 +1314,7 @@ class SidekiqUniqueJobs::Digests < ::SidekiqUniqueJobs::Redis::SortedSet
   # Delete unique digests by digest
   #   Also deletes the :AVAILABLE, :EXPIRED etc keys
   #
-  # @param digest [String] a unique digest to delete
+  # @param [String] digest a unique digest to delete
   # @param queuetime [Boolean] Whether to delete queue locks.
   # @param runtime [Boolean] Whether to delete run locks.
   #
@@ -1286,8 +1323,8 @@ class SidekiqUniqueJobs::Digests < ::SidekiqUniqueJobs::Redis::SortedSet
 
   # Deletes unique digests by pattern
   #
-  # @param count [Integer] the maximum number
-  # @param pattern [String] a key pattern to match with
+  # @param [String] pattern a key pattern to match with
+  # @param [Integer] count the maximum number
   # @return [Hash<String,Float>] Hash mapping of digest matching the given pattern and score
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/digests.rb:39
@@ -1295,8 +1332,9 @@ class SidekiqUniqueJobs::Digests < ::SidekiqUniqueJobs::Redis::SortedSet
 
   # The entries in this sorted set
   #
-  # @param count [Integer] DEFAULT_COUNT the number of entries to return
-  # @param pattern [String] SCAN_PATTERN the match pattern to search for
+  # @param [String] pattern SCAN_PATTERN the match pattern to search for
+  # @param [Integer] count DEFAULT_COUNT the number of entries to return
+  #
   # @return [Array<String>] an array of digests matching the given pattern
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/digests.rb:77
@@ -1304,9 +1342,10 @@ class SidekiqUniqueJobs::Digests < ::SidekiqUniqueJobs::Redis::SortedSet
 
   # Returns a paginated
   #
-  # @param cursor [Integer] the cursor for this iteration
-  # @param page_size [Integer] 100 the size per page
-  # @param pattern [String] SCAN_PATTERN the match pattern to search for
+  # @param [Integer] cursor the cursor for this iteration
+  # @param [String] pattern SCAN_PATTERN the match pattern to search for
+  # @param [Integer] page_size 100 the size per page
+  #
   # @return [Array<Integer, Integer, Array<Lock>>] total_size, next_cursor, locks
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/digests.rb:90
@@ -1368,8 +1407,6 @@ SidekiqUniqueJobs::EXPIRING_DIGESTS = T.let(T.unsafe(nil), String)
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/expiring_digests.rb:9
 class SidekiqUniqueJobs::ExpiringDigests < ::SidekiqUniqueJobs::Digests
-  # @return [ExpiringDigests] a new instance of ExpiringDigests
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/expiring_digests.rb:10
   def initialize; end
 end
@@ -1387,8 +1424,6 @@ class SidekiqUniqueJobs::InvalidArgument < ::SidekiqUniqueJobs::UniqueJobsError;
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/exceptions.rb:72
 class SidekiqUniqueJobs::InvalidUniqueArguments < ::SidekiqUniqueJobs::UniqueJobsError
-  # @return [InvalidUniqueArguments] a new instance of InvalidUniqueArguments
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/exceptions.rb:73
   def initialize(options); end
 end
@@ -1399,8 +1434,6 @@ end
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/exceptions.rb:60
 class SidekiqUniqueJobs::InvalidWorker < ::SidekiqUniqueJobs::UniqueJobsError
-  # @return [InvalidWorker] a new instance of InvalidWorker
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/exceptions.rb:61
   def initialize(lock_config); end
 end
@@ -1418,7 +1451,8 @@ module SidekiqUniqueJobs::JSON
 
   # Dumps an object into a JSON string
   #
-  # @param object [Object] a JSON convertible object
+  # @param [Object] object a JSON convertible object
+  #
   # @return [String] a JSON string
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/json.rb:43
@@ -1426,7 +1460,8 @@ module SidekiqUniqueJobs::JSON
 
   # Parses a JSON string into an object
   #
-  # @param string [String] the object to parse
+  # @param [String] string the object to parse
+  #
   # @return [Object]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/json.rb:17
@@ -1434,8 +1469,9 @@ module SidekiqUniqueJobs::JSON
 
   # Prevents trying JSON.load from raising errors given argument is a hash
   #
-  # @param string [String, Hash] the JSON string to parse
-  # @return [Hash, Array]
+  # @param [String, Hash] string the JSON string to parse
+  #
+  # @return [Hash,Array]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/json.rb:30
   def safe_load_json(string); end
@@ -1443,7 +1479,8 @@ module SidekiqUniqueJobs::JSON
   class << self
     # Dumps an object into a JSON string
     #
-    # @param object [Object] a JSON convertible object
+    # @param [Object] object a JSON convertible object
+    #
     # @return [String] a JSON string
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/json.rb:43
@@ -1451,7 +1488,8 @@ module SidekiqUniqueJobs::JSON
 
     # Parses a JSON string into an object
     #
-    # @param string [String] the object to parse
+    # @param [String] string the object to parse
+    #
     # @return [Object]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/json.rb:17
@@ -1459,8 +1497,9 @@ module SidekiqUniqueJobs::JSON
 
     # Prevents trying JSON.load from raising errors given argument is a hash
     #
-    # @param string [String, Hash] the JSON string to parse
-    # @return [Hash, Array]
+    # @param [String, Hash] string the JSON string to parse
+    #
+    # @return [Hash,Array]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/json.rb:30
     def safe_load_json(string); end
@@ -1476,14 +1515,12 @@ module SidekiqUniqueJobs::Job
   extend ::SidekiqUniqueJobs::Job
 
   # Adds lock_args, lock_prefix and lock_digest to the sidekiq job hash
-  #
   # @return [Hash] the job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/job.rb:22
   def add_digest(item); end
 
   # Adds lock, timeout, expiration, lock_args, lock_prefix, and lock_digest to the sidekiq job hash
-  #
   # @return [Hash] the job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/job.rb:12
@@ -1521,41 +1558,46 @@ end
 class SidekiqUniqueJobs::Key
   # Initialize a new Key
   #
-  # @param digest [String] the digest to use as key
-  # @return [Key] a new instance of Key
+  # @param [String] digest the digest to use as key
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/key.rb:46
   def initialize(digest); end
 
   # Compares keys by digest
   #
-  # @param other [Key] the key to compare with
+  # @param [Key] other the key to compare with
+  #
   # @return [true, false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/key.rb:79
   def ==(other); end
 
-  # Returns the value of attribute changelog.
+  # @!attribute [r] changelog
+  #   @return [String] the zset with changelog entries
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/key.rb:31
   def changelog; end
 
-  # Returns the value of attribute digest.
+  # @!attribute [r] digest
+  #   @return [String] the digest key for which keys are created
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/key.rb:11
   def digest; end
 
-  # Returns the value of attribute digests.
+  # @!attribute [r] digests
+  #   @return [String] the zset with locked digests
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/key.rb:35
   def digests; end
 
-  # Returns the value of attribute expiring_digests.
+  # @!attribute [r] expiring_digests
+  #   @return [String] the zset with locked expiring_digests
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/key.rb:39
   def expiring_digests; end
 
-  # Returns the value of attribute info.
+  # @!attribute [r] info
+  #   @return [String] information about the lock
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/key.rb:27
   def info; end
@@ -1565,17 +1607,20 @@ class SidekiqUniqueJobs::Key
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/key.rb:68
   def inspect; end
 
-  # Returns the value of attribute locked.
+  # @!attribute [r] locked
+  #   @return [String] the hash key with locked job_id's
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/key.rb:23
   def locked; end
 
-  # Returns the value of attribute primed.
+  # @!attribute [r] primed
+  #   @return [String] the list key with primed job_id's
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/key.rb:19
   def primed; end
 
-  # Returns the value of attribute queued.
+  # @!attribute [r] queued
+  #   @return [String] the list key with queued job_id's
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/key.rb:15
   def queued; end
@@ -1588,6 +1633,7 @@ class SidekiqUniqueJobs::Key
   def to_a; end
 
   # Provides the only important information about this keys
+  #
   #
   # @return [String]
   #
@@ -1652,9 +1698,8 @@ class SidekiqUniqueJobs::Lock
 
   # Initialize a new lock
   #
-  # @param key [String, Key] either a digest or an instance of a {Key}
-  # @param time [Timstamp, Float] nil optional timestamp to initiate this lock with
-  # @return [Lock] a new instance of Lock
+  # @param [String, Key] key either a digest or an instance of a {Key}
+  # @param [Timstamp, Float] time nil optional timestamp to initiate this lock with
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock.rb:48
   def initialize(key, time: T.unsafe(nil)); end
@@ -1662,6 +1707,8 @@ class SidekiqUniqueJobs::Lock
   # Returns all job_id's for this lock
   #
   # @note a JID can be present in 3 different places
+  #
+  #
   # @return [Array<String>] an array with JIDs
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock.rb:156
@@ -1669,13 +1716,16 @@ class SidekiqUniqueJobs::Lock
 
   # A sorted set with changelog entries
   #
-  # @return [Changelog]
   # @see Changelog for more information
+  #
+  #
+  # @return [Changelog]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock.rb:263
   def changelog; end
 
   # Returns all matching changelog entries for this lock
+  #
   #
   # @return [Array<Hash>] an array with changelogs
   #
@@ -1685,12 +1735,14 @@ class SidekiqUniqueJobs::Lock
   # Returns either the time the lock was initialized with or
   #   the first changelog entry's timestamp
   #
+  #
   # @return [Float] a floaty timestamp represantation
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock.rb:144
   def created_at; end
 
   # Deletes all the redis keys for this lock
+  #
   #
   # @return [Integer] the number of keys deleted in redis
   #
@@ -1701,12 +1753,15 @@ class SidekiqUniqueJobs::Lock
   #
   # @note Used for exists checks to avoid enqueuing
   #   the same lock twice
+  #
+  #
   # @return [Redis::String] a string representation of the key
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock.rb:211
   def digest; end
 
   # Information about the lock
+  #
   #
   # @return [Redis::Hash] with lock information
   #
@@ -1718,7 +1773,8 @@ class SidekiqUniqueJobs::Lock
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock.rb:289
   def inspect; end
 
-  # Returns the value of attribute key.
+  # @!attribute [r] key
+  #   @return [String] the entity redis key
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock.rb:25
   def key; end
@@ -1726,14 +1782,17 @@ class SidekiqUniqueJobs::Lock
   # Locks a job_id
   #
   # @note intended only for testing purposes
-  # @param job_id [String] a sidekiq JID
-  # @param lock_info [Hash] information about the lock
+  #
+  # @param [String] job_id a sidekiq JID
+  # @param [Hash] lock_info information about the lock
+  #
   # @return [void]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock.rb:66
   def lock(job_id, lock_info = T.unsafe(nil), score = T.unsafe(nil)); end
 
   # The locked hash
+  #
   #
   # @return [Redis::Hash] for locked JIDs
   #
@@ -1742,7 +1801,8 @@ class SidekiqUniqueJobs::Lock
 
   # Returns a collection of locked job_id's
   #
-  # @param with_values [true, false] false provide the timestamp for the lock
+  # @param [true, false] with_values false provide the timestamp for the lock
+  #
   # @return [Hash<String, Float>] when given `with_values: true`
   # @return [Array<String>] when given `with_values: false`
   #
@@ -1752,7 +1812,9 @@ class SidekiqUniqueJobs::Lock
   # Create the :PRIMED key
   #
   # @note intended only for testing purposes
-  # @param job_id [String] a sidekiq JID
+  #
+  # @param [String] job_id a sidekiq JID
+  #
   # @return [void]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock.rb:104
@@ -1760,12 +1822,14 @@ class SidekiqUniqueJobs::Lock
 
   # The primed list
   #
+  #
   # @return [Redis::List] for primed JIDs
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock.rb:231
   def primed; end
 
   # Returns the primed JIDs
+  #
   #
   # @return [Array<String>] an array with primed job_ids
   #
@@ -1775,13 +1839,16 @@ class SidekiqUniqueJobs::Lock
   # Create the :QUEUED key
   #
   # @note intended only for testing purposes
-  # @param job_id [String] a sidekiq JID
+  #
+  # @param [String] job_id a sidekiq JID
+  #
   # @return [void]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock.rb:89
   def queue(job_id); end
 
   # The queued list
+  #
   #
   # @return [Redis::List] for queued JIDs
   #
@@ -1790,12 +1857,14 @@ class SidekiqUniqueJobs::Lock
 
   # Returns the queued JIDs
   #
+  #
   # @return [Array<String>] an array with queued job_ids
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock.rb:178
   def queued_jids; end
 
   # A nicely formatted string with information about this lock
+  #
   #
   # @return [String]
   #
@@ -1804,7 +1873,8 @@ class SidekiqUniqueJobs::Lock
 
   # Unlock a specific job_id
   #
-  # @param job_id [String] a sidekiq JID
+  # @param [String] job_id a sidekiq JID
+  #
   # @return [true] when job_id was removed
   # @return [false] when job_id wasn't locked
   #
@@ -1815,8 +1885,9 @@ class SidekiqUniqueJobs::Lock
 
   # Add the digest to the correct sorted set
   #
-  # @param lock_info [Hash] the lock info relevant to the digest
-  # @param pipeline [Object] a redis pipeline object for issue commands
+  # @param [Object] pipeline a redis pipeline object for issue commands
+  # @param [Hash] lock_info the lock info relevant to the digest
+  #
   # @return [nil]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock.rb:337
@@ -1824,9 +1895,10 @@ class SidekiqUniqueJobs::Lock
 
   # Generate a changelog entry for the given arguments
   #
-  # @param job_id [String] a sidekiq JID
-  # @param message [String] a descriptive message for later review
-  # @param script [String] the name of the script generating this entry
+  # @param [String] job_id a sidekiq JID
+  # @param [String] script the name of the script generating this entry
+  # @param [String] message a descriptive message for later review
+  #
   # @return [String] a JSON string matching the Lua script structure
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock.rb:319
@@ -1834,7 +1906,8 @@ class SidekiqUniqueJobs::Lock
 
   # Ensure the key is a {Key}
   #
-  # @param key [String, Key]
+  # @param [String, Key] key
+  #
   # @return [Key]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock.rb:302
@@ -1843,9 +1916,10 @@ class SidekiqUniqueJobs::Lock
   class << self
     # Initialize a locked lock
     #
-    # @param digest [String] a unique digest
-    # @param job_id [String] a sidekiq JID
-    # @param lock_info [Hash] information about the lock
+    # @param [String] digest a unique digest
+    # @param [String] job_id a sidekiq JID
+    # @param [Hash] lock_info information about the lock
+    #
     # @return [Lock] a newly lock that has been locked
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock.rb:36
@@ -1865,16 +1939,14 @@ class SidekiqUniqueJobs::Lock::BaseLock
   extend ::Forwardable
   extend ::SidekiqUniqueJobs::Logging
 
-  # @param callback [Proc] the callback to use after unlock
-  # @param item [Hash] the Sidekiq job hash
-  # @param redis_pool [Sidekiq::RedisConnection, ConnectionPool] the redis connection
-  # @return [BaseLock] a new instance of BaseLock
+  # @param [Hash] item the Sidekiq job hash
+  # @param [Proc] callback the callback to use after unlock
+  # @param [Sidekiq::RedisConnection, ConnectionPool] redis_pool the redis connection
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/base_lock.rb:38
   def initialize(item, callback, redis_pool = T.unsafe(nil)); end
 
   # Execute the job in the Sidekiq server processor
-  #
   # @raise [NotImplementedError] needs to be implemented in child class
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/base_lock.rb:62
@@ -1883,8 +1955,9 @@ class SidekiqUniqueJobs::Lock::BaseLock
   # Locks a sidekiq job
   #
   # @note Will call a conflict strategy if lock can't be achieved.
-  # @raise [NotImplementedError]
+  #
   # @return [String, nil] the locked jid when properly locked, else nil.
+  #
   # @yield to the caller when given a block
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/base_lock.rb:56
@@ -1903,23 +1976,27 @@ class SidekiqUniqueJobs::Lock::BaseLock
 
   private
 
-  # Returns the value of attribute attempt.
+  # @!attribute [r] attempt
+  #   @return [Integer] the current locking attempt
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/base_lock.rb:92
   def attempt; end
 
   # Call whatever strategry that has been configured
   #
-  # @param origin [Symbol] the origin `:client` or `:server`
+  # @param [Symbol] origin the origin `:client` or `:server`
+  #
   # @return [void] the return value is irrelevant
-  # @yieldparam if [void] a new job id was set and a block is given
+  #
+  # @yieldparam [void] if a new job id was set and a block is given
   # @yieldreturn [void] the yield is irrelevant, it only provides a mechanism in
   #   one specific situation to yield back to the middleware.
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/base_lock.rb:119
   def call_strategy(origin:); end
 
-  # Returns the value of attribute callback.
+  # @!attribute [r] callback
+  #   @return [Proc] the block to call after unlock
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/base_lock.rb:89
   def callback; end
@@ -1930,12 +2007,14 @@ class SidekiqUniqueJobs::Lock::BaseLock
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/base_lock.rb:158
   def client_strategy; end
 
-  # Returns the value of attribute item.
+  # @!attribute [r] item
+  #   @return [Hash<String, Object>] the Sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/base_lock.rb:80
   def item; end
 
-  # Returns the value of attribute lock_config.
+  # @!attribute [r] lock_config
+  #   @return [LockConfig] a lock configuration
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/base_lock.rb:83
   def lock_config; end
@@ -1943,12 +2022,14 @@ class SidekiqUniqueJobs::Lock::BaseLock
   # Eases testing by allowing the lock implementation to add the missing
   # keys to the job hash.
   #
+  #
   # @return [void] the return value should be irrelevant
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/base_lock.rb:101
   def prepare_item; end
 
-  # Returns the value of attribute redis_pool.
+  # @!attribute [r] redis_pool
+  #   @return [Sidekiq::RedisConnection, ConnectionPool, NilClass] the redis connection
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/base_lock.rb:86
   def redis_pool; end
@@ -1965,7 +2046,8 @@ class SidekiqUniqueJobs::Lock::BaseLock
   class << self
     # Validates that the sidekiq_options for the worker is valid
     #
-    # @param options [Hash] the sidekiq_options given to the worker
+    # @param [Hash] options the sidekiq_options given to the worker
+    #
     # @return [void]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/base_lock.rb:27
@@ -1987,7 +2069,6 @@ end
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/until_and_while_executing.rb:15
 class SidekiqUniqueJobs::Lock::UntilAndWhileExecuting < ::SidekiqUniqueJobs::Lock::BaseLock
   # Executes in the Sidekiq server process
-  #
   # @yield to the worker class perform method
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/until_and_while_executing.rb:40
@@ -1996,7 +2077,9 @@ class SidekiqUniqueJobs::Lock::UntilAndWhileExecuting < ::SidekiqUniqueJobs::Loc
   # Locks a sidekiq job
   #
   # @note Will call a conflict strategy if lock can't be achieved.
+  #
   # @return [String, nil] the locked jid when properly locked, else nil.
+  #
   # @yield to the caller when given a block
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/until_and_while_executing.rb:25
@@ -2020,7 +2103,6 @@ end
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/until_executed.rb:10
 class SidekiqUniqueJobs::Lock::UntilExecuted < ::SidekiqUniqueJobs::Lock::BaseLock
   # Executes in the Sidekiq server process
-  #
   # @yield to the worker class perform method
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/until_executed.rb:35
@@ -2029,7 +2111,9 @@ class SidekiqUniqueJobs::Lock::UntilExecuted < ::SidekiqUniqueJobs::Lock::BaseLo
   # Locks a sidekiq job
   #
   # @note Will call a conflict strategy if lock can't be achieved.
+  #
   # @return [String, nil] the locked jid when properly locked, else nil.
+  #
   # @yield to the caller when given a block
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/until_executed.rb:20
@@ -2045,7 +2129,6 @@ end
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/until_executing.rb:10
 class SidekiqUniqueJobs::Lock::UntilExecuting < ::SidekiqUniqueJobs::Lock::BaseLock
   # Executes in the Sidekiq server process
-  #
   # @yield to the worker class perform method
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/until_executing.rb:33
@@ -2054,6 +2137,7 @@ class SidekiqUniqueJobs::Lock::UntilExecuting < ::SidekiqUniqueJobs::Lock::BaseL
   # Locks a sidekiq job
   #
   # @note Will call a conflict strategy if lock can't be achieved.
+  #
   # @return [String, nil] the locked jid when properly locked, else nil.
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/until_executing.rb:18
@@ -2067,7 +2151,6 @@ end
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/until_expired.rb:10
 class SidekiqUniqueJobs::Lock::UntilExpired < ::SidekiqUniqueJobs::Lock::UntilExecuted
   # Executes in the Sidekiq server process
-  #
   # @yield to the worker class perform method
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/until_expired.rb:35
@@ -2076,7 +2159,9 @@ class SidekiqUniqueJobs::Lock::UntilExpired < ::SidekiqUniqueJobs::Lock::UntilEx
   # Locks a sidekiq job
   #
   # @note Will call a conflict strategy if lock can't be achieved.
+  #
   # @return [String, nil] the locked jid when properly locked, else nil.
+  #
   # @yield to the caller when given a block
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/until_expired.rb:20
@@ -2099,17 +2184,15 @@ class SidekiqUniqueJobs::Lock::WhileExecuting < ::SidekiqUniqueJobs::Lock::BaseL
   include ::SidekiqUniqueJobs::Logging::Middleware
   extend ::SidekiqUniqueJobs::Logging::Middleware
 
-  # @param callback [Proc] callback to call after unlock
-  # @param item [Hash] the Sidekiq job hash
-  # @param redis_pool [Sidekiq::RedisConnection, ConnectionPool] the redis connection
-  # @return [WhileExecuting] a new instance of WhileExecuting
+  # @param [Hash] item the Sidekiq job hash
+  # @param [Proc] callback callback to call after unlock
+  # @param [Sidekiq::RedisConnection, ConnectionPool] redis_pool the redis connection
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/while_executing.rb:25
   def initialize(item, callback, redis_pool = T.unsafe(nil)); end
 
   # Executes in the Sidekiq server process.
   #   These jobs are locked in the server process not from the client
-  #
   # @yield to the worker class perform method
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/while_executing.rb:43
@@ -2117,7 +2200,6 @@ class SidekiqUniqueJobs::Lock::WhileExecuting < ::SidekiqUniqueJobs::Lock::BaseL
 
   # Simulate that a client lock was achieved.
   #   These locks should only ever be created in the server process.
-  #
   # @return [true] always returns true
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/while_executing.rb:33
@@ -2149,7 +2231,6 @@ SidekiqUniqueJobs::Lock::WhileExecuting::RUN_SUFFIX = T.let(T.unsafe(nil), Strin
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/while_executing_reject.rb:13
 class SidekiqUniqueJobs::Lock::WhileExecutingReject < ::SidekiqUniqueJobs::Lock::WhileExecuting
   # Overridden with a forced {OnConflict::Reject} strategy
-  #
   # @return [OnConflict::Reject] a reject strategy
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/while_executing_reject.rb:16
@@ -2167,18 +2248,19 @@ class SidekiqUniqueJobs::LockArgs
   include ::SidekiqUniqueJobs::JSON
   extend ::SidekiqUniqueJobs::Logging
 
-  # @param item [Hash] a Sidekiq job hash
-  # @return [LockArgs] a new instance of LockArgs
+  # @param [Hash] item a Sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_args.rb:28
   def initialize(item); end
 
-  # Returns the value of attribute args.
+  # @!attribute [r] args
+  #   @return [Array<Objet>] the arguments passed to `perform_async`
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_args.rb:25
   def args; end
 
   # The globally default worker options configured from Sidekiq
+  #
   #
   # @return [Hash<String, Object>]
   #
@@ -2191,16 +2273,14 @@ class SidekiqUniqueJobs::LockArgs
   def default_lock_args_method; end
 
   # Filters unique arguments by proc configured in the sidekiq worker
-  #
-  # @param args [Array] the arguments passed to the sidekiq worker
+  # @param [Array] args the arguments passed to the sidekiq worker
   # @return [Array] with the filtered arguments
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_args.rb:80
   def filter_by_proc(args); end
 
   # Filters unique arguments by method configured in the sidekiq worker
-  #
-  # @param args [Array] the arguments passed to the sidekiq worker
+  # @param [Array] args the arguments passed to the sidekiq worker
   # @return [Array] unfiltered unless {#job_method_defined?}
   # @return [Array] with the filtered arguments
   #
@@ -2208,7 +2288,6 @@ class SidekiqUniqueJobs::LockArgs
   def filter_by_symbol(args); end
 
   # Filters unique arguments by proc or symbol
-  #
   # @return [Array] {#filter_by_proc} when {#lock_args_method} is a Proc
   # @return [Array] {#filter_by_symbol} when {#lock_args_method} is a Symbol
   # @return [Array] args unfiltered when neither of the above
@@ -2217,28 +2296,24 @@ class SidekiqUniqueJobs::LockArgs
   def filtered_args; end
 
   # The sidekiq job hash
-  #
   # @return [Hash] the Sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_args.rb:21
   def item; end
 
   # The unique arguments to use for creating a lock
-  #
   # @return [Array] the arguments filters by the {#filtered_args} method if {#lock_args_enabled?}
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_args.rb:36
   def lock_args; end
 
   # Checks if the worker class has disabled lock_args
-  #
   # @return [true, false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_args.rb:56
   def lock_args_disabled?; end
 
   # Checks if the worker class has enabled lock_args
-  #
   # @return [true, false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_args.rb:42
@@ -2250,7 +2325,6 @@ class SidekiqUniqueJobs::LockArgs
   def lock_args_method; end
 
   # Validate that the lock_args_method is acceptable
-  #
   # @return [true, false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_args.rb:50
@@ -2258,8 +2332,7 @@ class SidekiqUniqueJobs::LockArgs
 
   class << self
     # Convenience method for returning a digest
-    #
-    # @param item [Hash] a Sidekiq job hash
+    # @param [Hash] item a Sidekiq job hash
     # @return [String] a unique digest
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_args.rb:15
@@ -2274,40 +2347,41 @@ end
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:10
 class SidekiqUniqueJobs::LockConfig
-  # @return [LockConfig] a new instance of LockConfig
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:59
   def initialize(job_hash = T.unsafe(nil)); end
 
-  # Returns the value of attribute errors.
+  # @!attribute [r] errors
+  #   @return [Array<Hash<Symbol, Array<String>] a collection of configuration errors
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:46
   def errors; end
 
   # Return a nice descriptive message with all validation errors
   #
+  #
   # @return [String]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:104
   def errors_as_string; end
 
-  # Returns the value of attribute job.
+  # @!attribute [r] job
+  #   @return [Symbol] the job class
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:18
   def job; end
 
-  # Returns the value of attribute limit.
+  # @!attribute [r] limit
+  #   @return [Integer] the number of simultaneous locks
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:22
   def limit; end
 
-  # Returns the value of attribute lock_info.
+  # @!attribute [r] lock_info
+  #   @return [Boolean] indicate wether to use lock_info or not
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:38
   def lock_info; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:74
   def lock_info?; end
 
@@ -2316,7 +2390,8 @@ class SidekiqUniqueJobs::LockConfig
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:115
   def on_client_conflict; end
 
-  # Returns the value of attribute on_conflict.
+  # @!attribute [r] on_conflict
+  #   @return [Symbol, Hash<Symbol, Symbol>] the strategies to use as conflict resolution
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:42
   def on_conflict; end
@@ -2326,36 +2401,42 @@ class SidekiqUniqueJobs::LockConfig
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:124
   def on_server_conflict; end
 
-  # Returns the value of attribute pttl.
+  # @!attribute [r] ttl
+  #   @return [Integer, nil] the time (in milliseconds) to live after successful
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:34
   def pttl; end
 
-  # Returns the value of attribute timeout.
+  # @!attribute [r] timeout
+  #   @return [Integer, nil] the time to wait for a lock
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:26
   def timeout; end
 
-  # @return [Integer, nil] the time (in milliseconds) to live after successful
+  # @!attribute [r] ttl
+  #   @return [Integer, nil] the time (in seconds) to live after successful
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:30
   def ttl; end
 
-  # Returns the value of attribute type.
+  # @!attribute [r] type
+  #   @return [Symbol] the type of lock
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:14
   def type; end
 
   # Is the configuration valid?
   #
-  # @return [true, false]
+  #
+  # @return [true,false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:94
   def valid?; end
 
   # Indicate if timeout was set
   #
-  # @return [true, false]
+  #
+  # @return [true,false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:84
   def wait_for_lock?; end
@@ -2363,7 +2444,8 @@ class SidekiqUniqueJobs::LockConfig
   class << self
     # Instantiate a new lock_config based on sidekiq options in worker
     #
-    # @param options [Hash] sidekiq_options for worker
+    # @param [Hash] options sidekiq_options for worker
+    #
     # @return [LockConfig]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_config.rb:55
@@ -2382,59 +2464,54 @@ class SidekiqUniqueJobs::LockDigest
   include ::SidekiqUniqueJobs::SidekiqWorkerMethods
   extend ::SidekiqUniqueJobs::Logging
 
-  # @param item [Hash] a Sidekiq job hash
-  # @return [LockDigest] a new instance of LockDigest
+  # @param [Hash] item a Sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_digest.rb:38
   def initialize(item); end
 
   # Creates a namespaced unique digest based on the {#digestable_hash} and the {#lock_prefix}
-  #
   # @return [String] a unique digest
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_digest.rb:53
   def create_digest; end
 
   # Filter a hash to use for digest
-  #
   # @return [Hash] to use for digest
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_digest.rb:65
   def digestable_hash; end
 
   # The sidekiq job hash
-  #
   # @return [Hash] the Sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_digest.rb:27
   def item; end
 
-  # Returns the value of attribute lock_args.
+  # @!attribute [r] args
+  #   @return [Array<Objet>] the arguments passed to `perform_async`
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_digest.rb:31
   def lock_args; end
 
   # Memoized lock_digest
-  #
   # @return [String] a unique digest
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_digest.rb:47
   def lock_digest; end
 
-  # Returns the value of attribute lock_prefix.
+  # @!attribute [r] args
+  #   @return [String] the prefix for the unique key
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_digest.rb:35
   def lock_prefix; end
 
   # Checks if we should disregard the queue when creating the unique digest
-  #
   # @return [true, false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_digest.rb:74
   def unique_across_queues?; end
 
   # Checks if we should disregard the worker when creating the unique digest
-  #
   # @return [true, false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_digest.rb:80
@@ -2443,7 +2520,8 @@ class SidekiqUniqueJobs::LockDigest
   class << self
     # Generates a new digest
     #
-    # @param item [Hash] a sidekiq job hash
+    # @param [Hash] item a sidekiq job hash
+    #
     # @return [String] a unique digest for the given arguments
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_digest.rb:21
@@ -2459,13 +2537,15 @@ end
 class SidekiqUniqueJobs::LockInfo < ::SidekiqUniqueJobs::Redis::String
   # Quick access to the hash members for the value
   #
-  # @param key [String, Symbol] the key who's value to retrieve
+  # @param [String, Symbol] key the key who's value to retrieve
+  #
   # @return [Object]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_info.rb:47
   def [](key); end
 
   # Check if this redis string is blank
+  #
   #
   # @return [Boolean]
   #
@@ -2474,6 +2554,7 @@ class SidekiqUniqueJobs::LockInfo < ::SidekiqUniqueJobs::Redis::String
 
   # Check if this redis string has a value
   #
+  #
   # @return [Boolean]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_info.rb:36
@@ -2481,14 +2562,15 @@ class SidekiqUniqueJobs::LockInfo < ::SidekiqUniqueJobs::Redis::String
 
   # Writes the lock info to redis
   #
-  # @param obj [Hash] the information to store at key
-  # @raise [InvalidArgument]
+  # @param [Hash] obj the information to store at key
+  #
   # @return [Hash]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_info.rb:58
   def set(obj, pipeline = T.unsafe(nil)); end
 
   # Returns the value for this key as a hash
+  #
   #
   # @return [Hash]
   #
@@ -2504,12 +2586,11 @@ end
 class SidekiqUniqueJobs::LockTTL
   include ::SidekiqUniqueJobs::SidekiqWorkerMethods
 
-  # @option item
-  # @option item
-  # @option item
-  # @option item
-  # @param item [Hash] the Sidekiq job hash
-  # @return [LockTTL] a new instance of LockTTL
+  # @param [Hash] item the Sidekiq job hash
+  # @option item [Integer, nil] :lock_ttl the configured lock expiration
+  # @option item [Integer, nil] :lock_timeout the configured lock timeout
+  # @option item [String] :class the class of the sidekiq worker
+  # @option item [Float] :at the unix time the job is scheduled at
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_ttl.rb:35
   def initialize(item); end
@@ -2519,18 +2600,20 @@ class SidekiqUniqueJobs::LockTTL
   #
   # @note this method takes into consideration the time
   #   until a job is scheduled
+  #
+  #
   # @return [Integer] the number of seconds to live
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_ttl.rb:70
   def calculate; end
 
-  # Returns the value of attribute item.
+  # @!attribute [r] item
+  #   @return [Hash] the Sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_ttl.rb:28
   def item; end
 
   # The time a job is scheduled
-  #
   # @return [Float] the exact unix time the job is scheduled at
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_ttl.rb:56
@@ -2539,6 +2622,7 @@ class SidekiqUniqueJobs::LockTTL
   # Calculates the time until the job is scheduled starting from now
   #
   # @note Ensures result is never negative to prevent TTL calculation issues
+  #
   # @return [Integer] the number of seconds until job is scheduled (>= 0)
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_ttl.rb:47
@@ -2558,6 +2642,8 @@ class SidekiqUniqueJobs::LockTTL
     #
     # @note this method takes into consideration the time
     #   until a job is scheduled
+    #
+    #
     # @return [Integer] the number of seconds to live
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_ttl.rb:22
@@ -2573,12 +2659,11 @@ end
 class SidekiqUniqueJobs::LockTimeout
   include ::SidekiqUniqueJobs::SidekiqWorkerMethods
 
-  # @option item
-  # @option item
-  # @option item
-  # @option item
-  # @param item [Hash] the Sidekiq job hash
-  # @return [LockTimeout] a new instance of LockTimeout
+  # @param [Hash] item the Sidekiq job hash
+  # @option item [Integer, nil] :lock_ttl the configured lock expiration
+  # @option item [Integer, nil] :lock_timeout the configured lock timeout
+  # @option item [String] :class the class of the sidekiq worker
+  # @option item [Float] :at the unix time the job is scheduled at
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_timeout.rb:32
   def initialize(item); end
@@ -2586,20 +2671,23 @@ class SidekiqUniqueJobs::LockTimeout
   # Finds a lock timeout in either of
   #  default worker options, {default_lock_timeout} or provided worker_options
   #
+  #
   # @return [Integer, nil]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_timeout.rb:44
   def calculate; end
 
   # The configured default_lock_timeout
+  # @see SidekiqUniqueJobs::Config#lock_timeout
+  #
   #
   # @return [Integer, nil]
-  # @see SidekiqUniqueJobs::Config#lock_timeout
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_timeout.rb:58
   def default_lock_timeout; end
 
-  # Returns the value of attribute item.
+  # @!attribute [r] item
+  #   @return [Hash] the Sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_timeout.rb:25
   def item; end
@@ -2607,7 +2695,8 @@ class SidekiqUniqueJobs::LockTimeout
   class << self
     # Calculates the timeout for a Sidekiq job
     #
-    # @param item [Hash] sidekiq job hash
+    # @param [Hash] item sidekiq job hash
+    #
     # @return [Integer] timeout in seconds
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_timeout.rb:19
@@ -2621,10 +2710,9 @@ end
 class SidekiqUniqueJobs::LockType
   include ::SidekiqUniqueJobs::SidekiqWorkerMethods
 
-  # @option item
-  # @option item
-  # @param item [Hash] the Sidekiq job hash
-  # @return [LockType] a new instance of LockType
+  # @param [Hash] item the Sidekiq job hash
+  # @option item [Symbol, nil] :lock the type of lock to use.
+  # @option item [String] :class the class of the sidekiq worker
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_type.rb:28
   def initialize(item); end
@@ -2632,7 +2720,8 @@ class SidekiqUniqueJobs::LockType
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_type.rb:33
   def call; end
 
-  # Returns the value of attribute item.
+  # @!attribute [r] item
+  #   @return [Hash] the Sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock_type.rb:23
   def item; end
@@ -2665,25 +2754,26 @@ class SidekiqUniqueJobs::Locksmith
 
   # Initialize a new Locksmith instance
   #
-  # @option item
-  # @option item
-  # @option item
-  # @param item [Hash] a Sidekiq job hash
-  # @param redis_pool [Sidekiq::RedisConnection, ConnectionPool] the redis connection
-  # @return [Locksmith] a new instance of Locksmith
+  # @param [Hash] item a Sidekiq job hash
+  # @option item [Integer] :lock_ttl the configured expiration
+  # @option item [String] :jid the sidekiq job id
+  # @option item [String] :unique_digest the unique digest (See: {LockDigest#lock_digest})
+  # @param [Sidekiq::RedisConnection, ConnectionPool] redis_pool the redis connection
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:68
   def initialize(item, redis_pool = T.unsafe(nil)); end
 
   # Compare this locksmith with another
   #
-  # @param other [Locksmith] the locksmith to compare with
+  # @param [Locksmith] other the locksmith to compare with
+  #
   # @return [true, false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:181
   def ==(other); end
 
-  # Returns the value of attribute config.
+  # @!attribute [r] config
+  #   @return [LockConfig] the configuration for this lock
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:53
   def config; end
@@ -2695,12 +2785,9 @@ class SidekiqUniqueJobs::Locksmith
 
   # Deletes the lock regardless of if it has a pttl set
   #
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:91
   def delete!; end
 
-  # @raise [SidekiqUniqueJobs::InvalidArgument]
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:110
   def execute(&block); end
 
@@ -2709,17 +2796,20 @@ class SidekiqUniqueJobs::Locksmith
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:170
   def inspect; end
 
-  # Returns the value of attribute item.
+  # @!attribute [r] item
+  #   @return [Hash] a sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:57
   def item; end
 
-  # Returns the value of attribute job_id.
+  # @!attribute [r] job_id
+  #   @return [String] a sidekiq JID
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:49
   def job_id; end
 
-  # Returns the value of attribute key.
+  # @!attribute [r] key
+  #   @return [Key] the key used for locking
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:45
   def key; end
@@ -2733,13 +2823,15 @@ class SidekiqUniqueJobs::Locksmith
 
   # Checks if this instance is considered locked
   #
-  # @param conn [Sidekiq::RedisConnection, ConnectionPool] the redis connection
+  # @param [Sidekiq::RedisConnection, ConnectionPool] conn the redis connection
+  #
   # @return [true, false] true when the :LOCKED hash contains the job_id
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:151
   def locked?(conn = T.unsafe(nil)); end
 
   # Nicely formatted string with information about self
+  #
   #
   # @return [String]
   #
@@ -2771,14 +2863,14 @@ class SidekiqUniqueJobs::Locksmith
   def argv; end
 
   # @api private
-  # @raise [InvalidArgument]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:349
   def brpoplpush(conn, wait); end
 
   # Used to combat redis imprecision with ttl/pttl
   #
-  # @param val [Integer] the value to compute drift for
+  # @param [Integer] val the value to compute drift for
+  #
   # @return [Integer] a computed drift value
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:393
@@ -2786,10 +2878,10 @@ class SidekiqUniqueJobs::Locksmith
 
   # Prepares all the various lock data
   #
-  # @param conn [Redis] a redis connection
+  # @param [Redis] conn a redis connection
+  #
   # @return [nil] when redis was already prepared for this lock
   # @return [yield<String>] when successfully enqueued
-  # @yield [job_id]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:261
   def enqueue(conn); end
@@ -2799,12 +2891,14 @@ class SidekiqUniqueJobs::Locksmith
 
   # Used to reduce some duplication from the two methods
   #
-  # @param conn [Sidekiq::RedisConnection, ConnectionPool] the redis connection
-  # @param primed_method [Method] reference to the method to use for getting a primed token
-  # @param wait [nil, Integer, Float] time to wait before timeout
-  # @see execute
   # @see lock
-  # @yieldparam job_id [string] the sidekiq JID
+  # @see execute
+  #
+  # @param [Sidekiq::RedisConnection, ConnectionPool] conn the redis connection
+  # @param [Method] primed_method reference to the method to use for getting a primed token
+  # @param [nil, Integer, Float] wait time to wait before timeout
+  #
+  # @yieldparam [string] job_id the sidekiq JID
   # @yieldreturn [void] whatever the calling block returns
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:227
@@ -2819,8 +2913,8 @@ class SidekiqUniqueJobs::Locksmith
   # Non-blocking lock acquisition using a single combined Lua script.
   # Eliminates the LMOVE round-trip between separate queue/lock scripts.
   #
-  # @param conn [Sidekiq::RedisConnection] the redis connection
-  # @yieldparam job_id [string] the sidekiq JID
+  # @param [Sidekiq::RedisConnection] conn the redis connection
+  # @yieldparam [string] job_id the sidekiq JID
   # @yieldreturn [void] whatever the calling block returns
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:196
@@ -2828,17 +2922,19 @@ class SidekiqUniqueJobs::Locksmith
 
   # Does the actual popping of the enqueued token
   #
-  # @param conn [Redis] a redis connection
+  # @param [Redis] conn a redis connection
+  #
   # @return [String] a previously enqueued token (now taken off the queue)
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:336
   def pop_queued(conn, wait = T.unsafe(nil)); end
 
   # Pops an enqueued token
-  #
   # @note Used for runtime locks to avoid problems with blocking commands
   #   in current thread
-  # @param conn [Redis] a redis connection
+  #
+  # @param [Redis] conn a redis connection
+  #
   # @return [nil] when lock was not possible
   # @return [Object] whatever the block returns when lock was acquired
   #
@@ -2846,17 +2942,16 @@ class SidekiqUniqueJobs::Locksmith
   def primed_async(conn, wait = T.unsafe(nil), &block); end
 
   # Pops an enqueued token
-  #
   # @note Used for non-runtime locks
-  # @param conn [Redis] a redis connection
+  #
+  # @param [Redis] conn a redis connection
+  #
   # @return [nil] when lock was not possible
   # @return [Object] whatever the block returns when lock was acquired
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:318
   def primed_sync(conn, wait = T.unsafe(nil), &block); end
 
-  # Returns the value of attribute redis_pool.
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:187
   def redis_pool; end
 
@@ -2870,7 +2965,8 @@ class SidekiqUniqueJobs::Locksmith
 
   # Checks if the lock has been taken
   #
-  # @param conn [Redis] a redis connection
+  # @param [Redis] conn a redis connection
+  #
   # @return [true, false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/locksmith.rb:412
@@ -2881,6 +2977,7 @@ class SidekiqUniqueJobs::Locksmith
 
   # Writes lock information to redis.
   #   The lock information contains information about worker, queue, limit etc.
+  #
   #
   # @return [void]
   #
@@ -2906,12 +3003,17 @@ SidekiqUniqueJobs::Locksmith::NETWORK_FACTOR = T.let(T.unsafe(nil), Float)
 #
 # @author Mikael Henriksson <mikael@mhenrixon.com>
 #
+# Provides the sidekiq middleware that makes the gem work
+#
+# @author Mikael Henriksson <mikael@mhenrixon.com>
+#
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/logging.rb:7
 module SidekiqUniqueJobs::Logging
   # Build a log message
   #
-  # @param item [Hash] the sidekiq job hash
-  # @param message_or_exception [String, Exception] an entry to log
+  # @param [String, Exception] message_or_exception an entry to log
+  # @param [Hash] item the sidekiq job hash
+  #
   # @return [String] a complete log entry
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/logging.rb:117
@@ -2919,8 +3021,10 @@ module SidekiqUniqueJobs::Logging
 
   # Logs a message at debug level
   #
-  # @param message_or_exception [String, Exception] the message or exception to log
+  # @param [String, Exception] message_or_exception the message or exception to log
+  #
   # @return [void]
+  #
   # @yield [String, Exception] the message or exception to use for log message
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/logging.rb:32
@@ -2928,8 +3032,10 @@ module SidekiqUniqueJobs::Logging
 
   # Logs a message at error level
   #
-  # @param message_or_exception [String, Exception] the message or exception to log
+  # @param [String, Exception] message_or_exception the message or exception to log
+  #
   # @return [void]
+  #
   # @yield [String, Exception] the message or exception to use for log message
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/logging.rb:83
@@ -2937,8 +3043,10 @@ module SidekiqUniqueJobs::Logging
 
   # Logs a message at fatal level
   #
-  # @param message_or_exception [String, Exception] the message or exception to log
+  # @param [String, Exception] message_or_exception the message or exception to log
+  #
   # @return [void]
+  #
   # @yield [String, Exception] the message or exception to use for log message
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/logging.rb:100
@@ -2946,8 +3054,10 @@ module SidekiqUniqueJobs::Logging
 
   # Logs a message at info level
   #
-  # @param message_or_exception [String, Exception] the message or exception to log
+  # @param [String, Exception] message_or_exception the message or exception to log
+  #
   # @return [void]
+  #
   # @yield [String, Exception] the message or exception to use for log message
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/logging.rb:49
@@ -2955,8 +3065,10 @@ module SidekiqUniqueJobs::Logging
 
   # Logs a message at warn level
   #
-  # @param message_or_exception [String, Exception] the message or exception to log
+  # @param [String, Exception] message_or_exception the message or exception to log
+  #
   # @return [void]
+  #
   # @yield [String, Exception] the message or exception to use for log message
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/logging.rb:66
@@ -2964,15 +3076,16 @@ module SidekiqUniqueJobs::Logging
 
   # A convenience method for using the configured gem logger
   #
-  # @return [Logger]
   # @see SidekiqUniqueJobs#.logger
+  #
+  # @return [Logger]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/logging.rb:19
   def logger; end
 
   # Setup some variables to add to each log line
   #
-  # @raise [NotImplementedError]
+  #
   # @return [Hash] the context to use for each log line
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/logging.rb:166
@@ -2980,7 +3093,9 @@ module SidekiqUniqueJobs::Logging
 
   # Attempt to setup context aware logging for the given logger
   #
+  #
   # @return [void]
+  #
   # @yield
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/logging.rb:156
@@ -2988,7 +3103,9 @@ module SidekiqUniqueJobs::Logging
 
   # Wraps the middleware logic with context aware logging
   #
+  #
   # @return [void]
+  #
   # @yieldreturn [void] yield to the middleware instance
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/logging.rb:140
@@ -3002,12 +3119,15 @@ module SidekiqUniqueJobs::Logging
   # Checks if the logger context takes a hash argument
   #
   # @note only used to remove the need for explicitly ignoring manual dispatch in other places.
-  # @return [true, false]
+  #
+  #
+  # @return [true,false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/logging.rb:205
   def logger_context_hash?; end
 
   # A memoized method to use for setting up a logging context
+  #
   #
   # @return [proc] the method to call
   #
@@ -3017,13 +3137,13 @@ module SidekiqUniqueJobs::Logging
   # Checks if the logger respond to `with_context`.
   #
   # @note only used to remove the need for explicitly ignoring manual dispatch in other places.
-  # @return [true, false]
+  #
+  #
+  # @return [true,false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/logging.rb:193
   def logger_respond_to_with_context?; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/logging.rb:232
   def logging?; end
 
@@ -3040,8 +3160,6 @@ module SidekiqUniqueJobs::Logging
   def sidekiq_logging_context_method; end
 
   class << self
-    # @private
-    #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/logging.rb:8
     def included(base); end
   end
@@ -3058,6 +3176,7 @@ module SidekiqUniqueJobs::Logging::Middleware
 
   # Provides a logging context for Sidekiq Middlewares
   #
+  #
   # @return [Hash] when logger responds to `:with_context`
   # @return [String] when logger does not responds to `:with_context`
   #
@@ -3065,8 +3184,6 @@ module SidekiqUniqueJobs::Logging::Middleware
   def logging_context; end
 
   class << self
-    # @private
-    #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/logging/middleware_context.rb:18
     def included(base); end
   end
@@ -3089,19 +3206,20 @@ module SidekiqUniqueJobs::Middleware
   # This method runs before (prepended) the actual middleware implementation.
   #   This is done to reduce duplication
   #
-  # @param item [Hash] a sidekiq job hash
-  # @param queue [String] name of the queue
-  # @param redis_pool [ConnectionPool] only used for compatility reasons
-  # @param worker_class [Sidekiq::Job]
+  # @param [Sidekiq::Job] worker_class
+  # @param [Hash] item a sidekiq job hash
+  # @param [String] queue name of the queue
+  # @param [ConnectionPool] redis_pool only used for compatility reasons
+  #
   # @return [yield<super>] call the rest of the middleware stack
-  # @yieldparam if [void] uniquejobs is disable
+  #
+  # @yieldparam [void] if uniquejobs is disable
   # @yieldreturn [void] delegate back to other sidekiq middleware
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/middleware.rb:31
   def call(worker_class, item, queue, redis_pool = T.unsafe(nil)); end
 
   # The sidekiq job hash
-  #
   # @return [Hash] the Sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/middleware.rb:16
@@ -3127,8 +3245,10 @@ class SidekiqUniqueJobs::Middleware::Client
   #   Used from Sidekiq.process_single
   #
   # @see SidekiqUniqueJobs::Middleware#call
+  #
   # @see https://github.com/mperham/sidekiq/wiki/Job-Format
   # @see https://github.com/mperham/sidekiq/wiki/Middleware
+  #
   # @yield when uniqueness is disable
   # @yield when the lock is successful
   #
@@ -3158,8 +3278,10 @@ class SidekiqUniqueJobs::Middleware::Server
   # Runs the server middleware (used from Sidekiq::Processor#process)
   #
   # @see SidekiqUniqueJobs::Middleware#call
+  #
   # @see https://github.com/mperham/sidekiq/wiki/Job-Format
   # @see https://github.com/mperham/sidekiq/wiki/Middleware
+  #
   # @yield when uniqueness is disabled
   # @yield when owning the lock
   #
@@ -3187,8 +3309,7 @@ module SidekiqUniqueJobs::Normalizer
 
   class << self
     # Changes hash to a json compatible hash
-    #
-    # @param args [Hash]
+    # @param [Hash] args
     # @return [Hash] a json compatible hash
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/normalizer.rb:13
@@ -3202,8 +3323,6 @@ end
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/exceptions.rb:94
 class SidekiqUniqueJobs::NotUniqueWorker < ::SidekiqUniqueJobs::UniqueJobsError
-  # @return [NotUniqueWorker] a new instance of NotUniqueWorker
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/exceptions.rb:95
   def initialize(options); end
 end
@@ -3229,7 +3348,8 @@ module SidekiqUniqueJobs::OnConflict
   class << self
     # Find a strategy to use for conflicting locks
     #
-    # @param strategy [Symbol] the key for the strategy
+    # @param [Symbol] strategy the key for the strategy
+    #
     # @return [OnConflict::Strategy] when found
     # @return [OnConflict::NullStrategy] when no other could be found
     #
@@ -3251,6 +3371,7 @@ end
 class SidekiqUniqueJobs::OnConflict::Log < ::SidekiqUniqueJobs::OnConflict::Strategy
   # Logs an informational message about that the job was not unique
   #
+  #
   # @return [void]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/log.rb:17
@@ -3264,7 +3385,6 @@ end
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/null_strategy.rb:8
 class SidekiqUniqueJobs::OnConflict::NullStrategy < ::SidekiqUniqueJobs::OnConflict::Strategy
   # Do nothing on conflict
-  #
   # @return [nil]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/null_strategy.rb:11
@@ -3279,7 +3399,6 @@ end
 class SidekiqUniqueJobs::OnConflict::Raise < ::SidekiqUniqueJobs::OnConflict::Strategy
   # Raise an error on conflict.
   #   This will cause Sidekiq to retry the job
-  #
   # @raise [SidekiqUniqueJobs::Conflict]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/raise.rb:12
@@ -3298,32 +3417,33 @@ class SidekiqUniqueJobs::OnConflict::Reject < ::SidekiqUniqueJobs::OnConflict::S
   def call; end
 
   # An instance of Sidekiq::Deadset
-  #
   # @api private
-  # @return [Sidekiq::Deadset] >
+  #
+  # @return [Sidekiq::Deadset]>
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/reject.rb:69
   def deadset; end
 
   # Executes the kill instructions with arguments
-  #
   # @api private
+  #
   # @return [void]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/reject.rb:59
   def kill_job_with_options; end
 
   # Executes the kill instructions without arguments
-  #
   # @api private
+  #
   # @return [void]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/reject.rb:49
   def kill_job_without_options; end
 
   # Sidekiq version compatibility check
-  #
   # @api private
+  #
+  #
   # @return [true] when Sidekiq::Deadset#kill takes more than 1 argument
   # @return [false] when Sidekiq::Deadset#kill does not take multiple arguments
   #
@@ -3331,6 +3451,7 @@ class SidekiqUniqueJobs::OnConflict::Reject < ::SidekiqUniqueJobs::OnConflict::S
   def kill_with_options?; end
 
   # The Sidekiq job hash as JSON
+  #
   #
   # @return [String] a JSON formatted string
   #
@@ -3346,21 +3467,23 @@ end
 class SidekiqUniqueJobs::OnConflict::Replace < ::SidekiqUniqueJobs::OnConflict::Strategy
   # Initialize a new Replace strategy
   #
-  # @param item [Hash] sidekiq job hash
-  # @return [Replace] a new instance of Replace
+  # @param [Hash] item sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/replace.rb:23
   def initialize(item, redis_pool = T.unsafe(nil)); end
 
   # Replace the old job in the queue
   #
+  #
   # @return [void] <description>
+  #
   # @yield to retry the lock after deleting the old one
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/replace.rb:37
   def call(&block); end
 
   # Delete the job from either schedule, retry or the queue
+  #
   #
   # @return [String] the deleted job hash
   # @return [nil] when deleting nothing
@@ -3370,6 +3493,7 @@ class SidekiqUniqueJobs::OnConflict::Replace < ::SidekiqUniqueJobs::OnConflict::
 
   # Delete the keys belonging to the job
   #
+  #
   # @return [Integer] the number of keys deleted
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/replace.rb:67
@@ -3377,17 +3501,20 @@ class SidekiqUniqueJobs::OnConflict::Replace < ::SidekiqUniqueJobs::OnConflict::
 
   # Access to the {Digests}
   #
+  #
   # @return [Digests] and instance with digests
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/replace.rb:77
   def digests; end
 
-  # Returns the value of attribute lock_digest.
+  # @!attribute [r] lock_digest
+  #   @return [String] the unique digest to use for locking
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/replace.rb:16
   def lock_digest; end
 
-  # Returns the value of attribute queue.
+  # @!attribute [r] queue
+  #   @return [String] rthe sidekiq queue this job belongs to
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/replace.rb:12
   def queue; end
@@ -3402,8 +3529,7 @@ class SidekiqUniqueJobs::OnConflict::Reschedule < ::SidekiqUniqueJobs::OnConflic
   include ::SidekiqUniqueJobs::SidekiqWorkerMethods
   include ::SidekiqUniqueJobs::Reflectable
 
-  # @param item [Hash] sidekiq job hash
-  # @return [Reschedule] a new instance of Reschedule
+  # @param [Hash] item sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/reschedule.rb:15
   def initialize(item, redis_pool = T.unsafe(nil)); end
@@ -3435,31 +3561,32 @@ class SidekiqUniqueJobs::OnConflict::Strategy
 
   # Initialize a new Strategy
   #
-  # @param item [Hash] sidekiq job hash
-  # @param redis_pool [ConnectionPool] the connection pool instance
-  # @return [Strategy] a new instance of Strategy
+  # @param [Hash] item sidekiq job hash
+  # @param [ConnectionPool] redis_pool the connection pool instance
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/strategy.rb:28
   def initialize(item, redis_pool = T.unsafe(nil)); end
 
   # Use strategy on conflict
-  #
   # @raise [NotImplementedError] needs to be implemented in child class
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/strategy.rb:35
   def call; end
 
-  # Returns the value of attribute item.
+  # @!attribute [r] item
+  #   @return [Hash] sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/strategy.rb:17
   def item; end
 
-  # Returns the value of attribute redis_pool.
+  # @!attribute [r] redis_pool
+  #   @return [Sidekiq::RedisConnection, ConnectionPool, NilClass] the redis connection
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/on_conflict/strategy.rb:20
   def redis_pool; end
 
   # Check if the strategy is kind of {Replace}
+  #
   #
   # @return [true] when the strategy is a {Replace}
   # @return [false] when the strategy is not a {Replace}
@@ -3474,7 +3601,6 @@ end
 #   1. item (required)
 #   2. options (can be nil)
 #   3. job_class (required, can be anything)
-#
 # @author Mikael Henriksson <mikael@mhenrixon.com>
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/options_with_fallback.rb:11
@@ -3483,6 +3609,7 @@ module SidekiqUniqueJobs::OptionsWithFallback
 
   # Returns the corresponding class for the lock_type
   #
+  #
   # @return [Class]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/options_with_fallback.rb:48
@@ -3490,12 +3617,14 @@ module SidekiqUniqueJobs::OptionsWithFallback
 
   # A new lock for this Sidekiq Job
   #
+  #
   # @return [Lock::BaseLock] an instance of a lock implementation
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/options_with_fallback.rb:38
   def lock_instance; end
 
   # The type of lock for this worker
+  #
   #
   # @return [Symbol, NilClass]
   #
@@ -3509,6 +3638,7 @@ module SidekiqUniqueJobs::OptionsWithFallback
 
   # The default options with any matching keys overridden from worker options
   #
+  #
   # @return [Hash<String, Object>]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/options_with_fallback.rb:70
@@ -3516,21 +3646,16 @@ module SidekiqUniqueJobs::OptionsWithFallback
 
   # Check if unique has been disabled
   #
-  # @return [Boolean]
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/options_with_fallback.rb:28
   def unique_disabled?; end
 
   # Check if unique has been enabled
-  #
   # @return [true, false] indicate if the gem has been enabled
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/options_with_fallback.rb:23
   def unique_enabled?; end
 
   class << self
-    # @private
-    #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/options_with_fallback.rb:12
     def included(base); end
   end
@@ -3538,20 +3663,23 @@ end
 
 # Class DeleteOrphans provides deletion of orphaned digests
 #
-# @author Mikael Henriksson <mikael@mhenrixon.com>
 # @note this is a much slower version of the lua script but does not crash redis
+#
+# @author Mikael Henriksson <mikael@mhenrixon.com>
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/reaper.rb:4
 module SidekiqUniqueJobs::Orphans; end
 
 # Class DeleteOrphans provides deletion of orphaned digests
 #
-# @author Mikael Henriksson <mikael@mhenrixon.com>
 # @note this is faster than the ruby reaper but may block redis while executing
+#
+# @author Mikael Henriksson <mikael@mhenrixon.com>
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/lua_reaper.rb:12
 class SidekiqUniqueJobs::Orphans::LuaReaper < ::SidekiqUniqueJobs::Orphans::Reaper
   # Delete orphaned digests
+  #
   #
   # @return [Integer] the number of reaped locks
   #
@@ -3574,12 +3702,14 @@ module SidekiqUniqueJobs::Orphans::Manager
 
   # Current time (as integer value)
   #
+  #
   # @return [Integer]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/manager.rb:237
   def current_timestamp; end
 
   # A properly configured timer task
+  #
   #
   # @return [SidekiqUniqueJobs::TimerTask]
   #
@@ -3588,8 +3718,9 @@ module SidekiqUniqueJobs::Orphans::Manager
 
   # Checks if reaping is disabled
   #
-  # @return [true, false]
   # @see enabled?
+  #
+  # @return [true, false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/manager.rb:176
   def disabled?; end
@@ -3597,6 +3728,7 @@ module SidekiqUniqueJobs::Orphans::Manager
   # Reaper interval with a little drift
   #   Redis isn't exact enough so to give a little buffer,
   #   we add a tiny value to the reaper interval.
+  #
   #
   # @return [Integer] <description>
   #
@@ -3611,6 +3743,7 @@ module SidekiqUniqueJobs::Orphans::Manager
   def enabled?; end
 
   # A context to use for all log entries
+  #
   #
   # @return [Hash] when logger responds to `:with_context`
   # @return [String] when logger does not responds to `:with_context`
@@ -3630,12 +3763,14 @@ module SidekiqUniqueJobs::Orphans::Manager
 
   # Updates mutex key
   #
+  #
   # @return [void]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/manager.rb:205
   def refresh_reaper_mutex; end
 
   # Writes a mutex key to redis
+  #
   #
   # @return [void]
   #
@@ -3644,12 +3779,14 @@ module SidekiqUniqueJobs::Orphans::Manager
 
   # Checks if a reaper is registered
   #
+  #
   # @return [true, false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/manager.rb:152
   def registered?; end
 
   # Starts a separate thread that periodically reaps orphans
+  #
   #
   # @return [SidekiqUniqueJobs::TimerTask] the task that was started
   #
@@ -3658,12 +3795,14 @@ module SidekiqUniqueJobs::Orphans::Manager
 
   # Stops the thread that reaps orphans
   #
+  #
   # @return [Boolean]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/manager.rb:58
   def stop; end
 
   # The task that runs the reaper
+  #
   #
   # @return [<type>] <description>
   #
@@ -3672,13 +3811,15 @@ module SidekiqUniqueJobs::Orphans::Manager
 
   # Store a task to use for scheduled execution
   #
-  # @param task [SidekiqUniqueJobs::TimerTask] the task to use
+  # @param [SidekiqUniqueJobs::TimerTask] task the task to use
+  #
   # @return [void]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/manager.rb:103
   def task=(task); end
 
   # Arguments passed on to the timer task
+  #
   #
   # @return [Hash]
   #
@@ -3687,6 +3828,7 @@ module SidekiqUniqueJobs::Orphans::Manager
 
   # Removes mutex key from redis
   #
+  #
   # @return [void]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/manager.rb:215
@@ -3694,14 +3836,16 @@ module SidekiqUniqueJobs::Orphans::Manager
 
   # Checks if that reapers are not registerd
   #
-  # @return [true, false]
   # @see registered?
+  #
+  # @return [true, false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/manager.rb:165
   def unregistered?; end
 
   class << self
     # Current time (as integer value)
+    #
     #
     # @return [Integer]
     #
@@ -3710,6 +3854,7 @@ module SidekiqUniqueJobs::Orphans::Manager
 
     # A properly configured timer task
     #
+    #
     # @return [SidekiqUniqueJobs::TimerTask]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/manager.rb:85
@@ -3717,8 +3862,9 @@ module SidekiqUniqueJobs::Orphans::Manager
 
     # Checks if reaping is disabled
     #
-    # @return [true, false]
     # @see enabled?
+    #
+    # @return [true, false]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/manager.rb:176
     def disabled?; end
@@ -3726,6 +3872,7 @@ module SidekiqUniqueJobs::Orphans::Manager
     # Reaper interval with a little drift
     #   Redis isn't exact enough so to give a little buffer,
     #   we add a tiny value to the reaper interval.
+    #
     #
     # @return [Integer] <description>
     #
@@ -3740,6 +3887,7 @@ module SidekiqUniqueJobs::Orphans::Manager
     def enabled?; end
 
     # A context to use for all log entries
+    #
     #
     # @return [Hash] when logger responds to `:with_context`
     # @return [String] when logger does not responds to `:with_context`
@@ -3759,12 +3907,14 @@ module SidekiqUniqueJobs::Orphans::Manager
 
     # Updates mutex key
     #
+    #
     # @return [void]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/manager.rb:205
     def refresh_reaper_mutex; end
 
     # Writes a mutex key to redis
+    #
     #
     # @return [void]
     #
@@ -3773,12 +3923,14 @@ module SidekiqUniqueJobs::Orphans::Manager
 
     # Checks if a reaper is registered
     #
+    #
     # @return [true, false]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/manager.rb:152
     def registered?; end
 
     # Starts a separate thread that periodically reaps orphans
+    #
     #
     # @return [SidekiqUniqueJobs::TimerTask] the task that was started
     #
@@ -3787,12 +3939,14 @@ module SidekiqUniqueJobs::Orphans::Manager
 
     # Stops the thread that reaps orphans
     #
+    #
     # @return [Boolean]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/manager.rb:58
     def stop; end
 
     # The task that runs the reaper
+    #
     #
     # @return [<type>] <description>
     #
@@ -3801,13 +3955,15 @@ module SidekiqUniqueJobs::Orphans::Manager
 
     # Store a task to use for scheduled execution
     #
-    # @param task [SidekiqUniqueJobs::TimerTask] the task to use
+    # @param [SidekiqUniqueJobs::TimerTask] task the task to use
+    #
     # @return [void]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/manager.rb:103
     def task=(task); end
 
     # Arguments passed on to the timer task
+    #
     #
     # @return [Hash]
     #
@@ -3816,6 +3972,7 @@ module SidekiqUniqueJobs::Orphans::Manager
 
     # Removes mutex key from redis
     #
+    #
     # @return [void]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/manager.rb:215
@@ -3823,8 +3980,9 @@ module SidekiqUniqueJobs::Orphans::Manager
 
     # Checks if that reapers are not registerd
     #
-    # @return [true, false]
     # @see registered?
+    #
+    # @return [true, false]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/manager.rb:165
     def unregistered?; end
@@ -3843,12 +4001,14 @@ SidekiqUniqueJobs::Orphans::Manager::REAPERS = T.let(T.unsafe(nil), Array)
 
 # Class DeleteOrphans provides deletion of orphaned digests
 #
-# @author Mikael Henriksson <mikael@mhenrixon.com>
 # @note this is a much slower version of the lua script but does not crash redis
+#
+# @author Mikael Henriksson <mikael@mhenrixon.com>
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/null_reaper.rb:12
 class SidekiqUniqueJobs::Orphans::NullReaper < ::SidekiqUniqueJobs::Orphans::Reaper
   # Delete orphaned digests
+  #
   #
   # @return [Integer] the number of reaped locks
   #
@@ -3868,9 +4028,10 @@ class SidekiqUniqueJobs::Orphans::Observer
   # Runs every time the {Manager} executes the TimerTask
   #   used for logging information about the reaping
   #
-  # @param ex [Exception] any error raised from the TimerTask
-  # @param result [Object] the result of the execution
-  # @param time [Time] the time of the execution
+  # @param [Time] time the time of the execution
+  # @param [Object] result the result of the execution
+  # @param [Exception] ex any error raised from the TimerTask
+  #
   # @return [<type>] <description>
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/observer.rb:30
@@ -3879,8 +4040,9 @@ end
 
 # Class DeleteOrphans provides deletion of orphaned digests
 #
-# @author Mikael Henriksson <mikael@mhenrixon.com>
 # @note this is a much slower version of the lua script but does not crash redis
+#
+# @author Mikael Henriksson <mikael@mhenrixon.com>
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/reaper.rb:12
 class SidekiqUniqueJobs::Orphans::Reaper
@@ -3893,13 +4055,13 @@ class SidekiqUniqueJobs::Orphans::Reaper
 
   # Initialize a new instance of DeleteOrphans
   #
-  # @param conn [Redis] a connection to redis
-  # @return [Reaper] a new instance of Reaper
+  # @param [Redis] conn a connection to redis
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/reaper.rb:56
   def initialize(conn); end
 
   # Delete orphaned digests
+  #
   #
   # @return [Integer] the number of reaped locks
   #
@@ -3908,17 +4070,20 @@ class SidekiqUniqueJobs::Orphans::Reaper
 
   # Convenient access to the global configuration
   #
+  #
   # @return [SidekiqUniqueJobs::Config]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/reaper.rb:66
   def config; end
 
-  # Returns the value of attribute conn.
+  # @!attribute [r] conn
+  #   @return [Redis] a redis connection
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/reaper.rb:49
   def conn; end
 
   # The reaper that was configured
+  #
   #
   # @return [Symbol]
   #
@@ -3927,12 +4092,14 @@ class SidekiqUniqueJobs::Orphans::Reaper
 
   # The number of locks to reap at a time
   #
+  #
   # @return [Integer]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/reaper.rb:96
   def reaper_count; end
 
   # The configured timeout for the reaper
+  #
   #
   # @return [Integer] timeout in seconds
   #
@@ -3942,7 +4109,8 @@ class SidekiqUniqueJobs::Orphans::Reaper
   class << self
     # Execute deletion of orphaned digests
     #
-    # @param conn [Redis] nil a connection to redis
+    # @param [Redis] conn nil a connection to redis
+    #
     # @return [void]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/reaper.rb:40
@@ -3950,7 +4118,7 @@ class SidekiqUniqueJobs::Orphans::Reaper
   end
 end
 
-# @return [Hash<Symbol, SidekiqUniqueJobs::Orphans::Reaper] the current implementation of reapers] Hash<Symbol, SidekiqUniqueJobs::Orphans::Reaper] the current implementation of reapers
+# @return [Hash<Symbol, SidekiqUniqueJobs::Orphans::Reaper] the current implementation of reapers
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/reaper.rb:24
 SidekiqUniqueJobs::Orphans::Reaper::REAPERS = T.let(T.unsafe(nil), Hash)
@@ -3974,6 +4142,7 @@ module SidekiqUniqueJobs::Orphans::ReaperResurrector
 
   # A context to use for all log entries
   #
+  #
   # @return [Hash] when logger responds to `:with_context`
   # @return [String] when logger does not responds to `:with_context`
   #
@@ -3994,8 +4163,9 @@ module SidekiqUniqueJobs::Orphans::ReaperResurrector
 
   # Checks if reaping is disabled
   #
-  # @return [true, false]
   # @see reaper_enabled?
+  #
+  # @return [true, false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/reaper_resurrector.rb:94
   def reaper_disabled?; end
@@ -4029,8 +4199,9 @@ module SidekiqUniqueJobs::Orphans::ReaperResurrector
 
   # Checks if resurrector is disabled
   #
-  # @return [true, false]
   # @see resurrector_enabled?
+  #
+  # @return [true, false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/reaper_resurrector.rb:75
   def resurrector_disabled?; end
@@ -4065,6 +4236,7 @@ module SidekiqUniqueJobs::Orphans::ReaperResurrector
 
   # Arguments passed on to the timer task
   #
+  #
   # @return [Hash]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/reaper_resurrector.rb:130
@@ -4078,6 +4250,7 @@ module SidekiqUniqueJobs::Orphans::ReaperResurrector
     def drift_reaper_interval; end
 
     # A context to use for all log entries
+    #
     #
     # @return [Hash] when logger responds to `:with_context`
     # @return [String] when logger does not responds to `:with_context`
@@ -4099,8 +4272,9 @@ module SidekiqUniqueJobs::Orphans::ReaperResurrector
 
     # Checks if reaping is disabled
     #
-    # @return [true, false]
     # @see reaper_enabled?
+    #
+    # @return [true, false]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/reaper_resurrector.rb:94
     def reaper_disabled?; end
@@ -4134,8 +4308,9 @@ module SidekiqUniqueJobs::Orphans::ReaperResurrector
 
     # Checks if resurrector is disabled
     #
-    # @return [true, false]
     # @see resurrector_enabled?
+    #
+    # @return [true, false]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/reaper_resurrector.rb:75
     def resurrector_disabled?; end
@@ -4170,6 +4345,7 @@ module SidekiqUniqueJobs::Orphans::ReaperResurrector
 
     # Arguments passed on to the timer task
     #
+    #
     # @return [Hash]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/reaper_resurrector.rb:130
@@ -4185,8 +4361,9 @@ SidekiqUniqueJobs::Orphans::ReaperResurrector::REAPERS = T.let(T.unsafe(nil), Ar
 
 # Class DeleteOrphans provides deletion of orphaned digests
 #
-# @author Mikael Henriksson <mikael@mhenrixon.com>
 # @note this is slower than the lua reaper but does not block redis
+#
+# @author Mikael Henriksson <mikael@mhenrixon.com>
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:12
 class SidekiqUniqueJobs::Orphans::RubyReaper < ::SidekiqUniqueJobs::Orphans::Reaper
@@ -4194,14 +4371,11 @@ class SidekiqUniqueJobs::Orphans::RubyReaper < ::SidekiqUniqueJobs::Orphans::Rea
 
   # Initialize a new instance of DeleteOrphans
   #
-  # @param conn [Redis] a connection to redis
-  # @return [RubyReaper] a new instance of RubyReaper
+  # @param [Redis] conn a connection to redis
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:58
   def initialize(conn); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:212
   def active?(digest); end
 
@@ -4214,7 +4388,8 @@ class SidekiqUniqueJobs::Orphans::RubyReaper < ::SidekiqUniqueJobs::Orphans::Rea
   # Note: Uses early returns for short-circuit evaluation.
   # We can't pipeline ZSCAN operations as they're iterative.
   #
-  # @param digest [String] the digest to search for
+  # @param [String] digest the digest to search for
+  #
   # @return [true] when either of the checks return true
   # @return [false] when no job was found for this digest
   #
@@ -4223,17 +4398,17 @@ class SidekiqUniqueJobs::Orphans::RubyReaper < ::SidekiqUniqueJobs::Orphans::Rea
 
   # Delete orphaned digests
   #
+  #
   # @return [Integer] the number of reaped locks
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:74
   def call; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:253
   def considered_active?(time_f); end
 
-  # Returns the value of attribute digests.
+  # @!attribute [r] digests
+  #   @return [SidekiqUniqueJobs::Digests] digest collection
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:27
   def digests; end
@@ -4243,7 +4418,8 @@ class SidekiqUniqueJobs::Orphans::RubyReaper < ::SidekiqUniqueJobs::Orphans::Rea
 
   # Checks if the digest exists in a Sidekiq::Queue
   #
-  # @param digest [String] the current digest
+  # @param [String] digest the current digest
+  #
   # @return [true] when digest exists in any queue
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:200
@@ -4261,16 +4437,15 @@ class SidekiqUniqueJobs::Orphans::RubyReaper < ::SidekiqUniqueJobs::Orphans::Rea
   # not just digests. The digest is embedded in the JSON as the "lock_digest" field.
   # ZSCORE won't work here as we need to search within the member content.
   #
-  # @param digest [String] the digest to scan for
-  # @param key [String] the key for the sorted set
+  # @param [String] key the key for the sorted set
+  # @param [String] digest the digest to scan for
+  #
   # @return [true] when found
   # @return [false] when missing
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:333
   def in_sorted_set?(key, digest); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:247
   def match?(key_one, key_two); end
 
@@ -4282,6 +4457,7 @@ class SidekiqUniqueJobs::Orphans::RubyReaper < ::SidekiqUniqueJobs::Orphans::Rea
 
   # Find orphaned digests
   #
+  #
   # @return [Array<String>] an array of orphaned digests
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:109
@@ -4289,8 +4465,10 @@ class SidekiqUniqueJobs::Orphans::RubyReaper < ::SidekiqUniqueJobs::Orphans::Rea
 
   # Loops through all the redis queues and yields them one by one
   #
-  # @param conn [Redis] the connection to use for fetching queues
+  # @param [Redis] conn the connection to use for fetching queues
+  #
   # @return [void]
+  #
   # @yield queues one at a time
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:275
@@ -4301,44 +4479,48 @@ class SidekiqUniqueJobs::Orphans::RubyReaper < ::SidekiqUniqueJobs::Orphans::Rea
   # The reaper checks queued jobs in batches of 50, adding 2 reads per digest
   # With a queue length of 1,000 jobs, that's over 20 extra reads per digest.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:308
   def queues_very_full?; end
 
-  # Returns the value of attribute retried.
+  # @!attribute [r] retried
+  #   @return [Redis::SortedSet] the Sidekiq RetrySet
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:35
   def retried; end
 
   # Checks if the digest exists in the Sidekiq::RetrySet
   #
-  # @param digest [String] the current digest
+  # @param [String] digest the current digest
+  #
   # @return [true] when digest exists in retry set
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:189
   def retried?(digest); end
 
-  # Returns the value of attribute scheduled.
+  # @!attribute [r] scheduled
+  #   @return [Redis::SortedSet] the Sidekiq ScheduleSet
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:31
   def scheduled; end
 
   # Checks if the digest exists in the Sidekiq::ScheduledSet
   #
-  # @param digest [String] the current digest
+  # @param [String] digest the current digest
+  #
   # @return [true] when digest exists in scheduled set
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:178
   def scheduled?(digest); end
 
-  # Returns the value of attribute start_source.
+  # @!attribute [r] start_time
+  #   @return [Integer] The clock stamp this execution started represented as integer
+  #      (used for redis compatibility as it is more accurate than time)
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:46
   def start_source; end
 
-  # @return [Integer] The clock stamp this execution started represented as integer
-  #   (used for redis compatibility as it is more accurate than time)
+  # @!attribute [r] start_time
+  #   @return [Integer] The timestamp this execution started represented as Time (used for locks)
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:40
   def start_time; end
@@ -4346,12 +4528,11 @@ class SidekiqUniqueJobs::Orphans::RubyReaper < ::SidekiqUniqueJobs::Orphans::Rea
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:257
   def time_from_payload_timestamp(timestamp); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:134
   def timeout?; end
 
-  # Returns the value of attribute timeout_ms.
+  # @!attribute [r] timeout_ms
+  #   @return [Integer] The allowed ms before timeout
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/orphans/ruby_reaper.rb:51
   def timeout_ms; end
@@ -4409,13 +4590,13 @@ class SidekiqUniqueJobs::Redis::Entity
 
   # Initialize a new Entity
   #
-  # @param key [String] the redis key for this entity
-  # @return [Entity] a new instance of Entity
+  # @param [String] key the redis key for this entity
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/redis/entity.rb:37
   def initialize(key); end
 
   # Returns the number of entries in this entity
+  #
   #
   # @return [Integer] 0
   #
@@ -4423,6 +4604,7 @@ class SidekiqUniqueJobs::Redis::Entity
   def count; end
 
   # Checks if the key for this entity exists in redis
+  #
   #
   # @return [true] when exists
   # @return [false] when not exists
@@ -4432,18 +4614,21 @@ class SidekiqUniqueJobs::Redis::Entity
 
   # Check if the entity has expiration
   #
+  #
   # @return [true] when entity is set to exire
   # @return [false] when entity isn't expiring
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/redis/entity.rb:91
   def expires?; end
 
-  # Returns the value of attribute key.
+  # @!attribute [r] key
+  #   @return [String] the redis key for this entity
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/redis/entity.rb:30
   def key; end
 
   # The number of microseconds until the key expires
+  #
   #
   # @return [Integer] expiration in milliseconds
   #
@@ -4452,6 +4637,7 @@ class SidekiqUniqueJobs::Redis::Entity
 
   # The number of seconds until the key expires
   #
+  #
   # @return [Integer] expiration in seconds
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/redis/entity.rb:80
@@ -4459,8 +4645,6 @@ class SidekiqUniqueJobs::Redis::Entity
 
   private
 
-  # @return [Boolean]
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/redis/entity.rb:107
   def boolean?(value); end
 end
@@ -4473,13 +4657,15 @@ end
 class SidekiqUniqueJobs::Redis::Hash < ::SidekiqUniqueJobs::Redis::Entity
   # Get a members value
   #
-  # @param member [String] the member who's value to get
+  # @param [String] member the member who's value to get
+  #
   # @return [Object] whatever is stored on this hash member
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/redis/hash.rb:41
   def [](member); end
 
   # Returns the count for this hash
+  #
   #
   # @return [Integer] the length of this hash
   #
@@ -4493,7 +4679,8 @@ class SidekiqUniqueJobs::Redis::Hash < ::SidekiqUniqueJobs::Redis::Entity
 
   # Return entries for this hash
   #
-  # @param with_values [true, false] false return hash
+  # @param [true,false] with_values false return hash
+  #
   # @return [Array<Object>] when given with_values: false
   # @return [Hash<String, String>] when given with_values: true
   #
@@ -4509,12 +4696,14 @@ end
 class SidekiqUniqueJobs::Redis::List < ::SidekiqUniqueJobs::Redis::Entity
   # The number of entries in this list
   #
+  #
   # @return [Integer] the total number of entries
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/redis/list.rb:27
   def count; end
 
   # Entries in this list
+  #
   #
   # @return [Array<Object>] the elements in this list
   #
@@ -4530,12 +4719,14 @@ end
 class SidekiqUniqueJobs::Redis::Set < ::SidekiqUniqueJobs::Redis::Entity
   # Returns the count for this sorted set
   #
+  #
   # @return [Integer] the number of entries
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/redis/set.rb:27
   def count; end
 
   # Return entries for this set
+  #
   #
   # @return [Array<String>]
   #
@@ -4551,7 +4742,8 @@ end
 class SidekiqUniqueJobs::Redis::SortedSet < ::SidekiqUniqueJobs::Redis::Entity
   # Adds a value to the sorted set
   #
-  # @param values [Array<Float, String>, String] the values to add
+  # @param [Array<Float, String>, String] values the values to add
+  #
   # @return [Boolean, Integer] <description>
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/redis/sorted_set.rb:41
@@ -4562,12 +4754,14 @@ class SidekiqUniqueJobs::Redis::SortedSet < ::SidekiqUniqueJobs::Redis::Entity
 
   # Clears the sorted set from all entries
   #
+  #
   # @return [Integer] number of entries removed
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/redis/sorted_set.rb:87
   def clear; end
 
   # Returns the count for this sorted set
+  #
   #
   # @return [Integer] the number of entries
   #
@@ -4576,7 +4770,8 @@ class SidekiqUniqueJobs::Redis::SortedSet < ::SidekiqUniqueJobs::Redis::Entity
 
   # Return entries for this sorted set
   #
-  # @param with_scores [true, false] true return
+  # @param [true,false] with_scores true return
+  #
   # @return [Array<Object>] when given with_scores: false
   # @return [Hash] when given with_scores: true
   #
@@ -4585,7 +4780,8 @@ class SidekiqUniqueJobs::Redis::SortedSet < ::SidekiqUniqueJobs::Redis::Entity
 
   # Return the zrak of the member
   #
-  # @param member [String] the member to pull rank on
+  # @param [String] member the member to pull rank on
+  #
   # @return [Integer]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/redis/sorted_set.rb:66
@@ -4593,7 +4789,8 @@ class SidekiqUniqueJobs::Redis::SortedSet < ::SidekiqUniqueJobs::Redis::Entity
 
   # Return score for a member
   #
-  # @param member [String] the member for which score
+  # @param [String] member the member for which score
+  #
   # @return [Integer, Float]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/redis/sorted_set.rb:77
@@ -4631,13 +4828,15 @@ class SidekiqUniqueJobs::Redis::String < ::SidekiqUniqueJobs::Redis::Entity
 
   # Sets the value of the key to given object
   #
-  # @param obj [String] the object to update the key with
+  # @param [String] obj the object to update the key with
+  #
   # @return [true, false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/redis/string.rb:28
   def set(obj, pipeline = T.unsafe(nil)); end
 
   # Returns the value of the key
+  #
   #
   # @return [String]
   #
@@ -4653,8 +4852,9 @@ end
 module SidekiqUniqueJobs::Reflectable
   # Reflects on specific event
   #
-  # @param args [Array] arguments to provide to reflector
-  # @param reflection [Symbol] the reflected event
+  # @param [Symbol] reflection the reflected event
+  # @param [Array] args arguments to provide to reflector
+  #
   # @return [void]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/reflectable.rb:18
@@ -4667,16 +4867,12 @@ end
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/reflections.rb:9
 class SidekiqUniqueJobs::Reflections
-  # @return [Reflections] a new instance of Reflections
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/reflections.rb:41
   def initialize; end
 
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/reflections.rb:33
   def after_unlock_callback_failed(*args, &block); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/reflections.rb:71
   def configured?(reflection); end
 
@@ -4685,8 +4881,9 @@ class SidekiqUniqueJobs::Reflections
 
   # Dispatch a reflected event
   #
-  # @param args [Array] the arguments to provide to the block
-  # @param reflection [reflection] the reflected event
+  # @param [reflection] reflection the reflected event
+  # @param [Array] args the arguments to provide to the block
+  #
   # @return [void] <description>
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/reflections.rb:53
@@ -4707,8 +4904,6 @@ class SidekiqUniqueJobs::Reflections
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/reflections.rb:33
   def locked(*args, &block); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/reflections.rb:75
   def misconfigured?(reflection); end
 
@@ -4747,6 +4942,12 @@ SidekiqUniqueJobs::SCHEDULE = T.let(T.unsafe(nil), String)
 # Interface to dealing with .lua files
 #
 # @author Mikael Henriksson <mikael@mhenrixon.com>
+# Interface to dealing with .lua files
+#
+# @author Mikael Henriksson <mikael@mhenrixon.com>
+# Interface to dealing with .lua files
+#
+# @author Mikael Henriksson <mikael@mhenrixon.com>
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/template.rb:7
 module SidekiqUniqueJobs::Script
@@ -4756,6 +4957,7 @@ module SidekiqUniqueJobs::Script
   class << self
     # The current logger
     #
+    #
     # @return [Logger] the configured logger
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script.rb:31
@@ -4763,7 +4965,8 @@ module SidekiqUniqueJobs::Script
 
     # Set a new logger
     #
-    # @param other [Logger] another logger
+    # @param [Logger] other another logger
+    #
     # @return [Logger] the new logger
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script.rb:42
@@ -4785,9 +4988,22 @@ module SidekiqUniqueJobs::Script::Caller
   # Convenience method to reduce typing,
   #   calls redis lua scripts.
   #
-  # @overload call_script
-  # @overload call_script
-  # @return [true, false, String, Integer, Float, nil] returns the return value of the lua script
+  #
+  # @overload call_script(file_name, keys, argv, conn)
+  #   Call script without options hash
+  #   @param [Symbol] file_name the name of the file
+  #   @param [Array<String>] keys to pass to the the script
+  #   @param [Array<String>] argv arguments to pass to the script
+  #   @param [Redis] conn a redis connection
+  # @overload call_script(file_name, conn, keys:, argv:)
+  #   Call script with options hash
+  #   @param [Symbol] file_name the name of the file
+  #   @param [Redis] conn a redis connection
+  #   @param [Hash] options arguments to pass to the script file
+  #   @option options [Array] :keys to pass to the script
+  #   @option options [Array] :argv arguments to pass to the script
+  #
+  # @return [true,false,String,Integer,Float,nil] returns the return value of the lua script
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/caller.rb:41
   def call_script(file_name, *args); end
@@ -4798,7 +5014,6 @@ module SidekiqUniqueJobs::Script::Caller
   def debug_lua; end
 
   # Only used to reduce a little bit of duplication
-  #
   # @see call_script
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/caller.rb:56
@@ -4806,8 +5021,20 @@ module SidekiqUniqueJobs::Script::Caller
 
   # Utility method to allow both symbol keys and arguments
   #
-  # @overload call_script
-  # @overload call_script
+  # @overload call_script(file_name, keys, argv, conn)
+  #   Call script without options hash
+  #   @param [Symbol] file_name the name of the file
+  #   @param [Array<String>] keys to pass to the the script
+  #   @param [Array<String>] argv arguments to pass to the script
+  #   @param [Redis] conn a redis connection
+  # @overload call_script(file_name, conn, keys:, argv:)
+  #   Call script with options hash
+  #   @param [Symbol] file_name the name of the file
+  #   @param [Redis] conn a redis connection
+  #   @param [Hash] options arguments to pass to the script file
+  #   @option options [Array] :keys to pass to the script
+  #   @option options [Array] :argv arguments to pass to the script
+  #
   # @return [Array<Redis, Array, Array>] <description>
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/caller.rb:81
@@ -4835,9 +5062,22 @@ module SidekiqUniqueJobs::Script::Caller
     # Convenience method to reduce typing,
     #   calls redis lua scripts.
     #
-    # @overload call_script
-    # @overload call_script
-    # @return [true, false, String, Integer, Float, nil] returns the return value of the lua script
+    #
+    # @overload call_script(file_name, keys, argv, conn)
+    #   Call script without options hash
+    #   @param [Symbol] file_name the name of the file
+    #   @param [Array<String>] keys to pass to the the script
+    #   @param [Array<String>] argv arguments to pass to the script
+    #   @param [Redis] conn a redis connection
+    # @overload call_script(file_name, conn, keys:, argv:)
+    #   Call script with options hash
+    #   @param [Symbol] file_name the name of the file
+    #   @param [Redis] conn a redis connection
+    #   @param [Hash] options arguments to pass to the script file
+    #   @option options [Array] :keys to pass to the script
+    #   @option options [Array] :argv arguments to pass to the script
+    #
+    # @return [true,false,String,Integer,Float,nil] returns the return value of the lua script
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/caller.rb:41
     def call_script(file_name, *args); end
@@ -4848,7 +5088,6 @@ module SidekiqUniqueJobs::Script::Caller
     def debug_lua; end
 
     # Only used to reduce a little bit of duplication
-    #
     # @see call_script
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/caller.rb:56
@@ -4856,8 +5095,20 @@ module SidekiqUniqueJobs::Script::Caller
 
     # Utility method to allow both symbol keys and arguments
     #
-    # @overload call_script
-    # @overload call_script
+    # @overload call_script(file_name, keys, argv, conn)
+    #   Call script without options hash
+    #   @param [Symbol] file_name the name of the file
+    #   @param [Array<String>] keys to pass to the the script
+    #   @param [Array<String>] argv arguments to pass to the script
+    #   @param [Redis] conn a redis connection
+    # @overload call_script(file_name, conn, keys:, argv:)
+    #   Call script with options hash
+    #   @param [Symbol] file_name the name of the file
+    #   @param [Redis] conn a redis connection
+    #   @param [Hash] options arguments to pass to the script file
+    #   @option options [Array] :keys to pass to the script
+    #   @option options [Array] :argv arguments to pass to the script
+    #
     # @return [Array<Redis, Array, Array>] <description>
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/caller.rb:81
@@ -4891,12 +5142,11 @@ end
 class SidekiqUniqueJobs::Script::Client
   include ::SidekiqUniqueJobs::Script::Timing
 
-  # @return [Client] a new instance of Client
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/client.rb:24
   def initialize(config); end
 
-  # Returns the value of attribute config.
+  # @!attribute [r] file_name
+  #   @return [String] The name of the file to execute
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/client.rb:18
   def config; end
@@ -4905,22 +5155,26 @@ class SidekiqUniqueJobs::Script::Client
   #
   # @note this method is recursive if we need to load a lua script
   #   that wasn't previously loaded. Limited to MAX_RETRIES to prevent stack overflow.
-  # @param argv [Array<Object>] script arguments
-  # @param conn [Redis] the redis connection to use for execution
-  # @param keys [Array<String>] script keys
-  # @param retries [Integer] number of retries remaining (internal use)
-  # @param script_name [Symbol] the name of the script to execute
+  #
+  # @param [Symbol] script_name the name of the script to execute
+  # @param [Redis] conn the redis connection to use for execution
+  # @param [Array<String>] keys script keys
+  # @param [Array<Object>] argv script arguments
+  # @param [Integer] retries number of retries remaining (internal use)
+  #
   # @return value from script
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/client.rb:49
   def execute(script_name, conn, keys: T.unsafe(nil), argv: T.unsafe(nil), retries: T.unsafe(nil)); end
 
-  # Returns the value of attribute logger.
+  # @!attribute [r] logger
+  #   @return [Logger] an instance of a logger
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/client.rb:14
   def logger; end
 
-  # Returns the value of attribute scripts.
+  # @!attribute [r] scripts
+  #   @return [Scripts] the collection with loaded scripts
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/client.rb:22
   def scripts; end
@@ -4932,9 +5186,10 @@ class SidekiqUniqueJobs::Script::Client
 
   # Handle errors to allow retrying errors that need retrying
   #
-  # @param ex [RedisClient::CommandError] exception to handle
-  # @raise [LuaError]
+  # @param [RedisClient::CommandError] ex exception to handle
+  #
   # @return [void]
+  #
   # @yieldreturn [void] yields back to the caller when NOSCRIPT is raised
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/client.rb:74
@@ -4957,35 +5212,39 @@ SidekiqUniqueJobs::Script::Client::MAX_RETRIES = T.let(T.unsafe(nil), Integer)
 class SidekiqUniqueJobs::Script::Config
   # Initialize a new instance of {Config}
   #
-  # @return [Config] a new instance of Config
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/config.rb:23
   def initialize; end
 
-  # Returns the value of attribute logger.
+  # @!attribute [r] logger
+  #   @return [Logger] a logger to use for debugging
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/config.rb:13
   def logger; end
 
   # Sets a value for logger
   #
-  # @param obj [Logger] a logger to use
+  # @param [Logger] obj a logger to use
+  #
   # @raise [ArgumentError] when given argument isn't a Logger
+  #
   # @return [Logger]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/config.rb:61
   def logger=(obj); end
 
-  # Returns the value of attribute scripts_path.
+  # @!attribute [r] scripts_path
+  #   @return [Pathname] a directory with lua scripts
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/config.rb:17
   def scripts_path; end
 
   # Sets a value for scripts_path
   #
-  # @param obj [String, Pathname] <description>
+  # @param [String, Pathname] obj <description>
+  #
   # @raise [ArgumentError] when directory does not exist
   # @raise [ArgumentError] when argument isn't supported
+  #
   # @return [Pathname]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/config.rb:39
@@ -5001,8 +5260,6 @@ module SidekiqUniqueJobs::Script::DSL
   mixes_in_class_methods ::SidekiqUniqueJobs::Script::DSL::ClassMethods
 
   class << self
-    # @private
-    #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/dsl.rb:11
     def included(base); end
   end
@@ -5016,6 +5273,7 @@ end
 module SidekiqUniqueJobs::Script::DSL::ClassMethods
   # The current configuration (See: {.configure} on how to configure)
   #
+  #
   # @return [Script::Config] the gem configuration
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/dsl.rb:52
@@ -5024,10 +5282,9 @@ module SidekiqUniqueJobs::Script::DSL::ClassMethods
   # Configure the gem
   #
   # This is usually called once at startup of an application
-  #
-  # @option options
-  # @option options
-  # @param options [Hash] global gem options
+  # @param [Hash] options global gem options
+  # @option options [String, Pathname] :path
+  # @option options [Logger] :logger (default is Logger.new(STDOUT))
   # @yield control to the caller when given block
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/dsl.rb:36
@@ -5048,8 +5305,10 @@ SidekiqUniqueJobs::Script::DSL::MUTEX = T.let(T.unsafe(nil), Thread::Mutex)
 module SidekiqUniqueJobs::Script::Logging
   # Logs a message at debug level
   #
-  # @param message_or_exception [String, Exception] the message or exception to log
+  # @param [String, Exception] message_or_exception the message or exception to log
+  #
   # @return [void]
+  #
   # @yield [String, Exception] the message or exception to use for log message
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/logging.rb:33
@@ -5057,8 +5316,10 @@ module SidekiqUniqueJobs::Script::Logging
 
   # Logs a message at error level
   #
-  # @param message_or_exception [String, Exception] the message or exception to log
+  # @param [String, Exception] message_or_exception the message or exception to log
+  #
   # @return [void]
+  #
   # @yield [String, Exception] the message or exception to use for log message
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/logging.rb:75
@@ -5066,8 +5327,10 @@ module SidekiqUniqueJobs::Script::Logging
 
   # Logs a message at fatal level
   #
-  # @param message_or_exception [String, Exception] the message or exception to log
+  # @param [String, Exception] message_or_exception the message or exception to log
+  #
   # @return [void]
+  #
   # @yield [String, Exception] the message or exception to use for log message
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/logging.rb:89
@@ -5075,8 +5338,10 @@ module SidekiqUniqueJobs::Script::Logging
 
   # Logs a message at info level
   #
-  # @param message_or_exception [String, Exception] the message or exception to log
+  # @param [String, Exception] message_or_exception the message or exception to log
+  #
   # @return [void]
+  #
   # @yield [String, Exception] the message or exception to use for log message
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/logging.rb:47
@@ -5084,8 +5349,10 @@ module SidekiqUniqueJobs::Script::Logging
 
   # Logs a message at warn level
   #
-  # @param message_or_exception [String, Exception] the message or exception to log
+  # @param [String, Exception] message_or_exception the message or exception to log
+  #
   # @return [void]
+  #
   # @yield [String, Exception] the message or exception to use for log message
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/logging.rb:61
@@ -5093,15 +5360,14 @@ module SidekiqUniqueJobs::Script::Logging
 
   # A convenience method for using the configured gem logger
   #
-  # @return [Logger]
   # @see Script#.logger
+  #
+  # @return [Logger]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/logging.rb:20
   def logger; end
 
   class << self
-    # @private
-    #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/logging.rb:9
     def included(base); end
   end
@@ -5118,23 +5384,16 @@ class SidekiqUniqueJobs::Script::LuaError < ::RuntimeError
   #
   # @param error [StandardError] the original error raised by redis
   # @param script [Script] a DTO with information about the script
-  # @return [LuaError] a new instance of LuaError
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/lua_error.rb:43
   def initialize(error, script); end
 
-  # Returns the value of attribute content.
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/lua_error.rb:27
   def content; end
 
-  # Returns the value of attribute error.
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/lua_error.rb:27
   def error; end
 
-  # Returns the value of attribute file.
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/lua_error.rb:27
   def file; end
 
@@ -5199,21 +5458,18 @@ class SidekiqUniqueJobs::Script::Misconfiguration < ::RuntimeError; end
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/script.rb:8
 class SidekiqUniqueJobs::Script::Script
-  # @return [Script] a new instance of Script
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/script.rb:39
   def initialize(name:, root_path:); end
 
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/script.rb:48
   def ==(other); end
 
-  # Returns the value of attribute call_count.
+  # @!attribute [rw] call_count
+  #   @return [Integer] the number of times the script was called/executed
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/script.rb:37
   def call_count; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/script.rb:56
   def changed?; end
 
@@ -5226,12 +5482,14 @@ class SidekiqUniqueJobs::Script::Script
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/script.rb:68
   def load(conn); end
 
-  # Returns the value of attribute name.
+  # @!attribute [r] script_name
+  #   @return [Symbol, String] the name of the script without extension
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/script.rb:17
   def name; end
 
-  # Returns the value of attribute path.
+  # @!attribute [r] script_path
+  #   @return [String] the path to the script on disk
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/script.rb:21
   def path; end
@@ -5239,17 +5497,20 @@ class SidekiqUniqueJobs::Script::Script
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/script.rb:60
   def render_file; end
 
-  # Returns the value of attribute root_path.
+  # @!attribute [r] root_path
+  #   @return [Pathname]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/script.rb:25
   def root_path; end
 
-  # Returns the value of attribute sha.
+  # @!attribute [rw] sha
+  #   @return [String] the sha of the script
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/script.rb:33
   def sha; end
 
-  # Returns the value of attribute source.
+  # @!attribute [r] source
+  #   @return [String] the source code of the lua script
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/script.rb:29
   def source; end
@@ -5266,9 +5527,6 @@ end
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/scripts.rb:8
 class SidekiqUniqueJobs::Script::Scripts
-  # @raise [ArgumentError]
-  # @return [Scripts] a new instance of Scripts
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/scripts.rb:36
   def initialize(path); end
 
@@ -5277,7 +5535,8 @@ class SidekiqUniqueJobs::Script::Scripts
 
   # Delete a script from the collection
   #
-  # @param script [Script, Symbol, String] the script or script name to delete
+  # @param [Script, Symbol, String] script the script or script name to delete
+  #
   # @return [Script, nil] the deleted script
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/scripts.rb:78
@@ -5287,10 +5546,12 @@ class SidekiqUniqueJobs::Script::Scripts
   #
   # @note this method is recursive if we need to load a lua script
   #   that wasn't previously loaded.
-  # @param argv [Array<Object>] script arguments
-  # @param conn [Redis] the redis connection to use for execution
-  # @param keys [Array<String>] script keys
-  # @param name [Symbol] the name of the script to execute
+  #
+  # @param [Symbol] name the name of the script to execute
+  # @param [Redis] conn the redis connection to use for execution
+  # @param [Array<String>] keys script keys
+  # @param [Array<Object>] argv script arguments
+  #
   # @return value from script
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/scripts.rb:109
@@ -5300,8 +5561,9 @@ class SidekiqUniqueJobs::Script::Scripts
   #
   # Uses Concurrent::Map#fetch_or_store for thread-safe lazy loading
   #
-  # @param conn [Redis] the redis connection
-  # @param name [Symbol, String] the script name
+  # @param [Symbol, String] name the script name
+  # @param [Redis] conn the redis connection
+  #
   # @return [Script] the loaded script
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/scripts.rb:53
@@ -5309,7 +5571,8 @@ class SidekiqUniqueJobs::Script::Scripts
 
   # Kill a running Redis script
   #
-  # @param conn [Redis] the redis connection
+  # @param [Redis] conn the redis connection
+  #
   # @return [String] Redis response
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/scripts.rb:90
@@ -5317,19 +5580,22 @@ class SidekiqUniqueJobs::Script::Scripts
 
   # Load a script from disk, store in Redis, and cache in memory
   #
-  # @param conn [Redis] the redis connection
-  # @param name [Symbol, String] the script name
+  # @param [Symbol, String] name the script name
+  # @param [Redis] conn the redis connection
+  #
   # @return [Script] the loaded script
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/scripts.rb:65
   def load(name, conn); end
 
-  # Returns the value of attribute root_path.
+  # @!attribute [r] root_path
+  #   @return [Pathname] the path to the directory with lua scripts
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/scripts.rb:34
   def root_path; end
 
-  # Returns the value of attribute scripts.
+  # @!attribute [r] scripts
+  #   @return [Concurrent::Map] a collection of loaded scripts
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/scripts.rb:29
   def scripts; end
@@ -5339,7 +5605,8 @@ class SidekiqUniqueJobs::Script::Scripts
     #
     # Uses Concurrent::Map#fetch_or_store for thread-safe lazy initialization
     #
-    # @param root_path [Pathname] the path to scripts
+    # @param [Pathname] root_path the path to scripts
+    #
     # @return [Scripts] a collection of scripts
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/scripts.rb:22
@@ -5358,8 +5625,6 @@ SidekiqUniqueJobs::Script::Scripts::SCRIPT_PATHS = T.let(T.unsafe(nil), Concurre
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/template.rb:13
 class SidekiqUniqueJobs::Script::Template
-  # @return [Template] a new instance of Template
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/template.rb:14
   def initialize(script_path); end
 
@@ -5371,7 +5636,8 @@ class SidekiqUniqueJobs::Script::Template
   # Renders a Lua script and includes any partials in that file
   #  all `<%= include_partial '' %>` replaced with the actual contents of the partial
   #
-  # @param pathname [Pathname] the path to the
+  # @param [Pathname] pathname the path to the
+  #
   # @return [String] the rendered Luascript
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/template.rb:26
@@ -5389,12 +5655,14 @@ module SidekiqUniqueJobs::Script::Timing
   # Returns a float representation of the current time.
   #   Either from Process or Time
   #
+  #
   # @return [Float]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/timing.rb:30
   def now; end
 
   # Used for timing method calls
+  #
   #
   # @return [yield return, Float]
   #
@@ -5405,12 +5673,14 @@ module SidekiqUniqueJobs::Script::Timing
     # Returns a float representation of the current time.
     #   Either from Process or Time
     #
+    #
     # @return [Float]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/script/timing.rb:30
     def now; end
 
     # Used for timing method calls
+    #
     #
     # @return [yield return, Float]
     #
@@ -5428,12 +5698,14 @@ class SidekiqUniqueJobs::Server
   class << self
     # Configure the server middleware
     #
+    #
     # @return [Sidekiq] the sidekiq configuration
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/server.rb:21
     def configure(config); end
 
     # A death handler for dead jobs
+    #
     #
     # @return [lambda]
     #
@@ -5442,12 +5714,14 @@ class SidekiqUniqueJobs::Server
 
     # Start the sidekiq unique jobs server process
     #
+    #
     # @return [void]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/server.rb:36
     def start; end
 
     # Stop the sidekiq unique jobs server process
+    #
     #
     # @return [void]
     #
@@ -5468,7 +5742,6 @@ SidekiqUniqueJobs::Server::DEATH_HANDLER = T.let(T.unsafe(nil), Proc)
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_worker_methods.rb:7
 module SidekiqUniqueJobs::SidekiqWorkerMethods
   # The hook to call after a successful unlock
-  #
   # @return [Proc]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_worker_methods.rb:42
@@ -5476,12 +5749,14 @@ module SidekiqUniqueJobs::SidekiqWorkerMethods
 
   # Returns the default worker options from Sidekiq
   #
+  #
   # @return [Hash<Symbol, Object>]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_worker_methods.rb:76
   def default_job_options; end
 
-  # Returns the value of attribute job_class.
+  # @!attribute [r] job_class
+  #   @return [Sidekiq::Job] The Sidekiq::Job implementation
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_worker_methods.rb:11
   def job_class; end
@@ -5498,21 +5773,18 @@ module SidekiqUniqueJobs::SidekiqWorkerMethods
   def job_class_constantize(klazz = T.unsafe(nil)); end
 
   # Avoids duplicating worker_class.respond_to? in multiple places
-  #
   # @return [true, false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_worker_methods.rb:15
   def job_method_defined?(method_sym); end
 
   # Wraps #get_sidekiq_options to always work with a hash
-  #
   # @return [Hash] of the worker class sidekiq options
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/sidekiq_worker_methods.rb:21
   def job_options; end
 
   # Tests that the
-  #
   # @return [true] if job_class responds to get_sidekiq_options
   # @return [false] if job_class does not respond to get_sidekiq_options
   #
@@ -5576,6 +5848,8 @@ SidekiqUniqueJobs::ThreadSafeConfig = Concurrent::MutableStruct::ThreadSafeConfi
 # with three arguments: time of execution, the result of the block (or nil on
 # failure), and any raised exceptions (or nil on success).
 #
+# @!macro copy_options
+#
 # @example Basic usage
 #   task = Concurrent::TimerTask.new{ puts 'Boom!' }
 #   task.execute
@@ -5586,21 +5860,40 @@ SidekiqUniqueJobs::ThreadSafeConfig = Concurrent::MutableStruct::ThreadSafeConfi
 #   #=> 'Boom!'
 #
 #   task.shutdown #=> true
+#
 # @example Configuring `:execution_interval`
 #   task = Concurrent::TimerTask.new(execution_interval: 5) do
-#   puts 'Boom!'
-#   end
+#          puts 'Boom!'
+#        end
 #
 #   task.execution_interval #=> 5
+#
+# @example Immediate execution with `:run_now`
+#   task = Concurrent::TimerTask.new(run_now: true){ puts 'Boom!' }
+#   task.execute
+#
+#   #=> 'Boom!'
+#
+# @example Last `#value` and `Dereferenceable` mixin
+#   task = Concurrent::TimerTask.new(
+#     dup_on_deref: true,
+#     execution_interval: 5
+#   ){ Time.now }
+#
+#   task.execute
+#   Time.now   #=> 2013-11-07 18:06:50 -0500
+#   sleep(10)
+#   task.value #=> 2013-11-07 18:06:55 -0500
+#
 # @example Controlling execution from within the block
 #   timer_task = Concurrent::TimerTask.new(execution_interval: 1) do |task|
-#   task.execution_interval.times{ print 'Boom! ' }
-#   print "\n"
-#   task.execution_interval += 1
-#   if task.execution_interval > 5
-#   puts 'Stopping...'
-#   task.shutdown
-#   end
+#     task.execution_interval.times{ print 'Boom! ' }
+#     print "\n"
+#     task.execution_interval += 1
+#     if task.execution_interval > 5
+#       puts 'Stopping...'
+#       task.shutdown
+#     end
 #   end
 #
 #   timer_task.execute # blocking call - this task will stop itself
@@ -5610,30 +5903,16 @@ SidekiqUniqueJobs::ThreadSafeConfig = Concurrent::MutableStruct::ThreadSafeConfi
 #   #=> Boom! Boom! Boom! Boom!
 #   #=> Boom! Boom! Boom! Boom! Boom!
 #   #=> Stopping...
-# @example Immediate execution with `:run_now`
-#   task = Concurrent::TimerTask.new(run_now: true){ puts 'Boom!' }
-#   task.execute
 #
-#   #=> 'Boom!'
-# @example Last `#value` and `Dereferenceable` mixin
-#   task = Concurrent::TimerTask.new(
-#   dup_on_deref: true,
-#   execution_interval: 5
-#   ){ Time.now }
-#
-#   task.execute
-#   Time.now   #=> 2013-11-07 18:06:50 -0500
-#   sleep(10)
-#   task.value #=> 2013-11-07 18:06:55 -0500
 # @example Observation
 #   class TaskObserver
-#   def update(time, result, ex)
-#   if result
-#   print "(#{time}) Execution successfully returned #{result}\n"
-#   else
-#   print "(#{time}) Execution failed with error #{ex}\n"
-#   end
-#   end
+#     def update(time, result, ex)
+#       if result
+#         print "(#{time}) Execution successfully returned #{result}\n"
+#       else
+#         print "(#{time}) Execution failed with error #{ex}\n"
+#       end
+#     end
 #   end
 #
 #   task = Concurrent::TimerTask.new(execution_interval: 1){ 42 }
@@ -5663,8 +5942,9 @@ SidekiqUniqueJobs::ThreadSafeConfig = Concurrent::MutableStruct::ThreadSafeConfi
 #   #=> (2013-10-13 19:09:38 -0400) Execution failed with error StandardError
 #   #=> (2013-10-13 19:09:39 -0400) Execution failed with error StandardError
 #   task.shutdown
-# @see http://docs.oracle.com/javase/7/docs/api/java/util/TimerTask.html
+#
 # @see http://ruby-doc.org/stdlib-2.0/libdoc/observer/rdoc/Observable.html
+# @see http://docs.oracle.com/javase/7/docs/api/java/util/TimerTask.html
 #
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/timer_task.rb:149
 class SidekiqUniqueJobs::TimerTask < ::Concurrent::RubyExecutorService
@@ -5673,43 +5953,55 @@ class SidekiqUniqueJobs::TimerTask < ::Concurrent::RubyExecutorService
 
   # Create a new TimerTask with the given task and configuration.
   #
-  # @option opts
-  # @option opts
-  # @param opts [Hash] the options defining task execution.
-  # @raise ArgumentError when no block is given.
-  # @return [TimerTask] the new `TimerTask`
-  # @yield to the block after :execution_interval seconds have passed since
-  #   the last yield
-  # @yieldparam task a reference to the `TimerTask` instance so that the
-  #   block can control its own lifecycle. Necessary since `self` will
-  #   refer to the execution context of the block rather than the running
-  #   `TimerTask`.
+  # @!macro timer_task_initialize
+  #   @param [Hash] opts the options defining task execution.
+  #   @option opts [Integer] :execution_interval number of seconds between
+  #     task executions (default: EXECUTION_INTERVAL)
+  #   @option opts [Boolean] :run_now Whether to run the task immediately
+  #     upon instantiation or to wait until the first #  execution_interval
+  #     has passed (default: false)
+  #
+  #   @!macro deref_options
+  #
+  #   @raise ArgumentError when no block is given.
+  #
+  #   @yield to the block after :execution_interval seconds have passed since
+  #     the last yield
+  #   @yieldparam task a reference to the `TimerTask` instance so that the
+  #     block can control its own lifecycle. Necessary since `self` will
+  #     refer to the execution context of the block rather than the running
+  #     `TimerTask`.
+  #
+  #   @return [TimerTask] the new `TimerTask`
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/timer_task.rb:181
   def initialize(opts = T.unsafe(nil), &task); end
 
   # Execute a previously created `TimerTask`.
   #
-  # @example Instance and execute in one line
-  #   task = Concurrent::TimerTask.new(execution_interval: 10){ print "Hello World\n" }.execute
-  #   task.running? #=> true
+  # @return [TimerTask] a reference to `self`
+  #
   # @example Instance and execute in separate steps
   #   task = Concurrent::TimerTask.new(execution_interval: 10){ print "Hello World\n" }
   #   task.running? #=> false
   #   task.execute
   #   task.running? #=> true
-  # @return [TimerTask] a reference to `self`
+  #
+  # @example Instance and execute in one line
+  #   task = Concurrent::TimerTask.new(execution_interval: 10){ print "Hello World\n" }.execute
+  #   task.running? #=> true
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/timer_task.rb:208
   def execute; end
 
+  # @!attribute [rw] execution_interval
   # @return [Fixnum] Number of seconds after the task completes before the
   #   task is performed again.
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/timer_task.rb:232
   def execution_interval; end
 
-  # @raise [ArgumentError]
+  # @!attribute [rw] execution_interval
   # @return [Fixnum] Number of seconds after the task completes before the
   #   task is performed again.
   #
@@ -5728,41 +6020,40 @@ class SidekiqUniqueJobs::TimerTask < ::Concurrent::RubyExecutorService
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/timer_task.rb:245
   def <<(task); end
 
+  # @!visibility private
+  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/timer_task.rb:284
   def execute_task(completion); end
 
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/timer_task.rb:249
   def ns_initialize(opts, &task); end
 
+  # @!visibility private
+  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/timer_task.rb:271
   def ns_kill_execution; end
 
+  # @!visibility private
+  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/timer_task.rb:265
   def ns_shutdown_execution; end
 
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/timer_task.rb:245
   def post(*args, &task); end
 
+  # @!visibility private
+  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/timer_task.rb:277
   def schedule_next_task(interval = T.unsafe(nil)); end
 
   class << self
     # Create and execute a new `TimerTask`.
     #
+    # @!macro timer_task_initialize
+    #
     # @example
     #   task = Concurrent::TimerTask.execute(execution_interval: 10){ print "Hello World\n" }
     #   task.running? #=> true
-    # @option opts
-    # @option opts
-    # @param opts [Hash] the options defining task execution.
-    # @raise ArgumentError when no block is given.
-    # @return [TimerTask] the new `TimerTask`
-    # @yield to the block after :execution_interval seconds have passed since
-    #   the last yield
-    # @yieldparam task a reference to the `TimerTask` instance so that the
-    #   block can control its own lifecycle. Necessary since `self` will
-    #   refer to the execution context of the block rather than the running
-    #   `TimerTask`.
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/timer_task.rb:225
     def execute(opts = T.unsafe(nil), &task); end
@@ -5790,6 +6081,7 @@ module SidekiqUniqueJobs::Timing
   # Returns a float representation of the current time.
   #   Either from Process or Time
   #
+  #
   # @return [Float]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/timing.rb:50
@@ -5797,13 +6089,15 @@ module SidekiqUniqueJobs::Timing
 
   # Returns the current time as float
   #
-  # @return [Float]
   # @see SidekiqUniqueJobs.now_f
+  #
+  # @return [Float]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/timing.rb:39
   def now_f; end
 
   # Used to get a current representation of time as Integer
+  #
   #
   # @return [Integer]
   #
@@ -5811,6 +6105,7 @@ module SidekiqUniqueJobs::Timing
   def time_source; end
 
   # Used for timing method calls
+  #
   #
   # @return [yield return, Float]
   #
@@ -5821,6 +6116,7 @@ module SidekiqUniqueJobs::Timing
     # Returns a float representation of the current time.
     #   Either from Process or Time
     #
+    #
     # @return [Float]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/timing.rb:50
@@ -5828,13 +6124,15 @@ module SidekiqUniqueJobs::Timing
 
     # Returns the current time as float
     #
-    # @return [Float]
     # @see SidekiqUniqueJobs.now_f
+    #
+    # @return [Float]
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/timing.rb:39
     def now_f; end
 
     # Used to get a current representation of time as Integer
+    #
     #
     # @return [Integer]
     #
@@ -5842,6 +6140,7 @@ module SidekiqUniqueJobs::Timing
     def time_source; end
 
     # Used for timing method calls
+    #
     #
     # @return [yield return, Float]
     #
@@ -5900,8 +6199,7 @@ module SidekiqUniqueJobs::Unlockable
   # Deletes a lock unless it has ttl
   #
   # This is good for situations when a job is locked by another item
-  #
-  # @param item [Hash] a Sidekiq job hash
+  # @param [Hash] item a Sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/unlockable.rb:29
   def delete(item); end
@@ -5909,22 +6207,19 @@ module SidekiqUniqueJobs::Unlockable
   # Deletes a lock regardless of if it was locked or has ttl.
   #
   # This is good for situations when a job is locked by another item
-  #
-  # @param item [Hash] a Sidekiq job hash
+  # @param [Hash] item a Sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/unlockable.rb:38
   def delete!(item); end
 
   # Unlocks a job.
-  #
-  # @param item [Hash] a Sidekiq job hash
+  # @param [Hash] item a Sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/unlockable.rb:13
   def unlock(item); end
 
   # Unlocks a job.
-  #
-  # @param item [Hash] a Sidekiq job hash
+  # @param [Hash] item a Sidekiq job hash
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/unlockable.rb:20
   def unlock!(item); end
@@ -5933,8 +6228,7 @@ module SidekiqUniqueJobs::Unlockable
     # Deletes a lock unless it has ttl
     #
     # This is good for situations when a job is locked by another item
-    #
-    # @param item [Hash] a Sidekiq job hash
+    # @param [Hash] item a Sidekiq job hash
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/unlockable.rb:29
     def delete(item); end
@@ -5942,22 +6236,19 @@ module SidekiqUniqueJobs::Unlockable
     # Deletes a lock regardless of if it was locked or has ttl.
     #
     # This is good for situations when a job is locked by another item
-    #
-    # @param item [Hash] a Sidekiq job hash
+    # @param [Hash] item a Sidekiq job hash
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/unlockable.rb:38
     def delete!(item); end
 
     # Unlocks a job.
-    #
-    # @param item [Hash] a Sidekiq job hash
+    # @param [Hash] item a Sidekiq job hash
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/unlockable.rb:13
     def unlock(item); end
 
     # Unlocks a job.
-    #
-    # @param item [Hash] a Sidekiq job hash
+    # @param [Hash] item a Sidekiq job hash
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/unlockable.rb:20
     def unlock!(item); end
@@ -5974,6 +6265,7 @@ class SidekiqUniqueJobs::UpdateVersion
     # Sets the right versions in redis
     #
     # @note the version isn't used yet but will be for automatic upgrades
+    #
     # @return [true] when version changed
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/update_version.rb:17
@@ -5992,20 +6284,17 @@ class SidekiqUniqueJobs::UpgradeLocks
   extend ::SidekiqUniqueJobs::Logging
   extend ::SidekiqUniqueJobs::Connection
 
-  # @return [UpgradeLocks] a new instance of UpgradeLocks
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/upgrade_locks.rb:39
   def initialize(conn); end
 
   # Performs upgrade of old locks
+  #
   #
   # @return [Integer] the number of upgrades locks
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/upgrade_locks.rb:51
   def call; end
 
-  # Returns the value of attribute conn.
-  #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/upgrade_locks.rb:37
   def conn; end
 
@@ -6050,6 +6339,7 @@ class SidekiqUniqueJobs::UpgradeLocks
   class << self
     # Performs upgrade of old locks
     #
+    #
     # @return [Integer] the number of upgrades locks
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/upgrade_locks.rb:31
@@ -6080,27 +6370,28 @@ SidekiqUniqueJobs::VERSION = T.let(T.unsafe(nil), String)
 class SidekiqUniqueJobs::VersionCheck
   # Initialize a new VersionCheck instance
   #
-  # @param constraint [String] a version constraint `>= 5.0.0 <= 5.1.1`
-  # @param version [String] a version string `5.0.0`
-  # @raise [ArgumentError]
-  # @return [VersionCheck] a new instance of VersionCheck
+  # @param [String] version a version string `5.0.0`
+  # @param [String] constraint a version constraint `>= 5.0.0 <= 5.1.1`
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/version_check.rb:65
   def initialize(version, constraint); end
 
-  # Returns the value of attribute match.
+  # @!attribute [r] match
+  #   @return [String] a version constraint `>= 5.0.0 <= 5.1.1`
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/version_check.rb:57
   def match; end
 
   # Checks if all constraints were met
   #
-  # @return [true, false]
+  #
+  # @return [true,false]
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/version_check.rb:79
   def satisfied?; end
 
-  # Returns the value of attribute version.
+  # @!attribute [r] version
+  #   @return [String] a version string `5.0.0`
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/version_check.rb:53
   def version; end
@@ -6130,10 +6421,14 @@ class SidekiqUniqueJobs::VersionCheck
     #
     # @example A satisfied constraint
     #   VersionCheck.satisfied?("5.0.0", ">= 4.0.0") #=> true
+    #
     # @example An unsatisfied constraint
     #   VersionCheck.satisfied?("5.0.0", "<= 4.0.0") #=> false
-    # @param constraint [String] a version constraint `>= 5.0.0 <= 5.1.1`
-    # @param version [String] a version string `5.0.0`
+    #
+    #
+    # @param [String] version a version string `5.0.0`
+    # @param [String] constraint a version constraint `>= 5.0.0 <= 5.1.1`
+    #
     # @return [true, false] <description>
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/version_check.rb:27
@@ -6143,10 +6438,14 @@ class SidekiqUniqueJobs::VersionCheck
     #
     # @example A satisfied constraint
     #   VersionCheck.unfulfilled?("5.0.0", ">= 4.0.0") #=> false
+    #
     # @example An unfulfilled constraint
     #   VersionCheck.unfulfilled?("5.0.0", "<= 4.0.0") #=> true
-    # @param constraint [String] a version constraint `>= 5.0.0 <= 5.1.1`
-    # @param version [String] a version string `5.0.0`
+    #
+    #
+    # @param [String] version a version string `5.0.0`
+    # @param [String] constraint a version constraint `>= 5.0.0 <= 5.1.1`
+    #
     # @return [true, false] <description>
     #
     # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/version_check.rb:46

@@ -29,8 +29,6 @@ end
 
 # pkg:gem/raabro#lib/raabro.rb:7
 class Raabro::Input
-  # @return [Input] a new instance of Input
-  #
   # pkg:gem/raabro#lib/raabro.rb:12
   def initialize(string, offset = T.unsafe(nil), options = T.unsafe(nil)); end
 
@@ -40,32 +38,18 @@ class Raabro::Input
   # pkg:gem/raabro#lib/raabro.rb:19
   def match(str_or_regex); end
 
-  # Returns the value of attribute offset.
-  #
   # pkg:gem/raabro#lib/raabro.rb:9
   def offset; end
 
-  # Sets the attribute offset
-  #
-  # @param value the value to set the attribute offset to.
-  #
   # pkg:gem/raabro#lib/raabro.rb:9
   def offset=(_arg0); end
 
-  # Returns the value of attribute options.
-  #
   # pkg:gem/raabro#lib/raabro.rb:10
   def options; end
 
-  # Returns the value of attribute string.
-  #
   # pkg:gem/raabro#lib/raabro.rb:9
   def string; end
 
-  # Sets the attribute string
-  #
-  # @param value the value to set the attribute string to.
-  #
   # pkg:gem/raabro#lib/raabro.rb:9
   def string=(_arg0); end
 
@@ -102,15 +86,9 @@ module Raabro::ModuleMethods
   # pkg:gem/raabro#lib/raabro.rb:527
   def jseq(name, input, startpa, eltpa, seppa = T.unsafe(nil), endpa = T.unsafe(nil)); end
 
-  # Returns the value of attribute last.
-  #
   # pkg:gem/raabro#lib/raabro.rb:529
   def last; end
 
-  # Sets the attribute last
-  #
-  # @param value the value to set the attribute last to.
-  #
   # pkg:gem/raabro#lib/raabro.rb:529
   def last=(_arg0); end
 
@@ -156,8 +134,6 @@ end
 
 # pkg:gem/raabro#lib/raabro.rb:42
 class Raabro::Tree
-  # @return [Tree] a new instance of Tree
-  #
   # pkg:gem/raabro#lib/raabro.rb:49
   def initialize(name, parter, input); end
 
@@ -176,23 +152,15 @@ class Raabro::Tree
   # pkg:gem/raabro#lib/raabro.rb:64
   def c4; end
 
-  # Returns the value of attribute children.
-  #
   # pkg:gem/raabro#lib/raabro.rb:47
   def children; end
 
-  # Sets the attribute children
-  #
-  # @param value the value to set the attribute children to.
-  #
   # pkg:gem/raabro#lib/raabro.rb:47
   def children=(_arg0); end
 
   # pkg:gem/raabro#lib/raabro.rb:65
   def clast; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/raabro#lib/raabro.rb:67
   def empty?; end
 
@@ -205,26 +173,18 @@ class Raabro::Tree
   # pkg:gem/raabro#lib/raabro.rb:112
   def gather(name = T.unsafe(nil), acc = T.unsafe(nil)); end
 
-  # Returns the value of attribute input.
-  #
   # pkg:gem/raabro#lib/raabro.rb:44
   def input; end
 
-  # Sets the attribute input
-  #
-  # @param value the value to set the attribute input to.
-  #
   # pkg:gem/raabro#lib/raabro.rb:44
   def input=(_arg0); end
 
-  # Returns the value of attribute length.
+  # ((-1 error,)) 0 nomatch, 1 success
   #
   # pkg:gem/raabro#lib/raabro.rb:46
   def length; end
 
-  # Sets the attribute length
-  #
-  # @param value the value to set the attribute length to.
+  # ((-1 error,)) 0 nomatch, 1 success
   #
   # pkg:gem/raabro#lib/raabro.rb:46
   def length=(_arg0); end
@@ -245,15 +205,9 @@ class Raabro::Tree
   # pkg:gem/raabro#lib/raabro.rb:193
   def lookup_error(stack = T.unsafe(nil)); end
 
-  # Returns the value of attribute name.
-  #
   # pkg:gem/raabro#lib/raabro.rb:44
   def name; end
 
-  # Sets the attribute name
-  #
-  # @param value the value to set the attribute name to.
-  #
   # pkg:gem/raabro#lib/raabro.rb:44
   def name=(_arg0); end
 
@@ -263,40 +217,28 @@ class Raabro::Tree
   # pkg:gem/raabro#lib/raabro.rb:161
   def odd_children; end
 
-  # Returns the value of attribute offset.
+  # ((-1 error,)) 0 nomatch, 1 success
   #
   # pkg:gem/raabro#lib/raabro.rb:46
   def offset; end
 
-  # Sets the attribute offset
-  #
-  # @param value the value to set the attribute offset to.
+  # ((-1 error,)) 0 nomatch, 1 success
   #
   # pkg:gem/raabro#lib/raabro.rb:46
   def offset=(_arg0); end
 
-  # Returns the value of attribute parter.
-  #
   # pkg:gem/raabro#lib/raabro.rb:47
   def parter; end
 
-  # Sets the attribute parter
-  #
-  # @param value the value to set the attribute parter to.
-  #
   # pkg:gem/raabro#lib/raabro.rb:47
   def parter=(_arg0); end
 
   # pkg:gem/raabro#lib/raabro.rb:77
   def prune!; end
 
-  # ((-1 error,)) 0 nomatch, 1 success
-  #
   # pkg:gem/raabro#lib/raabro.rb:45
   def result; end
 
-  # ((-1 error,)) 0 nomatch, 1 success
-  #
   # pkg:gem/raabro#lib/raabro.rb:45
   def result=(_arg0); end
 

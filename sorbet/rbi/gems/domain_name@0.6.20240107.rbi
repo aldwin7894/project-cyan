@@ -7,13 +7,60 @@
 
 # Represents a domain name ready for extracting its registered domain
 # and TLD.
+# -*- coding: utf-8 -*-
+# --
+# punycode.rb - PunyCode encoder for the Domain Name library
+#
+# Copyright (C) 2011-2017 Akinori MUSHA, All rights reserved.
+#
+# Ported from puny.c, a part of VeriSign XCode (encode/decode) IDN
+# Library.
+#
+# Copyright (C) 2000-2002 Verisign Inc., All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or
+# without modification, are permitted provided that the following
+# conditions are met:
+#
+#  1) Redistributions of source code must retain the above copyright
+#     notice, this list of conditions and the following disclaimer.
+#
+#  2) Redistributions in binary form must reproduce the above copyright
+#     notice, this list of conditions and the following disclaimer in
+#     the documentation and/or other materials provided with the
+#     distribution.
+#
+#  3) Neither the name of the VeriSign Inc. nor the names of its
+#     contributors may be used to endorse or promote products derived
+#     from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+# FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+# COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+# BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+# OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+# AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+# ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+#
+# This software is licensed under the BSD open source license. For more
+# information visit www.opensource.org.
+#
+# Authors:
+#  John Colosi (VeriSign)
+#  Srikanth Veeramachaneni (VeriSign)
+#  Nagesh Chigurupati (Verisign)
+#  Praveen Srinivasan(Verisign)
+# ++
 #
 # pkg:gem/domain_name#lib/domain_name/version.rb:1
 class DomainName
   # Parses _hostname_ into a DomainName object.  An IP address is also
   # accepted.  An IPv6 address may be enclosed in square brackets.
-  #
-  # @return [DomainName] a new instance of DomainName
   #
   # pkg:gem/domain_name#lib/domain_name.rb:77
   def initialize(hostname); end
@@ -39,14 +86,10 @@ class DomainName
   # Returns true if this domain name has a canonical registered
   # domain.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/domain_name#lib/domain_name.rb:69
   def canonical?; end
 
   # Returns true if this domain name has a canonical TLD.
-  #
-  # @return [Boolean]
   #
   # pkg:gem/domain_name#lib/domain_name.rb:63
   def canonical_tld?; end
@@ -56,8 +99,6 @@ class DomainName
   # _domain_.  A true value given as the second argument represents
   # cookies without a domain attribute value, in which case only
   # hostname equality is checked.
-  #
-  # @return [Boolean]
   #
   # pkg:gem/domain_name#lib/domain_name.rb:149
   def cookie_domain?(domain, host_only = T.unsafe(nil)); end
@@ -98,8 +139,6 @@ class DomainName
 
   # Returns true if this is an IP address, such as "192.168.0.1" and
   # "[::1]".
-  #
-  # @return [Boolean]
   #
   # pkg:gem/domain_name#lib/domain_name.rb:53
   def ipaddr?; end
@@ -257,6 +296,8 @@ class Object < ::BasicObject
 
   private
 
+  # Short hand for DomainName.new().
+  #
   # pkg:gem/domain_name#lib/domain_name.rb:298
   def DomainName(hostname); end
 end

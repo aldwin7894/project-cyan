@@ -187,15 +187,6 @@ module ActionController::RespondWith
   # pkg:gem/responders#lib/action_controller/respond_with.rb:245
   def collect_mimes_from_class_level; end
 
-  # Before action callback that can be used to prevent requests that do not
-  # match the mime types defined through <tt>respond_to</tt> from being executed.
-  #
-  #   class PeopleController < ApplicationController
-  #     respond_to :html, :xml, :json
-  #
-  #     before_action :verify_requested_format!
-  #   end
-  #
   # pkg:gem/responders#lib/action_controller/respond_with.rb:241
   def verify_request_format!; end
 
@@ -383,13 +374,9 @@ end
 #
 # pkg:gem/responders#lib/action_controller/responder.rb:122
 class ActionController::Responder
-  # @return [Responder] a new instance of Responder
-  #
   # pkg:gem/responders#lib/action_controller/responder.rb:134
   def initialize(controller, resources, options = T.unsafe(nil)); end
 
-  # Returns the value of attribute controller.
-  #
   # pkg:gem/responders#lib/action_controller/responder.rb:126
   def controller; end
 
@@ -399,8 +386,6 @@ class ActionController::Responder
   # pkg:gem/responders#lib/action_controller/responder.rb:123
   def error_status; end
 
-  # Returns the value of attribute format.
-  #
   # pkg:gem/responders#lib/action_controller/responder.rb:126
   def format; end
 
@@ -410,8 +395,6 @@ class ActionController::Responder
   # pkg:gem/responders#lib/action_controller/responder.rb:150
   def head(*_arg0, **_arg1, &_arg2); end
 
-  # Returns the value of attribute options.
-  #
   # pkg:gem/responders#lib/action_controller/responder.rb:126
   def options; end
 
@@ -433,18 +416,12 @@ class ActionController::Responder
   # pkg:gem/responders#lib/action_controller/responder.rb:150
   def render(*_arg0, **_arg1, &_arg2); end
 
-  # Returns the value of attribute request.
-  #
   # pkg:gem/responders#lib/action_controller/responder.rb:126
   def request; end
 
-  # Returns the value of attribute resource.
-  #
   # pkg:gem/responders#lib/action_controller/responder.rb:126
   def resource; end
 
-  # Returns the value of attribute resources.
-  #
   # pkg:gem/responders#lib/action_controller/responder.rb:126
   def resources; end
 
@@ -475,14 +452,9 @@ class ActionController::Responder
 
   # This is the common behavior for formats associated with APIs, such as :xml and :json.
   #
-  # @raise [MissingRenderer]
-  #
   # pkg:gem/responders#lib/action_controller/responder.rb:215
   def api_behavior; end
 
-  # Returns the resource location by retrieving it from the options or
-  # returning the resources array.
-  #
   # pkg:gem/responders#lib/action_controller/responder.rb:234
   def api_location; end
 
@@ -526,20 +498,14 @@ class ActionController::Responder
 
   # Check whether the resource has errors.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/responders#lib/action_controller/responder.rb:278
   def has_errors?; end
 
   # Check whether the necessary Renderer is available
   #
-  # @return [Boolean]
-  #
   # pkg:gem/responders#lib/action_controller/responder.rb:283
   def has_renderer?; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/responders#lib/action_controller/responder.rb:287
   def has_view_rendering?; end
 
@@ -551,9 +517,6 @@ class ActionController::Responder
   # pkg:gem/responders#lib/action_controller/responder.rb:204
   def navigation_behavior(error); end
 
-  # Returns the resource location by retrieving it from the options or
-  # returning the resources array.
-  #
   # pkg:gem/responders#lib/action_controller/responder.rb:233
   def navigation_location; end
 
@@ -566,8 +529,6 @@ class ActionController::Responder
   # pkg:gem/responders#lib/action_controller/responder.rb:230
   def resource_location; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/responders#lib/action_controller/responder.rb:306
   def response_overridden?; end
 
@@ -771,38 +732,22 @@ module Responders::FlashResponder
   # pkg:gem/responders#lib/responders/flash_responder.rb:115
   def set_flash_message!; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/responders#lib/responders/flash_responder.rb:143
   def set_flash_message?; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/responders#lib/responders/flash_responder.rb:138
   def set_flash_now?; end
 
   class << self
-    # Returns the value of attribute flash_keys.
-    #
     # pkg:gem/responders#lib/responders/flash_responder.rb:89
     def flash_keys; end
 
-    # Sets the attribute flash_keys
-    #
-    # @param value the value to set the attribute flash_keys to.
-    #
     # pkg:gem/responders#lib/responders/flash_responder.rb:89
     def flash_keys=(_arg0); end
 
-    # Returns the value of attribute namespace_lookup.
-    #
     # pkg:gem/responders#lib/responders/flash_responder.rb:89
     def namespace_lookup; end
 
-    # Sets the attribute namespace_lookup
-    #
-    # @param value the value to set the attribute namespace_lookup to.
-    #
     # pkg:gem/responders#lib/responders/flash_responder.rb:89
     def namespace_lookup=(_arg0); end
   end
@@ -830,13 +775,9 @@ module Responders::HttpCacheResponder
   # pkg:gem/responders#lib/responders/http_cache_responder.rb:26
   def do_http_cache!; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/responders#lib/responders/http_cache_responder.rb:37
   def do_http_cache?; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/responders#lib/responders/http_cache_responder.rb:42
   def persisted?; end
 end

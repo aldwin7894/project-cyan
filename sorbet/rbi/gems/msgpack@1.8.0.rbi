@@ -219,8 +219,6 @@ class MessagePack::Factory
 
   # see ext for other methods
   #
-  # @raise [FrozenError]
-  #
   # pkg:gem/msgpack#lib/msgpack/factory.rb:5
   def register_type(type, klass, options = T.unsafe(nil)); end
 
@@ -229,8 +227,6 @@ class MessagePack::Factory
   # pkg:gem/msgpack#lib/msgpack/factory.rb:41
   def registered_types(selector = T.unsafe(nil)); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/msgpack#lib/msgpack/factory.rb:86
   def type_registered?(klass_or_type, selector = T.unsafe(nil)); end
 
@@ -251,8 +247,6 @@ end
 
 # pkg:gem/msgpack#lib/msgpack/factory.rb:128
 class MessagePack::Factory::Pool
-  # @return [Pool] a new instance of Pool
-  #
   # pkg:gem/msgpack#lib/msgpack/factory.rb:181
   def initialize(factory, size, options = T.unsafe(nil)); end
 
@@ -271,8 +265,6 @@ end
 
 # pkg:gem/msgpack#lib/msgpack/factory.rb:130
 class MessagePack::Factory::Pool::MemberPool
-  # @return [MemberPool] a new instance of MemberPool
-  #
   # pkg:gem/msgpack#lib/msgpack/factory.rb:131
   def initialize(size, &block); end
 
@@ -309,8 +301,6 @@ class MessagePack::Packer
   # pkg:gem/msgpack#lib/msgpack.rb:7
   def pack(_arg0); end
 
-  # @raise [ArgumentError]
-  #
   # pkg:gem/msgpack#lib/msgpack/packer.rb:9
   def register_type(type, klass, method_name = T.unsafe(nil), &block); end
 
@@ -335,8 +325,6 @@ class MessagePack::Packer
   # pkg:gem/msgpack#lib/msgpack.rb:7
   def to_str; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/msgpack#lib/msgpack/packer.rb:24
   def type_registered?(klass_or_type); end
 
@@ -414,13 +402,10 @@ MessagePack::Time::TIME_AT_3_AVAILABLE = T.let(T.unsafe(nil), TrueClass)
 # pkg:gem/msgpack#lib/msgpack/time.rb:13
 MessagePack::Time::Unpacker = T.let(T.unsafe(nil), Proc)
 
-# a.k.a. "TimeSpec"
-#
 # pkg:gem/msgpack#lib/msgpack/timestamp.rb:4
 class MessagePack::Timestamp
-  # @param nsec [Integer]
-  # @param sec [Integer]
-  # @return [Timestamp] a new instance of Timestamp
+  # @param [Integer] sec
+  # @param [Integer] nsec
   #
   # pkg:gem/msgpack#lib/msgpack/timestamp.rb:24
   def initialize(sec, nsec); end
@@ -523,8 +508,6 @@ class MessagePack::Unpacker
   # pkg:gem/msgpack#lib/msgpack.rb:7
   def symbolize_keys?; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/msgpack#lib/msgpack/unpacker.rb:28
   def type_registered?(klass_or_type); end
 

@@ -53,10 +53,6 @@ module Turbo
     # pkg:gem/turbo-rails#lib/turbo-rails.rb:18
     def signed_stream_verifier_key; end
 
-    # Sets the attribute signed_stream_verifier_key
-    #
-    # @param value the value to set the attribute signed_stream_verifier_key to.
-    #
     # pkg:gem/turbo-rails#lib/turbo-rails.rb:12
     def signed_stream_verifier_key=(_arg0); end
 
@@ -475,8 +471,6 @@ class Turbo::SystemTestHelper::SignedStreamNameConditions
   include ::Enumerable
   include ::Turbo::Streams::StreamName
 
-  # @return [SignedStreamNameConditions] a new instance of SignedStreamNameConditions
-  #
   # pkg:gem/turbo-rails#lib/turbo/system_test_helper.rb:111
   def initialize(value); end
 

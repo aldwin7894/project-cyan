@@ -63,35 +63,21 @@ end
 
 # pkg:gem/cronex#lib/cronex/description/base.rb:2
 class Cronex::Description
-  # @return [Description] a new instance of Description
-  #
   # pkg:gem/cronex#lib/cronex/description/base.rb:6
   def initialize(resources, options = T.unsafe(nil)); end
 
-  # Returns the value of attribute options.
-  #
   # pkg:gem/cronex#lib/cronex/description/base.rb:4
   def options; end
 
-  # Sets the attribute options
-  #
-  # @param value the value to set the attribute options to.
-  #
   # pkg:gem/cronex#lib/cronex/description/base.rb:4
   def options=(_arg0); end
 
   # pkg:gem/cronex#lib/cronex/description/base.rb:54
   def plural(expression, singular, plural); end
 
-  # Returns the value of attribute resources.
-  #
   # pkg:gem/cronex#lib/cronex/description/base.rb:4
   def resources; end
 
-  # Sets the attribute resources
-  #
-  # @param value the value to set the attribute resources to.
-  #
   # pkg:gem/cronex#lib/cronex/description/base.rb:4
   def resources=(_arg0); end
 
@@ -104,8 +90,6 @@ end
 
 # pkg:gem/cronex#lib/cronex/exp_descriptor.rb:21
 class Cronex::ExpressionDescriptor
-  # @return [ExpressionDescriptor] a new instance of ExpressionDescriptor
-  #
   # pkg:gem/cronex#lib/cronex/exp_descriptor.rb:24
   def initialize(expression, options = T.unsafe(nil)); end
 
@@ -118,27 +102,15 @@ class Cronex::ExpressionDescriptor
   # pkg:gem/cronex#lib/cronex/exp_descriptor.rb:37
   def description(type = T.unsafe(nil)); end
 
-  # Returns the value of attribute expression.
-  #
   # pkg:gem/cronex#lib/cronex/exp_descriptor.rb:22
   def expression; end
 
-  # Sets the attribute expression
-  #
-  # @param value the value to set the attribute expression to.
-  #
   # pkg:gem/cronex#lib/cronex/exp_descriptor.rb:22
   def expression=(_arg0); end
 
-  # Returns the value of attribute expression_parts.
-  #
   # pkg:gem/cronex#lib/cronex/exp_descriptor.rb:22
   def expression_parts; end
 
-  # Sets the attribute expression_parts
-  #
-  # @param value the value to set the attribute expression_parts to.
-  #
   # pkg:gem/cronex#lib/cronex/exp_descriptor.rb:22
   def expression_parts=(_arg0); end
 
@@ -154,39 +126,21 @@ class Cronex::ExpressionDescriptor
   # pkg:gem/cronex#lib/cronex/exp_descriptor.rb:106
   def month_description(expression_parts); end
 
-  # Returns the value of attribute options.
-  #
   # pkg:gem/cronex#lib/cronex/exp_descriptor.rb:22
   def options; end
 
-  # Sets the attribute options
-  #
-  # @param value the value to set the attribute options to.
-  #
   # pkg:gem/cronex#lib/cronex/exp_descriptor.rb:22
   def options=(_arg0); end
 
-  # Returns the value of attribute parsed.
-  #
   # pkg:gem/cronex#lib/cronex/exp_descriptor.rb:22
   def parsed; end
 
-  # Sets the attribute parsed
-  #
-  # @param value the value to set the attribute parsed to.
-  #
   # pkg:gem/cronex#lib/cronex/exp_descriptor.rb:22
   def parsed=(_arg0); end
 
-  # Returns the value of attribute resources.
-  #
   # pkg:gem/cronex#lib/cronex/exp_descriptor.rb:22
   def resources; end
 
-  # Sets the attribute resources
-  #
-  # @param value the value to set the attribute resources to.
-  #
   # pkg:gem/cronex#lib/cronex/exp_descriptor.rb:22
   def resources=(_arg0); end
 
@@ -196,15 +150,9 @@ class Cronex::ExpressionDescriptor
   # pkg:gem/cronex#lib/cronex/exp_descriptor.rb:131
   def time_of_day_description(expression_parts); end
 
-  # Returns the value of attribute timezone.
-  #
   # pkg:gem/cronex#lib/cronex/exp_descriptor.rb:22
   def timezone; end
 
-  # Sets the attribute timezone
-  #
-  # @param value the value to set the attribute timezone to.
-  #
   # pkg:gem/cronex#lib/cronex/exp_descriptor.rb:22
   def timezone=(_arg0); end
 
@@ -289,35 +237,21 @@ end
 
 # pkg:gem/cronex#lib/cronex/parser.rb:12
 class Cronex::Parser
-  # @return [Parser] a new instance of Parser
-  #
   # pkg:gem/cronex#lib/cronex/parser.rb:15
   def initialize(expression, options = T.unsafe(nil)); end
 
-  # Returns the value of attribute expression.
-  #
   # pkg:gem/cronex#lib/cronex/parser.rb:13
   def expression; end
 
-  # Sets the attribute expression
-  #
-  # @param value the value to set the attribute expression to.
-  #
   # pkg:gem/cronex#lib/cronex/parser.rb:13
   def expression=(_arg0); end
 
   # pkg:gem/cronex#lib/cronex/parser.rb:61
   def normalize(expression_parts, options = T.unsafe(nil)); end
 
-  # Returns the value of attribute options.
-  #
   # pkg:gem/cronex#lib/cronex/parser.rb:13
   def options; end
 
-  # Sets the attribute options
-  #
-  # @param value the value to set the attribute options to.
-  #
   # pkg:gem/cronex#lib/cronex/parser.rb:13
   def options=(_arg0); end
 
@@ -333,8 +267,6 @@ Cronex::RESOURCES_DIR = T.let(T.unsafe(nil), String)
 
 # pkg:gem/cronex#lib/cronex/resource.rb:5
 class Cronex::Resource
-  # @return [Resource] a new instance of Resource
-  #
   # pkg:gem/cronex#lib/cronex/resource.rb:8
   def initialize(loc = T.unsafe(nil)); end
 
@@ -347,16 +279,12 @@ class Cronex::Resource
   # pkg:gem/cronex#lib/cronex/resource.rb:22
   def load(loc); end
 
-  # Returns the value of attribute locale.
-  #
   # pkg:gem/cronex#lib/cronex/resource.rb:6
   def locale; end
 
   # pkg:gem/cronex#lib/cronex/resource.rb:12
   def locale=(loc); end
 
-  # Returns the value of attribute messages.
-  #
   # pkg:gem/cronex#lib/cronex/resource.rb:6
   def messages; end
 end
@@ -401,21 +329,15 @@ module Cronex::Utils
   # pkg:gem/cronex#lib/cronex/utils.rb:37
   def format_time(hour_expression, minute_expression, second_expression = T.unsafe(nil), timezone = T.unsafe(nil)); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/cronex#lib/cronex/utils.rb:11
   def include_any?(str, chars); end
 
   # pkg:gem/cronex#lib/cronex/utils.rb:19
   def integer(str); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/cronex#lib/cronex/utils.rb:15
   def number?(str); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/cronex#lib/cronex/utils.rb:7
   def present?(str); end
 end

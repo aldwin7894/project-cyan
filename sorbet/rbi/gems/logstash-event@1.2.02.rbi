@@ -38,8 +38,6 @@ module LogStash::Config; end
 #
 # pkg:gem/logstash-event#lib/logstash/event.rb:41
 class LogStash::Event
-  # @return [Event] a new instance of Event
-  #
   # pkg:gem/logstash-event#lib/logstash/event.rb:45
   def initialize(data = T.unsafe(nil)); end
 
@@ -55,21 +53,15 @@ class LogStash::Event
   # pkg:gem/logstash-event#lib/logstash/event.rb:74
   def cancel; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/logstash-event#lib/logstash/event.rb:84
   def cancelled?; end
 
   # pkg:gem/logstash-event#lib/logstash/event.rb:90
   def clone; end
 
-  # @raise [DeprecatedMethod]
-  #
   # pkg:gem/logstash-event#lib/logstash/event.rb:163
   def fields; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/logstash-event#lib/logstash/event.rb:182
   def include?(key); end
 
@@ -83,8 +75,6 @@ class LogStash::Event
   def remove(str); end
 
   # def unix_timestamp
-  #
-  # @raise [DeprecatedMethod]
   #
   # pkg:gem/logstash-event#lib/logstash/event.rb:119
   def ruby_timestamp; end
@@ -106,12 +96,10 @@ class LogStash::Event
   # pkg:gem/logstash-event#lib/logstash/event.rb:259
   def tags=(value); end
 
-  # def timestamp
-  #
   # pkg:gem/logstash-event#lib/logstash/event.rb:112
   def timestamp; end
 
-  # def timestamp=
+  # def timestamp
   #
   # pkg:gem/logstash-event#lib/logstash/event.rb:113
   def timestamp=(val); end
@@ -136,14 +124,12 @@ class LogStash::Event
   # pkg:gem/logstash-event#lib/logstash/event.rb:79
   def uncancel; end
 
-  # @raise [DeprecatedMethod]
+  # def timestamp=
   #
   # pkg:gem/logstash-event#lib/logstash/event.rb:115
   def unix_timestamp; end
 
   class << self
-    # @private
-    #
     # pkg:gem/logstash-event#lib/logstash/event.rb:62
     def included(klass); end
   end

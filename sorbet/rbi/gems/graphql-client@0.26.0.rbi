@@ -19,8 +19,6 @@ module GraphQL; end
 class GraphQL::Client
   extend ::GraphQL::Client::CollocatedEnforcement
 
-  # @return [Client] a new instance of Client
-  #
   # pkg:gem/graphql-client#lib/graphql/client.rb:94
   def initialize(schema:, execute: T.unsafe(nil), enforce_collocated_callers: T.unsafe(nil), raise_on_unknown_enum_value: T.unsafe(nil)); end
 
@@ -64,20 +62,12 @@ class GraphQL::Client
   # pkg:gem/graphql-client#lib/graphql/client.rb:299
   def create_operation(fragment, filename = T.unsafe(nil), lineno = T.unsafe(nil)); end
 
-  # Returns the value of attribute document.
-  #
   # pkg:gem/graphql-client#lib/graphql/client.rb:336
   def document; end
 
-  # Returns the value of attribute document_tracking_enabled.
-  #
   # pkg:gem/graphql-client#lib/graphql/client.rb:37
   def document_tracking_enabled; end
 
-  # Sets the attribute document_tracking_enabled
-  #
-  # @param value the value to set the attribute document_tracking_enabled to.
-  #
   # pkg:gem/graphql-client#lib/graphql/client.rb:37
   def document_tracking_enabled=(_arg0); end
 
@@ -86,8 +76,6 @@ class GraphQL::Client
   # pkg:gem/graphql-client#lib/graphql/client.rb:40
   def enforce_collocated_callers; end
 
-  # Returns the value of attribute execute.
-  #
   # pkg:gem/graphql-client#lib/graphql/client.rb:33
   def execute; end
 
@@ -100,24 +88,17 @@ class GraphQL::Client
   def parse(str, filename = T.unsafe(nil), lineno = T.unsafe(nil)); end
 
   # A cache of the schema's merged possible types
-  #
   # @param type_condition [Class, String] a type definition or type name
   #
   # pkg:gem/graphql-client#lib/graphql/client.rb:114
   def possible_types(type_condition = T.unsafe(nil)); end
 
-  # @raise [NotImplementedError]
-  #
   # pkg:gem/graphql-client#lib/graphql/client.rb:338
   def query(definition, variables: T.unsafe(nil), context: T.unsafe(nil)); end
 
-  # Returns the value of attribute schema.
-  #
   # pkg:gem/graphql-client#lib/graphql/client.rb:33
   def schema; end
 
-  # Returns the value of attribute types.
-  #
   # pkg:gem/graphql-client#lib/graphql/client.rb:35
   def types; end
 
@@ -178,8 +159,6 @@ end
 #
 # pkg:gem/graphql-client#lib/graphql/client/definition.rb:16
 class GraphQL::Client::Definition < ::Module
-  # @return [Definition] a new instance of Definition
-  #
   # pkg:gem/graphql-client#lib/graphql/client/definition.rb:28
   def initialize(client:, document:, source_document:, ast_node:, source_location:); end
 
@@ -260,13 +239,9 @@ end
 
 # pkg:gem/graphql-client#lib/graphql/client/definition.rb:156
 class GraphQL::Client::Definition::DefinitionVisitor < ::GraphQL::Language::Visitor
-  # @return [DefinitionVisitor] a new instance of DefinitionVisitor
-  #
   # pkg:gem/graphql-client#lib/graphql/client/definition.rb:159
   def initialize(doc); end
 
-  # Returns the value of attribute definitions.
-  #
   # pkg:gem/graphql-client#lib/graphql/client/definition.rb:157
   def definitions; end
 
@@ -282,8 +257,6 @@ class GraphQL::Client::Definition::DefinitionVisitor < ::GraphQL::Language::Visi
   # pkg:gem/graphql-client#lib/graphql/client/definition.rb:181
   def on_operation_definition(node, parent); end
 
-  # Returns the value of attribute spreads.
-  #
   # pkg:gem/graphql-client#lib/graphql/client/definition.rb:157
   def spreads; end
 
@@ -343,16 +316,12 @@ end
 class GraphQL::Client::DefinitionVariables::VariablesVisitor < ::GraphQL::Language::Visitor
   include ::GraphQL::Client::TypeStack
 
-  # @return [VariablesVisitor] a new instance of VariablesVisitor
-  #
   # pkg:gem/graphql-client#lib/graphql/client/definition_variables.rb:35
   def initialize(document, schema:, **rest); end
 
   # pkg:gem/graphql-client#lib/graphql/client/definition_variables.rb:42
   def on_variable_identifier(node, parent); end
 
-  # Returns the value of attribute variables.
-  #
   # pkg:gem/graphql-client#lib/graphql/client/definition_variables.rb:40
   def variables; end
 end
@@ -378,13 +347,9 @@ end
 class GraphQL::Client::DocumentTypes::AnalyzeTypesVisitor < ::GraphQL::Language::Visitor
   include ::GraphQL::Client::TypeStack
 
-  # @return [AnalyzeTypesVisitor] a new instance of AnalyzeTypesVisitor
-  #
   # pkg:gem/graphql-client#lib/graphql/client/document_types.rb:13
   def initialize(document, schema:, **rest); end
 
-  # Returns the value of attribute fields.
-  #
   # pkg:gem/graphql-client#lib/graphql/client/document_types.rb:11
   def fields; end
 
@@ -423,8 +388,6 @@ class GraphQL::Client::Errors
   # path   - Array of String|Integer fields to data
   # all    - Boolean flag if all nested errors should be available
   #
-  # @return [Errors] a new instance of Errors
-  #
   # pkg:gem/graphql-client#lib/graphql/client/errors.rb:39
   def initialize(errors = T.unsafe(nil), path = T.unsafe(nil), all = T.unsafe(nil)); end
 
@@ -449,25 +412,9 @@ class GraphQL::Client::Errors
   # pkg:gem/graphql-client#lib/graphql/client/errors.rb:51
   def all; end
 
-  # Public: Check if there are no errors on object.
-  #
-  #   data.errors.messages # => {"node"=>["couldn't find node by id"]}
-  #   data.errors.empty?   # => false
-  #
-  # Returns true if no errors are found, otherwise false.
-  #
-  # @return [Boolean]
-  #
   # pkg:gem/graphql-client#lib/graphql/client/errors.rb:171
   def blank?; end
 
-  # Public: Count the number of errors on object.
-  #
-  #   data.errors.messages # => {"node"=>["couldn't find node by id", "unauthorized"]}
-  #   data.errors.size     # => 2
-  #
-  # Returns the number of error messages.
-  #
   # pkg:gem/graphql-client#lib/graphql/client/errors.rb:160
   def count; end
 
@@ -496,8 +443,6 @@ class GraphQL::Client::Errors
   #
   # Returns true if no errors are found, otherwise false.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/graphql-client#lib/graphql/client/errors.rb:168
   def empty?; end
 
@@ -510,17 +455,6 @@ class GraphQL::Client::Errors
   # pkg:gem/graphql-client#lib/graphql/client/errors.rb:64
   def filter_by_path(field); end
 
-  # Public: Check if there are any errors on a given field.
-  #
-  #   data.errors.messages # => {"node"=>["couldn't find node by id", "unauthorized"]}
-  #   data.errors.include?("node")    # => true
-  #   data.errors.include?("version") # => false
-  #
-  # Returns true if the error messages include an error for the given field,
-  # otherwise false.
-  #
-  # @return [Boolean]
-  #
   # pkg:gem/graphql-client#lib/graphql/client/errors.rb:148
   def has_key?(field); end
 
@@ -533,8 +467,6 @@ class GraphQL::Client::Errors
   # Returns true if the error messages include an error for the given field,
   # otherwise false.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/graphql-client#lib/graphql/client/errors.rb:145
   def include?(field); end
 
@@ -545,17 +477,6 @@ class GraphQL::Client::Errors
   # pkg:gem/graphql-client#lib/graphql/client/errors.rb:196
   def inspect; end
 
-  # Public: Check if there are any errors on a given field.
-  #
-  #   data.errors.messages # => {"node"=>["couldn't find node by id", "unauthorized"]}
-  #   data.errors.include?("node")    # => true
-  #   data.errors.include?("version") # => false
-  #
-  # Returns true if the error messages include an error for the given field,
-  # otherwise false.
-  #
-  # @return [Boolean]
-  #
   # pkg:gem/graphql-client#lib/graphql/client/errors.rb:149
   def key?(field); end
 
@@ -624,13 +545,9 @@ end
 
 # pkg:gem/graphql-client#lib/graphql/client.rb:433
 class GraphQL::Client::GatherNamesVisitor < ::GraphQL::Language::Visitor
-  # @return [GatherNamesVisitor] a new instance of GatherNamesVisitor
-  #
   # pkg:gem/graphql-client#lib/graphql/client.rb:434
   def initialize(node); end
 
-  # Returns the value of attribute names.
-  #
   # pkg:gem/graphql-client#lib/graphql/client.rb:439
   def names; end
 
@@ -663,8 +580,6 @@ class GraphQL::Client::HTTP
   #
   # uri - String endpoint URI
   # block - Optional block to configure class
-  #
-  # @return [HTTP] a new instance of HTTP
   #
   # pkg:gem/graphql-client#lib/graphql/client/http.rb:31
   def initialize(uri, &block); end
@@ -722,8 +637,6 @@ class GraphQL::Client::HashWithIndifferentAccess
   include ::Enumerable
   extend ::Forwardable
 
-  # @return [HashWithIndifferentAccess] a new instance of HashWithIndifferentAccess
-  #
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:15
   def initialize(hash = T.unsafe(nil)); end
 
@@ -742,21 +655,15 @@ class GraphQL::Client::HashWithIndifferentAccess
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:35
   def fetch(key, *args, &block); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:43
   def has_key?(key); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:42
   def include?(key); end
 
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:29
   def inspect(*_arg0, **_arg1, &_arg2); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:39
   def key?(key); end
 
@@ -766,8 +673,6 @@ class GraphQL::Client::HashWithIndifferentAccess
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:29
   def length(*_arg0, **_arg1, &_arg2); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:44
   def member?(key); end
 
@@ -803,10 +708,6 @@ class GraphQL::Client::InvariantError < ::GraphQL::Client::Error; end
 #
 # pkg:gem/graphql-client#lib/graphql/client.rb:394
 module GraphQL::Client::LazyName
-  # Sets the attribute _definition
-  #
-  # @param value the value to set the attribute _definition to.
-  #
   # pkg:gem/graphql-client#lib/graphql/client.rb:399
   def _definition=(_arg0); end
 
@@ -818,8 +719,6 @@ end
 #
 # pkg:gem/graphql-client#lib/graphql/client/list.rb:7
 class GraphQL::Client::List < ::Array
-  # @return [List] a new instance of List
-  #
   # pkg:gem/graphql-client#lib/graphql/client/list.rb:8
   def initialize(values, errors = T.unsafe(nil)); end
 
@@ -869,8 +768,6 @@ end
 #
 # pkg:gem/graphql-client#lib/graphql/client/query_typename.rb:21
 class GraphQL::Client::QueryTypename::InsertTypenameVisitor < ::GraphQL::Language::Visitor
-  # @return [InsertTypenameVisitor] a new instance of InsertTypenameVisitor
-  #
   # pkg:gem/graphql-client#lib/graphql/client/query_typename.rb:22
   def initialize(document, types:); end
 
@@ -889,8 +786,6 @@ end
 
 # pkg:gem/graphql-client#lib/graphql/client.rb:242
 class GraphQL::Client::RenameNodeVisitor < ::GraphQL::Language::Visitor
-  # @return [RenameNodeVisitor] a new instance of RenameNodeVisitor
-  #
   # pkg:gem/graphql-client#lib/graphql/client.rb:243
   def initialize(document, definitions:); end
 
@@ -916,8 +811,6 @@ end
 # pkg:gem/graphql-client#lib/graphql/client/response.rb:9
 class GraphQL::Client::Response
   # Internal: Initialize base class.
-  #
-  # @return [Response] a new instance of Response
   #
   # pkg:gem/graphql-client#lib/graphql/client/response.rb:40
   def initialize(hash, data: T.unsafe(nil), errors: T.unsafe(nil), extensions: T.unsafe(nil), full_response: T.unsafe(nil)); end
@@ -959,17 +852,9 @@ class GraphQL::Client::Response
   # pkg:gem/graphql-client#lib/graphql/client/response.rb:13
   def original_hash; end
 
-  # Public: Original JSON response hash returned from server.
-  #
-  # Returns Hash.
-  #
   # pkg:gem/graphql-client#lib/graphql/client/response.rb:14
   def to_h; end
 
-  # Public: Original JSON response hash returned from server.
-  #
-  # Returns Hash.
-  #
   # pkg:gem/graphql-client#lib/graphql/client/response.rb:15
   def to_hash; end
 end
@@ -993,8 +878,6 @@ module GraphQL::Client::Schema::BaseType
   # errors - Errors instance
   #
   # Returns BaseType instance.
-  #
-  # @raise [NotImplementedError]
   #
   # pkg:gem/graphql-client#lib/graphql/client/schema/base_type.rb:19
   def cast(value, errors); end
@@ -1060,8 +943,6 @@ class GraphQL::Client::Schema::EnumType < ::Module
   #
   # type - GraphQL::EnumType instance
   #
-  # @return [EnumType] a new instance of EnumType
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/enum_type.rb:53
   def initialize(type); end
 
@@ -1085,31 +966,23 @@ end
 
 # pkg:gem/graphql-client#lib/graphql/client/schema/enum_type.rb:12
 class GraphQL::Client::Schema::EnumType::EnumValue < ::String
-  # @return [EnumValue] a new instance of EnumValue
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/enum_type.rb:13
   def initialize(obj, enum_value, enum); end
 
   # pkg:gem/graphql-client#lib/graphql/client/schema/enum_type.rb:31
   def method_missing(method_name, *args); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/enum_type.rb:19
   def unknown_enum_value?; end
 
   private
 
-  # @return [Boolean]
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/enum_type.rb:23
   def respond_to_missing?(method_name, include_private = T.unsafe(nil)); end
 end
 
 # pkg:gem/graphql-client#lib/graphql/client/schema/enum_type.rb:44
 class GraphQL::Client::Schema::EnumType::UnexpectedEnumValue < ::String
-  # @return [Boolean]
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/enum_type.rb:45
   def unknown_enum_value?; end
 end
@@ -1121,8 +994,6 @@ class GraphQL::Client::Schema::IncludeDirective
   # Internal: Construct list wrapper from other BaseType.
   #
   # of_klass - BaseType instance
-  #
-  # @return [IncludeDirective] a new instance of IncludeDirective
   #
   # pkg:gem/graphql-client#lib/graphql/client/schema/include_directive.rb:14
   def initialize(of_klass); end
@@ -1149,8 +1020,6 @@ end
 class GraphQL::Client::Schema::InterfaceType < ::Module
   include ::GraphQL::Client::Schema::BaseType
 
-  # @return [InterfaceType] a new instance of InterfaceType
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/interface_type.rb:11
   def initialize(type); end
 
@@ -1168,8 +1037,6 @@ class GraphQL::Client::Schema::ListType
   # Internal: Construct list wrapper from other BaseType.
   #
   # of_klass - BaseType instance
-  #
-  # @return [ListType] a new instance of ListType
   #
   # pkg:gem/graphql-client#lib/graphql/client/schema/list_type.rb:16
   def initialize(of_klass); end
@@ -1207,8 +1074,6 @@ class GraphQL::Client::Schema::NonNullType
   #
   # of_klass - BaseType instance
   #
-  # @return [NonNullType] a new instance of NonNullType
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/non_null_type.rb:15
   def initialize(of_klass); end
 
@@ -1239,8 +1104,6 @@ end
 
 # pkg:gem/graphql-client#lib/graphql/client/schema/object_type.rb:175
 class GraphQL::Client::Schema::ObjectClass
-  # @return [ObjectClass] a new instance of ObjectClass
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/object_type.rb:176
   def initialize(data = T.unsafe(nil), errors = T.unsafe(nil), definer = T.unsafe(nil)); end
 
@@ -1277,25 +1140,17 @@ class GraphQL::Client::Schema::ObjectClass
   # pkg:gem/graphql-client#lib/graphql/client/schema/object_type.rb:191
   def to_h; end
 
-  # Public: Returns the raw response data
-  #
-  # Returns Hash
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/object_type.rb:194
   def to_hash; end
 
   private
 
-  # @return [Boolean]
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/object_type.rb:306
   def has_attribute?(attr); end
 
   # pkg:gem/graphql-client#lib/graphql/client/schema/object_type.rb:300
   def read_attribute(attr, type); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/object_type.rb:208
   def respond_to_missing?(name, priv); end
 
@@ -1333,26 +1188,18 @@ class GraphQL::Client::Schema::ObjectType::WithDefinition
   include ::GraphQL::Client::Schema::BaseType
   include ::GraphQL::Client::Schema::ObjectType
 
-  # @return [WithDefinition] a new instance of WithDefinition
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/object_type.rb:48
   def initialize(klass, defined_fields, definition, spreads); end
 
-  # Returns the value of attribute defined_fields.
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/object_type.rb:30
   def defined_fields; end
 
-  # Returns the value of attribute definition.
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/object_type.rb:30
   def definition; end
 
   # pkg:gem/graphql-client#lib/graphql/client/schema/object_type.rb:36
   def fields; end
 
-  # Returns the value of attribute klass.
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/object_type.rb:30
   def klass; end
 
@@ -1373,8 +1220,6 @@ GraphQL::Client::Schema::ObjectType::WithDefinition::EMPTY_SET = T.let(T.unsafe(
 class GraphQL::Client::Schema::PossibleTypes
   include ::GraphQL::Client::Schema::BaseType
 
-  # @return [PossibleTypes] a new instance of PossibleTypes
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/possible_types.rb:13
   def initialize(type, types); end
 
@@ -1388,8 +1233,6 @@ class GraphQL::Client::Schema::PossibleTypes
   # pkg:gem/graphql-client#lib/graphql/client/schema/possible_types.rb:37
   def cast(value, errors); end
 
-  # Returns the value of attribute possible_types.
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/possible_types.rb:29
   def possible_types; end
 end
@@ -1401,8 +1244,6 @@ class GraphQL::Client::Schema::ScalarType
   # Internal: Construct type wrapper from another GraphQL::BaseType.
   #
   # type - GraphQL::BaseType instance
-  #
-  # @return [ScalarType] a new instance of ScalarType
   #
   # pkg:gem/graphql-client#lib/graphql/client/schema/scalar_type.rb:14
   def initialize(type); end
@@ -1429,8 +1270,6 @@ class GraphQL::Client::Schema::SkipDirective
   #
   # of_klass - BaseType instance
   #
-  # @return [SkipDirective] a new instance of SkipDirective
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/skip_directive.rb:14
   def initialize(of_klass); end
 
@@ -1456,8 +1295,6 @@ end
 class GraphQL::Client::Schema::UnionType < ::Module
   include ::GraphQL::Client::Schema::BaseType
 
-  # @return [UnionType] a new instance of UnionType
-  #
   # pkg:gem/graphql-client#lib/graphql/client/schema/union_type.rb:11
   def initialize(type); end
 
@@ -1482,7 +1319,6 @@ module GraphQL::Client::TypeStack
   def argument_definitions; end
 
   # Directives are pushed on, then popped off while traversing the tree
-  #
   # @return [Array<GraphQL::Node::Directive>] directives which have been entered
   #
   # pkg:gem/graphql-client#lib/graphql/client/type_stack.rb:20
@@ -1490,7 +1326,6 @@ module GraphQL::Client::TypeStack
 
   # When it enters a field, it's pushed on this stack (useful for nested fields, args).
   # When it exits, it's popped off.
-  #
   # @return [Array<GraphQL::Field>] fields which have been entered
   #
   # pkg:gem/graphql-client#lib/graphql/client/type_stack.rb:16
@@ -1498,7 +1333,6 @@ module GraphQL::Client::TypeStack
 
   # When it enters an object (starting with query or mutation root), it's pushed on this stack.
   # When it exits, it's popped off.
-  #
   # @return [Array<GraphQL::ObjectType, GraphQL::Union, GraphQL::Interface>]
   #
   # pkg:gem/graphql-client#lib/graphql/client/type_stack.rb:11

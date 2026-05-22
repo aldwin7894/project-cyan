@@ -14,8 +14,6 @@ module WebSocket::Client; end
 # pkg:gem/websocket-client-simple#lib/websocket-client-simple/version.rb:3
 module WebSocket::Client::Simple
   class << self
-    # @yield [client]
-    #
     # pkg:gem/websocket-client-simple#lib/websocket-client-simple/client.rb:5
     def connect(url, options = T.unsafe(nil)); end
   end
@@ -29,34 +27,24 @@ class WebSocket::Client::Simple::Client
   # pkg:gem/websocket-client-simple#lib/websocket-client-simple/client.rb:88
   def close; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/websocket-client-simple#lib/websocket-client-simple/client.rb:104
   def closed?; end
 
   # pkg:gem/websocket-client-simple#lib/websocket-client-simple/client.rb:16
   def connect(url, options = T.unsafe(nil)); end
 
-  # Returns the value of attribute handshake.
-  #
   # pkg:gem/websocket-client-simple#lib/websocket-client-simple/client.rb:14
   def handshake; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/websocket-client-simple#lib/websocket-client-simple/client.rb:100
   def open?; end
 
   # pkg:gem/websocket-client-simple#lib/websocket-client-simple/client.rb:73
   def send(data, opt = T.unsafe(nil)); end
 
-  # Returns the value of attribute thread.
-  #
   # pkg:gem/websocket-client-simple#lib/websocket-client-simple/client.rb:14
   def thread; end
 
-  # Returns the value of attribute url.
-  #
   # pkg:gem/websocket-client-simple#lib/websocket-client-simple/client.rb:14
   def url; end
 end

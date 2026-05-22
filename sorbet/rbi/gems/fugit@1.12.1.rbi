@@ -97,8 +97,6 @@ class Fugit::Cron
   # pkg:gem/fugit#lib/fugit/cron.rb:404
   def brute_frequency(year = T.unsafe(nil)); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:215
   def day_match?(nt); end
 
@@ -108,48 +106,30 @@ class Fugit::Cron
   # pkg:gem/fugit#lib/fugit/cron.rb:512
   def hash; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:172
   def hour_match?(nt); end
 
-  # Returns the value of attribute hours.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:22
   def hours; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:245
   def match?(t); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:173
   def min_match?(nt); end
 
-  # Returns the value of attribute minutes.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:22
   def minutes; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:171
   def month_match?(nt); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:204
   def monthday_match?(nt); end
 
-  # Returns the value of attribute monthdays.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:22
   def monthdays; end
 
-  # Returns the value of attribute months.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:22
   def months; end
 
@@ -169,8 +149,6 @@ class Fugit::Cron
   # pkg:gem/fugit#lib/fugit/cron.rb:262
   def next_time(from = T.unsafe(nil)); end
 
-  # Returns the value of attribute original.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:20
   def original; end
 
@@ -186,18 +164,12 @@ class Fugit::Cron
   # pkg:gem/fugit#lib/fugit/cron.rb:434
   def rough_frequency; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:174
   def sec_match?(nt); end
 
-  # Returns the value of attribute seconds.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:22
   def seconds; end
 
-  # Returns the value of attribute timezone.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:22
   def timezone; end
 
@@ -210,23 +182,15 @@ class Fugit::Cron
   # pkg:gem/fugit#lib/fugit/cron.rb:496
   def to_h; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:176
   def weekday_hash_match?(nt, hsh); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:194
   def weekday_match?(nt); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:188
   def weekday_modulo_match?(nt, mod); end
 
-  # Returns the value of attribute weekdays.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:22
   def weekdays; end
 
@@ -236,8 +200,6 @@ class Fugit::Cron
   # pkg:gem/fugit#lib/fugit/cron.rb:385
   def within(time_range, time_end = T.unsafe(nil)); end
 
-  # Returns the value of attribute zone.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:20
   def zone; end
 
@@ -308,31 +270,21 @@ end
 class Fugit::Cron::CronIterator
   include ::Enumerable
 
-  # @return [CronIterator] a new instance of CronIterator
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:349
   def initialize(cron, direction, start); end
 
-  # Returns the value of attribute cron.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:347
   def cron; end
 
-  # Returns the value of attribute current.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:347
   def current; end
 
-  # Returns the value of attribute direction.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:347
   def direction; end
 
   # pkg:gem/fugit#lib/fugit/cron.rb:357
   def each; end
 
-  # Returns the value of attribute start.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:347
   def start; end
 end
@@ -342,41 +294,27 @@ Fugit::Cron::FREQUENCY_CACHE = T.let(T.unsafe(nil), Hash)
 
 # pkg:gem/fugit#lib/fugit/cron.rb:463
 class Fugit::Cron::Frequency
-  # @return [Frequency] a new instance of Frequency
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:468
   def initialize(deltas, span); end
 
-  # Returns the value of attribute delta_max.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:465
   def delta_max; end
 
-  # Returns the value of attribute delta_min.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:465
   def delta_min; end
 
-  # Returns the value of attribute occurrences.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:465
   def occurrences; end
 
-  # Returns the value of attribute span.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:465
   def span; end
 
-  # Returns the value of attribute span_years.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:466
   def span_years; end
 
   # pkg:gem/fugit#lib/fugit/cron.rb:478
   def to_debug_s; end
 
-  # Returns the value of attribute yearly_occurrences.
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:466
   def yearly_occurrences; end
 end
@@ -418,8 +356,6 @@ module Fugit::Cron::Parser
   # pkg:gem/fugit#lib/fugit/cron.rb:827
   def _tz_name(i); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:760
   def and?(i); end
 
@@ -429,8 +365,6 @@ module Fugit::Cron::Parser
   # pkg:gem/fugit#lib/fugit/cron.rb:758
   def comma(i); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:759
   def comma?(i); end
 
@@ -458,6 +392,8 @@ module Fugit::Cron::Parser
   # pkg:gem/fugit#lib/fugit/cron.rb:809
   def h_dow(i); end
 
+  # min or sec
+  #
   # pkg:gem/fugit#lib/fugit/cron.rb:765
   def hou(i); end
 
@@ -515,8 +451,6 @@ module Fugit::Cron::Parser
   # pkg:gem/fugit#lib/fugit/cron.rb:803
   def mon_elt(i); end
 
-  # min or sec
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:764
   def mos(i); end
 
@@ -634,8 +568,6 @@ Fugit::Cron::SPECIALS = T.let(T.unsafe(nil), Hash)
 
 # pkg:gem/fugit#lib/fugit/cron.rb:87
 class Fugit::Cron::TimeCursor
-  # @return [TimeCursor] a new instance of TimeCursor
-  #
   # pkg:gem/fugit#lib/fugit/cron.rb:89
   def initialize(cron, t); end
 
@@ -758,8 +690,6 @@ class Fugit::Duration
   # pkg:gem/fugit#lib/fugit/duration.rb:294
   def eql?(o); end
 
-  # Returns the value of attribute h.
-  #
   # pkg:gem/fugit#lib/fugit/duration.rb:7
   def h; end
 
@@ -775,13 +705,9 @@ class Fugit::Duration
   # pkg:gem/fugit#lib/fugit/duration.rb:208
   def opposite; end
 
-  # Returns the value of attribute options.
-  #
   # pkg:gem/fugit#lib/fugit/duration.rb:7
   def options; end
 
-  # Returns the value of attribute original.
-  #
   # pkg:gem/fugit#lib/fugit/duration.rb:7
   def original; end
 
@@ -1391,32 +1317,18 @@ Fugit::Nat::Parser::WEEKDAY_REX = T.let(T.unsafe(nil), Regexp)
 
 # pkg:gem/fugit#lib/fugit/nat.rb:568
 class Fugit::Nat::Slot
-  # @return [Slot] a new instance of Slot
-  #
   # pkg:gem/fugit#lib/fugit/nat.rb:571
   def initialize(key, d0, d1 = T.unsafe(nil), opts = T.unsafe(nil)); end
 
-  # Returns the value of attribute _data0.
-  #
   # pkg:gem/fugit#lib/fugit/nat.rb:570
   def _data0; end
 
-  # Sets the attribute _data0
-  #
-  # @param value the value to set the attribute _data0 to.
-  #
   # pkg:gem/fugit#lib/fugit/nat.rb:570
   def _data0=(_arg0); end
 
-  # Returns the value of attribute _data1.
-  #
   # pkg:gem/fugit#lib/fugit/nat.rb:570
   def _data1; end
 
-  # Sets the attribute _data1
-  #
-  # @param value the value to set the attribute _data1 to.
-  #
   # pkg:gem/fugit#lib/fugit/nat.rb:570
   def _data1=(_arg0); end
 
@@ -1432,16 +1344,12 @@ class Fugit::Nat::Slot
   # pkg:gem/fugit#lib/fugit/nat.rb:577
   def data1; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/fugit#lib/fugit/nat.rb:580
   def graded?; end
 
   # pkg:gem/fugit#lib/fugit/nat.rb:586
   def inspect; end
 
-  # Returns the value of attribute key.
-  #
   # pkg:gem/fugit#lib/fugit/nat.rb:569
   def key; end
 
@@ -1465,8 +1373,6 @@ end
 
 # pkg:gem/fugit#lib/fugit/nat.rb:620
 class Fugit::Nat::SlotGroup
-  # @return [SlotGroup] a new instance of SlotGroup
-  #
   # pkg:gem/fugit#lib/fugit/nat.rb:622
   def initialize(slots); end
 

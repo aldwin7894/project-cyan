@@ -9,16 +9,15 @@
 module Webdrivers
   class << self
     # Returns the amount of time (Seconds) the gem waits between two update checks.
-    # are set, it defaults to 86,400 Seconds (24 hours).
-    #
     # @note Value from the environment variable "WD_CACHE_TIME" takes precedence over Webdrivers.cache_time. If neither
+    # are set, it defaults to 86,400 Seconds (24 hours).
     #
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:35
     def cache_time; end
 
-    # Sets the attribute cache_time
-    #
-    # @param value the value to set the attribute cache_time to.
+    # Returns the amount of time (Seconds) the gem waits between two update checks.
+    # @note Value from the environment variable "WD_CACHE_TIME" takes precedence over Webdrivers.cache_time. If neither
+    # are set, it defaults to 86,400 Seconds (24 hours).
     #
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:28
     def cache_time=(_arg0); end
@@ -27,14 +26,12 @@ module Webdrivers
     #
     # @example Configure proxy and cache_time
     #   Webdrivers.configure do |config|
-    #   config.proxy_addr = 'myproxy_address.com'
-    #   config.proxy_port = '8080'
-    #   config.proxy_user = 'username'
-    #   config.proxy_pass = 'password'
-    #   config.cache_time = 604_800 # 7 days
+    #     config.proxy_addr = 'myproxy_address.com'
+    #     config.proxy_port = '8080'
+    #     config.proxy_user = 'username'
+    #     config.proxy_pass = 'password'
+    #     config.cache_time = 604_800 # 7 days
     #   end
-    # @yield [_self]
-    # @yieldparam _self [Webdrivers] the object that the method was called on
     #
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:64
     def configure; end
@@ -46,9 +43,9 @@ module Webdrivers
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:44
     def install_dir; end
 
-    # Sets the attribute install_dir
+    # Returns the install (download) directory path for the drivers.
     #
-    # @param value the value to set the attribute install_dir to.
+    # @return [String]
     #
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:28
     def install_dir=(_arg0); end
@@ -59,51 +56,27 @@ module Webdrivers
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:68
     def net_http_ssl_fix; end
 
-    # Returns the value of attribute proxy_addr.
-    #
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:27
     def proxy_addr; end
 
-    # Sets the attribute proxy_addr
-    #
-    # @param value the value to set the attribute proxy_addr to.
-    #
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:27
     def proxy_addr=(_arg0); end
 
-    # Returns the value of attribute proxy_pass.
-    #
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:27
     def proxy_pass; end
 
-    # Sets the attribute proxy_pass
-    #
-    # @param value the value to set the attribute proxy_pass to.
-    #
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:27
     def proxy_pass=(_arg0); end
 
-    # Returns the value of attribute proxy_port.
-    #
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:27
     def proxy_port; end
 
-    # Sets the attribute proxy_port
-    #
-    # @param value the value to set the attribute proxy_port to.
-    #
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:27
     def proxy_port=(_arg0); end
 
-    # Returns the value of attribute proxy_user.
-    #
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:27
     def proxy_user; end
 
-    # Sets the attribute proxy_user
-    #
-    # @param value the value to set the attribute proxy_user to.
-    #
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:27
     def proxy_user=(_arg0); end
   end
@@ -117,62 +90,38 @@ class Webdrivers::BrowserNotFound < ::StandardError; end
 # pkg:gem/webdrivers#lib/webdrivers/chrome_finder.rb:7
 class Webdrivers::ChromeFinder
   class << self
-    # @api private
-    # @raise [BrowserNotFound]
-    #
     # pkg:gem/webdrivers#lib/webdrivers/chrome_finder.rb:17
     def location; end
 
-    # @api private
-    # @raise [VersionError]
-    #
     # pkg:gem/webdrivers#lib/webdrivers/chrome_finder.rb:9
     def version; end
 
     private
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/chrome_finder.rb:90
     def linux_location; end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/chrome_finder.rb:126
     def linux_version(location); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/chrome_finder.rb:75
     def mac_location; end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/chrome_finder.rb:132
     def mac_version(location); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/chrome_finder.rb:26
     def user_defined_location; end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/chrome_finder.rb:38
     def win_location; end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/chrome_finder.rb:116
     def win_version(location); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/chrome_finder.rb:53
     def wsl_location; end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/chrome_finder.rb:122
     def wsl_version(location); end
   end
@@ -195,10 +144,6 @@ class Webdrivers::Chromedriver < ::Webdrivers::Common
     # pkg:gem/webdrivers#lib/webdrivers/chromedriver.rb:50
     def browser_version; end
 
-    # Returns currently installed Chrome/Chromium version.
-    #
-    # @return [Gem::Version]
-    #
     # pkg:gem/webdrivers#lib/webdrivers/chromedriver.rb:53
     def chrome_version; end
 
@@ -221,8 +166,6 @@ class Webdrivers::Chromedriver < ::Webdrivers::Common
     # pkg:gem/webdrivers#lib/webdrivers/chromedriver.rb:104
     def apple_filename(driver_version); end
 
-    # @return [Boolean]
-    #
     # pkg:gem/webdrivers#lib/webdrivers/chromedriver.rb:94
     def apple_m1_compatible?(driver_version); end
 
@@ -234,11 +177,6 @@ class Webdrivers::Chromedriver < ::Webdrivers::Common
     # pkg:gem/webdrivers#lib/webdrivers/chromedriver.rb:152
     def browser_build_version; end
 
-    # Returns major.minor.build version from the currently installed Chrome version
-    #
-    # @example
-    #   73.0.3683.75 (major.minor.build.patch) -> 73.0.3683 (major.minor.build)
-    #
     # pkg:gem/webdrivers#lib/webdrivers/chromedriver.rb:156
     def chrome_build_version; end
 
@@ -265,8 +203,6 @@ class Webdrivers::Chromedriver < ::Webdrivers::Common
     # pkg:gem/webdrivers#lib/webdrivers/chromedriver.rb:90
     def file_name; end
 
-    # @raise [NetworkError]
-    #
     # pkg:gem/webdrivers#lib/webdrivers/chromedriver.rb:169
     def latest_patch_version(driver_version); end
 
@@ -275,8 +211,6 @@ class Webdrivers::Chromedriver < ::Webdrivers::Common
 
     # Returns true if an executable driver binary exists
     # and its build version matches the browser build version
-    #
-    # @return [Boolean]
     #
     # pkg:gem/webdrivers#lib/webdrivers/chromedriver.rb:160
     def sufficient_binary?; end
@@ -305,9 +239,9 @@ class Webdrivers::Common
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:82
     def required_version; end
 
-    # Sets the attribute required_version
+    # Returns the user defined required version.
     #
-    # @param value the value to set the attribute required_version to.
+    # @return [Gem::Version]
     #
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:76
     def required_version=(_arg0); end
@@ -324,8 +258,6 @@ class Webdrivers::Common
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:147
     def binary_version; end
 
-    # @return [Boolean]
-    #
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:133
     def correct_binary?; end
 
@@ -335,16 +267,12 @@ class Webdrivers::Common
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:121
     def download_version; end
 
-    # @return [Boolean]
-    #
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:129
     def exists?; end
 
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:143
     def normalize_version(version); end
 
-    # @return [Boolean]
-    #
     # pkg:gem/webdrivers#lib/webdrivers/common.rb:139
     def sufficient_binary?; end
 
@@ -361,11 +289,11 @@ end
 # pkg:gem/webdrivers#lib/webdrivers/common.rb:11
 class Webdrivers::ConnectionError < ::StandardError; end
 
-# 24 hours
-#
 # pkg:gem/webdrivers#lib/webdrivers/common.rb:23
 Webdrivers::DEFAULT_CACHE_TIME = T.let(T.unsafe(nil), Integer)
 
+# 24 hours
+#
 # pkg:gem/webdrivers#lib/webdrivers/common.rb:24
 Webdrivers::DEFAULT_INSTALL_DIR = T.let(T.unsafe(nil), String)
 
@@ -374,52 +302,32 @@ Webdrivers::DEFAULT_INSTALL_DIR = T.let(T.unsafe(nil), String)
 # pkg:gem/webdrivers#lib/webdrivers/edge_finder.rb:7
 class Webdrivers::EdgeFinder
   class << self
-    # @api private
-    # @raise [BrowserNotFound]
-    #
     # pkg:gem/webdrivers#lib/webdrivers/edge_finder.rb:17
     def location; end
 
-    # @api private
-    # @raise [VersionError]
-    #
     # pkg:gem/webdrivers#lib/webdrivers/edge_finder.rb:9
     def version; end
 
     private
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/edge_finder.rb:71
     def linux_location; end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/edge_finder.rb:89
     def linux_version(location); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/edge_finder.rb:55
     def mac_location; end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/edge_finder.rb:93
     def mac_version(location); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/edge_finder.rb:26
     def user_defined_location; end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/edge_finder.rb:38
     def win_location; end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/edge_finder.rb:85
     def win_version(location); end
   end
@@ -444,8 +352,6 @@ class Webdrivers::Edgedriver < ::Webdrivers::Chromedriver
 
     private
 
-    # @return [Boolean]
-    #
     # pkg:gem/webdrivers#lib/webdrivers/edgedriver.rb:68
     def apple_m1_compatible?(driver_version); end
 
@@ -545,16 +451,16 @@ end
 
 # @example Enable full logging
 #   Webdrivers.logger.level = :debug
+#
 # @example Log to file
 #   Webdrivers.logger.output = 'webdrivers.log'
+#
 # @example Use logger manually
 #   Webdrivers.logger.info('This is info message')
 #   Webdrivers.logger.warn('This is warning message')
 #
 # pkg:gem/webdrivers#lib/webdrivers/logger.rb:15
 class Webdrivers::Logger < ::Selenium::WebDriver::Logger
-  # @return [Logger] a new instance of Logger
-  #
   # pkg:gem/webdrivers#lib/webdrivers/logger.rb:16
   def initialize; end
 end
@@ -564,29 +470,18 @@ end
 # pkg:gem/webdrivers#lib/webdrivers/network.rb:9
 class Webdrivers::Network
   class << self
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/network.rb:11
     def get(url, limit = T.unsafe(nil)); end
 
-    # @api private
-    # @raise [ConnectionError]
-    #
     # pkg:gem/webdrivers#lib/webdrivers/network.rb:29
     def get_response(url, limit = T.unsafe(nil)); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/network.rb:23
     def get_url(url, limit = T.unsafe(nil)); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/network.rb:49
     def http; end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/network.rb:58
     def using_proxy; end
   end
@@ -603,109 +498,69 @@ class Webdrivers::Railtie < ::Rails::Railtie; end
 # pkg:gem/webdrivers#lib/webdrivers/system.rb:17
 class Webdrivers::System
   class << self
-    # @api private
-    # @return [Boolean]
-    #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:162
     def apple_m1_architecture?; end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:191
     def bitsize; end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:41
     def cache_version(file_name, version); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:49
     def cached_version(file_name); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:195
     def call(process, arg = T.unsafe(nil)); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:93
     def decompress_file(tempfile, file_name, target); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:19
     def delete(file); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:60
     def download(url, target); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:70
     def download_file(url, target); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:138
     def driver_and_path(zip_file, driver_name); end
 
-    # @api private
-    # @return [Boolean]
-    #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:87
     def exists?(file); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:37
     def install_dir; end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:150
     def platform; end
 
-    # @api private
-    # @param path [String]
+    # @param [String] path
     # @return [String]
     #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:179
     def to_win32_path(path); end
 
-    # @api private
-    # @param path [String]
+    # @param [String] path
     # @return [String]
     #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:187
     def to_wsl_path(path); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:109
     def untarbz2_file(filename); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:115
     def untargz_file(source, target); end
 
-    # @api private
-    #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:126
     def unzip_file(filename, driver_name); end
 
-    # @api private
-    # @return [Boolean]
-    #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:53
     def valid_cache?(file_name); end
 
-    # @api private
     # @return [TrueClass, FalseClass]
     #
     # pkg:gem/webdrivers#lib/webdrivers/system.rb:173

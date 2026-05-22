@@ -177,8 +177,6 @@ module Lograge
     # pkg:gem/lograge#lib/lograge.rb:86
     def ignore(test); end
 
-    # @return [Boolean]
-    #
     # pkg:gem/lograge#lib/lograge.rb:94
     def ignore?(event); end
 
@@ -255,8 +253,6 @@ module Lograge
 
     private
 
-    # @return [Boolean]
-    #
     # pkg:gem/lograge#lib/lograge.rb:207
     def rack_cache_hashlike?(app); end
   end

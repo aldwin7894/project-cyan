@@ -55,8 +55,6 @@ module RestClient
     # Add a Proc to be called before each request in executed.
     # The proc parameters will be the http request and the request params.
     #
-    # @raise [ArgumentError]
-    #
     # pkg:gem/rest-client#lib/restclient.rb:169
     def add_before_execution_proc(&proc); end
 
@@ -147,8 +145,9 @@ module RestClient::AbstractResponse
   # may not even return all of those cookies if there are duplicate names.
   # Use the full cookie_jar for more nuanced access.
   #
-  # @return [Hash]
   # @see #cookie_jar
+  #
+  # @return [Hash]
   #
   # pkg:gem/rest-client#lib/restclient/abstract_response.rb:78
   def cookies; end
@@ -156,13 +155,9 @@ module RestClient::AbstractResponse
   # pkg:gem/rest-client#lib/restclient/abstract_response.rb:138
   def description; end
 
-  # Returns the value of attribute duration.
-  #
   # pkg:gem/rest-client#lib/restclient/abstract_response.rb:8
   def duration; end
 
-  # Returns the value of attribute end_time.
-  #
   # pkg:gem/rest-client#lib/restclient/abstract_response.rb:8
   def end_time; end
 
@@ -187,8 +182,6 @@ module RestClient::AbstractResponse
   # pkg:gem/rest-client#lib/restclient/abstract_response.rb:34
   def history; end
 
-  # @raise [NotImplementedError]
-  #
   # pkg:gem/rest-client#lib/restclient/abstract_response.rb:10
   def inspect; end
 
@@ -200,8 +193,6 @@ module RestClient::AbstractResponse
   # pkg:gem/rest-client#lib/restclient/abstract_response.rb:19
   def log_response; end
 
-  # Returns the value of attribute net_http_res.
-  #
   # pkg:gem/rest-client#lib/restclient/abstract_response.rb:8
   def net_http_res; end
 
@@ -210,14 +201,12 @@ module RestClient::AbstractResponse
   # pkg:gem/rest-client#lib/restclient/abstract_response.rb:45
   def raw_headers; end
 
-  # Returns the value of attribute request.
-  #
   # pkg:gem/rest-client#lib/restclient/abstract_response.rb:8
   def request; end
 
-  # @param net_http_res [Net::HTTPResponse]
-  # @param request [RestClient::Request]
-  # @param start_time [Time]
+  # @param [Net::HTTPResponse] net_http_res
+  # @param [RestClient::Request] request
+  # @param [Time] start_time
   #
   # pkg:gem/rest-client#lib/restclient/abstract_response.rb:52
   def response_set_vars(net_http_res, request, start_time); end
@@ -235,8 +224,6 @@ module RestClient::AbstractResponse
   # pkg:gem/rest-client#lib/restclient/abstract_response.rb:113
   def return!(&block); end
 
-  # Returns the value of attribute start_time.
-  #
   # pkg:gem/rest-client#lib/restclient/abstract_response.rb:8
   def start_time; end
 
@@ -257,8 +244,6 @@ module RestClient::AbstractResponse
   # pkg:gem/rest-client#lib/restclient/abstract_response.rb:236
   def check_max_redirects; end
 
-  # @raise [klass]
-  #
   # pkg:gem/rest-client#lib/restclient/abstract_response.rb:242
   def exception_with_response; end
 
@@ -352,8 +337,6 @@ end
 #
 # pkg:gem/rest-client#lib/restclient/exceptions.rb:109
 class RestClient::Exception < ::RuntimeError
-  # @return [Exception] a new instance of Exception
-  #
   # pkg:gem/rest-client#lib/restclient/exceptions.rb:114
   def initialize(response = T.unsafe(nil), initial_response_code = T.unsafe(nil)); end
 
@@ -372,34 +355,18 @@ class RestClient::Exception < ::RuntimeError
   # pkg:gem/rest-client#lib/restclient/exceptions.rb:141
   def message; end
 
-  # Sets the attribute message
-  #
-  # @param value the value to set the attribute message to.
-  #
   # pkg:gem/rest-client#lib/restclient/exceptions.rb:112
   def message=(_arg0); end
 
-  # Returns the value of attribute original_exception.
-  #
   # pkg:gem/rest-client#lib/restclient/exceptions.rb:111
   def original_exception; end
 
-  # Sets the attribute original_exception
-  #
-  # @param value the value to set the attribute original_exception to.
-  #
   # pkg:gem/rest-client#lib/restclient/exceptions.rb:111
   def original_exception=(_arg0); end
 
-  # Returns the value of attribute response.
-  #
   # pkg:gem/rest-client#lib/restclient/exceptions.rb:110
   def response; end
 
-  # Sets the attribute response
-  #
-  # @param value the value to set the attribute response to.
-  #
   # pkg:gem/rest-client#lib/restclient/exceptions.rb:110
   def response=(_arg0); end
 
@@ -450,8 +417,6 @@ end
 #
 # pkg:gem/rest-client#lib/restclient/exceptions.rb:202
 class RestClient::Exceptions::Timeout < ::RestClient::RequestTimeout
-  # @return [Timeout] a new instance of Timeout
-  #
   # pkg:gem/rest-client#lib/restclient/exceptions.rb:203
   def initialize(message = T.unsafe(nil), original_exception = T.unsafe(nil)); end
 end
@@ -632,18 +597,19 @@ end
 class RestClient::ParamsArray
   include ::Enumerable
 
-  # @example
-  #   >> ParamsArray.new([[:foo, 123], [:foo, 456], [:bar, 789]])
-  #   This will be encoded as "foo=123&foo=456&bar=789"
-  # @example
-  #   >> ParamsArray.new({foo: 123, bar: 456})
-  #   This is valid, but there's no reason not to just use the Hash directly
-  #   instead of a ParamsArray.
   # @param array [Array<Array>] An array of parameter key,value pairs. These
   #   pairs may be 2 element arrays [key, value] or single element hashes
   #   {key => value}. They may also be single element arrays to represent a
   #   key with no value.
-  # @return [ParamsArray] a new instance of ParamsArray
+  #
+  # @example
+  #   >> ParamsArray.new([[:foo, 123], [:foo, 456], [:bar, 789]])
+  #   This will be encoded as "foo=123&foo=456&bar=789"
+  #
+  # @example
+  #   >> ParamsArray.new({foo: 123, bar: 456})
+  #   This is valid, but there's no reason not to just use the Hash directly
+  #   instead of a ParamsArray.
   #
   # pkg:gem/rest-client#lib/restclient/params_array.rb:31
   def initialize(array); end
@@ -651,8 +617,6 @@ class RestClient::ParamsArray
   # pkg:gem/rest-client#lib/restclient/params_array.rb:35
   def each(*args, &blk); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rest-client#lib/restclient/params_array.rb:39
   def empty?; end
 
@@ -680,24 +644,18 @@ end
 module RestClient::Payload
   extend ::RestClient::Payload
 
-  # @return [Boolean]
-  #
   # pkg:gem/rest-client#lib/restclient/payload.rb:48
   def _has_file?(obj); end
 
   # pkg:gem/rest-client#lib/restclient/payload.rb:16
   def generate(params); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rest-client#lib/restclient/payload.rb:41
   def has_file?(params); end
 end
 
 # pkg:gem/rest-client#lib/restclient/payload.rb:59
 class RestClient::Payload::Base
-  # @return [Base] a new instance of Base
-  #
   # pkg:gem/rest-client#lib/restclient/payload.rb:60
   def initialize(params); end
 
@@ -707,8 +665,6 @@ class RestClient::Payload::Base
   # pkg:gem/rest-client#lib/restclient/payload.rb:89
   def close; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/rest-client#lib/restclient/payload.rb:93
   def closed?; end
 
@@ -894,11 +850,10 @@ end
 class RestClient::RawResponse
   include ::RestClient::AbstractResponse
 
-  # @param net_http_res [Net::HTTPResponse]
-  # @param request [RestClient::Request]
-  # @param start_time [Time]
-  # @param tempfile [Tempfile] The temporary file containing the body
-  # @return [RawResponse] a new instance of RawResponse
+  # @param [Tempfile] tempfile The temporary file containing the body
+  # @param [Net::HTTPResponse] net_http_res
+  # @param [RestClient::Request] request
+  # @param [Time] start_time
   #
   # pkg:gem/rest-client#lib/restclient/raw_response.rb:26
   def initialize(tempfile, net_http_res, request, start_time = T.unsafe(nil)); end
@@ -906,29 +861,21 @@ class RestClient::RawResponse
   # pkg:gem/rest-client#lib/restclient/raw_response.rb:39
   def body; end
 
-  # Returns the value of attribute end_time.
-  #
   # pkg:gem/rest-client#lib/restclient/raw_response.rb:16
   def end_time; end
 
-  # Returns the value of attribute file.
-  #
   # pkg:gem/rest-client#lib/restclient/raw_response.rb:16
   def file; end
 
   # pkg:gem/rest-client#lib/restclient/raw_response.rb:18
   def inspect; end
 
-  # Returns the value of attribute request.
-  #
   # pkg:gem/rest-client#lib/restclient/raw_response.rb:16
   def request; end
 
   # pkg:gem/rest-client#lib/restclient/raw_response.rb:44
   def size; end
 
-  # Returns the value of attribute start_time.
-  #
   # pkg:gem/rest-client#lib/restclient/raw_response.rb:16
   def start_time; end
 
@@ -977,13 +924,9 @@ end
 #
 # pkg:gem/rest-client#lib/restclient/request.rb:52
 class RestClient::Request
-  # @return [Request] a new instance of Request
-  #
   # pkg:gem/rest-client#lib/restclient/request.rb:73
   def initialize(args); end
 
-  # Returns the value of attribute args.
-  #
   # pkg:gem/rest-client#lib/restclient/request.rb:54
   def args; end
 
@@ -997,8 +940,9 @@ class RestClient::Request
   # cookies if there are duplicate keys. It's safer to use the cookie_jar
   # directly if that's a concern.
   #
-  # @return [Hash]
   # @see Request#cookie_jar
+  #
+  # @return [Hash]
   #
   # pkg:gem/rest-client#lib/restclient/request.rb:240
   def cookies; end
@@ -1014,8 +958,6 @@ class RestClient::Request
   # pkg:gem/rest-client#lib/restclient/request.rb:160
   def execute(&block); end
 
-  # Returns the value of attribute headers.
-  #
   # pkg:gem/rest-client#lib/restclient/request.rb:54
   def headers; end
 
@@ -1033,8 +975,9 @@ class RestClient::Request
   # Render a Cookie HTTP request header from the contents of the @cookie_jar,
   # or nil if the jar is empty.
   #
-  # @return [String, nil]
   # @see Request#cookie_jar
+  #
+  # @return [String, nil]
   #
   # pkg:gem/rest-client#lib/restclient/request.rb:262
   def make_cookie_header; end
@@ -1055,19 +998,16 @@ class RestClient::Request
   # not always work.
   # https://github.com/rest-client/rest-client/issues/599
   #
-  # @param user_headers [Hash] User-provided headers to include
+  # @param [Hash] user_headers User-provided headers to include
+  #
   # @return [Hash<String, String>] A hash of HTTP headers => values
   #
   # pkg:gem/rest-client#lib/restclient/request.rb:388
   def make_headers(user_headers); end
 
-  # Returns the value of attribute max_redirects.
-  #
   # pkg:gem/rest-client#lib/restclient/request.rb:54
   def max_redirects; end
 
-  # Returns the value of attribute method.
-  #
   # pkg:gem/rest-client#lib/restclient/request.rb:54
   def method; end
 
@@ -1086,24 +1026,19 @@ class RestClient::Request
   # scheme of 'http' will be added. This mimics the behavior of browsers and
   # user agents like cURL.
   #
-  # @param url [String] A URL string.
+  # @param [String] url A URL string.
+  #
   # @return [String]
   #
   # pkg:gem/rest-client#lib/restclient/request.rb:487
   def normalize_url(url); end
 
-  # Returns the value of attribute open_timeout.
-  #
   # pkg:gem/rest-client#lib/restclient/request.rb:54
   def open_timeout; end
 
-  # Returns the value of attribute password.
-  #
   # pkg:gem/rest-client#lib/restclient/request.rb:54
   def password; end
 
-  # Returns the value of attribute payload.
-  #
   # pkg:gem/rest-client#lib/restclient/request.rb:54
   def payload; end
 
@@ -1142,17 +1077,17 @@ class RestClient::Request
   #
   #     RestClient::Request.new(..., :cookies => jar)
   #
+  # @param [URI::HTTP] uri The URI for the request. This will be used to
   # infer the domain name for cookies passed as strings in a hash. To avoid
   # this implicit behavior, pass a full cookie jar or use HTTP::Cookie hash
   # values.
-  #
-  # @param args [Hash] The options passed to Request#initialize. This hash
-  #   will be used as another potential source for the :cookies key.
-  #   These args will not be mutated.
-  # @param headers [Hash] The headers hash from which to pull the :cookies
+  # @param [Hash] headers The headers hash from which to pull the :cookies
   #   option. MUTATION NOTE: This key will be deleted from the hash if
   #   present.
-  # @param uri [URI::HTTP] The URI for the request. This will be used to
+  # @param [Hash] args The options passed to Request#initialize. This hash
+  #   will be used as another potential source for the :cookies key.
+  #   These args will not be mutated.
+  #
   # @return [HTTP::CookieJar] A cookie jar containing the parsed cookies.
   #
   # pkg:gem/rest-client#lib/restclient/request.rb:319
@@ -1166,21 +1101,18 @@ class RestClient::Request
   # hash and encode the value into a query string. Append this query string
   # to the URL and return the resulting URL.
   #
-  # @param headers [Hash] An options/headers hash to process. Mutation
+  # @param [String] url
+  # @param [Hash] headers An options/headers hash to process. Mutation
   #   warning: the params key may be removed if present!
-  # @param url [String]
+  #
   # @return [String] resulting url with query string
   #
   # pkg:gem/rest-client#lib/restclient/request.rb:200
   def process_url_params(url, headers); end
 
-  # Returns the value of attribute processed_headers.
-  #
   # pkg:gem/rest-client#lib/restclient/request.rb:54
   def processed_headers; end
 
-  # Returns the value of attribute proxy.
-  #
   # pkg:gem/rest-client#lib/restclient/request.rb:54
   def proxy; end
 
@@ -1194,13 +1126,9 @@ class RestClient::Request
   # pkg:gem/rest-client#lib/restclient/request.rb:430
   def proxy_uri; end
 
-  # Returns the value of attribute raw_response.
-  #
   # pkg:gem/rest-client#lib/restclient/request.rb:54
   def raw_response; end
 
-  # Returns the value of attribute read_timeout.
-  #
   # pkg:gem/rest-client#lib/restclient/request.rb:54
   def read_timeout; end
 
@@ -1238,8 +1166,6 @@ class RestClient::Request
   # pkg:gem/rest-client#lib/restclient/request.rb:173
   def ssl_client_key; end
 
-  # Returns the value of attribute ssl_opts.
-  #
   # pkg:gem/rest-client#lib/restclient/request.rb:54
   def ssl_opts; end
 
@@ -1262,13 +1188,9 @@ class RestClient::Request
   # pkg:gem/rest-client#lib/restclient/request.rb:558
   def stringify_headers(headers); end
 
-  # Returns the value of attribute uri.
-  #
   # pkg:gem/rest-client#lib/restclient/request.rb:54
   def uri; end
 
-  # Returns the value of attribute url.
-  #
   # pkg:gem/rest-client#lib/restclient/request.rb:54
   def url; end
 
@@ -1279,8 +1201,6 @@ class RestClient::Request
   # pkg:gem/rest-client#lib/restclient/request.rb:182
   def use_ssl?; end
 
-  # Returns the value of attribute user.
-  #
   # pkg:gem/rest-client#lib/restclient/request.rb:54
   def user; end
 
@@ -1307,6 +1227,7 @@ class RestClient::Request
   #     => 'application/xml'
   #
   # @param ext [String]
+  #
   # @return [String]
   #
   # pkg:gem/rest-client#lib/restclient/request.rb:861
@@ -1318,8 +1239,9 @@ class RestClient::Request
   # validation.
   #
   # @param method [String, Symbol]
-  # @raise [ArgumentError]
+  #
   # @return [String]
+  #
   # @see net_http_request_class
   #
   # pkg:gem/rest-client#lib/restclient/request.rb:646
@@ -1329,9 +1251,11 @@ class RestClient::Request
   # `@uri`. Also save any basic auth user or password as @user and @password.
   # If no auth info was passed, check for credentials in a Netrc file.
   #
-  # @param url [String] A URL string.
-  # @raise URI::InvalidURIError on invalid URIs
+  # @param [String] url A URL string.
+  #
   # @return [URI]
+  #
+  # @raise URI::InvalidURIError on invalid URIs
   #
   # pkg:gem/rest-client#lib/restclient/request.rb:605
   def parse_url_with_auth!(url); end
@@ -1449,8 +1373,6 @@ end
 #
 # pkg:gem/rest-client#lib/restclient/resource.rb:36
 class RestClient::Resource
-  # @return [Resource] a new instance of Resource
-  #
   # pkg:gem/rest-client#lib/restclient/resource.rb:39
   def initialize(url, options = T.unsafe(nil), backwards_compatibility = T.unsafe(nil), &block); end
 
@@ -1483,8 +1405,6 @@ class RestClient::Resource
   # pkg:gem/rest-client#lib/restclient/resource.rb:160
   def [](suburl, &new_block); end
 
-  # Returns the value of attribute block.
-  #
   # pkg:gem/rest-client#lib/restclient/resource.rb:37
   def block; end
 
@@ -1509,8 +1429,6 @@ class RestClient::Resource
   # pkg:gem/rest-client#lib/restclient/resource.rb:126
   def open_timeout; end
 
-  # Returns the value of attribute options.
-  #
   # pkg:gem/rest-client#lib/restclient/resource.rb:37
   def options; end
 
@@ -1532,8 +1450,6 @@ class RestClient::Resource
   # pkg:gem/rest-client#lib/restclient/resource.rb:106
   def to_s; end
 
-  # Returns the value of attribute url.
-  #
   # pkg:gem/rest-client#lib/restclient/resource.rb:37
   def url; end
 
@@ -1587,10 +1503,10 @@ class RestClient::Response < ::String
     # (unfortunately) a subclass of String for historical reasons,
     # Response.create is the preferred initializer.
     #
-    # @param body [String, nil] The response body from the Net::HTTPResponse
-    # @param net_http_res [Net::HTTPResponse]
-    # @param request [RestClient::Request]
-    # @param start_time [Time]
+    # @param [String, nil] body The response body from the Net::HTTPResponse
+    # @param [Net::HTTPResponse] net_http_res
+    # @param [RestClient::Request] request
+    # @param [Time] start_time
     #
     # pkg:gem/rest-client#lib/restclient/response.rb:49
     def create(body, net_http_res, request, start_time = T.unsafe(nil)); end
@@ -1611,8 +1527,6 @@ end
 
 # pkg:gem/rest-client#lib/restclient/exceptions.rb:238
 class RestClient::SSLCertificateNotVerified < ::RestClient::Exception
-  # @return [SSLCertificateNotVerified] a new instance of SSLCertificateNotVerified
-  #
   # pkg:gem/rest-client#lib/restclient/exceptions.rb:239
   def initialize(message = T.unsafe(nil)); end
 end
@@ -1628,7 +1542,8 @@ end
 # 5xx: Server Error - The server failed to fulfill an apparently valid
 #      request
 #
-# @see http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
+# @see
+#   http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
 #
 # pkg:gem/rest-client#lib/restclient/exceptions.rb:17
 RestClient::STATUSES = T.let(T.unsafe(nil), Hash)
@@ -1648,8 +1563,6 @@ end
 #
 # pkg:gem/rest-client#lib/restclient/exceptions.rb:231
 class RestClient::ServerBrokeConnection < ::RestClient::Exception
-  # @return [ServerBrokeConnection] a new instance of ServerBrokeConnection
-  #
   # pkg:gem/rest-client#lib/restclient/exceptions.rb:232
   def initialize(message = T.unsafe(nil)); end
 end
@@ -1739,9 +1652,11 @@ module RestClient::Utils
   class << self
     # Parse semi-colon separated, potentially quoted header string iteratively.
     #
+    # @private
+    #
     # @deprecated This method is deprecated and only exists to support Ruby
     #   2.0, which is not supported by HTTP::Accept.
-    # @private
+    #
     # @todo remove this method when dropping support for Ruby 2.0
     #
     # pkg:gem/rest-client#lib/restclient/utils.rb:75
@@ -1751,7 +1666,7 @@ module RestClient::Utils
     #
     # Return the main content-type and a hash of params.
     #
-    # @param line [String]
+    # @param [String] line
     # @return [Array(String, Hash)]
     #
     # pkg:gem/rest-client#lib/restclient/utils.rb:56
@@ -1765,10 +1680,12 @@ module RestClient::Utils
     # probably doesn't read or perform particularly well in ruby.
     # https://github.com/python/cpython/blob/3.4/Lib/cgi.py#L301-L331
     #
+    # @param [String] line
+    # @return [Array(String, Hash)]
+    #
     # @deprecated This method is deprecated and only exists to support Ruby
     #   2.0, which is not supported by HTTP::Accept.
-    # @param line [String]
-    # @return [Array(String, Hash)]
+    #
     # @todo remove this method when dropping support for Ruby 2.0
     #
     # pkg:gem/rest-client#lib/restclient/utils.rb:112
@@ -1784,6 +1701,19 @@ module RestClient::Utils
     # simple flat hashes, you may want to use `URI.encode_www_form` instead,
     # which implements HTML5-compliant URL encoded form data.
     #
+    # @param [Hash,ParamsArray] object The object to serialize
+    #
+    # @return [String] A string appropriate for use as an HTTP query string
+    #
+    # @see {flatten_params}
+    #
+    # @see URI.encode_www_form
+    #
+    # @see See also Object#to_query in ActiveSupport
+    # @see http://php.net/manual/en/function.http-build-query.php
+    #   http_build_query in PHP
+    # @see See also Rack::Utils.build_nested_query in Rack
+    #
     # Notable differences from the ActiveSupport implementation:
     #
     # - Empty hash and empty array are treated the same as nil instead of being
@@ -1794,41 +1724,42 @@ module RestClient::Utils
     # also use a ParamsArray if you want to be able to pass the same key with
     # multiple values and not use the rack/rails array convention.
     #
+    # @since 2.0.0
+    #
+    # @example Simple hashes
+    #   >> encode_query_string({foo: 123, bar: 456})
+    #   => 'foo=123&bar=456'
+    #
+    # @example Simple arrays
+    #   >> encode_query_string({foo: [1,2,3]})
+    #   => 'foo[]=1&foo[]=2&foo[]=3'
+    #
+    # @example Nested hashes
+    #   >> encode_query_string({outer: {foo: 123, bar: 456}})
+    #   => 'outer[foo]=123&outer[bar]=456'
+    #
     # @example Deeply nesting
     #   >> encode_query_string({coords: [{x: 1, y: 0}, {x: 2}, {x: 3}]})
     #   => 'coords[][x]=1&coords[][y]=0&coords[][x]=2&coords[][x]=3'
+    #
+    # @example Null and empty values
+    #   >> encode_query_string({string: '', empty: nil, list: [], hash: {}})
+    #   => 'string=&empty&list&hash'
+    #
+    # @example Nested nulls
+    #   >> encode_query_string({foo: {string: '', empty: nil}})
+    #   => 'foo[string]=&foo[empty]'
+    #
     # @example Multiple fields with the same name using ParamsArray
     #   >> encode_query_string(RestClient::ParamsArray.new([[:foo, 1], [:foo, 2], [:foo, 3]]))
     #   => 'foo=1&foo=2&foo=3'
+    #
     # @example Nested ParamsArray
     #   >> encode_query_string({foo: RestClient::ParamsArray.new([[:a, 1], [:a, 2]])})
     #   => 'foo[a]=1&foo[a]=2'
     #
     #   >> encode_query_string(RestClient::ParamsArray.new([[:foo, {a: 1}], [:foo, {a: 2}]]))
     #   => 'foo[a]=1&foo[a]=2'
-    # @example Nested hashes
-    #   >> encode_query_string({outer: {foo: 123, bar: 456}})
-    #   => 'outer[foo]=123&outer[bar]=456'
-    # @example Nested nulls
-    #   >> encode_query_string({foo: {string: '', empty: nil}})
-    #   => 'foo[string]=&foo[empty]'
-    # @example Null and empty values
-    #   >> encode_query_string({string: '', empty: nil, list: [], hash: {}})
-    #   => 'string=&empty&list&hash'
-    # @example Simple arrays
-    #   >> encode_query_string({foo: [1,2,3]})
-    #   => 'foo[]=1&foo[]=2&foo[]=3'
-    # @example Simple hashes
-    #   >> encode_query_string({foo: 123, bar: 456})
-    #   => 'foo=123&bar=456'
-    # @param object [Hash, ParamsArray] The object to serialize
-    # @return [String] A string appropriate for use as an HTTP query string
-    # @see See also Object#to_query in ActiveSupport
-    # @see See also Rack::Utils.build_nested_query in Rack
-    # @see URI.encode_www_form
-    # @see http://php.net/manual/en/function.http-build-query.php http_build_query in PHP
-    # @see {flatten_params}
-    # @since 2.0.0
     #
     # pkg:gem/rest-client#lib/restclient/utils.rb:206
     def encode_query_string(object); end
@@ -1852,12 +1783,14 @@ module RestClient::Utils
     # @example
     #   >> flatten_params({key1: {key2: 123}})
     #   => [["key1[key2]", 123]]
+    #
     # @example
     #   >> flatten_params({key1: {key2: 123, arr: [1,2,3]}})
     #   => [["key1[key2]", 123], ["key1[arr][]", 1], ["key1[arr][]", 2], ["key1[arr][]", 3]]
+    #
     # @param object [Hash, ParamsArray] The container to flatten
-    # @param parent_key [String] Should not be passed (used for recursion)
     # @param uri_escape [Boolean] Whether to URI escape keys and values
+    # @param parent_key [String] Should not be passed (used for recursion)
     #
     # pkg:gem/rest-client#lib/restclient/utils.rb:225
     def flatten_params(object, uri_escape = T.unsafe(nil), parent_key = T.unsafe(nil)); end
@@ -1871,12 +1804,14 @@ module RestClient::Utils
     # Strings will use the default encoding when this method returns nil. This
     # default is likely to be UTF-8 for Ruby >= 2.0
     #
+    # @param headers [Hash<Symbol,String>]
+    #
+    # @return [String, nil] Return the string encoding or nil if no header is
+    #   found.
+    #
     # @example
     #   >> get_encoding_from_headers({:content_type => 'text/plain; charset=UTF-8'})
     #   => "UTF-8"
-    # @param headers [Hash<Symbol,String>]
-    # @return [String, nil] Return the string encoding or nil if no header is
-    #   found.
     #
     # pkg:gem/rest-client#lib/restclient/utils.rb:25
     def get_encoding_from_headers(headers); end

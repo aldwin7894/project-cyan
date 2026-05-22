@@ -13,8 +13,6 @@ module EventEmitter
     # pkg:gem/event_emitter#lib/event_emitter/emitter.rb:8
     def apply(object); end
 
-    # @private
-    #
     # pkg:gem/event_emitter#lib/event_emitter/emitter.rb:3
     def included(klass); end
   end
@@ -28,16 +26,12 @@ module EventEmitter::InstanceMethods
   # pkg:gem/event_emitter#lib/event_emitter/emitter.rb:16
   def __events; end
 
-  # @raise [ArgumentError]
-  #
   # pkg:gem/event_emitter#lib/event_emitter/emitter.rb:20
   def add_listener(type, params = T.unsafe(nil), &block); end
 
   # pkg:gem/event_emitter#lib/event_emitter/emitter.rb:46
   def emit(type, *data); end
 
-  # @raise [ArgumentError]
-  #
   # pkg:gem/event_emitter#lib/event_emitter/emitter.rb:32
   def on(type, params = T.unsafe(nil), &block); end
 

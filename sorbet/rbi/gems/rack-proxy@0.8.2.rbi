@@ -71,23 +71,15 @@ module Rack; end
 #
 # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:6
 class Rack::HttpStreamingResponse
-  # @return [HttpStreamingResponse] a new instance of HttpStreamingResponse
-  #
   # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:15
   def initialize(request, host, port = T.unsafe(nil)); end
 
   # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:19
   def body; end
 
-  # Returns the value of attribute cert.
-  #
   # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:13
   def cert; end
 
-  # Sets the attribute cert
-  #
-  # @param value the value to set the attribute cert to.
-  #
   # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:13
   def cert=(_arg0); end
 
@@ -102,39 +94,27 @@ class Rack::HttpStreamingResponse
   # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:31
   def headers; end
 
-  # Returns the value of attribute key.
-  #
   # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:13
   def key; end
 
-  # Sets the attribute key
-  #
-  # @param value the value to set the attribute key to.
-  #
   # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:13
   def key=(_arg0); end
 
-  # Returns the value of attribute read_timeout.
-  #
+  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:13
+  def logger; end
+
+  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:13
+  def logger=(_arg0); end
+
   # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:13
   def read_timeout; end
 
-  # Sets the attribute read_timeout
-  #
-  # @param value the value to set the attribute read_timeout to.
-  #
   # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:13
   def read_timeout=(_arg0); end
 
-  # Returns the value of attribute ssl_version.
-  #
   # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:13
   def ssl_version; end
 
-  # Sets the attribute ssl_version
-  #
-  # @param value the value to set the attribute ssl_version to.
-  #
   # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:13
   def ssl_version=(_arg0); end
 
@@ -146,27 +126,15 @@ class Rack::HttpStreamingResponse
   # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:44
   def to_s; end
 
-  # Returns the value of attribute use_ssl.
-  #
   # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:13
   def use_ssl; end
 
-  # Sets the attribute use_ssl
-  #
-  # @param value the value to set the attribute use_ssl to.
-  #
   # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:13
   def use_ssl=(_arg0); end
 
-  # Returns the value of attribute verify_mode.
-  #
   # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:13
   def verify_mode; end
 
-  # Sets the attribute verify_mode
-  #
-  # @param value the value to set the attribute verify_mode to.
-  #
   # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:13
   def verify_mode=(_arg0); end
 
@@ -184,34 +152,22 @@ class Rack::HttpStreamingResponse
 
   private
 
-  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:74
+  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:75
   def close_connection; end
 
-  # Returns the value of attribute connection_closed.
-  #
-  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:72
+  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:73
   def connection_closed; end
 
-  # Sets the attribute connection_closed
-  #
-  # @param value the value to set the attribute connection_closed to.
-  #
-  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:72
+  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:73
   def connection_closed=(_arg0); end
 
-  # Returns the value of attribute host.
-  #
-  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:70
+  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:71
   def host; end
 
-  # Returns the value of attribute port.
-  #
-  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:70
+  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:71
   def port; end
 
-  # Returns the value of attribute request.
-  #
-  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:70
+  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:71
   def request; end
 end
 
@@ -222,29 +178,27 @@ Rack::HttpStreamingResponse::STATUSES_WITH_NO_ENTITY_BODY = T.let(T.unsafe(nil),
 #
 # pkg:gem/rack-proxy#lib/rack/proxy.rb:7
 class Rack::Proxy
-  # @option opts
-  # @param opts [Hash] a customizable set of options
-  # @return [Proxy] a new instance of Proxy
+  # @option opts [String, URI::HTTP] :backend Backend host to proxy requests to
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:63
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:65
   def initialize(app = T.unsafe(nil), opts = T.unsafe(nil)); end
 
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:86
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:95
   def call(env); end
 
   # Return modified env
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:91
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:100
   def rewrite_env(env); end
 
   # Return a rack triplet [status, headers, body]
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:96
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:105
   def rewrite_response(triplet); end
 
   protected
 
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:102
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:111
   def perform_request(env); end
 
   class << self
@@ -259,10 +213,10 @@ class Rack::Proxy
 
     protected
 
-    # pkg:gem/rack-proxy#lib/rack/proxy.rb:53
+    # pkg:gem/rack-proxy#lib/rack/proxy.rb:55
     def reconstruct_header_name(name); end
 
-    # pkg:gem/rack-proxy#lib/rack/proxy.rb:57
+    # pkg:gem/rack-proxy#lib/rack/proxy.rb:59
     def titleize(str); end
   end
 end

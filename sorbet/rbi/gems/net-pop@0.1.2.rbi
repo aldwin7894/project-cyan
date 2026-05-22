@@ -11,8 +11,6 @@
 class Net::APOP < ::Net::POP3
   # Always returns true.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:731
   def apop?; end
 end
@@ -190,15 +188,9 @@ class Net::POP3 < ::Net::Protocol
   #
   # This method does *not* open the TCP connection.
   #
-  # @return [POP3] a new instance of POP3
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:417
   def initialize(addr, port = T.unsafe(nil), isapop = T.unsafe(nil)); end
 
-  # +true+ if the POP3 session has started.
-  #
-  # @return [Boolean]
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:518
   def active?; end
 
@@ -209,16 +201,12 @@ class Net::POP3 < ::Net::Protocol
 
   # Does this instance use APOP authentication?
   #
-  # @return [Boolean]
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:436
   def apop?; end
 
   # Starts a pop3 session, attempts authentication, and quits.
   # This method must not be called while POP3 session is opened.
   # This method raises POPAuthenticationError if authentication fails.
-  #
-  # @raise [IOError]
   #
   # pkg:gem/net-pop#lib/net/pop.rb:314
   def auth_only(account, password); end
@@ -247,15 +235,6 @@ class Net::POP3 < ::Net::Protocol
   # pkg:gem/net-pop#lib/net/pop.rb:463
   def disable_ssl; end
 
-  # Yields each message to the passed-in block in turn.
-  # Equivalent to:
-  #
-  #   pop3.mails.each do |popmail|
-  #     ....
-  #   end
-  #
-  # This method raises a POPError if an error occurs.
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:672
   def each(&block); end
 
@@ -283,8 +262,6 @@ class Net::POP3 < ::Net::Protocol
   def enable_ssl(verify_or_params = T.unsafe(nil), certs = T.unsafe(nil), port = T.unsafe(nil)); end
 
   # Finishes a POP3 session and closes TCP connection.
-  #
-  # @raise [IOError]
   #
   # pkg:gem/net-pop#lib/net/pop.rb:589
   def finish; end
@@ -383,21 +360,15 @@ class Net::POP3 < ::Net::Protocol
   #
   # This method raises a POPAuthenticationError if authentication fails.
   #
-  # @raise [IOError]
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:526
   def start(account, password); end
 
   # +true+ if the POP3 session has started.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:514
   def started?; end
 
   # does this instance use SSL?
-  #
-  # @return [Boolean]
   #
   # pkg:gem/net-pop#lib/net/pop.rb:441
   def use_ssl?; end
@@ -407,8 +378,6 @@ class Net::POP3 < ::Net::Protocol
   # Returns the current command.
   #
   # Raises IOError if there is no active socket
-  #
-  # @raise [IOError]
   #
   # pkg:gem/net-pop#lib/net/pop.rb:615
   def command; end
@@ -433,51 +402,151 @@ class Net::POP3 < ::Net::Protocol
   def on_connect; end
 
   class << self
+    # Returns the APOP class if +isapop+ is true; otherwise, returns
+    # the POP class.  For example:
+    #
+    #     # Example 1
+    #     pop = Net::POP3::APOP($is_apop).new(addr, port)
+    #
+    #     # Example 2
+    #     Net::POP3::APOP($is_apop).start(addr, port) do |pop|
+    #       ....
+    #     end
+    #
     # pkg:gem/net-pop#lib/net/pop.rb:238
     def APOP(isapop); end
 
+    # Opens a POP3 session, attempts authentication, and quits.
+    #
+    # This method raises POPAuthenticationError if authentication fails.
+    #
+    # === Example: normal POP3
+    #
+    #     Net::POP3.auth_only('pop.example.com', 110,
+    #                         'YourAccount', 'YourPassword')
+    #
+    # === Example: APOP
+    #
+    #     Net::POP3.auth_only('pop.example.com', 110,
+    #                         'YourAccount', 'YourPassword', true)
+    #
     # pkg:gem/net-pop#lib/net/pop.rb:305
     def auth_only(address, port = T.unsafe(nil), account = T.unsafe(nil), password = T.unsafe(nil), isapop = T.unsafe(nil)); end
 
+    # returns the :ca_file or :ca_path from POP3.ssl_params
+    #
     # pkg:gem/net-pop#lib/net/pop.rb:377
     def certs; end
 
+    # Constructs proper parameters from arguments
+    #
     # pkg:gem/net-pop#lib/net/pop.rb:337
     def create_ssl_params(verify_or_params = T.unsafe(nil), certs = T.unsafe(nil)); end
 
+    # The default port for POP3 connections, port 110
+    #
     # pkg:gem/net-pop#lib/net/pop.rb:210
     def default_pop3_port; end
 
+    # The default port for POP3S connections, port 995
+    #
     # pkg:gem/net-pop#lib/net/pop.rb:215
     def default_pop3s_port; end
 
+    # returns the port for POP3
+    #
     # pkg:gem/net-pop#lib/net/pop.rb:205
     def default_port; end
 
+    # Starts a POP3 session and deletes all messages on the server.
+    # If a block is given, each POPMail object is yielded to it before
+    # being deleted.
+    #
+    # This method raises a POPAuthenticationError if authentication fails.
+    #
+    # === Example
+    #
+    #     Net::POP3.delete_all('pop.example.com', 110,
+    #                          'YourAccount', 'YourPassword') do |m|
+    #       file.write m.pop
+    #     end
+    #
     # pkg:gem/net-pop#lib/net/pop.rb:283
     def delete_all(address, port = T.unsafe(nil), account = T.unsafe(nil), password = T.unsafe(nil), isapop = T.unsafe(nil), &block); end
 
+    # Disable SSL for all new instances.
+    #
     # pkg:gem/net-pop#lib/net/pop.rb:355
     def disable_ssl; end
 
+    # :call-seq:
+    #    Net::POP.enable_ssl(params = {})
+    #
+    # Enable SSL for all new instances.
+    # +params+ is passed to OpenSSL::SSLContext#set_params.
+    #
     # pkg:gem/net-pop#lib/net/pop.rb:332
     def enable_ssl(*args); end
 
+    # Starts a POP3 session and iterates over each POPMail object,
+    # yielding it to the +block+.
+    # This method is equivalent to:
+    #
+    #     Net::POP3.start(address, port, account, password) do |pop|
+    #       pop.each_mail do |m|
+    #         yield m
+    #       end
+    #     end
+    #
+    # This method raises a POPAuthenticationError if authentication fails.
+    #
+    # === Example
+    #
+    #     Net::POP3.foreach('pop.example.com', 110,
+    #                       'YourAccount', 'YourPassword') do |m|
+    #       file.write m.pop
+    #       m.delete if $DELETE
+    #     end
+    #
     # pkg:gem/net-pop#lib/net/pop.rb:262
     def foreach(address, port = T.unsafe(nil), account = T.unsafe(nil), password = T.unsafe(nil), isapop = T.unsafe(nil), &block); end
 
     # pkg:gem/net-pop#lib/net/pop.rb:219
     def socket_type; end
 
+    # returns the SSL Parameters
+    #
+    # see also POP3.enable_ssl
+    #
     # pkg:gem/net-pop#lib/net/pop.rb:362
     def ssl_params; end
 
+    # Creates a new POP3 object and open the connection.  Equivalent to
+    #
+    #   Net::POP3.new(address, port, isapop).start(account, password)
+    #
+    # If +block+ is provided, yields the newly-opened POP3 object to it,
+    # and automatically closes it at the end of the session.
+    #
+    # === Example
+    #
+    #    Net::POP3.start(addr, port, account, password) do |pop|
+    #      pop.each_mail do |m|
+    #        file.write m.pop
+    #        m.delete
+    #      end
+    #    end
+    #
     # pkg:gem/net-pop#lib/net/pop.rb:401
     def start(address, port = T.unsafe(nil), account = T.unsafe(nil), password = T.unsafe(nil), isapop = T.unsafe(nil), &block); end
 
+    # returns +true+ if POP3.ssl_params is set
+    #
     # pkg:gem/net-pop#lib/net/pop.rb:367
     def use_ssl?; end
 
+    # returns whether verify_mode is enable from POP3.ssl_params
+    #
     # pkg:gem/net-pop#lib/net/pop.rb:372
     def verify; end
   end
@@ -490,13 +559,9 @@ Net::POP3::VERSION = T.let(T.unsafe(nil), String)
 
 # pkg:gem/net-pop#lib/net/pop.rb:892
 class Net::POP3Command
-  # @return [POP3Command] a new instance of POP3Command
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:894
   def initialize(sock); end
 
-  # @raise [POPAuthenticationError]
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:914
   def apop(account, password); end
 
@@ -521,8 +586,6 @@ class Net::POP3Command
   # pkg:gem/net-pop#lib/net/pop.rb:944
   def rset; end
 
-  # Returns the value of attribute socket.
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:901
   def socket; end
 
@@ -537,13 +600,9 @@ class Net::POP3Command
 
   private
 
-  # @raise [POPError]
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:1003
   def check_response(res); end
 
-  # @raise [POPAuthenticationError]
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:1008
   def check_response_auth(res); end
 
@@ -585,48 +644,9 @@ class Net::POPError < ::Net::ProtocolError; end
 #
 # pkg:gem/net-pop#lib/net/pop.rb:744
 class Net::POPMail
-  # @return [POPMail] a new instance of POPMail
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:746
   def initialize(num, len, pop, cmd); end
 
-  # This method fetches the message.  If called with a block, the
-  # message is yielded to the block one chunk at a time.  If called
-  # without a block, the message is returned as a String.  The optional
-  # +dest+ argument will be prepended to the returned String; this
-  # argument is essentially obsolete.
-  #
-  # === Example without block
-  #
-  #     POP3.start('pop.example.com', 110,
-  #                'YourAccount', 'YourPassword') do |pop|
-  #       n = 1
-  #       pop.mails.each do |popmail|
-  #         File.open("inbox/#{n}", 'w') do |f|
-  #           f.write popmail.pop
-  #         end
-  #         popmail.delete
-  #         n += 1
-  #       end
-  #     end
-  #
-  # === Example with block
-  #
-  #     POP3.start('pop.example.com', 110,
-  #                'YourAccount', 'YourPassword') do |pop|
-  #       n = 1
-  #       pop.mails.each do |popmail|
-  #         File.open("inbox/#{n}", 'w') do |f|
-  #           popmail.pop do |chunk|            ####
-  #             f.write chunk
-  #           end
-  #         end
-  #         n += 1
-  #       end
-  #     end
-  #
-  # This method raises a POPError if an error occurs.
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:817
   def all(dest = T.unsafe(nil), &block); end
 
@@ -653,32 +673,10 @@ class Net::POPMail
   # pkg:gem/net-pop#lib/net/pop.rb:861
   def delete; end
 
-  # Marks a message for deletion on the server.  Deletion does not
-  # actually occur until the end of the session; deletion may be
-  # cancelled for _all_ marked messages by calling POP3#reset().
-  #
-  # This method raises a POPError if an error occurs.
-  #
-  # === Example
-  #
-  #     POP3.start('pop.example.com', 110,
-  #                'YourAccount', 'YourPassword') do |pop|
-  #       n = 1
-  #       pop.mails.each do |popmail|
-  #         File.open("inbox/#{n}", 'w') do |f|
-  #           f.write popmail.pop
-  #         end
-  #         popmail.delete         ####
-  #         n += 1
-  #       end
-  #     end
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:866
   def delete!; end
 
   # True if the mail has been deleted.
-  #
-  # @return [Boolean]
   #
   # pkg:gem/net-pop#lib/net/pop.rb:869
   def deleted?; end
@@ -702,43 +700,6 @@ class Net::POPMail
   # pkg:gem/net-pop#lib/net/pop.rb:759
   def length; end
 
-  # This method fetches the message.  If called with a block, the
-  # message is yielded to the block one chunk at a time.  If called
-  # without a block, the message is returned as a String.  The optional
-  # +dest+ argument will be prepended to the returned String; this
-  # argument is essentially obsolete.
-  #
-  # === Example without block
-  #
-  #     POP3.start('pop.example.com', 110,
-  #                'YourAccount', 'YourPassword') do |pop|
-  #       n = 1
-  #       pop.mails.each do |popmail|
-  #         File.open("inbox/#{n}", 'w') do |f|
-  #           f.write popmail.pop
-  #         end
-  #         popmail.delete
-  #         n += 1
-  #       end
-  #     end
-  #
-  # === Example with block
-  #
-  #     POP3.start('pop.example.com', 110,
-  #                'YourAccount', 'YourPassword') do |pop|
-  #       n = 1
-  #       pop.mails.each do |popmail|
-  #         File.open("inbox/#{n}", 'w') do |f|
-  #           popmail.pop do |chunk|            ####
-  #             f.write chunk
-  #           end
-  #         end
-  #         n += 1
-  #       end
-  #     end
-  #
-  # This method raises a POPError if an error occurs.
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:818
   def mail(dest = T.unsafe(nil), &block); end
 
@@ -787,8 +748,6 @@ class Net::POPMail
   # pkg:gem/net-pop#lib/net/pop.rb:805
   def pop(dest = T.unsafe(nil), &block); end
 
-  # The length of the message in octets.
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:760
   def size; end
 
@@ -804,11 +763,6 @@ class Net::POPMail
   # pkg:gem/net-pop#lib/net/pop.rb:885
   def uid=(uid); end
 
-  # Returns the unique-id of the message.
-  # Normally the unique-id is a hash string of the message.
-  #
-  # This method raises a POPError if an error occurs.
-  #
   # pkg:gem/net-pop#lib/net/pop.rb:883
   def uidl; end
 

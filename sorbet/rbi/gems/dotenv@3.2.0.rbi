@@ -11,15 +11,9 @@
 module Dotenv
   extend ::Dotenv
 
-  # Returns the value of attribute instrumenter.
-  #
   # pkg:gem/dotenv#lib/dotenv.rb:15
   def instrumenter; end
 
-  # Sets the attribute instrumenter
-  #
-  # @param value the value to set the attribute instrumenter to.
-  #
   # pkg:gem/dotenv#lib/dotenv.rb:15
   def instrumenter=(_arg0); end
 
@@ -43,13 +37,9 @@ module Dotenv
   # pkg:gem/dotenv#lib/dotenv.rb:124
   def modify(env = T.unsafe(nil), &block); end
 
-  # same as `#load`, but will overwrite existing values in `ENV`
-  #
   # pkg:gem/dotenv#lib/dotenv.rb:35
   def overload(*filenames); end
 
-  # same as `#overwrite`, but raises Errno::ENOENT if any files don't exist
-  #
   # pkg:gem/dotenv#lib/dotenv.rb:41
   def overload!(*filenames); end
 
@@ -65,17 +55,15 @@ module Dotenv
 
   # Parses the given files, yielding for each file if a block is given.
   #
-  # @param block [Proc] Block to yield for each parsed `Dotenv::Environment`
   # @param filenames [String, Array<String>] Files to parse
-  # @param ignore [Boolean] Ignore non-existent files
   # @param overwrite [Boolean] Overwrite existing `ENV` values
+  # @param ignore [Boolean] Ignore non-existent files
+  # @param block [Proc] Block to yield for each parsed `Dotenv::Environment`
   # @return [Hash] parsed key/value pairs
   #
   # pkg:gem/dotenv#lib/dotenv.rb:50
   def parse(*filenames, overwrite: T.unsafe(nil), ignore: T.unsafe(nil), &block); end
 
-  # @raise [MissingKeys]
-  #
   # pkg:gem/dotenv#lib/dotenv.rb:134
   def require_keys(*keys); end
 
@@ -115,7 +103,6 @@ class Dotenv::Diff
   #
   # @param a [Hash] the initial state, defaults to a snapshot of current ENV
   # @param b [Hash] the final state, defaults to the current ENV
-  # @return [Diff] a new instance of Diff
   # @yield [diff] a block to execute before recording the final state
   #
   # pkg:gem/dotenv#lib/dotenv/diff.rb:16
@@ -132,8 +119,6 @@ class Dotenv::Diff
   def added; end
 
   # Returns true if any keys were added, removed, or changed
-  #
-  # @return [Boolean]
   #
   # pkg:gem/dotenv#lib/dotenv/diff.rb:46
   def any?; end
@@ -172,21 +157,16 @@ class Dotenv::Environment < ::Hash
   #
   # @param filename [String] the path to the file to read
   # @param overwrite [Boolean] whether the parser should assume existing values will be overwritten
-  # @return [Environment] a new instance of Environment
   #
   # pkg:gem/dotenv#lib/dotenv/environment.rb:10
   def initialize(filename, overwrite: T.unsafe(nil)); end
 
-  # Returns the value of attribute filename.
-  #
   # pkg:gem/dotenv#lib/dotenv/environment.rb:4
   def filename; end
 
   # pkg:gem/dotenv#lib/dotenv/environment.rb:17
   def load; end
 
-  # Returns the value of attribute overwrite.
-  #
   # pkg:gem/dotenv#lib/dotenv/environment.rb:4
   def overwrite; end
 
@@ -240,8 +220,6 @@ end
 
 # pkg:gem/dotenv#lib/dotenv/missing_keys.rb:4
 class Dotenv::MissingKeys < ::Dotenv::Error
-  # @return [MissingKeys] a new instance of MissingKeys
-  #
   # pkg:gem/dotenv#lib/dotenv/missing_keys.rb:5
   def initialize(keys); end
 end
@@ -251,8 +229,6 @@ end
 #
 # pkg:gem/dotenv#lib/dotenv/parser.rb:10
 class Dotenv::Parser
-  # @return [Parser] a new instance of Parser
-  #
   # pkg:gem/dotenv#lib/dotenv/parser.rb:46
   def initialize(string, overwrite: T.unsafe(nil)); end
 
@@ -262,8 +238,6 @@ class Dotenv::Parser
   private
 
   # Determine if a variable is already defined and should not be overwritten.
-  #
-  # @return [Boolean]
   #
   # pkg:gem/dotenv#lib/dotenv/parser.rb:76
   def existing?(key); end
@@ -281,8 +255,6 @@ class Dotenv::Parser
     # pkg:gem/dotenv#lib/dotenv/parser.rb:41
     def call(*_arg0, **_arg1, &_arg2); end
 
-    # Returns the value of attribute substitutions.
-    #
     # pkg:gem/dotenv#lib/dotenv/parser.rb:39
     def substitutions; end
   end
@@ -298,8 +270,6 @@ Dotenv::Parser::QUOTED_STRING = T.let(T.unsafe(nil), Regexp)
 #
 # pkg:gem/dotenv#lib/dotenv/rails.rb:22
 class Dotenv::Rails < ::Rails::Railtie
-  # @return [Rails] a new instance of Rails
-  #
   # pkg:gem/dotenv#lib/dotenv/rails.rb:25
   def initialize; end
 
@@ -379,8 +349,6 @@ Dotenv::Railtie = Dotenv::Rails
 #
 # pkg:gem/dotenv#lib/dotenv/replay_logger.rb:3
 class Dotenv::ReplayLogger < ::Logger
-  # @return [ReplayLogger] a new instance of ReplayLogger
-  #
   # pkg:gem/dotenv#lib/dotenv/replay_logger.rb:4
   def initialize; end
 

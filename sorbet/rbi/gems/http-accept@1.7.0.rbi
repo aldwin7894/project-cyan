@@ -5,6 +5,102 @@
 # Please instead update this file by running `bin/tapioca gem http-accept`.
 
 
+# Copyright, 2016, by Samuel G. D. Williams. <http://www.codeotaku.com>
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+# Copyright, 2016, by Samuel G. D. Williams. <http://www.codeotaku.com>
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+# Copyright, 2016, by Samuel G. D. Williams. <http://www.codeotaku.com>
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+# Copyright, 2016, by Samuel G. D. Williams. <http://www.codeotaku.com>
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+# Copyright, 2016, by Samuel G. D. Williams. <http://www.codeotaku.com>
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+#
 # pkg:gem/http-accept#lib/http/accept/version.rb:21
 module HTTP; end
 
@@ -15,9 +111,6 @@ module HTTP::Accept; end
 #
 # pkg:gem/http-accept#lib/http/accept/content_type.rb:27
 class HTTP::Accept::ContentType < ::HTTP::Accept::MediaTypes::MediaRange
-  # @raise [ArgumentError]
-  # @return [ContentType] a new instance of ContentType
-  #
   # pkg:gem/http-accept#lib/http/accept/content_type.rb:28
   def initialize(mime_type, parameters = T.unsafe(nil)); end
 end
@@ -49,33 +142,15 @@ HTTP::Accept::Encodings::CONTENT_CODING = T.let(T.unsafe(nil), Regexp)
 
 # pkg:gem/http-accept#lib/http/accept/encodings.rb:38
 class HTTP::Accept::Encodings::ContentCoding < ::Struct
-  # Returns the value of attribute encoding
-  #
-  # @return [Object] the current value of encoding
-  #
   # pkg:gem/http-accept#lib/http/accept/encodings.rb:38
   def encoding; end
 
-  # Sets the attribute encoding
-  #
-  # @param value [Object] the value to set the attribute encoding to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/http-accept#lib/http/accept/encodings.rb:38
   def encoding=(_); end
 
-  # Returns the value of attribute q
-  #
-  # @return [Object] the current value of q
-  #
   # pkg:gem/http-accept#lib/http/accept/encodings.rb:38
   def q; end
 
-  # Sets the attribute q
-  #
-  # @param value [Object] the value to set the attribute q to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/http-accept#lib/http/accept/encodings.rb:38
   def q=(_); end
 
@@ -98,8 +173,6 @@ class HTTP::Accept::Encodings::ContentCoding < ::Struct
     # pkg:gem/http-accept#lib/http/accept/encodings.rb:38
     def new(*_arg0); end
 
-    # @raise [ParseError]
-    #
     # pkg:gem/http-accept#lib/http/accept/encodings.rb:43
     def parse(scanner); end
   end
@@ -139,33 +212,15 @@ HTTP::Accept::Languages::LOCALE = T.let(T.unsafe(nil), Regexp)
 
 # pkg:gem/http-accept#lib/http/accept/languages.rb:99
 class HTTP::Accept::Languages::LanguageRange < ::Struct
-  # Returns the value of attribute locale
-  #
-  # @return [Object] the current value of locale
-  #
   # pkg:gem/http-accept#lib/http/accept/languages.rb:99
   def locale; end
 
-  # Sets the attribute locale
-  #
-  # @param value [Object] the value to set the attribute locale to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/http-accept#lib/http/accept/languages.rb:99
   def locale=(_); end
 
-  # Returns the value of attribute q
-  #
-  # @return [Object] the current value of q
-  #
   # pkg:gem/http-accept#lib/http/accept/languages.rb:99
   def q; end
 
-  # Sets the attribute q
-  #
-  # @param value [Object] the value to set the attribute q to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/http-accept#lib/http/accept/languages.rb:99
   def q=(_); end
 
@@ -188,8 +243,6 @@ class HTTP::Accept::Languages::LanguageRange < ::Struct
     # pkg:gem/http-accept#lib/http/accept/languages.rb:99
     def new(*_arg0); end
 
-    # @raise [ParseError]
-    #
     # pkg:gem/http-accept#lib/http/accept/languages.rb:104
     def parse(scanner); end
   end
@@ -199,8 +252,6 @@ end
 #
 # pkg:gem/http-accept#lib/http/accept/languages.rb:39
 class HTTP::Accept::Languages::Locales
-  # @return [Locales] a new instance of Locales
-  #
   # pkg:gem/http-accept#lib/http/accept/languages.rb:52
   def initialize(names); end
 
@@ -218,21 +269,15 @@ class HTTP::Accept::Languages::Locales
   # pkg:gem/http-accept#lib/http/accept/languages.rb:61
   def freeze; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/http-accept#lib/http/accept/languages.rb:82
   def include?(locale_name); end
 
   # pkg:gem/http-accept#lib/http/accept/languages.rb:86
   def join(*args); end
 
-  # Returns the value of attribute names.
-  #
   # pkg:gem/http-accept#lib/http/accept/languages.rb:74
   def names; end
 
-  # Returns the value of attribute patterns.
-  #
   # pkg:gem/http-accept#lib/http/accept/languages.rb:75
   def patterns; end
 
@@ -277,8 +322,6 @@ HTTP::Accept::MediaTypes::MIME_TYPE = T.let(T.unsafe(nil), Regexp)
 #
 # pkg:gem/http-accept#lib/http/accept/media_types/map.rb:25
 class HTTP::Accept::MediaTypes::Map
-  # @return [Map] a new instance of Map
-  #
   # pkg:gem/http-accept#lib/http/accept/media_types/map.rb:28
   def initialize; end
 
@@ -312,33 +355,15 @@ class HTTP::Accept::MediaTypes::MediaRange < ::Struct
   # pkg:gem/http-accept#lib/http/accept/media_types.rb:47
   def ===(other); end
 
-  # Returns the value of attribute mime_type
-  #
-  # @return [Object] the current value of mime_type
-  #
   # pkg:gem/http-accept#lib/http/accept/media_types.rb:38
   def mime_type; end
 
-  # Sets the attribute mime_type
-  #
-  # @param value [Object] the value to set the attribute mime_type to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/http-accept#lib/http/accept/media_types.rb:38
   def mime_type=(_); end
 
-  # Returns the value of attribute parameters
-  #
-  # @return [Object] the current value of parameters
-  #
   # pkg:gem/http-accept#lib/http/accept/media_types.rb:38
   def parameters; end
 
-  # Sets the attribute parameters
-  #
-  # @param value [Object] the value to set the attribute parameters to.
-  # @return [Object] the newly set value
-  #
   # pkg:gem/http-accept#lib/http/accept/media_types.rb:38
   def parameters=(_); end
 
@@ -373,8 +398,6 @@ class HTTP::Accept::MediaTypes::MediaRange < ::Struct
     # pkg:gem/http-accept#lib/http/accept/media_types.rb:38
     def new(*_arg0); end
 
-    # @raise [ParseError]
-    #
     # pkg:gem/http-accept#lib/http/accept/media_types.rb:86
     def parse(scanner, normalize_whitespace = T.unsafe(nil)); end
 

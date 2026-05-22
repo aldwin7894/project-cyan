@@ -13,13 +13,9 @@ module EtOrbi
     # pkg:gem/et-orbi#lib/et-orbi/info.rb:37
     def _make_info; end
 
-    # test tool
-    #
     # pkg:gem/et-orbi#lib/et-orbi/zones.rb:89
     def _os_zone; end
 
-    # test tool
-    #
     # pkg:gem/et-orbi#lib/et-orbi/zones.rb:89
     def _os_zone=(_arg0); end
 
@@ -29,8 +25,6 @@ module EtOrbi
     # pkg:gem/et-orbi#lib/et-orbi/make.rb:9
     def chronic_enabled=(b); end
 
-    # @return [Boolean]
-    #
     # pkg:gem/et-orbi#lib/et-orbi/make.rb:6
     def chronic_enabled?; end
 
@@ -66,6 +60,8 @@ module EtOrbi
     # pkg:gem/et-orbi#lib/et-orbi/make.rb:15
     def now(zone = T.unsafe(nil)); end
 
+    # test tool
+    #
     # pkg:gem/et-orbi#lib/et-orbi/zones.rb:91
     def os_tz; end
 
@@ -106,6 +102,9 @@ module EtOrbi
     # pkg:gem/et-orbi#lib/et-orbi/make.rb:73
     def chronic_parse(str, opts); end
 
+    # TZInfo >= 2.0.0
+    # TZInfo < 2.0.0
+    #
     # pkg:gem/et-orbi#lib/et-orbi/zone.rb:56
     def create_offset_tzone(utc_off, id); end
 
@@ -188,8 +187,6 @@ end
 #
 # pkg:gem/et-orbi#lib/et-orbi/time.rb:13
 class EtOrbi::EoTime
-  # @return [EoTime] a new instance of EoTime
-  #
   # pkg:gem/et-orbi#lib/et-orbi/time.rb:67
   def initialize(s, zone); end
 
@@ -235,8 +232,6 @@ class EtOrbi::EoTime
   #
   # https://www.timeanddate.com/time/change/usa/new-york?year=2018
   #
-  # @return [Boolean]
-  #
   # pkg:gem/et-orbi#lib/et-orbi/time.rb:127
   def ambiguous?; end
 
@@ -249,15 +244,9 @@ class EtOrbi::EoTime
   # pkg:gem/et-orbi#lib/et-orbi/time.rb:217
   def day; end
 
-  # Returns this ::EtOrbi::EoTime as a ::Time instance
-  # in the current UTC timezone.
-  #
   # pkg:gem/et-orbi#lib/et-orbi/time.rb:156
   def getgm; end
 
-  # Returns this ::EtOrbi::EoTime as a ::Time instance
-  # in the current UTC timezone.
-  #
   # pkg:gem/et-orbi#lib/et-orbi/time.rb:155
   def getutc; end
 
@@ -270,13 +259,9 @@ class EtOrbi::EoTime
   # pkg:gem/et-orbi#lib/et-orbi/time.rb:316
   def inc(t, dir = T.unsafe(nil)); end
 
-  # @return [Boolean]
-  #
   # pkg:gem/et-orbi#lib/et-orbi/time.rb:188
   def is_dst?; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/et-orbi#lib/et-orbi/time.rb:192
   def isdst; end
 
@@ -351,11 +336,6 @@ class EtOrbi::EoTime
   # pkg:gem/et-orbi#lib/et-orbi/time.rb:281
   def to_s; end
 
-  # Returns this ::EtOrbi::EoTime as a ::Time instance
-  # in the current timezone.
-  #
-  # Has a #to_t alias.
-  #
   # pkg:gem/et-orbi#lib/et-orbi/time.rb:186
   def to_t; end
 
@@ -368,9 +348,6 @@ class EtOrbi::EoTime
   # pkg:gem/et-orbi#lib/et-orbi/time.rb:300
   def to_utc_comparison_s; end
 
-  # Returns this ::EtOrbi::EoTime as a ::Time instance
-  # in the current UTC timezone.
-  #
   # pkg:gem/et-orbi#lib/et-orbi/time.rb:157
   def to_utc_time; end
 
@@ -397,8 +374,6 @@ class EtOrbi::EoTime
   # Returns true if this ::EtOrbi::EoTime instance timezone is UTC.
   # Returns false else.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/et-orbi#lib/et-orbi/time.rb:149
   def utc?; end
 
@@ -417,8 +392,6 @@ class EtOrbi::EoTime
   # pkg:gem/et-orbi#lib/et-orbi/time.rb:217
   def year; end
 
-  # Returns the value of attribute zone.
-  #
   # pkg:gem/et-orbi#lib/et-orbi/time.rb:65
   def zone; end
 

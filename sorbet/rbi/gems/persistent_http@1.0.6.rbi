@@ -53,8 +53,6 @@ class PersistentHTTP
   #   proxy.user     = 'AzureDiamond'
   #   proxy.password = 'hunter2'
   #
-  # @return [PersistentHTTP] a new instance of PersistentHTTP
-  #
   # pkg:gem/persistent_http#lib/persistent_http.rb:173
   def initialize(options = T.unsafe(nil)); end
 
@@ -189,6 +187,7 @@ class PersistentHTTP
   # pkg:gem/persistent_http#lib/persistent_http.rb:114
   def open_timeout=(_arg0); end
 
+  # The maximum size of the connection pool
   # Return the size of the connection pool
   #
   # pkg:gem/persistent_http#lib/persistent_http.rb:118
@@ -314,8 +313,6 @@ class PersistentHTTP
   def finish(connection); end
 
   # Is +req+ idempotent according to RFC 2616?
-  #
-  # @return [Boolean]
   #
   # pkg:gem/persistent_http#lib/persistent_http.rb:384
   def idempotent?(req); end

@@ -38,8 +38,6 @@ class HTTP::Cookie
   #                          :for_domain => true, :expired => Time.now + 7*86400)
   #     new("name" => "uid", "value" => "a12345", "Domain" => 'www.example.org')
   #
-  # @return [Cookie] a new instance of Cookie
-  #
   # pkg:gem/http-cookie#lib/http/cookie.rb:133
   def initialize(*args); end
 
@@ -53,15 +51,11 @@ class HTTP::Cookie
   # If either domain or path is missing, raises ArgumentError.  If
   # origin is missing, returns true.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/http-cookie#lib/http/cookie.rb:574
   def acceptable?; end
 
   # Tests if it is OK to accept this cookie if it is sent from a given
   # URI/URL, `uri`.
-  #
-  # @return [Boolean]
   #
   # pkg:gem/http-cookie#lib/http/cookie.rb:555
   def acceptable_from_uri?(uri); end
@@ -94,8 +88,6 @@ class HTTP::Cookie
   # pkg:gem/http-cookie#lib/http/cookie.rb:548
   def created_at=(_arg0); end
 
-  # Returns the value of attribute domain.
-  #
   # pkg:gem/http-cookie#lib/http/cookie.rb:386
   def domain; end
 
@@ -128,8 +120,6 @@ class HTTP::Cookie
 
   # Tests if this cookie is expired by now, or by a given time.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/http-cookie#lib/http/cookie.rb:531
   def expired?(time = T.unsafe(nil)); end
 
@@ -144,8 +134,6 @@ class HTTP::Cookie
   # pkg:gem/http-cookie#lib/http/cookie.rb:506
   def expires_at; end
 
-  # See #expires.
-  #
   # pkg:gem/http-cookie#lib/http/cookie.rb:507
   def expires_at=(t); end
 
@@ -167,12 +155,6 @@ class HTTP::Cookie
   # pkg:gem/http-cookie#lib/http/cookie.rb:441
   def for_domain=(_arg0); end
 
-  # The domain flag. (the opposite of host-only-flag)
-  #
-  # If this flag is true, this cookie will be sent to any host in the
-  # \#domain, including the host domain itself.  If it is false, this
-  # cookie will be sent only to the host indicated by the #domain.
-  #
   # pkg:gem/http-cookie#lib/http/cookie.rb:442
   def for_domain?; end
 
@@ -190,10 +172,6 @@ class HTTP::Cookie
   # pkg:gem/http-cookie#lib/http/cookie.rb:479
   def httponly=(_arg0); end
 
-  # The HttpOnly flag. (http-only-flag)
-  #
-  # A cookie with this flag on should be hidden from a client script.
-  #
   # pkg:gem/http-cookie#lib/http/cookie.rb:480
   def httponly?; end
 
@@ -205,8 +183,6 @@ class HTTP::Cookie
   # pkg:gem/http-cookie#lib/http/cookie.rb:640
   def inspect; end
 
-  # Returns the value of attribute max_age.
-  #
   # pkg:gem/http-cookie#lib/http/cookie.rb:509
   def max_age; end
 
@@ -215,8 +191,6 @@ class HTTP::Cookie
   # pkg:gem/http-cookie#lib/http/cookie.rb:512
   def max_age=(sec); end
 
-  # Returns the value of attribute name.
-  #
   # pkg:gem/http-cookie#lib/http/cookie.rb:350
   def name; end
 
@@ -225,8 +199,6 @@ class HTTP::Cookie
   # pkg:gem/http-cookie#lib/http/cookie.rb:353
   def name=(name); end
 
-  # Returns the value of attribute origin.
-  #
   # pkg:gem/http-cookie#lib/http/cookie.rb:453
   def origin; end
 
@@ -235,8 +207,6 @@ class HTTP::Cookie
   # pkg:gem/http-cookie#lib/http/cookie.rb:456
   def origin=(origin); end
 
-  # Returns the value of attribute path.
-  #
   # pkg:gem/http-cookie#lib/http/cookie.rb:444
   def path; end
 
@@ -261,11 +231,6 @@ class HTTP::Cookie
   # pkg:gem/http-cookie#lib/http/cookie.rb:473
   def secure=(_arg0); end
 
-  # The secure flag. (secure-only-flag)
-  #
-  # A cookie with this flag on should only be sent via a secure
-  # protocol like HTTPS.
-  #
   # pkg:gem/http-cookie#lib/http/cookie.rb:474
   def secure?; end
 
@@ -276,10 +241,6 @@ class HTTP::Cookie
   # pkg:gem/http-cookie#lib/http/cookie.rb:485
   def session; end
 
-  # The session flag. (the opposite of persistent-flag)
-  #
-  # A cookie with this flag on should be hidden from a client script.
-  #
   # pkg:gem/http-cookie#lib/http/cookie.rb:486
   def session?; end
 
@@ -296,9 +257,6 @@ class HTTP::Cookie
   # pkg:gem/http-cookie#lib/http/cookie.rb:659
   def to_h; end
 
-  # Returns a string for use in the Cookie header, i.e. `name=value`
-  # or `name="value"`.
-  #
   # pkg:gem/http-cookie#lib/http/cookie.rb:604
   def to_s; end
 
@@ -310,13 +268,9 @@ class HTTP::Cookie
   # Tests if it is OK to send this cookie to a given `uri`.  A
   # RuntimeError is raised if the cookie's domain is unknown.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/http-cookie#lib/http/cookie.rb:589
   def valid_for_uri?(uri); end
 
-  # Returns the value of attribute value.
-  #
   # pkg:gem/http-cookie#lib/http/cookie.rb:367
   def value; end
 
@@ -397,8 +351,6 @@ class HTTP::Cookie
     #         path_match?('/admin', '/admin/') == true
     #         path_match?('/admin', '/admin/index') == true
     #
-    # @return [Boolean]
-    #
     # pkg:gem/http-cookie#lib/http/cookie.rb:232
     def path_match?(base_path, target_path); end
   end
@@ -427,8 +379,6 @@ HTTP::Cookie::PERSISTENT_PROPERTIES = T.let(T.unsafe(nil), Array)
 
 # pkg:gem/http-cookie#lib/http/cookie/scanner.rb:6
 class HTTP::Cookie::Scanner < ::StringScanner
-  # @return [Scanner] a new instance of Scanner
-  #
   # pkg:gem/http-cookie#lib/http/cookie/scanner.rb:19
   def initialize(string, logger = T.unsafe(nil)); end
 
@@ -530,6 +480,7 @@ HTTP::Cookie::VERSION = T.let(T.unsafe(nil), String)
 
 # This class is used to manage the Cookies that have been returned from
 # any particular website.
+# :markup: markdown
 #
 # pkg:gem/http-cookie#lib/http/cookie_jar.rb:11
 class HTTP::CookieJar
@@ -550,35 +501,9 @@ class HTTP::CookieJar
   # (HTTP::CookieJar::MozillaStore) store class requires a `:filename`
   # option.  See individual store classes for details.
   #
-  # @return [CookieJar] a new instance of CookieJar
-  #
   # pkg:gem/http-cookie#lib/http/cookie_jar.rb:52
   def initialize(options = T.unsafe(nil)); end
 
-  # Adds a cookie to the jar if it is acceptable, and returns self in
-  # any case.  A given cookie must have domain and path attributes
-  # set, or ArgumentError is raised.
-  #
-  # Whether a cookie with the `for_domain` flag on overwrites another
-  # with the flag off or vice versa depends on the store used.  See
-  # individual store classes for that matter.
-  #
-  # ### Compatibility Note for Mechanize::Cookie users
-  #
-  # In HTTP::Cookie, each cookie object can store its origin URI
-  # (cf. #origin).  While the origin URI of a cookie can be set
-  # manually by #origin=, one is typically given in its generation.
-  # To be more specific, HTTP::Cookie.new takes an `:origin` option
-  # and HTTP::Cookie.parse takes one via the second argument.
-  #
-  #       # Mechanize::Cookie
-  #       jar.add(origin, cookie)
-  #       jar.add!(cookie)    # no acceptance check is performed
-  #
-  #       # HTTP::Cookie
-  #       jar.origin = origin
-  #       jar.add(cookie)     # acceptance check is performed
-  #
   # pkg:gem/http-cookie#lib/http/cookie_jar.rb:97
   def <<(cookie); end
 
@@ -653,8 +578,6 @@ class HTTP::CookieJar
 
   # Tests if the jar is empty.  If `url` is given, tests if there is
   # no cookie for the URL.
-  #
-  # @return [Boolean]
   #
   # pkg:gem/http-cookie#lib/http/cookie_jar.rb:119
   def empty?(url = T.unsafe(nil)); end
@@ -745,8 +668,6 @@ class HTTP::CookieJar
   # pkg:gem/http-cookie#lib/http/cookie_jar.rb:214
   def save(writable, *options); end
 
-  # Returns the value of attribute store.
-  #
   # pkg:gem/http-cookie#lib/http/cookie_jar.rb:13
   def store; end
 
@@ -769,8 +690,6 @@ class HTTP::CookieJar::AbstractSaver
   #   new(**options)
   #
   # Called by the constructor of each subclass using super().
-  #
-  # @return [AbstractSaver] a new instance of AbstractSaver
   #
   # pkg:gem/http-cookie#lib/http/cookie_jar/abstract_saver.rb:27
   def initialize(options = T.unsafe(nil)); end
@@ -813,8 +732,6 @@ class HTTP::CookieJar::AbstractStore
   #   new(**options)
   #
   # Called by the constructor of each subclass using super().
-  #
-  # @return [AbstractStore] a new instance of AbstractStore
   #
   # pkg:gem/http-cookie#lib/http/cookie_jar/abstract_store.rb:33
   def initialize(options = T.unsafe(nil)); end
@@ -863,8 +780,6 @@ class HTTP::CookieJar::AbstractStore
   def each(uri = T.unsafe(nil), &block); end
 
   # Implements HTTP::CookieJar#empty?().
-  #
-  # @return [Boolean]
   #
   # pkg:gem/http-cookie#lib/http/cookie_jar/abstract_store.rb:87
   def empty?; end
@@ -953,8 +868,6 @@ class HTTP::CookieJar::HashStore < ::HTTP::CookieJar::AbstractStore
   # :gc_threshold
   # been stored (default: `HTTP::Cookie::MAX_COOKIES_TOTAL / 20`)
   #
-  # @return [HashStore] a new instance of HashStore
-  #
   # pkg:gem/http-cookie#lib/http/cookie_jar/hash_store.rb:31
   def initialize(options = T.unsafe(nil)); end
 
@@ -973,8 +886,6 @@ class HTTP::CookieJar::HashStore < ::HTTP::CookieJar::AbstractStore
   # pkg:gem/http-cookie#lib/http/cookie_jar/hash_store.rb:60
   def delete(cookie); end
 
-  # :yield: cookie
-  #
   # pkg:gem/http-cookie#lib/http/cookie_jar/hash_store.rb:66
   def each(uri = T.unsafe(nil)); end
 
@@ -1015,8 +926,6 @@ class HTTP::CookieJar::MozillaStore < ::HTTP::CookieJar::AbstractStore
   # :in_browser_element
   # element. (default: `false`)
   #
-  # @return [MozillaStore] a new instance of MozillaStore
-  #
   # pkg:gem/http-cookie#lib/http/cookie_jar/mozilla_store.rb:98
   def initialize(options = T.unsafe(nil)); end
 
@@ -1037,8 +946,6 @@ class HTTP::CookieJar::MozillaStore < ::HTTP::CookieJar::AbstractStore
 
   # Tests if the SQLite3 database is closed.
   #
-  # @return [Boolean]
-  #
   # pkg:gem/http-cookie#lib/http/cookie_jar/mozilla_store.rb:139
   def closed?; end
 
@@ -1048,8 +955,6 @@ class HTTP::CookieJar::MozillaStore < ::HTTP::CookieJar::AbstractStore
   # pkg:gem/http-cookie#lib/http/cookie_jar/mozilla_store.rb:438
   def delete(cookie); end
 
-  # :yield: cookie
-  #
   # pkg:gem/http-cookie#lib/http/cookie_jar/mozilla_store.rb:464
   def each(uri = T.unsafe(nil), &block); end
 
@@ -1105,8 +1010,6 @@ class HTTP::CookieJar::MozillaStore < ::HTTP::CookieJar::AbstractStore
 
   # Raises TypeError.  Cloning is inhibited in this store class.
   #
-  # @raise [TypeError]
-  #
   # pkg:gem/http-cookie#lib/http/cookie_jar/mozilla_store.rb:124
   def initialize_copy(other); end
 end
@@ -1119,16 +1022,12 @@ HTTP::CookieJar::MozillaStore::Callable = T.let(T.unsafe(nil), Proc)
 
 # pkg:gem/http-cookie#lib/http/cookie_jar/mozilla_store.rb:40
 class HTTP::CookieJar::MozillaStore::Database
-  # @return [Database] a new instance of Database
-  #
   # pkg:gem/http-cookie#lib/http/cookie_jar/mozilla_store.rb:41
   def initialize(file); end
 
   # pkg:gem/http-cookie#lib/http/cookie_jar/mozilla_store.rb:52
   def close; end
 
-  # @return [Boolean]
-  #
   # pkg:gem/http-cookie#lib/http/cookie_jar/mozilla_store.rb:60
   def closed?; end
 
