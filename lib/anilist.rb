@@ -64,12 +64,14 @@ module AniList
             meanScore
             minutesWatched
             episodesWatched
-            genres {
+            genres(limit: 20) {
               genre
               count
+              meanScore
             },
-            studios {
+            studios(limit: 20) {
               count
+              meanScore
               studio {
                 name
               }

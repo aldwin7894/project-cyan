@@ -333,7 +333,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the media id",
+                  "description": "Filter by the media id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -347,7 +347,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by the media id",
+                  "description": "Filter by the media id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -371,7 +371,7 @@
                 },
                 {
                   "name": "idMal_in",
-                  "description": "Filter by the media's MyAnimeList id",
+                  "description": "Filter by the media's MyAnimeList id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -385,7 +385,7 @@
                 },
                 {
                   "name": "idMal_not_in",
-                  "description": "Filter by the media's MyAnimeList id",
+                  "description": "Filter by the media's MyAnimeList id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -459,7 +459,7 @@
                 },
                 {
                   "name": "format_in",
-                  "description": "Filter by the media's format",
+                  "description": "Filter by the media's format (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -483,7 +483,7 @@
                 },
                 {
                   "name": "format_not_in",
-                  "description": "Filter by the media's format",
+                  "description": "Filter by the media's format (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -497,7 +497,7 @@
                 },
                 {
                   "name": "status_in",
-                  "description": "Filter by the media's current release status",
+                  "description": "Filter by the media's current release status (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -521,7 +521,7 @@
                 },
                 {
                   "name": "status_not_in",
-                  "description": "Filter by the media's current release status",
+                  "description": "Filter by the media's current release status (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -615,7 +615,7 @@
                 },
                 {
                   "name": "genre_in",
-                  "description": "Filter by the media's genres",
+                  "description": "Filter by the media's genres (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -629,7 +629,7 @@
                 },
                 {
                   "name": "genre_not_in",
-                  "description": "Filter by the media's genres",
+                  "description": "Filter by the media's genres (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -643,7 +643,7 @@
                 },
                 {
                   "name": "tag_in",
-                  "description": "Filter by the media's tags",
+                  "description": "Filter by the media's tags (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -657,7 +657,7 @@
                 },
                 {
                   "name": "tag_not_in",
-                  "description": "Filter by the media's tags",
+                  "description": "Filter by the media's tags (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -671,7 +671,7 @@
                 },
                 {
                   "name": "tagCategory_in",
-                  "description": "Filter by the media's tags with in a tag category",
+                  "description": "Filter by the media's tags with in a tag category (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -685,7 +685,7 @@
                 },
                 {
                   "name": "tagCategory_not_in",
-                  "description": "Filter by the media's tags with in a tag category",
+                  "description": "Filter by the media's tags with in a tag category (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -699,7 +699,7 @@
                 },
                 {
                   "name": "licensedBy_in",
-                  "description": "Filter media by sites name with a online streaming or reading license",
+                  "description": "Filter media by sites name with a online streaming or reading license (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -713,7 +713,7 @@
                 },
                 {
                   "name": "licensedById_in",
-                  "description": "Filter media by sites id with a online streaming or reading license",
+                  "description": "Filter media by sites id with a online streaming or reading license (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -787,7 +787,7 @@
                 },
                 {
                   "name": "source_in",
-                  "description": "Filter by the source type of the media",
+                  "description": "Filter by the source type of the media (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -908,7 +908,7 @@
                 },
                 {
                   "name": "mediaId_in",
-                  "description": "Filter by the media id",
+                  "description": "Filter by the media id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -922,7 +922,7 @@
                 },
                 {
                   "name": "mediaId_not_in",
-                  "description": "Filter by the media id",
+                  "description": "Filter by the media id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1163,7 +1163,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the id of the airing schedule item",
+                  "description": "Filter by the id of the airing schedule item (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1177,7 +1177,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by the id of the airing schedule item",
+                  "description": "Filter by the id of the airing schedule item (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1201,7 +1201,7 @@
                 },
                 {
                   "name": "mediaId_in",
-                  "description": "Filter by the id of associated media",
+                  "description": "Filter by the id of associated media (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1215,7 +1215,7 @@
                 },
                 {
                   "name": "mediaId_not_in",
-                  "description": "Filter by the id of associated media",
+                  "description": "Filter by the id of associated media (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1239,7 +1239,7 @@
                 },
                 {
                   "name": "episode_in",
-                  "description": "Filter by the airing episode number",
+                  "description": "Filter by the airing episode number (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1253,7 +1253,7 @@
                 },
                 {
                   "name": "episode_not_in",
-                  "description": "Filter by the airing episode number",
+                  "description": "Filter by the airing episode number (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1374,7 +1374,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by character id",
+                  "description": "Filter by character id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1388,7 +1388,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by character id",
+                  "description": "Filter by character id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1469,7 +1469,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the staff id",
+                  "description": "Filter by the staff id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1483,7 +1483,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by the staff id",
+                  "description": "Filter by the staff id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1634,7 +1634,7 @@
                 },
                 {
                   "name": "userId_in",
-                  "description": "Filter by a user's id",
+                  "description": "Filter by a user's id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1648,7 +1648,7 @@
                 },
                 {
                   "name": "status_in",
-                  "description": "Filter by the watching/reading status",
+                  "description": "Filter by the watching/reading status (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1662,7 +1662,7 @@
                 },
                 {
                   "name": "status_not_in",
-                  "description": "Filter by the watching/reading status",
+                  "description": "Filter by the watching/reading status (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1686,7 +1686,7 @@
                 },
                 {
                   "name": "mediaId_in",
-                  "description": "Filter by the media id of the list entry",
+                  "description": "Filter by the media id of the list entry (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1700,7 +1700,7 @@
                 },
                 {
                   "name": "mediaId_not_in",
-                  "description": "Filter by the media id of the list entry",
+                  "description": "Filter by the media id of the list entry (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1911,7 +1911,7 @@
                 },
                 {
                   "name": "status_in",
-                  "description": "Filter by the watching/reading status",
+                  "description": "Filter by the watching/reading status (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -1925,7 +1925,7 @@
                 },
                 {
                   "name": "status_not_in",
-                  "description": "Filter by the watching/reading status",
+                  "description": "Filter by the watching/reading status (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -2188,7 +2188,7 @@
                 },
                 {
                   "name": "type_in",
-                  "description": "Filter by the type of notifications",
+                  "description": "Filter by the type of notifications (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -2245,7 +2245,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the studio id",
+                  "description": "Filter by the studio id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -2259,7 +2259,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by the studio id",
+                  "description": "Filter by the studio id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -2467,7 +2467,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the activity id",
+                  "description": "Filter by the activity id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -2481,7 +2481,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by the activity id",
+                  "description": "Filter by the activity id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -2505,7 +2505,7 @@
                 },
                 {
                   "name": "userId_in",
-                  "description": "Filter by the owner user id",
+                  "description": "Filter by the owner user id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -2519,7 +2519,7 @@
                 },
                 {
                   "name": "userId_not_in",
-                  "description": "Filter by the owner user id",
+                  "description": "Filter by the owner user id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -2543,7 +2543,7 @@
                 },
                 {
                   "name": "messengerId_in",
-                  "description": "Filter by the id of the user who sent a message",
+                  "description": "Filter by the id of the user who sent a message (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -2557,7 +2557,7 @@
                 },
                 {
                   "name": "messengerId_not_in",
-                  "description": "Filter by the id of the user who sent a message",
+                  "description": "Filter by the id of the user who sent a message (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -2581,7 +2581,7 @@
                 },
                 {
                   "name": "mediaId_in",
-                  "description": "Filter by the associated media id of the activity",
+                  "description": "Filter by the associated media id of the activity (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -2595,7 +2595,7 @@
                 },
                 {
                   "name": "mediaId_not_in",
-                  "description": "Filter by the associated media id of the activity",
+                  "description": "Filter by the associated media id of the activity (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -2619,7 +2619,7 @@
                 },
                 {
                   "name": "type_in",
-                  "description": "Filter by the type of activity",
+                  "description": "Filter by the type of activity (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -2633,7 +2633,7 @@
                 },
                 {
                   "name": "type_not_in",
-                  "description": "Filter by the type of activity",
+                  "description": "Filter by the type of activity (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -2723,7 +2723,7 @@
             },
             {
               "name": "Following",
-              "description": "Follow query",
+              "description": "Following query",
               "args": [
                 {
                   "name": "userId",
@@ -2764,7 +2764,7 @@
             },
             {
               "name": "Follower",
-              "description": "Follow query",
+              "description": "Follower query",
               "args": [
                 {
                   "name": "userId",
@@ -2879,7 +2879,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the thread id",
+                  "description": "Filter by the thread id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -3232,7 +3232,7 @@
         {
           "kind": "OBJECT",
           "name": "Page",
-          "description": "Page of data",
+          "description": "Page of data. Limited to a max depth of 5000 entries. This is calculated as the page parameter multiplied by the perPage parameter.",
           "fields": [
             {
               "name": "pageInfo",
@@ -3603,7 +3603,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the media id",
+                  "description": "Filter by the media id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -3617,7 +3617,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by the media id",
+                  "description": "Filter by the media id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -3641,7 +3641,7 @@
                 },
                 {
                   "name": "idMal_in",
-                  "description": "Filter by the media's MyAnimeList id",
+                  "description": "Filter by the media's MyAnimeList id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -3655,7 +3655,7 @@
                 },
                 {
                   "name": "idMal_not_in",
-                  "description": "Filter by the media's MyAnimeList id",
+                  "description": "Filter by the media's MyAnimeList id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -3729,7 +3729,7 @@
                 },
                 {
                   "name": "format_in",
-                  "description": "Filter by the media's format",
+                  "description": "Filter by the media's format (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -3753,7 +3753,7 @@
                 },
                 {
                   "name": "format_not_in",
-                  "description": "Filter by the media's format",
+                  "description": "Filter by the media's format (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -3767,7 +3767,7 @@
                 },
                 {
                   "name": "status_in",
-                  "description": "Filter by the media's current release status",
+                  "description": "Filter by the media's current release status (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -3791,7 +3791,7 @@
                 },
                 {
                   "name": "status_not_in",
-                  "description": "Filter by the media's current release status",
+                  "description": "Filter by the media's current release status (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -3885,7 +3885,7 @@
                 },
                 {
                   "name": "genre_in",
-                  "description": "Filter by the media's genres",
+                  "description": "Filter by the media's genres (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -3899,7 +3899,7 @@
                 },
                 {
                   "name": "genre_not_in",
-                  "description": "Filter by the media's genres",
+                  "description": "Filter by the media's genres (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -3913,7 +3913,7 @@
                 },
                 {
                   "name": "tag_in",
-                  "description": "Filter by the media's tags",
+                  "description": "Filter by the media's tags (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -3927,7 +3927,7 @@
                 },
                 {
                   "name": "tag_not_in",
-                  "description": "Filter by the media's tags",
+                  "description": "Filter by the media's tags (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -3941,7 +3941,7 @@
                 },
                 {
                   "name": "tagCategory_in",
-                  "description": "Filter by the media's tags with in a tag category",
+                  "description": "Filter by the media's tags with in a tag category (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -3955,7 +3955,7 @@
                 },
                 {
                   "name": "tagCategory_not_in",
-                  "description": "Filter by the media's tags with in a tag category",
+                  "description": "Filter by the media's tags with in a tag category (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -3969,7 +3969,7 @@
                 },
                 {
                   "name": "licensedBy_in",
-                  "description": "Filter media by sites name with a online streaming or reading license",
+                  "description": "Filter media by sites name with a online streaming or reading license (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -3983,7 +3983,7 @@
                 },
                 {
                   "name": "licensedById_in",
-                  "description": "Filter media by sites id with a online streaming or reading license",
+                  "description": "Filter media by sites id with a online streaming or reading license (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4057,7 +4057,7 @@
                 },
                 {
                   "name": "source_in",
-                  "description": "Filter by the source type of the media",
+                  "description": "Filter by the source type of the media (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4142,7 +4142,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by character id",
+                  "description": "Filter by character id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4156,7 +4156,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by character id",
+                  "description": "Filter by character id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4241,7 +4241,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the staff id",
+                  "description": "Filter by the staff id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4255,7 +4255,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by the staff id",
+                  "description": "Filter by the staff id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4330,7 +4330,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the studio id",
+                  "description": "Filter by the studio id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4344,7 +4344,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by the studio id",
+                  "description": "Filter by the studio id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4499,7 +4499,7 @@
                 },
                 {
                   "name": "userId_in",
-                  "description": "Filter by a user's id",
+                  "description": "Filter by a user's id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4513,7 +4513,7 @@
                 },
                 {
                   "name": "status_in",
-                  "description": "Filter by the watching/reading status",
+                  "description": "Filter by the watching/reading status (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4527,7 +4527,7 @@
                 },
                 {
                   "name": "status_not_in",
-                  "description": "Filter by the watching/reading status",
+                  "description": "Filter by the watching/reading status (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4551,7 +4551,7 @@
                 },
                 {
                   "name": "mediaId_in",
-                  "description": "Filter by the media id of the list entry",
+                  "description": "Filter by the media id of the list entry (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4565,7 +4565,7 @@
                 },
                 {
                   "name": "mediaId_not_in",
-                  "description": "Filter by the media id of the list entry",
+                  "description": "Filter by the media id of the list entry (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4740,7 +4740,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the id of the airing schedule item",
+                  "description": "Filter by the id of the airing schedule item (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4754,7 +4754,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by the id of the airing schedule item",
+                  "description": "Filter by the id of the airing schedule item (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4778,7 +4778,7 @@
                 },
                 {
                   "name": "mediaId_in",
-                  "description": "Filter by the id of associated media",
+                  "description": "Filter by the id of associated media (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4792,7 +4792,7 @@
                 },
                 {
                   "name": "mediaId_not_in",
-                  "description": "Filter by the id of associated media",
+                  "description": "Filter by the id of associated media (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4816,7 +4816,7 @@
                 },
                 {
                   "name": "episode_in",
-                  "description": "Filter by the airing episode number",
+                  "description": "Filter by the airing episode number (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4830,7 +4830,7 @@
                 },
                 {
                   "name": "episode_not_in",
-                  "description": "Filter by the airing episode number",
+                  "description": "Filter by the airing episode number (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -4995,7 +4995,7 @@
                 },
                 {
                   "name": "mediaId_in",
-                  "description": "Filter by the media id",
+                  "description": "Filter by the media id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -5009,7 +5009,7 @@
                 },
                 {
                   "name": "mediaId_not_in",
-                  "description": "Filter by the media id",
+                  "description": "Filter by the media id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -5214,7 +5214,7 @@
                 },
                 {
                   "name": "type_in",
-                  "description": "Filter by the type of notifications",
+                  "description": "Filter by the type of notifications (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -5435,7 +5435,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the activity id",
+                  "description": "Filter by the activity id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -5449,7 +5449,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by the activity id",
+                  "description": "Filter by the activity id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -5473,7 +5473,7 @@
                 },
                 {
                   "name": "userId_in",
-                  "description": "Filter by the owner user id",
+                  "description": "Filter by the owner user id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -5487,7 +5487,7 @@
                 },
                 {
                   "name": "userId_not_in",
-                  "description": "Filter by the owner user id",
+                  "description": "Filter by the owner user id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -5511,7 +5511,7 @@
                 },
                 {
                   "name": "messengerId_in",
-                  "description": "Filter by the id of the user who sent a message",
+                  "description": "Filter by the id of the user who sent a message (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -5525,7 +5525,7 @@
                 },
                 {
                   "name": "messengerId_not_in",
-                  "description": "Filter by the id of the user who sent a message",
+                  "description": "Filter by the id of the user who sent a message (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -5549,7 +5549,7 @@
                 },
                 {
                   "name": "mediaId_in",
-                  "description": "Filter by the associated media id of the activity",
+                  "description": "Filter by the associated media id of the activity (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -5563,7 +5563,7 @@
                 },
                 {
                   "name": "mediaId_not_in",
-                  "description": "Filter by the associated media id of the activity",
+                  "description": "Filter by the associated media id of the activity (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -5587,7 +5587,7 @@
                 },
                 {
                   "name": "type_in",
-                  "description": "Filter by the type of activity",
+                  "description": "Filter by the type of activity (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -5601,7 +5601,7 @@
                 },
                 {
                   "name": "type_not_in",
-                  "description": "Filter by the type of activity",
+                  "description": "Filter by the type of activity (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -5773,7 +5773,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the thread id",
+                  "description": "Filter by the thread id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -9078,25 +9078,25 @@
           "enumValues": [
             {
               "name": "WINTER",
-              "description": "Months December to February",
+              "description": "Predominantly started airing between January and March",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "SPRING",
-              "description": "Months March to May",
+              "description": "Predominantly started airing between April and June",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "SUMMER",
-              "description": "Months June to August",
+              "description": "Predominantly started airing between July and September",
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "FALL",
-              "description": "Months September to November",
+              "description": "Predominantly started airing between October and November",
               "isDeprecated": false,
               "deprecationReason": null
             }
@@ -12906,14 +12906,14 @@
             {
               "name": "CREATED_AT",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use ID instead"
             },
             {
               "name": "CREATED_AT_DESC",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use ID_DESC instead"
             },
             {
               "name": "UPDATED_AT",
@@ -17434,6 +17434,18 @@
               "deprecationReason": null
             },
             {
+              "name": "isPinned",
+              "description": "If the activity is pinned to the top of the users activity feed",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "isPrivate",
               "description": "If the message is private and only viewable to the sender and recipients",
               "args": [],
@@ -20819,14 +20831,14 @@
             {
               "name": "CREATED_AT",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use ID instead"
             },
             {
               "name": "CREATED_AT_DESC",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Use ID_DESC instead"
             },
             {
               "name": "UPDATED_AT",
@@ -23746,7 +23758,7 @@
         {
           "kind": "OBJECT",
           "name": "InternalPage",
-          "description": "Page of data (Used for internal use only)",
+          "description": "Page of data. Limited to a max depth of 5000 entries. This is calculated as the page parameter multiplied by the perPage parameter.",
           "fields": [
             {
               "name": "mediaSubmissions",
@@ -24106,6 +24118,44 @@
                     "kind": "SCALAR",
                     "name": "Int",
                     "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "modId_not",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "modId_in",
+                  "description": "(max 10,000 items)",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "modId_not_in",
+                  "description": "(max 10,000 items)",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int",
+                      "ofType": null
+                    }
                   },
                   "defaultValue": null
                 }
@@ -24518,7 +24568,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the media id",
+                  "description": "Filter by the media id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -24532,7 +24582,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by the media id",
+                  "description": "Filter by the media id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -24556,7 +24606,7 @@
                 },
                 {
                   "name": "idMal_in",
-                  "description": "Filter by the media's MyAnimeList id",
+                  "description": "Filter by the media's MyAnimeList id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -24570,7 +24620,7 @@
                 },
                 {
                   "name": "idMal_not_in",
-                  "description": "Filter by the media's MyAnimeList id",
+                  "description": "Filter by the media's MyAnimeList id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -24644,7 +24694,7 @@
                 },
                 {
                   "name": "format_in",
-                  "description": "Filter by the media's format",
+                  "description": "Filter by the media's format (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -24668,7 +24718,7 @@
                 },
                 {
                   "name": "format_not_in",
-                  "description": "Filter by the media's format",
+                  "description": "Filter by the media's format (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -24682,7 +24732,7 @@
                 },
                 {
                   "name": "status_in",
-                  "description": "Filter by the media's current release status",
+                  "description": "Filter by the media's current release status (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -24706,7 +24756,7 @@
                 },
                 {
                   "name": "status_not_in",
-                  "description": "Filter by the media's current release status",
+                  "description": "Filter by the media's current release status (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -24800,7 +24850,7 @@
                 },
                 {
                   "name": "genre_in",
-                  "description": "Filter by the media's genres",
+                  "description": "Filter by the media's genres (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -24814,7 +24864,7 @@
                 },
                 {
                   "name": "genre_not_in",
-                  "description": "Filter by the media's genres",
+                  "description": "Filter by the media's genres (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -24828,7 +24878,7 @@
                 },
                 {
                   "name": "tag_in",
-                  "description": "Filter by the media's tags",
+                  "description": "Filter by the media's tags (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -24842,7 +24892,7 @@
                 },
                 {
                   "name": "tag_not_in",
-                  "description": "Filter by the media's tags",
+                  "description": "Filter by the media's tags (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -24856,7 +24906,7 @@
                 },
                 {
                   "name": "tagCategory_in",
-                  "description": "Filter by the media's tags with in a tag category",
+                  "description": "Filter by the media's tags with in a tag category (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -24870,7 +24920,7 @@
                 },
                 {
                   "name": "tagCategory_not_in",
-                  "description": "Filter by the media's tags with in a tag category",
+                  "description": "Filter by the media's tags with in a tag category (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -24884,7 +24934,7 @@
                 },
                 {
                   "name": "licensedBy_in",
-                  "description": "Filter media by sites name with a online streaming or reading license",
+                  "description": "Filter media by sites name with a online streaming or reading license (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -24898,7 +24948,7 @@
                 },
                 {
                   "name": "licensedById_in",
-                  "description": "Filter media by sites id with a online streaming or reading license",
+                  "description": "Filter media by sites id with a online streaming or reading license (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -24972,7 +25022,7 @@
                 },
                 {
                   "name": "source_in",
-                  "description": "Filter by the source type of the media",
+                  "description": "Filter by the source type of the media (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25057,7 +25107,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by character id",
+                  "description": "Filter by character id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25071,7 +25121,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by character id",
+                  "description": "Filter by character id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25156,7 +25206,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the staff id",
+                  "description": "Filter by the staff id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25170,7 +25220,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by the staff id",
+                  "description": "Filter by the staff id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25245,7 +25295,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the studio id",
+                  "description": "Filter by the studio id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25259,7 +25309,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by the studio id",
+                  "description": "Filter by the studio id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25414,7 +25464,7 @@
                 },
                 {
                   "name": "userId_in",
-                  "description": "Filter by a user's id",
+                  "description": "Filter by a user's id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25428,7 +25478,7 @@
                 },
                 {
                   "name": "status_in",
-                  "description": "Filter by the watching/reading status",
+                  "description": "Filter by the watching/reading status (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25442,7 +25492,7 @@
                 },
                 {
                   "name": "status_not_in",
-                  "description": "Filter by the watching/reading status",
+                  "description": "Filter by the watching/reading status (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25466,7 +25516,7 @@
                 },
                 {
                   "name": "mediaId_in",
-                  "description": "Filter by the media id of the list entry",
+                  "description": "Filter by the media id of the list entry (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25480,7 +25530,7 @@
                 },
                 {
                   "name": "mediaId_not_in",
-                  "description": "Filter by the media id of the list entry",
+                  "description": "Filter by the media id of the list entry (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25655,7 +25705,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the id of the airing schedule item",
+                  "description": "Filter by the id of the airing schedule item (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25669,7 +25719,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by the id of the airing schedule item",
+                  "description": "Filter by the id of the airing schedule item (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25693,7 +25743,7 @@
                 },
                 {
                   "name": "mediaId_in",
-                  "description": "Filter by the id of associated media",
+                  "description": "Filter by the id of associated media (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25707,7 +25757,7 @@
                 },
                 {
                   "name": "mediaId_not_in",
-                  "description": "Filter by the id of associated media",
+                  "description": "Filter by the id of associated media (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25731,7 +25781,7 @@
                 },
                 {
                   "name": "episode_in",
-                  "description": "Filter by the airing episode number",
+                  "description": "Filter by the airing episode number (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25745,7 +25795,7 @@
                 },
                 {
                   "name": "episode_not_in",
-                  "description": "Filter by the airing episode number",
+                  "description": "Filter by the airing episode number (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25910,7 +25960,7 @@
                 },
                 {
                   "name": "mediaId_in",
-                  "description": "Filter by the media id",
+                  "description": "Filter by the media id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -25924,7 +25974,7 @@
                 },
                 {
                   "name": "mediaId_not_in",
-                  "description": "Filter by the media id",
+                  "description": "Filter by the media id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -26129,7 +26179,7 @@
                 },
                 {
                   "name": "type_in",
-                  "description": "Filter by the type of notifications",
+                  "description": "Filter by the type of notifications (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -26350,7 +26400,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the activity id",
+                  "description": "Filter by the activity id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -26364,7 +26414,7 @@
                 },
                 {
                   "name": "id_not_in",
-                  "description": "Filter by the activity id",
+                  "description": "Filter by the activity id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -26388,7 +26438,7 @@
                 },
                 {
                   "name": "userId_in",
-                  "description": "Filter by the owner user id",
+                  "description": "Filter by the owner user id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -26402,7 +26452,7 @@
                 },
                 {
                   "name": "userId_not_in",
-                  "description": "Filter by the owner user id",
+                  "description": "Filter by the owner user id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -26426,7 +26476,7 @@
                 },
                 {
                   "name": "messengerId_in",
-                  "description": "Filter by the id of the user who sent a message",
+                  "description": "Filter by the id of the user who sent a message (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -26440,7 +26490,7 @@
                 },
                 {
                   "name": "messengerId_not_in",
-                  "description": "Filter by the id of the user who sent a message",
+                  "description": "Filter by the id of the user who sent a message (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -26464,7 +26514,7 @@
                 },
                 {
                   "name": "mediaId_in",
-                  "description": "Filter by the associated media id of the activity",
+                  "description": "Filter by the associated media id of the activity (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -26478,7 +26528,7 @@
                 },
                 {
                   "name": "mediaId_not_in",
-                  "description": "Filter by the associated media id of the activity",
+                  "description": "Filter by the associated media id of the activity (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -26502,7 +26552,7 @@
                 },
                 {
                   "name": "type_in",
-                  "description": "Filter by the type of activity",
+                  "description": "Filter by the type of activity (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -26516,7 +26566,7 @@
                 },
                 {
                   "name": "type_not_in",
-                  "description": "Filter by the type of activity",
+                  "description": "Filter by the type of activity (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,
@@ -26688,7 +26738,7 @@
                 },
                 {
                   "name": "id_in",
-                  "description": "Filter by the thread id",
+                  "description": "Filter by the thread id (max 10,000 items)",
                   "type": {
                     "kind": "LIST",
                     "name": null,

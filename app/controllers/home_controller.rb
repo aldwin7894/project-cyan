@@ -31,15 +31,12 @@ class HomeController < ApplicationController
     case turbo_frame_request_id
     when "favorite_anime_genres"
       # genre stats
-      genre_statistics = @user_statistics["genres"]&.sort_by { |genre| genre["count"] }&.reverse!&.first(6)&.map do |genre|
-        { name: genre["genre"], count: genre["count"].to_i }
+      genre_statistics = @user_statistics["genres"].first(6)&.map do |genre|
+        { name: genre["genre"], count: genre["count"].to_i, score: genre["weightedScore"].to_f }
       end
-      genre_total_count = genre_statistics&.pluck(:count)&.sum.to_i
       @genre_list = genre_statistics&.map&.with_index do |genre, index|
-        percentage = ((genre[:count].to_d / genre_total_count) * 100).ceil
-
         {
-          label: "#{genre[:name]} (#{percentage}%)",
+          label: "#{genre[:name]} (#{genre[:score]}☆)",
           value: genre[:count],
           backgroundColor: colors[index]
         }
@@ -57,15 +54,12 @@ class HomeController < ApplicationController
       })
     when "favorite_anime_studios"
       # studio stats
-      studio_statistics = @user_statistics["studios"]&.sort_by { |genre| genre["count"] }&.reverse!&.first(6)&.map do |studio|
-        { name: studio["studio"]["name"], count: studio["count"].to_i }
+      studio_statistics = @user_statistics["studios"]&.first(6)&.map do |studio|
+        { name: studio["studio"]["name"], count: studio["count"].to_i, score: studio["weightedScore"].to_f }
       end
-      studio_total_count = studio_statistics&.pluck(:count)&.sum.to_i
       @studio_list = studio_statistics&.map&.with_index do |studio, index|
-        percentage = ((studio[:count].to_d / studio_total_count) * 100).ceil
-
         {
-          label: "#{studio[:name]} (#{percentage}%)",
+          label: "#{studio[:name]} (#{studio[:score]}☆)",
           value: studio[:count],
           backgroundColor: colors[index]
         }
@@ -217,7 +211,7 @@ class HomeController < ApplicationController
 
     album_art = @lastfm_recent&.[]("image")&.[](3)&.[]("#text")
     if album_art.present? && album_art.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
-      @album_art = album_art.split("300x300").join("400x400")
+      @album_art = album_art.split("300x300").join("400x0")
     end
 
     @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"
