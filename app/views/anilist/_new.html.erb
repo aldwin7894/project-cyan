@@ -1,7 +1,7 @@
 <% tooltip = "<strong>Case-sensitive</strong><br /><em>Due to AniList imposing tight limits on their API requests, checking will be done in the background and will be viewable at a later time. You can check the progress via the link that would be provided after.</em>" %>
 
-<div class="container relative" x-data="{ submitDisabled: false }">
-  <div class="relative dark:bg-fg--dark/80 dark:text-text--dark backdrop-blur-sm bg-fg--light/80 text-text--light flex flex-col gap-y-16 w-full items-center justify-center p-8 rounded-lg shadow-lg top-[calc(30%-56px)] xs:top-[calc(30%-116px)] pointer-events-auto">
+<div class="flex flex-col flex-1 justify-center tablet:container" x-data="{ submitDisabled: false }">
+  <div class="dark:bg-fg--dark/80 dark:text-text--dark backdrop-blur-sm bg-fg--light/80 text-text--light flex flex-col gap-y-16 w-full items-center justify-center p-4 tablet:p-8 tablet:rounded-lg tablet:shadow-lg pointer-events-auto">
     <div class="flex flex-col items-center gap-2">
       <img src="<%= vite_asset_url("images/anilist-logo.svg") %>" width="80" alt="AniList">
       <h1 class="text-3xl text-center font-mono animate-pulse">anilist follow checker</h1>
@@ -15,17 +15,13 @@
       </div>
       <%= f.text_field :username, class: "w-full block py-3 px-4 rounded-full border focus:shadow-none focus:border-cyan-500 focus:outline-none dark:bg-fg--dark bg-fg--light", autocomplete: "off" %>
 
-      <div class="flex flex-row items-right justify-between gap-4 px-4">
+      <%= render partial: "layouts/turnstile_widget", formats: [:html] %>
+
+      <div class="flex flex-row items-right justify-between gap-4 ">
         <span class="text-xs italic"></span>
         <button type="submit" class="flex items-center px-4 py-3 font-medium text-white rounded cursor-pointer bg-cyan-700 hover:bg-cyan-600 dark:disabled:bg-bg--dark dark:disabled:text-text--dark disabled:bg-bg--light disabled:text-text--light disabled:shadow-none" @click="submitDisabled = true" x-text="submitDisabled ? 'Checking...' : 'Check'">
         </button>
       </div>
-
-      <%= turbo_frame_tag "recaptcha" do %>
-        <div class="mb-3 row">
-          <%= recaptcha_v3 action: "captcha", turbolinks: true %>
-        </div>
-      <% end %>
     <% end %>
   </div>
 </div>

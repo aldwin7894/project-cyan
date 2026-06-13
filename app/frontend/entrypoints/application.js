@@ -97,6 +97,31 @@ const fadeOut = id =>
     });
   });
 
+const renderTurnstile = () => {
+  if (
+    !globalThis.turnstile ||
+    typeof globalThis.turnstile.render !== "function"
+  ) {
+    return;
+  }
+
+  if (globalThis.turnstileWidgetId !== undefined) {
+    globalThis.turnstile.remove(globalThis.turnstileWidgetId);
+  }
+
+  const turnstileElement = document.querySelector(".cf-turnstile");
+  if (turnstileElement) {
+    const siteKey = turnstileElement.dataset.sitekey;
+
+    globalThis.turnstileWidgetId = globalThis.turnstile.render(
+      turnstileElement,
+      {
+        sitekey: siteKey,
+      },
+    );
+  }
+};
+
 // fade animations
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
@@ -158,9 +183,13 @@ document.addEventListener("turbo:before-stream-render", event => {
         );
 
         event.target.performAction();
+        renderTurnstile();
       })
       .catch(() => {});
   }
+});
+document.addEventListener("turbo:load", () => {
+  renderTurnstile();
 });
 
 // FORCE PROGRSS BAR FOR TURBO

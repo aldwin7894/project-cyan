@@ -1,8 +1,8 @@
 <%= render "anilist/container" do %>
-  <div class="flex flex-col flex-1 w-full py-4 backdrop-blur-sm p6-4">
+  <div class="flex flex-col flex-1 w-full py-4 backdrop-blur-[1.5px] p6-4 overflow-y-auto">
     <div class="max-w-sm mx-auto mb-6 font-sans text-3xl font-semibold text-center text-black dark:text-white">
       <div class="pointer-events-auto">
-        <span class="dark:opacity-80">Take me</span>
+        <span class="opacity-80">Take me</span>
         <%= link_to "Back", anilist_index_path, class: "hover:text-[#3DB4F2] border-b", data: { turbo: false } %>
       </div>
     </div>
@@ -26,9 +26,9 @@
         </div>
       </div>
     <% else %>
-      <div class=" phone:grid-cols-1 dark:[color-scheme:dark] phone:overflow-y-auto tablet:grid-cols-2 tablet:overflow-y-auto desktop:grid-cols-4 desktop:my-auto desktop:overflow-hidden justify-items-center container relative grid justify-between gap-5 text-center ">
+      <div class="dark:[color-scheme:dark] grid grid-cols-1 overflow-y-auto tablet:grid-cols-2 desktop:grid-cols-4 desktop:my-auto desktop:overflow-hidden justify-items-center container relative justify-between gap-5 text-center">
         <div class="w-full max-w-sm pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto dark:bg-fg--dark/90 bg-fg--light/80 h-fit tablet:h-full">
-          <div class="sticky top-0 px-10 pt-5 mb-5 bg-transparent">
+          <div class="sticky top-0 px-10 py-5 backdrop-blur-sm desktop:backdrop-blur-none">
             <h1 class="text-2xl font-bold border-b-2 border-b-text--light dark:border-b-text--dark dark:text-text--dark text-text--light">
               <%= sanitize "Not Following You (<span class='text-[#3DB4F2]'>#{(@following - @followers).size}</span>)" %>
             </h1>
@@ -43,7 +43,7 @@
         </div>
 
         <div class="w-full max-w-sm pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto dark:bg-fg--dark/90 bg-fg--light/80 h-fit tablet:h-full">
-          <div class="sticky top-0 px-10 pt-5 mb-5 bg-transparent">
+          <div class="sticky top-0 px-10 py-5 backdrop-blur-sm desktop:backdrop-blur-none">
             <h1 class="text-2xl font-bold border-b-2 border-b-text--light dark:border-b-text--dark dark:text-text--dark text-text--light">
               <%= sanitize "You're Not Following (<span class='text-[#3DB4F2]'>#{(@followers - @following).size}</span>)" %>
             </h1>
@@ -58,7 +58,7 @@
         </div>
 
         <div class="w-full max-w-sm pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto dark:bg-fg--dark/90 bg-fg--light/80 h-fit tablet:h-full">
-          <div class="sticky top-0 px-10 pt-5 mb-5 bg-transparent">
+          <div class="sticky top-0 px-10 py-5 backdrop-blur-sm desktop:backdrop-blur-none">
             <h1 class="text-2xl font-bold border-b-2 border-b-text--light dark:border-b-text--dark dark:text-text--dark text-text--light">
               <%= sanitize "Following (<span class='text-[#3DB4F2]'>#{@following_count}</span>)" %>
             </h1>
@@ -74,7 +74,7 @@
         </div>
 
         <div class="w-full max-w-sm pb-5 border-b-4 border-blue-400 rounded-md pointer-events-auto dark:bg-fg--dark/90 bg-fg--light/80 h-fit tablet:h-full">
-          <div class="sticky top-0 px-10 pt-5 mb-5 bg-transparent">
+          <div class="sticky top-0 px-10 py-5 backdrop-blur-sm desktop:backdrop-blur-none">
             <h1 class="text-2xl font-bold border-b-2 border-b-text--light dark:border-b-text--dark dark:text-text--dark text-text--light">
               <%= sanitize "Followers (<span class='text-[#3DB4F2]'>#{@followers_count}</span>)" %>
             </h1>
