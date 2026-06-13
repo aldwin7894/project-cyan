@@ -3,6 +3,7 @@
 
 require "anilist"
 require "application_responder"
+require "turnstile_verifier"
 
 class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
@@ -23,9 +24,16 @@ class ApplicationController < ActionController::Base
       response = AniList::Client.execute(definition, variables)
       response&.data
     end
+
     def set_no_cache_headers
       response.set_header("Pragma", "no-cache")
       response.set_header("Expires", "0")
       no_store
+    end
+
+    def verify_turnstile
+      turnstile_token = params["cf-turnstile-response"]
+
+      TurnstileVerifier::Client.new(turnstile_token, request.remote_ip).verify
     end
 end

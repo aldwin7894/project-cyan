@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 # typed: true
 
+require "sorbet-runtime"
+
 class AnilistController < ApplicationController
   include FormatDateHelper
 
@@ -28,10 +30,13 @@ class AnilistController < ApplicationController
   def fetch_followers
     @success = false
     username = T.let(params[:username], String).strip
-    return @error = "Username can't be empty" if username.blank?
+    turnstile_token = T.let(params["cf-turnstile-response"], String)
 
-    captcha_valid = verify_recaptcha action: "captcha", minimum_score: 0.5
-    unless captcha_valid || Rails.env.development?
+    return @error = "Username can't be empty" if username.blank?
+    return @error = "CAPTCHA wasn't completed, please try again" if turnstile_token.blank?
+
+    captcha_valid = verify_turnstile
+    unless captcha_valid
       @error = "You're probably a bot, aren't you?"
       return render layout: false
     end

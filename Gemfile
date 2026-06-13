@@ -90,7 +90,6 @@ gem "addressable", "~> 2.8"
 
 gem "jwt", "~> 3.2"
 
-gem "recaptcha", "~> 5.21"
 
 # gem "ferrum", "~> 0.13"
 
