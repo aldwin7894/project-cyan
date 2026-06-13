@@ -587,7 +587,7 @@ class Sidekiq::Config
 
   # INTERNAL USE ONLY
   #
-  # pkg:gem/sidekiq#lib/sidekiq/config.rb:306
+  # pkg:gem/sidekiq#lib/sidekiq/config.rb:301
   def handle_exception(ex, ctx = T.unsafe(nil)); end
 
   # pkg:gem/sidekiq#lib/sidekiq/config.rb:71
@@ -684,11 +684,6 @@ class Sidekiq::Config
 
   # pkg:gem/sidekiq#lib/sidekiq/config.rb:95
   def total_concurrency; end
-
-  private
-
-  # pkg:gem/sidekiq#lib/sidekiq/config.rb:300
-  def parameter_size(handler); end
 end
 
 # pkg:gem/sidekiq#lib/sidekiq/config.rb:11
@@ -3187,7 +3182,7 @@ class Sidekiq::Web::Action
   def get_flash; end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/action.rb:27
-  def halt(res); end
+  def halt(res, msg = T.unsafe(nil)); end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/action.rb:36
   def header(key, value); end
@@ -3252,13 +3247,13 @@ class Sidekiq::Web::Application
   # pkg:gem/sidekiq#lib/sidekiq/web/application.rb:40
   def initialize(inst); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/application.rb:426
+  # pkg:gem/sidekiq#lib/sidekiq/web/application.rb:435
   def call(env); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/application.rb:456
+  # pkg:gem/sidekiq#lib/sidekiq/web/application.rb:465
   def process_csp(env, input); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/application.rb:422
+  # pkg:gem/sidekiq#lib/sidekiq/web/application.rb:431
   def redis(&_arg0); end
 
   class << self
@@ -3267,7 +3262,7 @@ class Sidekiq::Web::Application
     # method naming as there's no namespacing so collisions are
     # possible.
     #
-    # pkg:gem/sidekiq#lib/sidekiq/web/application.rb:464
+    # pkg:gem/sidekiq#lib/sidekiq/web/application.rb:473
     def helpers(mod); end
   end
 end
@@ -3278,7 +3273,7 @@ Sidekiq::Web::Application::CSP_HEADER_TEMPLATE = T.let(T.unsafe(nil), String)
 # pkg:gem/sidekiq#lib/sidekiq/web/application.rb:30
 Sidekiq::Web::Application::METRICS_PERIODS = T.let(T.unsafe(nil), Hash)
 
-# pkg:gem/sidekiq#lib/sidekiq/web/application.rb:124
+# pkg:gem/sidekiq#lib/sidekiq/web/application.rb:133
 Sidekiq::Web::Application::QUEUE_NAME = T.let(T.unsafe(nil), Regexp)
 
 # pkg:gem/sidekiq#lib/sidekiq/web/application.rb:12
@@ -3521,154 +3516,149 @@ module Sidekiq::WebHelpers
   #     <meta .../>
   #   <% end %>
   #
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:181
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:176
   def add_to_head; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:136
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:130
   def available_locales; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:124
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:118
   def clear_caches; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:376
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:371
   def csp_nonce; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:372
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:367
   def csrf_tag; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:307
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:302
   def current_path; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:311
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:306
   def current_status; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:471
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:466
   def delete_or_add_queue(job, params); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:359
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:354
   def display_args(args, truncate_after_chars = T.unsafe(nil)); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:186
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:181
   def display_custom_head; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:167
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:162
   def display_tags(job, within = T.unsafe(nil)); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:442
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:437
   def environment_title_prefix; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:159
-  def filter_link(jid, within = T.unsafe(nil)); end
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:153
+  def filter_link(str, within = T.unsafe(nil)); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:155
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:149
   def filtering(which, placeholder_key: T.unsafe(nil), label_key: T.unsafe(nil)); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:140
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:134
   def find_locale_files(lang); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:405
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:400
   def format_memory(rss_kb); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:251
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:246
   def get_locale; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:422
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:417
   def h(text); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:331
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:326
   def job_params(job, score); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:144
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:138
   def language_name(locale); end
 
   # Given an Accept-Language header like "fr-FR,fr;q=0.8,en-US;q=0.6,en;q=0.4,ru;q=0.2"
   # this method will try to best match the available locales to the user's preferred languages.
   #
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:216
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:211
   def locale; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:130
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:124
   def locale_files; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:417
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:412
   def number_with_delimiter(number, options = T.unsafe(nil)); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:335
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:330
   def parse_key(key); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:87
-  def parse_yaml_new(path); end
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:81
+  def parse_yaml(path); end
 
-  # TODO Remove
-  #
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:82
-  def parse_yaml_old(path); end
-
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:456
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:451
   def pollable?; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:272
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:267
   def processes; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:448
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:443
   def product_version; end
 
   # Merge options with current params, filter safe params, and stringify to query string
   #
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:343
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:338
   def qparams(options); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:320
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:315
   def queue_names_by_capsule(pro); end
 
   # Any paginated list that performs an action needs to redirect
   # back to the proper page after performing that action.
   #
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:432
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:427
   def redirect_with_query(url); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:299
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:294
   def redis_info; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:293
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:288
   def redis_url; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:315
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:310
   def relative_time(time); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:397
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:392
   def retry_extra_items(retry_job); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:461
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:456
   def retry_or_delete_or_kill(job, params); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:303
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:298
   def root_path; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:194
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:189
   def rtl?; end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:39
   def script_tag(location, **kwargs); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:148
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:142
   def search(jobset, substr); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:452
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:447
   def server_utc_time; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:116
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:110
   def singularize(str, count); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:264
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:259
   def sort_direction_label; end
 
   # Sorts processes by hostname following the natural sort order
   #
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:277
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:272
   def sorted_processes; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:289
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:284
   def stats; end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:10
@@ -3683,27 +3673,27 @@ module Sidekiq::WebHelpers
   # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:24
   def style_tag(location, **kwargs); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:255
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:250
   def t(msg, options = T.unsafe(nil)); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:190
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:185
   def text_direction; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:380
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:375
   def to_display(arg); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:112
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:106
   def to_json(x); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:349
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:344
   def to_query_string(hash); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:355
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:350
   def truncate(text, truncate_after_chars = T.unsafe(nil)); end
 
   # sidekiq/sidekiq#3243
   #
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:246
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:241
   def unfiltered?; end
 
   # See https://www.rfc-editor.org/rfc/rfc9110.html#section-12.5.4
@@ -3711,10 +3701,10 @@ module Sidekiq::WebHelpers
   #
   # Inspiration taken from https://github.com/iain/http_accept_language/blob/master/lib/http_accept_language/parser.rb
   #
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:202
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:197
   def user_preferred_languages; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:268
+  # pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:263
   def workset; end
 
   private
@@ -3726,10 +3716,10 @@ module Sidekiq::WebHelpers
   def html_tag(tagname, attrs); end
 end
 
-# pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:390
+# pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:385
 Sidekiq::WebHelpers::RETRY_JOB_KEYS = T.let(T.unsafe(nil), Set)
 
-# pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:340
+# pkg:gem/sidekiq#lib/sidekiq/web/helpers.rb:335
 Sidekiq::WebHelpers::SAFE_QPARAMS = T.let(T.unsafe(nil), Array)
 
 # Sidekiq::Work represents a job which is currently executing.
