@@ -67,71 +67,81 @@ class DiscordBannerController < ApplicationController
     activities = T.let(current_user.activities.to_a, T.nilable(T::Array[Discordrb::Activity]))
     activity = activities&.first
 
-    if activity.present?
-      title = "Playing #{activity.name}"
-      details = [activity.state, activity.details].compact_blank.join(" - ")
-      subdetails = "#{activity.assets&.large_text}"
-      large_image = activity.assets&.large_image_url("png")
-      icon = ""
+    if activity.blank?
+      @activity = {
+        name: nil,
+        title: nil,
+        details: nil,
+        subdetails: nil,
+        large_image: nil,
+        icon: nil,
+        details_width: 0,
+        subdetails_width: 0
+      }
+      return
+    end
 
-      activity_name = activity.name
-      activity_type = activity.type
-      activity_state = activity.state
-      activity_details = activity.details
-      activity_assets = T.let(activity.assets, T.nilable(Discordrb::Activity::Assets))
+    title = "Playing #{activity.name}"
+    details = [activity.state, activity.details].compact_blank.join(" - ")
+    subdetails = "#{activity.assets&.large_text}"
+    large_image = activity.assets&.large_image_url("png")
+    icon = ""
 
-      case activity_name
-      when "Spotify"
-        large_image = "https://i.scdn.co/image/#{activity_assets&.large_image_url&.split(':')&.last&.split('.')&.first.gsub('b273', '4851')}"
-        title = "Listening on Spotify"
-      when "Jellyfin"
-        large_image = get_discord_external_asset_url(
-          url: large_image,
-          additional_params: "?fillWidth=64&quality=80"
-        )
-        details = activity_state
-        subdetails = activity_details.remove!("Watching").strip unless activity_details&.include? "Movie"
-      when "Music"
+    activity_name = activity.name
+    activity_type = activity.type
+    activity_state = activity.state
+    activity_details = activity.details
+    activity_assets = T.let(activity.assets, T.nilable(Discordrb::Activity::Assets))
+
+    case activity_name
+    when "Spotify"
+      large_image = "https://i.scdn.co/image/#{activity_assets&.large_image_url&.split(':')&.last&.split('.')&.first.gsub('b273', '4851')}"
+      title = "Listening on Spotify"
+    when "Jellyfin"
+      large_image = get_discord_external_asset_url(
+        url: large_image,
+        additional_params: "?fillWidth=64&quality=80"
+      )
+      details = activity_state
+      subdetails = activity_details.remove!("Watching").strip unless activity_details&.include? "Movie"
+    when "Music"
+      large_image = get_discord_external_asset_url(
+        url: large_image
+      )
+      title = "Listening to #{activity_name}"
+      details = activity_details
+      subdetails = [activity_state, activity_assets&.large_text].compact_blank.join(" - ")
+    else
+      if large_image.present? || activity.application_id == ENV.fetch("DISCORD_APP_ID")
         large_image = get_discord_external_asset_url(
           url: large_image
         )
-        title = "Listening to #{activity_name}"
-        details = activity_details
-        subdetails = [activity_state, activity_assets&.large_text].compact_blank.join(" - ")
-      else
-        if large_image.present? || activity.application_id == ENV.fetch("DISCORD_APP_ID")
-          large_image = get_discord_external_asset_url(
-            url: large_image
-          )
-        end
-
-        case activity_type
-        when 0
-          title = "Playing #{activity_name || 'Playing a game'}"
-          details = details.presence || activity_name
-          subdetails = subdetails.presence || get_playing_elapsed_time(activity.timestamps&.start)
-
-          if large_image.blank? && activity.application_id.present?
-            discord_api = DiscordAPI::Client.new
-            game_icon_hash = discord_api.get_game_icon_hash(activity.application_id)
-            if game_icon_hash.present?
-              large_image = get_game_icon_url(activity.application_id, game_icon_hash)
-            end
-          end
-        when 1
-          title = "Streaming #{activity_name}"
-        when 2
-          title = "Listening to #{activity_name}"
-        when 3
-          title = "Watching on #{activity_name}"
-        when 4
-          title = "Playing #{activity_name}"
-        when 5
-          title = "Competing #{activity_name}"
-        else
-          title = "Playing #{activity_name}"
-        end
       end
+
+      case activity_type
+      when 0
+        title = "Playing #{activity_name || 'Playing a game'}"
+        details = details.presence || activity_name
+        subdetails = subdetails.presence || get_playing_elapsed_time(activity.timestamps&.start)
+      when 1
+        title = "Streaming #{activity_name}"
+      when 2
+        title = "Listening to #{activity_name}"
+      when 3
+        title = "Watching on #{activity_name}"
+      when 4
+        title = "Playing #{activity_name}"
+      when 5
+        title = "Competing #{activity_name}"
+      else
+        title = "Playing #{activity_name}"
+      end
+    end
+
+    if large_image.blank? && activity.application_id.present?
+      discord_api = DiscordAPI::Client.new
+      game_icon_hash = discord_api.get_game_icon_hash(activity.application_id)
+      large_image = get_game_icon_url(activity.application_id, game_icon_hash)
     end
 
     @activity = {
