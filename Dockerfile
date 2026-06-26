@@ -3,7 +3,7 @@ ADD --checksum=sha256:6e3d580f5bd7ccf2aa1e8df8d35c60d78e873c3ff8beb282c9bebd9149
   https://deb.nodesource.com/setup_lts.x /tmp/setup_lts.x
 
 ENV BUNDLE_PATH=/gems
-ENV NODE_VERSION=24.14.0
+ENV NODE_VERSION=24.18.0
 
 RUN apt-get update && apt-get install -yq --no-install-recommends \
   build-essential \

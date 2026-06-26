@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 # typed: true
 
+require "sorbet-runtime"
 require "anilist"
 require "application_responder"
 require "turnstile_verifier"
