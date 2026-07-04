@@ -93,7 +93,7 @@ gem "jwt", "~> 3.2"
 
 # gem "ferrum", "~> 0.13"
 
-gem "discordrb", "~> 3.8.0"
+gem "discordrb", "~> 3.7.2"
 
 gem "kodachroma", "~> 1.0"
 
