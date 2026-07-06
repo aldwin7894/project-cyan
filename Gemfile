@@ -8,7 +8,7 @@ ruby "4.0.5"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem "rails", "~> 8.1.3"
 # use vite to build javascripts and assets
-gem "vite_rails", "~> 3.10"
+gem "vite_rails", "~> 3.11"
 # Use mongodb
 gem "mongoid", "~> 9.1.0"
 gem "bson", "~> 5.2"

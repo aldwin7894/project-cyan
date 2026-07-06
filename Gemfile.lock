@@ -277,7 +277,7 @@ GEM
       rack (>= 3.0.14)
     rack-mini-profiler (4.0.1)
       rack (>= 1.2.0)
-    rack-proxy (0.8.2)
+    rack-proxy (0.8.3)
       rack
     rack-session (2.1.2)
       base64 (>= 0.1.0)
@@ -453,7 +453,7 @@ GEM
     unicode-emoji (4.2.0)
     uri (1.1.1)
     useragent (0.16.11)
-    vite_rails (3.11.0)
+    vite_rails (3.11.1)
       railties (>= 5.1, < 9)
       vite_ruby (~> 3.0, >= 3.2.2)
     vite_ruby (3.10.2)
@@ -535,7 +535,7 @@ DEPENDENCIES
   sorbet-static-and-runtime
   tapioca
   turbo-rails (~> 2.0.23)
-  vite_rails (~> 3.10)
+  vite_rails (~> 3.11)
   webdrivers (= 5.3.1)
 
 RUBY VERSION
