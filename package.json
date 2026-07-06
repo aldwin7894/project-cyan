@@ -61,7 +61,7 @@
     "tailwindcss-animatecss": "^3.0.5",
     "terser": "^5.48.0",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.62.0",
+    "typescript-eslint": "^8.62.1",
     "vite": "^8.1.0",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-ruby": "^5.2.2"
