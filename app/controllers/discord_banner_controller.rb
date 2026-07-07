@@ -57,14 +57,14 @@ class DiscordBannerController < ApplicationController
     @large_image = nil
     @icon = nil
 
-    current_user = T.let(DiscordBot::BOT.user(ENV.fetch("DISCORD_USER_ID")), Discordrb::User)
-    @display_name = current_user.display_name
-    @username = current_user.username
-    @online_status = current_user.status
-    @device = current_user.client_status.keys.first
-    @client_status = current_user.client_status.values.first
-    @avatar = current_user.avatar_url
-    activities = T.let(current_user.activities.to_a, T.nilable(T::Array[Discordrb::Activity]))
+    current_user = DiscordBot.user_details
+    @display_name = current_user&.display_name
+    @username = current_user&.username
+    @online_status = current_user&.online_status
+    @device = current_user&.device
+    @client_status = current_user&.client_status
+    @avatar = current_user&.avatar
+    activities = current_user&.activities
     activity = activities&.first
 
     if activity.blank?
