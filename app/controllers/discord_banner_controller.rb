@@ -102,8 +102,8 @@ class DiscordBannerController < ApplicationController
         url: large_image,
         additional_params: "?fillWidth=64&quality=80"
       )
-      details = activity_state
-      subdetails = activity_details.remove!("Watching").strip unless activity_details&.include? "Movie"
+      details = activity_details.remove!("Watching").strip unless activity_details&.include? "Movie"
+      subdetails = activity_state
     when "Music"
       large_image = get_discord_external_asset_url(
         url: large_image

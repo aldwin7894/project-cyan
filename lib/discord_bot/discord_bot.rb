@@ -73,6 +73,16 @@ module DiscordBot
     end
   end
 
+  BOT.playing do |event|
+    next unless event.user.id == USER_ID.to_i
+
+    self.user_details = build_discord_user(event.user.deep_dup)
+
+    Rails.logger.tagged("DiscordBot.playing".yellow) do
+      Rails.logger.info("Current user: #{user_details&.username} (#{user_details&.id}), Status: #{user_details&.online_status}, Client Status: #{user_details&.client_status}, Activities: #{user_details&.activities&.map(&:name)&.join(', ')}")
+    end
+  end
+
   at_exit { BOT.stop if BOT.connected? }
   BOT.run(true) unless BOT.connected?
 end
