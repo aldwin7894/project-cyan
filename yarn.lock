@@ -6340,7 +6340,7 @@ __metadata:
     rollup-plugin-visualizer: "npm:^7.0.1"
     sass-embedded: "npm:1.100.0"
     smartcrop: "npm:^2.0.5"
-    swiper: "npm:^14.0.1"
+    swiper: "npm:^14.0.5"
     tailwindcss: "npm:^3.4.19"
     tailwindcss-animatecss: "npm:^3.0.5"
     terser: "npm:^5.48.0"
@@ -7392,10 +7392,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swiper@npm:^14.0.1":
-  version: 14.0.1
-  resolution: "swiper@npm:14.0.1"
-  checksum: 10/206ea7ceaa54d4ca1ee2b302a68d0225d3177729422fd274b38d2881bbf990d5940985c6a79d0e769913df767b9ebd2f4b3ae9c1a973c63a79adcf00ffcde395
+"swiper@npm:^14.0.5":
+  version: 14.0.5
+  resolution: "swiper@npm:14.0.5"
+  checksum: 10/bc334a789ef27c20fd1d83cbec95c0aa4582a424a0935acade1095fa33b60ada6e1893dd325d8e2abb754a3868c0d6a7575a0c74ae69f13f073752dddf37c812
   languageName: node
   linkType: hard
 
