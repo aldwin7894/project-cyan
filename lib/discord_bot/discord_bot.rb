@@ -5,6 +5,28 @@ require "discordrb"
 require "sorbet-runtime"
 
 module DiscordBot
+  class DiscordUserActivityTimestamps < T::Struct
+    const :start, T.nilable(Time)
+    const :end, T.nilable(Time)
+  end
+
+  class DiscordUserActivityAssets < T::Struct
+    const :large_image_url, T.nilable(String)
+    const :large_text, T.nilable(String)
+    const :small_image_url, T.nilable(String)
+    const :small_text, T.nilable(String)
+  end
+
+  class DiscordUserActivity < T::Struct
+    const :name, T.nilable(String)
+    const :type, Integer
+    const :details, T.nilable(String)
+    const :state, T.nilable(String)
+    const :application_id, T.nilable(String)
+    const :timestamps, T.nilable(DiscordUserActivityTimestamps)
+    const :assets, T.nilable(DiscordUserActivityAssets)
+  end
+
   class DiscordUser < T::Struct
     const :id, Integer
     const :display_name, String
@@ -13,7 +35,7 @@ module DiscordBot
     const :device, T.nilable(Symbol)
     const :client_status, T.nilable(Symbol)
     const :avatar, String
-    const :activities, T.nilable(T::Array[Discordrb::Activity])
+    const :activities, T::Array[DiscordUserActivity]
   end
 
   USER_ID = ENV.fetch("DISCORD_USER_ID")
@@ -44,6 +66,27 @@ module DiscordBot
     sig { params(user: Discordrb::User).returns(DiscordUser) }
     def build_discord_user(user)
       client_status_hash = user.client_status || {}
+      activities = user.activities.to_a.map do |activity|
+        next if activity.name == "Custom Status" && activity.type == 4
+
+        DiscordUserActivity.new(
+          name: activity.name,
+          type: activity.type,
+          details: activity.details,
+          state: activity.state,
+          application_id: activity.application_id,
+          timestamps: DiscordUserActivityTimestamps.new(
+            start: activity.timestamps&.start,
+            end: activity.timestamps&.end
+          ),
+          assets: DiscordUserActivityAssets.new(
+            large_image_url: activity.assets&.large_image_url("png"),
+            large_text: activity.assets&.large_text,
+            small_image_url: activity.assets&.small_image_url("png"),
+            small_text: activity.assets&.small_text,
+          )
+        )
+      end.compact
 
       DiscordUser.new(
         id: user.id,
@@ -53,7 +96,7 @@ module DiscordBot
         device: T.let(client_status_hash.keys.first, T.nilable(Symbol)),
         client_status: T.let(client_status_hash.values.first, T.nilable(Symbol)),
         avatar: user.avatar_url.to_s,
-        activities: user.activities.to_a
+        activities:
       )
     end
   end

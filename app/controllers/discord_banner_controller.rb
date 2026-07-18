@@ -84,25 +84,25 @@ class DiscordBannerController < ApplicationController
     title = "Playing #{activity.name}"
     details = [activity.state, activity.details].compact_blank.join(" - ")
     subdetails = "#{activity.assets&.large_text}"
-    large_image = activity.assets&.large_image_url("png")
+    large_image = activity.assets&.large_image_url
     icon = ""
 
     activity_name = activity.name
     activity_type = activity.type
     activity_state = activity.state
     activity_details = activity.details
-    activity_assets = T.let(activity.assets, T.nilable(Discordrb::Activity::Assets))
+    activity_assets = activity.assets
 
     case activity_name
     when "Spotify"
-      large_image = "https://i.scdn.co/image/#{activity_assets&.large_image_url&.split(':')&.last&.split('.')&.first.gsub('b273', '4851')}"
+      large_image = "https://i.scdn.co/image/#{activity_assets&.large_image_url&.split(':')&.last&.split('.')&.first&.gsub('b273', '4851')}"
       title = "Listening on Spotify"
     when "Jellyfin"
       large_image = get_discord_external_asset_url(
         url: large_image,
         additional_params: "?fillWidth=64&quality=80"
       )
-      details = activity_details.remove!("Watching").strip unless activity_details&.include? "Movie"
+      details = activity_details&.remove!("Watching")&.strip unless activity_details&.include? "Movie"
       subdetails = activity_state
     when "Music"
       large_image = get_discord_external_asset_url(
