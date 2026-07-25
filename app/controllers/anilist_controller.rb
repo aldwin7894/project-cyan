@@ -62,6 +62,7 @@ class AnilistController < ApplicationController
 
     @user.sync_in_progress = true
     @user.last_known_error = nil
+    @user.remote_ip = remote_ip
     @job_id = AnilistFollowListCheckerJob.perform_async(@user._id)
     @user.job_id = @job_id
     @user.save

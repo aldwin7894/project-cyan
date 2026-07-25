@@ -10,19 +10,10 @@ module Raabro
   extend ::Raabro::ModuleMethods
 
   class << self
-    # pkg:gem/raabro#lib/raabro.rb:596
+    # pkg:gem/raabro#lib/raabro.rb:604
     def included(target); end
 
-    # Black       0;30     Dark Gray     1;30
-    # Blue        0;34     Light Blue    1;34
-    # Green       0;32     Light Green   1;32
-    # Cyan        0;36     Light Cyan    1;36
-    # Red         0;31     Light Red     1;31
-    # Purple      0;35     Light Purple  1;35
-    # Brown       0;33     Yellow        1;33
-    # Light Gray  0;37     White         1;37
-    #
-    # pkg:gem/raabro#lib/raabro.rb:618
+    # pkg:gem/raabro#lib/raabro.rb:617
     def pp(tree, depth = T.unsafe(nil), opts = T.unsafe(nil)); end
   end
 end
@@ -32,11 +23,11 @@ class Raabro::Input
   # pkg:gem/raabro#lib/raabro.rb:12
   def initialize(string, offset = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # pkg:gem/raabro#lib/raabro.rb:36
+  # pkg:gem/raabro#lib/raabro.rb:39
   def at(i); end
 
   # pkg:gem/raabro#lib/raabro.rb:19
-  def match(str_or_regex); end
+  def match(str_rex_or_block); end
 
   # pkg:gem/raabro#lib/raabro.rb:9
   def offset; end
@@ -53,241 +44,244 @@ class Raabro::Input
   # pkg:gem/raabro#lib/raabro.rb:9
   def string=(_arg0); end
 
-  # pkg:gem/raabro#lib/raabro.rb:31
+  # pkg:gem/raabro#lib/raabro.rb:34
   def tring(l = T.unsafe(nil)); end
 end
 
-# pkg:gem/raabro#lib/raabro.rb:240
+# pkg:gem/raabro#lib/raabro.rb:243
 module Raabro::ModuleMethods
-  # pkg:gem/raabro#lib/raabro.rb:242
-  def _match(name, input, parter, regex_or_string); end
+  # pkg:gem/raabro#lib/raabro.rb:245
+  def _match(name, input, parter, str_rex_or_block); end
 
-  # pkg:gem/raabro#lib/raabro.rb:279
+  # pkg:gem/raabro#lib/raabro.rb:287
   def _narrow(parser); end
 
-  # pkg:gem/raabro#lib/raabro.rb:286
+  # pkg:gem/raabro#lib/raabro.rb:294
   def _parse(parser, input); end
 
-  # pkg:gem/raabro#lib/raabro.rb:265
+  # pkg:gem/raabro#lib/raabro.rb:273
   def _quantify(parser); end
 
-  # pkg:gem/raabro#lib/raabro.rb:438
+  # pkg:gem/raabro#lib/raabro.rb:446
   def all(name, input, parser); end
 
-  # pkg:gem/raabro#lib/raabro.rb:333
+  # pkg:gem/raabro#lib/raabro.rb:341
   def alt(name, input, *parsers); end
 
-  # pkg:gem/raabro#lib/raabro.rb:378
+  # pkg:gem/raabro#lib/raabro.rb:386
   def altg(name, input, *parsers); end
 
-  # pkg:gem/raabro#lib/raabro.rb:457
+  # pkg:gem/raabro#lib/raabro.rb:268
+  def blk(name, input, &block); end
+
+  # pkg:gem/raabro#lib/raabro.rb:465
   def eseq(name, input, startpa, eltpa, seppa = T.unsafe(nil), endpa = T.unsafe(nil)); end
 
-  # pkg:gem/raabro#lib/raabro.rb:527
+  # pkg:gem/raabro#lib/raabro.rb:535
   def jseq(name, input, startpa, eltpa, seppa = T.unsafe(nil), endpa = T.unsafe(nil)); end
 
-  # pkg:gem/raabro#lib/raabro.rb:529
+  # pkg:gem/raabro#lib/raabro.rb:537
   def last; end
 
-  # pkg:gem/raabro#lib/raabro.rb:529
+  # pkg:gem/raabro#lib/raabro.rb:537
   def last=(_arg0); end
 
-  # pkg:gem/raabro#lib/raabro.rb:594
+  # pkg:gem/raabro#lib/raabro.rb:602
   def make_includable; end
 
-  # pkg:gem/raabro#lib/raabro.rb:531
+  # pkg:gem/raabro#lib/raabro.rb:539
   def method_added(name); end
 
-  # pkg:gem/raabro#lib/raabro.rb:422
+  # pkg:gem/raabro#lib/raabro.rb:430
   def nott(name, input, parser); end
 
-  # pkg:gem/raabro#lib/raabro.rb:540
+  # pkg:gem/raabro#lib/raabro.rb:548
   def parse(input, opts = T.unsafe(nil)); end
 
-  # pkg:gem/raabro#lib/raabro.rb:413
+  # pkg:gem/raabro#lib/raabro.rb:421
   def ren(name, input, parser); end
 
-  # pkg:gem/raabro#lib/raabro.rb:420
+  # pkg:gem/raabro#lib/raabro.rb:428
   def rename(name, input, parser); end
 
-  # pkg:gem/raabro#lib/raabro.rb:383
+  # pkg:gem/raabro#lib/raabro.rb:391
   def rep(name, input, parser, min, max = T.unsafe(nil)); end
 
-  # pkg:gem/raabro#lib/raabro.rb:568
+  # pkg:gem/raabro#lib/raabro.rb:576
   def reparse_for_error(input, opts, t); end
 
-  # pkg:gem/raabro#lib/raabro.rb:586
+  # pkg:gem/raabro#lib/raabro.rb:594
   def rewrite(tree); end
 
-  # pkg:gem/raabro#lib/raabro.rb:579
+  # pkg:gem/raabro#lib/raabro.rb:587
   def rewrite_(tree); end
 
-  # pkg:gem/raabro#lib/raabro.rb:260
+  # pkg:gem/raabro#lib/raabro.rb:263
   def rex(name, input, regex_or_string); end
 
-  # pkg:gem/raabro#lib/raabro.rb:295
+  # pkg:gem/raabro#lib/raabro.rb:303
   def seq(name, input, *parsers); end
 
-  # pkg:gem/raabro#lib/raabro.rb:255
+  # pkg:gem/raabro#lib/raabro.rb:258
   def str(name, input, string); end
 end
 
-# pkg:gem/raabro#lib/raabro.rb:42
+# pkg:gem/raabro#lib/raabro.rb:45
 class Raabro::Tree
-  # pkg:gem/raabro#lib/raabro.rb:49
+  # pkg:gem/raabro#lib/raabro.rb:52
   def initialize(name, parter, input); end
 
-  # pkg:gem/raabro#lib/raabro.rb:60
+  # pkg:gem/raabro#lib/raabro.rb:63
   def c0; end
 
-  # pkg:gem/raabro#lib/raabro.rb:61
+  # pkg:gem/raabro#lib/raabro.rb:64
   def c1; end
 
-  # pkg:gem/raabro#lib/raabro.rb:62
+  # pkg:gem/raabro#lib/raabro.rb:65
   def c2; end
 
-  # pkg:gem/raabro#lib/raabro.rb:63
+  # pkg:gem/raabro#lib/raabro.rb:66
   def c3; end
 
-  # pkg:gem/raabro#lib/raabro.rb:64
+  # pkg:gem/raabro#lib/raabro.rb:67
   def c4; end
 
-  # pkg:gem/raabro#lib/raabro.rb:47
+  # pkg:gem/raabro#lib/raabro.rb:50
   def children; end
 
-  # pkg:gem/raabro#lib/raabro.rb:47
+  # pkg:gem/raabro#lib/raabro.rb:50
   def children=(_arg0); end
 
-  # pkg:gem/raabro#lib/raabro.rb:65
+  # pkg:gem/raabro#lib/raabro.rb:68
   def clast; end
 
-  # pkg:gem/raabro#lib/raabro.rb:67
+  # pkg:gem/raabro#lib/raabro.rb:70
   def empty?; end
 
-  # pkg:gem/raabro#lib/raabro.rb:166
+  # pkg:gem/raabro#lib/raabro.rb:169
   def even_children; end
 
-  # pkg:gem/raabro#lib/raabro.rb:171
+  # pkg:gem/raabro#lib/raabro.rb:174
   def extract_error; end
 
-  # pkg:gem/raabro#lib/raabro.rb:112
+  # pkg:gem/raabro#lib/raabro.rb:115
   def gather(name = T.unsafe(nil), acc = T.unsafe(nil)); end
 
-  # pkg:gem/raabro#lib/raabro.rb:44
+  # pkg:gem/raabro#lib/raabro.rb:47
   def input; end
 
-  # pkg:gem/raabro#lib/raabro.rb:44
+  # pkg:gem/raabro#lib/raabro.rb:47
   def input=(_arg0); end
 
   # ((-1 error,)) 0 nomatch, 1 success
   #
-  # pkg:gem/raabro#lib/raabro.rb:46
+  # pkg:gem/raabro#lib/raabro.rb:49
   def length; end
 
   # ((-1 error,)) 0 nomatch, 1 success
   #
-  # pkg:gem/raabro#lib/raabro.rb:46
+  # pkg:gem/raabro#lib/raabro.rb:49
   def length=(_arg0); end
 
-  # pkg:gem/raabro#lib/raabro.rb:216
+  # pkg:gem/raabro#lib/raabro.rb:219
   def line_and_column(offset); end
 
-  # pkg:gem/raabro#lib/raabro.rb:96
+  # pkg:gem/raabro#lib/raabro.rb:99
   def lookup(name = T.unsafe(nil)); end
 
   # Not "lookup all errors" but "lookup all error", in other
   # words lookup the point up until which the parser stopped (not
   # consuming all the input)
   #
-  # pkg:gem/raabro#lib/raabro.rb:208
+  # pkg:gem/raabro#lib/raabro.rb:211
   def lookup_all_error; end
 
-  # pkg:gem/raabro#lib/raabro.rb:193
+  # pkg:gem/raabro#lib/raabro.rb:196
   def lookup_error(stack = T.unsafe(nil)); end
 
-  # pkg:gem/raabro#lib/raabro.rb:44
+  # pkg:gem/raabro#lib/raabro.rb:47
   def name; end
 
-  # pkg:gem/raabro#lib/raabro.rb:44
+  # pkg:gem/raabro#lib/raabro.rb:47
   def name=(_arg0); end
 
-  # pkg:gem/raabro#lib/raabro.rb:85
+  # pkg:gem/raabro#lib/raabro.rb:88
   def nonstring(l = T.unsafe(nil)); end
 
-  # pkg:gem/raabro#lib/raabro.rb:161
+  # pkg:gem/raabro#lib/raabro.rb:164
   def odd_children; end
 
   # ((-1 error,)) 0 nomatch, 1 success
   #
-  # pkg:gem/raabro#lib/raabro.rb:46
+  # pkg:gem/raabro#lib/raabro.rb:49
   def offset; end
 
   # ((-1 error,)) 0 nomatch, 1 success
   #
-  # pkg:gem/raabro#lib/raabro.rb:46
+  # pkg:gem/raabro#lib/raabro.rb:49
   def offset=(_arg0); end
 
-  # pkg:gem/raabro#lib/raabro.rb:47
+  # pkg:gem/raabro#lib/raabro.rb:50
   def parter; end
 
-  # pkg:gem/raabro#lib/raabro.rb:47
+  # pkg:gem/raabro#lib/raabro.rb:50
   def parter=(_arg0); end
 
-  # pkg:gem/raabro#lib/raabro.rb:77
+  # pkg:gem/raabro#lib/raabro.rb:80
   def prune!; end
 
-  # pkg:gem/raabro#lib/raabro.rb:45
+  # pkg:gem/raabro#lib/raabro.rb:48
   def result; end
 
-  # pkg:gem/raabro#lib/raabro.rb:45
+  # pkg:gem/raabro#lib/raabro.rb:48
   def result=(_arg0); end
 
-  # pkg:gem/raabro#lib/raabro.rb:84
+  # pkg:gem/raabro#lib/raabro.rb:87
   def strim; end
 
-  # pkg:gem/raabro#lib/raabro.rb:88
+  # pkg:gem/raabro#lib/raabro.rb:91
   def strind; end
 
-  # pkg:gem/raabro#lib/raabro.rb:82
+  # pkg:gem/raabro#lib/raabro.rb:85
   def string; end
 
-  # pkg:gem/raabro#lib/raabro.rb:87
+  # pkg:gem/raabro#lib/raabro.rb:90
   def stringd; end
 
-  # pkg:gem/raabro#lib/raabro.rb:89
+  # pkg:gem/raabro#lib/raabro.rb:92
   def stringpd; end
 
-  # pkg:gem/raabro#lib/raabro.rb:83
+  # pkg:gem/raabro#lib/raabro.rb:86
   def strinp; end
 
-  # pkg:gem/raabro#lib/raabro.rb:90
+  # pkg:gem/raabro#lib/raabro.rb:93
   def strinpd; end
 
-  # pkg:gem/raabro#lib/raabro.rb:125
+  # pkg:gem/raabro#lib/raabro.rb:128
   def subgather(name = T.unsafe(nil), acc = T.unsafe(nil)); end
 
-  # pkg:gem/raabro#lib/raabro.rb:105
+  # pkg:gem/raabro#lib/raabro.rb:108
   def sublookup(name = T.unsafe(nil)); end
 
-  # pkg:gem/raabro#lib/raabro.rb:72
+  # pkg:gem/raabro#lib/raabro.rb:75
   def successful_children; end
 
-  # pkg:gem/raabro#lib/raabro.rb:94
+  # pkg:gem/raabro#lib/raabro.rb:97
   def symbod; end
 
-  # pkg:gem/raabro#lib/raabro.rb:92
+  # pkg:gem/raabro#lib/raabro.rb:95
   def symbol; end
 
-  # pkg:gem/raabro#lib/raabro.rb:93
+  # pkg:gem/raabro#lib/raabro.rb:96
   def symbold; end
 
-  # pkg:gem/raabro#lib/raabro.rb:132
+  # pkg:gem/raabro#lib/raabro.rb:135
   def to_a(opts = T.unsafe(nil)); end
 
-  # pkg:gem/raabro#lib/raabro.rb:149
+  # pkg:gem/raabro#lib/raabro.rb:152
   def to_s(depth = T.unsafe(nil), io = T.unsafe(nil)); end
 
-  # pkg:gem/raabro#lib/raabro.rb:233
+  # pkg:gem/raabro#lib/raabro.rb:236
   def visual(line, column); end
 end
 

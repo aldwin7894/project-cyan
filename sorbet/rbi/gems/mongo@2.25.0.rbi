@@ -1279,6 +1279,19 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+# Copyright (C) 2025 MongoDB Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 # Copyright (C) 2015-2020 MongoDB Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the 'License');
@@ -3230,6 +3243,32 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # Copyright (C) 2018-2020 MongoDB Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# Copyright (C) 2025 MongoDB Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# Copyright (C) 2025 MongoDB Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -5514,7 +5553,7 @@ class Mongo::Auth::Aws::Conversation < ::Mongo::Auth::SaslConversationBase
 
   private
 
-  # pkg:gem/mongo#lib/mongo/auth/aws/conversation.rb:85
+  # pkg:gem/mongo#lib/mongo/auth/aws/conversation.rb:81
   def client_final_payload; end
 
   # pkg:gem/mongo#lib/mongo/auth/aws/conversation.rb:66
@@ -5523,7 +5562,7 @@ class Mongo::Auth::Aws::Conversation < ::Mongo::Auth::SaslConversationBase
   # pkg:gem/mongo#lib/mongo/auth/aws/conversation.rb:73
   def client_first_payload; end
 
-  # pkg:gem/mongo#lib/mongo/auth/aws/conversation.rb:81
+  # pkg:gem/mongo#lib/mongo/auth/aws/conversation.rb:77
   def client_nonce; end
 
   # Get the id of the conversation.
@@ -5537,9 +5576,6 @@ class Mongo::Auth::Aws::Conversation < ::Mongo::Auth::SaslConversationBase
   #
   # pkg:gem/mongo#lib/mongo/auth/aws/conversation.rb:59
   def server_nonce; end
-
-  # pkg:gem/mongo#lib/mongo/auth/aws/conversation.rb:77
-  def wrap_data(data); end
 end
 
 # The AWS credential set.
@@ -5735,7 +5771,7 @@ class Mongo::Auth::Aws::CredentialsRetriever
   # @return [ Auth::Aws::Credentials | nil ] A set of credentials, or nil
   #   if response parsing failed.
   #
-  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:327
+  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:322
   def credentials_from_web_identity_response(response); end
 
   # Checks whether the credentials provided are valid.
@@ -5744,7 +5780,7 @@ class Mongo::Auth::Aws::CredentialsRetriever
   # raises Auth::InvalidConfiguration if the credentials are
   # incomplete (i.e. some of the components are missing).
   #
-  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:354
+  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:349
   def credentials_valid?(credentials, source); end
 
   # Returns credentials from the EC2 metadata endpoint. The credentials
@@ -5757,7 +5793,7 @@ class Mongo::Auth::Aws::CredentialsRetriever
   # @raise Error::TimeoutError if credentials cannot be retrieved within
   #   the timeout.
   #
-  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:164
+  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:159
   def ec2_metadata_credentials(timeout_holder = T.unsafe(nil)); end
 
   # Returns credentials from the ECS metadata endpoint. The credentials
@@ -5770,10 +5806,10 @@ class Mongo::Auth::Aws::CredentialsRetriever
   # @raise Error::TimeoutError if credentials cannot be retrieved within
   #   the timeout defined on the operation context.
   #
-  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:212
+  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:207
   def ecs_metadata_credentials(timeout_holder = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:343
+  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:338
   def http_get(http, uri, metadata_token); end
 
   # Returns credentials from the AWS metadata endpoints.
@@ -5796,7 +5832,7 @@ class Mongo::Auth::Aws::CredentialsRetriever
   # @return [ Array<String | nil, String | nil, String | nil> ] Web
   #   identity token, role arn, and role session name.
   #
-  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:266
+  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:261
   def prepare_web_identity_inputs; end
 
   # Calls AssumeRoleWithWebIdentity to obtain credentials for the
@@ -5816,7 +5852,7 @@ class Mongo::Auth::Aws::CredentialsRetriever
   # @raise Error::TimeoutError if credentials cannot be retrieved within
   #   the timeout defined on the operation context.
   #
-  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:295
+  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:290
   def request_web_identity_credentials(token, role_arn, role_session_name, timeout_holder); end
 
   # Returns credentials associated with web identity token that is
@@ -5829,7 +5865,7 @@ class Mongo::Auth::Aws::CredentialsRetriever
   # @return [ Auth::Aws::Credentials | nil ] A set of credentials, or nil
   #   if retrieval failed.
   #
-  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:250
+  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:245
   def web_identity_credentials(timeout_holder = T.unsafe(nil)); end
 
   # Execute the given block considering the timeout defined on the context,
@@ -5842,7 +5878,7 @@ class Mongo::Auth::Aws::CredentialsRetriever
   #
   # @raise Error::TimeoutError if deadline exceeded.
   #
-  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:388
+  # pkg:gem/mongo#lib/mongo/auth/aws/credentials_retriever.rb:383
   def with_timeout(timeout_holder, &block); end
 end
 
@@ -6874,7 +6910,7 @@ class Mongo::Auth::ScramConversationBase < ::Mongo::Auth::SaslConversationBase
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:306
+  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:299
   def cache_key(*extra); end
 
   # Looks for field 'v' in payload data, if it is present verifies the
@@ -6959,7 +6995,7 @@ class Mongo::Auth::ScramConversationBase < ::Mongo::Auth::SaslConversationBase
   # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:240
   def client_signature(key, message); end
 
-  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:365
+  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:358
   def compare_digest(a, b); end
 
   # First bare implementation.
@@ -7014,22 +7050,13 @@ class Mongo::Auth::ScramConversationBase < ::Mongo::Auth::SaslConversationBase
   # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:136
   def parse_payload(payload); end
 
-  # Get the data from the returned payload.
-  #
-  # @api private
-  #
-  # @since 2.0.0
-  #
-  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:289
-  def payload_data; end
-
   # Gets the salt from the server response.
   #
   # @api private
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:303
+  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:296
   def salt; end
 
   # Server key algorithm implementation.
@@ -7040,7 +7067,7 @@ class Mongo::Auth::ScramConversationBase < ::Mongo::Auth::SaslConversationBase
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:317
+  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:310
   def server_key; end
 
   # Get the server nonce from the payload.
@@ -7049,7 +7076,7 @@ class Mongo::Auth::ScramConversationBase < ::Mongo::Auth::SaslConversationBase
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:296
+  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:289
   def server_nonce; end
 
   # Server signature algorithm implementation.
@@ -7060,7 +7087,7 @@ class Mongo::Auth::ScramConversationBase < ::Mongo::Auth::SaslConversationBase
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:330
+  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:323
   def server_signature; end
 
   # Stored key algorithm implementation.
@@ -7071,7 +7098,7 @@ class Mongo::Auth::ScramConversationBase < ::Mongo::Auth::SaslConversationBase
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:341
+  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:334
   def stored_key(key); end
 
   # Get the without proof message.
@@ -7082,7 +7109,7 @@ class Mongo::Auth::ScramConversationBase < ::Mongo::Auth::SaslConversationBase
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:352
+  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:345
   def without_proof; end
 
   # XOR operation for two strings.
@@ -7091,7 +7118,7 @@ class Mongo::Auth::ScramConversationBase < ::Mongo::Auth::SaslConversationBase
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:361
+  # pkg:gem/mongo#lib/mongo/auth/scram_conversation_base.rb:354
   def xor(first, second); end
 end
 
@@ -7153,7 +7180,7 @@ module Mongo::Auth::StringPrep
   # pkg:gem/mongo#lib/mongo/auth/stringprep.rb:99
   def normalize!(out); end
 
-  # pkg:gem/mongo#lib/mongo/auth/stringprep.rb:108
+  # pkg:gem/mongo#lib/mongo/auth/stringprep.rb:103
   def table_contains?(table, c); end
 end
 
@@ -8636,6 +8663,11 @@ class Mongo::Client
   # @option options [ Float ] :connect_timeout The timeout, in seconds, to
   #   attempt a connection.
   # @option options [ String ] :database The database to connect to.
+  # @option options [ true | false ] :enable_overload_retargeting Whether
+  #   the driver deprioritizes a server that returns an overload error,
+  #   reducing the likelihood of retrying on the same overloaded server.
+  #   This option works with MongoDB Atlas Server Version 9.0 and above.
+  #   Default: false.
   # @option options [ Float ] :heartbeat_frequency The interval, in seconds,
   #   for the server monitor to refresh its description via hello.
   # @option options [ Object ] :id_generator A custom object to generate ids
@@ -8648,6 +8680,9 @@ class Mongo::Client
   # @option options [ String ] :log_prefix A custom log prefix to use when
   #   logging. This option is experimental and subject to change in a future
   #   version of the driver.
+  # @option options [ Integer ] :max_adaptive_retries The maximum number of
+  #   retries to attempt when the driver encounters overload errors. This
+  #   option works with MongoDB Atlas Server Version 9.0 and above. Default: 2.
   # @option options [ Integer ] :max_connecting The maximum number of
   #  connections that can be connecting simultaneously. The default is 2.
   #  This option should be increased if there are many threads that share
@@ -8659,9 +8694,13 @@ class Mongo::Client
   # @option options [ Integer ] :max_pool_size The maximum size of the
   #   connection pool. Setting this option to zero creates an unlimited connection pool.
   # @option options [ Integer ] :max_read_retries The maximum number of read
-  #   retries when legacy read retries are in use.
+  #   retries when legacy read retries are in use. Deprecated: this option
+  #   only affects the legacy retry implementation, which is deprecated and
+  #   will be removed in a future version.
   # @option options [ Integer ] :max_write_retries The maximum number of write
-  #   retries when legacy write retries are in use.
+  #   retries when legacy write retries are in use. Deprecated: this option
+  #   only affects the legacy retry implementation, which is deprecated and
+  #   will be removed in a future version.
   # @option options [ Integer ] :min_pool_size The minimum size of the
   #   connection pool.
   # @option options [ true, false ] :monitoring If false is given, the
@@ -8696,7 +8735,9 @@ class Mongo::Client
   #   - *:local_threshold*.
   # @option options [ Hash ] :read_concern The read concern option.
   # @option options [ Float ] :read_retry_interval The interval, in seconds,
-  #   in which reads on a mongos are retried.
+  #   in which reads on a mongos are retried. Deprecated: this option only
+  #   affects the legacy retry implementation, which is deprecated and will
+  #   be removed in a future version.
   # @option options [ Symbol ] :replica_set The name of the replica set to
   #   connect to. Servers not in this replica set will be ignored.
   # @option options [ true | false ] :retry_reads If true, modern retryable
@@ -8895,7 +8936,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:526
+  # pkg:gem/mongo#lib/mongo/client.rb:539
   def initialize(addresses_or_uri, options = T.unsafe(nil)); end
 
   # Determine if this client is equivalent to another object.
@@ -8909,7 +8950,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:187
+  # pkg:gem/mongo#lib/mongo/client.rb:186
   def ==(other); end
 
   # Get a collection object for the provided collection name.
@@ -8924,7 +8965,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:205
+  # pkg:gem/mongo#lib/mongo/client.rb:204
   def [](collection_name, options = T.unsafe(nil)); end
 
   # Close all connections.
@@ -8933,17 +8974,17 @@ class Mongo::Client
   #
   # @since 2.1.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:878
+  # pkg:gem/mongo#lib/mongo/client.rb:916
   def close; end
 
   # Close encrypter and clean up auto-encryption resources.
   #
   # @return [ true ] Always true.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:889
+  # pkg:gem/mongo#lib/mongo/client.rb:927
   def close_encrypter; end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:869
+  # pkg:gem/mongo#lib/mongo/client.rb:907
   def closed?; end
 
   # @return [ Mongo::Cluster ] cluster The cluster of servers for the client.
@@ -8953,7 +8994,7 @@ class Mongo::Client
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:631
+  # pkg:gem/mongo#lib/mongo/client.rb:644
   def cluster_options; end
 
   # pkg:gem/mongo#lib/mongo/client.rb:161
@@ -8992,7 +9033,7 @@ class Mongo::Client
   #
   # @since 2.0.5
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:947
+  # pkg:gem/mongo#lib/mongo/client.rb:985
   def database_names(filter = T.unsafe(nil), opts = T.unsafe(nil)); end
 
   # Returns encrypted field map hash if provided when creating the client.
@@ -9000,7 +9041,7 @@ class Mongo::Client
   # @return [ Hash | nil ] Encrypted field map hash, or nil if not set.
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1191
+  # pkg:gem/mongo#lib/mongo/client.rb:1229
   def encrypted_fields_map; end
 
   # @return [ Mongo::Crypt::AutoEncrypter ] The object that encapsulates
@@ -9009,7 +9050,7 @@ class Mongo::Client
   # pkg:gem/mongo#lib/mongo/client.rb:153
   def encrypter; end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:192
+  # pkg:gem/mongo#lib/mongo/client.rb:191
   def eql?(other); end
 
   # Returns a session to use for operations if possible.
@@ -9030,7 +9071,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1135
+  # pkg:gem/mongo#lib/mongo/client.rb:1173
   def get_session(options = T.unsafe(nil)); end
 
   # Get the hash value of the client.
@@ -9042,7 +9083,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:217
+  # pkg:gem/mongo#lib/mongo/client.rb:216
   def hash; end
 
   # Get an inspection of the client as a string.
@@ -9054,7 +9095,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:693
+  # pkg:gem/mongo#lib/mongo/client.rb:706
   def inspect; end
 
   # Get info for each database.
@@ -9085,7 +9126,7 @@ class Mongo::Client
   #
   # @since 2.0.5
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:978
+  # pkg:gem/mongo#lib/mongo/client.rb:1016
   def list_databases(filter = T.unsafe(nil), name_only = T.unsafe(nil), opts = T.unsafe(nil)); end
 
   # Returns a list of Mongo::Database objects.
@@ -9104,7 +9145,7 @@ class Mongo::Client
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1004
+  # pkg:gem/mongo#lib/mongo/client.rb:1042
   def list_mongo_databases(filter = T.unsafe(nil), opts = T.unsafe(nil)); end
 
   # Get the maximum number of times the client can retry a read operation
@@ -9114,7 +9155,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:661
+  # pkg:gem/mongo#lib/mongo/client.rb:674
   def max_read_retries; end
 
   # Get the maximum number of times the client can retry a write operation
@@ -9124,8 +9165,14 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:681
+  # pkg:gem/mongo#lib/mongo/client.rb:694
   def max_write_retries; end
+
+  # @return [ Monitoring ] monitoring The monitoring.
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/client.rb:168
+  def monitoring; end
 
   # @return [ Hash ] options The configuration options.
   #
@@ -9141,7 +9188,7 @@ class Mongo::Client
   #
   # @since 2.6.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:852
+  # pkg:gem/mongo#lib/mongo/client.rb:890
   def read_concern; end
 
   # Get the read preference from the options passed to the client.
@@ -9159,7 +9206,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:741
+  # pkg:gem/mongo#lib/mongo/client.rb:754
   def read_preference; end
 
   # Get the interval, in seconds, in which read retries when using legacy
@@ -9169,7 +9216,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:671
+  # pkg:gem/mongo#lib/mongo/client.rb:684
   def read_retry_interval; end
 
   # Reconnect the client.
@@ -9181,8 +9228,29 @@ class Mongo::Client
   #
   # @since 2.1.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:903
+  # pkg:gem/mongo#lib/mongo/client.rb:941
   def reconnect; end
+
+  # Replaces this client's cluster with a fresh instance built from the
+  # client's current options. Used by #with so a reconfigured client does
+  # not share its cluster with the client it was cloned from.
+  #
+  # @param [ Monitoring | nil ] monitoring The monitoring instance to use
+  #   with the new cluster. If nil, a new instance of Monitoring is created.
+  #
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/client.rb:874
+  def reset_cluster!(monitoring: T.unsafe(nil)); end
+
+  # Replaces this client's database with a fresh instance built from the
+  # client's current options. Used by #with so a reconfigured client does
+  # not share its database with the client it was cloned from.
+  #
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/client.rb:862
+  def reset_database!; end
 
   # @return [ Mongo::Retryable::RetryPolicy ] The retry policy for
   #   backpressure and adaptive retries.
@@ -9202,7 +9270,7 @@ class Mongo::Client
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:719
+  # pkg:gem/mongo#lib/mongo/client.rb:732
   def server_selector; end
 
   # Start a session.
@@ -9225,7 +9293,7 @@ class Mongo::Client
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1029
+  # pkg:gem/mongo#lib/mongo/client.rb:1067
   def start_session(options = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/client.rb:164
@@ -9240,26 +9308,26 @@ class Mongo::Client
   #
   # @since 2.7.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:705
+  # pkg:gem/mongo#lib/mongo/client.rb:718
   def summary; end
 
   # @return [ Integer | nil ] Value of timeout_ms option if set.
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1197
+  # pkg:gem/mongo#lib/mongo/client.rb:1235
   def timeout_ms; end
 
   # @return [ Float | nil ] Value of timeout_ms option converted to seconds.
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1203
+  # pkg:gem/mongo#lib/mongo/client.rb:1241
   def timeout_sec; end
 
   # Get the tracer configured for this client.
   #
   # @return [ Tracing::Tracer | nil ] The tracer configured for this client.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1214
+  # pkg:gem/mongo#lib/mongo/client.rb:1252
   def tracer; end
 
   # pkg:gem/mongo#lib/mongo/client.rb:164
@@ -9280,7 +9348,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:806
+  # pkg:gem/mongo#lib/mongo/client.rb:819
   def update_options(new_options); end
 
   # Creates a new client configured to use the database with the provided
@@ -9299,7 +9367,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:760
+  # pkg:gem/mongo#lib/mongo/client.rb:773
   def use(name); end
 
   # Allows users to request that notifications are sent for all changes that
@@ -9365,7 +9433,7 @@ class Mongo::Client
   #
   # @since 2.6.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1104
+  # pkg:gem/mongo#lib/mongo/client.rb:1142
   def watch(pipeline = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # Creates a new client with the passed options merged over the existing
@@ -9387,7 +9455,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:782
+  # pkg:gem/mongo#lib/mongo/client.rb:795
   def with(new_options = T.unsafe(nil)); end
 
   # Creates a session to use for operations if possible and yields it to
@@ -9411,7 +9479,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1161
+  # pkg:gem/mongo#lib/mongo/client.rb:1199
   def with_session(options = T.unsafe(nil)); end
 
   # Get the write concern for this client. If no option was provided, then a
@@ -9424,31 +9492,55 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:865
+  # pkg:gem/mongo#lib/mongo/client.rb:903
   def write_concern; end
 
   private
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1697
+  # Raises Error::ClientClosed if this client has been closed.
+  #
+  # This is the guard for RUBY-3174 (disallow closed clients from
+  # performing operations). The implementation is complete but not yet
+  # wired in: the intended call site in #with_session is currently
+  # commented out, pending that ticket. Do not delete this method or
+  # Error::ClientClosed as "unused" -- both are here deliberately.
+  #
+  # @raise [ Error::ClientClosed ] if the client has been closed.
+  #
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/client.rb:1767
   def assert_not_closed; end
 
   # Create a new encrypter object using the client's auto encryption options
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1291
+  # pkg:gem/mongo#lib/mongo/client.rb:1329
   def build_encrypter; end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1369
+  # pkg:gem/mongo#lib/mongo/client.rb:1407
   def cluster_modifying?(new_options); end
 
   # Generate default client options based on the URI and options
   # passed into the Client constructor.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1299
+  # pkg:gem/mongo#lib/mongo/client.rb:1337
   def default_options(options); end
+
+  # Validates all options after they are set on the client.
+  # This method is intended to catch combinations of options which are
+  # not allowed.
+  # Issues a deprecation warning for each legacy retry tuning option that is
+  # explicitly set. These options only affect the legacy retry
+  # implementation, which is deprecated and will be removed in a future
+  # version. Modern retryable reads and writes (enabled by default) ignore
+  # them.
+  #
+  # pkg:gem/mongo#lib/mongo/client.rb:1490
+  def deprecate_legacy_retry_options!; end
 
   # Implementation for #close, assumes the connect lock is already acquired.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1311
+  # pkg:gem/mongo#lib/mongo/client.rb:1349
   def do_close; end
 
   # Returns a session to use for operations.
@@ -9474,7 +9566,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1338
+  # pkg:gem/mongo#lib/mongo/client.rb:1376
   def get_session!(options = T.unsafe(nil)); end
 
   # Auxiliary method that is called by interpreter when copying the client
@@ -9484,14 +9576,8 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1360
+  # pkg:gem/mongo#lib/mongo/client.rb:1398
   def initialize_copy(original); end
-
-  # @return [ Monitoring ] monitoring The monitoring.
-  # @api private
-  #
-  # pkg:gem/mongo#lib/mongo/client.rb:168
-  def monitoring; end
 
   # Attempts to parse the given list of addresses, using the provided options.
   #
@@ -9502,7 +9588,7 @@ class Mongo::Client
   # @return [ Hash<:uri, :addresses, :options> ] the results of processing the
   #   list of addresses.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1233
+  # pkg:gem/mongo#lib/mongo/client.rb:1271
   def process_addresses(addresses, options); end
 
   # Attempts to parse the given list of addresses, using the provided options.
@@ -9514,7 +9600,7 @@ class Mongo::Client
   # @return [ Hash<:uri, :addresses, :options> ] the results of processing the
   #   list of addresses.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1275
+  # pkg:gem/mongo#lib/mongo/client.rb:1313
   def process_addresses_array(addresses, options); end
 
   # Attempts to parse the given list of addresses, using the provided options.
@@ -9526,16 +9612,16 @@ class Mongo::Client
   # @return [ Hash<:uri, :addresses, :options> ] the results of processing the
   #   list of addresses.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1249
+  # pkg:gem/mongo#lib/mongo/client.rb:1287
   def process_addresses_string(addresses, options); end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1620
+  # pkg:gem/mongo#lib/mongo/client.rb:1679
   def valid_compressors(compressors); end
 
   # Validates all authentication-related options after they are set on the client
   # This method is intended to catch combinations of options which are not allowed
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1566
+  # pkg:gem/mongo#lib/mongo/client.rb:1625
   def validate_authentication_options!; end
 
   # Validates whether the max_connecting option is valid.
@@ -9546,10 +9632,10 @@ class Mongo::Client
   # @return [ true ] If the option is valid.
   # @raise [ Error::InvalidMaxConnecting ] If the option is invalid.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1668
+  # pkg:gem/mongo#lib/mongo/client.rb:1727
   def validate_max_connecting!(option, opts); end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1653
+  # pkg:gem/mongo#lib/mongo/client.rb:1712
   def validate_max_min_pool_size!(option, opts); end
 
   # Validates options in the provided argument for validity.
@@ -9557,23 +9643,19 @@ class Mongo::Client
   # eventually have; this method validates each of the provided options
   # but does not check for interactions between combinations of options.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1382
+  # pkg:gem/mongo#lib/mongo/client.rb:1420
   def validate_new_options!(opts); end
 
-  # Validates all options after they are set on the client.
-  # This method is intended to catch combinations of options which are
-  # not allowed.
-  #
-  # pkg:gem/mongo#lib/mongo/client.rb:1447
+  # pkg:gem/mongo#lib/mongo/client.rb:1504
   def validate_options!(addresses = T.unsafe(nil), is_srv: T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1676
+  # pkg:gem/mongo#lib/mongo/client.rb:1735
   def validate_read!(option, opts); end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1633
+  # pkg:gem/mongo#lib/mongo/client.rb:1692
   def validate_snappy_compression!; end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1643
+  # pkg:gem/mongo#lib/mongo/client.rb:1702
   def validate_zstd_compression!; end
 
   class << self
@@ -9582,7 +9664,7 @@ class Mongo::Client
     #
     # @api private
     #
-    # pkg:gem/mongo#lib/mongo/client.rb:1177
+    # pkg:gem/mongo#lib/mongo/client.rb:1215
     def canonicalize_ruby_options(options); end
   end
 end
@@ -9979,7 +10061,7 @@ class Mongo::Cluster
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:721
+  # pkg:gem/mongo#lib/mongo/cluster.rb:695
   def ==(other); end
 
   # Add a server to the cluster with the provided address. Useful in
@@ -9998,7 +10080,7 @@ class Mongo::Cluster
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:827
+  # pkg:gem/mongo#lib/mongo/cluster.rb:801
   def add(host, add_options = T.unsafe(nil)); end
 
   # The addresses in the cluster.
@@ -10010,7 +10092,7 @@ class Mongo::Cluster
   #
   # @since 2.0.6
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:445
+  # pkg:gem/mongo#lib/mongo/cluster.rb:419
   def addresses; end
 
   # @return [ Mongo::Server::AppMetadata ] The application metadata, used for
@@ -10018,7 +10100,7 @@ class Mongo::Cluster
   #
   # @since 2.4.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:311
+  # pkg:gem/mongo#lib/mongo/cluster.rb:287
   def app_metadata; end
 
   # Closes the cluster.
@@ -10038,7 +10120,7 @@ class Mongo::Cluster
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:500
+  # pkg:gem/mongo#lib/mongo/cluster.rb:474
   def close; end
 
   # Whether the cluster object is connected to its cluster.
@@ -10048,7 +10130,7 @@ class Mongo::Cluster
   # @api private
   # @since 2.7.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:418
+  # pkg:gem/mongo#lib/mongo/cluster.rb:392
   def connected?; end
 
   # Whether the cluster object is in the process of connecting to its cluster.
@@ -10057,12 +10139,12 @@ class Mongo::Cluster
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:406
+  # pkg:gem/mongo#lib/mongo/cluster.rb:380
   def connecting?; end
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:931
+  # pkg:gem/mongo#lib/mongo/cluster.rb:905
   def disconnect_server_if_connected(server); end
 
   # Determine if the cluster would select a readable server for the
@@ -10078,7 +10160,7 @@ class Mongo::Cluster
   #
   # @since 2.4.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:739
+  # pkg:gem/mongo#lib/mongo/cluster.rb:713
   def has_readable_server?(server_selector = T.unsafe(nil)); end
 
   # Determine if the cluster would select a writable server.
@@ -10090,7 +10172,7 @@ class Mongo::Cluster
   #
   # @since 2.4.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:751
+  # pkg:gem/mongo#lib/mongo/cluster.rb:725
   def has_writable_server?; end
 
   # Get the refresh interval for the server. This will be defined via an
@@ -10101,7 +10183,7 @@ class Mongo::Cluster
   # @since 2.10.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:397
+  # pkg:gem/mongo#lib/mongo/cluster.rb:371
   def heartbeat_interval; end
 
   # Get the nicer formatted string for use in inspection.
@@ -10113,7 +10195,7 @@ class Mongo::Cluster
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:467
+  # pkg:gem/mongo#lib/mongo/cluster.rb:441
   def inspect; end
 
   # Returns whether the cluster is configured to be in the load-balanced
@@ -10121,10 +10203,10 @@ class Mongo::Cluster
   #
   # @return [ true | false ] Whether the topology is load-balanced.
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:339
+  # pkg:gem/mongo#lib/mongo/cluster.rb:313
   def load_balanced?; end
 
-  # pkg:gem/mongo#lib/mongo/cluster.rb:457
+  # pkg:gem/mongo#lib/mongo/cluster.rb:431
   def logical_session_timeout(*_arg0, **_arg1, &_arg2); end
 
   # Get the maximum number of times the client can retry a read operation
@@ -10142,17 +10224,17 @@ class Mongo::Cluster
   # @since 2.1.1
   # @deprecated
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:368
+  # pkg:gem/mongo#lib/mongo/cluster.rb:342
   def max_read_retries; end
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:314
+  # pkg:gem/mongo#lib/mongo/cluster.rb:290
   def monitor_app_metadata; end
 
   # @return [ Monitoring ] monitoring The monitoring.
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:300
+  # pkg:gem/mongo#lib/mongo/cluster.rb:276
   def monitoring; end
 
   # Get the next primary server we can send an operation to.
@@ -10171,12 +10253,12 @@ class Mongo::Cluster
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:770
+  # pkg:gem/mongo#lib/mongo/cluster.rb:744
   def next_primary(_ping = T.unsafe(nil), session = T.unsafe(nil), timeout: T.unsafe(nil)); end
 
   # @return [ Hash ] The options hash.
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:297
+  # pkg:gem/mongo#lib/mongo/cluster.rb:273
   def options; end
 
   # Get the connection pool for the server.
@@ -10191,12 +10273,12 @@ class Mongo::Cluster
   # @since 2.2.0
   # @deprecated
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:790
+  # pkg:gem/mongo#lib/mongo/cluster.rb:764
   def pool(server); end
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:317
+  # pkg:gem/mongo#lib/mongo/cluster.rb:293
   def push_monitor_app_metadata; end
 
   # Get the interval, in seconds, in which read retries when using legacy
@@ -10214,7 +10296,7 @@ class Mongo::Cluster
   # @since 2.1.1
   # @deprecated
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:386
+  # pkg:gem/mongo#lib/mongo/cluster.rb:360
   def read_retry_interval; end
 
   # Reconnect all servers.
@@ -10228,10 +10310,10 @@ class Mongo::Cluster
   # @deprecated Use Client#reconnect to reconnect to the cluster instead of
   #   calling this method. This method does not send SDAM events.
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:541
+  # pkg:gem/mongo#lib/mongo/cluster.rb:515
   def reconnect!; end
 
-  # pkg:gem/mongo#lib/mongo/cluster.rb:344
+  # pkg:gem/mongo#lib/mongo/cluster.rb:318
   def register_cursor(*args); end
 
   # Remove the server from the cluster for the provided address, if it
@@ -10254,13 +10336,13 @@ class Mongo::Cluster
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:874
+  # pkg:gem/mongo#lib/mongo/cluster.rb:848
   def remove(host, disconnect: T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/cluster.rb:332
+  # pkg:gem/mongo#lib/mongo/cluster.rb:306
   def replica_set?(*_arg0, **_arg1, &_arg2); end
 
-  # pkg:gem/mongo#lib/mongo/cluster.rb:332
+  # pkg:gem/mongo#lib/mongo/cluster.rb:306
   def replica_set_name(*_arg0, **_arg1, &_arg2); end
 
   # Runs SDAM flow on the cluster.
@@ -10288,7 +10370,7 @@ class Mongo::Cluster
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:625
+  # pkg:gem/mongo#lib/mongo/cluster.rb:599
   def run_sdam_flow(previous_desc, updated_desc, options = T.unsafe(nil)); end
 
   # Force a scan of all known servers in the cluster.
@@ -10315,10 +10397,10 @@ class Mongo::Cluster
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:584
+  # pkg:gem/mongo#lib/mongo/cluster.rb:558
   def scan!(sync = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/cluster.rb:344
+  # pkg:gem/mongo#lib/mongo/cluster.rb:318
   def schedule_kill_cursor(*args); end
 
   # @return [ Array<String> ] The addresses of seed servers. Contains
@@ -10328,12 +10410,12 @@ class Mongo::Cluster
   # @since 2.7.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:325
+  # pkg:gem/mongo#lib/mongo/cluster.rb:301
   def seeds; end
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:482
+  # pkg:gem/mongo#lib/mongo/cluster.rb:456
   def server_selection_semaphore; end
 
   # Get a list of server candidates from the cluster that can have operations
@@ -10346,19 +10428,17 @@ class Mongo::Cluster
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:433
+  # pkg:gem/mongo#lib/mongo/cluster.rb:407
   def servers; end
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:924
+  # pkg:gem/mongo#lib/mongo/cluster.rb:898
   def servers_list; end
 
-  # @private
+  # @api private
   #
-  # @since 2.5.1
-  #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:330
+  # pkg:gem/mongo#lib/mongo/cluster.rb:304
   def session_pool; end
 
   # Sets the list of servers to the addresses in the provided list of address
@@ -10376,18 +10456,18 @@ class Mongo::Cluster
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:692
+  # pkg:gem/mongo#lib/mongo/cluster.rb:666
   def set_server_list(server_address_strs); end
 
-  # pkg:gem/mongo#lib/mongo/cluster.rb:332
+  # pkg:gem/mongo#lib/mongo/cluster.rb:306
   def sharded?(*_arg0, **_arg1, &_arg2); end
 
-  # pkg:gem/mongo#lib/mongo/cluster.rb:332
+  # pkg:gem/mongo#lib/mongo/cluster.rb:306
   def single?(*_arg0, **_arg1, &_arg2); end
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:352
+  # pkg:gem/mongo#lib/mongo/cluster.rb:326
   def srv_monitor; end
 
   # @note This method is experimental and subject to change.
@@ -10395,21 +10475,29 @@ class Mongo::Cluster
   # @api experimental
   # @since 2.7.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:475
+  # pkg:gem/mongo#lib/mongo/cluster.rb:449
   def summary; end
 
   # @return [ Object ] The cluster topology.
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:305
+  # pkg:gem/mongo#lib/mongo/cluster.rb:281
   def topology; end
 
-  # pkg:gem/mongo#lib/mongo/cluster.rb:302
+  # pkg:gem/mongo#lib/mongo/cluster.rb:278
   def tracer; end
 
-  # pkg:gem/mongo#lib/mongo/cluster.rb:332
+  # Forces the cluster's periodic executor to run immediately. If the cluster
+  # has no periodic executor, this method does nothing.
+  #
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/cluster.rb:964
+  def trigger_periodic_executor!; end
+
+  # pkg:gem/mongo#lib/mongo/cluster.rb:306
   def unknown?(*_arg0, **_arg1, &_arg2); end
 
-  # pkg:gem/mongo#lib/mongo/cluster.rb:344
+  # pkg:gem/mongo#lib/mongo/cluster.rb:318
   def unregister_cursor(*args); end
 
   # Update the max cluster time seen in a response.
@@ -10423,12 +10511,12 @@ class Mongo::Cluster
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:804
+  # pkg:gem/mongo#lib/mongo/cluster.rb:778
   def update_cluster_time(result); end
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:897
+  # pkg:gem/mongo#lib/mongo/cluster.rb:871
   def update_topology(new_topology); end
 
   # Raises Error::SessionsNotAvailable if the deployment that the driver
@@ -10456,51 +10544,30 @@ class Mongo::Cluster
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:966
+  # pkg:gem/mongo#lib/mongo/cluster.rb:940
   def validate_session_support!(timeout: T.unsafe(nil)); end
 
   private
 
-  # pkg:gem/mongo#lib/mongo/cluster.rb:1032
+  # pkg:gem/mongo#lib/mongo/cluster.rb:1016
   def fabricate_lb_sdam_events_and_set_server_type; end
 
   # Compares the server hosts with address suffixes of known services
   # that provide limited MongoDB API compatibility, and warns about them.
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:1078
+  # pkg:gem/mongo#lib/mongo/cluster.rb:1062
   def possibly_warn_about_compatibility!; end
 
-  # pkg:gem/mongo#lib/mongo/cluster.rb:1016
+  # pkg:gem/mongo#lib/mongo/cluster.rb:1000
   def raise_sessions_not_supported; end
 
-  # pkg:gem/mongo#lib/mongo/cluster.rb:1058
+  # pkg:gem/mongo#lib/mongo/cluster.rb:1042
   def recreate_topology(new_topology_template, previous_topology); end
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:989
+  # pkg:gem/mongo#lib/mongo/cluster.rb:973
   def start_stop_srv_monitor; end
-
-  class << self
-    # Create a cluster for the provided client, for use when we don't want the
-    # client's original cluster instance to be the same.
-    #
-    # @example Create a cluster for the client.
-    #   Cluster.create(client)
-    #
-    # @param [ Client ] client The client to create on.
-    # @param [ Monitoring | nil ] monitoring. The monitoring instance to use
-    #   with the new cluster. If nil, a new instance of Monitoring will be
-    #   created.
-    #
-    # @return [ Cluster ] The cluster.
-    #
-    # @since 2.0.0
-    # @api private
-    #
-    # pkg:gem/mongo#lib/mongo/cluster.rb:287
-    def create(client, monitoring: T.unsafe(nil)); end
-  end
 end
 
 # The cluster time key in responses from mongos servers.
@@ -10511,10 +10578,10 @@ end
 # pkg:gem/mongo#lib/mongo/cluster.rb:59
 Mongo::Cluster::CLUSTER_TIME = T.let(T.unsafe(nil), String)
 
-# pkg:gem/mongo#lib/mongo/cluster.rb:1066
+# pkg:gem/mongo#lib/mongo/cluster.rb:1050
 Mongo::Cluster::COSMOSDB_HOST_PATTERNS = T.let(T.unsafe(nil), Array)
 
-# pkg:gem/mongo#lib/mongo/cluster.rb:1067
+# pkg:gem/mongo#lib/mongo/cluster.rb:1051
 Mongo::Cluster::COSMOSDB_LOG_MESSAGE = T.let(T.unsafe(nil), String)
 
 # A manager that sends kill cursors operations at regular intervals to close
@@ -10540,10 +10607,10 @@ class Mongo::Cluster::CursorReaper
   # pkg:gem/mongo#lib/mongo/cluster/reapers/cursor_reaper.rb:47
   def cluster; end
 
-  # pkg:gem/mongo#lib/mongo/cluster/reapers/cursor_reaper.rb:203
+  # pkg:gem/mongo#lib/mongo/cluster/reapers/cursor_reaper.rb:210
   def execute; end
 
-  # pkg:gem/mongo#lib/mongo/cluster/reapers/cursor_reaper.rb:204
+  # pkg:gem/mongo#lib/mongo/cluster/reapers/cursor_reaper.rb:211
   def flush; end
 
   # Execute all pending kill cursors operations.
@@ -10615,10 +10682,10 @@ end
 # pkg:gem/mongo#lib/mongo/cluster/reapers/cursor_reaper.rb:32
 Mongo::Cluster::CursorReaper::FREQUENCY = T.let(T.unsafe(nil), Integer)
 
-# pkg:gem/mongo#lib/mongo/cluster.rb:1071
+# pkg:gem/mongo#lib/mongo/cluster.rb:1055
 Mongo::Cluster::DOCUMENTDB_HOST_PATTERNS = T.let(T.unsafe(nil), Array)
 
-# pkg:gem/mongo#lib/mongo/cluster.rb:1072
+# pkg:gem/mongo#lib/mongo/cluster.rb:1056
 Mongo::Cluster::DOCUMENTDB_LOG_MESSAGE = T.let(T.unsafe(nil), String)
 
 # How often an idle primary writes a no-op to the oplog.
@@ -13331,6 +13398,14 @@ class Mongo::Collection::View
   # pkg:gem/mongo#lib/mongo/collection/view.rb:73
   def tracer(*_arg0, **_arg1, &_arg2); end
 
+  # Executes the provided block within the context of a session, using
+  # this view's options merged with the given ones.
+  #
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/collection/view.rb:243
+  def with_session(opts = T.unsafe(nil), &block); end
+
   # Get the write concern on this +View+.
   #
   # @example Get the write concern.
@@ -13351,17 +13426,14 @@ class Mongo::Collection::View
 
   private
 
-  # pkg:gem/mongo#lib/mongo/collection/view.rb:241
+  # pkg:gem/mongo#lib/mongo/collection/view.rb:249
   def initialize_copy(other); end
 
-  # pkg:gem/mongo#lib/mongo/collection/view.rb:247
+  # pkg:gem/mongo#lib/mongo/collection/view.rb:255
   def new(options); end
 
-  # pkg:gem/mongo#lib/mongo/collection/view.rb:252
+  # pkg:gem/mongo#lib/mongo/collection/view.rb:260
   def view; end
-
-  # pkg:gem/mongo#lib/mongo/collection/view.rb:256
-  def with_session(opts = T.unsafe(nil), &block); end
 end
 
 # Provides behavior around an aggregation pipeline on a collection view.
@@ -13453,7 +13525,7 @@ class Mongo::Collection::View::Aggregation
   # pkg:gem/mongo#lib/mongo/collection/view/aggregation.rb:78
   def new(options); end
 
-  # pkg:gem/mongo#lib/mongo/collection/view/aggregation.rb:118
+  # pkg:gem/mongo#lib/mongo/collection/view/aggregation.rb:116
   def send_initial_query(server, context, operation: T.unsafe(nil)); end
 end
 
@@ -13966,10 +14038,10 @@ class Mongo::Collection::View::ChangeStream < ::Mongo::Collection::View::Aggrega
 
   private
 
-  # pkg:gem/mongo#lib/mongo/collection/view/change_stream.rb:388
+  # pkg:gem/mongo#lib/mongo/collection/view/change_stream.rb:393
   def aggregate_spec(session, read_preference); end
 
-  # pkg:gem/mongo#lib/mongo/collection/view/change_stream.rb:394
+  # pkg:gem/mongo#lib/mongo/collection/view/change_stream.rb:399
   def change_doc; end
 
   # pkg:gem/mongo#lib/mongo/collection/view/change_stream.rb:340
@@ -13984,22 +14056,22 @@ class Mongo::Collection::View::ChangeStream < ::Mongo::Collection::View::Aggrega
   # pkg:gem/mongo#lib/mongo/collection/view/change_stream.rb:332
   def for_database?; end
 
-  # pkg:gem/mongo#lib/mongo/collection/view/change_stream.rb:384
+  # pkg:gem/mongo#lib/mongo/collection/view/change_stream.rb:389
   def pipeline; end
 
   # Recreates the current cursor (typically as a consequence of attempting
   # to resume the change stream)
   #
-  # pkg:gem/mongo#lib/mongo/collection/view/change_stream.rb:463
+  # pkg:gem/mongo#lib/mongo/collection/view/change_stream.rb:468
   def recreate_cursor!(context = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/collection/view/change_stream.rb:457
+  # pkg:gem/mongo#lib/mongo/collection/view/change_stream.rb:462
   def resuming?; end
 
-  # pkg:gem/mongo#lib/mongo/collection/view/change_stream.rb:438
+  # pkg:gem/mongo#lib/mongo/collection/view/change_stream.rb:443
   def send_initial_query(connection, context); end
 
-  # pkg:gem/mongo#lib/mongo/collection/view/change_stream.rb:446
+  # pkg:gem/mongo#lib/mongo/collection/view/change_stream.rb:451
   def time_to_bson_timestamp(time); end
 end
 
@@ -14399,14 +14471,8 @@ class Mongo::Collection::View::MapReduce
 
   private
 
-  # pkg:gem/mongo#lib/mongo/collection/view/map_reduce.rb:311
-  def fetch_query_op(session); end
-
   # pkg:gem/mongo#lib/mongo/collection/view/map_reduce.rb:302
-  def fetch_query_spec; end
-
-  # pkg:gem/mongo#lib/mongo/collection/view/map_reduce.rb:306
-  def find_command_spec(session); end
+  def fetch_query_op(session); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/map_reduce.rb:259
   def initial_query_op(session); end
@@ -14423,10 +14489,10 @@ class Mongo::Collection::View::MapReduce
   # pkg:gem/mongo#lib/mongo/collection/view/map_reduce.rb:280
   def secondary_ok?; end
 
-  # pkg:gem/mongo#lib/mongo/collection/view/map_reduce.rb:324
+  # pkg:gem/mongo#lib/mongo/collection/view/map_reduce.rb:315
   def send_fetch_query(server, session); end
 
-  # pkg:gem/mongo#lib/mongo/collection/view/map_reduce.rb:328
+  # pkg:gem/mongo#lib/mongo/collection/view/map_reduce.rb:319
   def send_fetch_query_with_connection(connection, session); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/map_reduce.rb:284
@@ -14907,6 +14973,14 @@ module Mongo::Collection::View::Readable
   # pkg:gem/mongo#lib/mongo/collection/view/readable.rb:536
   def return_key(value = T.unsafe(nil)); end
 
+  # The server selector for this view, derived from its read
+  # preference (or the collection/client default).
+  #
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/collection/view/readable.rb:756
+  def server_selector; end
+
   # Set whether the disk location should be shown for each document.
   #
   # @example Set show disk location option.
@@ -14984,13 +15058,10 @@ module Mongo::Collection::View::Readable
 
   private
 
-  # pkg:gem/mongo#lib/mongo/collection/view/readable.rb:754
+  # pkg:gem/mongo#lib/mongo/collection/view/readable.rb:766
   def collation(doc = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/collection/view/readable.rb:758
-  def server_selector; end
-
-  # pkg:gem/mongo#lib/mongo/collection/view/readable.rb:766
+  # pkg:gem/mongo#lib/mongo/collection/view/readable.rb:770
   def validate_doc!(doc); end
 end
 
@@ -15807,7 +15878,7 @@ class Mongo::Crypt::Context
   #
   # @return [ Symbol, nil ] The BSON mode.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/context.rb:116
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:118
   def bson_mode; end
 
   # pkg:gem/mongo#lib/mongo/crypt/context.rb:54
@@ -15851,10 +15922,13 @@ class Mongo::Crypt::Context
   # @raise [ Error::CryptError ] If the Azure access token could not be
   #   retrieved.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/context.rb:229
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:260
   def azure_access_token(timeout_holder); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/context.rb:150
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:141
+  def feed_collection_info(db_name, timeout_ms); end
+
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:161
   def feed_kms; end
 
   # Retrieves a GCP access token.
@@ -15863,12 +15937,12 @@ class Mongo::Crypt::Context
   #
   # @raise [ Error::CryptError ] If the GCP access token could not be
   #
-  # pkg:gem/mongo#lib/mongo/crypt/context.rb:215
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:246
   def gcp_access_token(timeout_holder); end
 
   # Indicate that state machine is done feeding I/O responses back to libmongocrypt
   #
-  # pkg:gem/mongo#lib/mongo/crypt/context.rb:169
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:197
   def mongocrypt_done; end
 
   # Feeds the result of a Mongo operation back to libmongocrypt.
@@ -15877,17 +15951,32 @@ class Mongo::Crypt::Context
   #
   # @return [ BSON::Document ] BSON document containing the result.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/context.rb:178
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:206
   def mongocrypt_feed(doc); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/context.rb:131
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:133
   def provide_collection_info(timeout_ms); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/context.rb:140
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:137
+  def provide_collection_info_with_db(timeout_ms); end
+
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:151
   def provide_keys(timeout_ms); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/context.rb:122
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:124
   def provide_markings(timeout_ms); end
+
+  # Raise a KmsError that wraps the KMS status message (which describes the
+  # retry exhaustion) with the error from the last attempt.
+  #
+  # @param [ Mongo::Crypt::KmsContext ] kms_context
+  # @param [ Mongo::Error::KmsError ] last_error The error from the last
+  #   KMS request attempt.
+  #
+  # @raise [ Mongo::Error::KmsError ]
+  #
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:187
+  def raise_kms_retry_error(kms_context, last_error); end
 
   # Retrieves KMS credentials for providers that are configured
   # for automatic credentials retrieval.
@@ -15897,7 +15986,7 @@ class Mongo::Crypt::Context
   # @return [ Crypt::KMS::Credentials ] Credentials for the configured
   #   KMS providers.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/context.rb:189
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:217
   def retrieve_kms_credentials(timeout_holder); end
 end
 
@@ -15978,7 +16067,7 @@ class Mongo::Crypt::EncryptionIO
   # Adds a key_alt_name to the key_alt_names array of the key document
   # in the key vault collection with the given id.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:181
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:187
   def add_key_alt_name(id, key_alt_name, timeout_ms: T.unsafe(nil)); end
 
   # Get collection info for a collection matching the provided filter
@@ -15988,7 +16077,7 @@ class Mongo::Crypt::EncryptionIO
   #    Must be a non-negative integer. An explicit value of 0 means infinite.
   #    The default value is unset which means the feature is not enabled.
   #
-  # @return [ Hash ] The collection information
+  # @return [ Array<BSON::Document> ] The collection information documents
   #
   # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:101
   def collection_info(db_name, filter, timeout_ms: T.unsafe(nil)); end
@@ -15996,7 +16085,7 @@ class Mongo::Crypt::EncryptionIO
   # Removes the key document with the given id
   # from the key vault collection.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:191
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:197
   def delete_key(id, timeout_ms: T.unsafe(nil)); end
 
   # Get information about the remote KMS encryption key and feed it to the the
@@ -16012,7 +16101,7 @@ class Mongo::Crypt::EncryptionIO
   #    Must be a non-negative integer. An explicit value of 0 means infinite.
   #    The default value is unset which means the feature is not enabled.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:159
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:165
   def feed_kms(kms_context, tls_options, timeout_ms: T.unsafe(nil)); end
 
   # Query for keys in the key vault collection using the provided
@@ -16030,18 +16119,18 @@ class Mongo::Crypt::EncryptionIO
 
   # Finds a single key document with the given id.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:196
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:202
   def get_key(id, timeout_ms: T.unsafe(nil)); end
 
   # Returns a key document in the key vault collection with
   # the given key_alt_name.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:202
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:208
   def get_key_by_alt_name(key_alt_name, timeout_ms: T.unsafe(nil)); end
 
   # Finds all documents in the key vault collection.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:207
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:213
   def get_keys(timeout_ms: T.unsafe(nil)); end
 
   # Insert a document into the key vault collection
@@ -16059,19 +16148,23 @@ class Mongo::Crypt::EncryptionIO
   # Send the command to mongocryptd to be marked with intent-to-encrypt markings
   #
   # @param [ Hash ] cmd
+  # @param [ String | nil ] :db_name The database against which the command
+  #   is being run. When provided, the command is sent to mongocryptd using
+  #   this database so that the namespace in the command matches the namespace
+  #   in encryptionInformation.
   # @param [ Integer ] :timeout_ms The operation timeout in milliseconds.
   #    Must be a non-negative integer. An explicit value of 0 means infinite.
   #    The default value is unset which means the feature is not enabled.
   #
   # @return [ Hash ] The marked command
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:122
-  def mark_command(cmd, timeout_ms: T.unsafe(nil)); end
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:126
+  def mark_command(cmd, db_name: T.unsafe(nil), timeout_ms: T.unsafe(nil)); end
 
   # Removes a key_alt_name from the key_alt_names array of the key document
   # in the key vault collection with the given id.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:213
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:219
   def remove_key_alt_name(id, key_alt_name, timeout_ms: T.unsafe(nil)); end
 
   # Apply given requests to the key vault collection using bulk write.
@@ -16080,7 +16173,7 @@ class Mongo::Crypt::EncryptionIO
   #
   # @return [ BulkWrite::Result ] The result of the operation.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:243
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:249
   def update_data_keys(updates, timeout_ms: T.unsafe(nil)); end
 
   private
@@ -16088,7 +16181,7 @@ class Mongo::Crypt::EncryptionIO
   # Use the provided key vault client and namespace to construct a
   # Mongo::Collection object representing the key vault collection.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:272
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:278
   def key_vault_collection; end
 
   # Spawn a new mongocryptd process using the mongocryptd_spawn_path
@@ -16104,13 +16197,13 @@ class Mongo::Crypt::EncryptionIO
   # @raise [ ArgumentError ] Raises an exception if no encryption options
   #   have been provided
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:292
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:298
   def spawn_mongocryptd; end
 
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:249
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:255
   def validate_key_vault_client!(key_vault_client); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:259
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:265
   def validate_key_vault_namespace!(key_vault_namespace); end
 
   # Provide a TLS socket to be used for KMS calls in a block API
@@ -16127,7 +16220,7 @@ class Mongo::Crypt::EncryptionIO
   # @note The socket is always closed when the provided block has finished
   #   executing
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:340
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:346
   def with_ssl_socket(endpoint, tls_options, timeout_ms: T.unsafe(nil)); end
 end
 
@@ -16556,10 +16649,10 @@ class Mongo::Crypt::Handle
   # pkg:gem/mongo#lib/mongo/crypt/handle.rb:69
   def initialize(kms_providers, kms_tls_options, options = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:139
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:151
   def crypt_shared_lib_available?; end
 
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:135
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:147
   def crypt_shared_lib_version; end
 
   # @return [ Crypt::KMS::Credentials ] Credentials for KMS providers.
@@ -16568,20 +16661,21 @@ class Mongo::Crypt::Handle
   def kms_providers; end
 
   # Return TLS options for KMS provider. If there are no TLS options set,
-  # empty hash is returned.
+  # empty hash is returned. Named providers (e.g. "kmip:name1") fall back
+  # to the base-type options (e.g. :kmip) when no exact match is found.
   #
-  # @param [ String ] provider KSM provider name.
+  # @param [ String ] provider KMS provider name or named identifier.
   #
   # @return [ Hash ] TLS options to connect to KMS provider.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:131
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:134
   def kms_tls_options(provider); end
 
   # Return the reference to the underlying @mongocrypt object
   #
   # @return [ FFI::Pointer ]
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:121
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:123
   def ref; end
 
   private
@@ -16589,19 +16683,19 @@ class Mongo::Crypt::Handle
   # Perform AES encryption or decryption and write the output to the
   # provided mongocrypt_binary_t object.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:245
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:257
   def do_aes(key_binary_p, iv_binary_p, input_binary_p, output_binary_p, response_length_p, status_p, decrypt: T.unsafe(nil), mode: T.unsafe(nil)); end
 
   # Perform HMAC SHA encryption and write the output to the provided
   # mongocrypt_binary_t object.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:261
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:273
   def do_hmac_sha(digest_name, key_binary_p, input_binary_p, output_binary_p, status_p); end
 
   # Perform signing using RSASSA-PKCS1-v1_5 with SHA256 hash and write
   # the output to the provided mongocrypt_binary_t object.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:273
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:285
   def do_rsaes_pkcs_signature(key_binary_p, input_binary_p, output_binary_p, status_p); end
 
   # Yields to the provided block and rescues exceptions raised by
@@ -16617,20 +16711,20 @@ class Mongo::Crypt::Handle
   # @return [ true | false ] Whether block executed without raising
   #   exceptions.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:212
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:224
   def handle_error(status_p); end
 
   # Initialize the underlying mongocrypt_t object and raise an error if the operation fails
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:388
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:400
   def initialize_mongocrypt; end
 
   # Set the schema map option on the underlying mongocrypt_t object
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:146
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:158
   def maybe_set_schema_map(options); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:181
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:193
   def set_bypass_query_analysis; end
 
   # We are building libmongocrypt without crypto functions to remove the
@@ -16641,15 +16735,15 @@ class Mongo::Crypt::Handle
   # Every crypto binding ignores its first argument, which is an option
   # mongocrypt_ctx_t object and is not required to use crypto hooks.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:290
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:302
   def set_crypto_hooks; end
 
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:171
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:183
   def set_encrypted_fields_map; end
 
   # Send the logs from libmongocrypt to the Mongo::Logger
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:192
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:204
   def set_logger_callback; end
 
   # Yields to the provided block and writes the return value of block
@@ -16666,7 +16760,7 @@ class Mongo::Crypt::Handle
   # @return [ true | false ] Whether block executed without raising
   #   exceptions.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:235
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:247
   def write_binary_string_and_set_status(output_binary_p, status_p); end
 end
 
@@ -16742,71 +16836,38 @@ module Mongo::Crypt::Hooks
   def rsaes_pkcs_signature(key, input); end
 
   class << self
-    # An AES encrypt or decrypt method.
-    #
-    # @param [ String ] key The 32-byte AES encryption key
-    # @param [ String ] iv The 16-byte AES IV
-    # @param [ String ] input The data to be encrypted/decrypted
-    # @param [ true | false ] decrypt Whether this method is decrypting. Default is
-    #   false, which means the method will create an encryption cipher by default
-    # @param [ Symbol ] mode AES mode of operation
-    #
-    # @return [ String ] Output
-    # @raise [ Exception ] Exceptions raised during encryption are propagated
-    #   to caller.
-    #
     # pkg:gem/mongo#lib/mongo/crypt/hooks.rb:50
     def aes(key, iv, input, decrypt: T.unsafe(nil), mode: T.unsafe(nil)); end
 
-    # A crypto hash (SHA-256) function
-    #
-    # @param [ String ] input The data to be hashed
-    #
-    # @return [ String ]
-    # @raise [ Exception ] Exceptions raised during encryption are propagated
-    #   to caller.
-    #
     # pkg:gem/mongo#lib/mongo/crypt/hooks.rb:88
     def hash_sha256(input); end
 
-    # An HMAC SHA-512 or SHA-256 function
-    #
-    # @param [ String ] digest_name The name of the digest, either "SHA256" or "SHA512"
-    # @param [ String ] key The 32-byte AES encryption key
-    # @param [ String ] input The data to be tagged
-    #
-    # @return [ String ]
-    # @raise [ Exception ] Exceptions raised during encryption are propagated
-    #   to caller.
-    #
     # pkg:gem/mongo#lib/mongo/crypt/hooks.rb:76
     def hmac_sha(digest_name, key, input); end
 
-    # Crypto secure random function
-    #
-    # @param [ Integer ] num_bytes The number of random bytes requested
-    #
-    # @return [ String ]
-    # @raise [ Exception ] Exceptions raised during encryption are propagated
-    #   to caller.
-    #
     # pkg:gem/mongo#lib/mongo/crypt/hooks.rb:62
     def random(num_bytes); end
 
-    # An RSASSA-PKCS1-v1_5 with SHA-256 signature function.
-    #
-    # @param [ String ] key The PKCS#8 private key in DER format, base64 encoded.
-    # @param [ String ] input The data to be signed.
-    #
-    # @return [ String ] The signature.
-    #
     # pkg:gem/mongo#lib/mongo/crypt/hooks.rb:110
     def rsaes_pkcs_signature(key, input); end
   end
 end
 
 # pkg:gem/mongo#lib/mongo/crypt/kms.rb:19
-module Mongo::Crypt::KMS; end
+module Mongo::Crypt::KMS
+  class << self
+    # Returns the base provider type from a KMS provider identifier.
+    # For example, "aws:name1" returns "aws" and :aws returns "aws".
+    #
+    # @param [ String | Symbol ] identifier The KMS provider identifier.
+    # @return [ String ] The base provider type.
+    #
+    # @api private
+    #
+    # pkg:gem/mongo#lib/mongo/crypt/kms.rb:33
+    def provider_base_type(identifier); end
+  end
+end
 
 # pkg:gem/mongo#lib/mongo/crypt/kms/aws/credentials.rb:20
 module Mongo::Crypt::KMS::AWS; end
@@ -17143,54 +17204,69 @@ Mongo::Crypt::KMS::Azure::MasterKeyDocument::FORMAT_HINT = T.let(T.unsafe(nil), 
 #
 # pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:23
 class Mongo::Crypt::KMS::Credentials
-  # Creates a KMS credentials object form a parameters hash.
+  # Creates a KMS credentials object from a parameters hash.
   #
-  # @param [ Hash ] kms_providers A hash that contains credential for
-  #   KMS providers. The hash should have KMS provider names as keys,
-  #   and required parameters for every provider as values.
-  #   Required parameters for KMS providers are described in corresponding
-  #   classes inside Mongo::Crypt::KMS module.
+  # @param [ Hash ] kms_providers A hash that contains credentials for
+  #   KMS providers. Keys may be provider types (:aws, :local, etc.) or
+  #   named provider identifiers ("aws:name1", "local:name2", etc.).
+  #   Values are hashes of credentials for the corresponding provider type.
   #
   # @note There may be more than one KMS provider specified.
   #
   # @raise [ ArgumentError ] If required options are missing or incorrectly
   #   formatted.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:51
+  # pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:40
   def initialize(kms_providers); end
 
-  # @return [ Credentials::AWS | nil ] AWS KMS credentials.
+  # Returns true if any configured provider supports on-demand credential
+  # retrieval and has been configured with empty credentials.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:25
+  # @return [ Boolean ]
+  #
+  # pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:102
+  def any_on_demand?; end
+
+  # @return [ Credentials::AWS | nil ] AWS KMS credentials (unnamed provider only).
+  #
+  # pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:74
   def aws; end
 
-  # @return [ Credentials::Azure | nil ] Azure KMS credentials.
+  # @return [ Credentials::Azure | nil ] Azure KMS credentials (unnamed provider only).
   #
-  # pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:28
+  # pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:79
   def azure; end
 
-  # @return [ Credentials::GCP | nil ] GCP KMS credentials.
+  # pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:27
+  def credentials_map; end
+
+  # @return [ Credentials::GCP | nil ] GCP KMS credentials (unnamed provider only).
   #
-  # pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:31
+  # pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:84
   def gcp; end
 
-  # @return [ Credentials::KMIP | nil ] KMIP KMS credentials.
+  # @return [ Credentials::KMIP | nil ] KMIP KMS credentials (unnamed provider only).
   #
-  # pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:34
+  # pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:89
   def kmip; end
 
-  # @return [ Credentials::Local | nil ] Local KMS credentials.
+  # @return [ Credentials::Local | nil ] Local KMS credentials (unnamed provider only).
   #
-  # pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:37
+  # pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:94
   def local; end
 
   # Convert credentials object to a BSON document in libmongocrypt format.
   #
   # @return [ BSON::Document ] Credentials as BSON document.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:70
+  # pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:111
   def to_document; end
 end
+
+# KMS provider types that support on-demand credential retrieval.
+#
+# pkg:gem/mongo#lib/mongo/crypt/kms/credentials.rb:25
+Mongo::Crypt::KMS::Credentials::ON_DEMAND_PROVIDERS = T.let(T.unsafe(nil), Array)
 
 # This error indicates that we could not obtain credential for
 # a KMS service.
@@ -17426,12 +17502,21 @@ class Mongo::Crypt::KMS::KMIP::MasterKeyDocument
   #   a 96 byte KMIP Secret Data managed object, optional. If key_id
   #   is omitted, the driver creates a random 96 byte identifier.
   # @option opts [ String | nil ] :endpoint KMIP endpoint, optional.
+  # @option opts [ true | false | nil ] :delegated If true, the KMIP
+  #   server performs encryption and decryption of the data key,
+  #   optional. Defaults to false.
   #
   # @raise [ ArgumentError ] If required options are missing or incorrectly
   #   formatted.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/kms/kmip/master_document.rb:48
+  # pkg:gem/mongo#lib/mongo/crypt/kms/kmip/master_document.rb:55
   def initialize(opts = T.unsafe(nil)); end
+
+  # @return [ true | false | nil ] Whether the KMIP server performs
+  #   encryption and decryption of the data key.
+  #
+  # pkg:gem/mongo#lib/mongo/crypt/kms/kmip/master_document.rb:36
+  def delegated; end
 
   # @return [ String | nil ] KMIP KMS endpoint with optional port.
   #
@@ -17448,11 +17533,24 @@ class Mongo::Crypt::KMS::KMIP::MasterKeyDocument
   #
   # @return [ BSON::Document ] KMIP KMS credentials in libmongocrypt format.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/kms/kmip/master_document.rb:60
+  # pkg:gem/mongo#lib/mongo/crypt/kms/kmip/master_document.rb:68
   def to_document; end
+
+  private
+
+  # Validate the optional :delegated KMIP master key option.
+  #
+  # @param [ Hash ] opts Master key options.
+  #
+  # @return [ true | false | nil ] The delegated value, or nil if absent.
+  #
+  # @raise [ ArgumentError ] If delegated is present but not a boolean.
+  #
+  # pkg:gem/mongo#lib/mongo/crypt/kms/kmip/master_document.rb:87
+  def validate_delegated(opts); end
 end
 
-# pkg:gem/mongo#lib/mongo/crypt/kms/kmip/master_document.rb:34
+# pkg:gem/mongo#lib/mongo/crypt/kms/kmip/master_document.rb:38
 Mongo::Crypt::KMS::KMIP::MasterKeyDocument::FORMAT_HINT = T.let(T.unsafe(nil), String)
 
 # pkg:gem/mongo#lib/mongo/crypt/kms/local/credentials.rb:20
@@ -17523,28 +17621,30 @@ end
 #
 # pkg:gem/mongo#lib/mongo/crypt/kms/master_key_document.rb:24
 class Mongo::Crypt::KMS::MasterKeyDocument
-  # Creates a master key document object form a parameters hash.
+  # Creates a master key document object from a parameters hash.
   #
-  # @param [ String ] kms_provider. KMS provider name.
+  # @param [ String ] kms_provider KMS provider identifier. May be a
+  #   provider type (e.g. "aws") or a named provider (e.g. "aws:name1").
   # @param [ Hash ] options A hash that contains master key options for
   #   the KMS provider.
   #   Required parameters for KMS providers are described in corresponding
   #   classes inside Mongo::Crypt::KMS module.
   #
-  # @raise [ ArgumentError ] If required options are missing or incorrectly.
+  # @raise [ ArgumentError ] If required options are missing or incorrectly
+  #   formatted.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/kms/master_key_document.rb:37
+  # pkg:gem/mongo#lib/mongo/crypt/kms/master_key_document.rb:39
   def initialize(kms_provider, options); end
 
   # Convert master key document object to a BSON document in libmongocrypt format.
   #
   # @return [ BSON::Document ] Master key document as BSON document.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/kms/master_key_document.rb:55
+  # pkg:gem/mongo#lib/mongo/crypt/kms/master_key_document.rb:60
   def to_document; end
 end
 
-# Known KMS provider names.
+# Known KMS provider types.
 #
 # pkg:gem/mongo#lib/mongo/crypt/kms/master_key_document.rb:26
 Mongo::Crypt::KMS::MasterKeyDocument::KMS_PROVIDERS = T.let(T.unsafe(nil), Array)
@@ -17553,7 +17653,7 @@ Mongo::Crypt::KMS::MasterKeyDocument::KMS_PROVIDERS = T.let(T.unsafe(nil), Array
 #
 # @api private
 #
-# pkg:gem/mongo#lib/mongo/crypt/kms.rb:29
+# pkg:gem/mongo#lib/mongo/crypt/kms.rb:40
 module Mongo::Crypt::KMS::Validations
   # Validate if a KMS parameter is valid.
   #
@@ -17568,7 +17668,7 @@ module Mongo::Crypt::KMS::Validations
   # @raise [ ArgumentError ] If required options are missing or incorrectly
   #   formatted.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/kms.rb:42
+  # pkg:gem/mongo#lib/mongo/crypt/kms.rb:53
   def validate_param(key, opts, format_hint, required: T.unsafe(nil)); end
 
   private
@@ -17585,23 +17685,11 @@ module Mongo::Crypt::KMS::Validations
   # @raise [ ArgumentError ] If required options are missing or incorrectly
   #   formatted.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/kms.rb:85
+  # pkg:gem/mongo#lib/mongo/crypt/kms.rb:96
   def validate_tls_options(options); end
 
   class << self
-    # Validate KMS TLS options.
-    #
-    # @param [ Hash | nil ] options TLS options to connect to KMS
-    #   providers. Keys of the hash should be KSM provider names; values
-    #   should be hashes of TLS connection options. The options are equivalent
-    #   to TLS connection options of Mongo::Client.
-    #
-    # @return [ Hash ] Provided TLS options if valid.
-    #
-    # @raise [ ArgumentError ] If required options are missing or incorrectly
-    #   formatted.
-    #
-    # pkg:gem/mongo#lib/mongo/crypt/kms.rb:108
+    # pkg:gem/mongo#lib/mongo/crypt/kms.rb:119
     def validate_tls_options(options); end
   end
 end
@@ -18116,20 +18204,20 @@ class Mongo::Cursor
   # checked into the pool after the initial operation is completed, but
   # only when the cursor is drained.
   #
-  # pkg:gem/mongo#lib/mongo/cursor.rb:583
+  # pkg:gem/mongo#lib/mongo/cursor.rb:589
   def check_in_connection; end
 
   # Because a context must not have a connection_global_id if the session
   # is already pinned to one, this method checks to see whether or not there's
   # pinned connection_global_id on the session and returns nil if so.
   #
-  # pkg:gem/mongo#lib/mongo/cursor.rb:568
+  # pkg:gem/mongo#lib/mongo/cursor.rb:574
   def connection_global_id_for_context; end
 
-  # pkg:gem/mongo#lib/mongo/cursor.rb:469
+  # pkg:gem/mongo#lib/mongo/cursor.rb:475
   def end_session; end
 
-  # pkg:gem/mongo#lib/mongo/cursor.rb:515
+  # pkg:gem/mongo#lib/mongo/cursor.rb:521
   def execute_operation(op, context: T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/cursor.rb:441
@@ -18141,16 +18229,16 @@ class Mongo::Cursor
   # Returns a newly instantiated operation context based on the
   # default values from the view.
   #
-  # pkg:gem/mongo#lib/mongo/cursor.rb:557
+  # pkg:gem/mongo#lib/mongo/cursor.rb:563
   def fresh_context(opts = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/cursor.rb:455
   def get_more_operation; end
 
-  # pkg:gem/mongo#lib/mongo/cursor.rb:503
+  # pkg:gem/mongo#lib/mongo/cursor.rb:509
   def limit; end
 
-  # pkg:gem/mongo#lib/mongo/cursor.rb:473
+  # pkg:gem/mongo#lib/mongo/cursor.rb:479
   def limited?; end
 
   # Considers the timeout mode and will either return the cursor's
@@ -18158,13 +18246,13 @@ class Mongo::Cursor
   #
   # @return [ Operation::Context ] the (possibly-refreshed) context.
   #
-  # pkg:gem/mongo#lib/mongo/cursor.rb:528
+  # pkg:gem/mongo#lib/mongo/cursor.rb:534
   def possibly_refreshed_context; end
 
-  # pkg:gem/mongo#lib/mongo/cursor.rb:477
+  # pkg:gem/mongo#lib/mongo/cursor.rb:483
   def process(result); end
 
-  # pkg:gem/mongo#lib/mongo/cursor.rb:507
+  # pkg:gem/mongo#lib/mongo/cursor.rb:513
   def register; end
 
   # Sets @cursor_id from the operation result.
@@ -18177,13 +18265,13 @@ class Mongo::Cursor
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cursor.rb:547
+  # pkg:gem/mongo#lib/mongo/cursor.rb:553
   def set_cursor_id(result); end
 
-  # pkg:gem/mongo#lib/mongo/cursor.rb:511
+  # pkg:gem/mongo#lib/mongo/cursor.rb:517
   def unregister; end
 
-  # pkg:gem/mongo#lib/mongo/cursor.rb:499
+  # pkg:gem/mongo#lib/mongo/cursor.rb:505
   def use_limit?; end
 
   class << self
@@ -18339,7 +18427,7 @@ class Mongo::Database
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:365
+  # pkg:gem/mongo#lib/mongo/database.rb:479
   def initialize(client, name, options = T.unsafe(nil)); end
 
   # Check equality of the database object against another. Will simply check
@@ -18354,7 +18442,7 @@ class Mongo::Database
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:93
+  # pkg:gem/mongo#lib/mongo/database.rb:94
   def ==(other); end
 
   # Get a collection in this database by the provided name.
@@ -18369,7 +18457,7 @@ class Mongo::Database
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:110
+  # pkg:gem/mongo#lib/mongo/database.rb:111
   def [](collection_name, options = T.unsafe(nil)); end
 
   # Perform an aggregation on the database.
@@ -18403,18 +18491,18 @@ class Mongo::Database
   #
   # @since 2.10.0
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:454
+  # pkg:gem/mongo#lib/mongo/database.rb:568
   def aggregate(pipeline, options = T.unsafe(nil)); end
 
   # @return [ Client ] client The database client.
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:60
+  # pkg:gem/mongo#lib/mongo/database.rb:61
   def client; end
 
-  # pkg:gem/mongo#lib/mongo/database.rb:69
+  # pkg:gem/mongo#lib/mongo/database.rb:70
   def cluster(*_arg0, **_arg1, &_arg2); end
 
-  # pkg:gem/mongo#lib/mongo/database.rb:118
+  # pkg:gem/mongo#lib/mongo/database.rb:119
   def collection(collection_name, options = T.unsafe(nil)); end
 
   # Get all the names of the non-system collections in the database.
@@ -18442,7 +18530,7 @@ class Mongo::Database
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:144
+  # pkg:gem/mongo#lib/mongo/database.rb:145
   def collection_names(options = T.unsafe(nil)); end
 
   # Get all the non-system collections that belong to this database.
@@ -18470,7 +18558,7 @@ class Mongo::Database
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:205
+  # pkg:gem/mongo#lib/mongo/database.rb:206
   def collections(options = T.unsafe(nil)); end
 
   # Execute a command on the database.
@@ -18496,8 +18584,50 @@ class Mongo::Database
   #
   # @return [ Mongo::Operation::Result ] The result of the command execution.
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:231
+  # pkg:gem/mongo#lib/mongo/database.rb:232
   def command(operation, opts = T.unsafe(nil)); end
+
+  # Run a command that returns a cursor and parse the response as a cursor.
+  #
+  # The command is sent to the server unmodified; the driver MUST NOT inspect
+  # or alter it. If the response does not contain a cursor field an error is
+  # raised. The command is never retried.
+  #
+  # Note: if a +maxTimeMS+ field is already set on the command document it is
+  # left as-is. The +max_time_ms+ option below applies only to getMore
+  # commands. Setting both +timeout_ms+ and +max_time_ms+ is not supported
+  # and has undefined behavior.
+  #
+  # @example Run a cursor-returning command.
+  #   database.cursor_command(checkMetadataConsistency: 1)
+  #
+  # @param [ Hash ] command The command to execute.
+  # @param [ Hash ] options The command options.
+  #
+  # @option options [ Hash ] :read The read preference for this command,
+  #   used for server selection and reused for subsequent getMores.
+  # @option options [ Session ] :session The session to use. If none is
+  #   given an implicit session is created and reused for the cursor's
+  #   lifetime.
+  # @option options [ Integer ] :timeout_ms The operation timeout in
+  #   milliseconds.
+  # @option options [ Integer ] :batch_size The batchSize to send on getMore
+  #   commands.
+  # @option options [ Integer ] :max_time_ms The maxTimeMS to send on getMore
+  #   commands.
+  # @option options [ Object ] :comment A comment to attach to getMore
+  #   commands.
+  # @option options [ Symbol ] :cursor_type The cursor type, :tailable or
+  #   :tailable_await. Must match the flags set on the command document.
+  # @option options [ Symbol ] :timeout_mode :cursor_lifetime or :iteration.
+  #
+  # @return [ Mongo::Cursor ] A cursor over the command results.
+  #
+  # @raise [ Error::InvalidCursorOperation ] If the response does not contain
+  #   a cursor.
+  #
+  # pkg:gem/mongo#lib/mongo/database.rb:301
+  def cursor_command(command, options = T.unsafe(nil)); end
 
   # Drop the database and all its associated information.
   #
@@ -18517,10 +18647,10 @@ class Mongo::Database
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:325
+  # pkg:gem/mongo#lib/mongo/database.rb:439
   def drop(options = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/database.rb:69
+  # pkg:gem/mongo#lib/mongo/database.rb:70
   def encrypted_fields_map(*_arg0, **_arg1, &_arg2); end
 
   # Get the Grid "filesystem" for this database.
@@ -18544,7 +18674,7 @@ class Mongo::Database
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:408
+  # pkg:gem/mongo#lib/mongo/database.rb:522
   def fs(options = T.unsafe(nil)); end
 
   # Get a pretty printed string inspection for the database.
@@ -18556,7 +18686,7 @@ class Mongo::Database
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:384
+  # pkg:gem/mongo#lib/mongo/database.rb:498
   def inspect; end
 
   # Get info on all the non-system collections in the database.
@@ -18589,15 +18719,15 @@ class Mongo::Database
   #
   # @since 2.0.5
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:177
+  # pkg:gem/mongo#lib/mongo/database.rb:178
   def list_collections(options = T.unsafe(nil)); end
 
   # @return [ String ] name The name of the database.
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:63
+  # pkg:gem/mongo#lib/mongo/database.rb:64
   def name; end
 
-  # pkg:gem/mongo#lib/mongo/database.rb:79
+  # pkg:gem/mongo#lib/mongo/database.rb:80
   def next_primary(*_arg0, **_arg1, &_arg2); end
 
   # @return [ Hash ] timeout_ms value set on the operation level (if any),
@@ -18605,12 +18735,12 @@ class Mongo::Database
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:563
+  # pkg:gem/mongo#lib/mongo/database.rb:659
   def operation_timeouts(opts); end
 
   # @return [ Hash ] options The options.
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:66
+  # pkg:gem/mongo#lib/mongo/database.rb:67
   def options; end
 
   # Execute a read command on the database, retrying the read if necessary.
@@ -18632,16 +18762,16 @@ class Mongo::Database
   # @return [ Hash ] The result of the command execution.
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:280
+  # pkg:gem/mongo#lib/mongo/database.rb:394
   def read_command(operation, opts = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/database.rb:69
+  # pkg:gem/mongo#lib/mongo/database.rb:70
   def read_concern(*_arg0, **_arg1, &_arg2); end
 
-  # pkg:gem/mongo#lib/mongo/database.rb:69
+  # pkg:gem/mongo#lib/mongo/database.rb:70
   def read_preference(*_arg0, **_arg1, &_arg2); end
 
-  # pkg:gem/mongo#lib/mongo/database.rb:69
+  # pkg:gem/mongo#lib/mongo/database.rb:70
   def server_selector(*_arg0, **_arg1, &_arg2); end
 
   # @return [ Integer | nil ] Operation timeout that is for this database or
@@ -18649,10 +18779,10 @@ class Mongo::Database
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:555
+  # pkg:gem/mongo#lib/mongo/database.rb:651
   def timeout_ms; end
 
-  # pkg:gem/mongo#lib/mongo/database.rb:69
+  # pkg:gem/mongo#lib/mongo/database.rb:70
   def tracer(*_arg0, **_arg1, &_arg2); end
 
   # Get the user view for this database.
@@ -18664,7 +18794,7 @@ class Mongo::Database
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:420
+  # pkg:gem/mongo#lib/mongo/database.rb:534
   def users; end
 
   # Allows users to request that notifications are sent for all changes that
@@ -18731,58 +18861,145 @@ class Mongo::Database
   #
   # @since 2.6.0
   #
-  # pkg:gem/mongo#lib/mongo/database.rb:521
+  # pkg:gem/mongo#lib/mongo/database.rb:635
   def watch(pipeline = T.unsafe(nil), options = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/database.rb:69
+  # pkg:gem/mongo#lib/mongo/database.rb:70
   def write_concern(*_arg0, **_arg1, &_arg2); end
 
-  class << self
-    # Create a database for the provided client, for use when we don't want the
-    # client's original database instance to be the same.
-    #
-    # @api private
-    #
-    # @example Create a database for the client.
-    #   Database.create(client)
-    #
-    # @param [ Client ] client The client to create on.
-    #
-    # @return [ Database ] The database.
-    #
-    # @since 2.0.0
-    #
-    # pkg:gem/mongo#lib/mongo/database.rb:546
-    def create(client); end
-  end
+  private
+
+  # Checks out a load balanced connection for a cursor command. If the
+  # session is pinned to a connection (e.g. in a transaction), that
+  # connection is reused.
+  #
+  # @param [ Server ] server The load balancer server.
+  # @param [ Operation::Context ] context The operation context.
+  #
+  # @return [ Server::Connection ] The checked out connection.
+  #
+  # pkg:gem/mongo#lib/mongo/database.rb:693
+  def check_out_cursor_command_connection(server, context); end
+
+  # Removes the getMore and cursor options from the options hash and returns
+  # them as a separate hash for the CursorCommandView. The remaining options
+  # (e.g. :session, :read, :timeout_ms) are left for command execution.
+  #
+  # @param [ Hash ] options The cursor_command options (mutated).
+  #
+  # @return [ Hash ] The view options.
+  #
+  # pkg:gem/mongo#lib/mongo/database.rb:679
+  def extract_cursor_command_view_options(options); end
 end
 
 # The admin database name.
 #
 # @since 2.0.0
 #
-# pkg:gem/mongo#lib/mongo/database.rb:31
+# pkg:gem/mongo#lib/mongo/database.rb:32
 Mongo::Database::ADMIN = T.let(T.unsafe(nil), String)
 
 # The "collection" that database commands operate against.
 #
 # @since 2.0.0
 #
-# pkg:gem/mongo#lib/mongo/database.rb:36
+# pkg:gem/mongo#lib/mongo/database.rb:37
 Mongo::Database::COMMAND = T.let(T.unsafe(nil), String)
+
+# The minimal view a Cursor needs when it is built from an arbitrary
+# command response rather than from a collection query.
+#
+# It carries the getMore-specific options (batchSize, maxTimeMS, comment)
+# and the cursor type and timeout mode, and answers the few methods the
+# Cursor reads from its view.
+#
+# @api private
+#
+# pkg:gem/mongo#lib/mongo/database/cursor_command_view.rb:27
+class Mongo::Database::CursorCommandView
+  # @param [ Mongo::Database ] database The database the command ran on.
+  # @param [ Hash ] options The getMore and timeout options.
+  #
+  # @option options [ Integer ] :batch_size The batchSize for getMores.
+  # @option options [ Integer ] :max_time_ms The maxTimeMS for getMores.
+  # @option options [ Object ] :comment The comment for getMores.
+  # @option options [ Symbol ] :cursor_type :tailable or :tailable_await.
+  # @option options [ Symbol ] :timeout_mode :cursor_lifetime or :iteration.
+  #
+  # pkg:gem/mongo#lib/mongo/database/cursor_command_view.rb:36
+  def initialize(database, options = T.unsafe(nil)); end
+
+  # @return [ Integer | nil ] The batchSize sent on getMore commands.
+  #
+  # pkg:gem/mongo#lib/mongo/database/cursor_command_view.rb:63
+  def batch_size; end
+
+  # @return [ Mongo::Client ] The client.
+  #
+  # pkg:gem/mongo#lib/mongo/database/cursor_command_view.rb:49
+  def client; end
+
+  # A placeholder collection used only so the Cursor can reach the client
+  # and database. The actual namespace for getMore and killCursors is taken
+  # from the command response, not from this collection.
+  #
+  # @return [ Mongo::Collection ] The $cmd pseudo collection.
+  #
+  # pkg:gem/mongo#lib/mongo/database/cursor_command_view.rb:58
+  def collection; end
+
+  # @return [ Symbol | nil ] The cursor type.
+  #
+  # pkg:gem/mongo#lib/mongo/database/cursor_command_view.rb:73
+  def cursor_type; end
+
+  # @return [ Mongo::Database ] The database the command ran on.
+  #
+  # pkg:gem/mongo#lib/mongo/database/cursor_command_view.rb:42
+  def database; end
+
+  # Cursors do not support a limit when built from a command response.
+  #
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/database/cursor_command_view.rb:90
+  def limit; end
+
+  # @return [ Integer | nil ] The maxTimeMS sent on getMore commands.
+  #
+  # pkg:gem/mongo#lib/mongo/database/cursor_command_view.rb:68
+  def max_time_ms_for_get_more; end
+
+  # @return [ Hash ] timeout values for the operation context.
+  #
+  # pkg:gem/mongo#lib/mongo/database/cursor_command_view.rb:83
+  def operation_timeouts(opts = T.unsafe(nil)); end
+
+  # @return [ Hash ] The view options. Used by the Cursor to read the
+  #   getMore comment.
+  #
+  # pkg:gem/mongo#lib/mongo/database/cursor_command_view.rb:46
+  def options; end
+
+  # @return [ Symbol | nil ] The timeout mode.
+  #
+  # pkg:gem/mongo#lib/mongo/database/cursor_command_view.rb:78
+  def timeout_mode; end
+end
 
 # Databases constant.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/database.rb:52
+# pkg:gem/mongo#lib/mongo/database.rb:53
 Mongo::Database::DATABASES = T.let(T.unsafe(nil), String)
 
 # The default database options.
 #
 # @since 2.0.0
 #
-# pkg:gem/mongo#lib/mongo/database.rb:41
+# pkg:gem/mongo#lib/mongo/database.rb:42
 Mongo::Database::DEFAULT_OPTIONS = T.let(T.unsafe(nil), Mongo::Options::Redacted)
 
 # Database name field constant.
@@ -18790,14 +19007,14 @@ Mongo::Database::DEFAULT_OPTIONS = T.let(T.unsafe(nil), Mongo::Options::Redacted
 # @since 2.1.0
 # @deprecated
 #
-# pkg:gem/mongo#lib/mongo/database.rb:47
+# pkg:gem/mongo#lib/mongo/database.rb:48
 Mongo::Database::NAME = T.let(T.unsafe(nil), String)
 
 # The name of the collection that holds all the collection names.
 #
 # @since 2.0.0
 #
-# pkg:gem/mongo#lib/mongo/database.rb:57
+# pkg:gem/mongo#lib/mongo/database.rb:58
 Mongo::Database::NAMESPACES = T.let(T.unsafe(nil), String)
 
 # A class representing a view of a database.
@@ -20065,12 +20282,16 @@ Mongo::Error::InvalidTransactionOperation::UNACKNOWLEDGED_WRITE_CONCERN = T.let(
 class Mongo::Error::InvalidURI < ::Mongo::Error
   # Instantiate the new exception.
   #
+  # The URI is redacted via {Mongo::URI.redact} before being interpolated
+  # so that any cleartext credentials in the original input do not end up
+  # in logs, error reporters, or backtraces.
+  #
   # @example Instantiate the exception.
   #   Mongo::Error::InvalidURI.new(uri, details, format)
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/error/invalid_uri.rb:30
+  # pkg:gem/mongo#lib/mongo/error/invalid_uri.rb:34
   def initialize(uri, details, format = T.unsafe(nil)); end
 end
 
@@ -21093,7 +21314,7 @@ module Mongo::Error::SdamErrorDetection
   #
   # @since 2.8.0
   #
-  # pkg:gem/mongo#lib/mongo/error/sdam_error_detection.rb:51
+  # pkg:gem/mongo#lib/mongo/error/sdam_error_detection.rb:50
   def node_recovering?; end
 
   # Whether the error is a "node is shutting down" type error.
@@ -21104,7 +21325,7 @@ module Mongo::Error::SdamErrorDetection
   #
   # @since 2.9.0
   #
-  # pkg:gem/mongo#lib/mongo/error/sdam_error_detection.rb:72
+  # pkg:gem/mongo#lib/mongo/error/sdam_error_detection.rb:71
   def node_shutting_down?; end
 
   # Whether the error is a "not master" error, or one of its variants.
@@ -21843,6 +22064,16 @@ class Mongo::Grid::FSBucket
   # pkg:gem/mongo#lib/mongo/grid/fs_bucket.rb:491
   def drop(opts = T.unsafe(nil)); end
 
+  # Ensures the files and chunks collections have their required indexes,
+  # creating any that are missing.
+  #
+  # @param [ CsotTimeoutHolder | nil ] timeout_holder The timeout holder.
+  #
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/grid/fs_bucket.rb:503
+  def ensure_indexes!(timeout_holder = T.unsafe(nil)); end
+
   # @return [ Collection ] files_collection The files collection.
   #
   # @since 2.0.0
@@ -22084,16 +22315,13 @@ class Mongo::Grid::FSBucket
 
   private
 
-  # pkg:gem/mongo#lib/mongo/grid/fs_bucket.rb:511
+  # pkg:gem/mongo#lib/mongo/grid/fs_bucket.rb:537
   def chunks_name; end
 
-  # pkg:gem/mongo#lib/mongo/grid/fs_bucket.rb:539
+  # pkg:gem/mongo#lib/mongo/grid/fs_bucket.rb:545
   def create_index_if_missing!(collection, index_spec, options = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/grid/fs_bucket.rb:519
-  def ensure_indexes!(timeout_holder = T.unsafe(nil)); end
-
-  # pkg:gem/mongo#lib/mongo/grid/fs_bucket.rb:515
+  # pkg:gem/mongo#lib/mongo/grid/fs_bucket.rb:541
   def files_name; end
 
   # @return [ Hash ] timeout_ms value set on the operation level (if any),
@@ -22101,7 +22329,7 @@ class Mongo::Grid::FSBucket
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/grid/fs_bucket.rb:555
+  # pkg:gem/mongo#lib/mongo/grid/fs_bucket.rb:561
   def operation_timeouts(opts = T.unsafe(nil)); end
 
   # @param [ Hash ] opts The options.
@@ -22109,10 +22337,10 @@ class Mongo::Grid::FSBucket
   # @option opts [ BSON::Document ] :file_info_doc For internal
   #   driver use only. A BSON document to use as file information.
   #
-  # pkg:gem/mongo#lib/mongo/grid/fs_bucket.rb:503
+  # pkg:gem/mongo#lib/mongo/grid/fs_bucket.rb:529
   def read_stream(id, **opts); end
 
-  # pkg:gem/mongo#lib/mongo/grid/fs_bucket.rb:507
+  # pkg:gem/mongo#lib/mongo/grid/fs_bucket.rb:533
   def write_stream(filename, **opts); end
 end
 
@@ -23318,6 +23546,14 @@ class Mongo::Index::View
   # pkg:gem/mongo#lib/mongo/index/view.rb:265
   def get(keys_or_name); end
 
+  # The query limit for an index view. Always -1; present so a Cursor
+  # can treat an index view like a collection view.
+  #
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/index/view.rb:354
+  def limit; end
+
   # pkg:gem/mongo#lib/mongo/index/view.rb:45
   def next_primary(*_arg0, **_arg1, &_arg2); end
 
@@ -23356,28 +23592,25 @@ class Mongo::Index::View
 
   private
 
-  # pkg:gem/mongo#lib/mongo/index/view.rb:352
+  # pkg:gem/mongo#lib/mongo/index/view.rb:360
   def drop_by_name(name, opts = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/index/view.rb:379
+  # pkg:gem/mongo#lib/mongo/index/view.rb:389
   def index_name(spec); end
 
-  # pkg:gem/mongo#lib/mongo/index/view.rb:383
+  # pkg:gem/mongo#lib/mongo/index/view.rb:393
   def indexes_spec(session); end
 
-  # pkg:gem/mongo#lib/mongo/index/view.rb:393
+  # pkg:gem/mongo#lib/mongo/index/view.rb:403
   def initial_query_op(session); end
 
-  # pkg:gem/mongo#lib/mongo/index/view.rb:397
-  def limit; end
-
-  # pkg:gem/mongo#lib/mongo/index/view.rb:401
+  # pkg:gem/mongo#lib/mongo/index/view.rb:407
   def normalize_keys(spec); end
 
-  # pkg:gem/mongo#lib/mongo/index/view.rb:407
+  # pkg:gem/mongo#lib/mongo/index/view.rb:413
   def normalize_models(models); end
 
-  # pkg:gem/mongo#lib/mongo/index/view.rb:416
+  # pkg:gem/mongo#lib/mongo/index/view.rb:422
   def send_initial_query(op, server, _session, context); end
 end
 
@@ -23451,8 +23684,6 @@ module Mongo::Lint
   def validate_underscore_read_preference_mode(mode); end
 
   class << self
-    # Raises LintError if +obj+ is not of type +cls+.
-    #
     # pkg:gem/mongo#lib/mongo/lint.rb:13
     def assert_type(obj, cls); end
 
@@ -23465,25 +23696,6 @@ module Mongo::Lint
     # pkg:gem/mongo#lib/mongo/lint.rb:51
     def validate_camel_case_read_preference_mode(mode); end
 
-    # Validates the provided hash as a read concern object, per the
-    # read/write concern specification
-    # (https://github.com/mongodb/specifications/blob/master/source/read-write-concern/read-write-concern.md#read-concern).
-    #
-    # This method also accepts nil as input for convenience.
-    #
-    # The read concern document as sent to the server may include
-    # additional fields, for example afterClusterTime. These fields
-    # are generated internally by the driver and cannot be specified by
-    # the user (and would potentially lead to incorrect behavior if they
-    # were specified by the user), hence this method prohibits them.
-    #
-    # @param [ Hash ] read_concern The read concern options hash,
-    #   with the following optional keys:
-    #   - *:level* -- the read preference level as a symbol; valid values
-    #      are *:local*, *:majority*, and *:snapshot*
-    #
-    # @raise [ Error::LintError ] If the validation failed.
-    #
     # pkg:gem/mongo#lib/mongo/lint.rb:92
     def validate_read_concern_option(read_concern); end
 
@@ -24000,7 +24212,7 @@ class Mongo::Monitoring::Event::Cmap::ConnectionCheckOutFailed < ::Mongo::Monito
   # @since 2.9.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/connection_check_out_failed.rb:77
+  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/connection_check_out_failed.rb:78
   def summary; end
 end
 
@@ -24063,7 +24275,7 @@ class Mongo::Monitoring::Event::Cmap::ConnectionCheckOutStarted < ::Mongo::Monit
   # @since 2.9.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/connection_check_out_started.rb:49
+  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/connection_check_out_started.rb:50
   def summary; end
 end
 
@@ -24116,7 +24328,7 @@ class Mongo::Monitoring::Event::Cmap::ConnectionCheckedIn < ::Mongo::Monitoring:
   # @since 2.9.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/connection_checked_in.rb:63
+  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/connection_checked_in.rb:64
   def summary; end
 end
 
@@ -24170,7 +24382,7 @@ class Mongo::Monitoring::Event::Cmap::ConnectionCheckedOut < ::Mongo::Monitoring
   # @since 2.9.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/connection_checked_out.rb:64
+  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/connection_checked_out.rb:65
   def summary; end
 end
 
@@ -24222,7 +24434,7 @@ class Mongo::Monitoring::Event::Cmap::ConnectionClosed < ::Mongo::Monitoring::Ev
   # @since 2.9.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/connection_closed.rb:95
+  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/connection_closed.rb:96
   def summary; end
 end
 
@@ -24312,7 +24524,7 @@ class Mongo::Monitoring::Event::Cmap::ConnectionCreated < ::Mongo::Monitoring::E
   # @since 2.9.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/connection_created.rb:56
+  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/connection_created.rb:57
   def summary; end
 end
 
@@ -24357,7 +24569,7 @@ class Mongo::Monitoring::Event::Cmap::ConnectionReady < ::Mongo::Monitoring::Eve
   # @since 2.9.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/connection_ready.rb:56
+  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/connection_ready.rb:57
   def summary; end
 end
 
@@ -24406,7 +24618,7 @@ class Mongo::Monitoring::Event::Cmap::PoolCleared < ::Mongo::Monitoring::Event::
   # @since 2.9.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/pool_cleared.rb:60
+  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/pool_cleared.rb:61
   def summary; end
 end
 
@@ -24452,7 +24664,7 @@ class Mongo::Monitoring::Event::Cmap::PoolClosed < ::Mongo::Monitoring::Event::C
   # @since 2.9.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/pool_closed.rb:57
+  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/pool_closed.rb:58
   def summary; end
 end
 
@@ -24506,7 +24718,7 @@ class Mongo::Monitoring::Event::Cmap::PoolCreated < ::Mongo::Monitoring::Event::
   # @since 2.9.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/pool_created.rb:64
+  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/pool_created.rb:65
   def summary; end
 end
 
@@ -24552,7 +24764,7 @@ class Mongo::Monitoring::Event::Cmap::PoolReady < ::Mongo::Monitoring::Event::Cm
   #
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/pool_ready.rb:56
+  # pkg:gem/mongo#lib/mongo/monitoring/event/cmap/pool_ready.rb:57
   def summary; end
 end
 
@@ -24655,7 +24867,7 @@ class Mongo::Monitoring::Event::CommandFailed < ::Mongo::Event::Base
   #
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/command_failed.rb:106
+  # pkg:gem/mongo#lib/mongo/monitoring/event/command_failed.rb:107
   def summary; end
 
   class << self
@@ -24679,7 +24891,7 @@ class Mongo::Monitoring::Event::CommandFailed < ::Mongo::Event::Base
     # @since 2.1.0
     # @api private
     #
-    # pkg:gem/mongo#lib/mongo/monitoring/event/command_failed.rb:129
+    # pkg:gem/mongo#lib/mongo/monitoring/event/command_failed.rb:130
     def generate(address, operation_id, payload, message, failure, duration, started_event:, server_connection_id: T.unsafe(nil), service_id: T.unsafe(nil)); end
   end
 end
@@ -24749,7 +24961,7 @@ class Mongo::Monitoring::Event::CommandStarted < ::Mongo::Event::Base
   #
   # @since 2.6.0
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/command_started.rb:175
+  # pkg:gem/mongo#lib/mongo/monitoring/event/command_started.rb:176
   def inspect; end
 
   # @return [ Integer ] operation_id The operation id.
@@ -24794,7 +25006,7 @@ class Mongo::Monitoring::Event::CommandStarted < ::Mongo::Event::Base
   #
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/command_started.rb:111
+  # pkg:gem/mongo#lib/mongo/monitoring/event/command_started.rb:112
   def summary; end
 
   private
@@ -24804,7 +25016,7 @@ class Mongo::Monitoring::Event::CommandStarted < ::Mongo::Event::Base
   #
   # @return [ String ] The command summary.
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/command_started.rb:119
+  # pkg:gem/mongo#lib/mongo/monitoring/event/command_started.rb:120
   def command_summary; end
 
   class << self
@@ -24823,7 +25035,7 @@ class Mongo::Monitoring::Event::CommandStarted < ::Mongo::Event::Base
     # @since 2.1.0
     # @api private
     #
-    # pkg:gem/mongo#lib/mongo/monitoring/event/command_started.rb:147
+    # pkg:gem/mongo#lib/mongo/monitoring/event/command_started.rb:148
     def generate(address, operation_id, payload, socket_object_id: T.unsafe(nil), connection_id: T.unsafe(nil), connection_generation: T.unsafe(nil), server_connection_id: T.unsafe(nil), service_id: T.unsafe(nil)); end
   end
 end
@@ -24918,7 +25130,7 @@ class Mongo::Monitoring::Event::CommandSucceeded < ::Mongo::Event::Base
   #
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/command_succeeded.rb:98
+  # pkg:gem/mongo#lib/mongo/monitoring/event/command_succeeded.rb:99
   def summary; end
 
   class << self
@@ -24941,13 +25153,13 @@ class Mongo::Monitoring::Event::CommandSucceeded < ::Mongo::Event::Base
     # @since 2.1.0
     # @api private
     #
-    # pkg:gem/mongo#lib/mongo/monitoring/event/command_succeeded.rb:120
+    # pkg:gem/mongo#lib/mongo/monitoring/event/command_succeeded.rb:121
     def generate(address, operation_id, command_payload, reply_payload, duration, started_event:, server_connection_id: T.unsafe(nil), service_id: T.unsafe(nil)); end
 
-    # pkg:gem/mongo#lib/mongo/monitoring/event/command_succeeded.rb:137
+    # pkg:gem/mongo#lib/mongo/monitoring/event/command_succeeded.rb:138
     def generate_reply(command_payload, reply_payload); end
 
-    # pkg:gem/mongo#lib/mongo/monitoring/event/command_succeeded.rb:149
+    # pkg:gem/mongo#lib/mongo/monitoring/event/command_succeeded.rb:150
     def namespace(payload); end
   end
 end
@@ -24970,7 +25182,7 @@ module Mongo::Monitoring::Event::Secure
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/secure.rb:101
+  # pkg:gem/mongo#lib/mongo/monitoring/event/secure.rb:96
   def compression_allowed?(command_name); end
 
   # Redact secure information from the document if:
@@ -24989,7 +25201,7 @@ module Mongo::Monitoring::Event::Secure
   #
   # @since 2.1.0
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/secure.rb:79
+  # pkg:gem/mongo#lib/mongo/monitoring/event/secure.rb:75
   def redacted(command_name, document); end
 
   # Check whether the command is sensitive in terms of command monitoring
@@ -25046,7 +25258,7 @@ class Mongo::Monitoring::Event::ServerClosed < ::Mongo::Event::Base
   # @since 2.7.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_closed.rb:52
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_closed.rb:53
   def summary; end
 
   # @return [ Topology ] topology The topology.
@@ -25112,7 +25324,7 @@ class Mongo::Monitoring::Event::ServerDescriptionChanged < ::Mongo::Event::Base
   # @since 2.7.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_description_changed.rb:76
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_description_changed.rb:77
   def summary; end
 
   # @return [ Topology ] topology The topology.
@@ -25122,7 +25334,7 @@ class Mongo::Monitoring::Event::ServerDescriptionChanged < ::Mongo::Event::Base
 
   private
 
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_description_changed.rb:85
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_description_changed.rb:86
   def awaited_indicator; end
 end
 
@@ -25151,32 +25363,32 @@ class Mongo::Monitoring::Event::ServerHeartbeatFailed < ::Mongo::Event::Base
 
   # @return [ Address ] address The server address.
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_failed.rb:46
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_failed.rb:47
   def address; end
 
   # @return [ true | false ] Whether the heartbeat was awaited.
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_failed.rb:61
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_failed.rb:62
   def awaited?; end
 
   # Alias of round_trip_time.
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_failed.rb:52
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_failed.rb:53
   def duration; end
 
   # @return [ Exception ] error The exception that occurred in hello call.
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_failed.rb:55
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_failed.rb:56
   def error; end
 
   # Alias of error for SDAM spec compliance.
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_failed.rb:58
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_failed.rb:59
   def failure; end
 
   # @return [ Float ] round_trip_time Duration of hello call in seconds.
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_failed.rb:49
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_failed.rb:50
   def round_trip_time; end
 
   # @return [ Monitoring::Event::ServerHeartbeatStarted ]
@@ -25184,7 +25396,7 @@ class Mongo::Monitoring::Event::ServerHeartbeatFailed < ::Mongo::Event::Base
   #
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_failed.rb:69
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_failed.rb:70
   def started_event; end
 
   # Returns a concise yet useful summary of the event.
@@ -25196,7 +25408,7 @@ class Mongo::Monitoring::Event::ServerHeartbeatFailed < ::Mongo::Event::Base
   # @since 2.7.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_failed.rb:79
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_failed.rb:80
   def summary; end
 end
 
@@ -25239,7 +25451,7 @@ class Mongo::Monitoring::Event::ServerHeartbeatStarted < ::Mongo::Event::Base
   # @since 2.7.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_started.rb:55
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_started.rb:56
   def summary; end
 end
 
@@ -25268,22 +25480,22 @@ class Mongo::Monitoring::Event::ServerHeartbeatSucceeded < ::Mongo::Event::Base
 
   # @return [ Address ] address The server address.
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_succeeded.rb:45
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_succeeded.rb:46
   def address; end
 
   # @return [ true | false ] Whether the heartbeat was awaited.
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_succeeded.rb:54
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_succeeded.rb:55
   def awaited?; end
 
   # Alias of round_trip_time.
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_succeeded.rb:51
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_succeeded.rb:52
   def duration; end
 
   # @return [ Float ] round_trip_time Duration of hello call in seconds.
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_succeeded.rb:48
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_succeeded.rb:49
   def round_trip_time; end
 
   # @return [ Monitoring::Event::ServerHeartbeatStarted ]
@@ -25291,7 +25503,7 @@ class Mongo::Monitoring::Event::ServerHeartbeatSucceeded < ::Mongo::Event::Base
   #
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_succeeded.rb:62
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_succeeded.rb:63
   def started_event; end
 
   # Returns a concise yet useful summary of the event.
@@ -25303,7 +25515,7 @@ class Mongo::Monitoring::Event::ServerHeartbeatSucceeded < ::Mongo::Event::Base
   # @since 2.7.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_succeeded.rb:72
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_heartbeat_succeeded.rb:73
   def summary; end
 end
 
@@ -25340,7 +25552,7 @@ class Mongo::Monitoring::Event::ServerOpening < ::Mongo::Event::Base
   # @since 2.7.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/server_opening.rb:52
+  # pkg:gem/mongo#lib/mongo/monitoring/event/server_opening.rb:53
   def summary; end
 
   # @return [ Topology ] topology The topology.
@@ -25387,7 +25599,7 @@ class Mongo::Monitoring::Event::TopologyChanged < ::Mongo::Event::Base
   # @since 2.7.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/topology_changed.rb:52
+  # pkg:gem/mongo#lib/mongo/monitoring/event/topology_changed.rb:53
   def summary; end
 end
 
@@ -25418,7 +25630,7 @@ class Mongo::Monitoring::Event::TopologyClosed < ::Mongo::Event::Base
   # @since 2.7.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/topology_closed.rb:47
+  # pkg:gem/mongo#lib/mongo/monitoring/event/topology_closed.rb:48
   def summary; end
 
   # @return [ Topology ] topology The topology.
@@ -25454,7 +25666,7 @@ class Mongo::Monitoring::Event::TopologyOpening < ::Mongo::Event::Base
   # @since 2.7.0
   # @api experimental
   #
-  # pkg:gem/mongo#lib/mongo/monitoring/event/topology_opening.rb:47
+  # pkg:gem/mongo#lib/mongo/monitoring/event/topology_opening.rb:48
   def summary; end
 
   # @return [ Topology ] topology The topology.
@@ -25845,7 +26057,7 @@ module Mongo::Operation; end
 #
 # @since 2.5.0
 #
-# pkg:gem/mongo#lib/mongo/operation.rb:100
+# pkg:gem/mongo#lib/mongo/operation.rb:101
 Mongo::Operation::ARRAY_FILTERS = T.let(T.unsafe(nil), String)
 
 # A MongoDB aggregate operation.
@@ -25982,14 +26194,14 @@ end
 # @since 2.5.0
 # @deprecated
 #
-# pkg:gem/mongo#lib/mongo/operation.rb:111
+# pkg:gem/mongo#lib/mongo/operation.rb:112
 Mongo::Operation::CLUSTER_TIME = T.let(T.unsafe(nil), String)
 
 # The collation field constant.
 #
 # @since 2.4.0
 #
-# pkg:gem/mongo#lib/mongo/operation.rb:95
+# pkg:gem/mongo#lib/mongo/operation.rb:96
 Mongo::Operation::COLLATION = T.let(T.unsafe(nil), String)
 
 # Custom behavior for operations that support causal consistency.
@@ -26006,14 +26218,16 @@ module Mongo::Operation::CausalConsistencySupported
   #
   # This method overrides the causal consistency addition logic of
   # SessionsSupported and is meant to be used with operations classified
-  # as "read operations accepting a read concern", as these are defined
-  # in the causal consistency spec.
+  # as "read and write operations accepting a read concern", as these are
+  # defined in the causal consistency spec. For write operations this
+  # attaches only afterClusterTime (no read concern level) so that causal
+  # ordering is preserved across writes in a causally consistent session.
   #
   # In order for the override to work correctly the
   # CausalConsistencySupported module must be included after
   # SessionsSupported module in target classes.
   #
-  # pkg:gem/mongo#lib/mongo/operation/shared/causal_consistency_supported.rb:37
+  # pkg:gem/mongo#lib/mongo/operation/shared/causal_consistency_supported.rb:39
   def apply_causal_consistency!(selector, connection); end
 end
 
@@ -26260,10 +26474,11 @@ end
 # pkg:gem/mongo#lib/mongo/operation/create/op_msg.rb:25
 class Mongo::Operation::Create::OpMsg < ::Mongo::Operation::OpMsgBase
   include ::Mongo::Operation::ExecutableTransactionLabel
+  include ::Mongo::Operation::CausalConsistencySupported
 
   private
 
-  # pkg:gem/mongo#lib/mongo/operation/create/op_msg.rb:30
+  # pkg:gem/mongo#lib/mongo/operation/create/op_msg.rb:31
   def selector(_connection); end
 end
 
@@ -26289,10 +26504,11 @@ end
 # pkg:gem/mongo#lib/mongo/operation/create_index/op_msg.rb:25
 class Mongo::Operation::CreateIndex::OpMsg < ::Mongo::Operation::OpMsgBase
   include ::Mongo::Operation::ExecutableTransactionLabel
+  include ::Mongo::Operation::CausalConsistencySupported
 
   private
 
-  # pkg:gem/mongo#lib/mongo/operation/create_index/op_msg.rb:30
+  # pkg:gem/mongo#lib/mongo/operation/create_index/op_msg.rb:31
   def selector(connection); end
 end
 
@@ -26358,6 +26574,77 @@ class Mongo::Operation::CreateUser::OpMsg < ::Mongo::Operation::OpMsgBase
   def selector(_connection); end
 end
 
+# A command operation whose response is parsed as a cursor.
+#
+# Unlike Command, the result exposes the firstBatch, namespace, and cursor
+# id from the command response so that a Cursor can be built from it.
+#
+# @api private
+#
+# pkg:gem/mongo#lib/mongo/operation/cursor_command/op_msg.rb:19
+class Mongo::Operation::CursorCommand
+  include ::Mongo::Operation::Specifiable
+  include ::Mongo::Operation::PolymorphicLookup
+  include ::Mongo::Operation::OpMsgExecutable
+end
+
+# A cursor command operation sent as an op message.
+#
+# @api private
+#
+# pkg:gem/mongo#lib/mongo/operation/cursor_command/op_msg.rb:23
+class Mongo::Operation::CursorCommand::OpMsg < ::Mongo::Operation::OpMsgBase
+  include ::Mongo::Operation::PolymorphicLookup
+  include ::Mongo::Operation::PolymorphicResult
+  extend ::Mongo::Operation::PolymorphicResult::ClassMethods
+
+  private
+
+  # The user's command is sent verbatim. The driver MUST NOT inspect or
+  # modify it; $db, lsid and other internal fields are attached by the
+  # shared command building code.
+  #
+  # pkg:gem/mongo#lib/mongo/operation/cursor_command/op_msg.rb:31
+  def selector(_connection); end
+end
+
+# Parses the cursor field of a command response so a Cursor can be built
+# from the result. The parsing is identical to a find command result.
+#
+# @api private
+#
+# pkg:gem/mongo#lib/mongo/operation/cursor_command/result.rb:24
+class Mongo::Operation::CursorCommand::Result < ::Mongo::Operation::Result
+  # @return [ true | false ] Whether the command response contained a
+  #   cursor field.
+  #
+  # pkg:gem/mongo#lib/mongo/operation/cursor_command/result.rb:27
+  def cursor?; end
+
+  # @return [ Integer | nil ] The cursor id from the cursor document.
+  #
+  # pkg:gem/mongo#lib/mongo/operation/cursor_command/result.rb:32
+  def cursor_id; end
+
+  # @return [ Array<BSON::Document> ] The first batch of documents.
+  #
+  # pkg:gem/mongo#lib/mongo/operation/cursor_command/result.rb:37
+  def documents; end
+
+  # @return [ String | nil ] The cursor namespace, "database.collection".
+  #
+  # pkg:gem/mongo#lib/mongo/operation/cursor_command/result.rb:42
+  def namespace; end
+
+  private
+
+  # pkg:gem/mongo#lib/mongo/operation/cursor_command/result.rb:48
+  def cursor_document; end
+
+  # pkg:gem/mongo#lib/mongo/operation/cursor_command/result.rb:54
+  def first_document; end
+end
+
 # A MongoDB delete operation.
 #
 # @api private
@@ -26410,14 +26697,15 @@ class Mongo::Operation::Delete::OpMsg < ::Mongo::Operation::OpMsgBase
   include ::Mongo::Operation::ExecutableTransactionLabel
   include ::Mongo::Operation::PolymorphicLookup
   include ::Mongo::Operation::PolymorphicResult
+  include ::Mongo::Operation::CausalConsistencySupported
   extend ::Mongo::Operation::PolymorphicResult::ClassMethods
 
   private
 
-  # pkg:gem/mongo#lib/mongo/operation/delete/op_msg.rb:43
+  # pkg:gem/mongo#lib/mongo/operation/delete/op_msg.rb:44
   def message(connection); end
 
-  # pkg:gem/mongo#lib/mongo/operation/delete/op_msg.rb:33
+  # pkg:gem/mongo#lib/mongo/operation/delete/op_msg.rb:34
   def selector(_connection); end
 end
 
@@ -26499,6 +26787,7 @@ end
 # pkg:gem/mongo#lib/mongo/operation/drop/op_msg.rb:25
 class Mongo::Operation::Drop::OpMsg < ::Mongo::Operation::OpMsgBase
   include ::Mongo::Operation::ExecutableTransactionLabel
+  include ::Mongo::Operation::CausalConsistencySupported
 end
 
 # A MongoDB drop database operation.
@@ -26523,6 +26812,7 @@ end
 # pkg:gem/mongo#lib/mongo/operation/drop_database/op_msg.rb:25
 class Mongo::Operation::DropDatabase::OpMsg < ::Mongo::Operation::OpMsgBase
   include ::Mongo::Operation::ExecutableTransactionLabel
+  include ::Mongo::Operation::CausalConsistencySupported
 end
 
 # A MongoDB drop index operation.
@@ -26547,10 +26837,11 @@ end
 # pkg:gem/mongo#lib/mongo/operation/drop_index/op_msg.rb:25
 class Mongo::Operation::DropIndex::OpMsg < ::Mongo::Operation::OpMsgBase
   include ::Mongo::Operation::ExecutableTransactionLabel
+  include ::Mongo::Operation::CausalConsistencySupported
 
   private
 
-  # pkg:gem/mongo#lib/mongo/operation/drop_index/op_msg.rb:30
+  # pkg:gem/mongo#lib/mongo/operation/drop_index/op_msg.rb:31
   def selector(_connection); end
 end
 
@@ -26611,7 +26902,7 @@ module Mongo::Operation::Executable
   # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:32
   def do_execute(connection, context, options = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:83
+  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:75
   def execute(connection, context:, options: T.unsafe(nil)); end
 
   private
@@ -26620,31 +26911,31 @@ module Mongo::Operation::Executable
   #   the operation is performed.
   # @param [ Mongo::Operation::Context ] context The operation context.
   #
-  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:122
+  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:114
   def build_message(connection, context); end
 
-  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:166
+  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:158
   def check_for_network_error; end
 
   # Returns a Protocol::Message or nil as reply.
   #
-  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:113
+  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:105
   def dispatch_message(message, connection, context, options = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:99
+  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:91
   def get_result(connection, context, options = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:130
+  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:122
   def process_result(result, connection); end
 
-  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:140
+  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:132
   def process_result_for_sdam(result, connection); end
 
-  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:95
+  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:87
   def result_class; end
 end
 
-# pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:161
+# pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:153
 Mongo::Operation::Executable::NETWORK_ERRORS = T.let(T.unsafe(nil), Array)
 
 # Shared executable behavior of operations for operations
@@ -27316,7 +27607,7 @@ class Mongo::Operation::Insert::BulkResult < ::Mongo::Operation::Result
   # @since 2.0.0
   # @api public
   #
-  # pkg:gem/mongo#lib/mongo/operation/insert/bulk_result.rb:106
+  # pkg:gem/mongo#lib/mongo/operation/insert/bulk_result.rb:104
   def inserted_id; end
 
   # Get the ids of the inserted documents.
@@ -27337,7 +27628,7 @@ class Mongo::Operation::Insert::BulkResult < ::Mongo::Operation::Result
   # @since 2.0.0
   # @api public
   #
-  # pkg:gem/mongo#lib/mongo/operation/insert/bulk_result.rb:93
+  # pkg:gem/mongo#lib/mongo/operation/insert/bulk_result.rb:91
   def n_inserted; end
 end
 
@@ -27358,17 +27649,18 @@ class Mongo::Operation::Insert::OpMsg < ::Mongo::Operation::OpMsgBase
   include ::Mongo::Operation::ExecutableTransactionLabel
   include ::Mongo::Operation::PolymorphicLookup
   include ::Mongo::Operation::PolymorphicResult
+  include ::Mongo::Operation::CausalConsistencySupported
   extend ::Mongo::Operation::PolymorphicResult::ClassMethods
 
   private
 
-  # pkg:gem/mongo#lib/mongo/operation/insert/op_msg.rb:34
+  # pkg:gem/mongo#lib/mongo/operation/insert/op_msg.rb:35
   def get_result(connection, context, _options = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/operation/insert/op_msg.rb:51
+  # pkg:gem/mongo#lib/mongo/operation/insert/op_msg.rb:52
   def message(connection); end
 
-  # pkg:gem/mongo#lib/mongo/operation/insert/op_msg.rb:42
+  # pkg:gem/mongo#lib/mongo/operation/insert/op_msg.rb:43
   def selector(_connection); end
 end
 
@@ -27475,7 +27767,7 @@ end
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/operation.rb:80
+# pkg:gem/mongo#lib/mongo/operation.rb:81
 Mongo::Operation::LIMIT = T.let(T.unsafe(nil), String)
 
 # Shared behavior of operations that require its documents to each have an id.
@@ -27612,7 +27904,7 @@ end
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/operation.rb:85
+# pkg:gem/mongo#lib/mongo/operation.rb:86
 Mongo::Operation::MULTI = T.let(T.unsafe(nil), String)
 
 # A MongoDB mapreduce operation.
@@ -27788,7 +28080,7 @@ Mongo::Operation::MapReduce::Result::TIME = T.let(T.unsafe(nil), String)
 #
 # @since 2.5.0
 #
-# pkg:gem/mongo#lib/mongo/operation.rb:105
+# pkg:gem/mongo#lib/mongo/operation.rb:106
 Mongo::Operation::OPERATION_TIME = T.let(T.unsafe(nil), String)
 
 # The default generator of ids for documents.
@@ -27995,7 +28287,7 @@ end
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/operation.rb:70
+# pkg:gem/mongo#lib/mongo/operation.rb:71
 Mongo::Operation::Q = T.let(T.unsafe(nil), String)
 
 # Read preference handling for pre-OP_MSG operation implementations.
@@ -28234,7 +28526,7 @@ class Mongo::Operation::Result
   # @since 2.5.0
   # @api public
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:428
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:429
   def cluster_time; end
 
   # pkg:gem/mongo#lib/mongo/operation/result.rb:149
@@ -28276,7 +28568,7 @@ class Mongo::Operation::Result
   # @since 2.0.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:185
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:176
   def cursor_id; end
 
   # Get the documents in the result.
@@ -28289,7 +28581,7 @@ class Mongo::Operation::Result
   # @since 2.0.0
   # @api public
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:209
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:210
   def documents; end
 
   # Iterate over the documents in the replies.
@@ -28306,7 +28598,7 @@ class Mongo::Operation::Result
   # @since 2.0.0
   # @api public
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:230
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:231
   def each(&block); end
 
   # The exception instance (of Error::OperationFailure::Family)
@@ -28318,17 +28610,8 @@ class Mongo::Operation::Result
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:344
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:345
   def error; end
-
-  # Whether the result contains cursor_id
-  #
-  # @return [ true, false ] If the result contains cursor_id.
-  #
-  # @api private
-  #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:170
-  def has_cursor_id?; end
 
   # Get the pretty formatted inspection of the result.
   #
@@ -28340,7 +28623,7 @@ class Mongo::Operation::Result
   # @since 2.0.0
   # @api public
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:243
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:244
   def inspect; end
 
   # Gets the set of error labels associated with the result.
@@ -28353,12 +28636,12 @@ class Mongo::Operation::Result
   # @since 2.7.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:441
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:442
   def labels; end
 
   # @api public
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:400
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:401
   def n; end
 
   # Get the namespace of the cursor. The method should be defined in
@@ -28369,7 +28652,7 @@ class Mongo::Operation::Result
   # @since 2.0.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:196
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:197
   def namespace; end
 
   # pkg:gem/mongo#lib/mongo/operation/result.rb:152
@@ -28391,7 +28674,7 @@ class Mongo::Operation::Result
   # @since 2.1.0
   # @api public
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:308
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:309
   def ok?; end
 
   # Get the operation time reported in the server response.
@@ -28404,7 +28687,7 @@ class Mongo::Operation::Result
   # @since 2.5.0
   # @api public
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:411
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:412
   def operation_time; end
 
   # @return [ Array<Protocol::Message> ] replies The wrapped wire protocol replies.
@@ -28424,7 +28707,7 @@ class Mongo::Operation::Result
   # @since 2.0.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:256
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:257
   def reply; end
 
   # Get the number of documents returned by the server in this batch.
@@ -28434,10 +28717,10 @@ class Mongo::Operation::Result
   # @since 2.0.0
   # @api public
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:268
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:269
   def returned_count; end
 
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:452
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:453
   def snapshot_timestamp; end
 
   # If the result was a command then determine if it was considered a
@@ -28454,14 +28737,14 @@ class Mongo::Operation::Result
   # @since 2.0.0
   # @api public
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:289
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:290
   def successful?; end
 
   # @return [ TopologyVersion | nil ] The topology version.
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:374
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:375
   def topology_version; end
 
   # Validate the result by checking for any errors.
@@ -28480,14 +28763,14 @@ class Mongo::Operation::Result
   # @since 2.0.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:332
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:333
   def validate!; end
 
   # Whether the operation failed with a write concern error.
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:448
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:449
   def write_concern_error?; end
 
   # Get the number of documents written by the server.
@@ -28500,27 +28783,21 @@ class Mongo::Operation::Result
   # @since 2.0.0
   # @api public
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:391
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:392
   def written_count; end
 
   private
 
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:468
-  def aggregate_returned_count; end
-
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:475
-  def aggregate_written_count; end
-
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:486
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:473
   def first_document; end
 
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:460
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:461
   def operation_failure_class; end
 
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:482
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:469
   def parser; end
 
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:490
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:477
   def query_failure?; end
 
   # Raises a Mongo::OperationFailure exception corresponding to the
@@ -28528,7 +28805,7 @@ class Mongo::Operation::Result
   #
   # @raise Error::OperationFailure
   #
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:367
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:368
   def raise_operation_failure; end
 end
 
@@ -28693,7 +28970,7 @@ module Mongo::Operation::SessionsSupported
   # pkg:gem/mongo#lib/mongo/operation/shared/sessions_supported.rb:110
   def apply_read_pref!(selector); end
 
-  # pkg:gem/mongo#lib/mongo/operation/shared/sessions_supported.rb:207
+  # pkg:gem/mongo#lib/mongo/operation/shared/sessions_supported.rb:205
   def apply_session_options(sel, connection); end
 
   # pkg:gem/mongo#lib/mongo/operation/shared/sessions_supported.rb:102
@@ -28705,7 +28982,7 @@ module Mongo::Operation::SessionsSupported
   # pkg:gem/mongo#lib/mongo/operation/shared/sessions_supported.rb:114
   def apply_txn_opts!(selector); end
 
-  # pkg:gem/mongo#lib/mongo/operation/shared/sessions_supported.rb:232
+  # pkg:gem/mongo#lib/mongo/operation/shared/sessions_supported.rb:230
   def build_message(connection, context); end
 
   # pkg:gem/mongo#lib/mongo/operation/shared/sessions_supported.rb:126
@@ -29350,14 +29627,14 @@ end
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/operation.rb:75
+# pkg:gem/mongo#lib/mongo/operation.rb:76
 Mongo::Operation::U = T.let(T.unsafe(nil), String)
 
 # The upsert field constant.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/operation.rb:90
+# pkg:gem/mongo#lib/mongo/operation.rb:91
 Mongo::Operation::UPSERT = T.let(T.unsafe(nil), String)
 
 # A MongoDB update operation.
@@ -29465,14 +29742,15 @@ class Mongo::Operation::Update::OpMsg < ::Mongo::Operation::OpMsgBase
   include ::Mongo::Operation::ExecutableTransactionLabel
   include ::Mongo::Operation::PolymorphicLookup
   include ::Mongo::Operation::PolymorphicResult
+  include ::Mongo::Operation::CausalConsistencySupported
   extend ::Mongo::Operation::PolymorphicResult::ClassMethods
 
   private
 
-  # pkg:gem/mongo#lib/mongo/operation/update/op_msg.rb:42
+  # pkg:gem/mongo#lib/mongo/operation/update/op_msg.rb:43
   def message(connection); end
 
-  # pkg:gem/mongo#lib/mongo/operation/update/op_msg.rb:33
+  # pkg:gem/mongo#lib/mongo/operation/update/op_msg.rb:34
   def selector(_connection); end
 end
 
@@ -29755,9 +30033,11 @@ end
 #
 # pkg:gem/mongo#lib/mongo/operation/write_command/op_msg.rb:23
 class Mongo::Operation::WriteCommand::OpMsg < ::Mongo::Operation::OpMsgBase
+  include ::Mongo::Operation::CausalConsistencySupported
+
   private
 
-  # pkg:gem/mongo#lib/mongo/operation/write_command/op_msg.rb:26
+  # pkg:gem/mongo#lib/mongo/operation/write_command/op_msg.rb:28
   def selector(connection); end
 end
 
@@ -30048,10 +30328,10 @@ class Mongo::Protocol::Compressed < ::Mongo::Protocol::Message
   # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:76
   def initialize(message, compressor, zlib_compression_level = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:141
+  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:153
   def compressed_message; end
 
-  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:137
+  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:149
   def compressor_id; end
 
   # Inflates an OP_COMRESSED message and returns the original message.
@@ -30061,13 +30341,13 @@ class Mongo::Protocol::Compressed < ::Mongo::Protocol::Message
   # @since 2.5.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:92
+  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:95
   def maybe_inflate; end
 
-  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:176
+  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:180
   def op_code; end
 
-  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:129
+  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:141
   def original_op_code; end
 
   # Whether the message expects a reply from the database.
@@ -30079,22 +30359,24 @@ class Mongo::Protocol::Compressed < ::Mongo::Protocol::Message
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:115
+  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:118
   def replyable?; end
 
-  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:133
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:123
+  def serialize_fields(buffer, max_bson_size); end
+
+  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:145
   def uncompressed_size; end
 
   private
 
-  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:151
+  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:155
   def compress(buffer); end
 
-  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:164
+  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:168
   def decompress(compressed_message); end
-
-  # pkg:gem/mongo#lib/mongo/protocol/compressed.rb:143
-  def serialize_fields(buffer, max_bson_size); end
 end
 
 # The compressor identifier to byte map.
@@ -30119,7 +30401,7 @@ Mongo::Protocol::Compressed::NOOP_BYTE = T.let(T.unsafe(nil), String)
 #
 # @since 2.5.0
 #
-# pkg:gem/mongo#lib/mongo/protocol/compressed.rb:125
+# pkg:gem/mongo#lib/mongo/protocol/compressed.rb:137
 Mongo::Protocol::Compressed::OP_CODE = T.let(T.unsafe(nil), Integer)
 
 # The snappy compressor identifier.
@@ -30437,8 +30719,50 @@ class Mongo::Protocol::Message
   # pkg:gem/mongo#lib/mongo/protocol/message.rb:287
   def ==(other); end
 
+  # Deserializes an array of fields in a message
+  #
+  # The number of items in the array must be described by a previously
+  # deserialized field specified in the class by the field dsl under
+  # the key +:multi+
+  #
+  # @param io [IO] Stream containing the array to deserialize.
+  # @param field [Hash] Hash representing a field.
+  # @param options [ Hash ]
+  #
+  # @option options [ Boolean ] :deserialize_as_bson Whether to deserialize
+  #   each of the elements in this array using BSON types wherever possible.
+  #
+  # @return [Array] The deserialized array.
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:381
+  def deserialize_array(io, field, options = T.unsafe(nil)); end
+
+  # Deserializes a single field into this message.
+  #
+  # @param io [IO] Stream containing the field to deserialize.
+  # @param field [Hash] Hash representing a field.
+  # @param options [ Hash ]
+  #
+  # @option options [ Boolean ] :deserialize_as_bson Whether to deserialize
+  #   this field using BSON types wherever possible.
+  #
+  # @return [Object] The deserialized field value.
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:399
+  def deserialize_field(io, field, options = T.unsafe(nil)); end
+
   # pkg:gem/mongo#lib/mongo/protocol/message.rb:296
   def eql?(other); end
+
+  # A method for getting the fields for a message class
+  #
+  # @return [Array<Hash>] The fields for the message class
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:410
+  def fields; end
 
   # Creates a hash from the values of the fields of a message.
   #
@@ -30540,6 +30864,15 @@ class Mongo::Protocol::Message
   # pkg:gem/mongo#lib/mongo/protocol/message.rb:200
   def serialize(buffer = T.unsafe(nil), max_bson_size = T.unsafe(nil), bson_overhead = T.unsafe(nil)); end
 
+  # Serializes message fields into a buffer
+  #
+  # @param buffer [String] buffer to receive the field
+  # @return [String] buffer with serialized field
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:419
+  def serialize_fields(buffer, max_bson_size = T.unsafe(nil)); end
+
   # Generates a request id for a message
   #
   # @return [Fixnum] a request id used for sending a message to the
@@ -30569,23 +30902,8 @@ class Mongo::Protocol::Message
   # pkg:gem/mongo#lib/mongo/protocol/message.rb:125
   def compress_if_possible(command_name, compressor, zlib_compression_level); end
 
-  # A method for getting the fields for a message class
-  #
-  # @return [Integer] the fields for the message class
-  #
-  # pkg:gem/mongo#lib/mongo/protocol/message.rb:413
-  def fields; end
-
   # pkg:gem/mongo#lib/mongo/protocol/message.rb:179
   def merge_sections; end
-
-  # Serializes message fields into a buffer
-  #
-  # @param buffer [String] buffer to receive the field
-  # @return [String] buffer with serialized field
-  #
-  # pkg:gem/mongo#lib/mongo/protocol/message.rb:421
-  def serialize_fields(buffer, max_bson_size = T.unsafe(nil)); end
 
   # Serializes the header of the message consisting of 4 32bit integers
   #
@@ -30625,42 +30943,6 @@ class Mongo::Protocol::Message
     #
     # pkg:gem/mongo#lib/mongo/protocol/message.rb:235
     def deserialize(io, max_message_size = T.unsafe(nil), expected_response_to = T.unsafe(nil), options = T.unsafe(nil)); end
-
-    # Deserializes an array of fields in a message
-    #
-    # The number of items in the array must be described by a previously
-    # deserialized field specified in the class by the field dsl under
-    # the key +:multi+
-    #
-    # @param message [Message] Message to contain the deserialized array.
-    # @param io [IO] Stream containing the array to deserialize.
-    # @param field [Hash] Hash representing a field.
-    # @param options [ Hash ]
-    #
-    # @option options [ Boolean ] :deserialize_as_bson Whether to deserialize
-    #   each of the elements in this array using BSON types wherever possible.
-    #
-    # @return [Message] Message with deserialized array.
-    # @api private
-    #
-    # pkg:gem/mongo#lib/mongo/protocol/message.rb:382
-    def deserialize_array(message, io, field, options = T.unsafe(nil)); end
-
-    # Deserializes a single field in a message
-    #
-    # @param message [Message] Message to contain the deserialized field.
-    # @param io [IO] Stream containing the field to deserialize.
-    # @param field [Hash] Hash representing a field.
-    # @param options [ Hash ]
-    #
-    # @option options [ Boolean ] :deserialize_as_bson Whether to deserialize
-    #   this field using BSON types wherever possible.
-    #
-    # @return [Message] Message with deserialized field.
-    # @api private
-    #
-    # pkg:gem/mongo#lib/mongo/protocol/message.rb:401
-    def deserialize_field(message, io, field, options = T.unsafe(nil)); end
 
     # Deserializes the header of the message
     #
@@ -31522,7 +31804,7 @@ end
 #
 # Writes and fetches a single byte from the byte buffer.
 #
-# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:386
+# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:384
 module Mongo::Protocol::Serializers::Byte
   class << self
     # Deserializes a byte from the byte buffer.
@@ -31534,7 +31816,7 @@ module Mongo::Protocol::Serializers::Byte
     #
     # @since 2.5.0
     #
-    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:409
+    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:407
     def deserialize(buffer, _options = T.unsafe(nil)); end
 
     # Writes a byte into the buffer.
@@ -31548,7 +31830,7 @@ module Mongo::Protocol::Serializers::Byte
     #
     # @since 2.5.0
     #
-    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:397
+    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:395
     def serialize(buffer, value, _validating_keys = T.unsafe(nil)); end
   end
 end
@@ -31557,7 +31839,7 @@ end
 #
 # Writes and fetches bytes from the byte buffer.
 #
-# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:417
+# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:415
 module Mongo::Protocol::Serializers::Bytes
   class << self
     # Deserializes bytes from the byte buffer.
@@ -31571,7 +31853,7 @@ module Mongo::Protocol::Serializers::Bytes
     #
     # @since 2.5.0
     #
-    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:442
+    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:440
     def deserialize(buffer, options = T.unsafe(nil)); end
 
     # Writes bytes into the buffer.
@@ -31585,7 +31867,7 @@ module Mongo::Protocol::Serializers::Bytes
     #
     # @since 2.5.0
     #
-    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:428
+    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:426
     def serialize(buffer, value, _validating_keys = T.unsafe(nil)); end
   end
 end
@@ -31613,7 +31895,7 @@ end
 #
 # Serializes and de-serializes a single document.
 #
-# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:341
+# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:339
 module Mongo::Protocol::Serializers::Document
   class << self
     # Deserializes a document from the IO stream
@@ -31627,7 +31909,7 @@ module Mongo::Protocol::Serializers::Document
     #
     # @return [ Hash ] The decoded BSON document.
     #
-    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:368
+    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:366
     def deserialize(buffer, options = T.unsafe(nil)); end
 
     # Serializes a document into the buffer
@@ -31637,7 +31919,7 @@ module Mongo::Protocol::Serializers::Document
     #
     # @return [ String ] Buffer with serialized value.
     #
-    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:348
+    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:346
     def serialize(buffer, value, max_bson_size = T.unsafe(nil), _validating_keys = T.unsafe(nil)); end
 
     # Whether there can be a size limit on this type after serialization.
@@ -31646,7 +31928,7 @@ module Mongo::Protocol::Serializers::Document
     #
     # @since 2.0.0
     #
-    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:378
+    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:376
     def size_limited?; end
   end
 end
@@ -31777,7 +32059,7 @@ module Mongo::Protocol::Serializers::Sections
     #
     # @since 2.5.0
     #
-    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:208
+    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:206
     def deserialize(buffer, options = T.unsafe(nil)); end
 
     # Serializes the sections of an OP_MSG, payload type 0 or 1.
@@ -31801,7 +32083,7 @@ module Mongo::Protocol::Serializers::Sections
     #
     # @since 2.5.0
     #
-    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:229
+    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:227
     def size_limited?; end
   end
 end
@@ -31810,7 +32092,7 @@ end
 #
 # @since 2.5.0
 #
-# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:284
+# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:282
 module Mongo::Protocol::Serializers::Sections::PayloadOne
   class << self
     # Deserializes a section of payload type 1 of an OP_MSG from the IO stream.
@@ -31821,7 +32103,7 @@ module Mongo::Protocol::Serializers::Sections::PayloadOne
     #
     # @since 2.5.0
     #
-    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:324
+    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:322
     def deserialize(buffer); end
 
     # Serializes a section of an OP_MSG, payload type 1.
@@ -31836,7 +32118,7 @@ module Mongo::Protocol::Serializers::Sections::PayloadOne
     #
     # @since 2.5.0
     #
-    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:306
+    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:304
     def serialize(buffer, value, max_bson_size = T.unsafe(nil), _validating_keys = T.unsafe(nil)); end
   end
 end
@@ -31845,21 +32127,21 @@ end
 #
 # @since 2.5.0
 #
-# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:288
+# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:286
 Mongo::Protocol::Serializers::Sections::PayloadOne::TYPE = T.let(T.unsafe(nil), Integer)
 
 # The byte corresponding to this payload type.
 #
 # @since 2.5.0
 #
-# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:293
+# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:291
 Mongo::Protocol::Serializers::Sections::PayloadOne::TYPE_BYTE = T.let(T.unsafe(nil), String)
 
 # MongoDB wire protocol serialization strategy for a payload 0 type Section of OP_MSG.
 #
 # @since 2.5.0
 #
-# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:236
+# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:234
 module Mongo::Protocol::Serializers::Sections::PayloadZero
   class << self
     # Deserializes a section of payload type 0 of an OP_MSG from the IO stream.
@@ -31875,7 +32157,7 @@ module Mongo::Protocol::Serializers::Sections::PayloadZero
     #
     # @since 2.5.0
     #
-    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:275
+    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:273
     def deserialize(buffer, options = T.unsafe(nil)); end
 
     # Serializes a section of an OP_MSG, payload type 0.
@@ -31890,7 +32172,7 @@ module Mongo::Protocol::Serializers::Sections::PayloadZero
     #
     # @since 2.5.0
     #
-    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:258
+    # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:256
     def serialize(buffer, value, max_bson_size = T.unsafe(nil), _validating_keys = T.unsafe(nil)); end
   end
 end
@@ -31899,14 +32181,14 @@ end
 #
 # @since 2.5.0
 #
-# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:240
+# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:238
 Mongo::Protocol::Serializers::Sections::PayloadZero::TYPE = T.let(T.unsafe(nil), Integer)
 
 # The byte corresponding to this payload type.
 #
 # @since 2.5.0
 #
-# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:245
+# pkg:gem/mongo#lib/mongo/protocol/serializers.rb:243
 Mongo::Protocol::Serializers::Sections::PayloadZero::TYPE_BYTE = T.let(T.unsafe(nil), String)
 
 # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:32
@@ -32020,7 +32302,7 @@ module Mongo::QueryCache
     # pkg:gem/mongo#lib/mongo/query_cache.rb:179
     def get(**opts); end
 
-    # pkg:gem/mongo#lib/mongo/query_cache.rb:209
+    # pkg:gem/mongo#lib/mongo/query_cache.rb:207
     def normalized_limit(limit); end
 
     # Store a CachingCursor instance in the query cache associated with the
@@ -32069,7 +32351,7 @@ module Mongo::QueryCache
 
     private
 
-    # pkg:gem/mongo#lib/mongo/query_cache.rb:220
+    # pkg:gem/mongo#lib/mongo/query_cache.rb:218
     def cache_key(**opts); end
 
     # Get the cached queries.
@@ -32086,14 +32368,14 @@ module Mongo::QueryCache
     # cursor under the nil namespace to be cleared on every write operation.
     # Otherwise, store it under the specified namespace.
     #
-    # pkg:gem/mongo#lib/mongo/query_cache.rb:239
+    # pkg:gem/mongo#lib/mongo/query_cache.rb:237
     def namespace_key(**opts); end
   end
 end
 
 # Rack middleware that activates the query cache for each request.
 #
-# pkg:gem/mongo#lib/mongo/query_cache.rb:249
+# pkg:gem/mongo#lib/mongo/query_cache.rb:247
 class Mongo::QueryCache::Middleware
   # Instantiate the middleware.
   #
@@ -32102,7 +32384,7 @@ class Mongo::QueryCache::Middleware
   #
   # @param [ Object ] app The rack application stack.
   #
-  # pkg:gem/mongo#lib/mongo/query_cache.rb:256
+  # pkg:gem/mongo#lib/mongo/query_cache.rb:254
   def initialize(app); end
 
   # Enable query cache and execute the request.
@@ -32114,16 +32396,16 @@ class Mongo::QueryCache::Middleware
   #
   # @return [ Object ] The result of the call.
   #
-  # pkg:gem/mongo#lib/mongo/query_cache.rb:268
+  # pkg:gem/mongo#lib/mongo/query_cache.rb:266
   def call(env); end
 end
 
 # ActiveJob middleware that activates the query cache for each job.
 #
-# pkg:gem/mongo#lib/mongo/query_cache.rb:277
+# pkg:gem/mongo#lib/mongo/query_cache.rb:275
 module Mongo::QueryCache::Middleware::ActiveJob
   class << self
-    # pkg:gem/mongo#lib/mongo/query_cache.rb:278
+    # pkg:gem/mongo#lib/mongo/query_cache.rb:276
     def included(base); end
   end
 end
@@ -33131,7 +33413,7 @@ class Mongo::Server
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server.rb:642
+  # pkg:gem/mongo#lib/mongo/server.rb:662
   def clear_connection_pool(service_id: T.unsafe(nil), interrupt_in_use_connections: T.unsafe(nil)); end
 
   # Clear the servers description so that it is considered unknown and can be
@@ -33139,7 +33421,7 @@ class Mongo::Server
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server.rb:632
+  # pkg:gem/mongo#lib/mongo/server.rb:652
   def clear_description; end
 
   # pkg:gem/mongo#lib/mongo/server.rb:287
@@ -33242,7 +33524,7 @@ class Mongo::Server
   #
   # @since 2.3.0
   #
-  # pkg:gem/mongo#lib/mongo/server.rb:510
+  # pkg:gem/mongo#lib/mongo/server.rb:511
   def handle_auth_failure!; end
 
   # Handle handshake failure.
@@ -33347,7 +33629,7 @@ class Mongo::Server
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server.rb:655
+  # pkg:gem/mongo#lib/mongo/server.rb:675
   def next_connection_id; end
 
   # @return [ Hash ] The options hash.
@@ -33414,7 +33696,7 @@ class Mongo::Server
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server.rb:529
+  # pkg:gem/mongo#lib/mongo/server.rb:532
   def retry_reads?; end
 
   # Will writes sent to this server be retried.
@@ -33434,7 +33716,7 @@ class Mongo::Server
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/server.rb:549
+  # pkg:gem/mongo#lib/mongo/server.rb:552
   def retry_writes?; end
 
   # @return [ RoundTripTimeCalculator ] Round trip time calculator object.
@@ -33509,14 +33791,21 @@ class Mongo::Server
   #   on 4.2+ servers).
   # @option options [ TopologyVersion ] :topology_version Topology version
   #   of the error response that is causing the server to be marked unknown.
-  # @option options [ true | false ] :stop_push_monitor Whether to stop
-  #   the PushMonitor associated with the server, if any.
+  # @option options [ true | false ] :stop_push_monitor Set when the server
+  #   is marked Unknown from a connection-establishment error (e.g. an
+  #   authentication failure). Stops the streaming PushMonitor associated with
+  #   the server, if any.
+  # @option options [ true | false ] :network_error Set when the server is
+  #   marked Unknown from a network error. In addition to stopping the
+  #   PushMonitor, cancels the monitor's in-progress check and closes its
+  #   connection so the next check must establish a fresh one, per the Server
+  #   Monitoring spec.
   # @option options [ Object ] :service_id Discard state for the specified
   #   service id only.
   #
   # @since 2.4.0, SDAM events are sent as of version 2.7.0
   #
-  # pkg:gem/mongo#lib/mongo/server.rb:577
+  # pkg:gem/mongo#lib/mongo/server.rb:587
   def unknown!(options = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
@@ -33527,12 +33816,12 @@ class Mongo::Server
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server.rb:622
+  # pkg:gem/mongo#lib/mongo/server.rb:642
   def update_description(description); end
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server.rb:660
+  # pkg:gem/mongo#lib/mongo/server.rb:680
   def update_last_scan; end
 
   # Execute a block of code with a connection, that is checked out of the
@@ -34229,7 +34518,7 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   #
   # @since 2.9.0
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:152
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:153
   def closed?; end
 
   # Establishes a network connection to the target address.
@@ -34246,7 +34535,7 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:228
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:229
   def connect!(context = T.unsafe(nil)); end
 
   # Whether the connection was connected and was not interrupted, closed,
@@ -34254,7 +34543,7 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   #
   # @return [ true | false ] if the connection was connected.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:140
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:141
   def connected?; end
 
   # The connection pool from which this connection was created.
@@ -34262,7 +34551,7 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:132
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:133
   def connection_pool; end
 
   # Disconnect the connection.
@@ -34285,18 +34574,18 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:310
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:311
   def disconnect!(options = T.unsafe(nil)); end
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:172
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:173
   def error?; end
 
   # @return [ Integer ] The global ID for the connection. This will be unique
   # across all connections.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:124
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:125
   def global_id; end
 
   # @return [ Integer ] The ID for the connection. This will be unique
@@ -34304,12 +34593,12 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   #
   # @since 2.9.0
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:120
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:121
   def id; end
 
   # Mark the connection as interrupted.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:167
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:168
   def interrupted!; end
 
   # Whether the connection was interrupted.
@@ -34319,14 +34608,14 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   #
   # @return [ true | false ] Whether connection was interrupted.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:162
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:163
   def interrupted?; end
 
   # @return [ Time ] The last time the connection was checked back into a pool.
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:114
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:115
   def last_checkin; end
 
   # Mark the connection as pinned for the given reason.
@@ -34336,7 +34625,7 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:194
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:195
   def pin(reason = T.unsafe(nil)); end
 
   # Ping the connection to see if the server is responding to commands.
@@ -34353,7 +34642,7 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   #
   # @deprecated No longer necessary with Server Selection specification.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:359
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:360
   def ping; end
 
   # Whether the connection is used by a transaction or cursor operations.
@@ -34365,7 +34654,7 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:184
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:185
   def pinned?; end
 
   # Record the last checkin time.
@@ -34377,7 +34666,7 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:388
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:389
   def record_checkin!; end
 
   # Get the timeout to execute an operation on a socket.
@@ -34386,15 +34675,15 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:374
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:375
   def socket_timeout; end
 
   # @deprecated Please use :socket_timeout instead. Will be removed in 3.0.0
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:378
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:379
   def timeout; end
 
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:126
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:127
   def tracer(*_arg0, **_arg1, &_arg2); end
 
   # Get the transport type for this connection.
@@ -34403,7 +34692,7 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   #  if no socket.
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:398
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:399
   def transport; end
 
   # Remove a pin from the connection for the given reason.
@@ -34413,14 +34702,14 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:204
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:205
   def unpin(reason = T.unsafe(nil)); end
 
   # Remove all pins from the connection.
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:211
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:212
   def unpin_all; end
 
   private
@@ -34431,10 +34720,10 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   #
   # @return [ Socket ] The created socket.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:257
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:258
   def create_socket(context = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:411
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:412
   def deliver(message, client, options = T.unsafe(nil)); end
 
   # Separate method to permit easier mocking in the test suite.
@@ -34443,13 +34732,13 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   #   description instance from the hello response of the returned socket
   #   and the compressor to use.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:275
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:276
   def do_connect; end
 
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:417
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:418
   def handle_errors; end
 
-  # pkg:gem/mongo#lib/mongo/server/connection.rb:433
+  # pkg:gem/mongo#lib/mongo/server/connection.rb:435
   def raise_if_closed!; end
 
   class << self
@@ -34718,6 +35007,14 @@ class Mongo::Server::ConnectionCommon
   # pkg:gem/mongo#lib/mongo/server/connection_common.rb:65
   def handshake_document(app_metadata, speculative_auth_doc: T.unsafe(nil), load_balancer: T.unsafe(nil), server_api: T.unsafe(nil)); end
 
+  # Closes the underlying socket, if one is open, to interrupt an
+  # in-progress blocking read on the connection.
+  #
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/server/connection_common.rb:106
+  def interrupt_socket; end
+
   # @return [ Integer ] pid The process id when the connection was created.
   # @api private
   #
@@ -34732,26 +35029,26 @@ class Mongo::Server::ConnectionCommon
   # This method is intended to add server address information to exceptions
   # raised during execution of operations on servers.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_common.rb:137
+  # pkg:gem/mongo#lib/mongo/server/connection_common.rb:145
   def add_server_diagnostics; end
 
-  # pkg:gem/mongo#lib/mongo/server/connection_common.rb:173
+  # pkg:gem/mongo#lib/mongo/server/connection_common.rb:181
   def ensure_connected; end
 
-  # pkg:gem/mongo#lib/mongo/server/connection_common.rb:110
+  # pkg:gem/mongo#lib/mongo/server/connection_common.rb:118
   def set_compressor!(reply); end
 
-  # pkg:gem/mongo#lib/mongo/server/connection_common.rb:108
+  # pkg:gem/mongo#lib/mongo/server/connection_common.rb:116
   def socket; end
 
-  # pkg:gem/mongo#lib/mongo/server/connection_common.rb:160
+  # pkg:gem/mongo#lib/mongo/server/connection_common.rb:168
   def ssl_options; end
 end
 
-# pkg:gem/mongo#lib/mongo/server/connection_common.rb:104
+# pkg:gem/mongo#lib/mongo/server/connection_common.rb:112
 Mongo::Server::ConnectionCommon::HELLO_DOC = T.let(T.unsafe(nil), BSON::Document)
 
-# pkg:gem/mongo#lib/mongo/server/connection_common.rb:106
+# pkg:gem/mongo#lib/mongo/server/connection_common.rb:114
 Mongo::Server::ConnectionCommon::LEGACY_HELLO_DOC = T.let(T.unsafe(nil), BSON::Document)
 
 # Represents a connection pool for server connections.
@@ -35091,6 +35388,16 @@ class Mongo::Server::ConnectionPool
   # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:268
   def size; end
 
+  # Returns statistics about the internal state of the connection pool,
+  # primarily for testing and debugging purposes.
+  #
+  # @return [ Hash ] The state of the connection pool
+  #
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:878
+  def state; end
+
   # Stop the background populator thread and clean up any connections created
   # which have not been connected yet.
   #
@@ -35148,12 +35455,12 @@ class Mongo::Server::ConnectionPool
 
   private
 
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1052
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1072
   def check_invariants; end
 
   # Clear and disconnect the pending connections.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1114
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1134
   def clear_pending_connections; end
 
   # Close the available connections.
@@ -35161,13 +35468,13 @@ class Mongo::Server::ConnectionPool
   # @param [ Array<Connection> ] connections A list of connections.
   # @param [ Object ] service_id The service id.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1078
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1098
   def close_available_connections(service_id); end
 
   # Attempts to connect (handshake and auth) the connection. If an error is
   # encountered, closes the connection and raises the error.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1029
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1045
   def connect_connection(connection, context = T.unsafe(nil)); end
 
   # Connects a connection and raises an exception if the connection
@@ -35175,7 +35482,7 @@ class Mongo::Server::ConnectionPool
   # This method also publish corresponding event and ensures that counters
   # and condition variables are updated.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1427
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1441
   def connect_or_raise(connection, context); end
 
   # Checks whether a connection is stale.
@@ -35184,7 +35491,7 @@ class Mongo::Server::ConnectionPool
   #
   # @return [ true | false ] Whether the connection is stale.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:994
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1010
   def connection_stale_unlocked?(connection); end
 
   # Create a connection, connect it, and add it to the pool. Also
@@ -35194,16 +35501,16 @@ class Mongo::Server::ConnectionPool
   #    added to the pool, false otherwise
   # @raise [ Mongo::Error ] An error encountered during connection connect
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:909
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:925
   def create_and_add_connection; end
 
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:891
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:907
   def create_connection; end
 
   # Decrement connection requests counter and signal the condition
   # variables that the number of unavailable connections has decreased.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1448
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1462
   def decrement_connection_requests_and_signal; end
 
   # Retrieves a connection if one is available, otherwise we create a new
@@ -35220,7 +35527,7 @@ class Mongo::Server::ConnectionPool
   # @raise [ Timeout::Error ] If the connection pool is at maximum size
   #   and remains so for longer than the wait timeout.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1248
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1262
   def get_connection(pid, connection_global_id); end
 
   # If the connection was interrupted, raise a pool cleared error. If it
@@ -35232,23 +35539,20 @@ class Mongo::Server::ConnectionPool
   # @raise [ Mongo::Error | Mongo::Error::PoolClearedError ] A PoolClearedError
   #   if the connection was interrupted, the original error if not.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1018
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1034
   def maybe_raise_pool_cleared!(connection, e); end
 
   # Returns the next available connection, optionally with given
   # global id. If no suitable connections are available,
   # returns nil.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:877
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:893
   def next_available_connection(connection_global_id); end
 
   # The lock should be acquired when calling this method.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1123
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1143
   def raise_check_out_timeout!(connection_global_id); end
-
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1149
-  def raise_check_out_timeout_locked!(connection_global_id); end
 
   # Asserts that the pool has not been closed.
   #
@@ -35256,34 +35560,34 @@ class Mongo::Server::ConnectionPool
   #
   # @since 2.9.0
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1004
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1020
   def raise_if_closed!; end
 
   # The lock should be acquired when calling this method.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1190
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1204
   def raise_if_not_ready!; end
 
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1155
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1169
   def raise_if_pool_closed!; end
 
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1167
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1181
   def raise_if_pool_paused!; end
 
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1183
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1197
   def raise_if_pool_paused_locked!; end
 
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1196
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1210
   def raise_unless_locked!; end
 
   # Interrupt connections scheduled for interruption.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:957
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:973
   def remove_interrupted_connections; end
 
   # Removes and disconnects all stale available connections.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:948
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:964
   def remove_stale_connection; end
 
   # Retrieves a connection and connects it.
@@ -35299,7 +35603,7 @@ class Mongo::Server::ConnectionPool
   # @raise [ Timeout::Error ] If the connection pool is at maximum size
   #   and remains so for longer than the wait timeout.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1306
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1320
   def retrieve_and_connect_connection(connection_global_id, context = T.unsafe(nil)); end
 
   # Schedule connections of previous generations for interruption.
@@ -35307,7 +35611,7 @@ class Mongo::Server::ConnectionPool
   # @param [ Array<Connection> ] connections A list of connections.
   # @param [ Object ] service_id The service id.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1106
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1126
   def schedule_for_interruption(connections, service_id); end
 
   # Returns the size of the connection pool without acquiring the lock.
@@ -35318,7 +35622,7 @@ class Mongo::Server::ConnectionPool
   # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:280
   def unsynchronized_size; end
 
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1202
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1216
   def valid_available_connection?(connection, pid, _connection_global_id); end
 
   # Waits for a connection to become available, or raises is no connection
@@ -35329,7 +35633,7 @@ class Mongo::Server::ConnectionPool
   #
   # @return [ Mongo::Server::Connection ] The checked out connection.
   #
-  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1372
+  # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:1386
   def wait_for_connection(connection_global_id, deadline); end
 
   class << self
@@ -36483,48 +36787,68 @@ class Mongo::Server::Monitor
   # pkg:gem/mongo#lib/mongo/server/monitor.rb:76
   def initialize(server, event_listeners, monitoring, options = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:115
+  # Cancel the in-progress check and close the monitoring connection.
+  #
+  # Called when the server is marked Unknown from a network error, per the
+  # Server Monitoring spec ("hello or legacy hello Cancellation"). Stops the
+  # streaming PushMonitor (interrupting its awaited hello read) and closes
+  # the polling connection, so the next check must establish a fresh one
+  # rather than re-validating the server over a possibly-dead socket.
+  #
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:210
+  def cancel_check!; end
+
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:124
   def compressor(*_arg0, **_arg1, &_arg2); end
 
-  # @return [ Mongo::Server::Monitor::Connection ] connection The connection to use.
+  # @return [ Mongo::Server::Monitor::Connection | nil ] The connection to
+  #   use, read under @connection_lock so callers never observe a stale
+  #   reference after a concurrent cancel_check! clears it.
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:96
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:103
   def connection; end
 
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:162
-  def create_push_monitor!(topology_version); end
+  # @param [ Mongo::Server::Monitor::Connection ] connection The freshly
+  #   established monitoring connection. Passed explicitly (rather than read
+  #   from @connection) so a concurrent cancel_check! cannot nil it out from
+  #   under us between establishing it and building the PushMonitor.
+  #
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:175
+  def create_push_monitor!(topology_version, connection); end
 
   # Perform a check of the server.
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:131
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:140
   def do_work; end
 
   # The interval between regular server checks.
   #
   # @return [ Float ] The heartbeat interval, in seconds.
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:104
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:113
   def heartbeat_interval; end
 
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:109
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:118
   def last_scan(*_arg0, **_arg1, &_arg2); end
 
   # @return [ Monitoring ] monitoring The monitoring.
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:118
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:127
   def monitoring; end
 
   # @return [ Hash ] options The server options.
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:99
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:108
   def options; end
 
   # @return [ Server::PushMonitor | nil ] The push monitor, if one is being
   #   used.
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:122
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:131
   def push_monitor; end
 
   # Restarts the server monitor unless the current thread is alive.
@@ -36536,11 +36860,11 @@ class Mongo::Server::Monitor
   #
   # @since 2.1.0
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:257
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:308
   def restart!; end
 
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:223
-  def run_sdam_flow(result, awaited: T.unsafe(nil), scan_error: T.unsafe(nil)); end
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:268
+  def run_sdam_flow(result, awaited: T.unsafe(nil), scan_error: T.unsafe(nil), rtt_only: T.unsafe(nil)); end
 
   # Perform a check of the server with throttling, and update
   # the server's description and average round trip time.
@@ -36561,13 +36885,13 @@ class Mongo::Server::Monitor
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:206
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:244
   def scan!; end
 
   # @return [ Server ] server The server that this monitor is monitoring.
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:93
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:98
   def server; end
 
   # Stop the background thread and wait for it to terminate for a
@@ -36577,25 +36901,48 @@ class Mongo::Server::Monitor
   #
   # @api public for backwards compatibility only
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:151
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:160
   def stop!; end
 
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:179
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:192
   def stop_push_monitor!; end
 
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:265
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:316
   def to_s; end
 
   private
 
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:288
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:365
   def check; end
 
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:275
-  def do_scan; end
+  # Clear the monitoring connection, but only if it is still the one passed
+  # in. A concurrent cancel_check! may have already cleared or replaced it,
+  # in which case we must leave the current connection alone.
+  #
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:428
+  def clear_connection(connection); end
 
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:271
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:326
+  def do_scan(publish_heartbeat: T.unsafe(nil)); end
+
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:322
   def pre_stop; end
+
+  # Returns whether this scan is only an RTT measurement, which is the case
+  # when the streaming protocol is active: a dedicated connection is already
+  # established and the PushMonitor is running as the authoritative SDAM
+  # source. In the polling protocol there is no running PushMonitor, so the
+  # connection-reuse check is a real server check and not RTT-only.
+  #
+  # @return [ true | false ]
+  #
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:350
+  def rtt_measurement_only?; end
+
+  # Store a freshly established monitoring connection.
+  #
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:419
+  def store_connection(connection); end
 
   # Returns whether the streaming protocol is enabled, based on the
   # serverMonitoringMode option. Default mode is :auto.
@@ -36606,13 +36953,13 @@ class Mongo::Server::Monitor
   #
   # @return [ true | false ] Whether streaming is enabled.
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:348
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:451
   def streaming_enabled?; end
 
   # @note If the system clock is set to a time in the past, this method
   #   can sleep for a very long time.
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor.rb:333
+  # pkg:gem/mongo#lib/mongo/server/monitor.rb:436
   def throttle_scan_frequency!; end
 end
 
@@ -36673,7 +37020,7 @@ class Mongo::Server::Monitor::Connection < ::Mongo::Server::ConnectionCommon
 
   # @return [ Mongo::Address ] address The address to connect to.
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:71
+  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:72
   def address; end
 
   # Build a document that should be used for connection check.
@@ -36683,7 +37030,7 @@ class Mongo::Server::Monitor::Connection < ::Mongo::Server::ConnectionCommon
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:224
+  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:225
   def check_document; end
 
   # Establishes a network connection to the target address.
@@ -36700,7 +37047,7 @@ class Mongo::Server::Monitor::Connection < ::Mongo::Server::ConnectionCommon
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:151
+  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:152
   def connect!; end
 
   # Disconnect the connection.
@@ -36718,7 +37065,7 @@ class Mongo::Server::Monitor::Connection < ::Mongo::Server::ConnectionCommon
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:176
+  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:177
   def disconnect!(_options = T.unsafe(nil)); end
 
   # Sends a message and returns the result.
@@ -36727,7 +37074,7 @@ class Mongo::Server::Monitor::Connection < ::Mongo::Server::ConnectionCommon
   #
   # @return [ Protocol::Message ] The result.
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:94
+  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:95
   def dispatch(message); end
 
   # Sends a preserialized message and returns the result.
@@ -36739,7 +37086,7 @@ class Mongo::Server::Monitor::Connection < ::Mongo::Server::ConnectionCommon
   #
   # @return [ Protocol::Message ] The result.
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:106
+  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:107
   def dispatch_bytes(bytes, **opts); end
 
   # Send handshake command to connected host and validate the response.
@@ -36748,23 +37095,23 @@ class Mongo::Server::Monitor::Connection < ::Mongo::Server::ConnectionCommon
   #
   # @raise [Mongo::Error] If handshake failed.
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:193
+  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:194
   def handshake!; end
 
   # @return [ Hash ] options The passed in options.
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:68
+  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:69
   def options; end
 
   # @option opts [ Numeric ] :socket_timeout The timeout to use for
   #   each read operation.
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:125
+  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:126
   def read_response(**opts); end
 
   # @return [ Integer ] server_connection_id The server connection id.
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:87
+  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:88
   def server_connection_id; end
 
   # Returns the monitoring socket timeout.
@@ -36777,18 +37124,18 @@ class Mongo::Server::Monitor::Connection < ::Mongo::Server::ConnectionCommon
   #
   # @since 2.4.3
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:82
+  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:83
   def socket_timeout; end
 
-  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:113
+  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:114
   def write_bytes(bytes); end
 
   private
 
-  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:243
+  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:244
   def add_server_connection_id; end
 
-  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:262
+  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:263
   def hello_ok?; end
 
   # Update @hello_ok flag according to server reply to legacy hello
@@ -36797,7 +37144,7 @@ class Mongo::Server::Monitor::Connection < ::Mongo::Server::ConnectionCommon
   #
   # @param [ BSON::Document ] reply Server reply to legacy hello command.
   #
-  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:258
+  # pkg:gem/mongo#lib/mongo/server/monitor/connection.rb:259
   def set_hello_ok!(reply); end
 end
 
@@ -36833,14 +37180,14 @@ class Mongo::Server::PendingConnection < ::Mongo::Server::ConnectionBase
   # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:25
   def initialize(socket, server, monitoring, options = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:38
+  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:39
   def handshake_and_authenticate!; end
 
   # @return [ Integer ] The ID for the connection. This is the same ID
   #   as that of the regular Connection object for which this
   #   PendingConnection instance was created.
   #
-  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:36
+  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:37
   def id; end
 
   private
@@ -36855,13 +37202,13 @@ class Mongo::Server::PendingConnection < ::Mongo::Server::ConnectionBase
   #   value of speculativeAuthenticate field of hello response of
   #   the handshake on this connection.
   #
-  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:199
+  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:200
   def authenticate!(speculative_auth_client_nonce: T.unsafe(nil), speculative_auth_mech: T.unsafe(nil), speculative_auth_result: T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:293
+  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:294
   def default_mechanism; end
 
-  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:224
+  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:225
   def ensure_connected; end
 
   # Sends the hello command to the server, then receive and deserialize
@@ -36874,7 +37221,7 @@ class Mongo::Server::PendingConnection < ::Mongo::Server::ConnectionBase
   #
   # @return [ Mongo::Protocol::Reply ] Deserialized server response.
   #
-  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:126
+  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:127
   def get_handshake_response(hello_command); end
 
   # @param [ BSON::Document | nil ] speculative_auth_doc The document to
@@ -36883,7 +37230,7 @@ class Mongo::Server::PendingConnection < ::Mongo::Server::ConnectionBase
   # @return [ BSON::Document ] The document of the handshake response for
   #   this particular connection.
   #
-  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:140
+  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:141
   def handshake!(speculative_auth_doc: T.unsafe(nil)); end
 
   # This is a separate method to keep the nesting level down.
@@ -36891,7 +37238,7 @@ class Mongo::Server::PendingConnection < ::Mongo::Server::ConnectionBase
   # @return [ Server::Description ] The server description calculated from
   #   the handshake response for this particular connection.
   #
-  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:232
+  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:233
   def post_handshake(response, average_rtt, _minimum_rtt); end
 
   # The user as going to be used for authentication. This user has the
@@ -36903,7 +37250,7 @@ class Mongo::Server::PendingConnection < ::Mongo::Server::ConnectionBase
   #
   # @return [ Auth::User ] The resolved user.
   #
-  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:266
+  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:267
   def resolved_user(speculative_auth_mech: T.unsafe(nil)); end
 end
 
@@ -36927,7 +37274,7 @@ class Mongo::Server::PushMonitor
   # pkg:gem/mongo#lib/mongo/server/push_monitor.rb:33
   def initialize(monitor, topology_version, monitoring, **options); end
 
-  # pkg:gem/mongo#lib/mongo/server/push_monitor.rb:131
+  # pkg:gem/mongo#lib/mongo/server/push_monitor.rb:138
   def check; end
 
   # pkg:gem/mongo#lib/mongo/server/push_monitor.rb:91
@@ -36948,7 +37295,7 @@ class Mongo::Server::PushMonitor
   # pkg:gem/mongo#lib/mongo/server/push_monitor.rb:57
   def options; end
 
-  # pkg:gem/mongo#lib/mongo/server/push_monitor.rb:176
+  # pkg:gem/mongo#lib/mongo/server/push_monitor.rb:190
   def read_response; end
 
   # pkg:gem/mongo#lib/mongo/server/push_monitor.rb:60
@@ -36960,7 +37307,7 @@ class Mongo::Server::PushMonitor
   # pkg:gem/mongo#lib/mongo/server/push_monitor.rb:68
   def stop!; end
 
-  # pkg:gem/mongo#lib/mongo/server/push_monitor.rb:192
+  # pkg:gem/mongo#lib/mongo/server/push_monitor.rb:206
   def to_s; end
 
   # @return [ TopologyVersion ] Most recently received topology version.
@@ -36968,7 +37315,7 @@ class Mongo::Server::PushMonitor
   # pkg:gem/mongo#lib/mongo/server/push_monitor.rb:51
   def topology_version; end
 
-  # pkg:gem/mongo#lib/mongo/server/push_monitor.rb:165
+  # pkg:gem/mongo#lib/mongo/server/push_monitor.rb:179
   def write_check_command; end
 end
 
@@ -37237,7 +37584,7 @@ class Mongo::ServerSelector::Base
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:422
+  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:420
   def suitable_servers(cluster, deprioritized = T.unsafe(nil)); end
 
   # @return [ Array ] tag_sets The tag sets used to select servers.
@@ -37266,7 +37613,7 @@ class Mongo::ServerSelector::Base
 
   private
 
-  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:576
+  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:574
   def filter_stale_servers(candidates, primary = T.unsafe(nil)); end
 
   # Convert this server preference definition into a format appropriate
@@ -37276,7 +37623,7 @@ class Mongo::ServerSelector::Base
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:473
+  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:471
   def full_doc; end
 
   # Select the servers matching the defined tag sets.
@@ -37288,7 +37635,7 @@ class Mongo::ServerSelector::Base
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:567
+  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:565
   def match_tag_sets(candidates); end
 
   # Select the near servers from a list of provided candidates, taking the
@@ -37303,7 +37650,7 @@ class Mongo::ServerSelector::Base
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:527
+  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:525
   def near_servers(candidates = T.unsafe(nil), local_threshold = T.unsafe(nil)); end
 
   # Select the primary from a list of provided candidates.
@@ -37315,7 +37662,7 @@ class Mongo::ServerSelector::Base
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:491
+  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:489
   def primary(candidates); end
 
   # Select the secondaries from a list of provided candidates.
@@ -37327,7 +37674,7 @@ class Mongo::ServerSelector::Base
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:505
+  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:503
   def secondaries(candidates); end
 
   # Parameters and return values are the same as for select_server, only
@@ -37351,7 +37698,7 @@ class Mongo::ServerSelector::Base
   #
   # @return [ String ] The diagnostic message.
   #
-  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:688
+  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:686
   def server_selection_diagnostic_message(cluster); end
 
   # Returns a server from the list of servers that is suitable for
@@ -37362,7 +37709,7 @@ class Mongo::ServerSelector::Base
   # @return [ Server | nil ] The suitable server or nil if no suitable
   #  server is available.
   #
-  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:463
+  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:461
   def suitable_server(servers); end
 
   # Internal implementation of suitable_servers that applies deprioritization
@@ -37376,16 +37723,16 @@ class Mongo::ServerSelector::Base
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:440
+  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:438
   def suitable_servers_impl(cluster, deprioritized); end
 
-  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:599
+  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:597
   def validate!; end
 
-  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:627
+  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:625
   def validate_max_staleness_value!(cluster); end
 
-  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:618
+  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:616
   def validate_max_staleness_value_early!; end
 
   # Waits for server state changes in the specified cluster.
@@ -37405,7 +37752,7 @@ class Mongo::ServerSelector::Base
   # @param [ Cluster ] cluster The cluster to wait for.
   # @param [ Numeric ] time_remaining Maximum time to wait, in seconds.
   #
-  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:658
+  # pkg:gem/mongo#lib/mongo/server_selector/base.rb:656
   def wait_for_server_selection(cluster, time_remaining); end
 end
 
@@ -37895,7 +38242,7 @@ class Mongo::ServerSelector::SecondaryPreferred < ::Mongo::ServerSelector::Base
 
   private
 
-  # pkg:gem/mongo#lib/mongo/server_selector/secondary_preferred.rb:107
+  # pkg:gem/mongo#lib/mongo/server_selector/secondary_preferred.rb:110
   def max_staleness_allowed?; end
 
   # Select servers taking into account any defined tag sets and
@@ -37998,7 +38345,7 @@ class Mongo::Session
   #
   # @since 2.6.0
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:814
+  # pkg:gem/mongo#lib/mongo/session.rb:810
   def abort_transaction(options = T.unsafe(nil)); end
 
   # @return [ true | false ] Whether the session is currently aborting a
@@ -38006,7 +38353,7 @@ class Mongo::Session
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:910
+  # pkg:gem/mongo#lib/mongo/session.rb:906
   def aborting_transaction?; end
 
   # Add the autocommit field to a command document if applicable.
@@ -38019,7 +38366,7 @@ class Mongo::Session
   # @since 2.6.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1003
+  # pkg:gem/mongo#lib/mongo/session.rb:999
   def add_autocommit!(command); end
 
   # Add the startTransaction field to a command document if applicable.
@@ -38032,7 +38379,7 @@ class Mongo::Session
   # @since 2.6.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1018
+  # pkg:gem/mongo#lib/mongo/session.rb:1014
   def add_start_transaction!(command); end
 
   # Add the transaction number to a command document if applicable.
@@ -38045,7 +38392,7 @@ class Mongo::Session
   # @since 2.6.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1033
+  # pkg:gem/mongo#lib/mongo/session.rb:1029
   def add_txn_num!(command); end
 
   # Add the transactions options if applicable.
@@ -38058,7 +38405,7 @@ class Mongo::Session
   # @since 2.6.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1048
+  # pkg:gem/mongo#lib/mongo/session.rb:1044
   def add_txn_opts!(command, _read, context); end
 
   # Advance the cached operation time for this session.
@@ -38072,8 +38419,16 @@ class Mongo::Session
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1227
+  # pkg:gem/mongo#lib/mongo/session.rb:1223
   def advance_operation_time(new_operation_time); end
+
+  # Returns causal consistency document if the last operation time is
+  # known and causal consistency is enabled, otherwise returns nil.
+  #
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/session.rb:1331
+  def causal_consistency_doc; end
 
   # @return [ Client ] The client through which this session was created.
   #
@@ -38101,7 +38456,7 @@ class Mongo::Session
   #
   # @since 2.6.0
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:728
+  # pkg:gem/mongo#lib/mongo/session.rb:724
   def commit_transaction(options = T.unsafe(nil)); end
 
   # @return [ true | false ] Whether the session is currently committing a
@@ -38109,7 +38464,7 @@ class Mongo::Session
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:902
+  # pkg:gem/mongo#lib/mongo/session.rb:898
   def committing_transaction?; end
 
   # Sets the dirty state to the given value for the underlying server
@@ -38196,13 +38551,13 @@ class Mongo::Session
   #
   # @since 2.6.0
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:894
+  # pkg:gem/mongo#lib/mongo/session.rb:890
   def in_transaction?; end
 
   # @return [ Boolean ] Whether we are currently inside a with_transaction block.
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1311
+  # pkg:gem/mongo#lib/mongo/session.rb:1307
   def inside_with_transaction?; end
 
   # Get a formatted string for use in inspection.
@@ -38224,12 +38579,12 @@ class Mongo::Session
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1241
+  # pkg:gem/mongo#lib/mongo/session.rb:1237
   def materialize_if_needed; end
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1252
+  # pkg:gem/mongo#lib/mongo/session.rb:1248
   def materialized?; end
 
   # Increment and return the next transaction number.
@@ -38242,7 +38597,7 @@ class Mongo::Session
   # @since 2.5.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1267
+  # pkg:gem/mongo#lib/mongo/session.rb:1263
   def next_txn_num; end
 
   # @return [ BSON::Timestamp ] The latest seen operation time for this session.
@@ -38267,7 +38622,7 @@ class Mongo::Session
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:936
+  # pkg:gem/mongo#lib/mongo/session.rb:932
   def pin_to_connection(connection_global_id, connection: T.unsafe(nil)); end
 
   # Pins this session to the specified server, which should be a mongos.
@@ -38276,7 +38631,7 @@ class Mongo::Session
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:919
+  # pkg:gem/mongo#lib/mongo/session.rb:915
   def pin_to_server(server); end
 
   # @return [ Integer | nil ] The connection global id that this session is pinned to,
@@ -38307,7 +38662,7 @@ class Mongo::Session
   # @since 2.5.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1201
+  # pkg:gem/mongo#lib/mongo/session.rb:1197
   def process(result); end
 
   # @return [ BSON::Document | nil ] Recovery token for the sharded
@@ -38366,7 +38721,7 @@ class Mongo::Session
   # startTransaction: true is preserved on the retry.
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1152
+  # pkg:gem/mongo#lib/mongo/session.rb:1148
   def revert_to_starting_transaction!; end
 
   # Get the server session id of this session, if the session has not been
@@ -38392,7 +38747,7 @@ class Mongo::Session
   #   session for which no :snapshot_time option was provided and no read
   #   has yet captured atClusterTime from the server.
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1291
+  # pkg:gem/mongo#lib/mongo/session.rb:1287
   def snapshot_timestamp; end
 
   # Sets the snapshot time for the session. Once set, subsequent
@@ -38404,7 +38759,7 @@ class Mongo::Session
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1301
+  # pkg:gem/mongo#lib/mongo/session.rb:1297
   def snapshot_timestamp=(value); end
 
   # Places subsequent operations in this session into a new transaction.
@@ -38440,12 +38795,12 @@ class Mongo::Session
   #
   # @since 2.6.0
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:664
+  # pkg:gem/mongo#lib/mongo/session.rb:660
   def start_transaction(options = T.unsafe(nil)); end
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:882
+  # pkg:gem/mongo#lib/mongo/session.rb:878
   def starting_transaction?; end
 
   # Remove the read concern and/or write concern from the command if not applicable.
@@ -38458,7 +38813,7 @@ class Mongo::Session
   # @since 2.6.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1116
+  # pkg:gem/mongo#lib/mongo/session.rb:1112
   def suppress_read_write_concern!(command); end
 
   # pkg:gem/mongo#lib/mongo/session.rb:143
@@ -38473,7 +38828,7 @@ class Mongo::Session
   #
   # @since 2.6.0
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1281
+  # pkg:gem/mongo#lib/mongo/session.rb:1277
   def txn_num; end
 
   # @return [ Hash ] The options for the transaction currently being executed
@@ -38483,6 +38838,21 @@ class Mongo::Session
   #
   # pkg:gem/mongo#lib/mongo/session.rb:166
   def txn_options; end
+
+  # Get the read concern the session will use when starting a transaction.
+  #
+  # This is a driver style hash with underscore keys.
+  #
+  # @example Get the session's transaction read concern.
+  #   session.txn_read_concern
+  #
+  # @return [ Hash ] The read concern used for starting transactions.
+  #
+  # @since 2.9.0
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/session.rb:1322
+  def txn_read_concern; end
 
   # Get the read preference the session will use in the currently
   # active transaction.
@@ -38506,7 +38876,7 @@ class Mongo::Session
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:949
+  # pkg:gem/mongo#lib/mongo/session.rb:945
   def unpin(connection = T.unsafe(nil)); end
 
   # Unpins this session from the pinned server or connection, if the session was pinned
@@ -38521,7 +38891,7 @@ class Mongo::Session
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:982
+  # pkg:gem/mongo#lib/mongo/session.rb:978
   def unpin_maybe(error, connection = T.unsafe(nil)); end
 
   # Update the state of the session due to a (non-commit and non-abort) operation being run.
@@ -38529,7 +38899,7 @@ class Mongo::Session
   # @since 2.6.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1162
+  # pkg:gem/mongo#lib/mongo/session.rb:1158
   def update_state!; end
 
   # Validate the session for use by the specified client.
@@ -38546,7 +38916,7 @@ class Mongo::Session
   # @since 2.5.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1184
+  # pkg:gem/mongo#lib/mongo/session.rb:1180
   def validate!(client); end
 
   # Ensure that the read preference of a command is primary.
@@ -38560,7 +38930,7 @@ class Mongo::Session
   # @since 2.6.0
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1135
+  # pkg:gem/mongo#lib/mongo/session.rb:1131
   def validate_read_preference!(command); end
 
   # Executes the provided block in a transaction, retrying as necessary.
@@ -38624,84 +38994,64 @@ class Mongo::Session
   # @return [ Integer | nil ] The deadline for the current transaction, if any.
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1307
+  # pkg:gem/mongo#lib/mongo/session.rb:1303
   def with_transaction_deadline; end
 
   private
 
-  # pkg:gem/mongo#lib/mongo/session.rb:1432
+  # pkg:gem/mongo#lib/mongo/session.rb:1431
   def backoff_seconds_for_retry(transaction_attempt); end
 
-  # pkg:gem/mongo#lib/mongo/session.rb:1437
+  # pkg:gem/mongo#lib/mongo/session.rb:1436
   def backoff_would_exceed_deadline?(deadline, backoff_seconds); end
 
-  # pkg:gem/mongo#lib/mongo/session.rb:1402
+  # pkg:gem/mongo#lib/mongo/session.rb:1401
   def calculate_with_transaction_deadline(opts); end
 
-  # pkg:gem/mongo#lib/mongo/session.rb:1357
+  # pkg:gem/mongo#lib/mongo/session.rb:1356
   def causal_consistency?; end
 
-  # Returns causal consistency document if the last operation time is
-  # known and causal consistency is enabled, otherwise returns nil.
-  #
-  # pkg:gem/mongo#lib/mongo/session.rb:1351
-  def causal_consistency_doc; end
-
-  # pkg:gem/mongo#lib/mongo/session.rb:1371
+  # pkg:gem/mongo#lib/mongo/session.rb:1370
   def check_if_ended!; end
 
-  # pkg:gem/mongo#lib/mongo/session.rb:1336
+  # pkg:gem/mongo#lib/mongo/session.rb:1343
   def check_if_no_transaction!; end
 
-  # pkg:gem/mongo#lib/mongo/session.rb:1375
+  # pkg:gem/mongo#lib/mongo/session.rb:1374
   def check_matching_cluster!(client); end
 
-  # pkg:gem/mongo#lib/mongo/session.rb:1381
+  # pkg:gem/mongo#lib/mongo/session.rb:1380
   def check_transactions_supported!; end
 
-  # pkg:gem/mongo#lib/mongo/session.rb:1419
+  # pkg:gem/mongo#lib/mongo/session.rb:1418
   def deadline_expired?(deadline); end
 
   # Implements makeTimeoutError(lastError) from the transactions-convenient-api spec.
   # In CSOT mode raises TimeoutError with last_error's message and labels copied.
   # In non-CSOT mode re-raises last_error directly.
   #
-  # pkg:gem/mongo#lib/mongo/session.rb:1446
+  # pkg:gem/mongo#lib/mongo/session.rb:1445
   def make_timeout_error_from(last_error, timeout_message); end
 
-  # pkg:gem/mongo#lib/mongo/session.rb:1385
+  # pkg:gem/mongo#lib/mongo/session.rb:1384
   def operation_timeouts(opts); end
 
-  # pkg:gem/mongo#lib/mongo/session.rb:1365
+  # pkg:gem/mongo#lib/mongo/session.rb:1364
   def set_operation_time(result); end
 
-  # Get the read concern the session will use when starting a transaction.
-  #
-  # This is a driver style hash with underscore keys.
-  #
-  # @example Get the session's transaction read concern.
-  #   session.txn_read_concern
-  #
-  # @return [ Hash ] The read concern used for starting transactions.
-  #
-  # @since 2.9.0
-  #
-  # pkg:gem/mongo#lib/mongo/session.rb:1327
-  def txn_read_concern; end
-
-  # pkg:gem/mongo#lib/mongo/session.rb:1344
+  # pkg:gem/mongo#lib/mongo/session.rb:1351
   def txn_write_concern; end
 
-  # pkg:gem/mongo#lib/mongo/session.rb:1332
+  # pkg:gem/mongo#lib/mongo/session.rb:1339
   def within_states?(*states); end
 end
 
 # Exponential backoff settings for with_transaction retries.
 #
-# pkg:gem/mongo#lib/mongo/session.rb:1428
+# pkg:gem/mongo#lib/mongo/session.rb:1427
 Mongo::Session::BACKOFF_INITIAL = T.let(T.unsafe(nil), Float)
 
-# pkg:gem/mongo#lib/mongo/session.rb:1429
+# pkg:gem/mongo#lib/mongo/session.rb:1428
 Mongo::Session::BACKOFF_MAX = T.let(T.unsafe(nil), Float)
 
 # Error message indicating that the session was retrieved from a client with a different cluster than that of the
@@ -39206,13 +39556,13 @@ class Mongo::Socket
   # pkg:gem/mongo#lib/mongo/socket.rb:454
   def do_write(*args, timeout: T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/socket.rb:599
+  # pkg:gem/mongo#lib/mongo/socket.rb:593
   def human_address; end
 
-  # pkg:gem/mongo#lib/mongo/socket.rb:589
+  # pkg:gem/mongo#lib/mongo/socket.rb:585
   def map_exceptions; end
 
-  # pkg:gem/mongo#lib/mongo/socket.rb:603
+  # pkg:gem/mongo#lib/mongo/socket.rb:597
   def raise_timeout_error!(message = T.unsafe(nil), csot = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/socket.rb:438
@@ -39254,17 +39604,14 @@ class Mongo::Socket
   # pkg:gem/mongo#lib/mongo/socket.rb:309
   def read_without_timeout(length, socket_timeout = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/socket.rb:562
+  # pkg:gem/mongo#lib/mongo/socket.rb:558
   def set_keepalive_opts(sock); end
 
-  # pkg:gem/mongo#lib/mongo/socket.rb:575
+  # pkg:gem/mongo#lib/mongo/socket.rb:571
   def set_option(sock, option, default); end
 
-  # pkg:gem/mongo#lib/mongo/socket.rb:584
+  # pkg:gem/mongo#lib/mongo/socket.rb:580
   def set_socket_options(sock); end
-
-  # pkg:gem/mongo#lib/mongo/socket.rb:550
-  def unix_socket?(sock); end
 
   # pkg:gem/mongo#lib/mongo/socket.rb:533
   def wait_for_socket_to_be_writable(deadline); end
@@ -39292,16 +39639,16 @@ class Mongo::Socket
   def write_without_timeout(*args); end
 end
 
-# pkg:gem/mongo#lib/mongo/socket.rb:556
+# pkg:gem/mongo#lib/mongo/socket.rb:552
 Mongo::Socket::DEFAULT_TCP_KEEPCNT = T.let(T.unsafe(nil), Integer)
 
-# pkg:gem/mongo#lib/mongo/socket.rb:558
+# pkg:gem/mongo#lib/mongo/socket.rb:554
 Mongo::Socket::DEFAULT_TCP_KEEPIDLE = T.let(T.unsafe(nil), Integer)
 
-# pkg:gem/mongo#lib/mongo/socket.rb:554
+# pkg:gem/mongo#lib/mongo/socket.rb:550
 Mongo::Socket::DEFAULT_TCP_KEEPINTVL = T.let(T.unsafe(nil), Integer)
 
-# pkg:gem/mongo#lib/mongo/socket.rb:560
+# pkg:gem/mongo#lib/mongo/socket.rb:556
 Mongo::Socket::DEFAULT_TCP_USER_TIMEOUT = T.let(T.unsafe(nil), Integer)
 
 # This module caches OCSP responses for their indicated validity time.
@@ -39890,31 +40237,31 @@ class Mongo::Srv::Monitor
   # pkg:gem/mongo#lib/mongo/srv/monitor.rb:43
   def initialize(cluster, **opts); end
 
-  # pkg:gem/mongo#lib/mongo/srv/monitor.rb:53
+  # pkg:gem/mongo#lib/mongo/srv/monitor.rb:56
   def cluster; end
 
   # @return [ Srv::Result ] Last known SRV lookup result. Used for
   #   determining intervals between SRV lookups, which depend on SRV DNS
   #   records' TTL values.
   #
-  # pkg:gem/mongo#lib/mongo/srv/monitor.rb:58
+  # pkg:gem/mongo#lib/mongo/srv/monitor.rb:61
   def last_result; end
 
-  # pkg:gem/mongo#lib/mongo/srv/monitor.rb:53
+  # pkg:gem/mongo#lib/mongo/srv/monitor.rb:56
   def options; end
 
   private
 
-  # pkg:gem/mongo#lib/mongo/srv/monitor.rb:62
+  # pkg:gem/mongo#lib/mongo/srv/monitor.rb:65
   def do_work; end
 
-  # pkg:gem/mongo#lib/mongo/srv/monitor.rb:67
+  # pkg:gem/mongo#lib/mongo/srv/monitor.rb:70
   def scan!; end
 
-  # pkg:gem/mongo#lib/mongo/srv/monitor.rb:95
+  # pkg:gem/mongo#lib/mongo/srv/monitor.rb:104
   def scan_interval; end
 
-  # pkg:gem/mongo#lib/mongo/srv/monitor.rb:105
+  # pkg:gem/mongo#lib/mongo/srv/monitor.rb:114
   def timeout; end
 end
 
@@ -40119,8 +40466,7 @@ module Mongo::Timeout
   private
 
   # A wrapper around Ruby core's Timeout::timeout method that provides
-  # a standardized API for Ruby versions older and newer than 2.4.0,
-  # which is when the third argument was introduced.
+  # a standardized API for calling it.
   #
   # @param [ Numeric ] sec The number of seconds before timeout.
   # @param [ Class ] klass The exception class to raise on timeout, optional.
@@ -40129,22 +40475,11 @@ module Mongo::Timeout
   #   on timeout, optional. When no error message is provided, the default
   #   error message for the exception class is used.
   #
-  # pkg:gem/mongo#lib/mongo/timeout.rb:30
+  # pkg:gem/mongo#lib/mongo/timeout.rb:29
   def timeout(sec, klass = T.unsafe(nil), message = T.unsafe(nil), &block); end
 
   class << self
-    # A wrapper around Ruby core's Timeout::timeout method that provides
-    # a standardized API for Ruby versions older and newer than 2.4.0,
-    # which is when the third argument was introduced.
-    #
-    # @param [ Numeric ] sec The number of seconds before timeout.
-    # @param [ Class ] klass The exception class to raise on timeout, optional.
-    #   When no error exception is provided, Timeout::Error is raised.
-    # @param [ String ] message The error message passed to the exception raised
-    #   on timeout, optional. When no error message is provided, the default
-    #   error message for the exception class is used.
-    #
-    # pkg:gem/mongo#lib/mongo/timeout.rb:45
+    # pkg:gem/mongo#lib/mongo/timeout.rb:40
     def timeout(sec, klass = T.unsafe(nil), message = T.unsafe(nil), &block); end
   end
 end
@@ -40229,18 +40564,6 @@ module Mongo::Tracing
   def create_tracer(enabled: T.unsafe(nil), query_text_max_length: T.unsafe(nil), otel_tracer: T.unsafe(nil)); end
 
   class << self
-    # Creates a new OpenTelemetry tracer for instrumenting MongoDB operations.
-    #
-    # @param enabled [Boolean, nil] Whether tracing is enabled. Default to nil, which
-    #   means it will check the environment variable OTEL_RUBY_INSTRUMENTATION_MONGODB_ENABLED.
-    #   See +Mongo::Tracing::OpenTelemetry::Tracer+ for details.
-    # @param query_text_max_length [Integer, nil] Maximum length for captured query text. Default to nil,
-    #   which means it will check the environment variable OTEL_RUBY_INSTRUMENTATION_MONGODB_QUERY_TEXT_MAX_LENGTH.
-    #   See +Mongo::Tracing::OpenTelemetry::Tracer+ for details.
-    # @param otel_tracer [OpenTelemetry::Trace::Tracer, nil] Custom OpenTelemetry tracer instance.
-    #
-    # @return [Mongo::Tracing::OpenTelemetry::Tracer] Configured tracer instance.
-    #
     # pkg:gem/mongo#lib/mongo/tracing.rb:38
     def create_tracer(enabled: T.unsafe(nil), query_text_max_length: T.unsafe(nil), otel_tracer: T.unsafe(nil)); end
   end
@@ -40314,7 +40637,7 @@ class Mongo::Tracing::OpenTelemetry::CommandTracer
   #
   # @return [ String | nil ] the collection name, or nil if not applicable.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:247
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:261
   def collection_name(message); end
 
   # Extracts the command name from the message.
@@ -40323,7 +40646,7 @@ class Mongo::Tracing::OpenTelemetry::CommandTracer
   #
   # @return [ String ] the command name.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:265
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:279
   def command_name(message); end
 
   # Returns connection-related attributes.
@@ -40351,7 +40674,7 @@ class Mongo::Tracing::OpenTelemetry::CommandTracer
   #
   # @return [ Integer | nil ] the cursor ID, or nil if not a getMore command.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:290
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:304
   def cursor_id(message); end
 
   # Extracts the database name from the message.
@@ -40360,7 +40683,7 @@ class Mongo::Tracing::OpenTelemetry::CommandTracer
   #
   # @return [ String ] the database name.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:274
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:288
   def database(message); end
 
   # Handles exceptions that occur during command execution.
@@ -40377,7 +40700,7 @@ class Mongo::Tracing::OpenTelemetry::CommandTracer
   #
   # @return [ BSON::Binary | nil ] the session ID, or nil if not present.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:301
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:315
   def lsid(message); end
 
   # Records error status code if the command failed.
@@ -40385,8 +40708,21 @@ class Mongo::Tracing::OpenTelemetry::CommandTracer
   # @param result [ Object ] the command result.
   # @param span [ OpenTelemetry::Trace::Span ] the current span.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:218
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:232
   def maybe_trace_error(result, span); end
+
+  # Normalizes a cursor id to a plain Integer.
+  #
+  # OP_MSG replies deserialized in :bson mode expose the cursor id as a
+  # BSON::Int64, which does not implement Numeric#positive? and is not a
+  # valid OpenTelemetry attribute type.
+  #
+  # @param cursor_id [ Integer | BSON::Int64 ] the raw cursor id.
+  #
+  # @return [ Integer ] the cursor id as an Integer.
+  #
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:224
+  def normalize_cursor_id(cursor_id); end
 
   # Processes the command result and updates span attributes.
   #
@@ -40414,7 +40750,7 @@ class Mongo::Tracing::OpenTelemetry::CommandTracer
   #
   # @return [ String ] summary in format "command_name db.collection" or "command_name db".
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:234
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:248
   def query_summary(message); end
 
   # Extracts and formats the query text from the command.
@@ -40423,14 +40759,14 @@ class Mongo::Tracing::OpenTelemetry::CommandTracer
   #
   # @return [ String | nil ] JSON representation of the command, truncated if necessary, or nil if disabled.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:331
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:345
   def query_text(message); end
 
   # Checks if query text capture is enabled.
   #
   # @return [ Boolean ] true if query text should be captured.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:281
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:295
   def query_text?; end
 
   # Returns session and transaction attributes.
@@ -40471,18 +40807,18 @@ class Mongo::Tracing::OpenTelemetry::CommandTracer
   #
   # @return [ Integer | nil ] the transaction number, or nil if not present.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:313
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:327
   def txn_number(message); end
 end
 
 # Ellipsis for truncated query text.
 #
-# pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:324
+# pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:338
 Mongo::Tracing::OpenTelemetry::CommandTracer::ELLIPSIS = T.let(T.unsafe(nil), String)
 
 # Keys to exclude from query text capture.
 #
-# pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:321
+# pkg:gem/mongo#lib/mongo/tracing/open_telemetry/command_tracer.rb:335
 Mongo::Tracing::OpenTelemetry::CommandTracer::EXCLUDED_KEYS = T.let(T.unsafe(nil), Array)
 
 # Commands for which a span MUST NOT be created. The OpenTelemetry spec
@@ -40821,7 +41157,7 @@ class Mongo::URI
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/uri.rb:282
+  # pkg:gem/mongo#lib/mongo/uri.rb:313
   def initialize(string, options = T.unsafe(nil)); end
 
   # Gets the options hash that needs to be passed to a Mongo::Client on
@@ -40835,7 +41171,7 @@ class Mongo::URI
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/uri.rb:257
+  # pkg:gem/mongo#lib/mongo/uri.rb:288
   def client_options; end
 
   # Get the credentials provided in the URI.
@@ -40849,7 +41185,7 @@ class Mongo::URI
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/uri.rb:307
+  # pkg:gem/mongo#lib/mongo/uri.rb:338
   def credentials; end
 
   # Get the database provided in the URI.
@@ -40861,8 +41197,17 @@ class Mongo::URI
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/uri.rb:319
+  # pkg:gem/mongo#lib/mongo/uri.rb:350
   def database; end
+
+  # Return a redacted, human-readable representation of the URI. The
+  # default {Object#inspect} would dump {@string} and {@password} as
+  # instance variables, leaking credentials.
+  #
+  # @return [ String ] The redacted inspect string.
+  #
+  # pkg:gem/mongo#lib/mongo/uri.rb:373
+  def inspect; end
 
   # The uri parser object options.
   #
@@ -40878,17 +41223,21 @@ class Mongo::URI
   # pkg:gem/mongo#lib/mongo/uri.rb:47
   def servers; end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:265
+  # pkg:gem/mongo#lib/mongo/uri.rb:296
   def srv_records; end
 
-  # Get the uri as a string.
+  # Get the uri as a string with any credentials redacted.
+  #
+  # Credentials are replaced with {CREDENTIALS_PLACEHOLDER} so the result is
+  # safe to log or display. Use {#credentials} to recover the original user
+  # and password.
   #
   # @example Get the uri as a string.
   #   uri.to_s
   #
-  # @return [ String ] The uri string.
+  # @return [ String ] The redacted uri string.
   #
-  # pkg:gem/mongo#lib/mongo/uri.rb:329
+  # pkg:gem/mongo#lib/mongo/uri.rb:364
   def to_s; end
 
   # Mongo::Options::Redacted of the options specified in the uri.
@@ -40900,48 +41249,48 @@ class Mongo::URI
 
   private
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:451
+  # pkg:gem/mongo#lib/mongo/uri.rb:493
   def decode(value); end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:455
+  # pkg:gem/mongo#lib/mongo/uri.rb:497
   def encode(value); end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:398
+  # pkg:gem/mongo#lib/mongo/uri.rb:440
   def options_mapper; end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:366
+  # pkg:gem/mongo#lib/mongo/uri.rb:408
   def parse!(remaining); end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:438
+  # pkg:gem/mongo#lib/mongo/uri.rb:480
   def parse_database!(string); end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:429
+  # pkg:gem/mongo#lib/mongo/uri.rb:471
   def parse_password!(string); end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:404
+  # pkg:gem/mongo#lib/mongo/uri.rb:446
   def parse_uri_options!(string); end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:420
+  # pkg:gem/mongo#lib/mongo/uri.rb:462
   def parse_user!(string); end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:443
+  # pkg:gem/mongo#lib/mongo/uri.rb:485
   def raise_invalid_error!(details); end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:447
+  # pkg:gem/mongo#lib/mongo/uri.rb:489
   def raise_invalid_error_no_fmt!(details); end
 
-  # Reconstruct the URI from its parts. Invalid options are dropped and options
-  # are converted to camelCase.
+  # Reconstruct the URI from its parts with credentials redacted. Invalid
+  # options are dropped and options are converted to camelCase.
   #
   # @return [ String ] the uri.
   #
-  # pkg:gem/mongo#lib/mongo/uri.rb:339
+  # pkg:gem/mongo#lib/mongo/uri.rb:383
   def reconstruct_uri; end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:362
+  # pkg:gem/mongo#lib/mongo/uri.rb:404
   def scheme; end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:459
+  # pkg:gem/mongo#lib/mongo/uri.rb:501
   def validate_uri_options!; end
 
   class << self
@@ -40959,8 +41308,24 @@ class Mongo::URI
     #
     # @since 2.5.0
     #
-    # pkg:gem/mongo#lib/mongo/uri.rb:231
+    # pkg:gem/mongo#lib/mongo/uri.rb:262
     def get(string, opts = T.unsafe(nil)); end
+
+    # Replace the userinfo portion of a MongoDB connection string with a
+    # placeholder so the result can safely be logged, displayed, or embedded
+    # in an exception message.
+    #
+    # The input is matched as a string, not parsed, so this is safe to call
+    # on malformed URIs (which is exactly when {InvalidURI} is raised).
+    #
+    # @param [ String ] string The raw URI string.
+    #
+    # @return [ String ] The URI with any userinfo replaced by
+    #   {CREDENTIALS_PLACEHOLDER}, or the input unchanged if it is not a
+    #   string or has no userinfo.
+    #
+    # pkg:gem/mongo#lib/mongo/uri.rb:243
+    def redact(string); end
   end
 end
 
@@ -40975,7 +41340,7 @@ Mongo::URI::AUTH_DELIM = T.let(T.unsafe(nil), String)
 #
 # @since 2.0.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:194
+# pkg:gem/mongo#lib/mongo/uri.rb:207
 Mongo::URI::AUTH_MECH_MAP = T.let(T.unsafe(nil), Hash)
 
 # The character separating a username from the password.
@@ -40984,6 +41349,12 @@ Mongo::URI::AUTH_MECH_MAP = T.let(T.unsafe(nil), Hash)
 #
 # pkg:gem/mongo#lib/mongo/uri.rb:132
 Mongo::URI::AUTH_USER_PWD_DELIM = T.let(T.unsafe(nil), String)
+
+# Placeholder used in place of cleartext credentials when a URI is
+# rendered for display, logging, or error reporting.
+#
+# pkg:gem/mongo#lib/mongo/uri.rb:146
+Mongo::URI::CREDENTIALS_PLACEHOLDER = T.let(T.unsafe(nil), String)
 
 # The character delimiting a database.
 #
@@ -41032,28 +41403,28 @@ Mongo::URI::INDIV_URI_OPTS_DELIM = T.let(T.unsafe(nil), String)
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:173
+# pkg:gem/mongo#lib/mongo/uri.rb:186
 Mongo::URI::INVALID_HOST = T.let(T.unsafe(nil), String)
 
 # Error details for providing options without a database delimiter.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:168
+# pkg:gem/mongo#lib/mongo/uri.rb:181
 Mongo::URI::INVALID_OPTS_DELIM = T.let(T.unsafe(nil), String)
 
 # Error details for an invalid options format.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:147
+# pkg:gem/mongo#lib/mongo/uri.rb:160
 Mongo::URI::INVALID_OPTS_VALUE_DELIM = T.let(T.unsafe(nil), String)
 
 # Error details for an invalid port.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:178
+# pkg:gem/mongo#lib/mongo/uri.rb:191
 Mongo::URI::INVALID_PORT = T.let(T.unsafe(nil), String)
 
 # Error details for an invalid scheme.
@@ -41166,7 +41537,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Array<String> ] The array built from the string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:536
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:548
   def convert_array(_name, value); end
 
   # Authentication mechanism transformation.
@@ -41176,7 +41547,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Symbol ] The transformed authentication mechanism.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:564
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:576
   def convert_auth_mech(_name, value); end
 
   # Auth mechanism properties extractor.
@@ -41186,7 +41557,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Hash | nil ] The auth mechanism properties hash.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:604
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:616
   def convert_auth_mech_props(_name, value); end
 
   # Converts +value+ to a boolean.
@@ -41210,7 +41581,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ nil | Integer ] Converted value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:432
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:444
   def convert_integer(name, value); end
 
   # Parses a boolean value and returns its inverse.
@@ -41221,7 +41592,7 @@ class Mongo::URI::OptionsMapper
   # @return [ true | false | nil ] The inverse of the boolean value parsed out, otherwise nil
   #   (and a warning will be logged).
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:396
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:408
   def convert_inverse_bool(name, value); end
 
   # Parses the max staleness value, which must be either "0" or an integer
@@ -41233,7 +41604,7 @@ class Mongo::URI::OptionsMapper
   # @return [ Integer | nil ] The max staleness integer parsed out if it is valid, otherwise nil
   #   (and a warning will be logged).
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:642
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:654
   def convert_max_staleness(_name, value); end
 
   # Ruby's convention is to provide timeouts in seconds, not milliseconds and
@@ -41247,7 +41618,7 @@ class Mongo::URI::OptionsMapper
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:469
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:481
   def convert_ms(name, value); end
 
   # Read preference mode transformation.
@@ -41257,7 +41628,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Symbol | String ] The read mode.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:688
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:700
   def convert_read_mode(_name, value); end
 
   # Read preference tag set extractor.
@@ -41267,7 +41638,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Hash ] The tag set hash.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:764
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:776
   def convert_read_set(_name, value); end
 
   # Read preference tags transformation.
@@ -41277,19 +41648,24 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Array<Hash> | nil ] Array with tag set.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:733
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:745
   def convert_read_tags(name, value); end
 
   # Converts the value into a boolean and returns it wrapped in an array.
   #
-  # @param [ String ] name Name of the URI option being processed.
+  # tls and ssl are the only repeated_bool options. An invalid value is
+  # preserved as a nil element rather than warned-and-dropped, so that
+  # URI#validate_uri_options! can detect it and raise instead of silently
+  # falling back to a plaintext connection (RUBY-3832).
+  #
+  # @param [ String ] _name Name of the URI option being processed.
   # @param [ String ] value URI option value.
   #
-  # @return [ Array<true | false> | nil ] The boolean value parsed and wraped
-  #   in an array.
+  # @return [ Array<true | false | nil> ] The boolean value parsed and
+  #   wrapped in an array.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:362
-  def convert_repeated_bool(name, value); end
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:367
+  def convert_repeated_bool(_name, value); end
 
   # Server monitoring mode transformation.
   #
@@ -41298,7 +41674,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Symbol | nil ] The server monitoring mode symbol.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:708
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:720
   def convert_server_monitoring_mode(_name, value); end
 
   # Converts +value+ into a symbol.
@@ -41308,7 +41684,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Symbol ] Converted value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:516
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:528
   def convert_symbol(_name, value); end
 
   # Converts +value+ as a write concern.
@@ -41322,7 +41698,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Integer | Symbol | String ] Converted value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:778
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:790
   def convert_w(_name, value); end
 
   # Parses the zlib compression level.
@@ -41333,7 +41709,7 @@ class Mongo::URI::OptionsMapper
   # @return [ Integer | nil ] The compression level value if it is between -1 and 9 (inclusive),
   #   otherwise nil (and a warning will be logged).
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:819
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:831
   def convert_zlib_compression_level(_name, value); end
 
   # Extract values from the string and put them into a nested hash.
@@ -41343,7 +41719,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Hash ] The hash built from the string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:858
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:870
   def hash_extractor(name, value); end
 
   # Merges a new option into the target.
@@ -41367,7 +41743,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Array<String> ] The passed value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:545
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:557
   def revert_array(value); end
 
   # Reverts auth mechanism.
@@ -41378,7 +41754,7 @@ class Mongo::URI::OptionsMapper
   #
   # @raise [ ArgumentError ] if its an invalid auth mechanism.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:578
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:590
   def revert_auth_mech(value); end
 
   # Reverts auth mechanism properties.
@@ -41387,7 +41763,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Hash | nil ] The passed value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:619
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:631
   def revert_auth_mech_props(value); end
 
   # Reverts a boolean type.
@@ -41405,7 +41781,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Integer | nil ] The passed value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:446
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:458
   def revert_integer(value); end
 
   # Reverts and inverts a boolean type.
@@ -41414,7 +41790,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ true | false | nil ] The inverted boolean.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:411
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:423
   def revert_inverse_bool(value); end
 
   # Reverts max staleness.
@@ -41423,7 +41799,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Integer | nil ] The passed value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:669
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:681
   def revert_max_staleness(value); end
 
   # Reverts an ms.
@@ -41432,7 +41808,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Integer ] The number multiplied by 1000 as an integer.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:497
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:509
   def revert_ms(value); end
 
   # Reverts read mode.
@@ -41441,7 +41817,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String ] The read mode as a string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:697
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:709
   def revert_read_mode(value); end
 
   # Reverts read tags.
@@ -41450,7 +41826,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Array<Hash> | nil ] The passed value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:745
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:757
   def revert_read_tags(value); end
 
   # Reverts a repeated boolean type.
@@ -41459,7 +41835,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Array<true | false> | true | false | nil ] The passed value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:371
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:383
   def revert_repeated_bool(value); end
 
   # Reverts a symbol.
@@ -41468,7 +41844,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String ] The passed value as a string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:525
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:537
   def revert_symbol(value); end
 
   # Reverts write concern.
@@ -41477,7 +41853,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Integer | String ] The write concern as a string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:794
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:806
   def revert_w(value); end
 
   # Reverts zlib compression level
@@ -41486,7 +41862,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Integer | nil ] The passed value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:839
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:851
   def revert_zlib_compression_level(value); end
 
   # Stringifies an array.
@@ -41495,7 +41871,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String ] The array joined by commas.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:554
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:566
   def stringify_array(value); end
 
   # Stringifies auth mechanism.
@@ -41504,7 +41880,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String | nil ] The auth mechanism as a string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:592
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:604
   def stringify_auth_mech(value); end
 
   # Stringifies auth mechanism properties.
@@ -41513,7 +41889,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String | nil ] The string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:628
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:640
   def stringify_auth_mech_props(value); end
 
   # Stringifies a boolean type.
@@ -41531,7 +41907,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String | nil ] The string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:455
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:467
   def stringify_integer(value); end
 
   # Inverts and stringifies a boolean.
@@ -41540,7 +41916,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String | nil ] The string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:420
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:432
   def stringify_inverse_bool(value); end
 
   # Stringifies max staleness.
@@ -41549,7 +41925,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String | nil ] The string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:678
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:690
   def stringify_max_staleness(value); end
 
   # Stringifies an ms.
@@ -41558,10 +41934,10 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String ] The string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:506
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:518
   def stringify_ms(value); end
 
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:700
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:712
   def stringify_read_mode(value); end
 
   # Stringifies read tags.
@@ -41570,7 +41946,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String | nil ] The joined string of read tags.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:754
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:766
   def stringify_read_tags(value); end
 
   # Stringifies a repeated boolean type.
@@ -41579,7 +41955,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Array<true | false> | nil ] The string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:380
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:392
   def stringify_repeated_bool(value); end
 
   # Stringifies server monitoring mode.
@@ -41588,10 +41964,10 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String ] The server monitoring mode as a string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:723
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:735
   def stringify_server_monitoring_mode(value); end
 
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:528
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:540
   def stringify_symbol(value); end
 
   # Stringifies write concern.
@@ -41600,7 +41976,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String ] The write concern as a string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:808
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:820
   def stringify_w(value); end
 
   # Stringifies zlib compression level
@@ -41609,7 +41985,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String | nil ] The string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:848
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:860
   def stringify_zlib_compression_level(value); end
 
   class << self
@@ -41651,7 +42027,7 @@ Mongo::URI::PERCENT_CHAR = T.let(T.unsafe(nil), Regexp)
 #
 # @since 2.0.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:183
+# pkg:gem/mongo#lib/mongo/uri.rb:196
 Mongo::URI::READ_MODE_MAP = T.let(T.unsafe(nil), Hash)
 
 # Options that are allowed to appear more than once in the uri.
@@ -41663,7 +42039,7 @@ Mongo::URI::READ_MODE_MAP = T.let(T.unsafe(nil), Hash)
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:216
+# pkg:gem/mongo#lib/mongo/uri.rb:229
 Mongo::URI::REPEATABLE_OPTIONS = T.let(T.unsafe(nil), Array)
 
 # The mongodb connection string scheme.
@@ -41684,7 +42060,7 @@ Mongo::URI::SCHEME_DELIM = T.let(T.unsafe(nil), String)
 
 # Valid values for the serverMonitoringMode URI option.
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:206
+# pkg:gem/mongo#lib/mongo/uri.rb:219
 Mongo::URI::SERVER_MONITORING_MODES = T.let(T.unsafe(nil), Array)
 
 # Parser for a URI using the mongodb+srv protocol, which specifies a DNS to query for SRV records.
@@ -41788,13 +42164,14 @@ class Mongo::URI::SRVProtocol < ::Mongo::URI
   # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:116
   def raise_invalid_error!(details); end
 
-  # Gets the SRV resolver.
-  # If domain verification fails or no SRV records are found,
-  # an error must not be raised per the spec; instead, a warning is logged.
+  # Gets the SRV resolver used for initial URI parsing.
+  # Per the Initial DNS Seedlist Discovery spec, the driver MUST raise an
+  # error if domain verification fails or no SRV records are found, so
+  # raise_on_invalid is left at its default of true.
   #
   # @return [ Mongo::Srv::Resolver ]
   #
-  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:125
+  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:126
   def resolver; end
 
   # Gets the MongoDB SRV URI scheme.
@@ -41867,21 +42244,21 @@ Mongo::URI::SRVProtocol::VALID_TXT_OPTIONS = T.let(T.unsafe(nil), Array)
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:163
+# pkg:gem/mongo#lib/mongo/uri.rb:176
 Mongo::URI::UNESCAPED_DATABASE = T.let(T.unsafe(nil), String)
 
 # Error details for a non-urlencoded unix socket path.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:158
+# pkg:gem/mongo#lib/mongo/uri.rb:171
 Mongo::URI::UNESCAPED_UNIX_SOCKET = T.let(T.unsafe(nil), String)
 
 # Error details for an non-urlencoded user name or password.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:153
+# pkg:gem/mongo#lib/mongo/uri.rb:166
 Mongo::URI::UNESCAPED_USER_PWD = T.let(T.unsafe(nil), String)
 
 # Unix socket suffix.
@@ -41911,6 +42288,17 @@ Mongo::URI::URI_OPTS_DELIM = T.let(T.unsafe(nil), String)
 #
 # pkg:gem/mongo#lib/mongo/uri.rb:127
 Mongo::URI::URI_OPTS_VALUE_DELIM = T.let(T.unsafe(nil), String)
+
+# Pattern matching the userinfo portion of a MongoDB connection string.
+# Anchors at the start and is bounded to the authority component (stops at
+# the first '/', '?', or '#'), but matches greedily up to the last '@' in
+# that component so passwords containing an unescaped '@' are still fully
+# redacted. Case-insensitive so an unusual scheme like 'MongoDB://' is
+# redacted too — the parser will reject it, and the redactor must not be
+# the thing that leaks the credentials in the resulting error.
+#
+# pkg:gem/mongo#lib/mongo/uri.rb:155
+Mongo::URI::USERINFO_REDACTION_REGEX = T.let(T.unsafe(nil), Regexp)
 
 # @api private
 #
@@ -42278,7 +42666,3 @@ class Symbol
   # pkg:gem/mongo#lib/mongo/bson.rb:30
   def bson_type; end
 end
-
-# @api private
-# @api private
-module UnicodeNormalize; end

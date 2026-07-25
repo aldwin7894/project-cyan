@@ -18,6 +18,7 @@ class AnilistUser
   field :last_known_error, type: String, default: nil
   field :sync_in_progress, type: Boolean, default: true
   field :job_id, type: String, default: nil
+  field :remote_ip, type: String, default: nil
 
   index({ job_id: 1 }, { name: "anilist_user_job_id_index", sparse: true })
   index({ created_at: 1 }, { name: "anilist_user_created_at_index", expire_after_seconds: 7.days.to_i })
