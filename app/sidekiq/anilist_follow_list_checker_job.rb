@@ -15,7 +15,15 @@ class AnilistFollowListCheckerJob
     }
   sidekiq_retries_exhausted do |job, error|
     user = AnilistUser.find_by(job["args"].first)
-    user.last_known_error = error.message
+
+    case error
+    when Graphlient::Errors::ServerError
+      last_known_error = "#{error.status_code} - #{error.inner_exception} - #{error.response}"
+    else
+      last_known_error = "#{error.class} - #{error.message} - #{error.backtrace.join("\n")}"
+    end
+
+    user.last_known_error = last_known_error
     user.sync_in_progress = false
     user.save
   end
@@ -57,8 +65,6 @@ class AnilistFollowListCheckerJob
       user.sync_in_progress = false
     end
   rescue Graphlient::Errors::ServerError => error
-    user.last_known_error = error.message
-
     case error.status_code
     when 404
       logger.info(TAG + username + "NOT FOUND OR HAS A PRIVATE PROFILE".red)
@@ -67,12 +73,12 @@ class AnilistFollowListCheckerJob
       logger.error(TAG + username + "RATE LIMITED, WILL BE RETRIED".red)
       throw error
     else
-      logger.error(TAG + username + error.message.red)
+      logger.error(TAG + username + "AN UNEXPECTED ERROR OCCURRED: #{error.status_code} - #{error.inner_exception} - #{error.response}".red)
       throw error
     end
   rescue StandardError => error
-    user.last_known_error = error.message
-    user.sync_in_progress = false
+    logger.error(TAG + username + "AN UNEXPECTED ERROR OCCURRED: #{error.message} - #{error.backtrace&.join("\n")}".red)
+    throw error
   ensure
     user.save
   end
