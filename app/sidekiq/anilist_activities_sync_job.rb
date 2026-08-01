@@ -5,7 +5,7 @@ require "anilist"
 
 class AnilistActivitiesSyncJob
   include Sidekiq::Job
-  sidekiq_options retry: 5
+  sidekiq_options retry: 10
 
   TAG = "[ANILIST ACTIVITIES SYNC] ".yellow
 

@@ -5,7 +5,7 @@ require "anilist"
 
 class AnilistFollowListCheckerJob
   include Sidekiq::Job
-  sidekiq_options retry: 5,
+  sidekiq_options retry: 10,
     queue: "default",
     lock: :until_and_while_executing,
     lock_args_method: ->(args) { [args.first] },
@@ -14,7 +14,7 @@ class AnilistFollowListCheckerJob
       server: :reject
     }
   sidekiq_retries_exhausted do |job, error|
-    user = AnilistUser.find_by(job["args"].first)
+    user = AnilistUser.find(job["args"].first)
 
     case error
     when Graphlient::Errors::ServerError
@@ -26,6 +26,10 @@ class AnilistFollowListCheckerJob
     user.last_known_error = last_known_error
     user.sync_in_progress = false
     user.save
+
+    if user.remote_ip.present?
+      Rails.cache.write("ANILIST/FOLLOW_CHECKER_CD/#{user.remote_ip}", nil)
+    end
   end
 
   TAG = "[ANILIST FOLLOW CHECKER] ".yellow
