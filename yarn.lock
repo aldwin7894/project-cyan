@@ -3747,10 +3747,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^17.7.0":
-  version: 17.7.0
-  resolution: "globals@npm:17.7.0"
-  checksum: 10/79304ccc4d2ca167ea15bdb25da346aa34ce3847b18fbd6c3cad182e152505305db3c9722fd5e292c62f6db97a8fa06e0c110a1e7703d7325498e5351d08cab4
+"globals@npm:^17.8.0":
+  version: 17.8.0
+  resolution: "globals@npm:17.8.0"
+  checksum: 10/b7b854b2052d2608d1878884bf730c027e17b9e2d194834f48c3280a7f0005b06d5f51dba362d3149cc05eb90d36d990e5c996728ecd3585a43dc3b4a286ed85
   languageName: node
   linkType: hard
 
@@ -6361,7 +6361,7 @@ __metadata:
     eslint-plugin-import: "npm:^2.32.0"
     eslint-plugin-prettier: "npm:^5.5.6"
     eslint-plugin-tailwindcss: "npm:^3.18.3"
-    globals: "npm:^17.7.0"
+    globals: "npm:^17.8.0"
     iconify-icon: "npm:^3.0.2"
     postcss: "npm:^8.5.23"
     postcss-flexbugs-fixes: "npm:^5.0.2"
@@ -6372,7 +6372,7 @@ __metadata:
     rollup-plugin-visualizer: "npm:^7.0.1"
     sass-embedded: "npm:1.100.0"
     smartcrop: "npm:^2.0.5"
-    swiper: "npm:^14.0.6"
+    swiper: "npm:^14.0.7"
     tailwindcss: "npm:^3.4.19"
     tailwindcss-animatecss: "npm:^3.0.5"
     terser: "npm:^5.49.0"
@@ -7424,10 +7424,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swiper@npm:^14.0.6":
-  version: 14.0.6
-  resolution: "swiper@npm:14.0.6"
-  checksum: 10/d096f169afd12b5fe4ebde1386c08da0efd8084210bdab4de43b0a9f88a471e8c1ba38c07c1a191b71be5811262423f43b6e88f7a06d7505989d8563ac4ab0c5
+"swiper@npm:^14.0.7":
+  version: 14.0.7
+  resolution: "swiper@npm:14.0.7"
+  checksum: 10/e37e5aa1a09a6a189bf42795e5001c1cffa485b4284dd7c6d05961b1b889f6da2937f07115bd82af43c8b1e4a607e8eb43353dc51f0acd86057d732faa983004
   languageName: node
   linkType: hard
 
