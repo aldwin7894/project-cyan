@@ -70,7 +70,7 @@ gem "devise", "~> 5.0"
 
 gem "graphql", "~> 2.0.27"
 
-gem "graphlient", "~> 0.8.0"
+gem "graphlient", "~> 0.9.0"
 
 gem "lograge", "~> 0.15.0"
 
