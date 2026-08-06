@@ -73,7 +73,7 @@ module Subsonic
         c: CLIENT,
         f: FORMAT,
         query: name,
-        artistCount: 1,
+        artistCount: 10,
         albumCount: 0,
         songCount: 0
       }
@@ -90,7 +90,10 @@ module Subsonic
       res = JSON.parse res.body, symbolize_names: true
       artists = res&.[](:"subsonic-response")&.[](:searchResult3)&.[](:artist) || []
       if artists.is_a?(Array) && !artists.empty?
-        artist_image = artists.first[:artistImageUrl]&.sub(BASE_URL, ENV.fetch("ASSETS_BASE_URL"))&.sub("size=600", "size=300")
+        artist_image = artists.find { |x| x[:name] == name }
+                         &.[](:artistImageUrl)
+                         &.sub(BASE_URL, ENV.fetch("ASSETS_BASE_URL"))
+                         &.sub("size=600", "size=300")
       else
         Rails.logger.tagged("SUBSONIC".yellow, log_tag, name.yellow) do
           Rails.logger.info("NOT FOUND".red)
