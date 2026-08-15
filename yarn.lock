@@ -4601,13 +4601,13 @@ __metadata:
   linkType: hard
 
 "js-yaml@npm:^4.3.0":
-  version: 4.3.0
-  resolution: "js-yaml@npm:4.3.0"
+  version: 4.3.1
+  resolution: "js-yaml@npm:4.3.1"
   dependencies:
     argparse: "npm:^2.0.1"
   bin:
     js-yaml: bin/js-yaml.js
-  checksum: 10/2bcec3a8118d7f744badeb04e14366578d234a736f353d41fe35d2305e4ce2409a8e041d277f07cd6bbc8aaa12128d650a68ce43247072519bede20962d2126f
+  checksum: 10/2ce71b5d632abbd77da80447bf860e8a0264e54bffe94840984887d58b023761495b523727547904517a6107a1ef189854b361e0fc44995ee13a84f222d7bd42
   languageName: node
   linkType: hard
 
@@ -6425,7 +6425,7 @@ __metadata:
     rollup-plugin-visualizer: "npm:^7.0.1"
     sass-embedded: "npm:1.100.0"
     smartcrop: "npm:^2.0.5"
-    swiper: "npm:^14.0.7"
+    swiper: "npm:^14.1.0"
     tailwindcss: "npm:^3.4.19"
     tailwindcss-animatecss: "npm:^3.0.5"
     terser: "npm:^5.49.1"
@@ -7477,10 +7477,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swiper@npm:^14.0.7":
-  version: 14.0.7
-  resolution: "swiper@npm:14.0.7"
-  checksum: 10/e37e5aa1a09a6a189bf42795e5001c1cffa485b4284dd7c6d05961b1b889f6da2937f07115bd82af43c8b1e4a607e8eb43353dc51f0acd86057d732faa983004
+"swiper@npm:^14.1.0":
+  version: 14.1.0
+  resolution: "swiper@npm:14.1.0"
+  checksum: 10/dcc341fae30e6e37653889b0d65bec7917a57516eee5da08cc4813954b1dffb745a956bbca84830cc68da189e02e66b2b22a790ff51cec2d7eeedc418d261b5c
   languageName: node
   linkType: hard
 
