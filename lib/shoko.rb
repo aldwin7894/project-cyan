@@ -169,11 +169,10 @@ module Shoko
       end
 
       fanart = res[:Backdrops].sort_by { |x| x[:Preferred] ? 0 : 1 }.first
-      source = fanart[:Source]
-      id = fanart[:ID]
+      id = fanart[:UID]
 
       fanart_url = Rails.cache.fetch(cache_key, expires_in: 3.months, skip_nil: true) do
-        get_fanart_url(id:, source:)
+        get_fanart_url(id:)
       end
 
       fanart_url
@@ -186,8 +185,8 @@ module Shoko
     end
 
     private
-      def get_fanart_url(id:, source:)
-        "#{BASE_URL}Image/#{source}/Backdrop/#{id}"
+      def get_fanart_url(id:)
+        "#{BASE_URL}Image/#{id}"
       end
 
       def alternative(string)
