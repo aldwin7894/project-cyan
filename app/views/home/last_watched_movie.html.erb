@@ -8,7 +8,7 @@
 
       <% if @last_watched_movie.present? %>
         <a class="hover:underline" href="<%= @last_watched_movie&.[]("media")&.[]("siteUrl") %>" rel="noopener noreferrer">
-          <h3 class="text-4xl font-bold text-shadow shadow-black"><%= @last_watched_movie&.[]("media")&.[]("title")&.[]("userPreferred") %></h3>
+          <h3 class="text-4xl font-bold text-shadow shadow-black"><%= @last_watched_movie&.[]("media")&.[]("title")&.[]("userPreferred").truncate(80, omission: "…") %></h3>
           <span class="text-2xl text-gray-200/80 text-shadow shadow-black"><%= @last_watched_movie&.[]("media")&.[]("seasonYear") %></span>
         </a>
         <div class="self-end mt-auto">
