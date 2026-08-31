@@ -1761,18 +1761,9 @@ module JWT::JWA::Hmac::SecurityUtils
   def secure_compare(a, b); end
 
   class << self
-    # :nocov:
-    #
     # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:84
     def fixed_length_secure_compare(a, b); end
 
-    # Secure string comparison for strings of variable length.
-    #
-    # While a timing attack would not be able to discern the content of
-    # a secret compared via secure_compare, it is possible to determine
-    # the secret length. This should be considered when using secure_compare
-    # to compare weak, short secrets to user input.
-    #
     # pkg:gem/jwt#lib/jwt/jwa/hmac.rb:95
     def secure_compare(a, b); end
   end

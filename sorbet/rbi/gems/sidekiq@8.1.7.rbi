@@ -42,7 +42,7 @@ class ActiveJob::QueueAdapters::SidekiqAdapter < ::ActiveJob::QueueAdapters::Abs
   # @api private
   #
   # pkg:gem/sidekiq#lib/active_job/queue_adapters/sidekiq_adapter.rb:114
-  def stopping?; end
+  def stopping?(job = T.unsafe(nil)); end
 end
 
 # Defines a class alias for backwards compatibility with enqueued Active Job jobs.
@@ -728,9 +728,9 @@ Sidekiq::DEFAULT_THREAD_PRIORITY = T.let(T.unsafe(nil), Integer)
 # their retries and are helding in this set pending some sort of manual
 # fix. They will be removed after 6 months (dead_timeout) if not.
 #
-# pkg:gem/sidekiq#lib/sidekiq/api.rb:930
+# pkg:gem/sidekiq#lib/sidekiq/api.rb:931
 class Sidekiq::DeadSet < ::Sidekiq::JobSet
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:931
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:932
   def initialize; end
 
   # Add the given job to the Dead set.
@@ -739,12 +739,12 @@ class Sidekiq::DeadSet < ::Sidekiq::JobSet
   # @option opts [Boolean] :trim (true) Whether Sidekiq should trim the structure to keep it within configuration
   # @option opts [Exception] :ex (RuntimeError) An exception to pass to the death handlers
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:952
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:953
   def kill(message, opts = T.unsafe(nil)); end
 
   # Trim dead jobs which are over our storage limits
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:936
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:937
   def trim; end
 end
 
@@ -766,63 +766,63 @@ end
 
 # Persisted iteration state from Redis for jobs using Sidekiq::IterableJob.
 #
-# pkg:gem/sidekiq#lib/sidekiq/api.rb:1406
+# pkg:gem/sidekiq#lib/sidekiq/api.rb:1407
 class Sidekiq::IterableJobQuery
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1407
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1408
   def initialize(jids); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1411
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1412
   def [](jid); end
 
   private
 
   # Bulk-fetch iteration state for multiple JIDs in a single Redis pipeline.
-  # Returns a Hash of { jid => IterableJobState } for JIDs that have iteration state.
+  # Returns a Hash of { jid => State } for JIDs that have iteration state.
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1419
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1420
   def bulk_fetch(jids); end
 end
 
-# pkg:gem/sidekiq#lib/sidekiq/api.rb:1442
+# pkg:gem/sidekiq#lib/sidekiq/api.rb:1443
 class Sidekiq::IterableJobQuery::State < ::Struct
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1459
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1460
   def cancelled; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1451
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1452
   def cursor; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1443
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1444
   def executions; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1442
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1443
   def jid; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1442
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1443
   def jid=(_); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1442
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1443
   def raw; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1442
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1443
   def raw=(_); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1447
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1448
   def runtime; end
 
   class << self
-    # pkg:gem/sidekiq#lib/sidekiq/api.rb:1442
+    # pkg:gem/sidekiq#lib/sidekiq/api.rb:1443
     def [](*_arg0); end
 
-    # pkg:gem/sidekiq#lib/sidekiq/api.rb:1442
+    # pkg:gem/sidekiq#lib/sidekiq/api.rb:1443
     def inspect; end
 
-    # pkg:gem/sidekiq#lib/sidekiq/api.rb:1442
+    # pkg:gem/sidekiq#lib/sidekiq/api.rb:1443
     def keyword_init?; end
 
-    # pkg:gem/sidekiq#lib/sidekiq/api.rb:1442
+    # pkg:gem/sidekiq#lib/sidekiq/api.rb:1443
     def members; end
 
-    # pkg:gem/sidekiq#lib/sidekiq/api.rb:1442
+    # pkg:gem/sidekiq#lib/sidekiq/api.rb:1443
     def new(*_arg0); end
   end
 end
@@ -1568,22 +1568,22 @@ Sidekiq::JobRecord::GLOBALID_KEY = T.let(T.unsafe(nil), String)
 # Sidekiq Pro and Enterprise add additional sorted sets which do not contain job data,
 # e.g. Batches.
 #
-# pkg:gem/sidekiq#lib/sidekiq/api.rb:725
+# pkg:gem/sidekiq#lib/sidekiq/api.rb:726
 class Sidekiq::JobSet < ::Sidekiq::SortedSet
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:902
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:903
   def delete(score, jid); end
 
   # @api private
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:886
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:887
   def delete_by_jid(score, jid); end
 
   # @api private
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:876
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:877
   def delete_by_value(name, value); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:770
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:771
   def each; end
 
   # Fetch jobs that match a given time or Range. Job ID is an
@@ -1593,7 +1593,7 @@ class Sidekiq::JobSet < ::Sidekiq::SortedSet
   # @param jid [String, optional] find a specific JID within the score
   # @return [Array<SortedEntry>] any results found, can be empty
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:798
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:799
   def fetch(score, jid = T.unsafe(nil)); end
 
   # Find the job with the given JID within this sorted set.
@@ -1602,29 +1602,29 @@ class Sidekiq::JobSet < ::Sidekiq::SortedSet
   # @param jid [String] the job identifier
   # @return [SortedEntry] the record or nil
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:823
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:824
   def find_job(jid); end
 
   # Move all jobs from this Set to the Dead Set.
   # See DeadSet#kill
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:757
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:758
   def kill_all(notify_failure: T.unsafe(nil), ex: T.unsafe(nil)); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:735
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:736
   def pop_each; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:834
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:835
   def remove_job(entry); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:745
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:746
   def retry_all; end
 
   # Add a job with the associated timestamp to this set.
   # @param timestamp [Time] the score for the job
   # @param job [Hash] the job data
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:729
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:730
   def schedule(timestamp, job); end
 end
 
@@ -2114,17 +2114,17 @@ Sidekiq::Paginator::TYPE_CACHE = T.let(T.unsafe(nil), Hash)
 #   'embedded' => true,
 # }
 #
-# pkg:gem/sidekiq#lib/sidekiq/api.rb:1122
+# pkg:gem/sidekiq#lib/sidekiq/api.rb:1123
 class Sidekiq::Process
   # @api private
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1125
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1126
   def initialize(hash); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1137
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1138
   def [](key); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1173
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1174
   def capsules; end
 
   # Signal this process to log backtraces for all threads.
@@ -2132,27 +2132,27 @@ class Sidekiq::Process
   # still sending a heartbeat.
   # This method is *asynchronous* and it can take 5-10 seconds.
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1209
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1210
   def dump_threads; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1181
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1182
   def embedded?; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1144
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1145
   def id; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1141
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1142
   def identity; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1133
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1134
   def labels; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1218
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1219
   def leader?; end
 
   # deprecated, use capsules below
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1147
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1148
   def queues; end
 
   # Signal this process to stop processing new jobs.
@@ -2160,7 +2160,7 @@ class Sidekiq::Process
   # This method is *asynchronous* and it can take 5-10
   # seconds for the process to quiet.
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1189
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1190
   def quiet!; end
 
   # Signal this process to shutdown.
@@ -2168,28 +2168,28 @@ class Sidekiq::Process
   # This method is *asynchronous* and it can take 5-10
   # seconds for the process to start shutting down.
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1199
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1200
   def stop!; end
 
   # @return [Boolean] true if this process is quiet or shutting down
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1214
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1215
   def stopping?; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1129
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1130
   def tag; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1177
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1178
   def version; end
 
   # deprecated, use capsules below
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1157
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1158
   def weights; end
 
   private
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1224
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1225
   def signal(sig); end
 end
 
@@ -2199,23 +2199,23 @@ end
 #
 # @yieldparam [Sidekiq::Process]
 #
-# pkg:gem/sidekiq#lib/sidekiq/api.rb:983
+# pkg:gem/sidekiq#lib/sidekiq/api.rb:984
 class Sidekiq::ProcessSet
   include ::Enumerable
 
   # @api private
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1006
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1007
   def initialize(clean_plz = T.unsafe(nil)); end
 
   # Cleans up dead processes recorded in Redis.
   # Returns the number of processes cleaned.
   # @api private
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1014
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1015
   def cleanup; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1038
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1039
   def each; end
 
   # Returns the identity of the current cluster leader or "" if no leader.
@@ -2224,7 +2224,7 @@ class Sidekiq::ProcessSet
   # @return [String] Identity of cluster leader
   # @return [String] empty string if no leader
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1096
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1097
   def leader; end
 
   # This method is not guaranteed accurate since it does not prune the set
@@ -2233,7 +2233,7 @@ class Sidekiq::ProcessSet
   # 60 seconds.
   # @return [Integer] current number of registered Sidekiq processes
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1073
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1074
   def size; end
 
   # Total number of threads available to execute jobs.
@@ -2241,67 +2241,67 @@ class Sidekiq::ProcessSet
   # less than or equal to your licensed concurrency.
   # @return [Integer] the sum of process concurrency
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1081
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1082
   def total_concurrency; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1089
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1090
   def total_rss; end
 
   # @return [Integer] total amount of RSS memory consumed by Sidekiq processes
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1086
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1087
   def total_rss_in_kb; end
 
   class << self
-    # pkg:gem/sidekiq#lib/sidekiq/api.rb:986
+    # pkg:gem/sidekiq#lib/sidekiq/api.rb:987
     def [](identity); end
   end
 end
 
-# pkg:gem/sidekiq#lib/sidekiq/api.rb:1383
+# pkg:gem/sidekiq#lib/sidekiq/api.rb:1384
 class Sidekiq::ProfileRecord
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1386
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1387
   def initialize(arr); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1400
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1401
   def data; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1384
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1385
   def elapsed; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1384
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1385
   def jid; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1396
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1397
   def key; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1384
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1385
   def size; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1384
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1385
   def started_at; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1384
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1385
   def token; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1384
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1385
   def type; end
 end
 
-# pkg:gem/sidekiq#lib/sidekiq/api.rb:1351
+# pkg:gem/sidekiq#lib/sidekiq/api.rb:1352
 class Sidekiq::ProfileSet
   include ::Enumerable
 
   # This is a point in time/snapshot API, you'll need to instantiate a new instance
   # if you want to fetch newer records.
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1356
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1357
   def initialize; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1369
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1370
   def each(&block); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1365
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1366
   def size; end
 end
 
@@ -2647,9 +2647,9 @@ end
 # The set of retries within Sidekiq.
 # See the API wiki page for usage notes and examples.
 #
-# pkg:gem/sidekiq#lib/sidekiq/api.rb:919
+# pkg:gem/sidekiq#lib/sidekiq/api.rb:920
 class Sidekiq::RetrySet < ::Sidekiq::JobSet
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:920
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:921
   def initialize; end
 end
 
@@ -2761,9 +2761,9 @@ Sidekiq::Scheduled::SETS = T.let(T.unsafe(nil), Array)
 # The set of scheduled jobs within Sidekiq.
 # See the API wiki page for usage notes and examples.
 #
-# pkg:gem/sidekiq#lib/sidekiq/api.rb:909
+# pkg:gem/sidekiq#lib/sidekiq/api.rb:910
 class Sidekiq::ScheduledSet < ::Sidekiq::JobSet
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:910
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:911
   def initialize; end
 end
 
@@ -2813,7 +2813,7 @@ class Sidekiq::SortedEntry < ::Sidekiq::JobRecord
   # Enqueue this job from the scheduled or dead set so it will
   # be executed at some point in the near future.
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:634
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:635
   def add_to_queue; end
 
   # The timestamp associated with this entry
@@ -2826,7 +2826,7 @@ class Sidekiq::SortedEntry < ::Sidekiq::JobRecord
   # pkg:gem/sidekiq#lib/sidekiq/api.rb:615
   def delete; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:658
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:659
   def error?; end
 
   # pkg:gem/sidekiq#lib/sidekiq/api.rb:605
@@ -2834,7 +2834,7 @@ class Sidekiq::SortedEntry < ::Sidekiq::JobRecord
 
   # Move this job from its current set into the Dead set.
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:652
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:653
   def kill; end
 
   # pkg:gem/sidekiq#lib/sidekiq/api.rb:591
@@ -2850,7 +2850,7 @@ class Sidekiq::SortedEntry < ::Sidekiq::JobRecord
   # enqueue this job from the retry set so it will be executed
   # at some point in the near future.
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:643
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:644
   def retry; end
 
   # pkg:gem/sidekiq#lib/sidekiq/api.rb:601
@@ -2858,35 +2858,35 @@ class Sidekiq::SortedEntry < ::Sidekiq::JobRecord
 
   private
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:664
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:665
   def remove_job; end
 end
 
 # Base class for all sorted sets within Sidekiq.
 #
-# pkg:gem/sidekiq#lib/sidekiq/api.rb:670
+# pkg:gem/sidekiq#lib/sidekiq/api.rb:671
 class Sidekiq::SortedSet
   include ::Enumerable
 
   # @api private
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:679
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:680
   def initialize(name); end
 
   # @api private
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:717
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:718
   def as_json(options = T.unsafe(nil)); end
 
   # @return [Boolean] always true
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:707
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:708
   def clear; end
 
   # Redis key of the set
   # @!attribute [r] Name
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:675
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:676
   def name; end
 
   # Scan through each element of the sorted set, yielding each to the supplied block.
@@ -2896,15 +2896,15 @@ class Sidekiq::SortedSet
   # @param count [Integer] number of elements to retrieve at a time, default 100
   # @yieldparam [Sidekiq::SortedEntry] each entry
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:695
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:696
   def scan(match, count = T.unsafe(nil)); end
 
   # real-time size of the set, will change
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:685
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:686
   def size; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:713
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:714
   def 💣; end
 end
 
@@ -2990,7 +2990,7 @@ end
 # pkg:gem/sidekiq#lib/sidekiq/api.rb:236
 class Sidekiq::Stats::History
   # pkg:gem/sidekiq#lib/sidekiq/api.rb:237
-  def initialize(days_previous, start_date = T.unsafe(nil), pool: T.unsafe(nil)); end
+  def initialize(days_previous, start_date = T.unsafe(nil)); end
 
   # pkg:gem/sidekiq#lib/sidekiq/api.rb:248
   def failed; end
@@ -3724,27 +3724,27 @@ Sidekiq::WebHelpers::SAFE_QPARAMS = T.let(T.unsafe(nil), Array)
 
 # Sidekiq::Work represents a job which is currently executing.
 #
-# pkg:gem/sidekiq#lib/sidekiq/api.rb:1318
+# pkg:gem/sidekiq#lib/sidekiq/api.rb:1319
 class Sidekiq::Work
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1322
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1323
   def initialize(pid, tid, hsh); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1337
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1338
   def job; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1341
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1342
   def payload; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1319
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1320
   def process_id; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1329
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1330
   def queue; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1333
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1334
   def run_at; end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1320
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1321
   def thread_id; end
 end
 
@@ -3766,11 +3766,11 @@ end
 #      # [work.queue, work.run_at, work.payload]
 #    end
 #
-# pkg:gem/sidekiq#lib/sidekiq/api.rb:1254
+# pkg:gem/sidekiq#lib/sidekiq/api.rb:1255
 class Sidekiq::WorkSet
   include ::Enumerable
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1257
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1258
   def each(&block); end
 
   # Find the work which represents a job with the given JID.
@@ -3779,10 +3779,10 @@ class Sidekiq::WorkSet
   # @param jid [String] the job identifier
   # @return [Sidekiq::Work] the work or nil
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1307
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1308
   def find_work(jid); end
 
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1314
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1315
   def find_work_by_jid(jid); end
 
   # Note that #size is only as accurate as Sidekiq's heartbeat,
@@ -3792,7 +3792,7 @@ class Sidekiq::WorkSet
   # processes but the alternative is a global counter
   # which can easily get out of sync with crashy processes.
   #
-  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1286
+  # pkg:gem/sidekiq#lib/sidekiq/api.rb:1287
   def size; end
 end
 
@@ -3812,5 +3812,5 @@ Sidekiq::Worker = Sidekiq::Job
 # Is "worker" a process, a type of job, a thread? Undefined!
 # WorkSet better describes the data.
 #
-# pkg:gem/sidekiq#lib/sidekiq/api.rb:1349
+# pkg:gem/sidekiq#lib/sidekiq/api.rb:1350
 Sidekiq::Workers = Sidekiq::WorkSet

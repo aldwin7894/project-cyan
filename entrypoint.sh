@@ -7,7 +7,7 @@ if [[ -f tmp/pids/server.pid ]]; then
 fi
 
 echo "Start seeding db..."
-bin/rails db:seed_game_ids
+# bin/rails db:seed_game_ids
 bin/rails db:seed_spotify_artist_whitelists
 
 echo "Clear vite image cache"

@@ -2736,101 +2736,6 @@ class ActionCable::SubscriptionAdapter::Inline < ::ActionCable::SubscriptionAdap
   def subscriber_map; end
 end
 
-# pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:12
-class ActionCable::SubscriptionAdapter::Redis < ::ActionCable::SubscriptionAdapter::Base
-  include ::ActionCable::SubscriptionAdapter::ChannelPrefix
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:22
-  def initialize(*_arg0); end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:28
-  def broadcast(channel, payload); end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:44
-  def redis_connection_for_subscriptions; end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:18
-  def redis_connector; end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:18
-  def redis_connector=(val); end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:40
-  def shutdown; end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:32
-  def subscribe(channel, callback, success_callback = T.unsafe(nil)); end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:36
-  def unsubscribe(channel, callback); end
-
-  private
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:63
-  def config_options; end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:49
-  def listener; end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:59
-  def redis_connection; end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:53
-  def redis_connection_for_broadcasts; end
-
-  class << self
-    # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:18
-    def redis_connector; end
-
-    # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:18
-    def redis_connector=(val); end
-  end
-end
-
-# pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:67
-class ActionCable::SubscriptionAdapter::Redis::Listener < ::ActionCable::SubscriptionAdapter::SubscriberMap
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:68
-  def initialize(adapter, config_options, event_loop); end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:141
-  def add_channel(channel, on_success); end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:155
-  def invoke_callback(*_arg0); end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:89
-  def listen(conn); end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:149
-  def remove_channel(channel); end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:128
-  def shutdown; end
-
-  private
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:160
-  def ensure_listener_running; end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:254
-  def extract_subscribed_client(conn); end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:204
-  def reset; end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:197
-  def resubscribe; end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:185
-  def retry_connecting?; end
-
-  # pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:177
-  def when_connected(&block); end
-end
-
-# pkg:gem/actioncable#lib/action_cable/subscription_adapter/redis.rb:247
-ActionCable::SubscriptionAdapter::Redis::Listener::CONNECTION_ERRORS = T.let(T.unsafe(nil), Array)
-
 # pkg:gem/actioncable#lib/action_cable/subscription_adapter/subscriber_map.rb:7
 class ActionCable::SubscriptionAdapter::SubscriberMap
   # pkg:gem/actioncable#lib/action_cable/subscription_adapter/subscriber_map.rb:8
@@ -3011,7 +2916,7 @@ ActionCable::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActionCable::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # pkg:gem/actioncable#lib/action_cable/gem_version.rb:15
-ActionCable::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
+ActionCable::VERSION::PRE = T.let(T.unsafe(nil), String)
 
 # pkg:gem/actioncable#lib/action_cable/gem_version.rb:17
 ActionCable::VERSION::STRING = T.let(T.unsafe(nil), String)
