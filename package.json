@@ -40,7 +40,7 @@
     "@typescript-eslint/parser": "^8.69.0",
     "autoprefixer": "^10.5.4",
     "cssnano": "^9.0.2",
-    "cssnano-preset-advanced": "^9.0.1",
+    "cssnano-preset-advanced": "^9.0.4",
     "eslint": "^10.9.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-alias": "^1.1.2",
