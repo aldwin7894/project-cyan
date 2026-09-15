@@ -23,7 +23,7 @@
   "dependencies": {
     "@hotwired/turbo-rails": "^8.0.23",
     "@rails/actioncable": "^8.1.301",
-    "alpinejs": "^3.17.1",
+    "alpinejs": "^3.17.2",
     "chart.js": "^4.5.1",
     "smartcrop": "^2.0.5",
     "swiper": "^14.2.0",
@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@eslint/compat": "^2.1.1",
-    "@eslint/eslintrc": "^3.3.6",
+    "@eslint/eslintrc": "^3.3.7",
     "@eslint/js": "^10.0.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.11",
@@ -52,7 +52,7 @@
     "postcss": "^8.5.26",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^17.0.0",
-    "postcss-preset-env": "^11.5.1",
+    "postcss-preset-env": "^11.5.2",
     "prettier": "^3.9.6",
     "rollup-plugin-gzip": "^4.2.0",
     "rollup-plugin-visualizer": "^7.1.1",
@@ -61,7 +61,7 @@
     "tailwindcss-animatecss": "^3.0.5",
     "terser": "^5.51.2",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.69.0",
+    "typescript-eslint": "^8.70.0",
     "vite": "^8.2.2",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-ruby": "^5.2.3"
