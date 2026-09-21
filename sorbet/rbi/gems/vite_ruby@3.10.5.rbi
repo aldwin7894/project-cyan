@@ -957,7 +957,7 @@ class ViteRuby::DevServerProxy < ::Rack::Proxy
   # NOTE: When using an empty 'public_output_dir', we need to rely on a
   # filesystem check to check whether Vite should serve the request.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/dev_server_proxy.rb:64
+  # pkg:gem/vite_ruby#lib/vite_ruby/dev_server_proxy.rb:65
   def file_in_vite_root?(path); end
 
   # pkg:gem/vite_ruby#lib/vite_ruby/dev_server_proxy.rb:44
@@ -969,7 +969,7 @@ class ViteRuby::DevServerProxy < ::Rack::Proxy
   # pkg:gem/vite_ruby#lib/vite_ruby/dev_server_proxy.rb:32
   def rewrite_uri_for_vite(env); end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/dev_server_proxy.rb:55
+  # pkg:gem/vite_ruby#lib/vite_ruby/dev_server_proxy.rb:56
   def vite_should_handle?(env); end
 
   # NOTE: Vite is configured to use 'public_output_dir' as the base, which can
@@ -977,7 +977,7 @@ class ViteRuby::DevServerProxy < ::Rack::Proxy
   #
   # If the path starts with that prefix, it will be redirected to Vite.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/dev_server_proxy.rb:73
+  # pkg:gem/vite_ruby#lib/vite_ruby/dev_server_proxy.rb:74
   def vite_url_prefix; end
 end
 
