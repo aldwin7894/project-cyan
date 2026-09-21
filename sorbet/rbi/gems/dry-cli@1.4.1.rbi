@@ -29,9 +29,6 @@ end
 # General purpose Command Line Interface (CLI) framework for Ruby
 #
 # @since 0.1.0
-# General purpose Command Line Interface (CLI) framework for Ruby
-#
-# @since 0.1.0
 #
 # pkg:gem/dry-cli#lib/dry/cli.rb:10
 class Dry::CLI
@@ -299,31 +296,31 @@ class Dry::CLI::Command
   extend ::Forwardable
 
   # pkg:gem/dry-cli#lib/dry/cli/command.rb:381
-  def arguments(*_arg0, **_arg1, &_arg2); end
+  def arguments(*, **, &); end
 
   # pkg:gem/dry-cli#lib/dry/cli/command.rb:381
-  def default_params(*_arg0, **_arg1, &_arg2); end
+  def default_params(*, **, &); end
 
   # pkg:gem/dry-cli#lib/dry/cli/command.rb:381
-  def description(*_arg0, **_arg1, &_arg2); end
+  def description(*, **, &); end
 
   # pkg:gem/dry-cli#lib/dry/cli/command.rb:381
-  def examples(*_arg0, **_arg1, &_arg2); end
+  def examples(*, **, &); end
 
   # pkg:gem/dry-cli#lib/dry/cli/command.rb:381
-  def optional_arguments(*_arg0, **_arg1, &_arg2); end
+  def optional_arguments(*, **, &); end
 
   # pkg:gem/dry-cli#lib/dry/cli/command.rb:381
-  def options(*_arg0, **_arg1, &_arg2); end
+  def options(*, **, &); end
 
   # pkg:gem/dry-cli#lib/dry/cli/command.rb:381
-  def params(*_arg0, **_arg1, &_arg2); end
+  def params(*, **, &); end
 
   # pkg:gem/dry-cli#lib/dry/cli/command.rb:381
-  def required_arguments(*_arg0, **_arg1, &_arg2); end
+  def required_arguments(*, **, &); end
 
   # pkg:gem/dry-cli#lib/dry/cli/command.rb:381
-  def subcommands(*_arg0, **_arg1, &_arg2); end
+  def subcommands(*, **, &); end
 
   protected
 

@@ -968,7 +968,7 @@ end
 # pkg:gem/regexp_parser#lib/regexp_parser/expression/classes/group.rb:8
 class Regexp::Expression::Group::Passive < ::Regexp::Expression::Group::Base
   # pkg:gem/regexp_parser#lib/regexp_parser/expression/classes/group.rb:11
-  def initialize(*_arg0); end
+  def initialize(*); end
 
   # pkg:gem/regexp_parser#lib/regexp_parser/expression/classes/group.rb:9
   def implicit=(_arg0); end

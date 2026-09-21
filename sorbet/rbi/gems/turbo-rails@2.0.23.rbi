@@ -349,7 +349,7 @@ class Turbo::Streams::TagBuilder
   def before_all(targets, content = T.unsafe(nil), **rendering, &block); end
   def prepend(target, content = T.unsafe(nil), **rendering, &block); end
   def prepend_all(targets, content = T.unsafe(nil), **rendering, &block); end
-  def refresh(*_arg0, **_arg1, &_arg2); end
+  def refresh(*, **, &); end
   def remove(target); end
   def remove_all(targets); end
   def replace(target, content = T.unsafe(nil), method: T.unsafe(nil), **rendering, &block); end
@@ -410,7 +410,7 @@ module Turbo::SystemTestHelper
   # filter option.
   #
   # pkg:gem/turbo-rails#lib/turbo/system_test_helper.rb:78
-  def assert_no_turbo_cable_stream_source(*_arg0, **_arg1, &_arg2); end
+  def assert_no_turbo_cable_stream_source(*, **, &); end
 
   # Asserts that a `<turbo-cable-stream-source>` element is present in the
   # document
@@ -434,7 +434,7 @@ module Turbo::SystemTestHelper
   # filter option.
   #
   # pkg:gem/turbo-rails#lib/turbo/system_test_helper.rb:54
-  def assert_turbo_cable_stream_source(*_arg0, **_arg1, &_arg2); end
+  def assert_turbo_cable_stream_source(*, **, &); end
 
   # Delay until every `<turbo-cable-stream-source>` element present in the page
   # is ready to receive broadcasts
@@ -625,7 +625,7 @@ class Turbo::ThreadDebouncer
   def debouncer_class; end
   def debouncer_class=(_arg0); end
   def debouncer_class?; end
-  def wait(*_arg0, **_arg1, &_arg2); end
+  def wait(*, **, &); end
 
   private
 

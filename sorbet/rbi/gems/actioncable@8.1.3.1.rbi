@@ -8,27 +8,6 @@
 # :markup: markdown
 # :include: ../README.md
 # :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
 #
 # pkg:gem/actioncable#lib/action_cable.rb:54
 module ActionCable
@@ -211,7 +190,7 @@ class ActionCable::Channel::Base
   def identifier; end
 
   # pkg:gem/actioncable#lib/action_cable/channel/base.rb:118
-  def logger(*_arg0, **_arg1, &_arg2); end
+  def logger(*, **, &); end
 
   # pkg:gem/actioncable#lib/action_cable/channel/base.rb:117
   def params; end
@@ -551,7 +530,7 @@ module ActionCable::Channel::ChannelStub
   def stop_periodic_timers; end
 
   # pkg:gem/actioncable#lib/action_cable/channel/test_case.rb:33
-  def stream_from(broadcasting, *_arg1); end
+  def stream_from(broadcasting, *); end
 
   # pkg:gem/actioncable#lib/action_cable/channel/test_case.rb:41
   def streams; end
@@ -563,7 +542,7 @@ class ActionCable::Channel::ConnectionStub
   def initialize(identifiers = T.unsafe(nil)); end
 
   # pkg:gem/actioncable#lib/action_cable/channel/test_case.rb:53
-  def config(*_arg0, **_arg1, &_arg2); end
+  def config(*, **, &); end
 
   # pkg:gem/actioncable#lib/action_cable/channel/test_case.rb:72
   def connection_identifier; end
@@ -575,7 +554,7 @@ class ActionCable::Channel::ConnectionStub
   def logger; end
 
   # pkg:gem/actioncable#lib/action_cable/channel/test_case.rb:53
-  def pubsub(*_arg0, **_arg1, &_arg2); end
+  def pubsub(*, **, &); end
 
   # pkg:gem/actioncable#lib/action_cable/channel/test_case.rb:51
   def server; end
@@ -753,7 +732,7 @@ module ActionCable::Channel::Streams
   extend ::ActiveSupport::Concern
 
   # pkg:gem/actioncable#lib/action_cable/channel/streams.rb:155
-  def pubsub(*_arg0, **_arg1, &_arg2); end
+  def pubsub(*, **, &); end
 
   # Unsubscribes all streams associated with this channel from the pubsub queue.
   #
@@ -1233,7 +1212,7 @@ class ActionCable::Connection::Base
   def close(reason: T.unsafe(nil), reconnect: T.unsafe(nil)); end
 
   # pkg:gem/actioncable#lib/action_cable/connection/base.rb:65
-  def config(*_arg0, **_arg1, &_arg2); end
+  def config(*, **, &); end
 
   # pkg:gem/actioncable#lib/action_cable/connection/base.rb:101
   def dispatch_websocket_message(websocket_message); end
@@ -1242,7 +1221,7 @@ class ActionCable::Connection::Base
   def env; end
 
   # pkg:gem/actioncable#lib/action_cable/connection/base.rb:65
-  def event_loop(*_arg0, **_arg1, &_arg2); end
+  def event_loop(*, **, &); end
 
   # pkg:gem/actioncable#lib/action_cable/connection/base.rb:109
   def handle_channel_command(payload); end
@@ -1286,7 +1265,7 @@ class ActionCable::Connection::Base
   def protocol; end
 
   # pkg:gem/actioncable#lib/action_cable/connection/base.rb:65
-  def pubsub(*_arg0, **_arg1, &_arg2); end
+  def pubsub(*, **, &); end
 
   # Decodes WebSocket messages and dispatches them to subscribed channels.
   # WebSocket message transfer encoding is always JSON.
@@ -1788,7 +1767,7 @@ class ActionCable::Connection::Subscriptions
   def identifiers; end
 
   # pkg:gem/actioncable#lib/action_cable/connection/subscriptions.rb:74
-  def logger(*_arg0, **_arg1, &_arg2); end
+  def logger(*, **, &); end
 
   # pkg:gem/actioncable#lib/action_cable/connection/subscriptions.rb:60
   def perform_action(data); end
@@ -2091,7 +2070,7 @@ class ActionCable::Connection::WebSocket
   def alive?; end
 
   # pkg:gem/actioncable#lib/action_cable/connection/web_socket.rb:29
-  def close(*_arg0, **_arg1, &_arg2); end
+  def close(*, **, &); end
 
   # pkg:gem/actioncable#lib/action_cable/connection/web_socket.rb:17
   def possible?; end
@@ -2103,7 +2082,7 @@ class ActionCable::Connection::WebSocket
   def rack_response; end
 
   # pkg:gem/actioncable#lib/action_cable/connection/web_socket.rb:25
-  def transmit(*_arg0, **_arg1, &_arg2); end
+  def transmit(*, **, &); end
 
   private
 
@@ -2300,7 +2279,7 @@ class ActionCable::Server::Base
   def event_loop; end
 
   # pkg:gem/actioncable#lib/action_cable/server/base.rb:27
-  def logger(*_arg0, **_arg1, &_arg2); end
+  def logger(*, **, &); end
 
   # pkg:gem/actioncable#lib/action_cable/server/base.rb:29
   def mutex; end
@@ -2658,10 +2637,10 @@ class ActionCable::SubscriptionAdapter::Async::AsyncSubscriberMap < ::ActionCabl
   def initialize(event_loop); end
 
   # pkg:gem/actioncable#lib/action_cable/subscription_adapter/async.rb:19
-  def add_subscriber(*_arg0); end
+  def add_subscriber(*); end
 
   # pkg:gem/actioncable#lib/action_cable/subscription_adapter/async.rb:23
-  def invoke_callback(*_arg0); end
+  def invoke_callback(*); end
 end
 
 # pkg:gem/actioncable#lib/action_cable/subscription_adapter/base.rb:7
@@ -2713,7 +2692,7 @@ end
 # pkg:gem/actioncable#lib/action_cable/subscription_adapter/inline.rb:7
 class ActionCable::SubscriptionAdapter::Inline < ::ActionCable::SubscriptionAdapter::Base
   # pkg:gem/actioncable#lib/action_cable/subscription_adapter/inline.rb:8
-  def initialize(*_arg0); end
+  def initialize(*); end
 
   # pkg:gem/actioncable#lib/action_cable/subscription_adapter/inline.rb:13
   def broadcast(channel, payload); end
@@ -2877,7 +2856,7 @@ module ActionCable::TestHelper
   def before_setup; end
 
   # pkg:gem/actioncable#lib/action_cable/test_helper.rb:146
-  def broadcasts(*_arg0, **_arg1, &_arg2); end
+  def broadcasts(*, **, &); end
 
   # Returns the messages that are broadcasted in the block.
   #
@@ -2895,7 +2874,7 @@ module ActionCable::TestHelper
   def capture_broadcasts(stream, &block); end
 
   # pkg:gem/actioncable#lib/action_cable/test_helper.rb:146
-  def clear_messages(*_arg0, **_arg1, &_arg2); end
+  def clear_messages(*, **, &); end
 
   # pkg:gem/actioncable#lib/action_cable/test_helper.rb:142
   def pubsub_adapter; end

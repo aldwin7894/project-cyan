@@ -48,46 +48,46 @@ module Capybara
     def add_selector(name, **options, &block); end
 
     # pkg:gem/capybara#lib/capybara.rb:45
-    def allow_gumbo(*_arg0, **_arg1, &_arg2); end
+    def allow_gumbo(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:45
-    def allow_gumbo=(*_arg0, **_arg1, &_arg2); end
+    def allow_gumbo=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def always_include_port(*_arg0, **_arg1, &_arg2); end
+    def always_include_port(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def always_include_port=(*_arg0, **_arg1, &_arg2); end
+    def always_include_port=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:45
-    def app(*_arg0, **_arg1, &_arg2); end
+    def app(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:45
-    def app=(*_arg0, **_arg1, &_arg2); end
+    def app=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def app_host(*_arg0, **_arg1, &_arg2); end
+    def app_host(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def app_host=(*_arg0, **_arg1, &_arg2); end
+    def app_host=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def asset_host(*_arg0, **_arg1, &_arg2); end
+    def asset_host(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def asset_host=(*_arg0, **_arg1, &_arg2); end
+    def asset_host=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def automatic_label_click(*_arg0, **_arg1, &_arg2); end
+    def automatic_label_click(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def automatic_label_click=(*_arg0, **_arg1, &_arg2); end
+    def automatic_label_click=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def automatic_reload(*_arg0, **_arg1, &_arg2); end
+    def automatic_reload(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def automatic_reload=(*_arg0, **_arg1, &_arg2); end
+    def automatic_reload=(*, **, &); end
 
     # Configure Capybara to suit your needs.
     #
@@ -159,97 +159,97 @@ module Capybara
     def current_session; end
 
     # pkg:gem/capybara#lib/capybara.rb:45
-    def default_driver(*_arg0, **_arg1, &_arg2); end
+    def default_driver(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:45
-    def default_driver=(*_arg0, **_arg1, &_arg2); end
+    def default_driver=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def default_host(*_arg0, **_arg1, &_arg2); end
+    def default_host(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def default_host=(*_arg0, **_arg1, &_arg2); end
+    def default_host=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def default_max_wait_time(*_arg0, **_arg1, &_arg2); end
+    def default_max_wait_time(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def default_max_wait_time=(*_arg0, **_arg1, &_arg2); end
+    def default_max_wait_time=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def default_normalize_ws(*_arg0, **_arg1, &_arg2); end
+    def default_normalize_ws(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def default_normalize_ws=(*_arg0, **_arg1, &_arg2); end
+    def default_normalize_ws=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def default_retry_interval(*_arg0, **_arg1, &_arg2); end
+    def default_retry_interval(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def default_retry_interval=(*_arg0, **_arg1, &_arg2); end
+    def default_retry_interval=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def default_selector(*_arg0, **_arg1, &_arg2); end
+    def default_selector(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def default_selector=(*_arg0, **_arg1, &_arg2); end
+    def default_selector=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def default_set_options(*_arg0, **_arg1, &_arg2); end
+    def default_set_options(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def default_set_options=(*_arg0, **_arg1, &_arg2); end
+    def default_set_options=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def disable_animation(*_arg0, **_arg1, &_arg2); end
+    def disable_animation(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def disable_animation=(*_arg0, **_arg1, &_arg2); end
+    def disable_animation=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:204
     def drivers; end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def enable_aria_label(*_arg0, **_arg1, &_arg2); end
+    def enable_aria_label(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def enable_aria_label=(*_arg0, **_arg1, &_arg2); end
+    def enable_aria_label=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def enable_aria_role(*_arg0, **_arg1, &_arg2); end
+    def enable_aria_role(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def enable_aria_role=(*_arg0, **_arg1, &_arg2); end
+    def enable_aria_role=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def exact(*_arg0, **_arg1, &_arg2); end
+    def exact(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def exact=(*_arg0, **_arg1, &_arg2); end
+    def exact=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def exact_text(*_arg0, **_arg1, &_arg2); end
+    def exact_text(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def exact_text=(*_arg0, **_arg1, &_arg2); end
+    def exact_text=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def ignore_hidden_elements(*_arg0, **_arg1, &_arg2); end
+    def ignore_hidden_elements(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def ignore_hidden_elements=(*_arg0, **_arg1, &_arg2); end
+    def ignore_hidden_elements=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:45
-    def javascript_driver(*_arg0, **_arg1, &_arg2); end
+    def javascript_driver(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:45
-    def javascript_driver=(*_arg0, **_arg1, &_arg2); end
+    def javascript_driver=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def match(*_arg0, **_arg1, &_arg2); end
+    def match(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def match=(*_arg0, **_arg1, &_arg2); end
+    def match=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:268
     def mode; end
@@ -270,16 +270,16 @@ module Capybara
     def modify_selector(name, &block); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def predicates_wait(*_arg0, **_arg1, &_arg2); end
+    def predicates_wait(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def predicates_wait=(*_arg0, **_arg1, &_arg2); end
+    def predicates_wait=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def raise_server_errors(*_arg0, **_arg1, &_arg2); end
+    def raise_server_errors(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def raise_server_errors=(*_arg0, **_arg1, &_arg2); end
+    def raise_server_errors=(*, **, &); end
 
     # Register a new driver for Capybara.
     #
@@ -321,10 +321,10 @@ module Capybara
     def reset_sessions!; end
 
     # pkg:gem/capybara#lib/capybara.rb:45
-    def reuse_server(*_arg0, **_arg1, &_arg2); end
+    def reuse_server(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:45
-    def reuse_server=(*_arg0, **_arg1, &_arg2); end
+    def reuse_server=(*, **, &); end
 
     # Runs Capybara's default server for the given application and port
     # under most circumstances you should not have to call this method
@@ -337,40 +337,40 @@ module Capybara
     def run_default_server(app, port); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def run_server(*_arg0, **_arg1, &_arg2); end
+    def run_server(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def run_server=(*_arg0, **_arg1, &_arg2); end
+    def run_server=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def save_path(*_arg0, **_arg1, &_arg2); end
+    def save_path(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def save_path=(*_arg0, **_arg1, &_arg2); end
+    def save_path=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:45
-    def server(*_arg0, **_arg1, &_arg2); end
+    def server(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:45
-    def server=(*_arg0, **_arg1, &_arg2); end
+    def server=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def server_errors(*_arg0, **_arg1, &_arg2); end
+    def server_errors(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def server_errors=(*_arg0, **_arg1, &_arg2); end
+    def server_errors=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def server_host(*_arg0, **_arg1, &_arg2); end
+    def server_host(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def server_host=(*_arg0, **_arg1, &_arg2); end
+    def server_host=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def server_port(*_arg0, **_arg1, &_arg2); end
+    def server_port(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def server_port=(*_arg0, **_arg1, &_arg2); end
+    def server_port=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:208
     def servers; end
@@ -420,16 +420,16 @@ module Capybara
     def string(html); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def test_id(*_arg0, **_arg1, &_arg2); end
+    def test_id(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def test_id=(*_arg0, **_arg1, &_arg2); end
+    def test_id=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:45
-    def threadsafe(*_arg0, **_arg1, &_arg2); end
+    def threadsafe(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:45
-    def threadsafe=(*_arg0, **_arg1, &_arg2); end
+    def threadsafe=(*, **, &); end
 
     # Use the default driver as the current driver
     #
@@ -437,10 +437,10 @@ module Capybara
     def use_default_driver; end
 
     # pkg:gem/capybara#lib/capybara.rb:45
-    def use_html5_parsing(*_arg0, **_arg1, &_arg2); end
+    def use_html5_parsing(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:45
-    def use_html5_parsing=(*_arg0, **_arg1, &_arg2); end
+    def use_html5_parsing=(*, **, &); end
 
     # Yield a block using a specific driver
     #
@@ -458,16 +458,16 @@ module Capybara
     def using_wait_time(seconds); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def visible_text_only(*_arg0, **_arg1, &_arg2); end
+    def visible_text_only(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def visible_text_only=(*_arg0, **_arg1, &_arg2); end
+    def visible_text_only=(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def w3c_click_offset(*_arg0, **_arg1, &_arg2); end
+    def w3c_click_offset(*, **, &); end
 
     # pkg:gem/capybara#lib/capybara.rb:58
-    def w3c_click_offset=(*_arg0, **_arg1, &_arg2); end
+    def w3c_click_offset=(*, **, &); end
 
     private
 
@@ -505,10 +505,10 @@ class Capybara::Config
   def allow_gumbo=(val); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def always_include_port(*_arg0, **_arg1, &_arg2); end
+  def always_include_port(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def always_include_port=(*_arg0, **_arg1, &_arg2); end
+  def always_include_port=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:14
   def app; end
@@ -517,28 +517,28 @@ class Capybara::Config
   def app=(_arg0); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def app_host(*_arg0, **_arg1, &_arg2); end
+  def app_host(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def app_host=(*_arg0, **_arg1, &_arg2); end
+  def app_host=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def asset_host(*_arg0, **_arg1, &_arg2); end
+  def asset_host(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def asset_host=(*_arg0, **_arg1, &_arg2); end
+  def asset_host=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def automatic_label_click(*_arg0, **_arg1, &_arg2); end
+  def automatic_label_click(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def automatic_label_click=(*_arg0, **_arg1, &_arg2); end
+  def automatic_label_click=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def automatic_reload(*_arg0, **_arg1, &_arg2); end
+  def automatic_reload(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def automatic_reload=(*_arg0, **_arg1, &_arg2); end
+  def automatic_reload=(*, **, &); end
 
   # @return [Symbol]    The name of the driver to use by default
   #
@@ -551,79 +551,79 @@ class Capybara::Config
   def default_driver=(_arg0); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def default_host(*_arg0, **_arg1, &_arg2); end
+  def default_host(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def default_host=(*_arg0, **_arg1, &_arg2); end
+  def default_host=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def default_max_wait_time(*_arg0, **_arg1, &_arg2); end
+  def default_max_wait_time(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def default_max_wait_time=(*_arg0, **_arg1, &_arg2); end
+  def default_max_wait_time=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def default_normalize_ws(*_arg0, **_arg1, &_arg2); end
+  def default_normalize_ws(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def default_normalize_ws=(*_arg0, **_arg1, &_arg2); end
+  def default_normalize_ws=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def default_retry_interval(*_arg0, **_arg1, &_arg2); end
+  def default_retry_interval(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def default_retry_interval=(*_arg0, **_arg1, &_arg2); end
+  def default_retry_interval=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def default_selector(*_arg0, **_arg1, &_arg2); end
+  def default_selector(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def default_selector=(*_arg0, **_arg1, &_arg2); end
+  def default_selector=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def default_set_options(*_arg0, **_arg1, &_arg2); end
+  def default_set_options(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def default_set_options=(*_arg0, **_arg1, &_arg2); end
+  def default_set_options=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:86
   def deprecate(method, alternate_method, once: T.unsafe(nil)); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def disable_animation(*_arg0, **_arg1, &_arg2); end
+  def disable_animation(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def disable_animation=(*_arg0, **_arg1, &_arg2); end
+  def disable_animation=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def enable_aria_label(*_arg0, **_arg1, &_arg2); end
+  def enable_aria_label(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def enable_aria_label=(*_arg0, **_arg1, &_arg2); end
+  def enable_aria_label=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def enable_aria_role(*_arg0, **_arg1, &_arg2); end
+  def enable_aria_role(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def enable_aria_role=(*_arg0, **_arg1, &_arg2); end
+  def enable_aria_role=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def exact(*_arg0, **_arg1, &_arg2); end
+  def exact(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def exact=(*_arg0, **_arg1, &_arg2); end
+  def exact=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def exact_text(*_arg0, **_arg1, &_arg2); end
+  def exact_text(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def exact_text=(*_arg0, **_arg1, &_arg2); end
+  def exact_text=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def ignore_hidden_elements(*_arg0, **_arg1, &_arg2); end
+  def ignore_hidden_elements(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def ignore_hidden_elements=(*_arg0, **_arg1, &_arg2); end
+  def ignore_hidden_elements=(*, **, &); end
 
   # @return [Symbol]    The name of the driver used when JavaScript is needed
   #
@@ -636,22 +636,22 @@ class Capybara::Config
   def javascript_driver=(_arg0); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def match(*_arg0, **_arg1, &_arg2); end
+  def match(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def match=(*_arg0, **_arg1, &_arg2); end
+  def match=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def predicates_wait(*_arg0, **_arg1, &_arg2); end
+  def predicates_wait(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def predicates_wait=(*_arg0, **_arg1, &_arg2); end
+  def predicates_wait=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def raise_server_errors(*_arg0, **_arg1, &_arg2); end
+  def raise_server_errors(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def raise_server_errors=(*_arg0, **_arg1, &_arg2); end
+  def raise_server_errors=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:15
   def reuse_server; end
@@ -660,16 +660,16 @@ class Capybara::Config
   def reuse_server=(_arg0); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def run_server(*_arg0, **_arg1, &_arg2); end
+  def run_server(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def run_server=(*_arg0, **_arg1, &_arg2); end
+  def run_server=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def save_path(*_arg0, **_arg1, &_arg2); end
+  def save_path(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def save_path=(*_arg0, **_arg1, &_arg2); end
+  def save_path=(*, **, &); end
 
   # Return the proc that Capybara will call to run the Rack application.
   # The block returned receives a rack app, port, and host/ip and should run a Rack handler
@@ -694,31 +694,31 @@ class Capybara::Config
   def server=(name); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def server_errors(*_arg0, **_arg1, &_arg2); end
+  def server_errors(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def server_errors=(*_arg0, **_arg1, &_arg2); end
+  def server_errors=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def server_host(*_arg0, **_arg1, &_arg2); end
+  def server_host(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def server_host=(*_arg0, **_arg1, &_arg2); end
+  def server_host=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def server_port(*_arg0, **_arg1, &_arg2); end
+  def server_port(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def server_port=(*_arg0, **_arg1, &_arg2); end
+  def server_port=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:15
   def session_options; end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def test_id(*_arg0, **_arg1, &_arg2); end
+  def test_id(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def test_id=(*_arg0, **_arg1, &_arg2); end
+  def test_id=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:15
   def threadsafe; end
@@ -733,16 +733,16 @@ class Capybara::Config
   def use_html5_parsing=(_arg0); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def visible_text_only(*_arg0, **_arg1, &_arg2); end
+  def visible_text_only(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def visible_text_only=(*_arg0, **_arg1, &_arg2); end
+  def visible_text_only=(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def w3c_click_offset(*_arg0, **_arg1, &_arg2); end
+  def w3c_click_offset(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/config.rb:19
-  def w3c_click_offset=(*_arg0, **_arg1, &_arg2); end
+  def w3c_click_offset=(*, **, &); end
 end
 
 # pkg:gem/capybara#lib/capybara/config.rb:10
@@ -753,235 +753,235 @@ Capybara::Config::OPTIONS = T.let(T.unsafe(nil), Array)
 # pkg:gem/capybara#lib/capybara/dsl.rb:6
 module Capybara::DSL
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def accept_alert(*_arg0, **_arg1, &_arg2); end
+  def accept_alert(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def accept_confirm(*_arg0, **_arg1, &_arg2); end
+  def accept_confirm(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def accept_prompt(*_arg0, **_arg1, &_arg2); end
+  def accept_prompt(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def all(*_arg0, **_arg1, &_arg2); end
+  def all(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def assert_all_of_selectors(*_arg0, **_arg1, &_arg2); end
+  def assert_all_of_selectors(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def assert_any_of_selectors(*_arg0, **_arg1, &_arg2); end
+  def assert_any_of_selectors(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def assert_current_path(*_arg0, **_arg1, &_arg2); end
+  def assert_current_path(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def assert_no_current_path(*_arg0, **_arg1, &_arg2); end
+  def assert_no_current_path(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def assert_no_selector(*_arg0, **_arg1, &_arg2); end
+  def assert_no_selector(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def assert_no_text(*_arg0, **_arg1, &_arg2); end
+  def assert_no_text(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def assert_no_title(*_arg0, **_arg1, &_arg2); end
+  def assert_no_title(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def assert_none_of_selectors(*_arg0, **_arg1, &_arg2); end
+  def assert_none_of_selectors(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def assert_selector(*_arg0, **_arg1, &_arg2); end
+  def assert_selector(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def assert_text(*_arg0, **_arg1, &_arg2); end
+  def assert_text(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def assert_title(*_arg0, **_arg1, &_arg2); end
+  def assert_title(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def attach_file(*_arg0, **_arg1, &_arg2); end
+  def attach_file(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def body(*_arg0, **_arg1, &_arg2); end
+  def body(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def check(*_arg0, **_arg1, &_arg2); end
+  def check(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def choose(*_arg0, **_arg1, &_arg2); end
+  def choose(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def click(*_arg0, **_arg1, &_arg2); end
+  def click(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def click_button(*_arg0, **_arg1, &_arg2); end
+  def click_button(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def click_link(*_arg0, **_arg1, &_arg2); end
+  def click_link(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def click_link_or_button(*_arg0, **_arg1, &_arg2); end
+  def click_link_or_button(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def click_on(*_arg0, **_arg1, &_arg2); end
+  def click_on(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def current_host(*_arg0, **_arg1, &_arg2); end
+  def current_host(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def current_path(*_arg0, **_arg1, &_arg2); end
+  def current_path(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def current_scope(*_arg0, **_arg1, &_arg2); end
+  def current_scope(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def current_url(*_arg0, **_arg1, &_arg2); end
+  def current_url(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def current_window(*_arg0, **_arg1, &_arg2); end
+  def current_window(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def dismiss_confirm(*_arg0, **_arg1, &_arg2); end
+  def dismiss_confirm(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def dismiss_prompt(*_arg0, **_arg1, &_arg2); end
+  def dismiss_prompt(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def double_click(*_arg0, **_arg1, &_arg2); end
+  def double_click(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def evaluate_async_script(*_arg0, **_arg1, &_arg2); end
+  def evaluate_async_script(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def evaluate_script(*_arg0, **_arg1, &_arg2); end
+  def evaluate_script(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def execute_script(*_arg0, **_arg1, &_arg2); end
+  def execute_script(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def fill_in(*_arg0, **_arg1, &_arg2); end
+  def fill_in(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def find(*_arg0, **_arg1, &_arg2); end
+  def find(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def find_all(*_arg0, **_arg1, &_arg2); end
+  def find_all(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def find_button(*_arg0, **_arg1, &_arg2); end
+  def find_button(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def find_by_id(*_arg0, **_arg1, &_arg2); end
+  def find_by_id(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def find_field(*_arg0, **_arg1, &_arg2); end
+  def find_field(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def find_link(*_arg0, **_arg1, &_arg2); end
+  def find_link(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def first(*_arg0, **_arg1, &_arg2); end
+  def first(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def go_back(*_arg0, **_arg1, &_arg2); end
+  def go_back(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def go_forward(*_arg0, **_arg1, &_arg2); end
+  def go_forward(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_button?(*_arg0, **_arg1, &_arg2); end
+  def has_button?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_checked_field?(*_arg0, **_arg1, &_arg2); end
+  def has_checked_field?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_content?(*_arg0, **_arg1, &_arg2); end
+  def has_content?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_css?(*_arg0, **_arg1, &_arg2); end
+  def has_css?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_current_path?(*_arg0, **_arg1, &_arg2); end
+  def has_current_path?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_element?(*_arg0, **_arg1, &_arg2); end
+  def has_element?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_field?(*_arg0, **_arg1, &_arg2); end
+  def has_field?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_link?(*_arg0, **_arg1, &_arg2); end
+  def has_link?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_no_button?(*_arg0, **_arg1, &_arg2); end
+  def has_no_button?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_no_checked_field?(*_arg0, **_arg1, &_arg2); end
+  def has_no_checked_field?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_no_content?(*_arg0, **_arg1, &_arg2); end
+  def has_no_content?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_no_css?(*_arg0, **_arg1, &_arg2); end
+  def has_no_css?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_no_current_path?(*_arg0, **_arg1, &_arg2); end
+  def has_no_current_path?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_no_element?(*_arg0, **_arg1, &_arg2); end
+  def has_no_element?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_no_field?(*_arg0, **_arg1, &_arg2); end
+  def has_no_field?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_no_link?(*_arg0, **_arg1, &_arg2); end
+  def has_no_link?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_no_select?(*_arg0, **_arg1, &_arg2); end
+  def has_no_select?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_no_selector?(*_arg0, **_arg1, &_arg2); end
+  def has_no_selector?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_no_table?(*_arg0, **_arg1, &_arg2); end
+  def has_no_table?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_no_text?(*_arg0, **_arg1, &_arg2); end
+  def has_no_text?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_no_title?(*_arg0, **_arg1, &_arg2); end
+  def has_no_title?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_no_unchecked_field?(*_arg0, **_arg1, &_arg2); end
+  def has_no_unchecked_field?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_no_xpath?(*_arg0, **_arg1, &_arg2); end
+  def has_no_xpath?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_select?(*_arg0, **_arg1, &_arg2); end
+  def has_select?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_selector?(*_arg0, **_arg1, &_arg2); end
+  def has_selector?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_table?(*_arg0, **_arg1, &_arg2); end
+  def has_table?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_text?(*_arg0, **_arg1, &_arg2); end
+  def has_text?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_title?(*_arg0, **_arg1, &_arg2); end
+  def has_title?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_unchecked_field?(*_arg0, **_arg1, &_arg2); end
+  def has_unchecked_field?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def has_xpath?(*_arg0, **_arg1, &_arg2); end
+  def has_xpath?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def html(*_arg0, **_arg1, &_arg2); end
+  def html(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def open_new_window(*_arg0, **_arg1, &_arg2); end
+  def open_new_window(*, **, &); end
 
   # Shortcut to accessing the current session.
   #
@@ -999,70 +999,70 @@ module Capybara::DSL
   def page; end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def query(*_arg0, **_arg1, &_arg2); end
+  def query(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def refresh(*_arg0, **_arg1, &_arg2); end
+  def refresh(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def refute_selector(*_arg0, **_arg1, &_arg2); end
+  def refute_selector(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def reset_session!(*_arg0, **_arg1, &_arg2); end
+  def reset_session!(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def response_headers(*_arg0, **_arg1, &_arg2); end
+  def response_headers(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def right_click(*_arg0, **_arg1, &_arg2); end
+  def right_click(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def save_and_open_page(*_arg0, **_arg1, &_arg2); end
+  def save_and_open_page(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def save_and_open_screenshot(*_arg0, **_arg1, &_arg2); end
+  def save_and_open_screenshot(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def save_page(*_arg0, **_arg1, &_arg2); end
+  def save_page(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def save_screenshot(*_arg0, **_arg1, &_arg2); end
+  def save_screenshot(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def scroll_by(*_arg0, **_arg1, &_arg2); end
+  def scroll_by(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def scroll_to(*_arg0, **_arg1, &_arg2); end
+  def scroll_to(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def select(*_arg0, **_arg1, &_arg2); end
+  def select(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def send_keys(*_arg0, **_arg1, &_arg2); end
+  def send_keys(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def source(*_arg0, **_arg1, &_arg2); end
+  def source(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def status_code(*_arg0, **_arg1, &_arg2); end
+  def status_code(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def switch_to_frame(*_arg0, **_arg1, &_arg2); end
+  def switch_to_frame(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def switch_to_window(*_arg0, **_arg1, &_arg2); end
+  def switch_to_window(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def text(*_arg0, **_arg1, &_arg2); end
+  def text(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def title(*_arg0, **_arg1, &_arg2); end
+  def title(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def uncheck(*_arg0, **_arg1, &_arg2); end
+  def uncheck(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def unselect(*_arg0, **_arg1, &_arg2); end
+  def unselect(*, **, &); end
 
   # Shortcut to working in a different session.
   #
@@ -1075,31 +1075,31 @@ module Capybara::DSL
   def using_wait_time(seconds, &block); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def visit(*_arg0, **_arg1, &_arg2); end
+  def visit(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def window_opened_by(*_arg0, **_arg1, &_arg2); end
+  def window_opened_by(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def windows(*_arg0, **_arg1, &_arg2); end
+  def windows(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def within(*_arg0, **_arg1, &_arg2); end
+  def within(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def within_element(*_arg0, **_arg1, &_arg2); end
+  def within_element(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def within_fieldset(*_arg0, **_arg1, &_arg2); end
+  def within_fieldset(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def within_frame(*_arg0, **_arg1, &_arg2); end
+  def within_frame(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def within_table(*_arg0, **_arg1, &_arg2); end
+  def within_table(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/dsl.rb:50
-  def within_window(*_arg0, **_arg1, &_arg2); end
+  def within_window(*, **, &); end
 
   class << self
     # pkg:gem/capybara#lib/capybara/dsl.rb:12
@@ -1212,7 +1212,7 @@ class Capybara::Driver::Base
   def save_screenshot(path, **options); end
 
   # pkg:gem/capybara#lib/capybara/driver/base.rb:62
-  def send_keys(*_arg0); end
+  def send_keys(*); end
 
   # pkg:gem/capybara#lib/capybara/driver/base.rb:4
   def session=(_arg0); end
@@ -3560,7 +3560,7 @@ class Capybara::Node::Simple
   def [](name); end
 
   # pkg:gem/capybara#lib/capybara/node/simple.rb:159
-  def allow_reload!(*_arg0); end
+  def allow_reload!(*); end
 
   # Whether or not the element is checked.
   #
@@ -3748,11 +3748,6 @@ Capybara::Node::WhitespaceNormalizer::ZERO_WIDTH_SPACE = T.let(T.unsafe(nil), St
 # pkg:gem/capybara#lib/capybara.rb:20
 class Capybara::NotSupportedByDriverError < ::Capybara::CapybaraError; end
 
-# @api private
-# @api private
-# @api private
-# @api private
-# @api private
 # @api private
 #
 # pkg:gem/capybara#lib/capybara/queries/base_query.rb:5
@@ -4391,7 +4386,7 @@ class Capybara::RackTest::Driver < ::Capybara::Driver::Base
   def current_url; end
 
   # pkg:gem/capybara#lib/capybara/rack_test/driver.rb:104
-  def delete(*_arg0, **_arg1, &_arg2); end
+  def delete(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/driver.rb:89
   def dom; end
@@ -4409,7 +4404,7 @@ class Capybara::RackTest::Driver < ::Capybara::Driver::Base
   def follow_redirects?; end
 
   # pkg:gem/capybara#lib/capybara/rack_test/driver.rb:101
-  def get(*_arg0, **_arg1, &_arg2); end
+  def get(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/driver.rb:105
   def header(key, value); end
@@ -4424,10 +4419,10 @@ class Capybara::RackTest::Driver < ::Capybara::Driver::Base
   def options; end
 
   # pkg:gem/capybara#lib/capybara/rack_test/driver.rb:102
-  def post(*_arg0, **_arg1, &_arg2); end
+  def post(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/driver.rb:103
-  def put(*_arg0, **_arg1, &_arg2); end
+  def put(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/driver.rb:33
   def redirect_limit; end
@@ -4550,58 +4545,58 @@ class Capybara::RackTest::Node < ::Capybara::Driver::Node
   include ::Capybara::Node::WhitespaceNormalizer
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:19
-  def [](*_arg0, **_arg1, &_arg2); end
+  def [](*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:11
-  def all_text(*_arg0, **_arg1, &_arg2); end
+  def all_text(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:87
-  def checked?(*_arg0, **_arg1, &_arg2); end
+  def checked?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:61
-  def click(*_arg0, **_arg1, &_arg2); end
+  def click(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:95
-  def disabled?(*_arg0, **_arg1, &_arg2); end
+  def disabled?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:120
-  def find_css(*_arg0, **_arg1, &_arg2); end
+  def find_css(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:116
-  def find_xpath(*_arg0, **_arg1, &_arg2); end
+  def find_xpath(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:112
-  def path(*_arg0, **_arg1, &_arg2); end
+  def path(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:105
-  def readonly?(*_arg0, **_arg1, &_arg2); end
+  def readonly?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:48
-  def select_option(*_arg0, **_arg1, &_arg2); end
+  def select_option(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:91
-  def selected?(*_arg0, **_arg1, &_arg2); end
+  def selected?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:31
-  def set(*_arg0, **_arg1, &_arg2); end
+  def set(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:23
-  def style(*_arg0, **_arg1, &_arg2); end
+  def style(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:79
-  def tag_name(*_arg0, **_arg1, &_arg2); end
+  def tag_name(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:55
-  def unselect_option(*_arg0, **_arg1, &_arg2); end
+  def unselect_option(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:27
-  def value(*_arg0, **_arg1, &_arg2); end
+  def value(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:83
-  def visible?(*_arg0, **_arg1, &_arg2); end
+  def visible?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/rack_test/node.rb:15
-  def visible_text(*_arg0, **_arg1, &_arg2); end
+  def visible_text(*, **, &); end
 
   protected
 
@@ -4851,7 +4846,7 @@ class Capybara::RegistrationContainer
   def []=(name, value); end
 
   # pkg:gem/capybara#lib/capybara/registration_container.rb:19
-  def method_missing(method_name, *_arg1, **_arg2, &_arg3); end
+  def method_missing(method_name, *, **, &); end
 
   # pkg:gem/capybara#lib/capybara/registration_container.rb:6
   def names; end
@@ -4917,13 +4912,13 @@ class Capybara::Result
   def index(*_arg0); end
 
   # pkg:gem/capybara#lib/capybara/result.rb:37
-  def inspect(*_arg0, **_arg1, &_arg2); end
+  def inspect(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/result.rb:37
-  def last(*_arg0, **_arg1, &_arg2); end
+  def last(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/result.rb:37
-  def length(*_arg0, **_arg1, &_arg2); end
+  def length(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/result.rb:109
   def matches_count?; end
@@ -4932,19 +4927,19 @@ class Capybara::Result
   def negative_failure_message; end
 
   # pkg:gem/capybara#lib/capybara/result.rb:37
-  def sample(*_arg0, **_arg1, &_arg2); end
+  def sample(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/result.rb:37
-  def size(*_arg0, **_arg1, &_arg2); end
+  def size(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/result.rb:37
-  def to_ary(*_arg0, **_arg1, &_arg2); end
+  def to_ary(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/result.rb:133
   def unfiltered_size; end
 
   # pkg:gem/capybara#lib/capybara/result.rb:37
-  def values_at(*_arg0, **_arg1, &_arg2); end
+  def values_at(*, **, &); end
 
   private
 
@@ -5584,7 +5579,7 @@ class Capybara::Selector::Definition
   def default_visibility(fallback = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # pkg:gem/capybara#lib/capybara/selector/definition.rb:178
-  def describe(*_arg0, **_arg1, &_arg2); end
+  def describe(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/selector/definition.rb:190
   def describe_all_expression_filters(**opts); end
@@ -5596,10 +5591,10 @@ class Capybara::Selector::Definition
   def describe_node_filters(&block); end
 
   # pkg:gem/capybara#lib/capybara/selector/definition.rb:116
-  def description(*_arg0, **_arg1, &_arg2); end
+  def description(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/selector/definition.rb:166
-  def expression_filter(*_arg0, **_arg1, &_arg2); end
+  def expression_filter(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/selector/definition.rb:41
   def expression_filters; end
@@ -5608,7 +5603,7 @@ class Capybara::Selector::Definition
   def expressions; end
 
   # pkg:gem/capybara#lib/capybara/selector/definition.rb:166
-  def filter(*_arg0, **_arg1, &_arg2); end
+  def filter(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/selector/definition.rb:174
   def filter_set(name, filters_to_use = T.unsafe(nil)); end
@@ -5655,7 +5650,7 @@ class Capybara::Selector::Definition
   def name; end
 
   # pkg:gem/capybara#lib/capybara/selector/definition.rb:166
-  def node_filter(*_arg0, **_arg1, &_arg2); end
+  def node_filter(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/selector/definition.rb:37
   def node_filters; end
@@ -6014,7 +6009,7 @@ class Capybara::Selenium::ChromeNode < ::Capybara::Selenium::Node
   include ::Capybara::Selenium::Node::FileInputClickEmulation
 
   # pkg:gem/capybara#lib/capybara/selenium/nodes/chrome_node.rb:33
-  def click(*_arg0, **_arg1); end
+  def click(*, **); end
 
   # pkg:gem/capybara#lib/capybara/selenium/nodes/chrome_node.rb:46
   def disabled?; end
@@ -6438,7 +6433,7 @@ class Capybara::Selenium::EdgeNode < ::Capybara::Selenium::Node
   include ::Capybara::Selenium::Node::Html5Drag
 
   # pkg:gem/capybara#lib/capybara/selenium/nodes/edge_node.rb:35
-  def click(*_arg0, **_arg1); end
+  def click(*, **); end
 
   # pkg:gem/capybara#lib/capybara/selenium/nodes/edge_node.rb:46
   def disabled?; end
@@ -6586,7 +6581,7 @@ class Capybara::Selenium::Node < ::Capybara::Driver::Node
   def double_click(keys = T.unsafe(nil), **options); end
 
   # pkg:gem/capybara#lib/capybara/selenium/node.rb:161
-  def drag_to(element, drop_modifiers: T.unsafe(nil), **_arg2); end
+  def drag_to(element, drop_modifiers: T.unsafe(nil), **); end
 
   # pkg:gem/capybara#lib/capybara/selenium/node.rb:174
   def drop(*_); end
@@ -7209,67 +7204,67 @@ class Capybara::Session
   def active_element; end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def all(*_arg0, **_arg1, &_arg2); end
+  def all(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:76
   def app; end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def assert_all_of_selectors(*_arg0, **_arg1, &_arg2); end
+  def assert_all_of_selectors(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def assert_any_of_selectors(*_arg0, **_arg1, &_arg2); end
+  def assert_any_of_selectors(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def assert_no_selector(*_arg0, **_arg1, &_arg2); end
+  def assert_no_selector(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def assert_no_text(*_arg0, **_arg1, &_arg2); end
+  def assert_no_text(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:780
-  def assert_no_title(*_arg0, **_arg1, &_arg2); end
+  def assert_no_title(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def assert_none_of_selectors(*_arg0, **_arg1, &_arg2); end
+  def assert_none_of_selectors(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def assert_selector(*_arg0, **_arg1, &_arg2); end
+  def assert_selector(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def assert_text(*_arg0, **_arg1, &_arg2); end
+  def assert_text(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:780
-  def assert_title(*_arg0, **_arg1, &_arg2); end
+  def assert_title(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def attach_file(*_arg0, **_arg1, &_arg2); end
+  def attach_file(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:200
   def body; end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def check(*_arg0, **_arg1, &_arg2); end
+  def check(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def choose(*_arg0, **_arg1, &_arg2); end
+  def choose(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:140
   def cleanup!; end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def click(*_arg0, **_arg1, &_arg2); end
+  def click(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def click_button(*_arg0, **_arg1, &_arg2); end
+  def click_button(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def click_link(*_arg0, **_arg1, &_arg2); end
+  def click_link(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def click_link_or_button(*_arg0, **_arg1, &_arg2); end
+  def click_link_or_button(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def click_on(*_arg0, **_arg1, &_arg2); end
+  def click_on(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:829
   def config; end
@@ -7321,7 +7316,7 @@ class Capybara::Session
   def document; end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def double_click(*_arg0, **_arg1, &_arg2); end
+  def double_click(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:100
   def driver; end
@@ -7357,28 +7352,28 @@ class Capybara::Session
   def execute_script(script, *args); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def fill_in(*_arg0, **_arg1, &_arg2); end
+  def fill_in(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def find(*_arg0, **_arg1, &_arg2); end
+  def find(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def find_all(*_arg0, **_arg1, &_arg2); end
+  def find_all(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def find_button(*_arg0, **_arg1, &_arg2); end
+  def find_button(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def find_by_id(*_arg0, **_arg1, &_arg2); end
+  def find_by_id(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def find_field(*_arg0, **_arg1, &_arg2); end
+  def find_field(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def find_link(*_arg0, **_arg1, &_arg2); end
+  def find_link(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def first(*_arg0, **_arg1, &_arg2); end
+  def first(*, **, &); end
 
   # Move back a single entry in the browser's history.
   #
@@ -7391,88 +7386,88 @@ class Capybara::Session
   def go_forward; end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_button?(*_arg0, **_arg1, &_arg2); end
+  def has_button?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_checked_field?(*_arg0, **_arg1, &_arg2); end
+  def has_checked_field?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_content?(*_arg0, **_arg1, &_arg2); end
+  def has_content?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_css?(*_arg0, **_arg1, &_arg2); end
+  def has_css?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_element?(*_arg0, **_arg1, &_arg2); end
+  def has_element?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_field?(*_arg0, **_arg1, &_arg2); end
+  def has_field?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_link?(*_arg0, **_arg1, &_arg2); end
+  def has_link?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_no_button?(*_arg0, **_arg1, &_arg2); end
+  def has_no_button?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_no_checked_field?(*_arg0, **_arg1, &_arg2); end
+  def has_no_checked_field?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_no_content?(*_arg0, **_arg1, &_arg2); end
+  def has_no_content?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_no_css?(*_arg0, **_arg1, &_arg2); end
+  def has_no_css?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_no_element?(*_arg0, **_arg1, &_arg2); end
+  def has_no_element?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_no_field?(*_arg0, **_arg1, &_arg2); end
+  def has_no_field?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_no_link?(*_arg0, **_arg1, &_arg2); end
+  def has_no_link?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_no_select?(*_arg0, **_arg1, &_arg2); end
+  def has_no_select?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_no_selector?(*_arg0, **_arg1, &_arg2); end
+  def has_no_selector?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_no_table?(*_arg0, **_arg1, &_arg2); end
+  def has_no_table?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_no_text?(*_arg0, **_arg1, &_arg2); end
+  def has_no_text?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:780
-  def has_no_title?(*_arg0, **_arg1, &_arg2); end
+  def has_no_title?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_no_unchecked_field?(*_arg0, **_arg1, &_arg2); end
+  def has_no_unchecked_field?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_no_xpath?(*_arg0, **_arg1, &_arg2); end
+  def has_no_xpath?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_select?(*_arg0, **_arg1, &_arg2); end
+  def has_select?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_selector?(*_arg0, **_arg1, &_arg2); end
+  def has_selector?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_table?(*_arg0, **_arg1, &_arg2); end
+  def has_table?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_text?(*_arg0, **_arg1, &_arg2); end
+  def has_text?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:780
-  def has_title?(*_arg0, **_arg1, &_arg2); end
+  def has_title?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_unchecked_field?(*_arg0, **_arg1, &_arg2); end
+  def has_unchecked_field?(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def has_xpath?(*_arg0, **_arg1, &_arg2); end
+  def has_xpath?(*, **, &); end
 
   # @return [String] A snapshot of the DOM of the current document, as it looks right now (potentially modified by JavaScript).
   #
@@ -7495,7 +7490,7 @@ class Capybara::Session
   def open_new_window(kind = T.unsafe(nil)); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def query(*_arg0, **_arg1, &_arg2); end
+  def query(*, **, &); end
 
   # Disconnect from the current driver. A new driver will be instantiated on the next interaction.
   #
@@ -7513,7 +7508,7 @@ class Capybara::Session
   def refresh; end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def refute_selector(*_arg0, **_arg1, &_arg2); end
+  def refute_selector(*, **, &); end
 
   # Reset the session (i.e. remove cookies and navigate to blank page).
   #
@@ -7545,7 +7540,7 @@ class Capybara::Session
   def response_headers; end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def right_click(*_arg0, **_arg1, &_arg2); end
+  def right_click(*, **, &); end
 
   # Save a snapshot of the page and open it in a browser for inspection.
   #
@@ -7597,19 +7592,19 @@ class Capybara::Session
   def save_screenshot(path = T.unsafe(nil), **options); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def scroll_by(*_arg0, **_arg1, &_arg2); end
+  def scroll_by(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def scroll_to(*_arg0, **_arg1, &_arg2); end
+  def scroll_to(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def select(*_arg0, **_arg1, &_arg2); end
+  def select(*, **, &); end
 
   # @!method send_keys
   #   @see Capybara::Node::Element#send_keys
   #
   # pkg:gem/capybara#lib/capybara/session.rb:313
-  def send_keys(*_arg0, **_arg1, &_arg2); end
+  def send_keys(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:76
   def server; end
@@ -7670,16 +7665,16 @@ class Capybara::Session
   def synchronized=(_arg0); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def text(*_arg0, **_arg1, &_arg2); end
+  def text(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:780
-  def title(*_arg0, **_arg1, &_arg2); end
+  def title(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def uncheck(*_arg0, **_arg1, &_arg2); end
+  def uncheck(*, **, &); end
 
   # pkg:gem/capybara#lib/capybara/session.rb:771
-  def unselect(*_arg0, **_arg1, &_arg2); end
+  def unselect(*, **, &); end
 
   # Yield a block using a specific maximum wait time.
   #

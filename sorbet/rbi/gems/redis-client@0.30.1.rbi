@@ -17,7 +17,7 @@ class RedisClient
   include ::RedisClient::Common
 
   # pkg:gem/redis-client#lib/redis_client.rb:269
-  def initialize(config, **_arg1); end
+  def initialize(config, **); end
 
   # pkg:gem/redis-client#lib/redis_client.rb:421
   def blocking_call(timeout, *command, **kwargs); end
@@ -511,7 +511,7 @@ class RedisClient::Decorator::Client
   def initialize(_client); end
 
   # pkg:gem/redis-client#lib/redis_client/decorator.rb:59
-  def close(*args, **_arg1, &block); end
+  def close(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/decorator.rb:68
   def config; end
@@ -523,7 +523,7 @@ class RedisClient::Decorator::Client
   def connect_timeout=(value); end
 
   # pkg:gem/redis-client#lib/redis_client/decorator.rb:59
-  def hscan(*args, **_arg1, &block); end
+  def hscan(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/decorator.rb:68
   def id; end
@@ -544,19 +544,19 @@ class RedisClient::Decorator::Client
   def read_timeout=(value); end
 
   # pkg:gem/redis-client#lib/redis_client/decorator.rb:59
-  def scan(*args, **_arg1, &block); end
+  def scan(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/decorator.rb:68
   def size; end
 
   # pkg:gem/redis-client#lib/redis_client/decorator.rb:59
-  def sscan(*args, **_arg1, &block); end
+  def sscan(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/decorator.rb:76
   def timeout=(value); end
 
   # pkg:gem/redis-client#lib/redis_client/decorator.rb:45
-  def with(*args, **_arg1); end
+  def with(*args, **); end
 
   # pkg:gem/redis-client#lib/redis_client/decorator.rb:68
   def write_timeout; end
@@ -565,7 +565,7 @@ class RedisClient::Decorator::Client
   def write_timeout=(value); end
 
   # pkg:gem/redis-client#lib/redis_client/decorator.rb:59
-  def zscan(*args, **_arg1, &block); end
+  def zscan(*args, **, &block); end
 end
 
 # pkg:gem/redis-client#lib/redis_client/decorator.rb:18
@@ -574,22 +574,22 @@ module RedisClient::Decorator::CommandsMixin
   def initialize(client); end
 
   # pkg:gem/redis-client#lib/redis_client/decorator.rb:24
-  def blocking_call(*args, **_arg1, &block); end
+  def blocking_call(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/decorator.rb:24
-  def blocking_call_v(*args, **_arg1, &block); end
+  def blocking_call_v(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/decorator.rb:24
-  def call(*args, **_arg1, &block); end
+  def call(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/decorator.rb:24
-  def call_once(*args, **_arg1, &block); end
+  def call_once(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/decorator.rb:24
-  def call_once_v(*args, **_arg1, &block); end
+  def call_once_v(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/decorator.rb:24
-  def call_v(*args, **_arg1, &block); end
+  def call_v(*args, **, &block); end
 end
 
 # pkg:gem/redis-client#lib/redis_client/decorator.rb:33
@@ -765,46 +765,46 @@ class RedisClient::Pooled
   def initialize(config, id: T.unsafe(nil), connect_timeout: T.unsafe(nil), read_timeout: T.unsafe(nil), write_timeout: T.unsafe(nil), **kwargs); end
 
   # pkg:gem/redis-client#lib/redis_client/pooled.rb:55
-  def blocking_call(*args, **_arg1, &block); end
+  def blocking_call(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/pooled.rb:55
-  def blocking_call_v(*args, **_arg1, &block); end
+  def blocking_call_v(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/pooled.rb:55
-  def call(*args, **_arg1, &block); end
+  def call(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/pooled.rb:55
-  def call_once(*args, **_arg1, &block); end
+  def call_once(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/pooled.rb:55
-  def call_once_v(*args, **_arg1, &block); end
+  def call_once_v(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/pooled.rb:55
-  def call_v(*args, **_arg1, &block); end
+  def call_v(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/pooled.rb:37
   def close; end
 
   # pkg:gem/redis-client#lib/redis_client/pooled.rb:64
-  def hscan(*args, **_arg1, &block); end
+  def hscan(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/pooled.rb:55
-  def multi(*args, **_arg1, &block); end
+  def multi(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/pooled.rb:55
-  def pipelined(*args, **_arg1, &block); end
+  def pipelined(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/pooled.rb:55
-  def pubsub(*args, **_arg1, &block); end
+  def pubsub(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/pooled.rb:64
-  def scan(*args, **_arg1, &block); end
+  def scan(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/pooled.rb:48
   def size; end
 
   # pkg:gem/redis-client#lib/redis_client/pooled.rb:64
-  def sscan(*args, **_arg1, &block); end
+  def sscan(*args, **, &block); end
 
   # pkg:gem/redis-client#lib/redis_client/pooled.rb:35
   def then(options = T.unsafe(nil)); end
@@ -813,7 +813,7 @@ class RedisClient::Pooled
   def with(options = T.unsafe(nil)); end
 
   # pkg:gem/redis-client#lib/redis_client/pooled.rb:64
-  def zscan(*args, **_arg1, &block); end
+  def zscan(*args, **, &block); end
 
   private
 

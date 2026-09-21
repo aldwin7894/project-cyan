@@ -18,26 +18,6 @@
 # Domain name parser based on the Public Suffix List.
 #
 # Copyright (c) 2009-2026 Simone Carletti <weppos@weppos.net>
-# = Public Suffix
-#
-# Domain name parser based on the Public Suffix List.
-#
-# Copyright (c) 2009-2026 Simone Carletti <weppos@weppos.net>
-# = Public Suffix
-#
-# Domain name parser based on the Public Suffix List.
-#
-# Copyright (c) 2009-2026 Simone Carletti <weppos@weppos.net>
-# = Public Suffix
-#
-# Domain name parser based on the Public Suffix List.
-#
-# Copyright (c) 2009-2026 Simone Carletti <weppos@weppos.net>
-# = Public Suffix
-#
-# Domain name parser based on the Public Suffix List.
-#
-# Copyright (c) 2009-2026 Simone Carletti <weppos@weppos.net>
 #
 # pkg:gem/public_suffix#lib/public_suffix/domain.rb:9
 module PublicSuffix
@@ -738,7 +718,7 @@ class PublicSuffix::Rule::Base
   # @return [Array<String, nil>]
   #
   # pkg:gem/public_suffix#lib/public_suffix/rule.rb:180
-  def decompose(*_arg0); end
+  def decompose(*); end
 
   # pkg:gem/public_suffix#lib/public_suffix/rule.rb:140
   def eql?(other); end

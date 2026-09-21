@@ -566,10 +566,10 @@ class Warden::Proxy
   def custom_failure?; end
 
   # pkg:gem/warden#lib/warden/proxy.rb:23
-  def custom_response(*_arg0, **_arg1, &_arg2); end
+  def custom_response(*, **, &); end
 
   # pkg:gem/warden#lib/warden/proxy.rb:26
-  def default_strategies(*_arg0, **_arg1, &_arg2); end
+  def default_strategies(*, **, &); end
 
   # An accessor to the rack env hash, the proxy owner and its config
   # :api: public
@@ -584,7 +584,7 @@ class Warden::Proxy
   def errors; end
 
   # pkg:gem/warden#lib/warden/proxy.rb:23
-  def headers(*_arg0, **_arg1, &_arg2); end
+  def headers(*, **, &); end
 
   # pkg:gem/warden#lib/warden/proxy.rb:318
   def inspect(*args); end
@@ -679,7 +679,7 @@ class Warden::Proxy
   def set_user(user, opts = T.unsafe(nil)); end
 
   # pkg:gem/warden#lib/warden/proxy.rb:23
-  def status(*_arg0, **_arg1, &_arg2); end
+  def status(*, **, &); end
 
   # pkg:gem/warden#lib/warden/proxy.rb:322
   def to_s(*args); end

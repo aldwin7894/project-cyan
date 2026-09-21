@@ -159,12 +159,10 @@ class Puma::Binder
   def ios=(_arg0); end
 
   # @version 5.0.0
-  # @version 5.0.0
   #
   # pkg:gem/puma#lib/puma/binder.rb:59
   def listeners; end
 
-  # @version 5.0.0
   # @version 5.0.0
   #
   # pkg:gem/puma#lib/puma/binder.rb:62
@@ -4643,10 +4641,10 @@ class Puma::ThreadPool::ProcessorThread
   def alive?; end
 
   # pkg:gem/puma#lib/puma/thread_pool.rb:56
-  def join(*_arg0, **_arg1, &_arg2); end
+  def join(*, **, &); end
 
   # pkg:gem/puma#lib/puma/thread_pool.rb:60
-  def kill(*_arg0, **_arg1, &_arg2); end
+  def kill(*, **, &); end
 
   # pkg:gem/puma#lib/puma/thread_pool.rb:38
   def mark_as_io_thread!; end
@@ -4658,7 +4656,7 @@ class Puma::ThreadPool::ProcessorThread
   def marked_as_io_thread?; end
 
   # pkg:gem/puma#lib/puma/thread_pool.rb:68
-  def raise(*_arg0, **_arg1, &_arg2); end
+  def raise(*, **, &); end
 
   # pkg:gem/puma#lib/puma/thread_pool.rb:29
   def thread; end

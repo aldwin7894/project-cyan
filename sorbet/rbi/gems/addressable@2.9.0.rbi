@@ -29,10 +29,9 @@ module Addressable::IDNA
     def to_unicode(input); end
 
     # @deprecated Use {String#unicode_normalize(:nfkc)} instead
-    # @deprecated Use {String#unicode_normalize(:nfkc)} instead
     #
     # pkg:gem/addressable#lib/addressable/idna/pure.rb:112
-    def unicode_normalize_kc(*args, **_arg1, &block); end
+    def unicode_normalize_kc(*args, **, &block); end
 
     private
 

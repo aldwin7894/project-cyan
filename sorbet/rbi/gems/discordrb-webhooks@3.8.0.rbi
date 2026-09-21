@@ -598,18 +598,18 @@ class Discordrb::Webhooks::Modal
   # @see LabelBuilder#initialize
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/modal.rb:265
-  def label(*_arg0, **_arg1, &_arg2); end
+  def label(*, **, &); end
 
   # @deprecated Please use {#label} instead.
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/modal.rb:276
-  def row(*_arg0, **_arg1, &_arg2); end
+  def row(*, **, &); end
 
   # Add a text display component to the view.
   # @see Webhooks::View::TextDisplayBuilder#initialize
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/modal.rb:271
-  def text_display(*_arg0, **_arg1, &_arg2); end
+  def text_display(*, **, &); end
 
   # @!visibility private
   #
@@ -829,46 +829,46 @@ class Discordrb::Webhooks::View
   # @see ContainerBuilder#initialize
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:459
-  def container(*_arg0, **_arg1, &_arg2); end
+  def container(*, **, &); end
 
   # Add a file component to the view.
   # @see FileBuilder#initialize
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:439
-  def file(*_arg0, **_arg1, &_arg2); end
+  def file(*, **, &); end
 
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:443
-  def file_display(*_arg0, **_arg1, &_arg2); end
+  def file_display(*, **, &); end
 
   # Add a media gallery component to the view.
   # @see MediaGalleryBuilder#initialize
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:471
-  def media_gallery(*_arg0, **_arg1, &_arg2); end
+  def media_gallery(*, **, &); end
 
   # Add a row component to the view.
   # @see RowBuilder#initialize
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:433
-  def row(*_arg0, **_arg1, &_arg2); end
+  def row(*, **, &); end
 
   # Add a section component to the view.
   # @see SectionBuilder#initialize
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:447
-  def section(*_arg0, **_arg1, &_arg2); end
+  def section(*, **, &); end
 
   # Add a separator component to the view.
   # @see SeparatorBuilder#initialize
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:453
-  def separator(*_arg0, **_arg1, &_arg2); end
+  def separator(*, **, &); end
 
   # Add a text display component to the view.
   # @see TextDisplayBuilder#initialize
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:465
-  def text_display(*_arg0, **_arg1, &_arg2); end
+  def text_display(*, **, &); end
 
   # @!visibility private
   #
@@ -914,40 +914,40 @@ class Discordrb::Webhooks::View::ContainerBuilder
   # @see FileBuilder#initialize
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:368
-  def file(*_arg0, **_arg1, &_arg2); end
+  def file(*, **, &); end
 
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:372
-  def file_display(*_arg0, **_arg1, &_arg2); end
+  def file_display(*, **, &); end
 
   # Add a media gallery component to the container.
   # @see MediaGalleryBuilder#initialize
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:394
-  def media_gallery(*_arg0, **_arg1, &_arg2); end
+  def media_gallery(*, **, &); end
 
   # Add a row component to the container.
   # @see RowBuilder#initialize
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:362
-  def row(*_arg0, **_arg1, &_arg2); end
+  def row(*, **, &); end
 
   # Add a section component to the container.
   # @see SectionBuilder#initialize
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:376
-  def section(*_arg0, **_arg1, &_arg2); end
+  def section(*, **, &); end
 
   # Add a separator component to the container.
   # @see SeparatorBuilder#initialize
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:382
-  def separator(*_arg0, **_arg1, &_arg2); end
+  def separator(*, **, &); end
 
   # Add a text display component to the container.
   # @see TextDisplayBuilder#initialize
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:388
-  def text_display(*_arg0, **_arg1, &_arg2); end
+  def text_display(*, **, &); end
 
   # @!visibility private
   #
@@ -1129,7 +1129,7 @@ class Discordrb::Webhooks::View::SectionBuilder
   # @see TextDisplayBuilder#initialize
   #
   # pkg:gem/discordrb-webhooks#lib/discordrb/webhooks/view.rb:301
-  def text_display(*_arg0, **_arg1, &_arg2); end
+  def text_display(*, **, &); end
 
   # Set the thumbnail for the section. This is mutually exclusive with {#button}.
   # @param url [String] The URL to the thumbnail image.

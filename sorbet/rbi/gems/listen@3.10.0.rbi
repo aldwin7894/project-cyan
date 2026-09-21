@@ -344,10 +344,10 @@ class Listen::Backend
   def min_delay_between_events; end
 
   # pkg:gem/listen#lib/listen/backend.rb:31
-  def start(*_arg0, **_arg1, &_arg2); end
+  def start(*, **, &); end
 
   # pkg:gem/listen#lib/listen/backend.rb:32
-  def stop(*_arg0, **_arg1, &_arg2); end
+  def stop(*, **, &); end
 
   private
 
@@ -561,13 +561,13 @@ class Listen::Event::Queue
   def <<(args); end
 
   # pkg:gem/listen#lib/listen/event/queue.rb:41
-  def close(*_arg0, **_arg1, &_arg2); end
+  def close(*, **, &); end
 
   # pkg:gem/listen#lib/listen/event/queue.rb:39
-  def empty?(*_arg0, **_arg1, &_arg2); end
+  def empty?(*, **, &); end
 
   # pkg:gem/listen#lib/listen/event/queue.rb:40
-  def pop(*_arg0, **_arg1, &_arg2); end
+  def pop(*, **, &); end
 
   private
 
@@ -833,7 +833,6 @@ class Listen::QueueOptimizer::Config
   def silenced?(path, type); end
 end
 
-# @private api
 # @private api
 #
 # pkg:gem/listen#lib/listen/record/entry.rb:5

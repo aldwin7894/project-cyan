@@ -843,7 +843,7 @@ class MIME::Types
     def logger=(logger); end
 
     # pkg:gem/mime-types#lib/mime/types/registry.rb:9
-    def new(*_arg0); end
+    def new(*); end
 
     # pkg:gem/mime-types#lib/mime/types/registry.rb:38
     def of(filename); end
@@ -1213,7 +1213,7 @@ end
 # pkg:gem/mime-types#lib/mime/types/logger.rb:46
 class MIME::Types::NullLogger < ::Logger
   # pkg:gem/mime-types#lib/mime/types/logger.rb:47
-  def initialize(*_arg0); end
+  def initialize(*); end
 
   # pkg:gem/mime-types#lib/mime/types/logger.rb:56
   def <<(_); end
@@ -1236,13 +1236,13 @@ MIME::Types::VERSION = T.let(T.unsafe(nil), String)
 # pkg:gem/mime-types#lib/mime/types/logger.rb:26
 class MIME::Types::WarnLogger < ::Logger
   # pkg:gem/mime-types#lib/mime/types/logger.rb:39
-  def initialize(*_arg0); end
+  def initialize(*); end
 end
 
 # pkg:gem/mime-types#lib/mime/types/logger.rb:27
 class MIME::Types::WarnLogger::WarnLogDevice < ::Logger::LogDevice
   # pkg:gem/mime-types#lib/mime/types/logger.rb:28
-  def initialize(*_arg0); end
+  def initialize(*); end
 
   # pkg:gem/mime-types#lib/mime/types/logger.rb:35
   def close; end

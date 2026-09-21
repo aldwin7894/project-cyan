@@ -1613,7 +1613,7 @@ class Net::IMAP < ::Net::Protocol
   # +FETCH+ command is prohibited.  Use #uid_fetch instead.
   #
   # pkg:gem/net-imap#lib/net/imap.rb:2756
-  def fetch(*_arg0, **_arg1, &_arg2); end
+  def fetch(*, **, &); end
 
   # Sends a {GETACL command [RFC4314 §3.3]}[https://www.rfc-editor.org/rfc/rfc4314#section-3.3]
   # along with a specified +mailbox+.  If this mailbox exists, an array
@@ -2541,7 +2541,7 @@ class Net::IMAP < ::Net::Protocol
   # the +SEARCH+ command is prohibited.  Use #uid_search instead.
   #
   # pkg:gem/net-imap#lib/net/imap.rb:2667
-  def search(*_arg0, **_arg1, &_arg2); end
+  def search(*, **, &); end
 
   # Sends a {SELECT command [IMAP4rev1 §6.3.1]}[https://www.rfc-editor.org/rfc/rfc3501#section-6.3.1]
   # to select a +mailbox+ so that messages in the +mailbox+ can be accessed.
@@ -2975,7 +2975,7 @@ class Net::IMAP < ::Net::Protocol
   # Otherwise, #uid_fetch is updated by extensions in the same way as #fetch.
   #
   # pkg:gem/net-imap#lib/net/imap.rb:2820
-  def uid_fetch(*_arg0, **_arg1, &_arg2); end
+  def uid_fetch(*, **, &); end
 
   # Sends a {UID MOVE command [RFC6851 §3.2]}[https://www.rfc-editor.org/rfc/rfc6851#section-3.2]
   # {[IMAP4rev2 §6.4.9]}[https://www.rfc-editor.org/rfc/rfc9051#section-6.4.9]
@@ -3025,7 +3025,7 @@ class Net::IMAP < ::Net::Protocol
   # #search.
   #
   # pkg:gem/net-imap#lib/net/imap.rb:2695
-  def uid_search(*_arg0, **_arg1, &_arg2); end
+  def uid_search(*, **, &); end
 
   # Sends a {UID SORT command [RFC5256 §3]}[https://www.rfc-editor.org/rfc/rfc5256#section-3]
   # to search a mailbox for messages that match +search_keys+ and return an
@@ -3192,7 +3192,7 @@ class Net::IMAP < ::Net::Protocol
   def enforce_logindisabled?; end
 
   # pkg:gem/net-imap#lib/net/imap.rb:3804
-  def expunge_internal(*_arg0, **_arg1, &_arg2); end
+  def expunge_internal(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap.rb:3899
   def fetch_internal(cmd, set, attr, mod = T.unsafe(nil), partial: T.unsafe(nil), changedsince: T.unsafe(nil)); end
@@ -3276,16 +3276,16 @@ class Net::IMAP < ::Net::Protocol
   def search_args(keys, charset_arg = T.unsafe(nil), return: T.unsafe(nil), charset: T.unsafe(nil)); end
 
   # pkg:gem/net-imap#lib/net/imap.rb:3873
-  def search_internal(cmd, *_arg1, **_arg2, &_arg3); end
+  def search_internal(cmd, *, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/command_data.rb:96
-  def send_binary_literal(*_arg0, **_arg1); end
+  def send_binary_literal(*, **); end
 
   # pkg:gem/net-imap#lib/net/imap.rb:3683
   def send_command(cmd, *args, &block); end
 
   # pkg:gem/net-imap#lib/net/imap.rb:3934
-  def send_command_returning_fetch_results(*_arg0, **_arg1, &_arg2); end
+  def send_command_returning_fetch_results(*, **, &); end
 
   # Calls send_command, yielding the text of each ContinuationRequest and
   # responding with each block result.  Returns TaggedResponse.  Raises
@@ -3600,7 +3600,7 @@ end
 # pkg:gem/net-imap#lib/net/imap/command_data.rb:301
 class Net::IMAP::Atom < ::Net::IMAP::CommandData
   # pkg:gem/net-imap#lib/net/imap/command_data.rb:302
-  def initialize(**_arg0); end
+  def initialize(**); end
 
   # pkg:gem/net-imap#lib/net/imap/command_data.rb:316
   def send_data(imap, tag); end
@@ -3616,12 +3616,12 @@ module Net::IMAP::Authenticators
   # Deprecated.  Use Net::IMAP::SASL.add_authenticator instead.
   #
   # pkg:gem/net-imap#lib/net/imap/authenticators.rb:7
-  def add_authenticator(*_arg0, **_arg1, &_arg2); end
+  def add_authenticator(*, **, &); end
 
   # Deprecated.  Use Net::IMAP::SASL.authenticator instead.
   #
   # pkg:gem/net-imap#lib/net/imap/authenticators.rb:18
-  def authenticator(*_arg0, **_arg1, &_arg2); end
+  def authenticator(*, **, &); end
 end
 
 # Net::IMAP::BodyStructure is included by all of the structs that can be
@@ -3837,7 +3837,7 @@ class Net::IMAP::CommandData < ::Data
     def new(*_arg0); end
 
     # pkg:gem/net-imap#lib/net/imap/command_data.rb:174
-    def validate(*_arg0, **_arg1, &_arg2); end
+    def validate(*, **, &); end
   end
 end
 
@@ -4191,16 +4191,16 @@ module Net::IMAP::Config::AttrAccessors
   def initialize; end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:197
-  def debug(*_arg0, **_arg1, &_arg2); end
+  def debug(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:197
-  def debug=(*_arg0, **_arg1, &_arg2); end
+  def debug=(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:277
-  def enforce_logindisabled(*_arg0, **_arg1, &_arg2); end
+  def enforce_logindisabled(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:277
-  def enforce_logindisabled=(*_arg0, **_arg1, &_arg2); end
+  def enforce_logindisabled=(*, **, &); end
 
   # Freezes the internal attributes struct, in addition to +self+.
   #
@@ -4208,52 +4208,52 @@ module Net::IMAP::Config::AttrAccessors
   def freeze; end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:223
-  def idle_response_timeout(*_arg0, **_arg1, &_arg2); end
+  def idle_response_timeout(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:223
-  def idle_response_timeout=(*_arg0, **_arg1, &_arg2); end
+  def idle_response_timeout=(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:313
-  def max_non_synchronizing_literal(*_arg0, **_arg1, &_arg2); end
+  def max_non_synchronizing_literal(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:313
-  def max_non_synchronizing_literal=(*_arg0, **_arg1, &_arg2); end
+  def max_non_synchronizing_literal=(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:350
-  def max_response_size(*_arg0, **_arg1, &_arg2); end
+  def max_response_size(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:350
-  def max_response_size=(*_arg0, **_arg1, &_arg2); end
+  def max_response_size=(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:215
-  def open_timeout(*_arg0, **_arg1, &_arg2); end
+  def open_timeout(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:215
-  def open_timeout=(*_arg0, **_arg1, &_arg2); end
+  def open_timeout=(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:453
-  def parser_max_deprecated_uidplus_data_size(*_arg0, **_arg1, &_arg2); end
+  def parser_max_deprecated_uidplus_data_size(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:453
-  def parser_max_deprecated_uidplus_data_size=(*_arg0, **_arg1, &_arg2); end
+  def parser_max_deprecated_uidplus_data_size=(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:423
-  def parser_use_deprecated_uidplus_data(*_arg0, **_arg1, &_arg2); end
+  def parser_use_deprecated_uidplus_data(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:423
-  def parser_use_deprecated_uidplus_data=(*_arg0, **_arg1, &_arg2); end
+  def parser_use_deprecated_uidplus_data=(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:381
-  def responses_without_block(*_arg0, **_arg1, &_arg2); end
+  def responses_without_block(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:381
-  def responses_without_block=(*_arg0, **_arg1, &_arg2); end
+  def responses_without_block=(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:246
-  def sasl_ir(*_arg0, **_arg1, &_arg2); end
+  def sasl_ir(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/config.rb:246
-  def sasl_ir=(*_arg0, **_arg1, &_arg2); end
+  def sasl_ir=(*, **, &); end
 
   protected
 
@@ -5070,7 +5070,7 @@ class Net::IMAP::ESearchResult < ::Data
   # Related: #to_sequence_set, #to_a, #all, #partial
   #
   # pkg:gem/net-imap#lib/net/imap/esearch_result.rb:86
-  def each(&_arg0); end
+  def each(&); end
 
   # :call-seq: max -> integer or nil
   #
@@ -5712,7 +5712,7 @@ class Net::IMAP::FetchStruct < ::Struct
   private
 
   # pkg:gem/net-imap#lib/net/imap/fetch_data.rb:503
-  def body_section_attr(*_arg0, **_arg1, &_arg2); end
+  def body_section_attr(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/fetch_data.rb:505
   def section_attr(attr, part = T.unsafe(nil), text = T.unsafe(nil), offset: T.unsafe(nil)); end
@@ -5861,7 +5861,7 @@ class Net::IMAP::InvalidTaggedResponseError < ::Net::IMAP::InvalidResponseError
   def command; end
 
   # pkg:gem/net-imap#lib/net/imap/errors.rb:347
-  def detailed_message(**_arg0); end
+  def detailed_message(**); end
 
   # The TaggedResponse which triggered this error
   #
@@ -5914,7 +5914,7 @@ class Net::IMAP::Literal < ::Data
 
   class << self
     # pkg:gem/net-imap#lib/net/imap/command_data.rb:337
-    def validate(*_arg0, **_arg1, &_arg2); end
+    def validate(*, **, &); end
   end
 end
 
@@ -5932,7 +5932,7 @@ end
 # pkg:gem/net-imap#lib/net/imap/errors.rb:10
 class Net::IMAP::LoginDisabledError < ::Net::IMAP::Error
   # pkg:gem/net-imap#lib/net/imap/errors.rb:11
-  def initialize(msg = T.unsafe(nil), *_arg1, **_arg2, &_arg3); end
+  def initialize(msg = T.unsafe(nil), *, **, &); end
 end
 
 # MailboxQuota represents the data of an untagged +QUOTA+ response.
@@ -6395,7 +6395,7 @@ class Net::IMAP::ResponseParseError < ::Net::IMAP::Error
   # not empty, only monochromatic highlights are used: bold, underline, etc.
   #
   # pkg:gem/net-imap#lib/net/imap/errors.rb:155
-  def detailed_message(parser_state: T.unsafe(nil), parser_backtrace: T.unsafe(nil), highlight: T.unsafe(nil), highlight_no_color: T.unsafe(nil), **_arg4); end
+  def detailed_message(parser_state: T.unsafe(nil), parser_backtrace: T.unsafe(nil), highlight: T.unsafe(nil), highlight_no_color: T.unsafe(nil), **); end
 
   # The parser's lex state
   #
@@ -6785,10 +6785,10 @@ class Net::IMAP::ResponseParser
   private
 
   # pkg:gem/net-imap#lib/net/imap/response_parser.rb:2058
-  def AppendUID(*_arg0, **_arg1, &_arg2); end
+  def AppendUID(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/response_parser.rb:2059
-  def CopyUID(*_arg0, **_arg1, &_arg2); end
+  def CopyUID(*, **, &); end
 
   # TODO: remove this code in the v0.6.0 release
   #
@@ -8763,7 +8763,7 @@ module Net::IMAP::SASL
     # Delegates to ::authenticators.  See Authenticators#add_authenticator.
     #
     # pkg:gem/net-imap#lib/net/imap/sasl.rb:171
-    def add_authenticator(*_arg0, **_arg1, &_arg2); end
+    def add_authenticator(*, **, &); end
 
     # Creates a new SASL authenticator, using SASL::Authenticators#new.
     #
@@ -8807,7 +8807,7 @@ class Net::IMAP::SASL::AnonymousAuthenticator
   # Any other keyword arguments are silently ignored.
   #
   # pkg:gem/net-imap#lib/net/imap/sasl/anonymous_authenticator.rb:37
-  def initialize(anon_msg = T.unsafe(nil), anonymous_message: T.unsafe(nil), **_arg2); end
+  def initialize(anon_msg = T.unsafe(nil), anonymous_message: T.unsafe(nil), **); end
 
   # An optional token sent for the +ANONYMOUS+ mechanism., up to 255 UTF-8
   # characters in length.
@@ -8949,7 +8949,7 @@ class Net::IMAP::SASL::AuthenticationExchange
     # See also: SASL::ClientAdapter#authenticate
     #
     # pkg:gem/net-imap#lib/net/imap/sasl/authentication_exchange.rb:61
-    def authenticate(*_arg0, **_arg1, &_arg2); end
+    def authenticate(*, **, &); end
 
     # Convenience method to combine the creation of a new authenticator and
     # a new Authentication exchange.
@@ -9061,7 +9061,7 @@ class Net::IMAP::SASL::Authenticators
   #   documentation, e.g. Net::IMAP#authenticate.
   #
   # pkg:gem/net-imap#lib/net/imap/sasl/authenticators.rb:111
-  def authenticator(mechanism, *_arg1, **_arg2, &_arg3); end
+  def authenticator(mechanism, *, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/sasl/authenticators.rb:90
   def mechanism?(name); end
@@ -9072,7 +9072,7 @@ class Net::IMAP::SASL::Authenticators
   def names; end
 
   # pkg:gem/net-imap#lib/net/imap/sasl/authenticators.rb:118
-  def new(mechanism, *_arg1, **_arg2, &_arg3); end
+  def new(mechanism, *, **, &); end
 
   # Removes the authenticator registered for +name+
   #
@@ -9123,7 +9123,7 @@ class Net::IMAP::SASL::ClientAdapter
   def initialize(client, &command_proc); end
 
   # pkg:gem/net-imap#lib/net/imap/sasl/client_adapter.rb:76
-  def auth_capable?(*_arg0, **_arg1, &_arg2); end
+  def auth_capable?(*, **, &); end
 
   # Attempt to authenticate #client to the server.
   #
@@ -9131,7 +9131,7 @@ class Net::IMAP::SASL::ClientAdapter
   # AuthenticationExchange.authenticate.
   #
   # pkg:gem/net-imap#lib/net/imap/sasl/client_adapter.rb:64
-  def authenticate(*_arg0, **_arg1, &_arg2); end
+  def authenticate(*, **, &); end
 
   # The client that handles communication with the protocol server.
   #
@@ -9159,16 +9159,16 @@ class Net::IMAP::SASL::ClientAdapter
   def command_proc; end
 
   # pkg:gem/net-imap#lib/net/imap/sasl/client_adapter.rb:113
-  def drop_connection(*_arg0, **_arg1, &_arg2); end
+  def drop_connection(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/sasl/client_adapter.rb:118
-  def drop_connection!(*_arg0, **_arg1, &_arg2); end
+  def drop_connection!(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/sasl/client_adapter.rb:99
-  def host(*_arg0, **_arg1, &_arg2); end
+  def host(*, **, &); end
 
   # pkg:gem/net-imap#lib/net/imap/sasl/client_adapter.rb:104
-  def port(*_arg0, **_arg1, &_arg2); end
+  def port(*, **, &); end
 
   # Returns an array of server responses errors raised by run_command.
   # Exceptions in this array won't drop the connection.
@@ -9193,7 +9193,7 @@ class Net::IMAP::SASL::ClientAdapter
   def run_command(mechanism, initial_response = T.unsafe(nil), &continuations_handler); end
 
   # pkg:gem/net-imap#lib/net/imap/sasl/client_adapter.rb:69
-  def sasl_ir_capable?(*_arg0, **_arg1, &_arg2); end
+  def sasl_ir_capable?(*, **, &); end
 end
 
 # Authenticator for the "+CRAM-MD5+" SASL mechanism, specified in
@@ -9213,7 +9213,7 @@ end
 # pkg:gem/net-imap#lib/net/imap/sasl/cram_md5_authenticator.rb:16
 class Net::IMAP::SASL::CramMD5Authenticator
   # pkg:gem/net-imap#lib/net/imap/sasl/cram_md5_authenticator.rb:17
-  def initialize(user = T.unsafe(nil), pass = T.unsafe(nil), authcid: T.unsafe(nil), username: T.unsafe(nil), password: T.unsafe(nil), secret: T.unsafe(nil), warn_deprecation: T.unsafe(nil), **_arg7); end
+  def initialize(user = T.unsafe(nil), pass = T.unsafe(nil), authcid: T.unsafe(nil), username: T.unsafe(nil), password: T.unsafe(nil), secret: T.unsafe(nil), warn_deprecation: T.unsafe(nil), **); end
 
   # pkg:gem/net-imap#lib/net/imap/sasl/cram_md5_authenticator.rb:40
   def done?; end
@@ -9278,7 +9278,7 @@ class Net::IMAP::SASL::DigestMD5Authenticator
   # Any other keyword arguments are silently ignored.
   #
   # pkg:gem/net-imap#lib/net/imap/sasl/digest_md5_authenticator.rb:154
-  def initialize(user = T.unsafe(nil), pass = T.unsafe(nil), authz = T.unsafe(nil), username: T.unsafe(nil), password: T.unsafe(nil), authzid: T.unsafe(nil), authcid: T.unsafe(nil), secret: T.unsafe(nil), realm: T.unsafe(nil), service: T.unsafe(nil), host: T.unsafe(nil), service_name: T.unsafe(nil), warn_deprecation: T.unsafe(nil), **_arg13); end
+  def initialize(user = T.unsafe(nil), pass = T.unsafe(nil), authz = T.unsafe(nil), username: T.unsafe(nil), password: T.unsafe(nil), authzid: T.unsafe(nil), authcid: T.unsafe(nil), secret: T.unsafe(nil), realm: T.unsafe(nil), service: T.unsafe(nil), host: T.unsafe(nil), service_name: T.unsafe(nil), warn_deprecation: T.unsafe(nil), **); end
 
   # pkg:gem/net-imap#lib/net/imap/sasl/digest_md5_authenticator.rb:46
   def authcid; end
@@ -9539,7 +9539,7 @@ class Net::IMAP::SASL::ExternalAuthenticator
   # Any other keyword parameters are quietly ignored.
   #
   # pkg:gem/net-imap#lib/net/imap/sasl/external_authenticator.rb:52
-  def initialize(user = T.unsafe(nil), authzid: T.unsafe(nil), username: T.unsafe(nil), **_arg3); end
+  def initialize(user = T.unsafe(nil), authzid: T.unsafe(nil), username: T.unsafe(nil), **); end
 
   # Authorization identity: an identity to act as or on behalf of.  The
   # identity form is application protocol specific.  If not provided or
@@ -9678,7 +9678,7 @@ Net::IMAP::SASL::GS2Header::RFC5801_SASLNAME = T.let(T.unsafe(nil), Regexp)
 # pkg:gem/net-imap#lib/net/imap/sasl/login_authenticator.rb:20
 class Net::IMAP::SASL::LoginAuthenticator
   # pkg:gem/net-imap#lib/net/imap/sasl/login_authenticator.rb:26
-  def initialize(user = T.unsafe(nil), pass = T.unsafe(nil), authcid: T.unsafe(nil), username: T.unsafe(nil), password: T.unsafe(nil), secret: T.unsafe(nil), warn_deprecation: T.unsafe(nil), **_arg7); end
+  def initialize(user = T.unsafe(nil), pass = T.unsafe(nil), authcid: T.unsafe(nil), username: T.unsafe(nil), password: T.unsafe(nil), secret: T.unsafe(nil), warn_deprecation: T.unsafe(nil), **); end
 
   # pkg:gem/net-imap#lib/net/imap/sasl/login_authenticator.rb:55
   def done?; end
@@ -9740,7 +9740,7 @@ class Net::IMAP::SASL::OAuthAuthenticator
   # Any other keyword parameters are quietly ignored.
   #
   # pkg:gem/net-imap#lib/net/imap/sasl/oauthbearer_authenticator.rb:84
-  def initialize(authzid: T.unsafe(nil), host: T.unsafe(nil), port: T.unsafe(nil), username: T.unsafe(nil), query: T.unsafe(nil), mthd: T.unsafe(nil), path: T.unsafe(nil), post: T.unsafe(nil), qs: T.unsafe(nil), **_arg9); end
+  def initialize(authzid: T.unsafe(nil), host: T.unsafe(nil), port: T.unsafe(nil), username: T.unsafe(nil), query: T.unsafe(nil), mthd: T.unsafe(nil), path: T.unsafe(nil), post: T.unsafe(nil), qs: T.unsafe(nil), **); end
 
   # Value of the HTTP Authorization header
   #
@@ -9935,7 +9935,7 @@ class Net::IMAP::SASL::PlainAuthenticator
   # Any other keyword parameters are quietly ignored.
   #
   # pkg:gem/net-imap#lib/net/imap/sasl/plain_authenticator.rb:67
-  def initialize(user = T.unsafe(nil), pass = T.unsafe(nil), authcid: T.unsafe(nil), secret: T.unsafe(nil), username: T.unsafe(nil), password: T.unsafe(nil), authzid: T.unsafe(nil), **_arg7); end
+  def initialize(user = T.unsafe(nil), pass = T.unsafe(nil), authcid: T.unsafe(nil), secret: T.unsafe(nil), username: T.unsafe(nil), password: T.unsafe(nil), authzid: T.unsafe(nil), **); end
 
   # pkg:gem/net-imap#lib/net/imap/sasl/plain_authenticator.rb:25
   def authcid; end
@@ -10536,7 +10536,7 @@ class Net::IMAP::SASL::XOAuth2Authenticator
   # Any other keyword parameters are quietly ignored.
   #
   # pkg:gem/net-imap#lib/net/imap/sasl/xoauth2_authenticator.rb:71
-  def initialize(user = T.unsafe(nil), token = T.unsafe(nil), username: T.unsafe(nil), oauth2_token: T.unsafe(nil), authzid: T.unsafe(nil), secret: T.unsafe(nil), **_arg6); end
+  def initialize(user = T.unsafe(nil), token = T.unsafe(nil), username: T.unsafe(nil), oauth2_token: T.unsafe(nil), authzid: T.unsafe(nil), secret: T.unsafe(nil), **); end
 
   # Note that, unlike most other authenticators, #username is an alias for the
   # authorization identity and not the authentication identity.  The
@@ -12693,7 +12693,7 @@ class Net::IMAP::SequenceSet
   def slice_range(range); end
 
   # pkg:gem/net-imap#lib/net/imap/sequence_set.rb:2128
-  def slice_runs!(*_arg0, **_arg1, &_arg2); end
+  def slice_runs!(*, **, &); end
 
   #         |====subtracted run=======|
   # --|====|                               no more       1. noop
@@ -12876,9 +12876,6 @@ Net::IMAP::StringFormatter::LITERAL_REGEX = T.let(T.unsafe(nil), Regexp)
 # {RFC-3454}[https://www.rfc-editor.org/rfc/rfc3454.html].  Each
 # codepoint table defined in the RFC-3454 appendices is matched by a Regexp
 # defined in this module.
-# --
-# This file is generated from RFC3454, by rake.  Don't edit directly.
-# ++
 # --
 # This file is generated from RFC3454, by rake.  Don't edit directly.
 # ++
@@ -13561,7 +13558,7 @@ class Net::IMAP::UIDFetchData < ::Net::IMAP::FetchStruct
   # but not identical to #uid.
   #
   # pkg:gem/net-imap#lib/net/imap/fetch_data.rb:588
-  def initialize(*_arg0, **_arg1, &_arg2); end
+  def initialize(*, **, &); end
 end
 
 # pkg:gem/net-imap#lib/net/imap/command_data.rb:61
@@ -13682,7 +13679,7 @@ class Net::IMAP::VanishedData < ::Data
   # See SequenceSet#each_number.
   #
   # pkg:gem/net-imap#lib/net/imap/vanished_data.rb:58
-  def each(&_arg0); end
+  def each(&); end
 
   # rdoc doesn't handle attr aliases nicely. :(
   #

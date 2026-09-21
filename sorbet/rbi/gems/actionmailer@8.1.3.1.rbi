@@ -604,13 +604,13 @@ class ActionMailer::Base < ::AbstractController::Base
   def _view_cache_dependencies?; end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
-  def asset_host(*_arg0, **_arg1, &_arg2); end
+  def asset_host(*, **, &); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
   def asset_host=(arg); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
-  def assets_dir(*_arg0, **_arg1, &_arg2); end
+  def assets_dir(*, **, &); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
   def assets_dir=(arg); end
@@ -648,7 +648,7 @@ class ActionMailer::Base < ::AbstractController::Base
   def attachments; end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
-  def default_asset_host_protocol(*_arg0, **_arg1, &_arg2); end
+  def default_asset_host_protocol(*, **, &); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
   def default_asset_host_protocol=(arg); end
@@ -663,7 +663,7 @@ class ActionMailer::Base < ::AbstractController::Base
   def default_params?; end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:495
-  def default_static_extension(*_arg0, **_arg1, &_arg2); end
+  def default_static_extension(*, **, &); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:495
   def default_static_extension=(arg); end
@@ -712,7 +712,7 @@ class ActionMailer::Base < ::AbstractController::Base
   def email_address_with_name(address, name); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:495
-  def enable_fragment_cache_logging(*_arg0, **_arg1, &_arg2); end
+  def enable_fragment_cache_logging(*, **, &); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:495
   def enable_fragment_cache_logging=(arg); end
@@ -774,13 +774,13 @@ class ActionMailer::Base < ::AbstractController::Base
   def headers(args = T.unsafe(nil)); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
-  def javascripts_dir(*_arg0, **_arg1, &_arg2); end
+  def javascripts_dir(*, **, &); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
   def javascripts_dir=(arg); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:490
-  def logger(*_arg0, **_arg1, &_arg2); end
+  def logger(*, **, &); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:490
   def logger=(arg); end
@@ -895,7 +895,7 @@ class ActionMailer::Base < ::AbstractController::Base
   def params=(_arg0); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:495
-  def perform_caching(*_arg0, **_arg1, &_arg2); end
+  def perform_caching(*, **, &); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:495
   def perform_caching=(arg); end
@@ -913,7 +913,7 @@ class ActionMailer::Base < ::AbstractController::Base
   def preview_paths; end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:645
-  def process(method_name, *args, **_arg2); end
+  def process(method_name, *args, **); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:479
   def raise_delivery_errors; end
@@ -928,7 +928,7 @@ class ActionMailer::Base < ::AbstractController::Base
   def raise_on_missing_callback_actions=(val); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
-  def relative_url_root(*_arg0, **_arg1, &_arg2); end
+  def relative_url_root(*, **, &); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
   def relative_url_root=(arg); end
@@ -964,7 +964,7 @@ class ActionMailer::Base < ::AbstractController::Base
   def smtp_settings?; end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
-  def stylesheets_dir(*_arg0, **_arg1, &_arg2); end
+  def stylesheets_dir(*, **, &); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
   def stylesheets_dir=(arg); end
@@ -1116,13 +1116,13 @@ class ActionMailer::Base < ::AbstractController::Base
     def _view_cache_dependencies?; end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
-    def asset_host(*_arg0, **_arg1, &_arg2); end
+    def asset_host(*, **, &); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
     def asset_host=(arg); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
-    def assets_dir(*_arg0, **_arg1, &_arg2); end
+    def assets_dir(*, **, &); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
     def assets_dir=(arg); end
@@ -1138,7 +1138,7 @@ class ActionMailer::Base < ::AbstractController::Base
     def default(value = T.unsafe(nil)); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
-    def default_asset_host_protocol(*_arg0, **_arg1, &_arg2); end
+    def default_asset_host_protocol(*, **, &); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
     def default_asset_host_protocol=(arg); end
@@ -1156,7 +1156,7 @@ class ActionMailer::Base < ::AbstractController::Base
     def default_params?; end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:495
-    def default_static_extension(*_arg0, **_arg1, &_arg2); end
+    def default_static_extension(*, **, &); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:495
     def default_static_extension=(arg); end
@@ -1215,7 +1215,7 @@ class ActionMailer::Base < ::AbstractController::Base
     def email_address_with_name(address, name); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:495
-    def enable_fragment_cache_logging(*_arg0, **_arg1, &_arg2); end
+    def enable_fragment_cache_logging(*, **, &); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:495
     def enable_fragment_cache_logging=(arg); end
@@ -1239,13 +1239,13 @@ class ActionMailer::Base < ::AbstractController::Base
     def fragment_cache_keys?; end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
-    def javascripts_dir(*_arg0, **_arg1, &_arg2); end
+    def javascripts_dir(*, **, &); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
     def javascripts_dir=(arg); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:490
-    def logger(*_arg0, **_arg1, &_arg2); end
+    def logger(*, **, &); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:490
     def logger=(arg); end
@@ -1265,7 +1265,7 @@ class ActionMailer::Base < ::AbstractController::Base
     def mailer_name=(_arg0); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:495
-    def perform_caching(*_arg0, **_arg1, &_arg2); end
+    def perform_caching(*, **, &); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:495
     def perform_caching=(arg); end
@@ -1325,7 +1325,7 @@ class ActionMailer::Base < ::AbstractController::Base
     def register_observers(*observers); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
-    def relative_url_root(*_arg0, **_arg1, &_arg2); end
+    def relative_url_root(*, **, &); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
     def relative_url_root=(arg); end
@@ -1364,7 +1364,7 @@ class ActionMailer::Base < ::AbstractController::Base
     def smtp_settings?; end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
-    def stylesheets_dir(*_arg0, **_arg1, &_arg2); end
+    def stylesheets_dir(*, **, &); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:493
     def stylesheets_dir=(arg); end
@@ -1518,7 +1518,7 @@ class ActionMailer::Base < ::AbstractController::Base
     def __class_attr_test_settings=(new_value); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:624
-    def method_missing(method_name, *_arg1, **_arg2, &_arg3); end
+    def method_missing(method_name, *, **, &); end
 
     # pkg:gem/actionmailer#lib/action_mailer/base.rb:559
     def observer_class_for(value); end
@@ -1536,10 +1536,10 @@ module ActionMailer::Base::HelperMethods
   include ::ActionMailer::MailHelper
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:495
-  def combined_fragment_cache_key(*_arg0, **_arg1, &_arg2); end
+  def combined_fragment_cache_key(*, **, &); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:495
-  def view_cache_dependencies(*_arg0, **_arg1, &_arg2); end
+  def view_cache_dependencies(*, **, &); end
 end
 
 # pkg:gem/actionmailer#lib/action_mailer/base.rb:764
@@ -1565,7 +1565,7 @@ class ActionMailer::Base::NullMail
   def header; end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:667
-  def method_missing(*_arg0, **_arg1, &_arg2); end
+  def method_missing(*, **, &); end
 
   # pkg:gem/actionmailer#lib/action_mailer/base.rb:663
   def respond_to?(string, include_all = T.unsafe(nil)); end
@@ -1715,7 +1715,7 @@ module ActionMailer::DeliveryMethods::ClassMethods
   def add_delivery_method(symbol, klass, default_options = T.unsafe(nil)); end
 
   # pkg:gem/actionmailer#lib/action_mailer/delivery_methods.rb:43
-  def deliveries(&_arg0); end
+  def deliveries(&); end
 
   # pkg:gem/actionmailer#lib/action_mailer/delivery_methods.rb:43
   def deliveries=(arg); end
@@ -1951,7 +1951,7 @@ end
 # pkg:gem/actionmailer#lib/action_mailer/message_delivery.rb:51
 class ActionMailer::MessageDelivery
   # pkg:gem/actionmailer#lib/action_mailer/message_delivery.rb:54
-  def initialize(mailer_class, action, *args, **_arg3); end
+  def initialize(mailer_class, action, *args, **); end
 
   # Method calls are delegated to the Mail::Message that's ready to deliver.
   #
@@ -2187,7 +2187,7 @@ class ActionMailer::Parameterized::Mailer
   private
 
   # pkg:gem/actionmailer#lib/action_mailer/parameterized.rb:117
-  def method_missing(method_name, *_arg1, **_arg2, &_arg3); end
+  def method_missing(method_name, *, **, &); end
 
   # pkg:gem/actionmailer#lib/action_mailer/parameterized.rb:125
   def respond_to_missing?(method, include_all = T.unsafe(nil)); end
@@ -2196,7 +2196,7 @@ end
 # pkg:gem/actionmailer#lib/action_mailer/parameterized.rb:130
 class ActionMailer::Parameterized::MessageDelivery < ::ActionMailer::MessageDelivery
   # pkg:gem/actionmailer#lib/action_mailer/parameterized.rb:131
-  def initialize(mailer_class, action, params, *_arg3, **_arg4, &_arg5); end
+  def initialize(mailer_class, action, params, *, **, &); end
 
   private
 
@@ -2362,7 +2362,7 @@ module ActionMailer::Rescuable
   private
 
   # pkg:gem/actionmailer#lib/action_mailer/rescuable.rb:27
-  def process(*_arg0, **_arg1, &_arg2); end
+  def process(*, **, &); end
 
   module GeneratedClassMethods
     def rescue_handlers; end

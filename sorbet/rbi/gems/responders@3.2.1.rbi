@@ -386,7 +386,7 @@ class ActionController::Responder
   def controller; end
 
   # pkg:gem/responders#lib/action_controller/responder.rb:156
-  def delete?(*_arg0, **_arg1, &_arg2); end
+  def delete?(*, **, &); end
 
   # pkg:gem/responders#lib/action_controller/responder.rb:128
   def error_status; end
@@ -395,31 +395,31 @@ class ActionController::Responder
   def format; end
 
   # pkg:gem/responders#lib/action_controller/responder.rb:156
-  def get?(*_arg0, **_arg1, &_arg2); end
+  def get?(*, **, &); end
 
   # pkg:gem/responders#lib/action_controller/responder.rb:155
-  def head(*_arg0, **_arg1, &_arg2); end
+  def head(*, **, &); end
 
   # pkg:gem/responders#lib/action_controller/responder.rb:131
   def options; end
 
   # pkg:gem/responders#lib/action_controller/responder.rb:156
-  def patch?(*_arg0, **_arg1, &_arg2); end
+  def patch?(*, **, &); end
 
   # pkg:gem/responders#lib/action_controller/responder.rb:156
-  def post?(*_arg0, **_arg1, &_arg2); end
+  def post?(*, **, &); end
 
   # pkg:gem/responders#lib/action_controller/responder.rb:156
-  def put?(*_arg0, **_arg1, &_arg2); end
+  def put?(*, **, &); end
 
   # pkg:gem/responders#lib/action_controller/responder.rb:129
   def redirect_status; end
 
   # pkg:gem/responders#lib/action_controller/responder.rb:155
-  def redirect_to(*_arg0, **_arg1, &_arg2); end
+  def redirect_to(*, **, &); end
 
   # pkg:gem/responders#lib/action_controller/responder.rb:155
-  def render(*_arg0, **_arg1, &_arg2); end
+  def render(*, **, &); end
 
   # pkg:gem/responders#lib/action_controller/responder.rb:131
   def request; end

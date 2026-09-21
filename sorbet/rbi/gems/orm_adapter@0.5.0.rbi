@@ -123,6 +123,9 @@ module Mongoid::Document
     def _declared_scopes; end
     def _declared_scopes=(value); end
     def _declared_scopes?; end
+    def _dependents_owner; end
+    def _dependents_owner=(value); end
+    def _dependents_owner?; end
     def _validators; end
     def _validators=(value); end
     def _validators?; end
@@ -141,9 +144,6 @@ module Mongoid::Document
     def dependents; end
     def dependents=(value); end
     def dependents?; end
-    def dependents_owner; end
-    def dependents_owner=(value); end
-    def dependents_owner?; end
     def discriminator_key; end
     def discriminator_key=(value); end
     def discriminator_key?; end
@@ -199,6 +199,9 @@ module Mongoid::Document
     def _declared_scopes; end
     def _declared_scopes=(value); end
     def _declared_scopes?; end
+    def _dependents_owner; end
+    def _dependents_owner=(value); end
+    def _dependents_owner?; end
     def _validators; end
     def _validators?; end
     def aliased_associations; end
@@ -216,9 +219,6 @@ module Mongoid::Document
     def dependents; end
     def dependents=(value); end
     def dependents?; end
-    def dependents_owner; end
-    def dependents_owner=(value); end
-    def dependents_owner?; end
     def embedded=(value); end
     def embedded_relations; end
     def embedded_relations=(value); end

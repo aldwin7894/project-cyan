@@ -16,6 +16,9 @@ module Mongoid::Association
   mixes_in_class_methods GeneratedClassMethods
 
   module GeneratedClassMethods
+    def _dependents_owner; end
+    def _dependents_owner=(value); end
+    def _dependents_owner?; end
     def aliased_associations; end
     def aliased_associations=(value); end
     def aliased_associations?; end
@@ -25,9 +28,6 @@ module Mongoid::Association
     def dependents; end
     def dependents=(value); end
     def dependents?; end
-    def dependents_owner; end
-    def dependents_owner=(value); end
-    def dependents_owner?; end
     def embedded; end
     def embedded=(value); end
     def embedded?; end
@@ -46,6 +46,9 @@ module Mongoid::Association
   end
 
   module GeneratedInstanceMethods
+    def _dependents_owner; end
+    def _dependents_owner=(value); end
+    def _dependents_owner?; end
     def aliased_associations; end
     def aliased_associations=(value); end
     def aliased_associations?; end
@@ -55,9 +58,6 @@ module Mongoid::Association
     def dependents; end
     def dependents=(value); end
     def dependents?; end
-    def dependents_owner; end
-    def dependents_owner=(value); end
-    def dependents_owner?; end
     def embedded=(value); end
     def embedded_relations; end
     def embedded_relations=(value); end

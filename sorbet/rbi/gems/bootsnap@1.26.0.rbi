@@ -286,10 +286,10 @@ end
 # pkg:gem/bootsnap#lib/bootsnap/compile_cache/yaml.rb:343
 module Bootsnap::CompileCache::YAML::Psych3::Patch
   # pkg:gem/bootsnap#lib/bootsnap/compile_cache/yaml.rb:344
-  def load_file(path, *args, **_arg2); end
+  def load_file(path, *args, **); end
 
   # pkg:gem/bootsnap#lib/bootsnap/compile_cache/yaml.rb:365
-  def unsafe_load_file(path, *args, **_arg2); end
+  def unsafe_load_file(path, *args, **); end
 end
 
 # pkg:gem/bootsnap#lib/bootsnap/compile_cache/yaml.rb:190
@@ -303,10 +303,10 @@ end
 # pkg:gem/bootsnap#lib/bootsnap/compile_cache/yaml.rb:270
 module Bootsnap::CompileCache::YAML::Psych4::Patch
   # pkg:gem/bootsnap#lib/bootsnap/compile_cache/yaml.rb:271
-  def load_file(path, *args, **_arg2); end
+  def load_file(path, *args, **); end
 
   # pkg:gem/bootsnap#lib/bootsnap/compile_cache/yaml.rb:292
-  def unsafe_load_file(path, *args, **_arg2); end
+  def unsafe_load_file(path, *args, **); end
 end
 
 # pkg:gem/bootsnap#lib/bootsnap/compile_cache/yaml.rb:232

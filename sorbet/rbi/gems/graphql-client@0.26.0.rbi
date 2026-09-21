@@ -644,13 +644,13 @@ class GraphQL::Client::HashWithIndifferentAccess
   def [](key); end
 
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:29
-  def each(*_arg0, **_arg1, &_arg2); end
+  def each(*, **, &); end
 
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:46
   def each_key(&block); end
 
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:29
-  def empty?(*_arg0, **_arg1, &_arg2); end
+  def empty?(*, **, &); end
 
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:35
   def fetch(key, *args, &block); end
@@ -662,31 +662,31 @@ class GraphQL::Client::HashWithIndifferentAccess
   def include?(key); end
 
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:29
-  def inspect(*_arg0, **_arg1, &_arg2); end
+  def inspect(*, **, &); end
 
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:39
   def key?(key); end
 
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:29
-  def keys(*_arg0, **_arg1, &_arg2); end
+  def keys(*, **, &); end
 
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:29
-  def length(*_arg0, **_arg1, &_arg2); end
+  def length(*, **, &); end
 
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:44
   def member?(key); end
 
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:29
-  def size(*_arg0, **_arg1, &_arg2); end
+  def size(*, **, &); end
 
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:29
-  def to_h(*_arg0, **_arg1, &_arg2); end
+  def to_h(*, **, &); end
 
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:29
-  def to_hash(*_arg0, **_arg1, &_arg2); end
+  def to_hash(*, **, &); end
 
   # pkg:gem/graphql-client#lib/graphql/client/hash_with_indifferent_access.rb:29
-  def values(*_arg0, **_arg1, &_arg2); end
+  def values(*, **, &); end
 
   private
 

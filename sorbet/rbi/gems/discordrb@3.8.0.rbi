@@ -6977,7 +6977,7 @@ class Discordrb::Errors::CodeError < ::RuntimeError
   # @return [String] A message including the message and flattened errors.
   #
   # pkg:gem/discordrb#lib/discordrb/errors.rb:48
-  def full_message(*_arg0); end
+  def full_message(*); end
 
   # @return [String] This error's represented message
   #
@@ -8777,7 +8777,7 @@ class Discordrb::Events::InteractionCreateEvent < ::Discordrb::Events::Event
   # @see Interaction#defer
   #
   # pkg:gem/discordrb#lib/discordrb/events/interactions.rb:59
-  def defer(*_arg0, **_arg1, &_arg2); end
+  def defer(*, **, &); end
 
   # @see Interaction#defer_update
   #
@@ -8787,7 +8787,7 @@ class Discordrb::Events::InteractionCreateEvent < ::Discordrb::Events::Event
   # @see Interaction#delete_message
   #
   # pkg:gem/discordrb#lib/discordrb/events/interactions.rb:94
-  def delete_message(*_arg0, **_arg1, &_arg2); end
+  def delete_message(*, **, &); end
 
   # @see Interaction#delete_response
   #
@@ -8797,17 +8797,17 @@ class Discordrb::Events::InteractionCreateEvent < ::Discordrb::Events::Event
   # @see Interaction#edit_message
   #
   # pkg:gem/discordrb#lib/discordrb/events/interactions.rb:89
-  def edit_message(*_arg0, **_arg1, &_arg2); end
+  def edit_message(*, **, &); end
 
   # @see Interaction#edit_response
   #
   # pkg:gem/discordrb#lib/discordrb/events/interactions.rb:74
-  def edit_response(*_arg0, **_arg1, &_arg2); end
+  def edit_response(*, **, &); end
 
   # @see Interaction#get_component
   #
   # pkg:gem/discordrb#lib/discordrb/events/interactions.rb:104
-  def get_component(*_arg0, **_arg1, &_arg2); end
+  def get_component(*, **, &); end
 
   # @return [Interaction] The interaction for this event.
   #
@@ -8817,12 +8817,12 @@ class Discordrb::Events::InteractionCreateEvent < ::Discordrb::Events::Event
   # @see Interaction#respond
   #
   # pkg:gem/discordrb#lib/discordrb/events/interactions.rb:54
-  def respond(*_arg0, **_arg1, &_arg2); end
+  def respond(*, **, &); end
 
   # @see Interaction#send_message
   #
   # pkg:gem/discordrb#lib/discordrb/events/interactions.rb:84
-  def send_message(*_arg0, **_arg1, &_arg2); end
+  def send_message(*, **, &); end
 
   # pkg:gem/discordrb#lib/discordrb/events/interactions.rb:45
   def server; end
@@ -8836,7 +8836,7 @@ class Discordrb::Events::InteractionCreateEvent < ::Discordrb::Events::Event
   # @see Interaction#show_modal
   #
   # pkg:gem/discordrb#lib/discordrb/events/interactions.rb:69
-  def show_modal(*_arg0, **_arg1, &_arg2); end
+  def show_modal(*, **, &); end
 
   # pkg:gem/discordrb#lib/discordrb/events/interactions.rb:45
   def type; end
@@ -8844,7 +8844,7 @@ class Discordrb::Events::InteractionCreateEvent < ::Discordrb::Events::Event
   # @see Interaction#update_message
   #
   # pkg:gem/discordrb#lib/discordrb/events/interactions.rb:64
-  def update_message(*_arg0, **_arg1, &_arg2); end
+  def update_message(*, **, &); end
 
   # pkg:gem/discordrb#lib/discordrb/events/interactions.rb:45
   def user; end
@@ -9590,13 +9590,13 @@ module Discordrb::Events::Respondable
   def respond(content, tts = T.unsafe(nil), embed = T.unsafe(nil), attachments = T.unsafe(nil), allowed_mentions = T.unsafe(nil), message_reference = T.unsafe(nil), components = T.unsafe(nil), flags = T.unsafe(nil)); end
 
   # pkg:gem/discordrb#lib/discordrb/events/message.rb:98
-  def respond!(*_arg0, **_arg1, &_arg2); end
+  def respond!(*, **, &); end
 
   # pkg:gem/discordrb#lib/discordrb/events/message.rb:93
   def send(content, tts = T.unsafe(nil), embed = T.unsafe(nil), attachments = T.unsafe(nil), allowed_mentions = T.unsafe(nil), message_reference = T.unsafe(nil), components = T.unsafe(nil), flags = T.unsafe(nil)); end
 
   # pkg:gem/discordrb#lib/discordrb/events/message.rb:97
-  def send!(*_arg0, **_arg1, &_arg2); end
+  def send!(*, **, &); end
 
   # The same as {#send_message}, but yields a {Webhooks::Embed} for easy building of embedded content inside a block.
   # @see Channel#send_embed
@@ -9634,7 +9634,7 @@ module Discordrb::Events::Respondable
   # @see Channel#send_message!
   #
   # pkg:gem/discordrb#lib/discordrb/events/message.rb:59
-  def send_message!(*_arg0, **_arg1, &_arg2); end
+  def send_message!(*, **, &); end
 
   # pkg:gem/discordrb#lib/discordrb/events/message.rb:95
   def send_temp(content, timeout, tts = T.unsafe(nil), embed = T.unsafe(nil), attachments = T.unsafe(nil), allowed_mentions = T.unsafe(nil), components = T.unsafe(nil), flags = T.unsafe(nil)); end

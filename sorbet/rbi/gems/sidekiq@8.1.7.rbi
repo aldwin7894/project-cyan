@@ -421,7 +421,7 @@ class Sidekiq::Client
     def push(item); end
 
     # pkg:gem/sidekiq#lib/sidekiq/client.rb:213
-    def push_bulk(*_arg0, **_arg1, &_arg2); end
+    def push_bulk(*, **, &); end
 
     # Allows sharding of jobs across any number of Redis instances.  All jobs
     # defined within the block will use the given Redis connection pool.
@@ -516,10 +516,10 @@ class Sidekiq::Config
   def initialize(options = T.unsafe(nil)); end
 
   # pkg:gem/sidekiq#lib/sidekiq/config.rb:71
-  def [](*_arg0, **_arg1, &_arg2); end
+  def [](*, **, &); end
 
   # pkg:gem/sidekiq#lib/sidekiq/config.rb:71
-  def []=(*_arg0, **_arg1, &_arg2); end
+  def []=(*, **, &); end
 
   # How frequently Redis should be checked by a random Sidekiq process for
   # scheduled and retriable jobs. Each individual process will take turns by
@@ -566,7 +566,7 @@ class Sidekiq::Config
   def default_capsule(&block); end
 
   # pkg:gem/sidekiq#lib/sidekiq/config.rb:71
-  def dig(*_arg0, **_arg1, &_arg2); end
+  def dig(*, **, &); end
 
   # Register a proc to handle any error which occurs within the Sidekiq process.
   #
@@ -580,7 +580,7 @@ class Sidekiq::Config
   def error_handlers; end
 
   # pkg:gem/sidekiq#lib/sidekiq/config.rb:71
-  def fetch(*_arg0, **_arg1, &_arg2); end
+  def fetch(*, **, &); end
 
   # pkg:gem/sidekiq#lib/sidekiq/config.rb:227
   def freeze!; end
@@ -591,13 +591,13 @@ class Sidekiq::Config
   def handle_exception(ex, ctx = T.unsafe(nil)); end
 
   # pkg:gem/sidekiq#lib/sidekiq/config.rb:71
-  def has_key?(*_arg0, **_arg1, &_arg2); end
+  def has_key?(*, **, &); end
 
   # pkg:gem/sidekiq#lib/sidekiq/config.rb:75
   def inspect; end
 
   # pkg:gem/sidekiq#lib/sidekiq/config.rb:71
-  def key?(*_arg0, **_arg1, &_arg2); end
+  def key?(*, **, &); end
 
   # pkg:gem/sidekiq#lib/sidekiq/config.rb:157
   def local_redis_pool; end
@@ -614,7 +614,7 @@ class Sidekiq::Config
   def lookup(name, default_class = T.unsafe(nil)); end
 
   # pkg:gem/sidekiq#lib/sidekiq/config.rb:71
-  def merge!(*_arg0, **_arg1, &_arg2); end
+  def merge!(*, **, &); end
 
   # pkg:gem/sidekiq#lib/sidekiq/config.rb:163
   def new_redis_pool(size, name = T.unsafe(nil)); end
@@ -680,7 +680,7 @@ class Sidekiq::Config
   def thread_priority=(_arg0); end
 
   # pkg:gem/sidekiq#lib/sidekiq/config.rb:81
-  def to_json(*_arg0); end
+  def to_json(*); end
 
   # pkg:gem/sidekiq#lib/sidekiq/config.rb:95
   def total_concurrency; end
@@ -1064,7 +1064,7 @@ module Sidekiq::Job::Iterable
   #     implement an override for this method.
   #
   # pkg:gem/sidekiq#lib/sidekiq/job/iterable.rb:121
-  def build_enumerator(*_arg0); end
+  def build_enumerator(*); end
 
   # Set a flag in Redis to mark this job as cancelled.
   # Cancellation is asynchronous and is checked at the start of iteration
@@ -1094,7 +1094,7 @@ module Sidekiq::Job::Iterable
   #     implement an override for this method.
   #
   # pkg:gem/sidekiq#lib/sidekiq/job/iterable.rb:132
-  def each_iteration(*_arg0); end
+  def each_iteration(*); end
 
   # pkg:gem/sidekiq#lib/sidekiq/job/iterable.rb:136
   def iteration_key; end
@@ -2602,7 +2602,7 @@ module Sidekiq::RedisClientAdapter::CompatMethods
   # redis-client's native `conn.call("hmset", ...)`
   #
   # pkg:gem/sidekiq#lib/sidekiq/redis_client_adapter.rb:43
-  def method_missing(*args, **_arg1, &block); end
+  def method_missing(*args, **, &block); end
 
   # pkg:gem/sidekiq#lib/sidekiq/redis_client_adapter.rb:49
   def respond_to_missing?(name, include_private = T.unsafe(nil)); end
@@ -3254,7 +3254,7 @@ class Sidekiq::Web::Application
   def process_csp(env, input); end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/application.rb:431
-  def redis(&_arg0); end
+  def redis(&); end
 
   class << self
     # Used by extensions to add helper methods accessible to
@@ -3299,10 +3299,10 @@ class Sidekiq::Web::Config
   def initialize; end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/config.rb:64
-  def [](*_arg0, **_arg1, &_arg2); end
+  def [](*, **, &); end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/config.rb:64
-  def []=(*_arg0, **_arg1, &_arg2); end
+  def []=(*, **, &); end
 
   # Adds the "Back to App" link in the header
   #
@@ -3357,22 +3357,22 @@ class Sidekiq::Web::Config
   def custom_job_info_rows=(_arg0); end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/config.rb:64
-  def dig(*_arg0, **_arg1, &_arg2); end
+  def dig(*, **, &); end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/config.rb:64
-  def fetch(*_arg0, **_arg1, &_arg2); end
+  def fetch(*, **, &); end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/config.rb:64
-  def has_key?(*_arg0, **_arg1, &_arg2); end
+  def has_key?(*, **, &); end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/config.rb:64
-  def key?(*_arg0, **_arg1, &_arg2); end
+  def key?(*, **, &); end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/config.rb:46
   def locales; end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/config.rb:64
-  def merge!(*_arg0, **_arg1, &_arg2); end
+  def merge!(*, **, &); end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/config.rb:48
   def middlewares; end
@@ -3473,25 +3473,25 @@ Sidekiq::Web::Route::NAMED_SEGMENTS_PATTERN = T.let(T.unsafe(nil), Regexp)
 # pkg:gem/sidekiq#lib/sidekiq/web/router.rb:9
 module Sidekiq::Web::Router
   # pkg:gem/sidekiq#lib/sidekiq/web/router.rb:20
-  def delete(path, &_arg1); end
+  def delete(path, &); end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/router.rb:12
-  def get(path, &_arg1); end
+  def get(path, &); end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/router.rb:10
-  def head(path, &_arg1); end
+  def head(path, &); end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/router.rb:29
   def match(env); end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/router.rb:18
-  def patch(path, &_arg1); end
+  def patch(path, &); end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/router.rb:14
-  def post(path, &_arg1); end
+  def post(path, &); end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/router.rb:16
-  def put(path, &_arg1); end
+  def put(path, &); end
 
   # pkg:gem/sidekiq#lib/sidekiq/web/router.rb:22
   def route(*methods, path, &block); end

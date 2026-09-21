@@ -929,7 +929,7 @@ end
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:35
 class SidekiqUniqueJobs::Config < ::Concurrent::MutableStruct::ThreadSafeConfig
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/config.rb:36
-  def initialize(*_arg0); end
+  def initialize(*); end
 
   # Adds a lock type to the configuration. It will raise if the lock exists already
   #
@@ -1964,7 +1964,7 @@ class SidekiqUniqueJobs::Lock::BaseLock
   def lock; end
 
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/lock/base_lock.rb:33
-  def locked?(*_arg0, **_arg1, &_arg2); end
+  def locked?(*, **, &); end
 
   # The lock manager/client
   #
@@ -4824,7 +4824,7 @@ class SidekiqUniqueJobs::Redis::String < ::SidekiqUniqueJobs::Redis::Entity
   # Removes the key from redis
   #
   # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/redis/string.rb:37
-  def del(*_arg0); end
+  def del(*); end
 
   # Sets the value of the key to given object
   #
@@ -4939,12 +4939,6 @@ SidekiqUniqueJobs::Reflections::REFLECTIONS = T.let(T.unsafe(nil), Array)
 # pkg:gem/sidekiq-unique-jobs#lib/sidekiq_unique_jobs/constants.rb:42
 SidekiqUniqueJobs::SCHEDULE = T.let(T.unsafe(nil), String)
 
-# Interface to dealing with .lua files
-#
-# @author Mikael Henriksson <mikael@mhenrixon.com>
-# Interface to dealing with .lua files
-#
-# @author Mikael Henriksson <mikael@mhenrixon.com>
 # Interface to dealing with .lua files
 #
 # @author Mikael Henriksson <mikael@mhenrixon.com>

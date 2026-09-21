@@ -10,7 +10,6 @@
 # this is gonna break some shit?
 # for ruby 3
 # :stopdoc:
-# :stopdoc:
 # :startdoc:
 #
 # pkg:gem/minitest#lib/minitest/parallel.rb:3

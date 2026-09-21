@@ -10,9 +10,6 @@
 # Copyright, 2022, by Jeremy Evans.
 # Released under the MIT License.
 # Copyright, 2022-2023, by Samuel Williams.
-# Copyright, 2022, by Jeremy Evans.
-# Released under the MIT License.
-# Copyright, 2022-2023, by Samuel Williams.
 #
 # pkg:gem/rack-session#lib/rack/session/constants.rb:7
 module Rack; end
@@ -214,10 +211,10 @@ Rack::Session::Abstract::Persisted::DEFAULT_OPTIONS = T.let(T.unsafe(nil), Hash)
 # pkg:gem/rack-session#lib/rack/session/abstract/id.rb:460
 class Rack::Session::Abstract::PersistedSecure < ::Rack::Session::Abstract::Persisted
   # pkg:gem/rack-session#lib/rack/session/abstract/id.rb:483
-  def extract_session_id(*_arg0); end
+  def extract_session_id(*); end
 
   # pkg:gem/rack-session#lib/rack/session/abstract/id.rb:477
-  def generate_sid(*_arg0); end
+  def generate_sid(*); end
 
   private
 

@@ -70,16 +70,16 @@ class ActionView::AbstractRenderer
   def initialize(lookup_context); end
 
   # pkg:gem/actionview#lib/action_view/renderer/abstract_renderer.rb:22
-  def any_templates?(*_arg0, **_arg1, &_arg2); end
+  def any_templates?(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/renderer/abstract_renderer.rb:22
-  def formats(*_arg0, **_arg1, &_arg2); end
+  def formats(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/renderer/abstract_renderer.rb:28
   def render; end
 
   # pkg:gem/actionview#lib/action_view/renderer/abstract_renderer.rb:22
-  def template_exists?(*_arg0, **_arg1, &_arg2); end
+  def template_exists?(*, **, &); end
 
   private
 
@@ -446,7 +446,7 @@ class ActionView::Base
   def field_error_proc=(val); end
 
   # pkg:gem/actionview#lib/action_view/base.rb:226
-  def formats(*_arg0, **_arg1, &_arg2); end
+  def formats(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/base.rb:226
   def formats=(arg); end
@@ -455,7 +455,7 @@ class ActionView::Base
   def in_rendering_context(options); end
 
   # pkg:gem/actionview#lib/action_view/base.rb:226
-  def locale(*_arg0, **_arg1, &_arg2); end
+  def locale(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/base.rb:226
   def locale=(arg); end
@@ -494,7 +494,7 @@ class ActionView::Base
   def streaming_completion_on_exception=(val); end
 
   # pkg:gem/actionview#lib/action_view/base.rb:226
-  def view_paths(*_arg0, **_arg1, &_arg2); end
+  def view_paths(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/base.rb:226
   def view_paths=(arg); end
@@ -1185,7 +1185,7 @@ module ActionView::Helpers::ActiveModelHelper; end
 # pkg:gem/actionview#lib/action_view/helpers/active_model_helper.rb:12
 module ActionView::Helpers::ActiveModelInstanceTag
   # pkg:gem/actionview#lib/action_view/helpers/active_model_helper.rb:20
-  def content_tag(type, options, *_arg2); end
+  def content_tag(type, options, *); end
 
   # pkg:gem/actionview#lib/action_view/helpers/active_model_helper.rb:36
   def error_message; end
@@ -1197,7 +1197,7 @@ module ActionView::Helpers::ActiveModelInstanceTag
   def object; end
 
   # pkg:gem/actionview#lib/action_view/helpers/active_model_helper.rb:24
-  def tag(type, options, *_arg2); end
+  def tag(type, options, *); end
 
   private
 
@@ -2617,7 +2617,7 @@ module ActionView::Helpers::CaptureHelper
   #   @greeting # => "Welcome to my shiny new web page! The date and time is 2018-09-06 11:09:16 -0500"
   #
   # pkg:gem/actionview#lib/action_view/helpers/capture_helper.rb:47
-  def capture(*_arg0, **_arg1, &block); end
+  def capture(*, **, &block); end
 
   # Calling <tt>content_for</tt> stores a block of markup in an identifier for later use.
   # In order to access this stored content in other templates, helper modules
@@ -2854,7 +2854,7 @@ ActionView::Helpers::ContentExfiltrationPreventionHelper::CONTENT_EXFILTRATION_P
 # pkg:gem/actionview#lib/action_view/helpers/controller_helper.rb:11
 module ActionView::Helpers::ControllerHelper
   # pkg:gem/actionview#lib/action_view/helpers/controller_helper.rb:18
-  def action_name(*_arg0, **_arg1, &_arg2); end
+  def action_name(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/helpers/controller_helper.rb:20
   def assign_controller(controller); end
@@ -2866,25 +2866,25 @@ module ActionView::Helpers::ControllerHelper
   def controller=(_arg0); end
 
   # pkg:gem/actionview#lib/action_view/helpers/controller_helper.rb:18
-  def controller_name(*_arg0, **_arg1, &_arg2); end
+  def controller_name(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/helpers/controller_helper.rb:18
-  def controller_path(*_arg0, **_arg1, &_arg2); end
+  def controller_path(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/helpers/controller_helper.rb:18
-  def cookies(*_arg0, **_arg1, &_arg2); end
+  def cookies(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/helpers/controller_helper.rb:18
-  def flash(*_arg0, **_arg1, &_arg2); end
+  def flash(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/helpers/controller_helper.rb:18
-  def headers(*_arg0, **_arg1, &_arg2); end
+  def headers(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/helpers/controller_helper.rb:36
   def logger; end
 
   # pkg:gem/actionview#lib/action_view/helpers/controller_helper.rb:18
-  def params(*_arg0, **_arg1, &_arg2); end
+  def params(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/helpers/controller_helper.rb:12
   def request; end
@@ -2893,16 +2893,16 @@ module ActionView::Helpers::ControllerHelper
   def request=(_arg0); end
 
   # pkg:gem/actionview#lib/action_view/helpers/controller_helper.rb:18
-  def request_forgery_protection_token(*_arg0, **_arg1, &_arg2); end
+  def request_forgery_protection_token(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/helpers/controller_helper.rb:40
   def respond_to?(method_name, include_private = T.unsafe(nil)); end
 
   # pkg:gem/actionview#lib/action_view/helpers/controller_helper.rb:18
-  def response(*_arg0, **_arg1, &_arg2); end
+  def response(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/helpers/controller_helper.rb:18
-  def session(*_arg0, **_arg1, &_arg2); end
+  def session(*, **, &); end
 end
 
 # pkg:gem/actionview#lib/action_view/helpers/controller_helper.rb:14
@@ -9843,7 +9843,7 @@ end
 # pkg:gem/actionview#lib/action_view/helpers/tags/placeholderable.rb:6
 module ActionView::Helpers::Tags::Placeholderable
   # pkg:gem/actionview#lib/action_view/helpers/tags/placeholderable.rb:7
-  def initialize(*_arg0); end
+  def initialize(*); end
 end
 
 # pkg:gem/actionview#lib/action_view/helpers/tags/radio_button.rb:8
@@ -11381,7 +11381,7 @@ module ActionView::Layouts
   mixes_in_class_methods ::ActionView::Layouts::ClassMethods
 
   # pkg:gem/actionview#lib/action_view/layouts.rb:361
-  def initialize(*_arg0); end
+  def initialize(*); end
 
   # pkg:gem/actionview#lib/action_view/layouts.rb:350
   def _process_render_template_options(options); end
@@ -11424,7 +11424,7 @@ module ActionView::Layouts
   # This will be overwritten by _write_layout_method
   #
   # pkg:gem/actionview#lib/action_view/layouts.rb:382
-  def _layout(*_arg0); end
+  def _layout(*); end
 
   # Determine the layout for a given name, taking into account the name type.
   #
@@ -11549,7 +11549,7 @@ class ActionView::LogSubscriber < ::ActiveSupport::LogSubscriber
 
   class << self
     # pkg:gem/actionview#lib/action_view/log_subscriber.rb:102
-    def attach_to(*_arg0); end
+    def attach_to(*); end
 
     private
 
@@ -11814,7 +11814,7 @@ class ActionView::MissingTemplate < ::ActionView::ActionViewError
   include ::DidYouMean::Correctable
 
   # pkg:gem/actionview#lib/action_view/template/error.rb:44
-  def initialize(paths, path, prefixes, partial, details, *_arg5); end
+  def initialize(paths, path, prefixes, partial, details, *); end
 
   # Apps may have thousands of candidate templates so we attempt to
   # generate the suggestions as efficiently as possible.
@@ -11947,7 +11947,7 @@ class ActionView::OutputBuffer
   def append=(value); end
 
   # pkg:gem/actionview#lib/action_view/buffers.rb:27
-  def blank?(*_arg0, **_arg1, &_arg2); end
+  def blank?(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/buffers.rb:72
   def capture(*args); end
@@ -11956,16 +11956,16 @@ class ActionView::OutputBuffer
   def concat(value); end
 
   # pkg:gem/actionview#lib/action_view/buffers.rb:27
-  def empty?(*_arg0, **_arg1, &_arg2); end
+  def empty?(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/buffers.rb:27
-  def encode!(*_arg0, **_arg1, &_arg2); end
+  def encode!(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/buffers.rb:27
-  def encoding(*_arg0, **_arg1, &_arg2); end
+  def encoding(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/buffers.rb:27
-  def force_encoding(*_arg0, **_arg1, &_arg2); end
+  def force_encoding(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/buffers.rb:32
   def html_safe; end
@@ -11974,7 +11974,7 @@ class ActionView::OutputBuffer
   def html_safe?; end
 
   # pkg:gem/actionview#lib/action_view/buffers.rb:27
-  def length(*_arg0, **_arg1, &_arg2); end
+  def length(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/buffers.rb:85
   def raw; end
@@ -12368,13 +12368,13 @@ class ActionView::PathSet
   def +(other); end
 
   # pkg:gem/actionview#lib/action_view/path_set.rb:16
-  def [](*_arg0, **_arg1, &_arg2); end
+  def [](*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/path_set.rb:31
   def compact; end
 
   # pkg:gem/actionview#lib/action_view/path_set.rb:16
-  def each(*_arg0, **_arg1, &_arg2); end
+  def each(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/path_set.rb:53
   def exists?(path, prefixes, partial, details, details_key, locals); end
@@ -12386,13 +12386,13 @@ class ActionView::PathSet
   def find_all(path, prefixes, partial, details, details_key, locals); end
 
   # pkg:gem/actionview#lib/action_view/path_set.rb:16
-  def include?(*_arg0, **_arg1, &_arg2); end
+  def include?(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/path_set.rb:14
   def paths; end
 
   # pkg:gem/actionview#lib/action_view/path_set.rb:16
-  def size(*_arg0, **_arg1, &_arg2); end
+  def size(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/path_set.rb:27
   def to_ary; end
@@ -12679,7 +12679,7 @@ module ActionView::Rendering
   # Override process to set up I18n proxy.
   #
   # pkg:gem/actionview#lib/action_view/rendering.rb:38
-  def process(*_arg0, **_arg1, &_arg2); end
+  def process(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/rendering.rb:119
   def render_to_body(options = T.unsafe(nil)); end
@@ -12771,7 +12771,7 @@ class ActionView::Resolver
   def caching=(val); end
 
   # pkg:gem/actionview#lib/action_view/template/resolver.rb:79
-  def caching?(&_arg0); end
+  def caching?(&); end
 
   # pkg:gem/actionview#lib/action_view/template/resolver.rb:56
   def clear_cache; end
@@ -13090,7 +13090,7 @@ class ActionView::StructuredEventSubscriber < ::ActiveSupport::StructuredEventSu
 
   class << self
     # pkg:gem/actionview#lib/action_view/structured_event_subscriber.rb:88
-    def attach_to(*_arg0); end
+    def attach_to(*); end
   end
 end
 
@@ -14171,7 +14171,7 @@ module ActionView::TestCase::Behavior
   def controller=(_arg0); end
 
   # pkg:gem/actionview#lib/action_view/test_case.rb:62
-  def lookup_context(*_arg0, **_arg1, &_arg2); end
+  def lookup_context(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/test_case.rb:63
   def output_buffer; end
@@ -14310,7 +14310,7 @@ module ActionView::TestCase::Behavior
   def document_root_element; end
 
   # pkg:gem/actionview#lib/action_view/test_case.rb:415
-  def method_missing(selector, *_arg1, **_arg2, &_arg3); end
+  def method_missing(selector, *, **, &); end
 
   # pkg:gem/actionview#lib/action_view/test_case.rb:431
   def respond_to_missing?(name, include_private = T.unsafe(nil)); end
@@ -14362,7 +14362,7 @@ module ActionView::TestCase::Behavior::ClassMethods
   def inherited(descendant); end
 
   # pkg:gem/actionview#lib/action_view/test_case.rb:236
-  def new(*_arg0); end
+  def new(*); end
 
   # Register a callable to parse rendered content for a given template
   # format.
@@ -14576,16 +14576,16 @@ class ActionView::UnboundTemplate
   def details; end
 
   # pkg:gem/actionview#lib/action_view/unbound_template.rb:8
-  def format(*_arg0, **_arg1, &_arg2); end
+  def format(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/unbound_template.rb:8
-  def handler(*_arg0, **_arg1, &_arg2); end
+  def handler(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/unbound_template.rb:8
-  def locale(*_arg0, **_arg1, &_arg2); end
+  def locale(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/unbound_template.rb:8
-  def variant(*_arg0, **_arg1, &_arg2); end
+  def variant(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/unbound_template.rb:7
   def virtual_path; end
@@ -14629,7 +14629,7 @@ module ActionView::ViewPaths
   def _prefixes; end
 
   # pkg:gem/actionview#lib/action_view/view_paths.rb:11
-  def any_templates?(*_arg0, **_arg1, &_arg2); end
+  def any_templates?(*, **, &); end
 
   # Append a path to the list of view paths for the current LookupContext.
   #
@@ -14645,13 +14645,13 @@ module ActionView::ViewPaths
   def details_for_lookup; end
 
   # pkg:gem/actionview#lib/action_view/view_paths.rb:11
-  def formats(*_arg0, **_arg1, &_arg2); end
+  def formats(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/view_paths.rb:11
   def formats=(arg); end
 
   # pkg:gem/actionview#lib/action_view/view_paths.rb:11
-  def locale(*_arg0, **_arg1, &_arg2); end
+  def locale(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/view_paths.rb:11
   def locale=(arg); end
@@ -14674,10 +14674,10 @@ module ActionView::ViewPaths
   def prepend_view_path(path); end
 
   # pkg:gem/actionview#lib/action_view/view_paths.rb:11
-  def template_exists?(*_arg0, **_arg1, &_arg2); end
+  def template_exists?(*, **, &); end
 
   # pkg:gem/actionview#lib/action_view/view_paths.rb:11
-  def view_paths(*_arg0, **_arg1, &_arg2); end
+  def view_paths(*, **, &); end
 end
 
 # pkg:gem/actionview#lib/action_view/view_paths.rb:14

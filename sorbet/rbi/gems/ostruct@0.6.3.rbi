@@ -160,19 +160,79 @@ class OpenStruct
   def []=(name, value); end
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
+  def __add__!(object); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def __add_from_array__!(array); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def __array__!; end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def __deep_copy__!; end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def __evolve_object_id__!; end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def __expand_complex__!; end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def __find_args__!(*args, **, &block); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
   def __id__!; end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def __intersect__!(object); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def __intersect_from_array__!(array); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def __intersect_from_object__!(object); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def __mongoize_object_id__!; end
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
   def __send__!(*_arg0); end
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
+  def __setter__!(*args, **, &block); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def __sortable__!(*args, **, &block); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def __to_inc__!(*args, **, &block); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def __union__!(object); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def __union_from_object__!(object); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
   def abort!(*_args, **_kwargs, &_block); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def as_extended_json!(**_options); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def as_json!(options = T.unsafe(nil)); end
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
   def class!; end
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
+  def class_eval!(*args, &block); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
   def clone!(freeze: T.unsafe(nil)); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def deep_dup!; end
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
   def define_singleton_method!(*_arg0); end
@@ -227,6 +287,9 @@ class OpenStruct
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
   def display!(*_arg0); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def do_or_do_not!(*args, **, &block); end
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
   def dup!; end
@@ -309,7 +372,13 @@ class OpenStruct
   def instance_exec!(*_arg0); end
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
+  def instance_values!; end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
   def instance_variable_get!(_arg0); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def instance_variable_names!; end
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
   def instance_variable_set!(_arg0, _arg1); end
@@ -319,6 +388,9 @@ class OpenStruct
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
   def itself!; end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def ivar!(name); end
 
   # Provides marshalling support for use by the Marshal library.
   #
@@ -335,7 +407,16 @@ class OpenStruct
   def methods!(*_arg0); end
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
+  def mongoize!; end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
   def object_id!; end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def presence!; end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def presence_in!(another_object); end
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
   def pretty_inspect!; end
@@ -371,6 +452,9 @@ class OpenStruct
   def remove_instance_variable!(_arg0); end
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
+  def remove_ivar!(name); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
   def send!(*_arg0); end
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
@@ -382,6 +466,9 @@ class OpenStruct
   # pkg:gem/ostruct#lib/ostruct.rb:481
   def singleton_methods!(*_arg0); end
 
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def substitutable!; end
+
   # pkg:gem/ostruct#lib/ostruct.rb:409
   def table; end
 
@@ -392,7 +479,19 @@ class OpenStruct
   def then!; end
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
+  def to_bson_key!; end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def to_bson_normalized_key!; end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def to_bson_normalized_value!; end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
   def to_enum!(*_arg0); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def to_extended_json!(**options); end
 
   # RUBY_VERSION < 2.6 compatibility
   #
@@ -403,7 +502,13 @@ class OpenStruct
   def to_h!(&block); end
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
-  def to_json!(state = T.unsafe(nil), *_arg1); end
+  def to_json!(options = T.unsafe(nil)); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def to_param!; end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def to_query!(key); end
 
   # pkg:gem/ostruct#lib/ostruct.rb:407
   def to_s; end
@@ -415,7 +520,19 @@ class OpenStruct
   def to_yaml!(options = T.unsafe(nil)); end
 
   # pkg:gem/ostruct#lib/ostruct.rb:481
+  def try!(*args, **, &block); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def with!(**attributes); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def with_options!(options, &block); end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
   def yield_self!; end
+
+  # pkg:gem/ostruct#lib/ostruct.rb:481
+  def you_must!(*args, **, &block); end
 
   protected
 

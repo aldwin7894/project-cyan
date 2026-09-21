@@ -71,11 +71,10 @@ class Minitest::SuppressedSummaryReporter < ::Minitest::SummaryReporter
   # Disable extra failure output after a run if output is inline.
   #
   # pkg:gem/railties#lib/minitest/rails_plugin.rb:23
-  def aggregated_results(*_arg0); end
+  def aggregated_results(*); end
 end
 
 # :include: ../README.rdoc
-# :enddoc:
 # :enddoc:
 #
 # pkg:gem/railties#lib/rails/gem_version.rb:3
@@ -171,10 +170,10 @@ module Rails
     def groups(*groups); end
 
     # pkg:gem/railties#lib/rails.rb:48
-    def initialize!(*_arg0, **_arg1, &_arg2); end
+    def initialize!(*, **, &); end
 
     # pkg:gem/railties#lib/rails.rb:48
-    def initialized?(*_arg0, **_arg1, &_arg2); end
+    def initialized?(*, **, &); end
 
     # pkg:gem/railties#lib/rails.rb:43
     def logger; end
@@ -361,7 +360,7 @@ class Rails::Application < ::Rails::Engine
   def credentials=(_arg0); end
 
   # pkg:gem/railties#lib/rails/application.rb:102
-  def default_url_options(*_arg0, **_arg1, &_arg2); end
+  def default_url_options(*, **, &); end
 
   # pkg:gem/railties#lib/rails/application.rb:102
   def default_url_options=(arg); end
@@ -698,7 +697,7 @@ end
 # pkg:gem/railties#lib/rails/application/configuration.rb:13
 class Rails::Application::Configuration < ::Rails::Engine::Configuration
   # pkg:gem/railties#lib/rails/application/configuration.rb:31
-  def initialize(*_arg0); end
+  def initialize(*); end
 
   # pkg:gem/railties#lib/rails/application/configuration.rb:14
   def add_autoload_paths_to_load_path; end
@@ -1197,7 +1196,7 @@ class Rails::Application::RoutesReloader
   def execute; end
 
   # pkg:gem/railties#lib/rails/application/routes_reloader.rb:12
-  def execute_if_updated(*_arg0, **_arg1, &_arg2); end
+  def execute_if_updated(*, **, &); end
 
   # pkg:gem/railties#lib/rails/application/routes_reloader.rb:36
   def execute_unless_loaded; end
@@ -1224,7 +1223,7 @@ class Rails::Application::RoutesReloader
   def run_after_load_paths=(_arg0); end
 
   # pkg:gem/railties#lib/rails/application/routes_reloader.rb:12
-  def updated?(*_arg0, **_arg1, &_arg2); end
+  def updated?(*, **, &); end
 
   private
 
@@ -1476,14 +1475,14 @@ class Rails::Command::Base < ::Thor
   def current_subcommand; end
 
   # pkg:gem/railties#lib/rails/command/base.rb:170
-  def executable(*_arg0, **_arg1, &_arg2); end
+  def executable(*, **, &); end
 
   # pkg:gem/railties#lib/rails/command/base.rb:173
-  def invoke_command(command, *_arg1); end
+  def invoke_command(command, *); end
 
   class << self
     # pkg:gem/railties#lib/rails/command/base.rb:84
-    def banner(command = T.unsafe(nil), *_arg1); end
+    def banner(command = T.unsafe(nil), *); end
 
     # Sets the base_name taking into account the current class namespace.
     #
@@ -1540,7 +1539,7 @@ class Rails::Command::Base < ::Thor
     # Override Thor's class-level help to also show the USAGE.
     #
     # pkg:gem/railties#lib/rails/command/base.rb:96
-    def help(shell, *_arg1); end
+    def help(shell, *); end
 
     # Convenience method to hide this command from the available ones when
     # running rails command.
@@ -1762,37 +1761,37 @@ class Rails::Configuration::MiddlewareStackProxy
   def +(other); end
 
   # pkg:gem/railties#lib/rails/configuration.rb:70
-  def delete(*_arg0, **_arg1, &_arg2); end
+  def delete(*, **, &); end
 
   # pkg:gem/railties#lib/rails/configuration.rb:56
-  def insert(*_arg0, **_arg1, &_arg2); end
+  def insert(*, **, &); end
 
   # pkg:gem/railties#lib/rails/configuration.rb:58
-  def insert_after(*_arg0, **_arg1, &_arg2); end
+  def insert_after(*, **, &); end
 
   # pkg:gem/railties#lib/rails/configuration.rb:52
-  def insert_before(*_arg0, **_arg1, &_arg2); end
+  def insert_before(*, **, &); end
 
   # pkg:gem/railties#lib/rails/configuration.rb:88
   def merge_into(other); end
 
   # pkg:gem/railties#lib/rails/configuration.rb:78
-  def move(*_arg0, **_arg1, &_arg2); end
+  def move(*, **, &); end
 
   # pkg:gem/railties#lib/rails/configuration.rb:80
-  def move_after(*_arg0, **_arg1, &_arg2); end
+  def move_after(*, **, &); end
 
   # pkg:gem/railties#lib/rails/configuration.rb:74
-  def move_before(*_arg0, **_arg1, &_arg2); end
+  def move_before(*, **, &); end
 
   # pkg:gem/railties#lib/rails/configuration.rb:62
-  def swap(*_arg0, **_arg1, &_arg2); end
+  def swap(*, **, &); end
 
   # pkg:gem/railties#lib/rails/configuration.rb:84
-  def unshift(*_arg0, **_arg1, &_arg2); end
+  def unshift(*, **, &); end
 
   # pkg:gem/railties#lib/rails/configuration.rb:66
-  def use(*_arg0, **_arg1, &_arg2); end
+  def use(*, **, &); end
 
   protected
 
@@ -2187,7 +2186,7 @@ class Rails::Engine < ::Rails::Railtie
   def endpoint; end
 
   # pkg:gem/railties#lib/rails/engine.rb:437
-  def engine_name(*_arg0, **_arg1, &_arg2); end
+  def engine_name(*, **, &); end
 
   # Defines additional Rack env configuration that is added on each call.
   #
@@ -2205,7 +2204,7 @@ class Rails::Engine < ::Rails::Railtie
   def helpers_paths; end
 
   # pkg:gem/railties#lib/rails/engine.rb:437
-  def isolated?(&_arg0); end
+  def isolated?(&); end
 
   # Load console and invoke the registered hooks.
   # Check Rails::Railtie.console for more info.
@@ -2246,16 +2245,16 @@ class Rails::Engine < ::Rails::Railtie
   def load_tasks(app = T.unsafe(nil)); end
 
   # pkg:gem/railties#lib/rails/engine.rb:436
-  def middleware(*_arg0, **_arg1, &_arg2); end
+  def middleware(*, **, &); end
 
   # pkg:gem/railties#lib/rails/engine.rb:436
-  def paths(*_arg0, **_arg1, &_arg2); end
+  def paths(*, **, &); end
 
   # pkg:gem/railties#lib/rails/engine.rb:494
   def railties; end
 
   # pkg:gem/railties#lib/rails/engine.rb:436
-  def root(*_arg0, **_arg1, &_arg2); end
+  def root(*, **, &); end
 
   # Defines the routes for this engine. If a block is given to
   # routes, it is appended to the engine.
@@ -2269,7 +2268,7 @@ class Rails::Engine < ::Rails::Railtie
   protected
 
   # pkg:gem/railties#lib/rails/engine.rb:684
-  def run_tasks_blocks(*_arg0); end
+  def run_tasks_blocks(*); end
 
   private
 
@@ -2320,7 +2319,7 @@ class Rails::Engine < ::Rails::Railtie
     def called_from=(_arg0); end
 
     # pkg:gem/railties#lib/rails/engine.rb:358
-    def eager_load!(*_arg0, **_arg1, &_arg2); end
+    def eager_load!(*, **, &); end
 
     # pkg:gem/railties#lib/rails/engine.rb:378
     def endpoint(endpoint = T.unsafe(nil)); end
@@ -2530,7 +2529,7 @@ class Rails::Engine::LazyRouteSet < ::ActionDispatch::Routing::RouteSet
   def recognize_path(path, environment = T.unsafe(nil)); end
 
   # pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:78
-  def recognize_path_with_request(*_arg0, **_arg1, &_arg2); end
+  def recognize_path_with_request(*, **, &); end
 
   # pkg:gem/railties#lib/rails/engine/lazy_route_set.rb:83
   def routes; end
@@ -2718,7 +2717,7 @@ end
 # pkg:gem/railties#lib/rails/generators/actions.rb:9
 module Rails::Generators::Actions
   # pkg:gem/railties#lib/rails/generators/actions.rb:10
-  def initialize(*_arg0); end
+  def initialize(*); end
 
   # Add the given source to +Gemfile+
   #
@@ -3972,7 +3971,7 @@ class Rails::Generators::NamedBase < ::Rails::Generators::Base
   def class_path; end
 
   # pkg:gem/railties#lib/rails/generators/named_base.rb:105
-  def edit_helper(*_arg0, **_arg1, &_arg2); end
+  def edit_helper(*, **, &); end
 
   # pkg:gem/railties#lib/rails/generators/named_base.rb:54
   def file_path; end
@@ -4742,7 +4741,7 @@ class Rails::Initializable::Collection
   def last; end
 
   # pkg:gem/railties#lib/rails/initializable.rb:41
-  def method_missing(method, *_arg1, **_arg2, &_arg3); end
+  def method_missing(method, *, **, &); end
 
   # pkg:gem/railties#lib/rails/initializable.rb:81
   def push(*initializers); end
@@ -4890,13 +4889,13 @@ module Rails::MailersController::HelperMethods
   include ::ActionController::Base::HelperMethods
 
   # pkg:gem/railties#lib/rails/mailers_controller.rb:13
-  def attachment_url(*_arg0, **_arg1, &_arg2); end
+  def attachment_url(*, **, &); end
 
   # pkg:gem/railties#lib/rails/mailers_controller.rb:13
-  def locale_query(*_arg0, **_arg1, &_arg2); end
+  def locale_query(*, **, &); end
 
   # pkg:gem/railties#lib/rails/mailers_controller.rb:13
-  def part_query(*_arg0, **_arg1, &_arg2); end
+  def part_query(*, **, &); end
 end
 
 # pkg:gem/railties#lib/rails/paths.rb:6
@@ -5350,7 +5349,7 @@ class Rails::Railtie
   def inspect; end
 
   # pkg:gem/railties#lib/rails/railtie.rb:242
-  def railtie_name(*_arg0, **_arg1, &_arg2); end
+  def railtie_name(*, **, &); end
 
   # pkg:gem/railties#lib/rails/railtie.rb:265
   def railtie_namespace; end
@@ -5391,7 +5390,7 @@ class Rails::Railtie
     # related configuration.
     #
     # pkg:gem/railties#lib/rails/railtie.rb:145
-    def config(*_arg0, **_arg1, &_arg2); end
+    def config(*, **, &); end
 
     # Allows you to configure the railtie. This is the same method seen in
     # Railtie::Configurable, but this module is no longer required for all
@@ -5447,7 +5446,7 @@ class Rails::Railtie
     # to the Railtie instance.
     #
     # pkg:gem/railties#lib/rails/railtie.rb:223
-    def method_missing(name, *_arg1, **_arg2, &_arg3); end
+    def method_missing(name, *, **, &); end
 
     # pkg:gem/railties#lib/rails/railtie.rb:144
     def new(*_arg0); end
@@ -5795,14 +5794,10 @@ Rails::TestUnit::Runner::TEST_FOLDERS = T.let(T.unsafe(nil), Array)
 
 # Parse a test file to extract the line ranges of all tests in both
 # method-style (def test_foo) and declarative-style (test "foo" do)
-# Parse a test file to extract the line ranges of all tests in both
-# method-style (def test_foo) and declarative-style (test "foo" do)
 #
 # pkg:gem/railties#lib/rails/test_unit/test_parser.rb:15
 module Rails::TestUnit::TestParser
   class << self
-    # Helper to translate a method object into the path and line range where
-    # the method was defined.
     # Helper to translate a method object into the path and line range where
     # the method was defined.
     #

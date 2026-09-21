@@ -5934,7 +5934,7 @@ module Redis::Commands::SortedSets
   # @return [Integer] number of elements in the resulting sorted set
   #
   # pkg:gem/redis#lib/redis/commands/sorted_sets.rb:836
-  def zdiffstore(*args, **_arg1); end
+  def zdiffstore(*args, **); end
 
   # Increment the score of a member in a sorted set.
   #
@@ -5971,7 +5971,7 @@ module Redis::Commands::SortedSets
   #   - when `:with_scores` is specified, an array with `[member, score]` pairs
   #
   # pkg:gem/redis#lib/redis/commands/sorted_sets.rb:734
-  def zinter(*args, **_arg1); end
+  def zinter(*args, **); end
 
   # Intersect multiple sorted sets and store the resulting sorted set in a new
   # key.
@@ -5989,7 +5989,7 @@ module Redis::Commands::SortedSets
   # @return [Integer] number of elements in the resulting sorted set
   #
   # pkg:gem/redis#lib/redis/commands/sorted_sets.rb:753
-  def zinterstore(*args, **_arg1); end
+  def zinterstore(*args, **); end
 
   # Count the members, with the same score in a sorted set, within the given lexicographical range.
   #
@@ -6422,7 +6422,7 @@ module Redis::Commands::SortedSets
   #   - when `:with_scores` is specified, an array with `[member, score]` pairs
   #
   # pkg:gem/redis#lib/redis/commands/sorted_sets.rb:777
-  def zunion(*args, **_arg1); end
+  def zunion(*args, **); end
 
   # Add multiple sorted sets and store the resulting sorted set in a new key.
   #
@@ -6439,7 +6439,7 @@ module Redis::Commands::SortedSets
   # @return [Integer] number of elements in the resulting sorted set
   #
   # pkg:gem/redis#lib/redis/commands/sorted_sets.rb:795
-  def zunionstore(*args, **_arg1); end
+  def zunionstore(*args, **); end
 
   private
 
@@ -7654,7 +7654,7 @@ class Redis::Distributed
   # atomic, so it cannot be distributed.
   #
   # pkg:gem/redis#lib/redis/distributed.rb:364
-  def json_mset(*_arg0); end
+  def json_mset(*); end
 
   # Increment the numeric JSON value(s) at a path in the document stored under a key.
   #
@@ -7812,12 +7812,12 @@ class Redis::Distributed
   # Set multiple keys to multiple values.
   #
   # pkg:gem/redis#lib/redis/distributed.rb:320
-  def mset(*_arg0); end
+  def mset(*); end
 
   # Set multiple keys to multiple values, only if none of the keys exist.
   #
   # pkg:gem/redis#lib/redis/distributed.rb:329
-  def msetnx(*_arg0); end
+  def msetnx(*); end
 
   # Mark the start of a transaction block.
   #
@@ -8156,7 +8156,7 @@ class Redis::Distributed
   # that already exist.
   #
   # pkg:gem/redis#lib/redis/distributed.rb:855
-  def zadd(key, *args, **_arg2); end
+  def zadd(key, *args, **); end
 
   # Get the number of members in a sorted set.
   #

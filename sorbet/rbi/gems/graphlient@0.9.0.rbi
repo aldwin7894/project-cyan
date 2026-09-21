@@ -20,7 +20,7 @@ class Graphlient::Adapters::HTTP::Adapter
   def initialize(url, options = T.unsafe(nil), &_block); end
 
   # pkg:gem/graphlient#lib/graphlient/adapters/http/adapter.rb:23
-  def execute(*_arg0); end
+  def execute(*); end
 
   # pkg:gem/graphlient#lib/graphlient/adapters/http/adapter.rb:13
   def headers; end

@@ -126,7 +126,7 @@ end
 # pkg:gem/timeout#lib/timeout.rb:26
 class Timeout::ExitException < ::Exception
   # pkg:gem/timeout#lib/timeout.rb:27
-  def exception(*_arg0); end
+  def exception(*); end
 end
 
 # We keep a private reference so that time mocking libraries won't break Timeout.

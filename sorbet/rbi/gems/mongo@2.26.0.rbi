@@ -18,32 +18,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 # Copyright (C) 2017-2020 MongoDB Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the 'License');
@@ -70,85 +44,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 # Copyright (C) 2023-present MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2023-present MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -213,383 +109,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 # Copyright (C) 2018-2020 MongoDB Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -616,137 +135,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 # Copyright (C) 2014-2022 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2022 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -772,449 +161,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 # Copyright (C) 2019-2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -1253,32 +200,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 # Copyright (C) 2025 MongoDB Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -1305,228 +226,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 # Copyright (C) 2022 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2022 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -1540,110 +240,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # Copyright (C) 2016-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -1669,644 +265,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2017-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2017-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2022 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2017-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2022 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2017-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2017-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 # Copyright (C) 2019-present MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2022 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2022 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -2332,175 +291,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2017-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 # Copyright (C) 2018-2020 MongoDB Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the 'License');
@@ -2511,309 +301,10 @@
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # Copyright (C) 2016-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the 'License');
 # you may not use this file except in compliance with the License.
@@ -2852,1320 +343,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2016-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2016-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2016-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2016-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2016-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2016-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2016-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2016-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2016-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2016-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2016-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2016-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2025 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2025 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2022 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2017-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2017-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 # Copyright (C) 2009-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -4204,32 +382,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# Copyright (C) 2018-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 # Copyright (C) 2016-2023 MongoDB Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -4240,136 +392,6 @@
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2016-2023 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2016-2023 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2021 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
@@ -4386,297 +408,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2015-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2019-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2024 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2017-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2017-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2017-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -4695,137 +426,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-# Copyright (C) 2025-present MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2025-present MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2025-present MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2025-present MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 # Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2017-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the 'License');
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an 'AS IS' BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# Copyright (C) 2014-2020 MongoDB Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the 'License');
 # you may not use this file except in compliance with the License.
@@ -4869,22 +470,22 @@ module Mongo
 
   class << self
     # pkg:gem/mongo#lib/mongo.rb:94
-    def broken_view_aggregate(*_arg0, **_arg1, &_arg2); end
+    def broken_view_aggregate(*, **, &); end
 
     # pkg:gem/mongo#lib/mongo.rb:94
-    def broken_view_aggregate=(*_arg0, **_arg1, &_arg2); end
+    def broken_view_aggregate=(*, **, &); end
 
     # pkg:gem/mongo#lib/mongo.rb:94
-    def broken_view_aggregate?(*_arg0, **_arg1, &_arg2); end
+    def broken_view_aggregate?(*, **, &); end
 
     # pkg:gem/mongo#lib/mongo.rb:94
-    def broken_view_options(*_arg0, **_arg1, &_arg2); end
+    def broken_view_options(*, **, &); end
 
     # pkg:gem/mongo#lib/mongo.rb:94
-    def broken_view_options=(*_arg0, **_arg1, &_arg2); end
+    def broken_view_options=(*, **, &); end
 
     # pkg:gem/mongo#lib/mongo.rb:94
-    def broken_view_options?(*_arg0, **_arg1, &_arg2); end
+    def broken_view_options?(*, **, &); end
 
     # Clears the driver's OCSP response cache.
     #
@@ -4892,25 +493,25 @@ module Mongo
     def clear_ocsp_cache; end
 
     # pkg:gem/mongo#lib/mongo.rb:94
-    def csfle_convert_to_ruby_types(*_arg0, **_arg1, &_arg2); end
+    def csfle_convert_to_ruby_types(*, **, &); end
 
     # pkg:gem/mongo#lib/mongo.rb:94
-    def csfle_convert_to_ruby_types=(*_arg0, **_arg1, &_arg2); end
+    def csfle_convert_to_ruby_types=(*, **, &); end
 
     # pkg:gem/mongo#lib/mongo.rb:94
-    def csfle_convert_to_ruby_types?(*_arg0, **_arg1, &_arg2); end
+    def csfle_convert_to_ruby_types?(*, **, &); end
 
     # pkg:gem/mongo#lib/mongo.rb:94
-    def include_server_address_in_errors(*_arg0, **_arg1, &_arg2); end
+    def include_server_address_in_errors(*, **, &); end
 
     # pkg:gem/mongo#lib/mongo.rb:94
-    def include_server_address_in_errors=(*_arg0, **_arg1, &_arg2); end
+    def include_server_address_in_errors=(*, **, &); end
 
     # pkg:gem/mongo#lib/mongo.rb:94
-    def include_server_address_in_errors?(*_arg0, **_arg1, &_arg2); end
+    def include_server_address_in_errors?(*, **, &); end
 
     # pkg:gem/mongo#lib/mongo.rb:99
-    def options=(*_arg0, **_arg1, &_arg2); end
+    def options=(*, **, &); end
 
     # This is a user-settable list of hooks that will be invoked when any new
     # TLS socket is connected. Each hook should be a Proc that takes
@@ -4932,13 +533,13 @@ module Mongo
     def tls_context_hooks=(hooks); end
 
     # pkg:gem/mongo#lib/mongo.rb:94
-    def validate_update_replace(*_arg0, **_arg1, &_arg2); end
+    def validate_update_replace(*, **, &); end
 
     # pkg:gem/mongo#lib/mongo.rb:94
-    def validate_update_replace=(*_arg0, **_arg1, &_arg2); end
+    def validate_update_replace=(*, **, &); end
 
     # pkg:gem/mongo#lib/mongo.rb:94
-    def validate_update_replace?(*_arg0, **_arg1, &_arg2); end
+    def validate_update_replace?(*, **, &); end
   end
 end
 
@@ -7565,10 +3166,10 @@ class Mongo::Auth::User::View
   def initialize(database); end
 
   # pkg:gem/mongo#lib/mongo/auth/user/view.rb:29
-  def client(*_arg0, **_arg1, &_arg2); end
+  def client(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/auth/user/view.rb:29
-  def cluster(*_arg0, **_arg1, &_arg2); end
+  def cluster(*, **, &); end
 
   # Create a new user in the database.
   #
@@ -7611,10 +3212,10 @@ class Mongo::Auth::User::View
   def info(name, options = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/auth/user/view.rb:30
-  def next_primary(*_arg0, **_arg1, &_arg2); end
+  def next_primary(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/auth/user/view.rb:29
-  def read_preference(*_arg0, **_arg1, &_arg2); end
+  def read_preference(*, **, &); end
 
   # Remove a user from the database.
   #
@@ -7846,10 +3447,10 @@ class Mongo::BulkWrite
   def initialize(collection, requests, options = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/bulk_write.rb:47
-  def client(*_arg0, **_arg1, &_arg2); end
+  def client(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/bulk_write.rb:40
-  def cluster(*_arg0, **_arg1, &_arg2); end
+  def cluster(*, **, &); end
 
   # @return [ Mongo::Collection ] collection The collection.
   #
@@ -7857,7 +3458,7 @@ class Mongo::BulkWrite
   def collection; end
 
   # pkg:gem/mongo#lib/mongo/bulk_write.rb:40
-  def database(*_arg0, **_arg1, &_arg2); end
+  def database(*, **, &); end
 
   # Execute the bulk write operation.
   #
@@ -7872,10 +3473,10 @@ class Mongo::BulkWrite
   def execute; end
 
   # pkg:gem/mongo#lib/mongo/bulk_write.rb:40
-  def next_primary(*_arg0, **_arg1, &_arg2); end
+  def next_primary(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/bulk_write.rb:40
-  def nro_write_with_retry(*_arg0, **_arg1, &_arg2); end
+  def nro_write_with_retry(*, **, &); end
 
   # @return [ Hash, BSON::Document ] options The options.
   #
@@ -7916,7 +3517,7 @@ class Mongo::BulkWrite
   def write_concern(session = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/bulk_write.rb:40
-  def write_with_retry(*_arg0, **_arg1, &_arg2); end
+  def write_with_retry(*, **, &); end
 
   private
 
@@ -7928,33 +3529,16 @@ class Mongo::BulkWrite
   # pkg:gem/mongo#lib/mongo/bulk_write.rb:177
   def calculate_deadline; end
 
-  # Loop through the requests and check if each operation is allowed to send
-  # a hint for each operation on the given server version.
-  #
-  # For the following operations, the client can send a hint for all supported
-  # server versions, and for the rest, the client can only send it for 4.4+:
-  #   - updateOne
-  #   - updateMany
-  #   - replaceOne
-  #
-  # @param [ Connection ] connection The connection object.
-  #
-  # @return [ true | false ] Whether the request is able to send hints for
-  #   the current server version.
-  #
-  # pkg:gem/mongo#lib/mongo/bulk_write.rb:333
-  def can_hint?(connection); end
-
-  # pkg:gem/mongo#lib/mongo/bulk_write.rb:284
+  # pkg:gem/mongo#lib/mongo/bulk_write.rb:282
   def delete_many(documents, connection, context, operation_id, session, _txn_num); end
 
-  # pkg:gem/mongo#lib/mongo/bulk_write.rb:277
+  # pkg:gem/mongo#lib/mongo/bulk_write.rb:275
   def delete_one(documents, connection, context, operation_id, session, txn_num); end
 
   # pkg:gem/mongo#lib/mongo/bulk_write.rb:238
   def execute_operation(name, values, connection, context, operation_id, result_combiner, session, txn_num = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/bulk_write.rb:291
+  # pkg:gem/mongo#lib/mongo/bulk_write.rb:289
   def insert_one(documents, connection, context, operation_id, session, txn_num); end
 
   # If the given object is an array return the first element, otherwise
@@ -7964,10 +3548,10 @@ class Mongo::BulkWrite
   #
   # @return [ Object ] The first element of the array or the given object.
   #
-  # pkg:gem/mongo#lib/mongo/bulk_write.rb:391
+  # pkg:gem/mongo#lib/mongo/bulk_write.rb:357
   def maybe_first(obj); end
 
-  # pkg:gem/mongo#lib/mongo/bulk_write.rb:265
+  # pkg:gem/mongo#lib/mongo/bulk_write.rb:263
   def op_combiner; end
 
   # @param [ Float | nil ] deadline Deadline for the batch of operations.
@@ -7986,23 +3570,20 @@ class Mongo::BulkWrite
   # pkg:gem/mongo#lib/mongo/bulk_write.rb:193
   def operation_timeouts(deadline); end
 
-  # pkg:gem/mongo#lib/mongo/bulk_write.rb:304
+  # pkg:gem/mongo#lib/mongo/bulk_write.rb:302
   def replace_one(documents, connection, context, operation_id, session, txn_num); end
 
   # pkg:gem/mongo#lib/mongo/bulk_write.rb:217
   def single_statement?(operation); end
 
-  # pkg:gem/mongo#lib/mongo/bulk_write.rb:269
+  # pkg:gem/mongo#lib/mongo/bulk_write.rb:267
   def split_execute(name, values, connection, context, operation_id, result_combiner, session, txn_num); end
 
-  # pkg:gem/mongo#lib/mongo/bulk_write.rb:306
+  # pkg:gem/mongo#lib/mongo/bulk_write.rb:304
   def update_many(documents, connection, context, operation_id, session, _txn_num); end
 
-  # pkg:gem/mongo#lib/mongo/bulk_write.rb:298
+  # pkg:gem/mongo#lib/mongo/bulk_write.rb:296
   def update_one(documents, connection, context, operation_id, session, txn_num); end
-
-  # pkg:gem/mongo#lib/mongo/bulk_write.rb:313
-  def validate_hint!(connection); end
 
   # Perform the request document validation required by driver specifications.
   # This method validates the first key of each update request document to be
@@ -8019,7 +3600,7 @@ class Mongo::BulkWrite
   #   ArgumentError ]
   #   if the document is invalid.
   #
-  # pkg:gem/mongo#lib/mongo/bulk_write.rb:359
+  # pkg:gem/mongo#lib/mongo/bulk_write.rb:325
   def validate_requests!; end
 end
 
@@ -8048,20 +3629,14 @@ module Mongo::BulkWrite::Combineable
   # @return [ Boolean ] Whether one or more operation specifies the
   #   array_filters option.
   #
-  # pkg:gem/mongo#lib/mongo/bulk_write/combineable.rb:53
+  # pkg:gem/mongo#lib/mongo/bulk_write/combineable.rb:52
   def has_array_filters?; end
 
   # @return [ Boolean ] Whether one or more operation specifies the collation
   #   option.
   #
-  # pkg:gem/mongo#lib/mongo/bulk_write/combineable.rb:47
+  # pkg:gem/mongo#lib/mongo/bulk_write/combineable.rb:46
   def has_collation?; end
-
-  # @return [ Boolean ] Whether one or more operation specifies the
-  #   hint option.
-  #
-  # pkg:gem/mongo#lib/mongo/bulk_write/combineable.rb:59
-  def has_hint?; end
 
   # @return [ Array<Hash, BSON::Document> ] requests The provided requests.
   #
@@ -8070,7 +3645,7 @@ module Mongo::BulkWrite::Combineable
 
   private
 
-  # pkg:gem/mongo#lib/mongo/bulk_write/combineable.rb:65
+  # pkg:gem/mongo#lib/mongo/bulk_write/combineable.rb:58
   def combine_requests(ops); end
 end
 
@@ -8556,10 +4131,10 @@ module Mongo::BulkWrite::Validatable
 
   private
 
-  # pkg:gem/mongo#lib/mongo/bulk_write/validatable.rb:54
+  # pkg:gem/mongo#lib/mongo/bulk_write/validatable.rb:50
   def validate_document(name, document); end
 
-  # pkg:gem/mongo#lib/mongo/bulk_write/validatable.rb:62
+  # pkg:gem/mongo#lib/mongo/bulk_write/validatable.rb:58
   def validate_operation(name); end
 end
 
@@ -8640,7 +4215,11 @@ class Mongo::Client
   #   printed to the mongod logs upon establishing a connection
   # @option options [ Symbol ] :auth_mech The authentication mechanism to
   #   use. One of :mongodb_cr, :mongodb_x509, :plain, :scram, :scram256
-  # @option options [ Hash ] :auth_mech_properties
+  # @option options [ Hash ] :auth_mech_properties When passed in a
+  #   connection string as authMechanismProperties, key-value pairs are
+  #   delimited by commas, so a value containing a comma (",") must not be
+  #   provided as part of the connection string. Such a value must be passed
+  #   through this option instead. Values may contain colons (":").
   # @option options [ String ] :auth_source The source to authenticate from.
   # @option options [ true | false | nil | Integer ] :bg_error_backtrace
   #   Experimental. Set to true to log complete backtraces for errors in
@@ -8908,6 +4487,10 @@ class Mongo::Client
   #     (this part of the API is subject to change).
   #   - :encrypted_fields_map => Hash | nil, maps a collection namespace to
   #     a hash describing encrypted fields for queryable encryption.
+  #     - Note: Supplying an encrypted_fields_map provides more security
+  #       than relying on an encryptedFields obtained from the server. It
+  #       protects against a malicious server advertising a false
+  #       encryptedFields.
   #     - Note: If a collection is present on both the encryptedFieldsMap
   #       and schemaMap, an error will be raised.
   #   - :bypass_query_analysis => Boolean | nil, when true disables automatic
@@ -8918,6 +4501,10 @@ class Mongo::Client
   #   - :crypt_shared_lib_required => [ Boolean | nil ]  Whether
   #     crypt shared library is required. If 'true', an error will be raised
   #     if a crypt_shared library cannot be loaded by libmongocrypt.
+  #   - :key_expiration_ms => Integer | nil, the lifetime of the data
+  #     encryption key cache, in milliseconds. Must be a non-negative
+  #     integer. A value of 0 means the cache never expires. Defaults to
+  #     60000.
   #
   #   Notes on automatic encryption:
   #   - Automatic encryption is an enterprise only feature that only applies
@@ -8936,7 +4523,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:539
+  # pkg:gem/mongo#lib/mongo/client.rb:551
   def initialize(addresses_or_uri, options = T.unsafe(nil)); end
 
   # Determine if this client is equivalent to another object.
@@ -8974,17 +4561,17 @@ class Mongo::Client
   #
   # @since 2.1.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:916
+  # pkg:gem/mongo#lib/mongo/client.rb:936
   def close; end
 
   # Close encrypter and clean up auto-encryption resources.
   #
   # @return [ true ] Always true.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:927
+  # pkg:gem/mongo#lib/mongo/client.rb:947
   def close_encrypter; end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:907
+  # pkg:gem/mongo#lib/mongo/client.rb:927
   def closed?; end
 
   # @return [ Mongo::Cluster ] cluster The cluster of servers for the client.
@@ -8994,14 +4581,14 @@ class Mongo::Client
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:644
+  # pkg:gem/mongo#lib/mongo/client.rb:658
   def cluster_options; end
 
   # pkg:gem/mongo#lib/mongo/client.rb:161
-  def collections(*_arg0, **_arg1, &_arg2); end
+  def collections(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/client.rb:161
-  def command(*_arg0, **_arg1, &_arg2); end
+  def command(*, **, &); end
 
   # @return [ Mongo::Database ] database The database the client is operating on.
   #
@@ -9033,7 +4620,7 @@ class Mongo::Client
   #
   # @since 2.0.5
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:985
+  # pkg:gem/mongo#lib/mongo/client.rb:1005
   def database_names(filter = T.unsafe(nil), opts = T.unsafe(nil)); end
 
   # Returns encrypted field map hash if provided when creating the client.
@@ -9041,7 +4628,7 @@ class Mongo::Client
   # @return [ Hash | nil ] Encrypted field map hash, or nil if not set.
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1229
+  # pkg:gem/mongo#lib/mongo/client.rb:1249
   def encrypted_fields_map; end
 
   # @return [ Mongo::Crypt::AutoEncrypter ] The object that encapsulates
@@ -9071,7 +4658,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1173
+  # pkg:gem/mongo#lib/mongo/client.rb:1193
   def get_session(options = T.unsafe(nil)); end
 
   # Get the hash value of the client.
@@ -9095,7 +4682,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:706
+  # pkg:gem/mongo#lib/mongo/client.rb:720
   def inspect; end
 
   # Get info for each database.
@@ -9126,7 +4713,7 @@ class Mongo::Client
   #
   # @since 2.0.5
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1016
+  # pkg:gem/mongo#lib/mongo/client.rb:1036
   def list_databases(filter = T.unsafe(nil), name_only = T.unsafe(nil), opts = T.unsafe(nil)); end
 
   # Returns a list of Mongo::Database objects.
@@ -9145,7 +4732,7 @@ class Mongo::Client
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1042
+  # pkg:gem/mongo#lib/mongo/client.rb:1062
   def list_mongo_databases(filter = T.unsafe(nil), opts = T.unsafe(nil)); end
 
   # Get the maximum number of times the client can retry a read operation
@@ -9155,7 +4742,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:674
+  # pkg:gem/mongo#lib/mongo/client.rb:688
   def max_read_retries; end
 
   # Get the maximum number of times the client can retry a write operation
@@ -9165,7 +4752,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:694
+  # pkg:gem/mongo#lib/mongo/client.rb:708
   def max_write_retries; end
 
   # @return [ Monitoring ] monitoring The monitoring.
@@ -9188,7 +4775,7 @@ class Mongo::Client
   #
   # @since 2.6.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:890
+  # pkg:gem/mongo#lib/mongo/client.rb:910
   def read_concern; end
 
   # Get the read preference from the options passed to the client.
@@ -9206,7 +4793,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:754
+  # pkg:gem/mongo#lib/mongo/client.rb:768
   def read_preference; end
 
   # Get the interval, in seconds, in which read retries when using legacy
@@ -9216,7 +4803,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:684
+  # pkg:gem/mongo#lib/mongo/client.rb:698
   def read_retry_interval; end
 
   # Reconnect the client.
@@ -9228,7 +4815,7 @@ class Mongo::Client
   #
   # @since 2.1.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:941
+  # pkg:gem/mongo#lib/mongo/client.rb:961
   def reconnect; end
 
   # Replaces this client's cluster with a fresh instance built from the
@@ -9240,7 +4827,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:874
+  # pkg:gem/mongo#lib/mongo/client.rb:894
   def reset_cluster!(monitoring: T.unsafe(nil)); end
 
   # Replaces this client's database with a fresh instance built from the
@@ -9249,7 +4836,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:862
+  # pkg:gem/mongo#lib/mongo/client.rb:882
   def reset_database!; end
 
   # @return [ Mongo::Retryable::RetryPolicy ] The retry policy for
@@ -9270,7 +4857,7 @@ class Mongo::Client
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:732
+  # pkg:gem/mongo#lib/mongo/client.rb:746
   def server_selector; end
 
   # Start a session.
@@ -9293,11 +4880,11 @@ class Mongo::Client
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1067
+  # pkg:gem/mongo#lib/mongo/client.rb:1087
   def start_session(options = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/client.rb:164
-  def subscribe(*_arg0, **_arg1, &_arg2); end
+  def subscribe(*, **, &); end
 
   # Get a summary of the client state.
   #
@@ -9308,30 +4895,30 @@ class Mongo::Client
   #
   # @since 2.7.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:718
+  # pkg:gem/mongo#lib/mongo/client.rb:732
   def summary; end
 
   # @return [ Integer | nil ] Value of timeout_ms option if set.
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1235
+  # pkg:gem/mongo#lib/mongo/client.rb:1255
   def timeout_ms; end
 
   # @return [ Float | nil ] Value of timeout_ms option converted to seconds.
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1241
+  # pkg:gem/mongo#lib/mongo/client.rb:1261
   def timeout_sec; end
 
   # Get the tracer configured for this client.
   #
   # @return [ Tracing::Tracer | nil ] The tracer configured for this client.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1252
+  # pkg:gem/mongo#lib/mongo/client.rb:1272
   def tracer; end
 
   # pkg:gem/mongo#lib/mongo/client.rb:164
-  def unsubscribe(*_arg0, **_arg1, &_arg2); end
+  def unsubscribe(*, **, &); end
 
   # Updates this client's options from new_options, validating all options.
   #
@@ -9348,7 +4935,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:819
+  # pkg:gem/mongo#lib/mongo/client.rb:833
   def update_options(new_options); end
 
   # Creates a new client configured to use the database with the provided
@@ -9367,7 +4954,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:773
+  # pkg:gem/mongo#lib/mongo/client.rb:787
   def use(name); end
 
   # Allows users to request that notifications are sent for all changes that
@@ -9433,7 +5020,7 @@ class Mongo::Client
   #
   # @since 2.6.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1142
+  # pkg:gem/mongo#lib/mongo/client.rb:1162
   def watch(pipeline = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # Creates a new client with the passed options merged over the existing
@@ -9455,7 +5042,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:795
+  # pkg:gem/mongo#lib/mongo/client.rb:809
   def with(new_options = T.unsafe(nil)); end
 
   # Creates a session to use for operations if possible and yields it to
@@ -9479,7 +5066,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1199
+  # pkg:gem/mongo#lib/mongo/client.rb:1219
   def with_session(options = T.unsafe(nil)); end
 
   # Get the write concern for this client. If no option was provided, then a
@@ -9492,7 +5079,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:903
+  # pkg:gem/mongo#lib/mongo/client.rb:923
   def write_concern; end
 
   private
@@ -9509,21 +5096,29 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1767
+  # pkg:gem/mongo#lib/mongo/client.rb:1797
   def assert_not_closed; end
 
   # Create a new encrypter object using the client's auto encryption options
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1329
+  # pkg:gem/mongo#lib/mongo/client.rb:1359
   def build_encrypter; end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1407
+  # Builds the retry policy for the backpressure retry loops from the
+  # client's options.
+  #
+  # @return [ Retryable::RetryPolicy ] The retry policy.
+  #
+  # pkg:gem/mongo#lib/mongo/client.rb:1287
+  def build_retry_policy; end
+
+  # pkg:gem/mongo#lib/mongo/client.rb:1437
   def cluster_modifying?(new_options); end
 
   # Generate default client options based on the URI and options
   # passed into the Client constructor.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1337
+  # pkg:gem/mongo#lib/mongo/client.rb:1367
   def default_options(options); end
 
   # Validates all options after they are set on the client.
@@ -9535,12 +5130,12 @@ class Mongo::Client
   # version. Modern retryable reads and writes (enabled by default) ignore
   # them.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1490
+  # pkg:gem/mongo#lib/mongo/client.rb:1520
   def deprecate_legacy_retry_options!; end
 
   # Implementation for #close, assumes the connect lock is already acquired.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1349
+  # pkg:gem/mongo#lib/mongo/client.rb:1379
   def do_close; end
 
   # Returns a session to use for operations.
@@ -9566,7 +5161,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1376
+  # pkg:gem/mongo#lib/mongo/client.rb:1406
   def get_session!(options = T.unsafe(nil)); end
 
   # Auxiliary method that is called by interpreter when copying the client
@@ -9576,7 +5171,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1398
+  # pkg:gem/mongo#lib/mongo/client.rb:1428
   def initialize_copy(original); end
 
   # Attempts to parse the given list of addresses, using the provided options.
@@ -9588,7 +5183,7 @@ class Mongo::Client
   # @return [ Hash<:uri, :addresses, :options> ] the results of processing the
   #   list of addresses.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1271
+  # pkg:gem/mongo#lib/mongo/client.rb:1301
   def process_addresses(addresses, options); end
 
   # Attempts to parse the given list of addresses, using the provided options.
@@ -9600,7 +5195,7 @@ class Mongo::Client
   # @return [ Hash<:uri, :addresses, :options> ] the results of processing the
   #   list of addresses.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1313
+  # pkg:gem/mongo#lib/mongo/client.rb:1343
   def process_addresses_array(addresses, options); end
 
   # Attempts to parse the given list of addresses, using the provided options.
@@ -9612,16 +5207,16 @@ class Mongo::Client
   # @return [ Hash<:uri, :addresses, :options> ] the results of processing the
   #   list of addresses.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1287
+  # pkg:gem/mongo#lib/mongo/client.rb:1317
   def process_addresses_string(addresses, options); end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1679
+  # pkg:gem/mongo#lib/mongo/client.rb:1709
   def valid_compressors(compressors); end
 
   # Validates all authentication-related options after they are set on the client
   # This method is intended to catch combinations of options which are not allowed
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1625
+  # pkg:gem/mongo#lib/mongo/client.rb:1655
   def validate_authentication_options!; end
 
   # Validates whether the max_connecting option is valid.
@@ -9632,10 +5227,10 @@ class Mongo::Client
   # @return [ true ] If the option is valid.
   # @raise [ Error::InvalidMaxConnecting ] If the option is invalid.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1727
+  # pkg:gem/mongo#lib/mongo/client.rb:1757
   def validate_max_connecting!(option, opts); end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1712
+  # pkg:gem/mongo#lib/mongo/client.rb:1742
   def validate_max_min_pool_size!(option, opts); end
 
   # Validates options in the provided argument for validity.
@@ -9643,19 +5238,19 @@ class Mongo::Client
   # eventually have; this method validates each of the provided options
   # but does not check for interactions between combinations of options.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1420
+  # pkg:gem/mongo#lib/mongo/client.rb:1450
   def validate_new_options!(opts); end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1504
+  # pkg:gem/mongo#lib/mongo/client.rb:1534
   def validate_options!(addresses = T.unsafe(nil), is_srv: T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1735
+  # pkg:gem/mongo#lib/mongo/client.rb:1765
   def validate_read!(option, opts); end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1692
+  # pkg:gem/mongo#lib/mongo/client.rb:1722
   def validate_snappy_compression!; end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1702
+  # pkg:gem/mongo#lib/mongo/client.rb:1732
   def validate_zstd_compression!; end
 
   class << self
@@ -9664,7 +5259,7 @@ class Mongo::Client
     #
     # @api private
     #
-    # pkg:gem/mongo#lib/mongo/client.rb:1215
+    # pkg:gem/mongo#lib/mongo/client.rb:1235
     def canonicalize_ruby_options(options); end
   end
 end
@@ -9725,11 +5320,15 @@ class Mongo::ClientEncryption
   # @option options [ Integer ] :timeout_ms The operation timeout in milliseconds.
   #    Must be a non-negative integer. An explicit value of 0 means infinite.
   #    The default value is unset which means the feature is disabled.
+  # @option options [ Integer ] :key_expiration_ms The lifetime of the data
+  #    encryption key cache, in milliseconds. Must be a non-negative integer.
+  #    An explicit value of 0 means the cache never expires. The default is
+  #    60000.
   #
   # @raise [ ArgumentError ] If required options are missing or incorrectly
   #   formatted.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:48
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:52
   def initialize(key_vault_client, options = T.unsafe(nil)); end
 
   # Adds a key_alt_name for the key in the key vault collection with the given id.
@@ -9740,7 +5339,7 @@ class Mongo::ClientEncryption
   # @return [ BSON::Document | nil ] Document describing the identified key
   #   before adding the key alt name, or nil if no such key.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:182
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:207
   def add_key_alt_name(id, key_alt_name); end
 
   # Generates a data key used for encryption/decryption and stores
@@ -9770,7 +5369,7 @@ class Mongo::ClientEncryption
   # @return [ BSON::Binary ] The 16-byte UUID of the new data key as a
   #   BSON::Binary object with type :uuid.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:83
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:89
   def create_data_key(kms_provider, options = T.unsafe(nil)); end
 
   # Create collection with encrypted fields.
@@ -9793,7 +5392,7 @@ class Mongo::ClientEncryption
   #   collection operation and the encrypted fields map used to create
   #   the collection.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:269
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:294
   def create_encrypted_collection(database, coll_name, coll_opts, kms_provider, master_key); end
 
   # Decrypts a value that has already been encrypted.
@@ -9803,7 +5402,7 @@ class Mongo::ClientEncryption
   #
   # @return [ Object ] The decrypted value.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:171
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:196
   def decrypt(value); end
 
   # Removes the key with the given id from the key vault collection.
@@ -9813,7 +5412,7 @@ class Mongo::ClientEncryption
   # @return [ Operation::Result ] The response from the database for the delete_one
   #   operation that deletes the key.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:192
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:217
   def delete_key(id); end
 
   # Encrypts a value using the specified encryption key and algorithm.
@@ -9828,15 +5427,34 @@ class Mongo::ClientEncryption
   #   encryption key.
   # @option options [ String ] :algorithm The algorithm used to encrypt the value.
   #   Valid algorithms are "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic",
-  #   "AEAD_AES_256_CBC_HMAC_SHA_512-Random", "Indexed", "Unindexed".
+  #   "AEAD_AES_256_CBC_HMAC_SHA_512-Random", "Indexed", "Unindexed", "Range",
+  #   "String".
   # @option options [ Integer | nil ] :contention_factor Contention factor
-  #   to be applied if encryption algorithm is set to "Indexed". If not
-  #   provided, it defaults to a value of 0. Contention factor should be set
-  #   only if encryption algorithm is set to "Indexed".
+  #   to be applied if encryption algorithm is set to "Indexed", "Range", or
+  #   "String". If not provided, it defaults to a value of 0. Contention factor
+  #   should be set only if encryption algorithm is set to "Indexed", "Range",
+  #   or "String".
   # @option options [ String | nil ] query_type Query type to be applied
-  # if encryption algorithm is set to "Indexed". Query type should be set
-  #   only if encryption algorithm is set to "Indexed". The only allowed
-  #   value is "equality".
+  #   if encryption algorithm is set to "Indexed", "Range", or "String".
+  #   Allowed values are "equality" (for "Indexed"), "range" (for "Range"),
+  #   and "prefix", "suffix", "substring" (for "String").
+  # @option options [ Hash | nil ] :range_opts Specifies index options for a
+  #   Queryable Encryption field supporting "range" queries. Required when
+  #   algorithm is "Range". Allowed options are :min, :max, :trim_factor,
+  #   :sparsity, :precision.
+  # @option options [ Hash | nil ] :string_opts Specifies index options for a
+  #   Queryable Encryption field supporting "prefix", "suffix", or "substring"
+  #   queries. Required when algorithm is "String". Allowed options are
+  #   :case_sensitive, :diacritic_sensitive, :prefix, :suffix, :substring.
+  #
+  # @note The result of explicit encryption with the "Indexed", "Range", or
+  #   "String" algorithm must be processed by the server to insert or query.
+  #   To insert or query with such a payload, use a Mongo::Client configured
+  #   with :auto_encryption_options. The :bypass_query_analysis option may be
+  #   true; the :bypass_auto_encryption option must be false.
+  #
+  # @note The "substring" query type is unstable and subject to backwards
+  #   breaking changes.
   #
   # @note The :key_id and :key_alt_name options are mutually exclusive. Only
   #   one is required to perform explicit encryption.
@@ -9844,10 +5462,10 @@ class Mongo::ClientEncryption
   # @return [ BSON::Binary ] A BSON Binary object of subtype 6 (ciphertext)
   #   representing the encrypted value.
   #
-  # @raise [ ArgumentError ] if either contention_factor or query_type
-  #   is set, and algorithm is not "Indexed".
+  # @raise [ ArgumentError ] if either contention_factor or query_type is set,
+  #   and algorithm is not "Indexed", "Range", or "String".
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:121
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:146
   def encrypt(value, options = T.unsafe(nil)); end
 
   # Encrypts a Match Expression or Aggregate Expression to query a range index.
@@ -9876,7 +5494,7 @@ class Mongo::ClientEncryption
   #   expression. The only allowed value is "Range"
   # @option options [ Integer | nil ] :contention_factor Contention factor
   #   to be applied If not  provided, it defaults to a value of 0.
-  # @option options [ String | nil ] query_type Query type to be applied.
+  # @option options [ String | nil ] :query_type Query type to be applied.
   #   The only allowed value is "range".
   #
   # @note The :key_id and :key_alt_name options are mutually exclusive. Only
@@ -9887,7 +5505,7 @@ class Mongo::ClientEncryption
   #
   # @raise [ ArgumentError ] if disallowed values in options are set.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:161
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:186
   def encrypt_expression(expression, options = T.unsafe(nil)); end
 
   # Finds a single key with the given id.
@@ -9897,7 +5515,7 @@ class Mongo::ClientEncryption
   # @return [ BSON::Document | nil ] The found key document or nil
   #   if not found.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:202
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:227
   def get_key(id); end
 
   # Returns a key in the key vault collection with the given key_alt_name.
@@ -9907,17 +5525,17 @@ class Mongo::ClientEncryption
   # @return [ BSON::Document | nil ] The found key document or nil
   #   if not found.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:212
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:237
   def get_key_by_alt_name(key_alt_name); end
 
   # Returns all keys in the key vault collection.
   #
   # @return [ Collection::View ] Keys in the key vault collection.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:219
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:244
   def get_keys; end
 
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:222
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:247
   def keys; end
 
   # Removes a key_alt_name from a key in the key vault collection with the given id.
@@ -9928,7 +5546,7 @@ class Mongo::ClientEncryption
   # @return [ BSON::Document | nil ] Document describing the identified key
   #   before removing the key alt name, or nil if no such key.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:231
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:256
   def remove_key_alt_name(id, key_alt_name); end
 
   # Decrypts multiple data keys and (re-)encrypts them with a new master_key,
@@ -9943,7 +5561,7 @@ class Mongo::ClientEncryption
   #
   # @return [ Crypt::RewrapManyDataKeyResult ] Result of the operation.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:246
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:271
   def rewrap_many_data_key(filter, opts = T.unsafe(nil)); end
 
   private
@@ -9958,7 +5576,7 @@ class Mongo::ClientEncryption
   # @return [ Hash ] Encrypted fields map with keyIds for fields
   #   that did not have one.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:293
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:318
   def create_data_keys(encrypted_fields, kms_provider, master_key); end
 end
 
@@ -10061,7 +5679,7 @@ class Mongo::Cluster
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:695
+  # pkg:gem/mongo#lib/mongo/cluster.rb:694
   def ==(other); end
 
   # Add a server to the cluster with the provided address. Useful in
@@ -10080,7 +5698,7 @@ class Mongo::Cluster
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:801
+  # pkg:gem/mongo#lib/mongo/cluster.rb:800
   def add(host, add_options = T.unsafe(nil)); end
 
   # The addresses in the cluster.
@@ -10144,7 +5762,7 @@ class Mongo::Cluster
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:905
+  # pkg:gem/mongo#lib/mongo/cluster.rb:904
   def disconnect_server_if_connected(server); end
 
   # Determine if the cluster would select a readable server for the
@@ -10160,7 +5778,7 @@ class Mongo::Cluster
   #
   # @since 2.4.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:713
+  # pkg:gem/mongo#lib/mongo/cluster.rb:712
   def has_readable_server?(server_selector = T.unsafe(nil)); end
 
   # Determine if the cluster would select a writable server.
@@ -10172,7 +5790,7 @@ class Mongo::Cluster
   #
   # @since 2.4.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:725
+  # pkg:gem/mongo#lib/mongo/cluster.rb:724
   def has_writable_server?; end
 
   # Get the refresh interval for the server. This will be defined via an
@@ -10207,7 +5825,7 @@ class Mongo::Cluster
   def load_balanced?; end
 
   # pkg:gem/mongo#lib/mongo/cluster.rb:431
-  def logical_session_timeout(*_arg0, **_arg1, &_arg2); end
+  def logical_session_timeout(*, **, &); end
 
   # Get the maximum number of times the client can retry a read operation
   # when using legacy read retries.
@@ -10253,7 +5871,7 @@ class Mongo::Cluster
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:744
+  # pkg:gem/mongo#lib/mongo/cluster.rb:743
   def next_primary(_ping = T.unsafe(nil), session = T.unsafe(nil), timeout: T.unsafe(nil)); end
 
   # @return [ Hash ] The options hash.
@@ -10273,7 +5891,7 @@ class Mongo::Cluster
   # @since 2.2.0
   # @deprecated
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:764
+  # pkg:gem/mongo#lib/mongo/cluster.rb:763
   def pool(server); end
 
   # @api private
@@ -10336,14 +5954,14 @@ class Mongo::Cluster
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:848
+  # pkg:gem/mongo#lib/mongo/cluster.rb:847
   def remove(host, disconnect: T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/cluster.rb:306
-  def replica_set?(*_arg0, **_arg1, &_arg2); end
+  def replica_set?(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/cluster.rb:306
-  def replica_set_name(*_arg0, **_arg1, &_arg2); end
+  def replica_set_name(*, **, &); end
 
   # Runs SDAM flow on the cluster.
   #
@@ -10359,8 +5977,7 @@ class Mongo::Cluster
   # @option options [ true | false ] :keep_connection_pool Usually when the
   #   new server description is unknown, the connection pool on the
   #   respective server is cleared. Set this option to true to keep the
-  #   existing connection pool (required when handling not master errors
-  #   on 4.2+ servers).
+  #   existing connection pool (required when handling not master errors).
   # @option options [ true | false ] :awaited Whether the updated description
   #   was a result of processing an awaited hello.
   # @option options [ Object ] :service_id Change state for the specified
@@ -10370,7 +5987,7 @@ class Mongo::Cluster
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:599
+  # pkg:gem/mongo#lib/mongo/cluster.rb:598
   def run_sdam_flow(previous_desc, updated_desc, options = T.unsafe(nil)); end
 
   # Force a scan of all known servers in the cluster.
@@ -10433,7 +6050,7 @@ class Mongo::Cluster
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:898
+  # pkg:gem/mongo#lib/mongo/cluster.rb:897
   def servers_list; end
 
   # @api private
@@ -10456,14 +6073,14 @@ class Mongo::Cluster
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:666
+  # pkg:gem/mongo#lib/mongo/cluster.rb:665
   def set_server_list(server_address_strs); end
 
   # pkg:gem/mongo#lib/mongo/cluster.rb:306
-  def sharded?(*_arg0, **_arg1, &_arg2); end
+  def sharded?(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/cluster.rb:306
-  def single?(*_arg0, **_arg1, &_arg2); end
+  def single?(*, **, &); end
 
   # @api private
   #
@@ -10491,11 +6108,11 @@ class Mongo::Cluster
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:964
+  # pkg:gem/mongo#lib/mongo/cluster.rb:963
   def trigger_periodic_executor!; end
 
   # pkg:gem/mongo#lib/mongo/cluster.rb:306
-  def unknown?(*_arg0, **_arg1, &_arg2); end
+  def unknown?(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/cluster.rb:318
   def unregister_cursor(*args); end
@@ -10511,12 +6128,12 @@ class Mongo::Cluster
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:778
+  # pkg:gem/mongo#lib/mongo/cluster.rb:777
   def update_cluster_time(result); end
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:871
+  # pkg:gem/mongo#lib/mongo/cluster.rb:870
   def update_topology(new_topology); end
 
   # Raises Error::SessionsNotAvailable if the deployment that the driver
@@ -10544,29 +6161,29 @@ class Mongo::Cluster
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:940
+  # pkg:gem/mongo#lib/mongo/cluster.rb:939
   def validate_session_support!(timeout: T.unsafe(nil)); end
 
   private
 
-  # pkg:gem/mongo#lib/mongo/cluster.rb:1016
+  # pkg:gem/mongo#lib/mongo/cluster.rb:1015
   def fabricate_lb_sdam_events_and_set_server_type; end
 
   # Compares the server hosts with address suffixes of known services
   # that provide limited MongoDB API compatibility, and warns about them.
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:1062
+  # pkg:gem/mongo#lib/mongo/cluster.rb:1061
   def possibly_warn_about_compatibility!; end
 
-  # pkg:gem/mongo#lib/mongo/cluster.rb:1000
+  # pkg:gem/mongo#lib/mongo/cluster.rb:999
   def raise_sessions_not_supported; end
 
-  # pkg:gem/mongo#lib/mongo/cluster.rb:1042
+  # pkg:gem/mongo#lib/mongo/cluster.rb:1041
   def recreate_topology(new_topology_template, previous_topology); end
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/cluster.rb:973
+  # pkg:gem/mongo#lib/mongo/cluster.rb:972
   def start_stop_srv_monitor; end
 end
 
@@ -10578,10 +6195,10 @@ end
 # pkg:gem/mongo#lib/mongo/cluster.rb:59
 Mongo::Cluster::CLUSTER_TIME = T.let(T.unsafe(nil), String)
 
-# pkg:gem/mongo#lib/mongo/cluster.rb:1050
+# pkg:gem/mongo#lib/mongo/cluster.rb:1049
 Mongo::Cluster::COSMOSDB_HOST_PATTERNS = T.let(T.unsafe(nil), Array)
 
-# pkg:gem/mongo#lib/mongo/cluster.rb:1051
+# pkg:gem/mongo#lib/mongo/cluster.rb:1050
 Mongo::Cluster::COSMOSDB_LOG_MESSAGE = T.let(T.unsafe(nil), String)
 
 # A manager that sends kill cursors operations at regular intervals to close
@@ -10682,10 +6299,10 @@ end
 # pkg:gem/mongo#lib/mongo/cluster/reapers/cursor_reaper.rb:32
 Mongo::Cluster::CursorReaper::FREQUENCY = T.let(T.unsafe(nil), Integer)
 
-# pkg:gem/mongo#lib/mongo/cluster.rb:1055
+# pkg:gem/mongo#lib/mongo/cluster.rb:1054
 Mongo::Cluster::DOCUMENTDB_HOST_PATTERNS = T.let(T.unsafe(nil), Array)
 
-# pkg:gem/mongo#lib/mongo/cluster.rb:1056
+# pkg:gem/mongo#lib/mongo/cluster.rb:1055
 Mongo::Cluster::DOCUMENTDB_LOG_MESSAGE = T.let(T.unsafe(nil), String)
 
 # How often an idle primary writes a no-op to the oplog.
@@ -10858,7 +6475,7 @@ class Mongo::Cluster::SdamFlow
   def do_remove(address_str); end
 
   # pkg:gem/mongo#lib/mongo/cluster/sdam_flow.rb:41
-  def log_warn(*_arg0, **_arg1, &_arg2); end
+  def log_warn(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/cluster/sdam_flow.rb:39
   def original_desc; end
@@ -10870,7 +6487,7 @@ class Mongo::Cluster::SdamFlow
   def publish_description_change_event; end
 
   # pkg:gem/mongo#lib/mongo/cluster/sdam_flow.rb:41
-  def publish_sdam_event(*_arg0, **_arg1, &_arg2); end
+  def publish_sdam_event(*, **, &); end
 
   # Removes the server whose description we are processing from the
   # topology.
@@ -10886,16 +6503,16 @@ class Mongo::Cluster::SdamFlow
   def remove_servers_not_in_desc(updated_desc); end
 
   # pkg:gem/mongo#lib/mongo/cluster/sdam_flow.rb:57
-  def replica_set_name(*_arg0, **_arg1, &_arg2); end
+  def replica_set_name(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/cluster/sdam_flow.rb:41
-  def seeds(*_arg0, **_arg1, &_arg2); end
+  def seeds(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/cluster/sdam_flow.rb:85
   def server_description_changed; end
 
   # pkg:gem/mongo#lib/mongo/cluster/sdam_flow.rb:41
-  def servers_list(*_arg0, **_arg1, &_arg2); end
+  def servers_list(*, **, &); end
 
   # Whether updated_desc is for a stale primary.
   #
@@ -12143,10 +7760,10 @@ class Mongo::Collection
   def capped?; end
 
   # pkg:gem/mongo#lib/mongo/collection.rb:53
-  def client(*_arg0, **_arg1, &_arg2); end
+  def client(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection.rb:53
-  def cluster(*_arg0, **_arg1, &_arg2); end
+  def cluster(*, **, &); end
 
   # Gets an estimated number of matching documents in the collection.
   #
@@ -12389,7 +8006,7 @@ class Mongo::Collection
   def drop(opts = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/collection.rb:53
-  def encrypted_fields_map(*_arg0, **_arg1, &_arg2); end
+  def encrypted_fields_map(*, **, &); end
 
   # Gets an estimate of the number of documents in the collection using the
   # collection metadata.
@@ -12697,7 +8314,7 @@ class Mongo::Collection
   def namespace; end
 
   # pkg:gem/mongo#lib/mongo/collection.rb:56
-  def next_primary(*_arg0, **_arg1, &_arg2); end
+  def next_primary(*, **, &); end
 
   # @return [ Hash ] timeout_ms value set on the operation level (if any),
   #   and/or timeout_ms that is set on collection/database/client level (if any).
@@ -12863,7 +8480,7 @@ class Mongo::Collection
   def timeout_ms; end
 
   # pkg:gem/mongo#lib/mongo/collection.rb:58
-  def tracer(*_arg0, **_arg1, &_arg2); end
+  def tracer(*, **, &); end
 
   # Update documents in the collection.
   #
@@ -13171,7 +8788,7 @@ module Mongo::Collection::QueryableEncryption
   #
   # @return [ Operation::Create ] the new create operation.
   #
-  # pkg:gem/mongo#lib/mongo/collection/queryable_encryption.rb:148
+  # pkg:gem/mongo#lib/mongo/collection/queryable_encryption.rb:149
   def create_operation_for(coll); end
 
   # Checks if names for auxiliary collections are set and returns them,
@@ -13184,13 +8801,14 @@ module Mongo::Collection::QueryableEncryption
   # pkg:gem/mongo#lib/mongo/collection/queryable_encryption.rb:94
   def emm_collections(encrypted_fields); end
 
-  # Tries to return the encrypted fields from the {{encrypted_fields_map}}
-  # value, for the current namespace.
+  # Tries to return the encrypted fields for the current namespace from
+  # the {{encrypted_fields_map}} value, falling back to the encrypted
+  # fields advertised by the server for the collection.
   #
   # @return [ Hash | nil ] the encrypted fields, if found
   #
-  # pkg:gem/mongo#lib/mongo/collection/queryable_encryption.rb:134
-  def encrypted_fields_for_drop_from_map; end
+  # pkg:gem/mongo#lib/mongo/collection/queryable_encryption.rb:135
+  def encrypted_fields_for_drop; end
 
   # Tries to return the encrypted fields from the argument. If the argument
   # is nil, tries to find the encrypted fields from the
@@ -13310,10 +8928,10 @@ class Mongo::Collection::View
   def ==(other); end
 
   # pkg:gem/mongo#lib/mongo/collection/view.rb:60
-  def client(*_arg0, **_arg1, &_arg2); end
+  def client(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view.rb:60
-  def cluster(*_arg0, **_arg1, &_arg2); end
+  def cluster(*, **, &); end
 
   # @return [ Collection ] The +Collection+ to query.
   #
@@ -13321,7 +8939,7 @@ class Mongo::Collection::View
   def collection; end
 
   # pkg:gem/mongo#lib/mongo/collection/view.rb:60
-  def database(*_arg0, **_arg1, &_arg2); end
+  def database(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view.rb:99
   def eql?(other); end
@@ -13357,10 +8975,10 @@ class Mongo::Collection::View
   def inspect; end
 
   # pkg:gem/mongo#lib/mongo/collection/view.rb:71
-  def next_primary(*_arg0, **_arg1, &_arg2); end
+  def next_primary(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view.rb:60
-  def nro_write_with_retry(*_arg0, **_arg1, &_arg2); end
+  def nro_write_with_retry(*, **, &); end
 
   # @return [ Integer | nil | The timeout_ms value that was passed as an
   #   option to the view.
@@ -13379,10 +8997,10 @@ class Mongo::Collection::View
   def operation_timeouts(opts = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/collection/view.rb:60
-  def read_with_retry(*_arg0, **_arg1, &_arg2); end
+  def read_with_retry(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view.rb:60
-  def read_with_retry_cursor(*_arg0, **_arg1, &_arg2); end
+  def read_with_retry_cursor(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view.rb:75
   def selector; end
@@ -13396,7 +9014,7 @@ class Mongo::Collection::View
   def timeout_ms; end
 
   # pkg:gem/mongo#lib/mongo/collection/view.rb:73
-  def tracer(*_arg0, **_arg1, &_arg2); end
+  def tracer(*, **, &); end
 
   # Executes the provided block within the context of a session, using
   # this view's options merged with the given ones.
@@ -13419,10 +9037,10 @@ class Mongo::Collection::View
   def write_concern; end
 
   # pkg:gem/mongo#lib/mongo/collection/view.rb:60
-  def write_concern_with_session(*_arg0, **_arg1, &_arg2); end
+  def write_concern_with_session(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view.rb:60
-  def write_with_retry(*_arg0, **_arg1, &_arg2); end
+  def write_with_retry(*, **, &); end
 
   private
 
@@ -13497,7 +9115,7 @@ class Mongo::Collection::View::Aggregation
   def pipeline; end
 
   # pkg:gem/mongo#lib/mongo/collection/view/aggregation.rb:32
-  def tracer(*_arg0, **_arg1, &_arg2); end
+  def tracer(*, **, &); end
 
   private
 
@@ -13560,22 +9178,22 @@ module Mongo::Collection::View::Aggregation::Behavior
   def allow_disk_use(value = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/aggregation/behavior.rb:22
-  def batch_size(*_arg0, **_arg1, &_arg2); end
+  def batch_size(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/aggregation/behavior.rb:25
-  def client(*_arg0, **_arg1, &_arg2); end
+  def client(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/aggregation/behavior.rb:22
-  def cluster(*_arg0, **_arg1, &_arg2); end
+  def cluster(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/aggregation/behavior.rb:22
-  def collection(*_arg0, **_arg1, &_arg2); end
+  def collection(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/aggregation/behavior.rb:22
-  def cursor_type(*_arg0, **_arg1, &_arg2); end
+  def cursor_type(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/aggregation/behavior.rb:25
-  def database(*_arg0, **_arg1, &_arg2); end
+  def database(*, **, &); end
 
   # Get the explain plan for the aggregation.
   #
@@ -13590,10 +9208,10 @@ module Mongo::Collection::View::Aggregation::Behavior
   def explain; end
 
   # pkg:gem/mongo#lib/mongo/collection/view/aggregation/behavior.rb:22
-  def limit(*_arg0, **_arg1, &_arg2); end
+  def limit(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/aggregation/behavior.rb:22
-  def read(*_arg0, **_arg1, &_arg2); end
+  def read(*, **, &); end
 
   # @return [ Integer | nil ] the timeout_ms value that was passed as
   #   an option to this object, or which was inherited from the view.
@@ -13670,10 +9288,10 @@ class Mongo::Collection::View::Builder::Aggregation
   def initialize(pipeline, view, options); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/builder/aggregation.rb:44
-  def collection(*_arg0, **_arg1, &_arg2); end
+  def collection(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/builder/aggregation.rb:44
-  def database(*_arg0, **_arg1, &_arg2); end
+  def database(*, **, &); end
 
   # @return [ Hash ] options The map/reduce specific options.
   #
@@ -13686,7 +9304,7 @@ class Mongo::Collection::View::Builder::Aggregation
   def pipeline; end
 
   # pkg:gem/mongo#lib/mongo/collection/view/builder/aggregation.rb:44
-  def read(*_arg0, **_arg1, &_arg2); end
+  def read(*, **, &); end
 
   # Get the specification to pass to the aggregation operation.
   #
@@ -13706,7 +9324,7 @@ class Mongo::Collection::View::Builder::Aggregation
   def view; end
 
   # pkg:gem/mongo#lib/mongo/collection/view/builder/aggregation.rb:44
-  def write_concern(*_arg0, **_arg1, &_arg2); end
+  def write_concern(*, **, &); end
 
   private
 
@@ -13751,13 +9369,13 @@ class Mongo::Collection::View::Builder::MapReduce
   def initialize(map, reduce, view, options); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/builder/map_reduce.rb:40
-  def collection(*_arg0, **_arg1, &_arg2); end
+  def collection(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/builder/map_reduce.rb:40
-  def database(*_arg0, **_arg1, &_arg2); end
+  def database(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/builder/map_reduce.rb:40
-  def filter(*_arg0, **_arg1, &_arg2); end
+  def filter(*, **, &); end
 
   # @return [ String ] map The map function.
   #
@@ -13770,7 +9388,7 @@ class Mongo::Collection::View::Builder::MapReduce
   def options; end
 
   # pkg:gem/mongo#lib/mongo/collection/view/builder/map_reduce.rb:40
-  def read(*_arg0, **_arg1, &_arg2); end
+  def read(*, **, &); end
 
   # @return [ String ] reduce The reduce function.
   #
@@ -13795,7 +9413,7 @@ class Mongo::Collection::View::Builder::MapReduce
   def view; end
 
   # pkg:gem/mongo#lib/mongo/collection/view/builder/map_reduce.rb:40
-  def write_concern(*_arg0, **_arg1, &_arg2); end
+  def write_concern(*, **, &); end
 
   private
 
@@ -14311,16 +9929,16 @@ class Mongo::Collection::View::MapReduce
   def initialize(view, map, reduce, options = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/map_reduce.rb:55
-  def client(*_arg0, **_arg1, &_arg2); end
+  def client(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/map_reduce.rb:52
-  def cluster(*_arg0, **_arg1, &_arg2); end
+  def cluster(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/map_reduce.rb:52
-  def collection(*_arg0, **_arg1, &_arg2); end
+  def collection(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/map_reduce.rb:55
-  def database(*_arg0, **_arg1, &_arg2); end
+  def database(*, **, &); end
 
   # Iterate through documents returned by the map/reduce.
   #
@@ -14423,7 +10041,7 @@ class Mongo::Collection::View::MapReduce
   def out_database_name; end
 
   # pkg:gem/mongo#lib/mongo/collection/view/map_reduce.rb:52
-  def read(*_arg0, **_arg1, &_arg2); end
+  def read(*, **, &); end
 
   # @return [ String ] reduce The reduce function.
   #
@@ -14446,7 +10064,7 @@ class Mongo::Collection::View::MapReduce
   def scope(object = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/collection/view/map_reduce.rb:52
-  def timeout_ms(*_arg0, **_arg1, &_arg2); end
+  def timeout_ms(*, **, &); end
 
   # Whether to include the timing information in the result.
   #
@@ -15097,7 +10715,7 @@ module Mongo::Collection::View::Writable
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:257
+  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:247
   def delete_many(opts = T.unsafe(nil)); end
 
   # Remove a document from the collection.
@@ -15126,7 +10744,7 @@ module Mongo::Collection::View::Writable
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:326
+  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:311
   def delete_one(opts = T.unsafe(nil)); end
 
   # Finds a single document in the database via findAndModify and deletes
@@ -15196,7 +10814,7 @@ module Mongo::Collection::View::Writable
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:137
+  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:132
   def find_one_and_replace(replacement, opts = T.unsafe(nil)); end
 
   # Finds a single document and updates it.
@@ -15238,7 +10856,7 @@ module Mongo::Collection::View::Writable
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:179
+  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:174
   def find_one_and_update(document, opts = T.unsafe(nil)); end
 
   # Replaces a single document in the database with the new document.
@@ -15277,7 +10895,7 @@ module Mongo::Collection::View::Writable
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:404
+  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:384
   def replace_one(replacement, opts = T.unsafe(nil)); end
 
   # Update documents in the collection.
@@ -15313,7 +10931,7 @@ module Mongo::Collection::View::Writable
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:483
+  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:458
   def update_many(spec, opts = T.unsafe(nil)); end
 
   # Update a single document in the collection.
@@ -15354,7 +10972,7 @@ module Mongo::Collection::View::Writable
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:566
+  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:536
   def update_one(spec, opts = T.unsafe(nil)); end
 
   private
@@ -15368,7 +10986,7 @@ module Mongo::Collection::View::Writable
   # @raise [ Error::InvalidUpdateDocument ] if the first key in the
   #   document does not start with a $.
   #
-  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:643
+  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:608
   def validate_replacement_documents!(spec); end
 
   # Checks the update documents to make sure they only have atomic modifiers.
@@ -15380,7 +10998,7 @@ module Mongo::Collection::View::Writable
   # @raise [ Error::InvalidUpdateDocument ] if the first key in the
   #   document does not start with a $.
   #
-  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:626
+  # pkg:gem/mongo#lib/mongo/collection/view/writable.rb:591
   def validate_update_documents!(spec); end
 end
 
@@ -15409,7 +11027,7 @@ class Mongo::ConditionVariable
   def signal; end
 
   # pkg:gem/mongo#lib/mongo/condition_variable.rb:48
-  def synchronize(*_arg0, **_arg1, &_arg2); end
+  def synchronize(*, **, &); end
 
   # Waits for the condition variable to be signaled up to timeout seconds.
   # If condition variable is not signaled, returns after timeout seconds.
@@ -15650,18 +11268,21 @@ class Mongo::Crypt::AutoEncrypter
   # @option options [ Boolean | nil ] :crypt_shared_lib_required Whether
   #   crypt shared library is required. If 'true', an error will be raised
   #   if a crypt_shared library cannot be loaded by libmongocrypt.
+  # @option options [ Integer | nil ] :key_expiration_ms The lifetime of the
+  #   data encryption key cache, in milliseconds. A value of 0 means the
+  #   cache never expires. Defaults to 60000.
   #
   # @raise [ ArgumentError ] If required options are missing or incorrectly
   #   formatted.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:87
+  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:90
   def initialize(options); end
 
   # Close the resources created by the AutoEncrypter.
   #
   # @return [ true ] Always true.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:208
+  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:212
   def close; end
 
   # Decrypt a database command.
@@ -15670,7 +11291,7 @@ class Mongo::Crypt::AutoEncrypter
   #
   # @return [ BSON::Document ] The decrypted command.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:197
+  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:201
   def decrypt(command, timeout_holder); end
 
   # Encrypt a database command.
@@ -15681,7 +11302,7 @@ class Mongo::Crypt::AutoEncrypter
   #
   # @return [ BSON::Document ] The encrypted command.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:183
+  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:187
   def encrypt(database_name, command, timeout_holder); end
 
   # Whether this encrypter should perform encryption (returns false if
@@ -15689,7 +11310,7 @@ class Mongo::Crypt::AutoEncrypter
   #
   # @return [ Boolean ] Whether to perform encryption.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:172
+  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:176
   def encrypt?; end
 
   # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:30
@@ -15715,7 +11336,7 @@ class Mongo::Crypt::AutoEncrypter
   # @return [ Mongo::Client ] Client to be used as internal client for
   # auto encryption.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:286
+  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:290
   def internal_client(client); end
 
   # Returns a new set of options with the following changes:
@@ -15725,14 +11346,14 @@ class Mongo::Crypt::AutoEncrypter
   # - sets bypass_auto_encryption to false
   # - sets default key vault client
   #
-  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:232
+  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:236
   def set_default_options(options); end
 
   # Create additional clients for auto encryption, if necessary
   #
   # @param [ Hash ] options Auto encryption options.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:259
+  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:263
   def set_or_create_clients(options); end
 end
 
@@ -15885,7 +11506,7 @@ class Mongo::Crypt::Context
   def ctx_p; end
 
   # pkg:gem/mongo#lib/mongo/crypt/context.rb:30
-  def kms_providers(*_arg0, **_arg1, &_arg2); end
+  def kms_providers(*, **, &); end
 
   # Runs the mongocrypt_ctx_t state machine and handles
   # all I/O on behalf of
@@ -16282,9 +11903,12 @@ class Mongo::Crypt::ExplicitEncrypter
   #   to TLS connection options of Mongo::Client.
   # @param [ Integer | nil ] timeout_ms Timeout for every operation executed
   #   on this object.
+  # @param [ Integer | nil ] key_expiration_ms The lifetime of the data
+  #   encryption key cache, in milliseconds. A value of 0 means the cache
+  #   never expires. When nil, libmongocrypt's default of 60000 is used.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:40
-  def initialize(key_vault_client, key_vault_namespace, kms_providers, kms_tls_options, timeout_ms = T.unsafe(nil)); end
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:43
+  def initialize(key_vault_client, key_vault_namespace, kms_providers, kms_tls_options, timeout_ms = T.unsafe(nil), key_expiration_ms = T.unsafe(nil)); end
 
   # Adds a key_alt_name for the key in the key vault collection with the given id.
   #
@@ -16294,7 +11918,7 @@ class Mongo::Crypt::ExplicitEncrypter
   # @return [ BSON::Document | nil ] Document describing the identified key
   #   before adding the key alt name, or nil if no such key.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:203
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:218
   def add_key_alt_name(id, key_alt_name); end
 
   # Generates a data key used for encryption/decryption and stores
@@ -16313,7 +11937,7 @@ class Mongo::Crypt::ExplicitEncrypter
   # @return [ BSON::Binary ] The 16-byte UUID of the new data key as a
   #   BSON::Binary object with type :uuid.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:70
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:77
   def create_and_insert_data_key(master_key_document, key_alt_names, key_material = T.unsafe(nil)); end
 
   # Decrypts a value that has already been encrypted
@@ -16323,7 +11947,7 @@ class Mongo::Crypt::ExplicitEncrypter
   #
   # @return [ Object ] The decrypted value
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:188
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:203
   def decrypt(value); end
 
   # Removes the key with the given id from the key vault collection.
@@ -16333,7 +11957,7 @@ class Mongo::Crypt::ExplicitEncrypter
   # @return [ Operation::Result ] The response from the database for the delete_one
   #   operation that deletes the key.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:213
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:228
   def delete_key(id); end
 
   # Encrypts a value using the specified encryption key and algorithm
@@ -16348,25 +11972,33 @@ class Mongo::Crypt::ExplicitEncrypter
   #   encryption key.
   # @option options [ String ] :algorithm The algorithm used to encrypt the value.
   #   Valid algorithms are "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic",
-  #   "AEAD_AES_256_CBC_HMAC_SHA_512-Random", "Indexed", "Unindexed".
+  #   "AEAD_AES_256_CBC_HMAC_SHA_512-Random", "Indexed", "Unindexed",
+  #   "Range", "String".
   # @option options [ Integer | nil ] :contention_factor Contention factor
-  #   to be applied if encryption algorithm is set to "Indexed". If not
-  #   provided, it defaults to a value of 0. Contention factor should be set
-  #   only if encryption algorithm is set to "Indexed".
-  # @option options [ String | nil ] query_type Query type to be applied
-  # if encryption algorithm is set to "Indexed". Query type should be set
-  #   only if encryption algorithm is set to "Indexed". The only allowed
-  #   value is "equality".
+  #   to be applied if encryption algorithm is set to "Indexed", "Range", or
+  #   "String". If not provided, it defaults to a value of 0. Contention
+  #   factor should be set only if encryption algorithm is set to "Indexed",
+  #   "Range", or "String".
+  # @option options [ String | nil ] :query_type Query type to be applied
+  #   if encryption algorithm is set to "Indexed", "Range", or "String".
+  #   Allowed values are "equality" (for "Indexed"), "range" (for "Range"),
+  #   and "prefix", "suffix", "substring" (for "String").
+  # @option options [ Hash | nil ] :range_opts Specifies index options for a
+  #   Queryable Encryption field supporting "range" queries. Required when
+  #   algorithm is "Range".
+  # @option options [ Hash | nil ] :string_opts Specifies index options for a
+  #   Queryable Encryption field supporting "prefix", "suffix", or
+  #   "substring" queries. Required when algorithm is "String".
   #
   # @note The :key_id and :key_alt_name options are mutually exclusive. Only
   #   one is required to perform explicit encryption.
   #
   # @return [ BSON::Binary ] A BSON Binary object of subtype 6 (ciphertext)
   #   representing the encrypted value
-  # @raise [ ArgumentError ] if either contention_factor or query_type
-  #   is set, and algorithm is not "Indexed".
+  # @raise [ ArgumentError ] if either contention_factor or query_type is
+  #   set, and algorithm is not "Indexed", "Range", or "String".
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:113
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:128
   def encrypt(value, options); end
 
   # Encrypts a Match Expression or Aggregate Expression to query a range index.
@@ -16421,7 +12053,7 @@ class Mongo::Crypt::ExplicitEncrypter
   #
   # @raise [ ArgumentError ] if disallowed values in options are set.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:173
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:188
   def encrypt_expression(expression, options); end
 
   # Finds a single key with the given id.
@@ -16431,7 +12063,7 @@ class Mongo::Crypt::ExplicitEncrypter
   # @return [ BSON::Document | nil ] The found key document or nil
   #   if not found.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:223
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:238
   def get_key(id); end
 
   # Returns a key in the key vault collection with the given key_alt_name.
@@ -16441,7 +12073,7 @@ class Mongo::Crypt::ExplicitEncrypter
   # @return [ BSON::Document | nil ] The found key document or nil
   #   if not found.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:233
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:248
   def get_key_by_alt_name(key_alt_name); end
 
   # Returns all keys in the key vault collection.
@@ -16449,7 +12081,7 @@ class Mongo::Crypt::ExplicitEncrypter
   # @return [ Collection::View ] Keys in the key vault collection.
   # Name of this method is defined in the FLE spec
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:242
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:257
   def get_keys; end
 
   # Removes a key_alt_name from a key in the key vault collection with the given id.
@@ -16460,7 +12092,7 @@ class Mongo::Crypt::ExplicitEncrypter
   # @return [ BSON::Document | nil ] Document describing the identified key
   #   before removing the key alt name, or nil if no such key.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:254
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:269
   def remove_key_alt_name(id, key_alt_name); end
 
   # Decrypts multiple data keys and (re-)encrypts them with a new master_key,
@@ -16475,7 +12107,7 @@ class Mongo::Crypt::ExplicitEncrypter
   #
   # @return [ Crypt::RewrapManyDataKeyResult ] Result of the operation.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:269
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:284
   def rewrap_many_data_key(filter, opts = T.unsafe(nil)); end
 
   private
@@ -16490,10 +12122,10 @@ class Mongo::Crypt::ExplicitEncrypter
   # @return [ KMS::MasterKeyDocument | nil ] the new master key document,
   #   or nil if no provider was given.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:312
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:327
   def master_key_for_provider(opts); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:343
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:358
   def timeout_holder; end
 
   # Returns the corresponding update document for each of the given
@@ -16503,7 +12135,7 @@ class Mongo::Crypt::ExplicitEncrypter
   #
   # @return [ Array<Hash> ] the update documents
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:326
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:341
   def updates_from_data_key_documents(documents); end
 
   # Ensures the consistency of the options passed to #rewrap_many_data_keys.
@@ -16513,7 +12145,7 @@ class Mongo::Crypt::ExplicitEncrypter
   # @raise [ ArgumentError ] if the options are not consistent or
   #   compatible.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:297
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:312
   def validate_rewrap_options!(opts); end
 end
 
@@ -16539,14 +12171,16 @@ class Mongo::Crypt::ExplicitEncryptionContext < ::Mongo::Crypt::Context
   #   that will be used to encrypt the value.
   # @option options [ String ] :algorithm The algorithm used to encrypt the
   #   value. Valid algorithms are "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic",
-  #   "AEAD_AES_256_CBC_HMAC_SHA_512-Random", "Indexed", "Unindexed", "Range".
+  #   "AEAD_AES_256_CBC_HMAC_SHA_512-Random", "Indexed", "Unindexed", "Range",
+  #   "String".
   # @option options [ Integer | nil ] :contention_factor Contention factor
-  #   to be applied if encryption algorithm is set to "Indexed". If not
-  #   provided, it defaults to a value of 0. Contention factor should be set
-  #   only if encryption algorithm is set to "Indexed".
+  #   to be applied if encryption algorithm is set to "Indexed", "Range", or "String".
+  #   If not provided, it defaults to a value of 0. Contention factor should be set
+  #   only if encryption algorithm is set to "Indexed", "Range", or "String".
   # @option options [ String | nil ] query_type Query type to be applied
-  #   if encryption algorithm is set to "Indexed" or "Range".
-  #   Allowed values are "equality" and "range".
+  #   if encryption algorithm is set to "Indexed", "Range", or "String".
+  #   Allowed values are "equality", "range", "prefix", "suffix", and
+  #   "substring".
   # @option options [ Hash | nil ] :range_opts Specifies index options for
   #   a Queryable Encryption field supporting "range" queries.
   #   Allowed options are:
@@ -16559,33 +12193,52 @@ class Mongo::Crypt::ExplicitEncryptionContext < ::Mongo::Crypt::Context
   #   the encryptedFields of the destination collection.
   #   For double and decimal128, min/max/precision must all be set,
   #   or all be unset.
+  # @option options [ Hash | nil ] :string_opts Specifies index options for
+  #   a Queryable Encryption field supporting "prefix", "suffix", or
+  #   "substring" queries (algorithm "String"). Allowed options are:
+  #   - :case_sensitive
+  #   - :diacritic_sensitive
+  #   - :prefix (Hash with :str_min_query_length, :str_max_query_length)
+  #   - :suffix (Hash with :str_min_query_length, :str_max_query_length)
+  #   - :substring (Hash with :str_max_length, :str_min_query_length,
+  #     :str_max_query_length)
+  #   The options must match the values set in the encryptedFields of the
+  #   destination collection.
   #
   # @note The Range algorithm is experimental only. It is not intended for
   # public use.
+  # @note The "substring" query type is unstable and subject to backwards
+  # breaking changes.
   #
   # @raise [ ArgumentError|Mongo::Error::CryptError ] If invalid options are provided
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encryption_context.rb:64
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encryption_context.rb:79
   def initialize(mongocrypt, io, doc, options = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encryption_context.rb:71
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encryption_context.rb:86
   def init(doc); end
 
   private
 
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encryption_context.rb:133
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encryption_context.rb:150
   def convert_range_opts(range_opts); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encryption_context.rb:115
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encryption_context.rb:159
+  def convert_string_opts(string_opts); end
+
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encryption_context.rb:171
+  def convert_string_query_opts(query_opts); end
+
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encryption_context.rb:130
   def set_algorithm_opts(options); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encryption_context.rb:109
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encryption_context.rb:124
   def set_key_alt_name(key_alt_name); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encryption_context.rb:98
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encryption_context.rb:113
   def set_key_id(key_id); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encryption_context.rb:77
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encryption_context.rb:92
   def set_key_opts(options); end
 end
 
@@ -16645,14 +12298,18 @@ class Mongo::Crypt::Handle
   #   error that libmongocrypt raises on a subsequent "$SYSTEM" search.
   # @option options [ Logger ] :logger A Logger object to which libmongocrypt logs
   #   will be sent
+  # @option options [ Integer | nil ] :key_expiration_ms The lifetime of the
+  #   data encryption key cache, in milliseconds. A value of 0 means the
+  #   cache never expires. When nil, libmongocrypt's default of 60000 is
+  #   used.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:69
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:73
   def initialize(kms_providers, kms_tls_options, options = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:151
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:158
   def crypt_shared_lib_available?; end
 
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:147
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:154
   def crypt_shared_lib_version; end
 
   # @return [ Crypt::KMS::Credentials ] Credentials for KMS providers.
@@ -16668,14 +12325,14 @@ class Mongo::Crypt::Handle
   #
   # @return [ Hash ] TLS options to connect to KMS provider.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:134
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:141
   def kms_tls_options(provider); end
 
   # Return the reference to the underlying @mongocrypt object
   #
   # @return [ FFI::Pointer ]
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:123
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:130
   def ref; end
 
   private
@@ -16683,19 +12340,19 @@ class Mongo::Crypt::Handle
   # Perform AES encryption or decryption and write the output to the
   # provided mongocrypt_binary_t object.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:257
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:275
   def do_aes(key_binary_p, iv_binary_p, input_binary_p, output_binary_p, response_length_p, status_p, decrypt: T.unsafe(nil), mode: T.unsafe(nil)); end
 
   # Perform HMAC SHA encryption and write the output to the provided
   # mongocrypt_binary_t object.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:273
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:291
   def do_hmac_sha(digest_name, key_binary_p, input_binary_p, output_binary_p, status_p); end
 
   # Perform signing using RSASSA-PKCS1-v1_5 with SHA256 hash and write
   # the output to the provided mongocrypt_binary_t object.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:285
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:303
   def do_rsaes_pkcs_signature(key_binary_p, input_binary_p, output_binary_p, status_p); end
 
   # Yields to the provided block and rescues exceptions raised by
@@ -16711,20 +12368,20 @@ class Mongo::Crypt::Handle
   # @return [ true | false ] Whether block executed without raising
   #   exceptions.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:224
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:242
   def handle_error(status_p); end
 
   # Initialize the underlying mongocrypt_t object and raise an error if the operation fails
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:400
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:418
   def initialize_mongocrypt; end
 
   # Set the schema map option on the underlying mongocrypt_t object
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:158
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:165
   def maybe_set_schema_map(options); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:193
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:200
   def set_bypass_query_analysis; end
 
   # We are building libmongocrypt without crypto functions to remove the
@@ -16735,15 +12392,18 @@ class Mongo::Crypt::Handle
   # Every crypto binding ignores its first argument, which is an option
   # mongocrypt_ctx_t object and is not required to use crypto hooks.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:302
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:320
   def set_crypto_hooks; end
 
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:183
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:190
   def set_encrypted_fields_map; end
+
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:210
+  def set_key_expiration; end
 
   # Send the logs from libmongocrypt to the Mongo::Logger
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:204
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:222
   def set_logger_callback; end
 
   # Yields to the provided block and writes the return value of block
@@ -16760,7 +12420,7 @@ class Mongo::Crypt::Handle
   # @return [ true | false ] Whether block executed without raising
   #   exceptions.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:247
+  # pkg:gem/mongo#lib/mongo/crypt/handle.rb:265
   def write_binary_string_and_set_status(output_binary_p, status_p); end
 end
 
@@ -16901,7 +12561,7 @@ class Mongo::Crypt::KMS::AWS::Credentials
   def access_key_id; end
 
   # pkg:gem/mongo#lib/mongo/crypt/kms/aws/credentials.rb:38
-  def empty?(*_arg0, **_arg1, &_arg2); end
+  def empty?(*, **, &); end
 
   # @return [ String ] AWS secret access key.
   #
@@ -17050,7 +12710,7 @@ class Mongo::Crypt::KMS::Azure::Credentials
   def client_secret; end
 
   # pkg:gem/mongo#lib/mongo/crypt/kms/azure/credentials.rb:44
-  def empty?(*_arg0, **_arg1, &_arg2); end
+  def empty?(*, **, &); end
 
   # @return [ String | nil ] Azure identity platform endpoint.
   #
@@ -17317,7 +12977,7 @@ class Mongo::Crypt::KMS::GCP::Credentials
   def email; end
 
   # pkg:gem/mongo#lib/mongo/crypt/kms/gcp/credentials.rb:42
-  def empty?(*_arg0, **_arg1, &_arg2); end
+  def empty?(*, **, &); end
 
   # @return [ String | nil ] GCP KMS endpoint.
   #
@@ -17468,7 +13128,7 @@ class Mongo::Crypt::KMS::KMIP::Credentials
   def initialize(opts); end
 
   # pkg:gem/mongo#lib/mongo/crypt/kms/kmip/credentials.rb:33
-  def empty?(*_arg0, **_arg1, &_arg2); end
+  def empty?(*, **, &); end
 
   # @return [ String ] KMIP KMS endpoint with optional port.
   #
@@ -17578,7 +13238,7 @@ class Mongo::Crypt::KMS::Local::Credentials
   def initialize(opts); end
 
   # pkg:gem/mongo#lib/mongo/crypt/kms/local/credentials.rb:32
-  def empty?(*_arg0, **_arg1, &_arg2); end
+  def empty?(*, **, &); end
 
   # @return [ String ] Master key.
   #
@@ -18015,7 +13675,7 @@ class Mongo::Cursor
   def batch_size; end
 
   # pkg:gem/mongo#lib/mongo/cursor.rb:38
-  def client(*_arg0, **_arg1, &_arg2); end
+  def client(*, **, &); end
 
   # Closes this cursor, freeing any associated resources on the client and
   # the server.
@@ -18038,10 +13698,10 @@ class Mongo::Cursor
   def closed?; end
 
   # pkg:gem/mongo#lib/mongo/cursor.rb:39
-  def cluster(*_arg0, **_arg1, &_arg2); end
+  def cluster(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/cursor.rb:37
-  def collection(*_arg0, **_arg1, &_arg2); end
+  def collection(*, **, &); end
 
   # Get the parsed collection name.
   #
@@ -18066,7 +13726,7 @@ class Mongo::Cursor
   def context; end
 
   # pkg:gem/mongo#lib/mongo/cursor.rb:38
-  def database(*_arg0, **_arg1, &_arg2); end
+  def database(*, **, &); end
 
   # Iterate through documents returned from the query.
   #
@@ -18500,7 +14160,7 @@ class Mongo::Database
   def client; end
 
   # pkg:gem/mongo#lib/mongo/database.rb:70
-  def cluster(*_arg0, **_arg1, &_arg2); end
+  def cluster(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/database.rb:119
   def collection(collection_name, options = T.unsafe(nil)); end
@@ -18651,7 +14311,7 @@ class Mongo::Database
   def drop(options = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/database.rb:70
-  def encrypted_fields_map(*_arg0, **_arg1, &_arg2); end
+  def encrypted_fields_map(*, **, &); end
 
   # Get the Grid "filesystem" for this database.
   #
@@ -18728,7 +14388,7 @@ class Mongo::Database
   def name; end
 
   # pkg:gem/mongo#lib/mongo/database.rb:80
-  def next_primary(*_arg0, **_arg1, &_arg2); end
+  def next_primary(*, **, &); end
 
   # @return [ Hash ] timeout_ms value set on the operation level (if any),
   #   and/or timeout_ms that is set on collection/database/client level (if any).
@@ -18766,13 +14426,13 @@ class Mongo::Database
   def read_command(operation, opts = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/database.rb:70
-  def read_concern(*_arg0, **_arg1, &_arg2); end
+  def read_concern(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/database.rb:70
-  def read_preference(*_arg0, **_arg1, &_arg2); end
+  def read_preference(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/database.rb:70
-  def server_selector(*_arg0, **_arg1, &_arg2); end
+  def server_selector(*, **, &); end
 
   # @return [ Integer | nil ] Operation timeout that is for this database or
   #   for the corresponding client.
@@ -18783,7 +14443,7 @@ class Mongo::Database
   def timeout_ms; end
 
   # pkg:gem/mongo#lib/mongo/database.rb:70
-  def tracer(*_arg0, **_arg1, &_arg2); end
+  def tracer(*, **, &); end
 
   # Get the user view for this database.
   #
@@ -18865,7 +14525,7 @@ class Mongo::Database
   def watch(pipeline = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/database.rb:70
-  def write_concern(*_arg0, **_arg1, &_arg2); end
+  def write_concern(*, **, &); end
 
   private
 
@@ -19075,10 +14735,10 @@ class Mongo::Database::View
   def batch_size; end
 
   # pkg:gem/mongo#lib/mongo/database/view.rb:31
-  def client(*_arg0, **_arg1, &_arg2); end
+  def client(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/database/view.rb:31
-  def cluster(*_arg0, **_arg1, &_arg2); end
+  def cluster(*, **, &); end
 
   # @return [ Collection ] collection The command collection.
   #
@@ -19160,7 +14820,7 @@ class Mongo::Database::View
   def list_collections(options = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/database/view.rb:34
-  def next_primary(*_arg0, **_arg1, &_arg2); end
+  def next_primary(*, **, &); end
 
   # @return [ Integer | nil | The timeout_ms value that was passed as an
   #   option to the view.
@@ -19178,13 +14838,13 @@ class Mongo::Database::View
   def operation_timeouts(opts = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/database/view.rb:33
-  def read_concern(*_arg0, **_arg1, &_arg2); end
+  def read_concern(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/database/view.rb:31
-  def read_preference(*_arg0, **_arg1, &_arg2); end
+  def read_preference(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/database/view.rb:33
-  def server_selector(*_arg0, **_arg1, &_arg2); end
+  def server_selector(*, **, &); end
 
   # The timeout_ms value to use for this operation; either specified as an
   # option to the view, or inherited from the database.
@@ -19195,10 +14855,10 @@ class Mongo::Database::View
   def timeout_ms; end
 
   # pkg:gem/mongo#lib/mongo/database/view.rb:46
-  def tracer(*_arg0, **_arg1, &_arg2); end
+  def tracer(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/database/view.rb:33
-  def write_concern(*_arg0, **_arg1, &_arg2); end
+  def write_concern(*, **, &); end
 
   private
 
@@ -20837,7 +16497,7 @@ module Mongo::Error::OperationFailure::Family
   def code_name; end
 
   # pkg:gem/mongo#lib/mongo/error/operation_failure.rb:38
-  def connection_description(*_arg0, **_arg1, &_arg2); end
+  def connection_description(*, **, &); end
 
   # @return [ String | nil ] The details of the error.
   #   For WriteConcernErrors this is `document['writeConcernError']['errInfo']`.
@@ -20864,7 +16524,7 @@ module Mongo::Error::OperationFailure::Family
   def max_time_ms_expired?; end
 
   # pkg:gem/mongo#lib/mongo/error/operation_failure.rb:30
-  def operation_time(*_arg0, **_arg1, &_arg2); end
+  def operation_time(*, **, &); end
 
   # @return [ Operation::Result ] the result object for the operation.
   #
@@ -21666,7 +17326,7 @@ class Mongo::Error::UnsupportedOption < ::Mongo::Error
     #
     # @api private
     #
-    # pkg:gem/mongo#lib/mongo/error/unsupported_option.rb:87
+    # pkg:gem/mongo#lib/mongo/error/unsupported_option.rb:47
     def allow_disk_use_error; end
 
     # Raise an error about an unsupported commit_quorum option.
@@ -21676,22 +17336,8 @@ class Mongo::Error::UnsupportedOption < ::Mongo::Error
     #
     # @api private
     #
-    # pkg:gem/mongo#lib/mongo/error/unsupported_option.rb:97
+    # pkg:gem/mongo#lib/mongo/error/unsupported_option.rb:57
     def commit_quorum_error; end
-
-    # Raise an error about an unsupported hint option.
-    #
-    # @option options [ Boolean ] unacknowledged_write Whether this error
-    #   pertains to a hint option passed to an unacknowledged write. Defaults
-    #   to false.
-    #
-    # @return [ Mongo::Error::UnsupportedOption ] An error with a default
-    #   error message.
-    #
-    # @api private
-    #
-    # pkg:gem/mongo#lib/mongo/error/unsupported_option.rb:69
-    def hint_error(**options); end
   end
 end
 
@@ -21701,7 +17347,7 @@ end
 #
 # @api private
 #
-# pkg:gem/mongo#lib/mongo/error/unsupported_option.rb:44
+# pkg:gem/mongo#lib/mongo/error/unsupported_option.rb:26
 Mongo::Error::UnsupportedOption::ALLOW_DISK_USE_MESSAGE = T.let(T.unsafe(nil), String)
 
 # The error message provided when the user passes the commit_quorum option
@@ -21710,25 +17356,8 @@ Mongo::Error::UnsupportedOption::ALLOW_DISK_USE_MESSAGE = T.let(T.unsafe(nil), S
 #
 # @api private
 #
-# pkg:gem/mongo#lib/mongo/error/unsupported_option.rb:54
+# pkg:gem/mongo#lib/mongo/error/unsupported_option.rb:36
 Mongo::Error::UnsupportedOption::COMMIT_QUORUM_MESSAGE = T.let(T.unsafe(nil), String)
-
-# The error message provided when the user passes the hint option to
-# a write operation against a server that does not support the hint
-# option and does not provide option validation.
-#
-# @api private
-#
-# pkg:gem/mongo#lib/mongo/error/unsupported_option.rb:26
-Mongo::Error::UnsupportedOption::HINT_MESSAGE = T.let(T.unsafe(nil), String)
-
-# The error message provided when the user passes the hint option to
-# an unacknowledged write operation.
-#
-# @api private
-#
-# pkg:gem/mongo#lib/mongo/error/unsupported_option.rb:35
-Mongo::Error::UnsupportedOption::UNACKNOWLEDGED_HINT_MESSAGE = T.let(T.unsafe(nil), String)
 
 # The constant for a write concern error.
 #
@@ -21971,7 +17600,7 @@ class Mongo::Grid::FSBucket
   def chunks_collection; end
 
   # pkg:gem/mongo#lib/mongo/grid/fs_bucket.rb:105
-  def client(*_arg0, **_arg1, &_arg2); end
+  def client(*, **, &); end
 
   # @return [ Database ] database The database.
   #
@@ -22769,7 +18398,7 @@ class Mongo::Grid::File
   def ==(other); end
 
   # pkg:gem/mongo#lib/mongo/grid/file.rb:32
-  def chunk_size(*_arg0, **_arg1, &_arg2); end
+  def chunk_size(*, **, &); end
 
   # @return [ Array<Chunk> ] chunks The file chunks.
   #
@@ -22777,7 +18406,7 @@ class Mongo::Grid::File
   def chunks; end
 
   # pkg:gem/mongo#lib/mongo/grid/file.rb:32
-  def content_type(*_arg0, **_arg1, &_arg2); end
+  def content_type(*, **, &); end
 
   # Joins chunks into a string.
   #
@@ -22789,10 +18418,10 @@ class Mongo::Grid::File
   def data; end
 
   # pkg:gem/mongo#lib/mongo/grid/file.rb:32
-  def filename(*_arg0, **_arg1, &_arg2); end
+  def filename(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/grid/file.rb:32
-  def id(*_arg0, **_arg1, &_arg2); end
+  def id(*, **, &); end
 
   # @return [ File::Info ] info The file information.
   #
@@ -22812,10 +18441,10 @@ class Mongo::Grid::File
   def inspect; end
 
   # pkg:gem/mongo#lib/mongo/grid/file.rb:32
-  def md5(*_arg0, **_arg1, &_arg2); end
+  def md5(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/grid/file.rb:32
-  def upload_date(*_arg0, **_arg1, &_arg2); end
+  def upload_date(*, **, &); end
 
   private
 
@@ -23385,10 +19014,10 @@ class Mongo::Index::View
   def batch_size; end
 
   # pkg:gem/mongo#lib/mongo/index/view.rb:44
-  def client(*_arg0, **_arg1, &_arg2); end
+  def client(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/index/view.rb:44
-  def cluster(*_arg0, **_arg1, &_arg2); end
+  def cluster(*, **, &); end
 
   # @return [ Collection ] collection The indexes collection.
   #
@@ -23479,7 +19108,7 @@ class Mongo::Index::View
   def create_one(keys, options = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/index/view.rb:44
-  def database(*_arg0, **_arg1, &_arg2); end
+  def database(*, **, &); end
 
   # Drop all indexes on the collection.
   #
@@ -23555,7 +19184,7 @@ class Mongo::Index::View
   def limit; end
 
   # pkg:gem/mongo#lib/mongo/index/view.rb:45
-  def next_primary(*_arg0, **_arg1, &_arg2); end
+  def next_primary(*, **, &); end
 
   # @return [ Integer | nil | The timeout_ms value that was passed as an
   #   option to the view.
@@ -23574,7 +19203,7 @@ class Mongo::Index::View
   def operation_timeouts(opts = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/index/view.rb:44
-  def read_preference(*_arg0, **_arg1, &_arg2); end
+  def read_preference(*, **, &); end
 
   # The timeout_ms value to use for this operation; either specified as an
   # option to the view, or inherited from the collection.
@@ -23585,10 +19214,10 @@ class Mongo::Index::View
   def timeout_ms; end
 
   # pkg:gem/mongo#lib/mongo/index/view.rb:46
-  def tracer(*_arg0, **_arg1, &_arg2); end
+  def tracer(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/index/view.rb:44
-  def write_concern(*_arg0, **_arg1, &_arg2); end
+  def write_concern(*, **, &); end
 
   private
 
@@ -26914,7 +22543,7 @@ module Mongo::Operation::Executable
   # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:114
   def build_message(connection, context); end
 
-  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:158
+  # pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:153
   def check_for_network_error; end
 
   # Returns a Protocol::Message or nil as reply.
@@ -26935,7 +22564,7 @@ module Mongo::Operation::Executable
   def result_class; end
 end
 
-# pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:153
+# pkg:gem/mongo#lib/mongo/operation/shared/executable.rb:148
 Mongo::Operation::Executable::NETWORK_ERRORS = T.let(T.unsafe(nil), Array)
 
 # Shared executable behavior of operations for operations
@@ -28512,6 +24141,15 @@ class Mongo::Operation::Result
   # pkg:gem/mongo#lib/mongo/operation/result.rb:161
   def acknowledged?; end
 
+  # Returns the base backoff in milliseconds for a server overload error, if present.
+  #
+  # @return [ Integer | nil ] The base backoff in milliseconds.
+  #
+  # @api private
+  #
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:464
+  def base_backoff_ms; end
+
   # Get the cluster time reported in the server response.
   #
   # @example Get the cluster time.
@@ -28656,13 +24294,13 @@ class Mongo::Operation::Result
   def namespace; end
 
   # pkg:gem/mongo#lib/mongo/operation/result.rb:152
-  def node_recovering?(*_arg0, **_arg1, &_arg2); end
+  def node_recovering?(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/operation/result.rb:152
-  def node_shutting_down?(*_arg0, **_arg1, &_arg2); end
+  def node_shutting_down?(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/operation/result.rb:152
-  def not_master?(*_arg0, **_arg1, &_arg2); end
+  def not_master?(*, **, &); end
 
   # Check the first document's ok field.
   #
@@ -28788,16 +24426,16 @@ class Mongo::Operation::Result
 
   private
 
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:473
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:482
   def first_document; end
 
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:461
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:470
   def operation_failure_class; end
 
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:469
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:478
   def parser; end
 
-  # pkg:gem/mongo#lib/mongo/operation/result.rb:477
+  # pkg:gem/mongo#lib/mongo/operation/result.rb:486
   def query_failure?; end
 
   # Raises a Mongo::OperationFailure exception corresponding to the
@@ -30716,7 +26354,7 @@ class Mongo::Protocol::Message
   # @param other [Mongo::Protocol::Message] The wire protocol message.
   # @return [true, false] The equality of the messages.
   #
-  # pkg:gem/mongo#lib/mongo/protocol/message.rb:287
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:283
   def ==(other); end
 
   # Deserializes an array of fields in a message
@@ -30735,7 +26373,7 @@ class Mongo::Protocol::Message
   # @return [Array] The deserialized array.
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/protocol/message.rb:381
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:377
   def deserialize_array(io, field, options = T.unsafe(nil)); end
 
   # Deserializes a single field into this message.
@@ -30750,10 +26388,10 @@ class Mongo::Protocol::Message
   # @return [Object] The deserialized field value.
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/protocol/message.rb:399
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:395
   def deserialize_field(io, field, options = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/protocol/message.rb:296
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:292
   def eql?(other); end
 
   # A method for getting the fields for a message class
@@ -30761,14 +26399,14 @@ class Mongo::Protocol::Message
   # @return [Array<Hash>] The fields for the message class
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/protocol/message.rb:410
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:406
   def fields; end
 
   # Creates a hash from the values of the fields of a message.
   #
   # @return [ Fixnum ] The hash code for the message.
   #
-  # pkg:gem/mongo#lib/mongo/protocol/message.rb:301
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:297
   def hash; end
 
   # Protocol message subclasses that support the server api option should
@@ -30776,7 +26414,7 @@ class Mongo::Protocol::Message
   #
   # @param [ Hash ] server_api The server api document to add to the message.
   #
-  # pkg:gem/mongo#lib/mongo/protocol/message.rb:175
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:171
   def maybe_add_server_api(server_api); end
 
   # Compress the message, if supported by the wire protocol used and if
@@ -30813,7 +26451,7 @@ class Mongo::Protocol::Message
   # @return [ Mongo::Protocol::Msg ] The encrypted message, or the original
   #   message if encryption was not possible or necessary.
   #
-  # pkg:gem/mongo#lib/mongo/protocol/message.rb:166
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:162
   def maybe_encrypt(_connection, _context); end
 
   # Inflate a message if it is compressed.
@@ -30833,7 +26471,7 @@ class Mongo::Protocol::Message
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/protocol/message.rb:319
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:315
   def number_returned; end
 
   # The default for messages is not to require a reply after sending a
@@ -30861,7 +26499,7 @@ class Mongo::Protocol::Message
   # @param buffer [String] buffer where the message should be inserted
   # @return [String] buffer containing the serialized message
   #
-  # pkg:gem/mongo#lib/mongo/protocol/message.rb:200
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:196
   def serialize(buffer = T.unsafe(nil), max_bson_size = T.unsafe(nil), bson_overhead = T.unsafe(nil)); end
 
   # Serializes message fields into a buffer
@@ -30870,7 +26508,7 @@ class Mongo::Protocol::Message
   # @return [String] buffer with serialized field
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/protocol/message.rb:419
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:415
   def serialize_fields(buffer, max_bson_size = T.unsafe(nil)); end
 
   # Generates a request id for a message
@@ -30879,10 +26517,10 @@ class Mongo::Protocol::Message
   #   server. The server will put this id in the response_to field of
   #   a reply.
   #
-  # pkg:gem/mongo#lib/mongo/protocol/message.rb:310
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:306
   def set_request_id; end
 
-  # pkg:gem/mongo#lib/mongo/protocol/message.rb:214
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:210
   def to_s(buffer = T.unsafe(nil), max_bson_size = T.unsafe(nil), bson_overhead = T.unsafe(nil)); end
 
   private
@@ -30902,7 +26540,7 @@ class Mongo::Protocol::Message
   # pkg:gem/mongo#lib/mongo/protocol/message.rb:125
   def compress_if_possible(command_name, compressor, zlib_compression_level); end
 
-  # pkg:gem/mongo#lib/mongo/protocol/message.rb:179
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:175
   def merge_sections; end
 
   # Serializes the header of the message consisting of 4 32bit integers
@@ -30917,7 +26555,7 @@ class Mongo::Protocol::Message
   # @param buffer [String] Buffer to receive the header
   # @return [String] Serialized header
   #
-  # pkg:gem/mongo#lib/mongo/protocol/message.rb:451
+  # pkg:gem/mongo#lib/mongo/protocol/message.rb:447
   def serialize_header(buffer); end
 
   class << self
@@ -30941,7 +26579,7 @@ class Mongo::Protocol::Message
     #
     # @api private
     #
-    # pkg:gem/mongo#lib/mongo/protocol/message.rb:235
+    # pkg:gem/mongo#lib/mongo/protocol/message.rb:231
     def deserialize(io, max_message_size = T.unsafe(nil), expected_response_to = T.unsafe(nil), options = T.unsafe(nil)); end
 
     # Deserializes the header of the message
@@ -30950,7 +26588,7 @@ class Mongo::Protocol::Message
     # @return [Array<Fixnum>] Deserialized header.
     # @api private
     #
-    # pkg:gem/mongo#lib/mongo/protocol/message.rb:336
+    # pkg:gem/mongo#lib/mongo/protocol/message.rb:332
     def deserialize_header(io); end
 
     # A method for declaring a message field
@@ -30970,7 +26608,7 @@ class Mongo::Protocol::Message
     # @return [NilClass]
     # @api private
     #
-    # pkg:gem/mongo#lib/mongo/protocol/message.rb:356
+    # pkg:gem/mongo#lib/mongo/protocol/message.rb:352
     def field(name, type, multi = T.unsafe(nil)); end
 
     # A class method for getting the fields for a message class
@@ -30978,7 +26616,7 @@ class Mongo::Protocol::Message
     # @return [Integer] the fields for the message class
     # @api private
     #
-    # pkg:gem/mongo#lib/mongo/protocol/message.rb:327
+    # pkg:gem/mongo#lib/mongo/protocol/message.rb:323
     def fields; end
 
     # pkg:gem/mongo#lib/mongo/protocol/message.rb:44
@@ -31078,7 +26716,7 @@ class Mongo::Protocol::Msg < ::Mongo::Protocol::Message
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:264
+  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:253
   def bulk_write?; end
 
   # pkg:gem/mongo#lib/mongo/protocol/msg.rb:192
@@ -31094,10 +26732,10 @@ class Mongo::Protocol::Msg < ::Mongo::Protocol::Message
   # pkg:gem/mongo#lib/mongo/protocol/msg.rb:179
   def fix_after_deserialization; end
 
-  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:386
+  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:375
   def flags; end
 
-  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:276
+  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:265
   def maybe_add_server_api(server_api); end
 
   # Compress the message, if the command being sent permits compression.
@@ -31127,7 +26765,7 @@ class Mongo::Protocol::Msg < ::Mongo::Protocol::Message
   # @return [ Mongo::Protocol::Msg ] The decrypted message, or the original
   #   message if decryption was not possible or necessary.
   #
-  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:243
+  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:232
   def maybe_decrypt(context); end
 
   # Possibly encrypt this message with libmongocrypt. Message will only be
@@ -31138,15 +26776,13 @@ class Mongo::Protocol::Msg < ::Mongo::Protocol::Message
   # represents one of the command types allow-listed by libmongocrypt and it
   # contains data that is required to be encrypted by a local or remote json schema.
   #
-  # @param [ Mongo::Server::Connection ] connection The connection on which
-  #   the operation is performed.
   # @param [ Mongo::Operation::Context ] context The operation context.
   #
   # @return [ Mongo::Protocol::Msg ] The encrypted message, or the original
   #   message if encryption was not possible or necessary.
   #
-  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:210
-  def maybe_encrypt(connection, context); end
+  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:208
+  def maybe_encrypt(_connection, context); end
 
   # Returns the number of documents returned from the server.
   #
@@ -31156,10 +26792,10 @@ class Mongo::Protocol::Msg < ::Mongo::Protocol::Message
   #
   # @return [ Integer ] Number of returned documents.
   #
-  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:300
+  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:289
   def number_returned; end
 
-  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:407
+  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:396
   def op_code; end
 
   # Return the event payload for monitoring.
@@ -31186,7 +26822,7 @@ class Mongo::Protocol::Msg < ::Mongo::Protocol::Message
   # pkg:gem/mongo#lib/mongo/protocol/msg.rb:103
   def replyable?; end
 
-  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:405
+  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:394
   def sections; end
 
   # Serializes message into bytes that can be sent on the wire.
@@ -31203,16 +26839,16 @@ class Mongo::Protocol::Msg < ::Mongo::Protocol::Message
 
   private
 
-  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:340
+  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:329
   def add_check_sum(_buffer); end
 
-  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:327
+  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:316
   def command; end
 
   # Validate that the documents in this message are all smaller than the
   # maxBsonObjectSize. If not, raise an exception.
   #
-  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:312
+  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:301
   def validate_document_size!(max_bson_size); end
 end
 
@@ -31225,7 +26861,7 @@ Mongo::Protocol::Msg::DATABASE_IDENTIFIER = T.let(T.unsafe(nil), String)
 
 # Available flags for a OP_MSG message.
 #
-# pkg:gem/mongo#lib/mongo/protocol/msg.rb:378
+# pkg:gem/mongo#lib/mongo/protocol/msg.rb:367
 Mongo::Protocol::Msg::FLAGS = T.let(T.unsafe(nil), Array)
 
 # Keys that the driver adds to commands. These are going to be
@@ -31236,7 +26872,7 @@ Mongo::Protocol::Msg::FLAGS = T.let(T.unsafe(nil), Array)
 # pkg:gem/mongo#lib/mongo/protocol/msg.rb:37
 Mongo::Protocol::Msg::INTERNAL_KEYS = T.let(T.unsafe(nil), Set)
 
-# pkg:gem/mongo#lib/mongo/protocol/msg.rb:371
+# pkg:gem/mongo#lib/mongo/protocol/msg.rb:360
 Mongo::Protocol::Msg::KNOWN_FLAGS = T.let(T.unsafe(nil), Hash)
 
 # The operation code required to specify a OP_MSG message.
@@ -31244,7 +26880,7 @@ Mongo::Protocol::Msg::KNOWN_FLAGS = T.let(T.unsafe(nil), Hash)
 #
 # @since 2.5.0
 #
-# pkg:gem/mongo#lib/mongo/protocol/msg.rb:369
+# pkg:gem/mongo#lib/mongo/protocol/msg.rb:358
 Mongo::Protocol::Msg::OP_CODE = T.let(T.unsafe(nil), Integer)
 
 # Encapsulates a type 1 OP_MSG section.
@@ -31253,21 +26889,21 @@ Mongo::Protocol::Msg::OP_CODE = T.let(T.unsafe(nil), Integer)
 #
 # @api private
 #
-# pkg:gem/mongo#lib/mongo/protocol/msg.rb:350
+# pkg:gem/mongo#lib/mongo/protocol/msg.rb:339
 class Mongo::Protocol::Msg::Section1
-  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:351
+  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:340
   def initialize(identifier, documents); end
 
-  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:357
+  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:346
   def ==(other); end
 
-  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:355
+  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:344
   def documents; end
 
-  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:362
+  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:351
   def eql?(other); end
 
-  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:355
+  # pkg:gem/mongo#lib/mongo/protocol/msg.rb:344
   def identifier; end
 end
 
@@ -32419,16 +28055,16 @@ module Mongo::Retryable
   extend ::Forwardable
 
   # pkg:gem/mongo#lib/mongo/retryable.rb:36
-  def nro_write_with_retry(*_arg0, **_arg1, &_arg2); end
+  def nro_write_with_retry(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/retryable.rb:30
-  def read_with_one_retry(*_arg0, **_arg1, &_arg2); end
+  def read_with_one_retry(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/retryable.rb:30
-  def read_with_retry(*_arg0, **_arg1, &_arg2); end
+  def read_with_retry(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/retryable.rb:30
-  def read_with_retry_cursor(*_arg0, **_arg1, &_arg2); end
+  def read_with_retry_cursor(*, **, &); end
 
   # Returns the read worker for handling retryable reads.
   #
@@ -32475,7 +28111,7 @@ module Mongo::Retryable
   def with_overload_retry(context: T.unsafe(nil), retry_enabled: T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/retryable.rb:36
-  def write_with_retry(*_arg0, **_arg1, &_arg2); end
+  def write_with_retry(*, **, &); end
 
   # Returns the write worker for handling retryable writes.
   #
@@ -32516,7 +28152,12 @@ module Mongo::Retryable::Backpressure
     # @return [ Float ] The backoff delay in seconds.
     #
     # pkg:gem/mongo#lib/mongo/retryable/backpressure.rb:26
-    def backoff_delay(attempt, jitter: T.unsafe(nil)); end
+    def backoff_delay(attempt, jitter: T.unsafe(nil), err: T.unsafe(nil)); end
+
+    private
+
+    # pkg:gem/mongo#lib/mongo/retryable/backpressure.rb:30
+    def base_backoff(err); end
   end
 end
 
@@ -32558,10 +28199,10 @@ class Mongo::Retryable::BaseWorker
   def initialize(retryable); end
 
   # pkg:gem/mongo#lib/mongo/retryable/base_worker.rb:25
-  def client(*_arg0, **_arg1, &_arg2); end
+  def client(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/retryable/base_worker.rb:25
-  def cluster(*_arg0, **_arg1, &_arg2); end
+  def cluster(*, **, &); end
 
   # @return [ Mongo::Retryable ] retryable A reference to the client object
   #   that instantiated this worker.
@@ -32570,7 +28211,7 @@ class Mongo::Retryable::BaseWorker
   def retryable; end
 
   # pkg:gem/mongo#lib/mongo/retryable/base_worker.rb:25
-  def select_server(*_arg0, **_arg1, &_arg2); end
+  def select_server(*, **, &); end
 
   private
 
@@ -32888,7 +28529,7 @@ class Mongo::Retryable::RetryPolicy
   # @return [ Float ] The backoff delay in seconds.
   #
   # pkg:gem/mongo#lib/mongo/retryable/retry_policy.rb:30
-  def backoff_delay(attempt, jitter: T.unsafe(nil)); end
+  def backoff_delay(attempt, jitter: T.unsafe(nil), err: T.unsafe(nil)); end
 
   # @return [ Integer ] The maximum number of overload retries.
   #
@@ -33206,7 +28847,7 @@ class Mongo::SearchIndex::View
   def requested_index_name; end
 
   # pkg:gem/mongo#lib/mongo/search_index/view.rb:25
-  def tracer(*_arg0, **_arg1, &_arg2); end
+  def tracer(*, **, &); end
 
   # Update the search index with the given id or name. One or the other
   # must be provided, but not both.
@@ -33395,16 +29036,16 @@ class Mongo::Server
   def address; end
 
   # pkg:gem/mongo#lib/mongo/server.rb:205
-  def app_metadata(*_arg0, **_arg1, &_arg2); end
+  def app_metadata(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def arbiter?(*_arg0, **_arg1, &_arg2); end
+  def arbiter?(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def average_round_trip_time(*_arg0, **_arg1, &_arg2); end
+  def average_round_trip_time(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/server.rb:216
-  def check_driver_support!(*_arg0, **_arg1, &_arg2); end
+  def check_driver_support!(*, **, &); end
 
   # @param [ Object ] :service_id Close connections with the specified
   #   service id only.
@@ -33413,7 +29054,7 @@ class Mongo::Server
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server.rb:662
+  # pkg:gem/mongo#lib/mongo/server.rb:661
   def clear_connection_pool(service_id: T.unsafe(nil), interrupt_in_use_connections: T.unsafe(nil)); end
 
   # Clear the servers description so that it is considered unknown and can be
@@ -33421,7 +29062,7 @@ class Mongo::Server
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server.rb:652
+  # pkg:gem/mongo#lib/mongo/server.rb:651
   def clear_description; end
 
   # pkg:gem/mongo#lib/mongo/server.rb:287
@@ -33433,7 +29074,7 @@ class Mongo::Server
   def cluster; end
 
   # pkg:gem/mongo#lib/mongo/server.rb:205
-  def cluster_time(*_arg0, **_arg1, &_arg2); end
+  def cluster_time(*, **, &); end
 
   # The compressor negotiated by the server monitor, if any.
   #
@@ -33497,7 +29138,7 @@ class Mongo::Server
   def disconnect!; end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def features(*_arg0, **_arg1, &_arg2); end
+  def features(*, **, &); end
 
   # Returns whether this server is forced to be a load balancer.
   #
@@ -33509,7 +29150,7 @@ class Mongo::Server
   def force_load_balancer?; end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def ghost?(*_arg0, **_arg1, &_arg2); end
+  def ghost?(*, **, &); end
 
   # Handle authentication failure.
   #
@@ -33573,13 +29214,13 @@ class Mongo::Server
   def last_scan_monotime; end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def last_write_date(*_arg0, **_arg1, &_arg2); end
+  def last_write_date(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def load_balancer?(*_arg0, **_arg1, &_arg2); end
+  def load_balancer?(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def logical_session_timeout(*_arg0, **_arg1, &_arg2); end
+  def logical_session_timeout(*, **, &); end
 
   # Determine if the provided tags are a subset of the server's tags.
   #
@@ -33596,22 +29237,22 @@ class Mongo::Server
   def matches_tag_set?(tag_set); end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def max_bson_object_size(*_arg0, **_arg1, &_arg2); end
+  def max_bson_object_size(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def max_message_size(*_arg0, **_arg1, &_arg2); end
+  def max_message_size(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def max_wire_version(*_arg0, **_arg1, &_arg2); end
+  def max_wire_version(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def max_write_batch_size(*_arg0, **_arg1, &_arg2); end
+  def max_write_batch_size(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def minimum_round_trip_time(*_arg0, **_arg1, &_arg2); end
+  def minimum_round_trip_time(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def mongos?(*_arg0, **_arg1, &_arg2); end
+  def mongos?(*, **, &); end
 
   # @return [ nil | Monitor ] monitor The server monitor. nil if the server
   #   was created with monitoring_io: false option.
@@ -33620,7 +29261,7 @@ class Mongo::Server
   def monitor; end
 
   # pkg:gem/mongo#lib/mongo/server.rb:211
-  def monitor_app_metadata(*_arg0, **_arg1, &_arg2); end
+  def monitor_app_metadata(*, **, &); end
 
   # @return [ Monitoring ] monitoring The monitoring.
   #
@@ -33629,7 +29270,7 @@ class Mongo::Server
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server.rb:675
+  # pkg:gem/mongo#lib/mongo/server.rb:674
   def next_connection_id; end
 
   # @return [ Hash ] The options hash.
@@ -33638,7 +29279,7 @@ class Mongo::Server
   def options; end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def other?(*_arg0, **_arg1, &_arg2); end
+  def other?(*, **, &); end
 
   # Get the connection pool for this server.
   #
@@ -33665,7 +29306,7 @@ class Mongo::Server
   def pool_internal; end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def primary?(*_arg0, **_arg1, &_arg2); end
+  def primary?(*, **, &); end
 
   # Publishes the server opening event.
   #
@@ -33675,7 +29316,7 @@ class Mongo::Server
   def publish_opening_event; end
 
   # pkg:gem/mongo#lib/mongo/server.rb:211
-  def push_monitor_app_metadata(*_arg0, **_arg1, &_arg2); end
+  def push_monitor_app_metadata(*, **, &); end
 
   # Restart the server monitor.
   #
@@ -33690,7 +29331,7 @@ class Mongo::Server
   def reconnect!; end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def replica_set_name(*_arg0, **_arg1, &_arg2); end
+  def replica_set_name(*, **, &); end
 
   # Whether the server supports modern read retries.
   #
@@ -33726,7 +29367,7 @@ class Mongo::Server
   def round_trip_time_calculator; end
 
   # pkg:gem/mongo#lib/mongo/server.rb:163
-  def scan!(*_arg0, **_arg1, &_arg2); end
+  def scan!(*, **, &); end
 
   # @return [ Semaphore ] Semaphore to signal to request an immediate scan
   #   of this server by its monitor, if one is running.
@@ -33737,10 +29378,10 @@ class Mongo::Server
   def scan_semaphore; end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def secondary?(*_arg0, **_arg1, &_arg2); end
+  def secondary?(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def standalone?(*_arg0, **_arg1, &_arg2); end
+  def standalone?(*, **, &); end
 
   # Start monitoring the server.
   #
@@ -33768,10 +29409,10 @@ class Mongo::Server
   def summary; end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def tags(*_arg0, **_arg1, &_arg2); end
+  def tags(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/server.rb:211
-  def tracer(*_arg0, **_arg1, &_arg2); end
+  def tracer(*, **, &); end
 
   # Marks server unknown and publishes the associated SDAM event
   # (server description changed).
@@ -33787,8 +29428,7 @@ class Mongo::Server
   # @option options [ true | false ] :keep_connection_pool Usually when the
   #   new server description is unknown, the connection pool on the
   #   respective server is cleared. Set this option to true to keep the
-  #   existing connection pool (required when handling not master errors
-  #   on 4.2+ servers).
+  #   existing connection pool (required when handling not master errors).
   # @option options [ TopologyVersion ] :topology_version Topology version
   #   of the error response that is causing the server to be marked unknown.
   # @option options [ true | false ] :stop_push_monitor Set when the server
@@ -33805,23 +29445,23 @@ class Mongo::Server
   #
   # @since 2.4.0, SDAM events are sent as of version 2.7.0
   #
-  # pkg:gem/mongo#lib/mongo/server.rb:587
+  # pkg:gem/mongo#lib/mongo/server.rb:586
   def unknown!(options = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/server.rb:182
-  def unknown?(*_arg0, **_arg1, &_arg2); end
+  def unknown?(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/server.rb:205
-  def update_cluster_time(*_arg0, **_arg1, &_arg2); end
+  def update_cluster_time(*, **, &); end
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server.rb:642
+  # pkg:gem/mongo#lib/mongo/server.rb:641
   def update_description(description); end
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server.rb:680
+  # pkg:gem/mongo#lib/mongo/server.rb:679
   def update_last_scan; end
 
   # Execute a block of code with a connection, that is checked out of the
@@ -34684,7 +30324,7 @@ class Mongo::Server::Connection < ::Mongo::Server::ConnectionBase
   def timeout; end
 
   # pkg:gem/mongo#lib/mongo/server/connection.rb:127
-  def tracer(*_arg0, **_arg1, &_arg2); end
+  def tracer(*, **, &); end
 
   # Get the transport type for this connection.
   #
@@ -34798,13 +30438,13 @@ class Mongo::Server::ConnectionBase < ::Mongo::Server::ConnectionCommon
   extend ::Forwardable
 
   # pkg:gem/mongo#lib/mongo/server/connection_base.rb:59
-  def address(*_arg0, **_arg1, &_arg2); end
+  def address(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/server/connection_base.rb:105
   def app_metadata; end
 
   # pkg:gem/mongo#lib/mongo/server/connection_base.rb:62
-  def cluster_time(*_arg0, **_arg1, &_arg2); end
+  def cluster_time(*, **, &); end
 
   # Returns the server description for this connection, derived from
   # the hello response for the handshake performed on this connection.
@@ -34855,7 +30495,7 @@ class Mongo::Server::ConnectionBase < ::Mongo::Server::ConnectionCommon
   def dispatch(messages, context, options = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/server/connection_base.rb:83
-  def features(*_arg0, **_arg1, &_arg2); end
+  def features(*, **, &); end
 
   # Connection pool generation from which this connection was created.
   # May be nil.
@@ -34866,13 +30506,13 @@ class Mongo::Server::ConnectionBase < ::Mongo::Server::ConnectionCommon
   def generation; end
 
   # pkg:gem/mongo#lib/mongo/server/connection_base.rb:83
-  def max_bson_object_size(*_arg0, **_arg1, &_arg2); end
+  def max_bson_object_size(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/server/connection_base.rb:83
-  def max_message_size(*_arg0, **_arg1, &_arg2); end
+  def max_message_size(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/server/connection_base.rb:83
-  def mongos?(*_arg0, **_arg1, &_arg2); end
+  def mongos?(*, **, &); end
 
   # @return [ Hash ] options The passed in options.
   #
@@ -34892,7 +30532,7 @@ class Mongo::Server::ConnectionBase < ::Mongo::Server::ConnectionCommon
   def service_id; end
 
   # pkg:gem/mongo#lib/mongo/server/connection_base.rb:62
-  def update_cluster_time(*_arg0, **_arg1, &_arg2); end
+  def update_cluster_time(*, **, &); end
 
   private
 
@@ -35106,7 +30746,7 @@ class Mongo::Server::ConnectionPool
   def initialize(server, options = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:193
-  def address(*_arg0, **_arg1, &_arg2); end
+  def address(*, **, &); end
 
   # Number of available connections in the pool.
   #
@@ -35252,7 +30892,7 @@ class Mongo::Server::ConnectionPool
   def do_pause; end
 
   # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:246
-  def generation(*_arg0, **_arg1, &_arg2); end
+  def generation(*, **, &); end
 
   # @api private
   #
@@ -35260,7 +30900,7 @@ class Mongo::Server::ConnectionPool
   def generation_manager; end
 
   # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:246
-  def generation_unlocked(*_arg0, **_arg1, &_arg2); end
+  def generation_unlocked(*, **, &); end
 
   # Get a pretty printed string inspection for the pool.
   #
@@ -35308,7 +30948,7 @@ class Mongo::Server::ConnectionPool
   def min_size; end
 
   # pkg:gem/mongo#lib/mongo/server/connection_pool.rb:343
-  def monitoring(*_arg0, **_arg1, &_arg2); end
+  def monitoring(*, **, &); end
 
   # @return [ Hash ] options The pool options.
   #
@@ -36257,7 +31897,7 @@ class Mongo::Server::Description
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/server/description.rb:912
+  # pkg:gem/mongo#lib/mongo/server/description.rb:911
   def server_version_gte?(version); end
 
   # Get a list of all servers known to the cluster.
@@ -36436,7 +32076,7 @@ class Mongo::Server::Description::Features
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/server/description/features.rb:114
+  # pkg:gem/mongo#lib/mongo/server/description/features.rb:113
   def initialize(server_wire_versions, address = T.unsafe(nil)); end
 
   # Check that there is an overlap between the driver supported wire
@@ -36446,25 +32086,25 @@ class Mongo::Server::Description::Features
   # @raise [ Error::UnsupportedFeatures ] If the wire version range is
   #   not covered by the driver.
   #
-  # pkg:gem/mongo#lib/mongo/server/description/features.rb:132
+  # pkg:gem/mongo#lib/mongo/server/description/features.rb:131
   def check_driver_support!; end
 
-  # pkg:gem/mongo#lib/mongo/server/description/features.rb:96
+  # pkg:gem/mongo#lib/mongo/server/description/features.rb:95
   def commit_quorum_enabled?; end
 
-  # pkg:gem/mongo#lib/mongo/server/description/features.rb:96
+  # pkg:gem/mongo#lib/mongo/server/description/features.rb:95
   def get_more_comment_enabled?; end
 
-  # pkg:gem/mongo#lib/mongo/server/description/features.rb:96
+  # pkg:gem/mongo#lib/mongo/server/description/features.rb:95
   def merge_out_on_secondary_enabled?; end
 
-  # pkg:gem/mongo#lib/mongo/server/description/features.rb:96
+  # pkg:gem/mongo#lib/mongo/server/description/features.rb:95
   def retryable_write_error_label_enabled?; end
 
   # @return [ Range ] server_wire_versions The server's supported wire
   #   versions.
   #
-  # pkg:gem/mongo#lib/mongo/server/description/features.rb:103
+  # pkg:gem/mongo#lib/mongo/server/description/features.rb:102
   def server_wire_versions; end
 end
 
@@ -36480,32 +32120,31 @@ end
 # If there are no currently-deprecated wire versions, this should be
 # set to an empty range (e.g. the EMPTY_RANGE constant).
 #
-# pkg:gem/mongo#lib/mongo/server/description/features.rb:77
+# pkg:gem/mongo#lib/mongo/server/description/features.rb:76
 Mongo::Server::Description::Features::DEPRECATED_WIRE_VERSIONS = T.let(T.unsafe(nil), Range)
 
 # Error message if the driver is too old for the version of the server.
 #
 # @since 2.5.0
 #
-# pkg:gem/mongo#lib/mongo/server/description/features.rb:55
+# pkg:gem/mongo#lib/mongo/server/description/features.rb:54
 Mongo::Server::Description::Features::DRIVER_TOO_OLD = T.let(T.unsafe(nil), String)
 
 # The wire protocol versions that this version of the driver supports.
 #
 # @since 2.0.0
 #
-# pkg:gem/mongo#lib/mongo/server/description/features.rb:64
+# pkg:gem/mongo#lib/mongo/server/description/features.rb:63
 Mongo::Server::Description::Features::DRIVER_WIRE_VERSIONS = T.let(T.unsafe(nil), Range)
 
 # An empty range constant, for use in DEPRECATED_WIRE_VERSIONS.
 #
-# pkg:gem/mongo#lib/mongo/server/description/features.rb:59
+# pkg:gem/mongo#lib/mongo/server/description/features.rb:58
 Mongo::Server::Description::Features::EMPTY_RANGE = T.let(T.unsafe(nil), Range)
 
 # List of features and the wire protocol version they appear in.
 #
 # Wire protocol versions map to server releases as follows:
-# -  8 => 4.2
 # -  9 => 4.4
 # - 13 => 5.0
 # - 14 => 5.1
@@ -36513,19 +32152,19 @@ Mongo::Server::Description::Features::EMPTY_RANGE = T.let(T.unsafe(nil), Range)
 #
 # @since 2.0.0
 #
-# pkg:gem/mongo#lib/mongo/server/description/features.rb:34
+# pkg:gem/mongo#lib/mongo/server/description/features.rb:33
 Mongo::Server::Description::Features::MAPPINGS = T.let(T.unsafe(nil), Hash)
 
 # Warning message if the server version is deprecated.
 #
-# pkg:gem/mongo#lib/mongo/server/description/features.rb:48
+# pkg:gem/mongo#lib/mongo/server/description/features.rb:47
 Mongo::Server::Description::Features::SERVER_DEPRECATED = T.let(T.unsafe(nil), String)
 
 # Error message if the server is too old for this version of the driver.
 #
 # @since 2.5.0
 #
-# pkg:gem/mongo#lib/mongo/server/description/features.rb:44
+# pkg:gem/mongo#lib/mongo/server/description/features.rb:43
 Mongo::Server::Description::Features::SERVER_TOO_OLD = T.let(T.unsafe(nil), String)
 
 # Constant for reading the helloOk capability flag from config.
@@ -36801,7 +32440,7 @@ class Mongo::Server::Monitor
   def cancel_check!; end
 
   # pkg:gem/mongo#lib/mongo/server/monitor.rb:124
-  def compressor(*_arg0, **_arg1, &_arg2); end
+  def compressor(*, **, &); end
 
   # @return [ Mongo::Server::Monitor::Connection | nil ] The connection to
   #   use, read under @connection_lock so callers never observe a stale
@@ -36833,7 +32472,7 @@ class Mongo::Server::Monitor
   def heartbeat_interval; end
 
   # pkg:gem/mongo#lib/mongo/server/monitor.rb:118
-  def last_scan(*_arg0, **_arg1, &_arg2); end
+  def last_scan(*, **, &); end
 
   # @return [ Monitoring ] monitoring The monitoring.
   #
@@ -37202,13 +32841,13 @@ class Mongo::Server::PendingConnection < ::Mongo::Server::ConnectionBase
   #   value of speculativeAuthenticate field of hello response of
   #   the handshake on this connection.
   #
-  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:200
+  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:195
   def authenticate!(speculative_auth_client_nonce: T.unsafe(nil), speculative_auth_mech: T.unsafe(nil), speculative_auth_result: T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:294
+  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:289
   def default_mechanism; end
 
-  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:225
+  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:220
   def ensure_connected; end
 
   # Sends the hello command to the server, then receive and deserialize
@@ -37221,7 +32860,7 @@ class Mongo::Server::PendingConnection < ::Mongo::Server::ConnectionBase
   #
   # @return [ Mongo::Protocol::Reply ] Deserialized server response.
   #
-  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:127
+  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:122
   def get_handshake_response(hello_command); end
 
   # @param [ BSON::Document | nil ] speculative_auth_doc The document to
@@ -37230,7 +32869,7 @@ class Mongo::Server::PendingConnection < ::Mongo::Server::ConnectionBase
   # @return [ BSON::Document ] The document of the handshake response for
   #   this particular connection.
   #
-  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:141
+  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:136
   def handshake!(speculative_auth_doc: T.unsafe(nil)); end
 
   # This is a separate method to keep the nesting level down.
@@ -37238,7 +32877,7 @@ class Mongo::Server::PendingConnection < ::Mongo::Server::ConnectionBase
   # @return [ Server::Description ] The server description calculated from
   #   the handshake response for this particular connection.
   #
-  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:233
+  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:228
   def post_handshake(response, average_rtt, _minimum_rtt); end
 
   # The user as going to be used for authentication. This user has the
@@ -37250,7 +32889,7 @@ class Mongo::Server::PendingConnection < ::Mongo::Server::ConnectionBase
   #
   # @return [ Auth::User ] The resolved user.
   #
-  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:267
+  # pkg:gem/mongo#lib/mongo/server/pending_connection.rb:262
   def resolved_user(speculative_auth_mech: T.unsafe(nil)); end
 end
 
@@ -37299,7 +32938,7 @@ class Mongo::Server::PushMonitor
   def read_response; end
 
   # pkg:gem/mongo#lib/mongo/server/push_monitor.rb:60
-  def server(*_arg0, **_arg1, &_arg2); end
+  def server(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/server/push_monitor.rb:62
   def start!; end
@@ -38817,7 +34456,7 @@ class Mongo::Session
   def suppress_read_write_concern!(command); end
 
   # pkg:gem/mongo#lib/mongo/session.rb:143
-  def tracer(*_arg0, **_arg1, &_arg2); end
+  def tracer(*, **, &); end
 
   # Get the current transaction number.
   #
@@ -40848,10 +36487,10 @@ class Mongo::Tracing::OpenTelemetry::OperationTracer
   def initialize(otel_tracer, parent_tracer); end
 
   # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:26
-  def cursor_context_map(*_arg0, **_arg1, &_arg2); end
+  def cursor_context_map(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:26
-  def parent_context_for(*_arg0, **_arg1, &_arg2); end
+  def parent_context_for(*, **, &); end
 
   # Trace a MongoDB operation.
   #
@@ -40872,10 +36511,10 @@ class Mongo::Tracing::OpenTelemetry::OperationTracer
   def trace_operation(operation, operation_context, op_name: T.unsafe(nil), &block); end
 
   # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:26
-  def transaction_context_map(*_arg0, **_arg1, &_arg2); end
+  def transaction_context_map(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:26
-  def transaction_map_key(*_arg0, **_arg1, &_arg2); end
+  def transaction_map_key(*, **, &); end
 
   private
 
@@ -41714,13 +37353,22 @@ class Mongo::URI::OptionsMapper
 
   # Extract values from the string and put them into a nested hash.
   #
+  # Multiple key-value pairs are delimited by a comma. Within each pair,
+  # the key is everything up to the first colon and the value is everything
+  # after it, so values may themselves contain colons (for example
+  # TOKEN_RESOURCE:mongodb://host).
+  #
   # @param [ String ] name Name of the URI option being processed.
   # @param [ String ] value The string to build a hash from.
+  # @param [ true | false ] invalidate_on_error When a pair is malformed
+  #   (has no value), discard the whole option and return nil instead of
+  #   skipping just that pair. Used for options such as
+  #   authMechanismProperties whose values must not contain commas.
   #
-  # @return [ Hash ] The hash built from the string.
+  # @return [ Hash | nil ] The hash built from the string, or nil.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:870
-  def hash_extractor(name, value); end
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:879
+  def hash_extractor(name, value, invalidate_on_error: T.unsafe(nil)); end
 
   # Merges a new option into the target.
   #

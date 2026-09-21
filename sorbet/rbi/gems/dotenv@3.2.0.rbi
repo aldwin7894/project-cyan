@@ -253,7 +253,7 @@ class Dotenv::Parser
 
   class << self
     # pkg:gem/dotenv#lib/dotenv/parser.rb:41
-    def call(*_arg0, **_arg1, &_arg2); end
+    def call(*, **, &); end
 
     # pkg:gem/dotenv#lib/dotenv/parser.rb:39
     def substitutions; end
@@ -274,7 +274,7 @@ class Dotenv::Rails < ::Rails::Railtie
   def initialize; end
 
   # pkg:gem/dotenv#lib/dotenv/rails.rb:23
-  def autorestore(*_arg0, **_arg1, &_arg2); end
+  def autorestore(*, **, &); end
 
   # pkg:gem/dotenv#lib/dotenv/rails.rb:23
   def autorestore=(arg); end
@@ -293,7 +293,7 @@ class Dotenv::Rails < ::Rails::Railtie
   def env; end
 
   # pkg:gem/dotenv#lib/dotenv/rails.rb:23
-  def files(*_arg0, **_arg1, &_arg2); end
+  def files(*, **, &); end
 
   # pkg:gem/dotenv#lib/dotenv/rails.rb:23
   def files=(arg); end
@@ -307,7 +307,7 @@ class Dotenv::Rails < ::Rails::Railtie
   def load; end
 
   # pkg:gem/dotenv#lib/dotenv/rails.rb:23
-  def logger(*_arg0, **_arg1, &_arg2); end
+  def logger(*, **, &); end
 
   # Set a new logger and replay logs
   #
@@ -318,7 +318,7 @@ class Dotenv::Rails < ::Rails::Railtie
   def overload; end
 
   # pkg:gem/dotenv#lib/dotenv/rails.rb:23
-  def overwrite(*_arg0, **_arg1, &_arg2); end
+  def overwrite(*, **, &); end
 
   # pkg:gem/dotenv#lib/dotenv/rails.rb:23
   def overwrite=(arg); end

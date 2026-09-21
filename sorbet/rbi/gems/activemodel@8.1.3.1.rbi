@@ -221,10 +221,10 @@ class ActiveModel::Attribute
   def type; end
 
   # pkg:gem/activemodel#lib/active_model/attribute.rb:107
-  def type_cast(*_arg0); end
+  def type_cast(*); end
 
   # pkg:gem/activemodel#lib/active_model/attribute.rb:41
-  def value(&_arg0); end
+  def value(&); end
 
   # pkg:gem/activemodel#lib/active_model/attribute.rb:29
   def value_before_type_cast; end
@@ -319,7 +319,7 @@ class ActiveModel::Attribute::Null < ::ActiveModel::Attribute
   def initialize(name); end
 
   # pkg:gem/activemodel#lib/active_model/attribute.rb:235
-  def type_cast(*_arg0); end
+  def type_cast(*); end
 
   # pkg:gem/activemodel#lib/active_model/attribute.rb:247
   def with_cast_value(value); end
@@ -517,7 +517,7 @@ module ActiveModel::AttributeMethods
   # attribute. This method can be overloaded to customize the behavior.
   #
   # pkg:gem/activemodel#lib/active_model/attribute_methods.rb:520
-  def attribute_missing(match, *_arg1, **_arg2, &_arg3); end
+  def attribute_missing(match, *, **, &); end
 
   # Allows access to the object attributes, which are held in the hash
   # returned by <tt>attributes</tt>, as though they were first-class
@@ -531,7 +531,7 @@ module ActiveModel::AttributeMethods
   # can instantiate master through <tt>Client#master</tt>.
   #
   # pkg:gem/activemodel#lib/active_model/attribute_methods.rb:507
-  def method_missing(method, *_arg1, **_arg2, &_arg3); end
+  def method_missing(method, *, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/attribute_methods.rb:528
   def respond_to?(method, include_private_methods = T.unsafe(nil)); end
@@ -1192,13 +1192,13 @@ class ActiveModel::AttributeSet
   def deep_dup; end
 
   # pkg:gem/activemodel#lib/active_model/attribute_set.rb:10
-  def each_value(*_arg0, **_arg1, &_arg2); end
+  def each_value(*, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/attribute_set.rb:10
-  def except(*_arg0, **_arg1, &_arg2); end
+  def except(*, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/attribute_set.rb:10
-  def fetch(*_arg0, **_arg1, &_arg2); end
+  def fetch(*, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/attribute_set.rb:50
   def fetch_value(name, &block); end
@@ -1338,7 +1338,7 @@ module ActiveModel::Attributes
   mixes_in_class_methods ::ActiveModel::Attributes::ClassMethods
 
   # pkg:gem/activemodel#lib/active_model/attributes.rb:106
-  def initialize(*_arg0); end
+  def initialize(*); end
 
   # Returns an array of attribute names as strings.
   #
@@ -1430,7 +1430,7 @@ module ActiveModel::Attributes::ClassMethods
   #   person.active # => true
   #
   # pkg:gem/activemodel#lib/active_model/attributes.rb:59
-  def attribute(name, *_arg1, **_arg2, &_arg3); end
+  def attribute(name, *, **, &); end
 
   # Returns an array of attribute names as strings.
   #
@@ -2555,7 +2555,7 @@ class ActiveModel::Errors
   def attribute_names; end
 
   # pkg:gem/activemodel#lib/active_model/errors.rb:100
-  def clear(*_arg0, **_arg1, &_arg2); end
+  def clear(*, **, &); end
 
   # Copies the errors from <tt>other</tt>.
   # For copying errors but keep <tt>@base</tt> as is.
@@ -2586,10 +2586,10 @@ class ActiveModel::Errors
   def details; end
 
   # pkg:gem/activemodel#lib/active_model/errors.rb:100
-  def each(*_arg0, **_arg1, &_arg2); end
+  def each(*, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/errors.rb:100
-  def empty?(*_arg0, **_arg1, &_arg2); end
+  def empty?(*, **, &); end
 
   # The actual array of +Error+ objects
   # This method is aliased to <tt>objects</tt>.
@@ -2752,7 +2752,7 @@ class ActiveModel::Errors
   def of_kind?(attribute, type = T.unsafe(nil)); end
 
   # pkg:gem/activemodel#lib/active_model/errors.rb:100
-  def size(*_arg0, **_arg1, &_arg2); end
+  def size(*, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/errors.rb:415
   def to_a; end
@@ -2767,7 +2767,7 @@ class ActiveModel::Errors
   def to_hash(full_messages = T.unsafe(nil)); end
 
   # pkg:gem/activemodel#lib/active_model/errors.rb:100
-  def uniq!(*_arg0, **_arg1, &_arg2); end
+  def uniq!(*, **, &); end
 
   # Search for errors matching +attribute+, +type+, or +options+.
   #
@@ -2886,13 +2886,13 @@ class ActiveModel::LazyAttributeHash
   def each_key(&block); end
 
   # pkg:gem/activemodel#lib/active_model/attribute_set/builder.rb:95
-  def each_value(*_arg0, **_arg1, &_arg2); end
+  def each_value(*, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/attribute_set/builder.rb:95
-  def except(*_arg0, **_arg1, &_arg2); end
+  def except(*, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/attribute_set/builder.rb:95
-  def fetch(*_arg0, **_arg1, &_arg2); end
+  def fetch(*, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/attribute_set/builder.rb:106
   def key?(key); end
@@ -2904,7 +2904,7 @@ class ActiveModel::LazyAttributeHash
   def marshal_load(values); end
 
   # pkg:gem/activemodel#lib/active_model/attribute_set/builder.rb:95
-  def transform_values(*_arg0, **_arg1, &_arg2); end
+  def transform_values(*, **, &); end
 
   protected
 
@@ -3187,10 +3187,10 @@ class ActiveModel::Name
   def initialize(klass, namespace = T.unsafe(nil), name = T.unsafe(nil), locale = T.unsafe(nil)); end
 
   # pkg:gem/activemodel#lib/active_model/naming.rb:150
-  def !~(*_arg0, **_arg1, &_arg2); end
+  def !~(*, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/naming.rb:150
-  def <=>(*_arg0, **_arg1, &_arg2); end
+  def <=>(*, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/naming.rb:150
   def ==(arg); end
@@ -3199,10 +3199,10 @@ class ActiveModel::Name
   def ===(arg); end
 
   # pkg:gem/activemodel#lib/active_model/naming.rb:150
-  def =~(*_arg0, **_arg1, &_arg2); end
+  def =~(*, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/naming.rb:150
-  def as_json(*_arg0, **_arg1, &_arg2); end
+  def as_json(*, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/naming.rb:15
   def cache_key; end
@@ -3220,7 +3220,7 @@ class ActiveModel::Name
   def element=(_arg0); end
 
   # pkg:gem/activemodel#lib/active_model/naming.rb:150
-  def eql?(*_arg0, **_arg1, &_arg2); end
+  def eql?(*, **, &); end
 
   # Transform the model name into a more human format, using I18n. By default,
   # it will underscore then humanize the class name.
@@ -3243,7 +3243,7 @@ class ActiveModel::Name
   def i18n_key=(_arg0); end
 
   # pkg:gem/activemodel#lib/active_model/naming.rb:150
-  def match?(*_arg0, **_arg1, &_arg2); end
+  def match?(*, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/naming.rb:11
   def name; end
@@ -3282,10 +3282,10 @@ class ActiveModel::Name
   def singular_route_key=(_arg0); end
 
   # pkg:gem/activemodel#lib/active_model/naming.rb:150
-  def to_s(*_arg0, **_arg1, &_arg2); end
+  def to_s(*, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/naming.rb:150
-  def to_str(*_arg0, **_arg1, &_arg2); end
+  def to_str(*, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/naming.rb:208
   def uncountable?; end
@@ -3431,7 +3431,7 @@ class ActiveModel::NestedError < ::ActiveModel::Error
   def inner_error; end
 
   # pkg:gem/activemodel#lib/active_model/nested_error.rb:18
-  def message(*_arg0, **_arg1, &_arg2); end
+  def message(*, **, &); end
 end
 
 # pkg:gem/activemodel#lib/active_model/attribute_mutation_tracker.rb:156
@@ -3447,7 +3447,7 @@ class ActiveModel::NullMutationTracker
   def change_to_attribute(attr_name); end
 
   # pkg:gem/activemodel#lib/active_model/attribute_mutation_tracker.rb:178
-  def changed?(attr_name, **_arg1); end
+  def changed?(attr_name, **); end
 
   # pkg:gem/activemodel#lib/active_model/attribute_mutation_tracker.rb:159
   def changed_attribute_names; end
@@ -4021,7 +4021,7 @@ module ActiveModel::Type
     def default_value; end
 
     # pkg:gem/activemodel#lib/active_model/type.rb:34
-    def lookup(*_arg0, **_arg1, &_arg2); end
+    def lookup(*, **, &); end
 
     # Add a new type to the registry, allowing it to be referenced as a
     # symbol by {attribute}[rdoc-ref:Attributes::ClassMethods#attribute].
@@ -4059,7 +4059,7 @@ end
 # pkg:gem/activemodel#lib/active_model/type/big_integer.rb:25
 class ActiveModel::Type::BigInteger < ::ActiveModel::Type::Integer
   # pkg:gem/activemodel#lib/active_model/type/big_integer.rb:47
-  def serializable?(value, &_arg1); end
+  def serializable?(value, &); end
 
   # pkg:gem/activemodel#lib/active_model/type/big_integer.rb:26
   def serialize(value); end
@@ -4197,7 +4197,7 @@ class ActiveModel::Type::Date < ::ActiveModel::Type::Value
   def new_date(year, mon, mday); end
 
   # pkg:gem/activemodel#lib/active_model/type/date.rb:73
-  def value_from_multiparameter_assignment(*_arg0); end
+  def value_from_multiparameter_assignment(*); end
 end
 
 # pkg:gem/activemodel#lib/active_model/type/date.rb:51
@@ -4605,7 +4605,7 @@ class ActiveModel::Type::Integer < ::ActiveModel::Type::Value
   include ::ActiveModel::Type::Helpers::Numeric
 
   # pkg:gem/activemodel#lib/active_model/type/integer.rb:52
-  def initialize(**_arg0); end
+  def initialize(**); end
 
   # pkg:gem/activemodel#lib/active_model/type/integer.rb:62
   def deserialize(value); end
@@ -4652,7 +4652,7 @@ class ActiveModel::Type::Registry
   def initialize; end
 
   # pkg:gem/activemodel#lib/active_model/type/registry.rb:23
-  def lookup(symbol, *_arg1, **_arg2, &_arg3); end
+  def lookup(symbol, *, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/type/registry.rb:15
   def register(type_name, klass = T.unsafe(nil), &block); end
@@ -4674,7 +4674,7 @@ module ActiveModel::Type::SerializeCastValue
   mixes_in_class_methods ::ActiveModel::Type::SerializeCastValue::ClassMethods
 
   # pkg:gem/activemodel#lib/active_model/type/serialize_cast_value.rb:41
-  def initialize(*_arg0, **_arg1, &_arg2); end
+  def initialize(*, **, &); end
 
   # pkg:gem/activemodel#lib/active_model/type/serialize_cast_value.rb:37
   def itself_if_serialize_cast_value_compatible; end
@@ -4801,7 +4801,7 @@ class ActiveModel::Type::Value
   def ==(other); end
 
   # pkg:gem/activemodel#lib/active_model/type/value.rb:144
-  def as_json(*_arg0); end
+  def as_json(*); end
 
   # pkg:gem/activemodel#lib/active_model/type/value.rb:133
   def assert_valid_value(_); end
@@ -4877,7 +4877,7 @@ class ActiveModel::Type::Value
   def limit; end
 
   # pkg:gem/activemodel#lib/active_model/type/value.rb:117
-  def map(value, &_arg1); end
+  def map(value, &); end
 
   # pkg:gem/activemodel#lib/active_model/type/value.rb:140
   def mutable?; end
@@ -4894,7 +4894,7 @@ class ActiveModel::Type::Value
   # parameter is some other object.
   #
   # pkg:gem/activemodel#lib/active_model/type/value.rb:28
-  def serializable?(value, &_arg1); end
+  def serializable?(value, &); end
 
   # Casts a value from the ruby type to a type that the database knows how
   # to understand. The returned value from this method should be a

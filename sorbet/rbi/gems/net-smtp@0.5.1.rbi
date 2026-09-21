@@ -884,7 +884,7 @@ class Net::SMTP::Authenticator
     def auth_type(type); end
 
     # pkg:gem/net-smtp#lib/net/smtp/authenticator.rb:18
-    def check_args(user_arg = T.unsafe(nil), secret_arg = T.unsafe(nil), *_arg2, **_arg3); end
+    def check_args(user_arg = T.unsafe(nil), secret_arg = T.unsafe(nil), *, **); end
   end
 end
 

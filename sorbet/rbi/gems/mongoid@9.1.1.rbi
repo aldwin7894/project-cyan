@@ -45,6 +45,11 @@ class BSON::Regexp::Raw
   extend ::Mongoid::Criteria::Queryable::Extensions::Regexp::Raw_::ClassMethods
 end
 
+class BSON::Vector < ::Array
+  include ::Mongoid::Extensions::Vector
+  extend ::Mongoid::Extensions::Vector::ClassMethods
+end
+
 class BigDecimal < ::Numeric
   include ::Mongoid::Extensions::BigDecimal
   include ::Mongoid::Criteria::Queryable::Extensions::Numeric
@@ -120,103 +125,112 @@ module Mongoid
   def RawValue(*args); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def allow_bson5_decimal128(*_arg0, **_arg1, &_arg2); end
+  def allow_bson5_decimal128(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def allow_bson5_decimal128=(*_arg0, **_arg1, &_arg2); end
+  def allow_bson5_decimal128=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def allow_bson5_decimal128?(*_arg0, **_arg1, &_arg2); end
+  def allow_bson5_decimal128?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def allow_duplicate_index_declarations(*_arg0, **_arg1, &_arg2); end
+  def allow_duplicate_index_declarations(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def allow_duplicate_index_declarations=(*_arg0, **_arg1, &_arg2); end
+  def allow_duplicate_index_declarations=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def allow_duplicate_index_declarations?(*_arg0, **_arg1, &_arg2); end
+  def allow_duplicate_index_declarations?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def allow_reparenting_via_nested_attributes(*_arg0, **_arg1, &_arg2); end
+  def allow_reparenting_via_nested_attributes(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def allow_reparenting_via_nested_attributes=(*_arg0, **_arg1, &_arg2); end
+  def allow_reparenting_via_nested_attributes=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def allow_reparenting_via_nested_attributes?(*_arg0, **_arg1, &_arg2); end
+  def allow_reparenting_via_nested_attributes?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def allow_scopes_to_unset_default_scope(*_arg0, **_arg1, &_arg2); end
+  def allow_scopes_to_unset_default_scope(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def allow_scopes_to_unset_default_scope=(*_arg0, **_arg1, &_arg2); end
+  def allow_scopes_to_unset_default_scope=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def allow_scopes_to_unset_default_scope?(*_arg0, **_arg1, &_arg2); end
+  def allow_scopes_to_unset_default_scope?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def allow_short_circuit_queries(*_arg0, **_arg1, &_arg2); end
+  def allow_short_circuit_queries(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def allow_short_circuit_queries=(*_arg0, **_arg1, &_arg2); end
+  def allow_short_circuit_queries=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def allow_short_circuit_queries?(*_arg0, **_arg1, &_arg2); end
+  def allow_short_circuit_queries?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def app_name(*_arg0, **_arg1, &_arg2); end
+  def allow_unsafe_query_operators(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def app_name=(*_arg0, **_arg1, &_arg2); end
+  def allow_unsafe_query_operators=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def app_name?(*_arg0, **_arg1, &_arg2); end
+  def allow_unsafe_query_operators?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def around_callbacks_for_embeds(*_arg0, **_arg1, &_arg2); end
+  def app_name(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def around_callbacks_for_embeds=(*_arg0, **_arg1, &_arg2); end
+  def app_name=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def around_callbacks_for_embeds?(*_arg0, **_arg1, &_arg2); end
+  def app_name?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def async_query_executor(*_arg0, **_arg1, &_arg2); end
+  def around_callbacks_for_embeds(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def async_query_executor=(*_arg0, **_arg1, &_arg2); end
+  def around_callbacks_for_embeds=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def async_query_executor?(*_arg0, **_arg1, &_arg2); end
+  def around_callbacks_for_embeds?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def autosave_saves_unchanged_documents(*_arg0, **_arg1, &_arg2); end
+  def async_query_executor(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def autosave_saves_unchanged_documents=(*_arg0, **_arg1, &_arg2); end
+  def async_query_executor=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def autosave_saves_unchanged_documents?(*_arg0, **_arg1, &_arg2); end
+  def async_query_executor?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def background_indexing(*_arg0, **_arg1, &_arg2); end
+  def autosave_saves_unchanged_documents(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def background_indexing=(*_arg0, **_arg1, &_arg2); end
+  def autosave_saves_unchanged_documents=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def background_indexing?(*_arg0, **_arg1, &_arg2); end
+  def autosave_saves_unchanged_documents?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def belongs_to_required_by_default(*_arg0, **_arg1, &_arg2); end
+  def background_indexing(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def belongs_to_required_by_default=(*_arg0, **_arg1, &_arg2); end
+  def background_indexing=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def belongs_to_required_by_default?(*_arg0, **_arg1, &_arg2); end
+  def background_indexing?(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid.rb:125
+  def belongs_to_required_by_default(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid.rb:125
+  def belongs_to_required_by_default=(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid.rb:125
+  def belongs_to_required_by_default?(*, **, &); end
 
   # Convenience method for getting a named client.
   #
@@ -229,10 +243,10 @@ module Mongoid
   def client(name); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def clients(*_arg0, **_arg1, &_arg2); end
+  def clients(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def config(*_arg0, **_arg1, &_arg2); end
+  def config(*, **, &); end
 
   # Sets the Mongoid configuration options. Best used by passing a block.
   #
@@ -260,10 +274,10 @@ module Mongoid
   def configure(&block); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def configured?(*_arg0, **_arg1, &_arg2); end
+  def configured?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def connect_to(*_arg0, **_arg1, &_arg2); end
+  def connect_to(*, **, &); end
 
   # Convenience method for getting the default client.
   #
@@ -276,10 +290,10 @@ module Mongoid
   def default_client; end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def deregister_model(*_arg0, **_arg1, &_arg2); end
+  def deregister_model(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def destructive_fields(*_arg0, **_arg1, &_arg2); end
+  def destructive_fields(*, **, &); end
 
   # Disconnect all active clients.
   #
@@ -292,127 +306,136 @@ module Mongoid
   def disconnect_clients; end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def discriminator_key(*_arg0, **_arg1, &_arg2); end
+  def discriminator_key(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def discriminator_key=(*_arg0, **_arg1, &_arg2); end
+  def discriminator_key=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def discriminator_key?(*_arg0, **_arg1, &_arg2); end
+  def discriminator_key?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def duplicate_fields_exception(*_arg0, **_arg1, &_arg2); end
+  def duplicate_fields_exception(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def duplicate_fields_exception=(*_arg0, **_arg1, &_arg2); end
+  def duplicate_fields_exception=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def duplicate_fields_exception?(*_arg0, **_arg1, &_arg2); end
+  def duplicate_fields_exception?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def global_executor_concurrency(*_arg0, **_arg1, &_arg2); end
+  def global_executor_concurrency(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def global_executor_concurrency=(*_arg0, **_arg1, &_arg2); end
+  def global_executor_concurrency=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def global_executor_concurrency?(*_arg0, **_arg1, &_arg2); end
+  def global_executor_concurrency?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def immutable_ids(*_arg0, **_arg1, &_arg2); end
+  def immutable_ids(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def immutable_ids=(*_arg0, **_arg1, &_arg2); end
+  def immutable_ids=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def immutable_ids?(*_arg0, **_arg1, &_arg2); end
+  def immutable_ids?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def include_root_in_json(*_arg0, **_arg1, &_arg2); end
+  def in_memory_regexp_time_limit(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def include_root_in_json=(*_arg0, **_arg1, &_arg2); end
+  def in_memory_regexp_time_limit=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def include_root_in_json?(*_arg0, **_arg1, &_arg2); end
+  def in_memory_regexp_time_limit?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def include_type_for_serialization(*_arg0, **_arg1, &_arg2); end
+  def include_root_in_json(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def include_type_for_serialization=(*_arg0, **_arg1, &_arg2); end
+  def include_root_in_json=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def include_type_for_serialization?(*_arg0, **_arg1, &_arg2); end
+  def include_root_in_json?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def isolation_level(*_arg0, **_arg1, &_arg2); end
+  def include_type_for_serialization(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def isolation_level=(*_arg0, **_arg1, &_arg2); end
+  def include_type_for_serialization=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def isolation_level?(*_arg0, **_arg1, &_arg2); end
+  def include_type_for_serialization?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def join_contexts(*_arg0, **_arg1, &_arg2); end
+  def isolation_level(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def join_contexts=(*_arg0, **_arg1, &_arg2); end
+  def isolation_level=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def join_contexts?(*_arg0, **_arg1, &_arg2); end
+  def isolation_level?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def legacy_persistence_context_behavior(*_arg0, **_arg1, &_arg2); end
+  def join_contexts(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def legacy_persistence_context_behavior=(*_arg0, **_arg1, &_arg2); end
+  def join_contexts=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def legacy_persistence_context_behavior?(*_arg0, **_arg1, &_arg2); end
+  def join_contexts?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def legacy_readonly(*_arg0, **_arg1, &_arg2); end
+  def legacy_persistence_context_behavior(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def legacy_readonly=(*_arg0, **_arg1, &_arg2); end
+  def legacy_persistence_context_behavior=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def legacy_readonly?(*_arg0, **_arg1, &_arg2); end
+  def legacy_persistence_context_behavior?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def load!(*_arg0, **_arg1, &_arg2); end
+  def legacy_readonly(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def load_configuration(*_arg0, **_arg1, &_arg2); end
+  def legacy_readonly=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def log_level=(*_arg0, **_arg1, &_arg2); end
+  def legacy_readonly?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def log_level?(*_arg0, **_arg1, &_arg2); end
+  def load!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def map_big_decimal_to_decimal128(*_arg0, **_arg1, &_arg2); end
+  def load_configuration(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def map_big_decimal_to_decimal128=(*_arg0, **_arg1, &_arg2); end
+  def log_level=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def map_big_decimal_to_decimal128?(*_arg0, **_arg1, &_arg2); end
+  def log_level?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def models(*_arg0, **_arg1, &_arg2); end
+  def map_big_decimal_to_decimal128(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def options=(*_arg0, **_arg1, &_arg2); end
+  def map_big_decimal_to_decimal128=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def override_client(*_arg0, **_arg1, &_arg2); end
+  def map_big_decimal_to_decimal128?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def override_database(*_arg0, **_arg1, &_arg2); end
+  def models(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid.rb:125
+  def options=(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid.rb:125
+  def override_client(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid.rb:125
+  def override_database(*, **, &); end
 
   # Define persistence context that is used when a transaction method is called
   # on Mongoid module.
@@ -423,37 +446,37 @@ module Mongoid
   def persistence_context; end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def preload_models(*_arg0, **_arg1, &_arg2); end
+  def preload_models(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def preload_models=(*_arg0, **_arg1, &_arg2); end
+  def preload_models=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def preload_models?(*_arg0, **_arg1, &_arg2); end
+  def preload_models?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def prevent_multiple_calls_of_embedded_callbacks(*_arg0, **_arg1, &_arg2); end
+  def prevent_multiple_calls_of_embedded_callbacks(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def prevent_multiple_calls_of_embedded_callbacks=(*_arg0, **_arg1, &_arg2); end
+  def prevent_multiple_calls_of_embedded_callbacks=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def prevent_multiple_calls_of_embedded_callbacks?(*_arg0, **_arg1, &_arg2); end
+  def prevent_multiple_calls_of_embedded_callbacks?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def purge!(*_arg0, **_arg1, &_arg2); end
+  def purge!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def raise_not_found_error(*_arg0, **_arg1, &_arg2); end
+  def raise_not_found_error(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def raise_not_found_error=(*_arg0, **_arg1, &_arg2); end
+  def raise_not_found_error=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def raise_not_found_error?(*_arg0, **_arg1, &_arg2); end
+  def raise_not_found_error?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def real_isolation_level(*_arg0, **_arg1, &_arg2); end
+  def real_isolation_level(*, **, &); end
 
   # Reconnect all active clients.
   #
@@ -466,28 +489,28 @@ module Mongoid
   def reconnect_clients; end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def register_model(*_arg0, **_arg1, &_arg2); end
+  def register_model(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def running_with_passenger?(*_arg0, **_arg1, &_arg2); end
+  def running_with_passenger?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def scope_overwrite_exception(*_arg0, **_arg1, &_arg2); end
+  def scope_overwrite_exception(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def scope_overwrite_exception=(*_arg0, **_arg1, &_arg2); end
+  def scope_overwrite_exception=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def scope_overwrite_exception?(*_arg0, **_arg1, &_arg2); end
+  def scope_overwrite_exception?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def serializable_hash_with_legacy_only(*_arg0, **_arg1, &_arg2); end
+  def serializable_hash_with_legacy_only(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def serializable_hash_with_legacy_only=(*_arg0, **_arg1, &_arg2); end
+  def serializable_hash_with_legacy_only=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def serializable_hash_with_legacy_only?(*_arg0, **_arg1, &_arg2); end
+  def serializable_hash_with_legacy_only?(*, **, &); end
 
   # Define client that is used when a transaction method is called
   # on Mongoid module. This MUST be the default client.
@@ -498,22 +521,22 @@ module Mongoid
   def storage_options; end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def time_zone(*_arg0, **_arg1, &_arg2); end
+  def time_zone(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def truncate!(*_arg0, **_arg1, &_arg2); end
+  def truncate!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def use_utc(*_arg0, **_arg1, &_arg2); end
+  def use_utc(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def use_utc=(*_arg0, **_arg1, &_arg2); end
+  def use_utc=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def use_utc?(*_arg0, **_arg1, &_arg2); end
+  def use_utc?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:125
-  def validate_isolation_level!(*_arg0, **_arg1, &_arg2); end
+  def validate_isolation_level!(*, **, &); end
 end
 
 # Mixin module which adds association behavior to a Mongoid document.
@@ -542,10 +565,10 @@ module Mongoid::Association
   mixes_in_class_methods ::Mongoid::Association::Reflections::ClassMethods
   mixes_in_class_methods ::Mongoid::Association::Referenced::Syncable::ClassMethods
 
-  # pkg:gem/mongoid#lib/mongoid/association.rb:49
+  # pkg:gem/mongoid#lib/mongoid/association.rb:56
   def _association; end
 
-  # pkg:gem/mongoid#lib/mongoid/association.rb:49
+  # pkg:gem/mongoid#lib/mongoid/association.rb:56
   def _association=(_arg0); end
 
   # Get the association name for this document. If no association was defined
@@ -558,7 +581,7 @@ module Mongoid::Association
   #
   # @return [ Symbol ] The association name.
   #
-  # pkg:gem/mongoid#lib/mongoid/association.rb:96
+  # pkg:gem/mongoid#lib/mongoid/association.rb:103
   def association_name; end
 
   # Determine if the document itself is embedded in another document via the
@@ -569,7 +592,7 @@ module Mongoid::Association
   #
   # @return [ true | false ] True if the document has a parent document.
   #
-  # pkg:gem/mongoid#lib/mongoid/association.rb:63
+  # pkg:gem/mongoid#lib/mongoid/association.rb:70
   def embedded?; end
 
   # Determine if the document is part of an embeds_many association.
@@ -579,7 +602,7 @@ module Mongoid::Association
   #
   # @return [ true | false ] True if in an embeds many.
   #
-  # pkg:gem/mongoid#lib/mongoid/association.rb:73
+  # pkg:gem/mongoid#lib/mongoid/association.rb:80
   def embedded_many?; end
 
   # Determine if the document is part of an embeds_one association.
@@ -589,7 +612,7 @@ module Mongoid::Association
   #
   # @return [ true | false ] True if in an embeds one.
   #
-  # pkg:gem/mongoid#lib/mongoid/association.rb:83
+  # pkg:gem/mongoid#lib/mongoid/association.rb:90
   def embedded_one?; end
 
   # Determine if the document is part of an references_many association.
@@ -599,7 +622,7 @@ module Mongoid::Association
   #
   # @return [ true | false ] True if in a references many.
   #
-  # pkg:gem/mongoid#lib/mongoid/association.rb:108
+  # pkg:gem/mongoid#lib/mongoid/association.rb:115
   def referenced_many?; end
 
   # Determine if the document is part of an references_one association.
@@ -609,7 +632,7 @@ module Mongoid::Association
   #
   # @return [ true | false ] True if in a references one.
   #
-  # pkg:gem/mongoid#lib/mongoid/association.rb:118
+  # pkg:gem/mongoid#lib/mongoid/association.rb:125
   def referenced_one?; end
 
   # Convenience method for iterating through the loaded associations and
@@ -620,10 +643,13 @@ module Mongoid::Association
   #
   # @return [ Hash ] The association metadata.
   #
-  # pkg:gem/mongoid#lib/mongoid/association.rb:129
+  # pkg:gem/mongoid#lib/mongoid/association.rb:136
   def reload_relations; end
 
   module GeneratedClassMethods
+    def _dependents_owner; end
+    def _dependents_owner=(value); end
+    def _dependents_owner?; end
     def aliased_associations; end
     def aliased_associations=(value); end
     def aliased_associations?; end
@@ -633,9 +659,6 @@ module Mongoid::Association
     def dependents; end
     def dependents=(value); end
     def dependents?; end
-    def dependents_owner; end
-    def dependents_owner=(value); end
-    def dependents_owner?; end
     def embedded; end
     def embedded=(value); end
     def embedded?; end
@@ -654,6 +677,9 @@ module Mongoid::Association
   end
 
   module GeneratedInstanceMethods
+    def _dependents_owner; end
+    def _dependents_owner=(value); end
+    def _dependents_owner?; end
     def aliased_associations; end
     def aliased_associations=(value); end
     def aliased_associations?; end
@@ -663,9 +689,6 @@ module Mongoid::Association
     def dependents; end
     def dependents=(value); end
     def dependents?; end
-    def dependents_owner; end
-    def dependents_owner=(value); end
-    def dependents_owner?; end
     def embedded=(value); end
     def embedded_relations; end
     def embedded_relations=(value); end
@@ -837,7 +860,7 @@ module Mongoid::Association::Accessors
     #
     # @return [ Class ] The class being set up.
     #
-    # pkg:gem/mongoid#lib/mongoid/association/accessors.rb:387
+    # pkg:gem/mongoid#lib/mongoid/association/accessors.rb:395
     def define_builder!(association); end
 
     # Defines a creator method for an embeds_one association. This is
@@ -851,7 +874,7 @@ module Mongoid::Association::Accessors
     #
     # @return [ Class ] The class being set up.
     #
-    # pkg:gem/mongoid#lib/mongoid/association/accessors.rb:412
+    # pkg:gem/mongoid#lib/mongoid/association/accessors.rb:420
     def define_creator!(association); end
 
     # Adds the existence check for associations.
@@ -895,7 +918,7 @@ module Mongoid::Association::Accessors
     #
     # @return [ Class ] The class being set up.
     #
-    # pkg:gem/mongoid#lib/mongoid/association/accessors.rb:319
+    # pkg:gem/mongoid#lib/mongoid/association/accessors.rb:322
     def define_ids_getter!(association); end
 
     # Defines the setter method that allows you to set documents
@@ -911,7 +934,7 @@ module Mongoid::Association::Accessors
     #
     #  @return [ Class ] The class being set up.
     #
-    # pkg:gem/mongoid#lib/mongoid/association/accessors.rb:368
+    # pkg:gem/mongoid#lib/mongoid/association/accessors.rb:376
     def define_ids_setter!(association); end
 
     # Defines the setter for the association. This does a few things based on
@@ -926,7 +949,7 @@ module Mongoid::Association::Accessors
     #
     # @return [ Class ] The class being set up.
     #
-    # pkg:gem/mongoid#lib/mongoid/association/accessors.rb:339
+    # pkg:gem/mongoid#lib/mongoid/association/accessors.rb:342
     def define_setter!(association); end
   end
 end
@@ -1232,24 +1255,24 @@ module Mongoid::Association::Depending
   # @example Execute cascades.
   #   document.apply_destroy_dependencies!
   #
-  # pkg:gem/mongoid#lib/mongoid/association/depending.rb:88
+  # pkg:gem/mongoid#lib/mongoid/association/depending.rb:92
   def apply_destroy_dependencies!; end
 
   private
 
-  # pkg:gem/mongoid#lib/mongoid/association/depending.rb:98
+  # pkg:gem/mongoid#lib/mongoid/association/depending.rb:102
   def _dependent_delete_all!(association); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/depending.rb:108
+  # pkg:gem/mongoid#lib/mongoid/association/depending.rb:112
   def _dependent_destroy!(association); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/depending.rb:119
+  # pkg:gem/mongoid#lib/mongoid/association/depending.rb:123
   def _dependent_nullify!(association); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/depending.rb:131
+  # pkg:gem/mongoid#lib/mongoid/association/depending.rb:135
   def _dependent_restrict_with_error!(association); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/depending.rb:125
+  # pkg:gem/mongoid#lib/mongoid/association/depending.rb:129
   def _dependent_restrict_with_exception!(association); end
 
   class << self
@@ -1263,7 +1286,7 @@ module Mongoid::Association::Depending
     #
     # @return [ Class ] The class of the document.
     #
-    # pkg:gem/mongoid#lib/mongoid/association/depending.rb:55
+    # pkg:gem/mongoid#lib/mongoid/association/depending.rb:59
     def define_dependency!(association); end
 
     # Validates that an association's dependent strategy is
@@ -1275,38 +1298,38 @@ module Mongoid::Association::Depending
     # @raises [ Mongoid::Errors::InvalidDependentStrategy ]
     #   Error if invalid.
     #
-    # pkg:gem/mongoid#lib/mongoid/association/depending.rb:75
+    # pkg:gem/mongoid#lib/mongoid/association/depending.rb:79
     def validate!(association); end
   end
 
   module GeneratedClassMethods
+    def _dependents_owner; end
+    def _dependents_owner=(value); end
+    def _dependents_owner?; end
     def dependents; end
     def dependents=(value); end
     def dependents?; end
-    def dependents_owner; end
-    def dependents_owner=(value); end
-    def dependents_owner?; end
   end
 
   module GeneratedInstanceMethods
+    def _dependents_owner; end
+    def _dependents_owner=(value); end
+    def _dependents_owner?; end
     def dependents; end
     def dependents=(value); end
     def dependents?; end
-    def dependents_owner; end
-    def dependents_owner=(value); end
-    def dependents_owner?; end
   end
 end
 
-# pkg:gem/mongoid#lib/mongoid/association/depending.rb:20
+# pkg:gem/mongoid#lib/mongoid/association/depending.rb:24
 module Mongoid::Association::Depending::ClassMethods
-  # pkg:gem/mongoid#lib/mongoid/association/depending.rb:27
+  # pkg:gem/mongoid#lib/mongoid/association/depending.rb:31
   def _all_dependents; end
 end
 
 # The valid dependent strategies.
 #
-# pkg:gem/mongoid#lib/mongoid/association/depending.rb:38
+# pkg:gem/mongoid#lib/mongoid/association/depending.rb:42
 Mongoid::Association::Depending::STRATEGIES = T.let(T.unsafe(nil), Array)
 
 # Base class for eager load preload functions.
@@ -1328,7 +1351,7 @@ class Mongoid::Association::Eager
   #
   # @return [ Base ] The eager load preloader
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:21
+  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:30
   def initialize(associations, docs, use_lookup = T.unsafe(nil), pipeline = T.unsafe(nil)); end
 
   # Run the preloader.
@@ -1338,7 +1361,7 @@ class Mongoid::Association::Eager
   #
   # @return [ Array ] The list of documents given.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:35
+  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:44
   def run; end
 
   protected
@@ -1349,7 +1372,7 @@ class Mongoid::Association::Eager
   # a single query. If the association is polymorphic, one query is
   # issued per association target class.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:83
+  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:92
   def each_loaded_document(&block); end
 
   # Return the key to group the current documents.
@@ -1361,7 +1384,7 @@ class Mongoid::Association::Eager
   #
   # @return [ Symbol ] Key to group by the current documents.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:153
+  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:162
   def group_by_key; end
 
   # Return a hash with the current documents grouped by key.
@@ -1374,7 +1397,7 @@ class Mongoid::Association::Eager
   #
   # @return [ Hash ] hash with grouped documents.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:124
+  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:133
   def grouped_docs; end
 
   # Group the documents and return the keys.
@@ -1387,7 +1410,7 @@ class Mongoid::Association::Eager
   #
   # @return [ Array ] keys, ids
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:141
+  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:150
   def keys_from_docs; end
 
   # Preload the current association.
@@ -1397,7 +1420,7 @@ class Mongoid::Association::Eager
   # @example Preload the current association into the documents.
   #   loader.preload
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:59
+  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:68
   def preload; end
 
   # Preload the current association using $lookup aggregation.
@@ -1406,7 +1429,7 @@ class Mongoid::Association::Eager
   # @example Preload the current association using $lookup.
   #   loader.preload_with_lookup
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:68
+  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:77
   def preload_with_lookup; end
 
   # Set the pre-loaded document into its parent.
@@ -1417,7 +1440,7 @@ class Mongoid::Association::Eager
   # @param [ ObjectId ] id parent`s id
   # @param [ Document | Array ] element to push into the parent
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:109
+  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:118
   def set_on_parent(id, element); end
 
   # Set the pre-loaded document into its parent.
@@ -1428,7 +1451,7 @@ class Mongoid::Association::Eager
   # @param [ Document ] doc The object to set the association on
   # @param [ Document | Array ] element to set into the parent
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:164
+  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:173
   def set_relation(doc, element); end
 
   private
@@ -1440,7 +1463,7 @@ class Mongoid::Association::Eager
   # is the set of inclusions applied to the host document minus the
   # association that is being eagerly loaded.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:93
+  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:102
   def each_loaded_document_of_class(cls, keys, &block); end
 
   # Prepares the criteria to retrieve the documents of the specified
@@ -1449,7 +1472,7 @@ class Mongoid::Association::Eager
   # is the set of inclusions applied to the host document minus the
   # association that is being eagerly loaded.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:185
+  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:194
   def prepare_criteria_for_loaded_documents(cls, keys); end
 
   # Shift the current association metadata
@@ -1459,34 +1482,682 @@ class Mongoid::Association::Eager
   #
   # @return [ Mongoid::Association::Relatable ] The association object.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:176
+  # pkg:gem/mongoid#lib/mongoid/association/eager.rb:185
   def shift_association; end
+
+  class << self
+    # Build a preloader for the given arguments and run it.
+    #
+    # @param (see #initialize)
+    #
+    # @return [ Array ] The list of documents given.
+    #
+    # pkg:gem/mongoid#lib/mongoid/association/eager.rb:12
+    def run(associations, docs, use_lookup = T.unsafe(nil), pipeline = T.unsafe(nil)); end
+  end
+end
+
+# Objects that carry out the aggregation-based eager load triggered by
+# Criteria#eager_load.
+#
+# pkg:gem/mongoid#lib/mongoid/association/eager_load/embedded_distributor.rb:7
+module Mongoid::Association::EagerLoad; end
+
+# An inclusion that stands for a single association. The LookupPipeline holds
+# the stage-building helpers the kinds lean on, and a node carries its own
+# children, so the pipeline is built by recursion from the roots downward.
+#
+# @api private
+#
+# pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion.rb:30
+class Mongoid::Association::EagerLoad::AssociationInclusion < ::Mongoid::Association::EagerLoad::Inclusion
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion.rb:57
+  def initialize(association, pipeline, children); end
+
+  # @return [ Mongoid::Association::Relatable ] The association this stands for.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion.rb:55
+  def association; end
+
+  class << self
+    # Builds the right kind of inclusion for the association. Each subclass
+    # decides whether it handles it (.for?); exactly one does.
+    #
+    # @param [ Mongoid::Association::Relatable ] association The inclusion.
+    # @param [ LookupPipeline ] pipeline The pipeline being built.
+    # @param [ Array<Inclusion> ] children The inclusions nested under it.
+    #
+    # @return [ AssociationInclusion ] The matching kind of inclusion.
+    #
+    # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion.rb:40
+    def for(association, pipeline, children); end
+
+    # Whether this kind handles the given association.
+    #
+    # @param [ Mongoid::Association::Relatable ] association The inclusion.
+    #
+    # @return [ true | false ] Whether it handles it.
+    #
+    # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion.rb:49
+    def for?(association); end
+  end
+end
+
+# A polymorphic inclusion: its target collection varies per document, so it
+# can't be a $lookup. It adds nothing here; PolymorphicPreloader resolves it
+# after the roots are materialized.
+#
+# @api private
+#
+# pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion.rb:154
+class Mongoid::Association::EagerLoad::DeferredInclusion < ::Mongoid::Association::EagerLoad::AssociationInclusion
+  # Add nothing; PolymorphicPreloader resolves the association after the
+  # roots are materialized.
+  #
+  # @param [ Array<Hash> ] destination The pipeline (unused).
+  # @param [ Array<Mongoid::Association::Relatable> ] chain The embedded path (unused).
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion.rb:169
+  def contribute(destination, chain); end
+
+  class << self
+    # @param [ Mongoid::Association::Relatable ] association The inclusion.
+    #
+    # @return [ true | false ] Whether the association is polymorphic.
+    #
+    # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion.rb:159
+    def for?(association); end
+  end
+end
+
+# Loads an inclusion that more than one subclass defines under the same name
+# but pointing at different targets. A single $lookup can't serve them: they
+# would all write to the same field and overwrite one another. So each
+# subclass's inclusion is contributed into its own temporary field, carrying
+# its own nested children, and a $set then routes every document to the field
+# for its own type, by the discriminator.
+#
+# For Machine.eager_load(:widgets), where Lathe#widgets => Cog and
+# Press#widgets => Belt, it emits:
+#
+#   { '$lookup' => { 'from' => 'cogs',  ..., 'as' => '__eager_load_widgets_Lathe' } },
+#   { '$lookup' => { 'from' => 'belts', ..., 'as' => '__eager_load_widgets_Press' } },
+#   { '$set' => {
+#     'widgets' => { '$switch' => { 'branches' => [   # route each document to its
+#       { 'case' => { '$eq' => [ '$_type', 'Lathe' ] }, 'then' => '$__eager_load_widgets_Lathe' },  # own type's matches
+#       { 'case' => { '$eq' => [ '$_type', 'Press' ] }, 'then' => '$__eager_load_widgets_Press' }
+#     ], 'default' => [] } }
+#   } },
+#   { '$unset' => [ '__eager_load_widgets_Lathe', '__eager_load_widgets_Press' ] }
+#
+# @api private
+#
+# pkg:gem/mongoid#lib/mongoid/association/eager_load/discriminated_inclusion.rb:29
+class Mongoid::Association::EagerLoad::DiscriminatedInclusion < ::Mongoid::Association::EagerLoad::Inclusion
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/discriminated_inclusion.rb:30
+  def initialize(nodes); end
+
+  # Append each subclass's lookup (into its own temporary field), the routing
+  # $set, and the cleanup $unset.
+  #
+  # @param [ Array<Hash> ] destination The pipeline the stages are appended to.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/discriminated_inclusion.rb:39
+  def contribute(destination, _chain); end
+
+  private
+
+  # Let the node build its own $lookup (with its nested children) and redirect
+  # it to write into a temporary field instead of the shared association name.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/discriminated_inclusion.rb:49
+  def contribute_into_temporary(destination, node); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/discriminated_inclusion.rb:82
+  def discriminator_key; end
+
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/discriminated_inclusion.rb:78
+  def name; end
+
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/discriminated_inclusion.rb:74
+  def owner(node); end
+
+  # The $set that fills the association on each document from the temporary
+  # field matching its own type.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/discriminated_inclusion.rb:64
+  def route_by_type(fields); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/discriminated_inclusion.rb:58
+  def temporary_field(node); end
+end
+
+# Distributes the results of a $lookup onto the embedded documents they
+# belong to.
+#
+# A $lookup overwrites the single field it writes to, and it can't distribute
+# its matches across the elements of an embedded array. So when the reference
+# being eager-loaded lives on an embedded document, the matches are first
+# collected in a temporary top-level field and then distributed down the
+# embedded path onto each embedded document, merging into it (so the rest of
+# the document is kept) and correlating by key. The temporary field is then
+# dropped.
+#
+# For Computer.eager_load(port: :device) (Port belongs_to :device) it emits:
+#
+#   { '$lookup' => {                     # devices can't be written into
+#     'from' => 'devices',               # the embedded port, so they are
+#     'localField' => 'port.device_id',  # collected in a temp top-level
+#     'foreignField' => '_id',           # field instead
+#     'as' => '__eager_load_port_device'
+#   } },
+#   { '$set' => {
+#     'port' => { '$mergeObjects' => [   # merge a 'device' key onto the port
+#       '$port',
+#       { 'device' => { '$filter' => { ... } } }   # this port's matches
+#     ] }
+#   } },
+#   { '$unset' => '__eager_load_port_device' }  # drop the temp field
+#
+# @api private
+#
+# pkg:gem/mongoid#lib/mongoid/association/eager_load/embedded_distributor.rb:36
+class Mongoid::Association::EagerLoad::EmbeddedDistributor
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/embedded_distributor.rb:53
+  def initialize(association, chain, lookup_stage, local_field, foreign_field); end
+
+  # The stages that run the $lookup into a temporary field and then
+  # distribute its matches onto the embedded documents along the path.
+  #
+  # @return [ Array<Hash> ] The stages to append to the pipeline.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/embedded_distributor.rb:65
+  def stages; end
+
+  private
+
+  # The matches that belong to a single embedded element.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/embedded_distributor.rb:134
+  def correlated_matches(element); end
+
+  # An embedded collection (embeds_many) is rebuilt with $map so each element
+  # keeps its own matches instead of collapsing onto the first; a single
+  # embedded document (embeds_one) receives its matches in place.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/embedded_distributor.rb:101
+  def distributed_value(chain, node); end
+
+  # A has_and_belongs_to_many holds an array of foreign keys, so a match
+  # belongs when its key is among them ($in); every other association points
+  # at a single key ($eq).
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/embedded_distributor.rb:145
+  def match_operator; end
+
+  # Merge the matches into a single embedded document only when it exists, so
+  # an absent embeds_one stays absent instead of being synthesized from its
+  # matches alone.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/embedded_distributor.rb:125
+  def merge_into_present(node, merged); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/embedded_distributor.rb:86
+  def path; end
+
+  # The $lookup runs at the top level, so it reads the local field by its
+  # full embedded path and writes the matches into the temporary field.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/embedded_distributor.rb:80
+  def redirect_lookup_to_temporary_field; end
+
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/embedded_distributor.rb:90
+  def root; end
+
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/embedded_distributor.rb:94
+  def temporary_field; end
+
+  class << self
+    # pkg:gem/mongoid#lib/mongoid/association/eager_load/embedded_distributor.rb:45
+    def for(association:, chain:, lookup_stage:); end
+
+    private
+
+    # pkg:gem/mongoid#lib/mongoid/association/eager_load/embedded_distributor.rb:50
+    def new(*_arg0); end
+  end
+end
+
+# An embedded inclusion: it rides inside its own document, so it adds no
+# stage of its own. Its children contribute to the same destination, with
+# this document appended to their embedded path.
+#
+# For Computer.eager_load(port: :device) the :port inclusion emits nothing;
+# it hands the path [ :port ] to :device, which EmbeddedDistributor then
+# turns into stages.
+#
+# @api private
+#
+# pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion.rb:127
+class Mongoid::Association::EagerLoad::EmbeddedInclusion < ::Mongoid::Association::EagerLoad::AssociationInclusion
+  # Add no stage of its own; hand this document down the embedded path so the
+  # children distribute onto it.
+  #
+  # @param [ Array<Hash> ] destination The pipeline (or sub-pipeline) the
+  #   stages are appended to.
+  # @param [ Array<Mongoid::Association::Relatable> ] chain The embedded path
+  #   accumulated from the ancestors above this inclusion (empty at the top).
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion.rb:144
+  def contribute(destination, chain); end
+
+  class << self
+    # @param [ Mongoid::Association::Relatable ] association The inclusion.
+    #
+    # @return [ true | false ] Whether the association is embedded.
+    #
+    # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion.rb:132
+    def for?(association); end
+  end
+end
+
+# Something an eager load contributes to the pipeline, in the role it plays
+# while the pipeline is built. A root is asked to contribute and the whole
+# tree follows by recursion. AssociationInclusion stands for a single
+# association; DiscriminatedInclusion stands for a name several subclasses
+# share.
+#
+# @api private
+#
+# pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion.rb:13
+class Mongoid::Association::EagerLoad::Inclusion
+  # Add this inclusion's stages to the destination.
+  #
+  # @param [ Array<Hash> ] destination The pipeline (or sub-pipeline) the
+  #   stages are appended to.
+  # @param [ Array<Mongoid::Association::Relatable> ] chain The embedded path
+  #   accumulated from the ancestors above this inclusion (empty at the top).
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion.rb:20
+  def contribute(destination, chain); end
+end
+
+# The tree of nested inclusions an eager load asks to load. Built from the
+# criteria's inclusions, it contributes each root node's stages to the
+# pipeline, with each node already carrying its own children.
+#
+# Each root branch is built from its own copy of the inclusions, and an
+# inclusion is removed as it is placed, so it lands once per branch even if
+# more than one parent in that branch points at it, and a circular chain of
+# inclusions can't loop forever.
+#
+# @api private
+#
+# pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion_tree.rb:19
+class Mongoid::Association::EagerLoad::InclusionTree
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion_tree.rb:34
+  def initialize(inclusions, pipeline, by_name); end
+
+  # Contribute each root inclusion's stages to the pipeline. Each root carries
+  # its own children, so the whole tree is appended by recursion from the
+  # roots downward.
+  #
+  # @param [ Array<Hash> ] destination The pipeline the stages are appended to.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion_tree.rb:45
+  def contribute_to(destination); end
+
+  private
+
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion_tree.rb:69
+  def node(association, available); end
+
+  # A name that more than one subclass defines (with different targets) can't
+  # share one $lookup field, so its nodes -- each carrying its own children --
+  # are grouped and routed by the discriminator instead of becoming separate,
+  # overwriting roots.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion_tree.rb:55
+  def roots; end
+
+  # Whether two classes belong to the same inheritance chain (one is the
+  # other, an ancestor of it, or a descendant of it).
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion_tree.rb:90
+  def same_hierarchy?(one, other); end
+
+  # The still-available inclusions parented to +association+, removed as they
+  # are taken so each lands once on this branch. A child belongs here when it
+  # names this association as its parent and its owner shares the target's
+  # class hierarchy, which tells apart children of two unrelated subclasses
+  # that share an association name.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion_tree.rb:79
+  def take_children(association, available); end
+
+  # The inclusions that no other inclusion is the parent of.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion_tree.rb:63
+  def top_level; end
+
+  class << self
+    # Builds the tree for the criteria's inclusions.
+    #
+    # @param [ Array<Mongoid::Association::Relatable> ] inclusions The inclusions.
+    # @param [ LookupPipeline ] pipeline The pipeline being built.
+    #
+    # @return [ InclusionTree ] The tree.
+    #
+    # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion_tree.rb:27
+    def from(inclusions, pipeline); end
+
+    private
+
+    # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion_tree.rb:31
+    def new(*_arg0); end
+  end
+end
+
+# A referenced inclusion: contributes a $lookup whose sub-pipeline holds its
+# own children. When it lives inside an embedded document (a non-empty
+# chain), the $lookup is distributed onto that embedded path instead of
+# standing at the top level.
+#
+# For a has_many :albums it contributes:
+#
+#   { '$lookup' => {
+#     'from' => 'albums',
+#     'localField' => '_id',        # the band's _id...
+#     'foreignField' => 'band_id',  # ...matched against each album's band_id
+#     'as' => 'albums',             # matches are written to this field
+#     'pipeline' => [
+#       { '$sort' => {
+#         '_id' => 1
+#       } },
+#       <children>
+#     ]
+#   } }
+#
+# @api private
+#
+# pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion.rb:86
+class Mongoid::Association::EagerLoad::JoinedInclusion < ::Mongoid::Association::EagerLoad::AssociationInclusion
+  # Append the $lookup, with the children in its sub-pipeline, to the
+  # destination; or distribute it onto the embedded path when nested in one.
+  #
+  # @param [ Array<Hash> ] destination The pipeline (or sub-pipeline) the
+  #   stages are appended to.
+  # @param [ Array<Mongoid::Association::Relatable> ] chain The embedded path
+  #   accumulated from the ancestors above this inclusion (empty at the top).
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion.rb:106
+  def contribute(destination, chain); end
+
+  class << self
+    # The default kind: a referenced, non-polymorphic association, i.e. the
+    # one no sibling kind claims.
+    #
+    # @param [ Mongoid::Association::Relatable ] association The inclusion.
+    #
+    # @return [ true | false ] Whether it handles it.
+    #
+    # pkg:gem/mongoid#lib/mongoid/association/eager_load/inclusion.rb:94
+    def for?(association); end
+  end
+end
+
+# Builds the aggregation pipeline that eager-loads a criteria's inclusions
+# with $lookup.
+#
+# It starts with the criteria's own match/sort/skip/limit, then lets each
+# root of the inclusion tree contribute its stages. This object owns the
+# stage-building helpers; how each inclusion contributes is the inclusion's
+# own business (see Inclusion).
+#
+# For Band.eager_load(albums: :tracks) the result is roughly:
+#
+#   [ <criteria match / sort / skip / limit>,
+#     { '$lookup' => {                 # JoinedInclusion(:albums)
+#       'from' => 'albums',
+#       'localField' => '_id',
+#       'foreignField' => 'band_id',
+#       'as' => 'albums',
+#       'pipeline' => [
+#         { '$sort' => {
+#           '_id' => 1
+#         } },
+#         { '$lookup' => {             # JoinedInclusion(:tracks), nested
+#           'as' => 'tracks',
+#           'pipeline' => [
+#             { '$sort' => {
+#               '_id' => 1
+#             } }
+#           ]
+#         } }
+#       ]
+#     } } ]
+#
+# @api private
+#
+# pkg:gem/mongoid#lib/mongoid/association/eager_load/lookup_pipeline.rb:41
+class Mongoid::Association::EagerLoad::LookupPipeline
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/lookup_pipeline.rb:42
+  def initialize(criteria); end
+
+  # Builds the stages that distribute a referenced inclusion living inside an
+  # embedded document onto that document.
+  #
+  # @param [ Mongoid::Association::Relatable ] association The inclusion.
+  # @param [ Array<Mongoid::Association::Relatable> ] chain The embedded path.
+  # @param [ Hash ] lookup_stage The $lookup stage for the association.
+  #
+  # @return [ Array<Hash> ] The stages to append.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/lookup_pipeline.rb:83
+  def distribute(association, chain, lookup_stage); end
+
+  # The $lookup stage for a referenced inclusion: its key fields, a
+  # discriminator match when the target shares its collection with sibling
+  # subclasses, and an order. Children are added by the inclusion itself.
+  #
+  # @param [ Mongoid::Association::Relatable ] association The inclusion.
+  #
+  # @return [ Hash ] The $lookup stage.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/lookup_pipeline.rb:61
+  def lookup_stage_for(association); end
+
+  # @return [ Array<Hash> ] The aggregation pipeline stages.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/lookup_pipeline.rb:47
+  def stages; end
+
+  private
+
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/lookup_pipeline.rb:100
+  def discriminator_match(association); end
+
+  # When the association stores the foreign key on the current document
+  # (belongs_to, has_and_belongs_to_many) the local field is that key; for
+  # the others (has_many, has_one) the key is on the related document.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/lookup_pipeline.rb:92
+  def lookup_fields(association); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/lookup_pipeline.rb:107
+  def order(association); end
+end
+
+# Targets kept in another database (or cluster), which a $lookup cannot
+# reach. Each type is read directly through its own model, which connects
+# with that model's client.
+#
+# For { 'Scanner' => [ id2 ] } it runs, on the Scanner model's own client:
+#   scanners.find('_id' => { '$in' => [ id2 ] })
+#
+# @api private
+#
+# pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_targets.rb:139
+class Mongoid::Association::EagerLoad::OtherDatabaseTargets < ::Mongoid::Association::EagerLoad::PolymorphicTargets
+  # @return [ Hash ] The targets, as { type => { primary_key => document } }.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_targets.rb:141
+  def fetch; end
+end
+
+# Resolves a polymorphic belongs_to onto already-materialized root documents.
+#
+# A polymorphic belongs_to can't be expressed as a $lookup: its target
+# collection varies per document. So once the roots are materialized, the
+# foreign keys are grouped by type, PolymorphicTargets resolves the documents
+# for those keys, and the result is set on each document.
+#
+# @api private
+#
+# pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_preloader.rb:16
+class Mongoid::Association::EagerLoad::PolymorphicPreloader
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_preloader.rb:17
+  def initialize(association, root_class); end
+
+  # Resolve and assign the polymorphic target on each of the documents.
+  #
+  # @param [ Array<Mongoid::Document> ] documents The materialized root documents.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_preloader.rb:25
+  def preload_into(documents); end
+
+  private
+
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_preloader.rb:41
+  def assign(documents, targets); end
+
+  # The foreign keys on the documents grouped by polymorphic type,
+  # e.g. { "Printer" => [ id1 ], "Scanner" => [ id2 ] }.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_preloader.rb:34
+  def keys_by_type(documents); end
+
+  # The [ type, key ] reference stored on the document for this association,
+  # or an empty pair when the document holds no such reference.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_preloader.rb:51
+  def reference_on(document); end
+end
+
+# The targets of a polymorphic belongs_to, indexed as
+# { type => { primary_key => document } }. Each subclass reaches the types that
+# live in one place (the root's database or elsewhere); .for resolves the whole
+# set, routing each type to the subclass that can reach it.
+#
+# @api private
+#
+# pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_targets.rb:12
+class Mongoid::Association::EagerLoad::PolymorphicTargets
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_targets.rb:43
+  def initialize(association, keys_by_type); end
+
+  # @return [ Hash ] The targets, as { type => { primary_key => document } }.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_targets.rb:49
+  def fetch; end
+
+  private
+
+  # The raw documents instantiated and indexed by their primary key.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_targets.rb:64
+  def indexed(documents, model); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_targets.rb:59
+  def model_for(type); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_targets.rb:55
+  def primary_key; end
+
+  class << self
+    # Resolve every polymorphic target for the foreign keys grouped by type.
+    # The types whose documents share the root's database are fetched together
+    # in one $facet; those living elsewhere are read through their own models.
+    #
+    # @param [ Mongoid::Association::Relatable ] association The polymorphic inclusion.
+    # @param [ Hash ] keys_by_type The foreign keys grouped by type.
+    # @param [ Class ] root_class The class being queried.
+    #
+    # @return [ Hash ] The targets, as { type => { primary_key => document } }.
+    #
+    # pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_targets.rb:23
+    def for(association, keys_by_type, root_class); end
+
+    private
+
+    # Whether the type's model shares the root's database (and client): exactly
+    # what a $lookup from the root collection can reach.
+    #
+    # pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_targets.rb:36
+    def in_root_database?(association, type, root_class); end
+  end
+end
+
+# Targets that live in the root's own database. A $lookup can reach them, so
+# every type is fetched together in one $facet aggregation against the root
+# collection.
+#
+# For { 'Printer' => [ id1 ], 'Scanner' => [ id2 ] } it runs:
+#
+#   [
+#     { '$limit' => 1 },   # one input doc, so each facet branch runs once
+#     { '$facet' => {      # run one $lookup per type within a single query
+#       'Printer' => [ { '$lookup' => { 'from' => 'printers', ... } }, ... ],
+#       'Scanner' => [ { '$lookup' => { 'from' => 'scanners', ... } }, ... ]
+#     } }
+#   ]
+#
+# @api private
+#
+# pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_targets.rb:85
+class Mongoid::Association::EagerLoad::SameDatabaseTargets < ::Mongoid::Association::EagerLoad::PolymorphicTargets
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_targets.rb:86
+  def initialize(association, keys_by_type, root_class); end
+
+  # @return [ Hash ] The targets, as { type => { primary_key => document } }.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_targets.rb:92
+  def fetch; end
+
+  private
+
+  # One $facet branch: the documents in +collection_name+ whose primary key
+  # is among +keys+, exposed under "matches".
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_targets.rb:112
+  def branch_for(collection_name, keys); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/eager_load/polymorphic_targets.rb:104
+  def facets; end
 end
 
 # This module defines the eager loading behavior for criteria.
 #
-# pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:8
+# pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:11
 module Mongoid::Association::EagerLoadable
-  # pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:147
-  def create_pipeline(current_assoc, mapping); end
-
   # Load the associations for the given documents.
   #
   # @param [ Array<Mongoid::Document> ] docs The documents.
   #
   # @return [ Array<Mongoid::Document> ] The given documents.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:22
+  # pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:25
   def eager_load(docs); end
 
   # Load the associations for the given documents using $lookup.
   #
-  # If any of the associated collections reside in a different cluster than
-  # the root class, falls back to the #includes behavior and logs a warning.
+  # If any of the associated collections reside in a different cluster or
+  # database than the root class, falls back to the #includes behavior and
+  # logs a warning.
   #
   # @return [ Array<Mongoid::Document> ] The given documents.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:34
+  # pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:38
   def eager_load_with_lookup; end
 
   # Indicates whether the criteria has association
@@ -1494,7 +2165,7 @@ module Mongoid::Association::EagerLoadable
   #
   # @return [ true | false ] Whether to eager load.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:13
+  # pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:16
   def eager_loadable?; end
 
   # Load the associations for the given documents. This will be done
@@ -1505,32 +2176,21 @@ module Mongoid::Association::EagerLoadable
   #   The associations to load.
   # @param [ Array<Mongoid::Document> ] docs The documents.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:57
+  # pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:85
   def preload(associations, docs); end
 
-  # Load the associations for the given documents. This will be done
-  # recursively to load the associations of the given documents'
-  # associated documents.
+  # Materialize the root documents with their inclusions eager-loaded by a
+  # single $lookup aggregation. The pipeline is built by LookupPipeline; the
+  # polymorphic inclusions it leaves out are resolved by the caller.
   #
-  # @param [ Array<Mongoid::Association::Relatable> ] associations
-  #   The associations to load.
-  # @param [ Array<Mongoid::Document> ] docs The documents.
+  # @param [ Mongoid::Criteria ] criteria The criteria to load.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:92
+  # @return [ Array<Mongoid::Document> ] The materialized root documents.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:120
   def preload_for_lookup(criteria); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:142
-  def switch_local_and_foreign_fields?(association); end
-
   private
-
-  # Returns the inclusions whose target class resides in a different cluster
-  # than the root class.
-  #
-  # @return [ Array<Mongoid::Association::Relatable> ] The offending inclusions.
-  #
-  # pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:135
-  def cross_cluster_inclusions; end
 
   # Returns the materialized documents to use when falling back from
   # $lookup to #includes-style preloading. Must be implemented by each
@@ -1538,8 +2198,22 @@ module Mongoid::Association::EagerLoadable
   #
   # @return [ Array<Mongoid::Document> ] The materialized documents.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:127
+  # pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:132
   def docs_for_lookup_fallback; end
+
+  # Returns the inclusions whose target class can't be reached by a $lookup
+  # from the root class, which joins only within the same client and database.
+  #
+  # @return [ Array<Mongoid::Association::Relatable> ] The offending inclusions.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:140
+  def inclusions_unreachable_by_lookup; end
+
+  # Whether a $lookup from a query on the root class can reach the model: it
+  # must live in the same client and database.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/eager_loadable.rb:150
+  def reachable_by_lookup?(model); end
 end
 
 # pkg:gem/mongoid#lib/mongoid/association/embedded/cyclic.rb:5
@@ -2626,7 +3300,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   def exists?(id_or_conditions = T.unsafe(nil)); end
 
   # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_many/proxy.rb:58
-  def find(*_arg0, **_arg1, &_arg2); end
+  def find(*, **, &); end
 
   # Get all the documents in the association that are loaded into memory.
   #
@@ -2642,7 +3316,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   def new(attributes = T.unsafe(nil), type = T.unsafe(nil)); end
 
   # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_many/proxy.rb:58
-  def pluck(*_arg0, **_arg1, &_arg2); end
+  def pluck(*, **, &); end
 
   # Pop documents off the association. This can be a single document or
   # multiples, and will automatically persist the changes.
@@ -2777,7 +3451,7 @@ class Mongoid::Association::Embedded::EmbedsMany::Proxy < ::Mongoid::Association
   def integrate(document); end
 
   # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_many/proxy.rb:525
-  def method_missing(name, *args, **_arg2, &block); end
+  def method_missing(name, *args, **, &block); end
 
   # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_many/proxy.rb:399
   def object_already_related?(document); end
@@ -2917,14 +3591,14 @@ class Mongoid::Association::Embedded::EmbedsOne
   #
   # @return [ true ] Always true.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:60
+  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:61
   def embedded?; end
 
   # The key that is used to get the attributes for the associated object.
   #
   # @return [ String ] The name of the field used to store the association.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:53
+  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:54
   def key; end
 
   # The nested builder object.
@@ -2934,49 +3608,49 @@ class Mongoid::Association::Embedded::EmbedsOne
   #
   # @return [ Association::Nested::One ] The Nested Builder object.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:116
+  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:117
   def nested_builder(attributes, options); end
 
   # Is this association polymorphic?
   #
   # @return [ true | false ] Whether this association is polymorphic.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:97
+  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:98
   def polymorphic?; end
 
   # The primary key
   #
   # @return [ nil ] Not relevant for this association
   #
-  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:85
+  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:86
   def primary_key; end
 
   # Get the association proxy class for this association type.
   #
   # @return [ Association::Embedded::EmbedsMany::Proxy ] The proxy class.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:90
+  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:91
   def relation; end
 
   # Setup the instance methods, fields, etc. on the association owning class.
   #
   # @return [ self ]
   #
-  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:36
+  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:37
   def setup!; end
 
   # The field key used to store the association object.
   #
   # @return [ String ] The field name.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:46
+  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:47
   def store_as; end
 
   # Does this association type store the foreign key?
   #
   # @return [ false ] Always false.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:78
+  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:79
   def stores_foreign_key?; end
 
   # The field used to store the type of the related object.
@@ -2985,7 +3659,7 @@ class Mongoid::Association::Embedded::EmbedsOne
   #
   # @return [ String | nil ] The field for storing the associated object's type.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:106
+  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:107
   def type; end
 
   # Get the default validation setting for the association. Determines if
@@ -2996,21 +3670,21 @@ class Mongoid::Association::Embedded::EmbedsOne
   #
   # @return [ true | false ] The validation default.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:71
+  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:72
   def validation_default; end
 
   private
 
-  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:140
+  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:141
   def determine_inverses(_other); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:136
+  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:137
   def polymorphic_inverses(_other = T.unsafe(nil)); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:132
+  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:133
   def relation_complements; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:122
+  # pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:123
   def setup_instance_methods!; end
 end
 
@@ -3234,7 +3908,7 @@ Mongoid::Association::Embedded::EmbedsOne::Proxy::VALID_OPTIONS = T.let(T.unsafe
 #
 # @return [ Array<Symbol> ] The valid options.
 #
-# pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:31
+# pkg:gem/mongoid#lib/mongoid/association/embedded/embeds_one.rb:32
 Mongoid::Association::Embedded::EmbedsOne::VALID_OPTIONS = T.let(T.unsafe(nil), Array)
 
 # Map the macros to their corresponding Association classes.
@@ -3476,7 +4150,7 @@ class Mongoid::Association::Many < ::Mongoid::Association::Proxy
   include ::Enumerable
 
   # pkg:gem/mongoid#lib/mongoid/association/many.rb:20
-  def any?(*_arg0, **_arg1, &_arg2); end
+  def any?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/association/many.rb:12
   def avg(*args, &block); end
@@ -3579,7 +4253,7 @@ class Mongoid::Association::Many < ::Mongoid::Association::Proxy
   def find_or_initialize_by(attrs = T.unsafe(nil), type = T.unsafe(nil), &block); end
 
   # pkg:gem/mongoid#lib/mongoid/association/many.rb:20
-  def length(*_arg0, **_arg1, &_arg2); end
+  def length(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/association/many.rb:12
   def max(*args, &block); end
@@ -3639,7 +4313,7 @@ class Mongoid::Association::Many < ::Mongoid::Association::Proxy
   def serializable_hash(options = T.unsafe(nil)); end
 
   # pkg:gem/mongoid#lib/mongoid/association/many.rb:20
-  def size(*_arg0, **_arg1, &_arg2); end
+  def size(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/association/many.rb:12
   def sum(*args, &block); end
@@ -3763,12 +4437,22 @@ module Mongoid::Association::Nested::Buildable
   # @example Convert the id.
   #   builder.convert_id(Person, "4d371b444835d98b8b000010")
   #
+  # Ids arriving from a form are always scalars. A Hash or an Array
+  # here means the parameters were crafted, and letting one through
+  # would turn the id into a query operator, so they are rejected.
+  #
   # @param [ Class ] klass The class we're trying to convert for.
   # @param [ String ] id The id, usually coming from the form.
   #
   # @return [ BSON::ObjectId | String | Object ] The converted id.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/nested/nested_buildable.rb:62
+  # @raise [ Errors::DocumentNotFound ] if the id is not a scalar, or
+  #   cannot be converted to the type the class uses for its ids.
+  #   The BSON::Error rescue is defensive: a value that reaches
+  #   BSON::ObjectId.mongoize and raises there must not surface as an
+  #   unhandled BSON error in the caller.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/nested/nested_buildable.rb:72
   def convert_id(klass, id); end
 
   # pkg:gem/mongoid#lib/mongoid/association/nested/nested_buildable.rb:10
@@ -3818,7 +4502,7 @@ module Mongoid::Association::Nested::Buildable
   #
   # @return [ Object ] The deleted value, or nil.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/nested/nested_buildable.rb:89
+  # pkg:gem/mongoid#lib/mongoid/association/nested/nested_buildable.rb:103
   def delete_id(hash); end
 
   # Get the id attribute from the given hash, whether it's
@@ -3831,7 +4515,7 @@ module Mongoid::Association::Nested::Buildable
   #
   # @return [ Object ] The value of the id.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/nested/nested_buildable.rb:77
+  # pkg:gem/mongoid#lib/mongoid/association/nested/nested_buildable.rb:91
   def extract_id(hash); end
 end
 
@@ -3923,6 +4607,19 @@ class Mongoid::Association::Nested::Many
   # pkg:gem/mongoid#lib/mongoid/association/nested/many.rb:78
   def destroyable?(attributes); end
 
+  # The params to report when an id in the nested attributes could not
+  # be resolved within the association.
+  #
+  # @api private
+  #
+  # @param [ Document ] parent The parent document.
+  # @param [ String | BSON::ObjectId ] id of the related document.
+  #
+  # @return [ Hash | Object ] The params for the not found error.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/nested/many.rb:227
+  def not_found_params(parent, id); end
+
   # Are the supplied attributes of greater number than the supplied
   # limit?
   #
@@ -3995,7 +4692,7 @@ class Mongoid::Association::Nested::One
   # @param [ Hash ] attributes The attributes hash to attempt to set.
   # @param [ Hash ] options The options defined.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:51
+  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:56
   def initialize(association, attributes, options); end
 
   # Builds the association depending on the attributes and the options
@@ -4033,7 +4730,7 @@ class Mongoid::Association::Nested::One
   #
   # @return [ true | false ] If the id part of the logic will allow an update.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:94
+  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:99
   def acceptable_id?; end
 
   # Checks to see if the _id attribute (which is supposed to be
@@ -4045,7 +4742,7 @@ class Mongoid::Association::Nested::One
   # @raise [ Errors::ImmutableAttribute ] if _id has changed, and
   #   the document has been persisted.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:149
+  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:154
   def check_for_id_violation!; end
 
   # Coerces the argument into a class, or defaults to the association's class.
@@ -4054,7 +4751,7 @@ class Mongoid::Association::Nested::One
   #
   # @return [ Mongoid::Document ] the resulting class
   #
-  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:66
+  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:71
   def class_from(name_or_class); end
 
   # Can the existing association be deleted?
@@ -4064,7 +4761,7 @@ class Mongoid::Association::Nested::One
   #
   # @return [ true | false ] If the association should be deleted.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:105
+  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:110
   def delete?; end
 
   # Can the existing association potentially be destroyed?
@@ -4075,7 +4772,7 @@ class Mongoid::Association::Nested::One
   # @return [ true | false ] If the association can potentially be
   #   destroyed.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:117
+  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:122
   def destroyable?; end
 
   # Extracts and converts the id to the expected type.
@@ -4083,7 +4780,7 @@ class Mongoid::Association::Nested::One
   # @return [ BSON::ObjectId | String | Object | nil ] The converted id,
   #   or nil if no id is present in the attributes hash.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:78
+  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:83
   def extracted_id; end
 
   # Is the document to be replaced?
@@ -4093,7 +4790,7 @@ class Mongoid::Association::Nested::One
   #
   # @return [ true | false ] If the document should be replaced.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:127
+  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:132
   def replace?; end
 
   # Should the document be updated?
@@ -4103,7 +4800,7 @@ class Mongoid::Association::Nested::One
   #
   # @return [ true | false ] If the object should have its attributes updated.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:137
+  # pkg:gem/mongoid#lib/mongoid/association/nested/one.rb:142
   def update?; end
 end
 
@@ -4178,31 +4875,31 @@ module Mongoid::Association::Options
   #
   # @return [ true | false ] The autosave option.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/options.rb:68
+  # pkg:gem/mongoid#lib/mongoid/association/options.rb:85
   def autosave; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/options.rb:71
+  # pkg:gem/mongoid#lib/mongoid/association/options.rb:88
   def autosave?; end
 
   # Whether the association has callbacks cascaded down from the parent.
   #
   # @return [ true | false ] Whether callbacks are cascaded.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/options.rb:90
+  # pkg:gem/mongoid#lib/mongoid/association/options.rb:107
   def cascading_callbacks?; end
 
   # Whether the association is counter-cached.
   #
   # @return [ true | false ]
   #
-  # pkg:gem/mongoid#lib/mongoid/association/options.rb:76
+  # pkg:gem/mongoid#lib/mongoid/association/options.rb:93
   def counter_cached?; end
 
   # Is the association cyclic.
   #
   # @return [ true | false ] Whether the association is cyclic.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/options.rb:45
+  # pkg:gem/mongoid#lib/mongoid/association/options.rb:62
   def cyclic?; end
 
   # Specify what happens to the associated object when the owner is destroyed.
@@ -4212,11 +4909,28 @@ module Mongoid::Association::Options
   # pkg:gem/mongoid#lib/mongoid/association/options.rb:17
   def dependent; end
 
+  # Invokes the :fallback Proc and returns the null object that stands in
+  # for the association when its actual value is nil. The Proc is invoked
+  # on every access; identity is the user's responsibility (return a fresh
+  # instance, a shared constant, or whatever the Proc chooses).
+  #
+  # @return [ Object | nil ] The Proc's return value, or nil if not set.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/options.rb:48
+  def fallback; end
+
+  # Whether the association has a :fallback (null object) option set.
+  #
+  # @return [ true | false ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/options.rb:55
+  def fallback?; end
+
   # Whether the association has forced nil inverse (So no foreign keys are saved).
   #
   # @return [ false ] Default is false.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/options.rb:102
+  # pkg:gem/mongoid#lib/mongoid/association/options.rb:119
   def forced_nil_inverse?; end
 
   # Whether to index the primary or foreign key field.
@@ -4230,7 +4944,7 @@ module Mongoid::Association::Options
   #
   # @return [ String ] The inverse_of option.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/options.rb:52
+  # pkg:gem/mongoid#lib/mongoid/association/options.rb:69
   def inverse_of; end
 
   # The custom sorting options on the association.
@@ -4244,7 +4958,7 @@ module Mongoid::Association::Options
   #
   # @return [ true | false ] Whether the association is polymorphic.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/options.rb:83
+  # pkg:gem/mongoid#lib/mongoid/association/options.rb:100
   def polymorphic?; end
 
   # Mongoid assumes that the field used to hold the primary key of the association is id.
@@ -4252,21 +4966,21 @@ module Mongoid::Association::Options
   #
   # @return [ Symbol | String ] The primary key.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/options.rb:60
+  # pkg:gem/mongoid#lib/mongoid/association/options.rb:77
   def primary_key; end
 
   # The store_as option.
   #
   # @return [ nil ] Default is nil.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/options.rb:97
+  # pkg:gem/mongoid#lib/mongoid/association/options.rb:114
   def store_as; end
 
   # The field for saving the associated object's type.
   #
   # @return [ nil ] Default is nil.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/options.rb:114
+  # pkg:gem/mongoid#lib/mongoid/association/options.rb:131
   def touch_field; end
 
   # Whether the association object should be automatically touched
@@ -4277,14 +4991,14 @@ module Mongoid::Association::Options
   #
   # @api private
   #
-  # pkg:gem/mongoid#lib/mongoid/association/options.rb:125
+  # pkg:gem/mongoid#lib/mongoid/association/options.rb:142
   def touchable?; end
 
   # The field for saving the associated object's type.
   #
   # @return [ nil ] Default is nil.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/options.rb:109
+  # pkg:gem/mongoid#lib/mongoid/association/options.rb:126
   def type; end
 end
 
@@ -4348,10 +5062,10 @@ class Mongoid::Association::Proxy
   def _target=(_arg0); end
 
   # pkg:gem/mongoid#lib/mongoid/association/proxy.rb:52
-  def bind_one(*_arg0, **_arg1, &_arg2); end
+  def bind_one(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/association/proxy.rb:53
-  def collection_name(*_arg0, **_arg1, &_arg2); end
+  def collection_name(*, **, &); end
 
   # Allow extension to be an array and extend each module
   #
@@ -4362,10 +5076,10 @@ class Mongoid::Association::Proxy
   def extend_proxy(*_arg0); end
 
   # pkg:gem/mongoid#lib/mongoid/association/proxy.rb:51
-  def foreign_key(*_arg0, **_arg1, &_arg2); end
+  def foreign_key(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/association/proxy.rb:51
-  def inverse_foreign_key(*_arg0, **_arg1, &_arg2); end
+  def inverse_foreign_key(*, **, &); end
 
   # Get the class from the association, or return nil if no association present.
   #
@@ -4398,7 +5112,7 @@ class Mongoid::Association::Proxy
   def substitutable; end
 
   # pkg:gem/mongoid#lib/mongoid/association/proxy.rb:52
-  def unbind_one(*_arg0, **_arg1, &_arg2); end
+  def unbind_one(*, **, &); end
 
   protected
 
@@ -4442,7 +5156,7 @@ class Mongoid::Association::Proxy
   def execute_callbacks_around(name, doc); end
 
   # pkg:gem/mongoid#lib/mongoid/association/proxy.rb:130
-  def method_missing(name, *args, **_arg2, &block); end
+  def method_missing(name, *args, **, &block); end
 
   # When the base document illegally references an embedded document this
   # error will get raised.
@@ -4471,7 +5185,7 @@ class Mongoid::Association::Proxy
   private
 
   # pkg:gem/mongoid#lib/mongoid/association/proxy.rb:140
-  def respond_to_missing?(name, *args, **_arg2); end
+  def respond_to_missing?(name, *args, **); end
 
   class << self
     # Apply ordering to the criteria if it was defined on the association.
@@ -4590,21 +5304,21 @@ class Mongoid::Association::Referenced::BelongsTo
   #
   # @return [ false ] Always false.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:77
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:78
   def embedded?; end
 
   # Get the foreign key field for saving the association reference.
   #
   # @return [ String ] The foreign key field for saving the association reference.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:91
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:92
   def foreign_key; end
 
   # The name of the field used to store the type of polymorphic association.
   #
   # @return [ String ] The field used to store the type of polymorphic association.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:131
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:132
   def inverse_type; end
 
   # The nested builder object.
@@ -4614,7 +5328,7 @@ class Mongoid::Association::Referenced::BelongsTo
   #
   # @return [ Association::Nested::One ] The Nested Builder object.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:141
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:142
   def nested_builder(attributes, options); end
 
   # Get the path calculator for the supplied document.
@@ -4626,28 +5340,28 @@ class Mongoid::Association::Referenced::BelongsTo
   #
   # @return [ Root ] The root atomic path calculator.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:153
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:154
   def path(document); end
 
   # Is this association polymorphic?
   #
   # @return [ true | false ] Whether this association is polymorphic.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:109
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:110
   def polymorphic?; end
 
   # Get the association proxy class for this association type.
   #
   # @return [ Association::BelongsTo::Proxy ] The proxy class.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:102
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:103
   def relation; end
 
   # The list of association complements.
   #
   # @return [ Array<Mongoid::Association::Relatable> ] The association complements.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:54
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:55
   def relation_complements; end
 
   # Returns the object responsible for converting polymorphic type references into
@@ -4662,66 +5376,66 @@ class Mongoid::Association::Referenced::BelongsTo
   #
   # @return [ nil | Mongoid::ModelResolver ] the resolver to use
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:124
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:125
   def resolver; end
 
   # Get the scope to be applied when querying the association.
   #
   # @return [ Proc | Symbol | nil ] The association scope, if any.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:160
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:161
   def scope; end
 
   # Setup the instance methods, fields, etc. on the association owning class.
   #
   # @return [ self ]
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:61
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:62
   def setup!; end
 
   # Does this association type store the foreign key?
   #
   # @return [ true ] Always true.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:70
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:71
   def stores_foreign_key?; end
 
   # The default for validation the association object.
   #
   # @return [ false ] Always false.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:84
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:85
   def validation_default; end
 
   private
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:234
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:235
   def create_foreign_key_field!; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:195
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:196
   def default_foreign_key_field; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:191
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:192
   def default_primary_key; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:217
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:218
   def determine_inverses(other); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:183
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:184
   def index_spec; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:199
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:200
   def polymorph!; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:206
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:207
   def polymorphic_inverses(other = T.unsafe(nil)); end
 
   # If set to true, then the associated object will be validated when this object is saved
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:228
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:229
   def require_association?; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:166
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:167
   def setup_instance_methods!; end
 end
 
@@ -4822,20 +5536,25 @@ class Mongoid::Association::Referenced::BelongsTo::Eager < ::Mongoid::Associatio
   # a single query. If the association is polymorphic, one query is
   # issued per association target class.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to/eager.rb:27
+  # The polymorphic *_type field is resolved through the
+  # association's resolver to keep this path consistent with the
+  # non-eager accessor and to avoid loading arbitrary constants
+  # named in user-controlled BSON data.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to/eager.rb:32
   def each_loaded_document(&block); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to/eager.rb:61
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to/eager.rb:66
   def group_by_key; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to/eager.rb:65
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to/eager.rb:70
   def key; end
 
   # Returns a map from association target class name to foreign key
   # values for the documents of that association target class,
   # as referenced by this association.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to/eager.rb:40
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to/eager.rb:45
   def keys_by_type_from_docs; end
 
   # pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to/eager.rb:11
@@ -4846,14 +5565,14 @@ end
 #
 # @return [ Object ]
 #
-# pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:44
+# pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:45
 Mongoid::Association::Referenced::BelongsTo::FOREIGN_KEY_FIELD_TYPE = Object
 
 # The default foreign key suffix.
 #
 # @return [ String ] '_id'
 #
-# pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:49
+# pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:50
 Mongoid::Association::Referenced::BelongsTo::FOREIGN_KEY_SUFFIX = T.let(T.unsafe(nil), String)
 
 # Transparent proxy for belong_to associations.
@@ -4972,7 +5691,7 @@ end
 #
 # @return [ Array<Symbol> ] The valid options.
 #
-# pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:39
+# pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:40
 Mongoid::Association::Referenced::BelongsTo::VALID_OPTIONS = T.let(T.unsafe(nil), Array)
 
 # Mixin module included into Mongoid::Document which adds
@@ -5661,7 +6380,7 @@ class Mongoid::Association::Referenced::HasMany
   # anywhere else, and is unlikely to be useful to external clients. We should remove it.
   #
   # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many.rb:148
-  def add_polymorphic_criterion(*args, **_arg1, &block); end
+  def add_polymorphic_criterion(*args, **, &block); end
 
   # Whether trying to bind an object using this association should raise
   # an error.
@@ -5888,9 +6607,10 @@ end
 # target that can be a criteria or array of _loaded documents. This
 # handles both cases or a combination of the two.
 #
-# pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:12
+# pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:13
 class Mongoid::Association::Referenced::HasMany::Enumerable
   include ::Enumerable
+  include ::Mongoid::FieldReadable
   include ::Mongoid::Pluckable
   extend ::Forwardable
 
@@ -5904,7 +6624,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @param [ Criteria | Array<Document> ] target The wrapped object.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:260
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:262
   def initialize(target, base = T.unsafe(nil), association = T.unsafe(nil)); end
 
   # Append a document to the enumerable.
@@ -5916,7 +6636,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Document ] The document.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:63
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:65
   def <<(document); end
 
   # Check if the enumerable is equal to the other object.
@@ -5928,7 +6648,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ true | false ] If the objects are equal.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:34
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:36
   def ==(other); end
 
   # Check equality of the enumerable against the provided object for
@@ -5941,7 +6661,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ true | false ] If the objects are equal in a case.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:49
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:51
   def ===(other); end
 
   # The three main instance variables are collections of documents.
@@ -5950,7 +6670,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @attribute [rw] _loaded Persisted documents that have been _loaded.
   # @attribute [rw] _unloaded A criteria representing persisted docs.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:22
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:24
   def _added; end
 
   # The three main instance variables are collections of documents.
@@ -5959,7 +6679,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @attribute [rw] _loaded Persisted documents that have been _loaded.
   # @attribute [rw] _unloaded A criteria representing persisted docs.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:22
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:24
   def _added=(_arg0); end
 
   # The three main instance variables are collections of documents.
@@ -5968,7 +6688,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @attribute [rw] _loaded Persisted documents that have been _loaded.
   # @attribute [rw] _unloaded A criteria representing persisted docs.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:22
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:24
   def _loaded; end
 
   # The three main instance variables are collections of documents.
@@ -5977,7 +6697,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @attribute [rw] _loaded Persisted documents that have been _loaded.
   # @attribute [rw] _unloaded A criteria representing persisted docs.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:22
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:24
   def _loaded=(_arg0); end
 
   # Has the enumerable been _loaded? This will be true if the criteria has
@@ -5988,7 +6708,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ true | false ] If the enumerable has been _loaded.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:351
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:353
   def _loaded?; end
 
   # The three main instance variables are collections of documents.
@@ -5997,7 +6717,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @attribute [rw] _loaded Persisted documents that have been _loaded.
   # @attribute [rw] _unloaded A criteria representing persisted docs.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:22
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:24
   def _unloaded; end
 
   # The three main instance variables are collections of documents.
@@ -6006,7 +6726,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @attribute [rw] _loaded Persisted documents that have been _loaded.
   # @attribute [rw] _unloaded A criteria representing persisted docs.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:22
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:24
   def _unloaded=(_arg0); end
 
   # Returns whether the association has any documents, optionally
@@ -6034,7 +6754,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ true | false ] If the association has any documents.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:223
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:225
   def any?(*args); end
 
   # Send #as_json to the entries, without encoding.
@@ -6046,7 +6766,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Hash ] The entries all _loaded as a hash.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:504
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:506
   def as_json(options = T.unsafe(nil)); end
 
   # Get the average of the provided field for all documents in the
@@ -6060,7 +6780,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Float | nil ] The average value or nil if no documents.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:534
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:536
   def avg(field); end
 
   # Clears out all the documents in this enumerable. If passed a block it
@@ -6076,7 +6796,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Array<Document> ] The cleared out _added docs.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:82
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:84
   def clear(&block); end
 
   # Clones each document in the enumerable.
@@ -6088,7 +6808,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Array<Document> ] An array clone of the enumerable.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:95
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:97
   def clone; end
 
   # Delete the supplied document from the enumerable.
@@ -6100,7 +6820,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Document ] The deleted document.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:107
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:109
   def delete(document); end
 
   # Deletes every document in the enumerable for where the block returns
@@ -6115,7 +6835,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Array<Document> ] The remaining docs.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:128
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:130
   def delete_if(&block); end
 
   # Iterating over this enumerable has to handle a few different
@@ -6142,7 +6862,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ true ] That the enumerable is now _loaded.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:161
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:163
   def each; end
 
   # Is the enumerable empty? Will determine if the count is zero based on
@@ -6153,7 +6873,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ true | false ] If the enumerable is empty.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:191
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:193
   def empty?; end
 
   # Get the first document in the enumerable. Will check the persisted
@@ -6172,7 +6892,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Document ] The first document found.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:244
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:246
   def first(limit = T.unsafe(nil)); end
 
   # Return all the documents in the enumerable that have been _loaded or
@@ -6185,7 +6905,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Array<Document> ] The in memory docs.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:307
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:309
   def in_memory; end
 
   # Does the target include the provided document?
@@ -6197,7 +6917,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ true | false ] If the document is in the target.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:281
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:283
   def include?(doc); end
 
   # Inspection will just inspect the entries for nice array-style
@@ -6208,14 +6928,14 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ String ] The inspected enum.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:294
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:296
   def inspect; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:24
-  def is_a?(*_arg0, **_arg1, &_arg2); end
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:26
+  def is_a?(*, **, &); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:24
-  def kind_of?(*_arg0, **_arg1, &_arg2); end
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:26
+  def kind_of?(*, **, &); end
 
   # Get the last document in the enumerable. Will check the new
   # documents first. Does not load the entire enumerable.
@@ -6233,10 +6953,10 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Document ] The last document found.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:329
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:331
   def last(limit = T.unsafe(nil)); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:482
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:484
   def length; end
 
   # Loads all the documents in the enumerable from the database.
@@ -6246,7 +6966,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ true ] That the enumerable is _loaded.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:342
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:344
   def load_all!(*_arg0); end
 
   # Provides the data needed to Marshal.dump an enumerable proxy.
@@ -6256,7 +6976,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Array<Object> ] The dumped data.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:361
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:363
   def marshal_dump; end
 
   # Loads the data needed to Marshal.load an enumerable proxy.
@@ -6266,7 +6986,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Array<Object> ] The dumped data.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:371
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:373
   def marshal_load(data); end
 
   # Get the maximum value of the provided field for all documents in
@@ -6280,7 +7000,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Numeric | nil ] The max value or nil if no documents.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:567
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:569
   def max(field = T.unsafe(nil)); end
 
   # Get the minimum value of the provided field for all documents in
@@ -6294,7 +7014,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Numeric | nil ] The min value or nil if no documents.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:551
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:553
   def min(field = T.unsafe(nil)); end
 
   # Plucks the given field names from the documents in the target.
@@ -6307,10 +7027,10 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @return [ Array | Array<Array> ] The array of field values. If
   #   multiple fields are given, an array of arrays is returned.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:384
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:386
   def pluck(*keys); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:68
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:70
   def push(document); end
 
   # Reset the enumerable back to its persisted state.
@@ -6320,7 +7040,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ false ] Always false.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:418
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:420
   def reset; end
 
   # Resets the underlying unloaded criteria object with a new one. Used
@@ -6331,7 +7051,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @param [ Criteria ] criteria The criteria to replace with.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:431
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:433
   def reset_unloaded(criteria); end
 
   # Does this enumerable respond to the provided method?
@@ -6345,7 +7065,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ true | false ] Whether the enumerable responds.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:445
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:447
   def respond_to?(name, include_private = T.unsafe(nil)); end
 
   # Gets the total size of this enumerable. This is a combination of all
@@ -6356,7 +7076,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Integer ] The size of the enumerable.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:456
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:458
   def size; end
 
   # Get the sum of the provided field for all documents in the
@@ -6370,7 +7090,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Numeric ] The sum value.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:518
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:520
   def sum(field = T.unsafe(nil)); end
 
   # Send #to_json to the entries.
@@ -6382,7 +7102,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ String ] The entries all _loaded as a string.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:492
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:494
   def to_json(options = T.unsafe(nil)); end
 
   # Return all the unique documents in the enumerable.
@@ -6394,7 +7114,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Array<Document> ] The unique documents.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:581
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:583
   def uniq; end
 
   private
@@ -6405,16 +7125,16 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   #
   # @return [ Array<Numeric> ] The non-nil field values.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:592
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:594
   def field_values_for(field); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:602
-  def method_missing(name, *args, **_arg2, &block); end
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:604
+  def method_missing(name, *args, **, &block); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:596
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:598
   def set_base(document); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:606
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:608
   def unloaded_documents; end
 
   # Checks whether conditions in the given hash are known to be
@@ -6443,7 +7163,7 @@ class Mongoid::Association::Referenced::HasMany::Enumerable
   # @return [ true | false ] Whether hash contains known unsatisfiable
   #   conditions.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:639
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/enumerable.rb:641
   def unsatisfiable_criteria?(selector); end
 end
 
@@ -6528,7 +7248,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   def concat(documents); end
 
   # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/proxy.rb:36
-  def count(*_arg0, **_arg1, &_arg2); end
+  def count(*, **, &); end
 
   # Delete the document from the association. This will set the foreign key
   # on the document to nil. If the dependent options on the association are
@@ -6659,13 +7379,13 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   def find(*args, &block); end
 
   # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/proxy.rb:37
-  def first(*_arg0, **_arg1, &_arg2); end
+  def first(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/proxy.rb:37
-  def in_memory(*_arg0, **_arg1, &_arg2); end
+  def in_memory(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/proxy.rb:37
-  def last(*_arg0, **_arg1, &_arg2); end
+  def last(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/proxy.rb:125
   def new(attributes = T.unsafe(nil), type = T.unsafe(nil)); end
@@ -6714,7 +7434,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   def push(*args); end
 
   # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/proxy.rb:37
-  def reset(*_arg0, **_arg1, &_arg2); end
+  def reset(*, **, &); end
 
   # Substitutes the supplied target documents for the existing documents
   # in the association. If the new target is nil, perform the necessary
@@ -6731,7 +7451,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   def substitute(replacement); end
 
   # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/proxy.rb:37
-  def uniq(*_arg0, **_arg1, &_arg2); end
+  def uniq(*, **, &); end
 
   # Get a criteria for the documents without the default scoping
   # applied.
@@ -6815,7 +7535,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   def criteria; end
 
   # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/proxy.rb:485
-  def method_missing(name, *args, **_arg2, &block); end
+  def method_missing(name, *args, **, &block); end
 
   # Persist all the delayed batch inserts.
   #
@@ -6857,6 +7577,26 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/proxy.rb:539
   def remove_all(conditions = T.unsafe(nil), method = T.unsafe(nil)); end
 
+  # Deletes all related documents matching a selector that carries a
+  # regular expression, with the whole scan under one regexp budget.
+  #
+  # The scan runs before anything is deleted, so a budget that runs out
+  # leaves both the database and the association untouched rather than
+  # reporting a failure for a delete that has already happened. It also
+  # means the budget is closed by the time the association is mutated,
+  # so where the budget is enforced with Timeout there is no window for
+  # the exception to land in the middle of an unbind.
+  #
+  # @param [ Hash ] selector The selector to delete with.
+  # @param [ Symbol ] method The deletion method to call.
+  # @param [ Float ] limit The seconds the scan may spend, as read by
+  #   the caller when it chose this path.
+  #
+  # @return [ Integer ] The number of documents deleted.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/proxy.rb:595
+  def remove_all_bounded(selector, method, limit); end
+
   # Remove all the documents in the proxy that do not have the provided
   # ids.
   #
@@ -6865,7 +7605,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   #
   # @param [ Array<Object> ] ids The ids.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/proxy.rb:557
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/proxy.rb:656
   def remove_not_in(ids); end
 
   # Save a persisted document immediately or delay a new document for
@@ -6879,7 +7619,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param [ Document ] doc The document.
   # @param [ Array<Document> ] inserts The inserts.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/proxy.rb:594
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/proxy.rb:693
   def save_or_delay(doc, docs, inserts); end
 
   # If the association is destructive, the matching documents will
@@ -6888,7 +7628,7 @@ class Mongoid::Association::Referenced::HasMany::Proxy < ::Mongoid::Association:
   # @param [ Criteria ] removed The criteria for the documents to
   #   remove.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/proxy.rb:576
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many/proxy.rb:675
   def update_or_delete_all(removed); end
 
   # Execute before/after add callbacks around the block unless the objects
@@ -6932,6 +7672,308 @@ end
 # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many.rb:41
 Mongoid::Association::Referenced::HasMany::VALID_OPTIONS = T.let(T.unsafe(nil), Array)
 
+# Metadata class for has_many :through associations.
+#
+# pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:6
+class Mongoid::Association::Referenced::HasManyThrough
+  include ::Mongoid::Association::Constrainable
+  include ::Mongoid::Association::Options
+  include ::Mongoid::Association::Relatable
+
+  # Return a Criteria scoped to the target documents reachable from base
+  # via the through association. Performs two queries: one against the
+  # intermediate collection, one against the source collection.
+  #
+  # @param [ Document ] base The owner document.
+  #
+  # @return [ Mongoid::Criteria ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through.rb:117
+  def criteria(base); end
+
+  # Is this association embedded?
+  #
+  # @return [ false ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through.rb:43
+  def embedded?; end
+
+  # The proxy class for this association type.
+  #
+  # @return [ Class ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through.rb:50
+  def relation; end
+
+  # The list of association complements.
+  #
+  # @return [ Array ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through.rb:28
+  def relation_complements; end
+
+  # Setup instance methods on the owner class.
+  #
+  # @return [ self ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through.rb:35
+  def setup!; end
+
+  # The source association metadata on the intermediate class.
+  # Resolved lazily to allow forward references.
+  #
+  # @return [ Mongoid::Association::Relatable ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through.rb:89
+  def source_association; end
+
+  # Through associations never store a foreign key on the owner document.
+  #
+  # @return [ false ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through.rb:57
+  def stores_foreign_key?; end
+
+  # The intermediate association metadata on the owner class.
+  # Resolved lazily to allow forward references.
+  #
+  # @return [ Mongoid::Association::Relatable ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through.rb:65
+  def through_association; end
+
+  # The default for validating the association object.
+  #
+  # @return [ false ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through.rb:141
+  def validation_default; end
+
+  private
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through.rb:195
+  def default_primary_key; end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through.rb:188
+  def define_readonly_setter!; end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through.rb:169
+  def define_through_getter!; end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through.rb:180
+  def define_through_ids_getter!; end
+
+  # Pluck the given key from the criteria, dropping intermediates that
+  # have no value for it. A nil in an $in array matches every document
+  # whose queried field is null or absent, which would return documents
+  # outside the association. An empty result correctly matches nothing.
+  # Mirrors what the eager loader does.
+  #
+  # @param [ Mongoid::Criteria ] criteria The intermediate criteria.
+  # @param [ String ] key The key to pluck.
+  #
+  # @return [ Array<Object> ] The usable key values.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through.rb:157
+  def key_values(criteria, key); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through.rb:161
+  def setup_instance_methods!; end
+end
+
+# The options available for this type of association, in addition to the
+# common ones.
+#
+# @return [ Array<Symbol> ] The extra valid options.
+#
+# pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through.rb:17
+Mongoid::Association::Referenced::HasManyThrough::ASSOCIATION_OPTIONS = T.let(T.unsafe(nil), Array)
+
+# Two-query eager preloader for has_many :through associations.
+#
+# pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/eager.rb:8
+class Mongoid::Association::Referenced::HasManyThrough::Eager < ::Mongoid::Association::Eager
+  private
+
+  # Build a Hash mapping each owner FK value to an array of target docs.
+  # Uses two different strategies depending on where the FK lives.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/eager.rb:40
+  def build_targets_map(intermediates, through_fk, source_assoc); end
+
+  # FK is on the intermediate (e.g. appointment.patient_id -> belongs_to :patient).
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/eager.rb:49
+  def fk_on_intermediate_targets_map(intermediates, through_fk, source_assoc); end
+
+  # FK is on the source (e.g. reader.book_id -> has_many :readers on Book).
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/eager.rb:66
+  def fk_on_source_targets_map(intermediates, through_fk, source_assoc); end
+
+  # Required by base class contract. Not called from preload since this
+  # class manages its own two-query traversal directly.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/eager.rb:92
+  def group_by_key; end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/eager.rb:11
+  def preload; end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/eager.rb:83
+  def set_relation(doc, element); end
+end
+
+# Read-only proxy for has_many :through associations. Wraps the lazy
+# Criteria returned by the association and raises ReadonlyAssociation on
+# any write attempt.
+#
+# pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:10
+class Mongoid::Association::Referenced::HasManyThrough::Proxy
+  include ::Enumerable
+  extend ::Forwardable
+  extend ::Mongoid::Association::Referenced::HasManyThrough::Proxy::ClassMethods
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:41
+  def initialize(base, association, preloaded: T.unsafe(nil)); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:60
+  def <<(*); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:28
+  def any?(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:32
+  def avg(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:60
+  def build(*); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:60
+  def clear(*); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:60
+  def concat(*); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:28
+  def count(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:60
+  def create(*); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:60
+  def create!(*); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:47
+  def criteria; end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:60
+  def delete(*); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:60
+  def delete_all(*); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:60
+  def delete_one(*); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:60
+  def destroy_all(*); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:28
+  def each(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:28
+  def empty?(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:28
+  def exists?(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:28
+  def first(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:28
+  def last(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:28
+  def length(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:32
+  def limit(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:32
+  def max(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:32
+  def min(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:60
+  def new(*); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:28
+  def none?(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:60
+  def nullify(*); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:32
+  def only(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:32
+  def order_by(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:32
+  def pluck(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:60
+  def push(*); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:28
+  def size(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:32
+  def skip(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:60
+  def substitute(*); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:32
+  def sum(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:28
+  def to_a(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:32
+  def where(*, **, &); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:32
+  def without(*, **, &); end
+
+  private
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:53
+  def _source; end
+end
+
+# pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:14
+module Mongoid::Association::Referenced::HasManyThrough::Proxy::ClassMethods
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:15
+  def eager_loader(association, docs); end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:19
+  def embedded?; end
+end
+
+# pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through/proxy.rb:36
+Mongoid::Association::Referenced::HasManyThrough::Proxy::READONLY_METHODS = T.let(T.unsafe(nil), Array)
+
+# The complete list of valid options for this association, including
+# the shared ones.
+#
+# @return [ Array<Symbol> ] The valid options.
+#
+# pkg:gem/mongoid#lib/mongoid/association/referenced/has_many_through.rb:23
+Mongoid::Association::Referenced::HasManyThrough::VALID_OPTIONS = T.let(T.unsafe(nil), Array)
+
 # The has_one association.
 #
 # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one/binding.rb:6
@@ -6949,14 +7991,14 @@ class Mongoid::Association::Referenced::HasOne
   #
   # @return [ true | false ] Whether the document can be bound.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:121
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:122
   def bindable?(doc); end
 
   # Is this association type embedded?
   #
   # @return [ false ] Always false.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:71
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:72
   def embedded?; end
 
   # Get the foreign key field for saving the association reference.
@@ -6964,7 +8006,7 @@ class Mongoid::Association::Referenced::HasOne
   # @return [ String ] The foreign key field for saving the
   #   association reference.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:60
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:61
   def foreign_key; end
 
   # The nested builder object.
@@ -6974,7 +8016,7 @@ class Mongoid::Association::Referenced::HasOne
   #
   # @return [ Association::Nested::Many ] The Nested Builder object.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:95
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:96
   def nested_builder(attributes, options); end
 
   # Get the path calculator for the supplied document.
@@ -6986,49 +8028,49 @@ class Mongoid::Association::Referenced::HasOne
   #
   # @return [ Root ] The root atomic path calculator.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:140
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:141
   def path(document); end
 
   # Is this association polymorphic?
   #
   # @return [ true | false ] Whether this association is polymorphic.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:102
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:103
   def polymorphic?; end
 
   # Get the association proxy class for this association type.
   #
   # @return [ Association::HasOne::Proxy ] The proxy class.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:85
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:86
   def relation; end
 
   # The list of association complements.
   #
   # @return [ Array<Mongoid::Association::Relatable> ] The association complements.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:44
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:45
   def relation_complements; end
 
   # Get the scope to be applied when querying the association.
   #
   # @return [ Proc | Symbol | nil ] The association scope, if any.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:147
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:148
   def scope; end
 
   # Setup the instance methods, fields, etc. on the association owning class.
   #
   # @return [ self ]
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:51
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:52
   def setup!; end
 
   # Does this association type store the foreign key?
   #
   # @return [ false ] Always false.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:128
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:129
   def stores_foreign_key?; end
 
   # The type of this association if it's polymorphic.
@@ -7037,35 +8079,35 @@ class Mongoid::Association::Referenced::HasOne
   #
   # @return [ String | nil ] The type field.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:111
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:112
   def type; end
 
   # The default for validation the association object.
   #
   # @return [ true ] Always true.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:78
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:79
   def validation_default; end
 
   private
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:169
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:170
   def default_foreign_key_field; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:187
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:188
   def default_primary_key; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:177
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:178
   def determine_inverses(other); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:173
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:174
   def polymorphic_inverses(_other); end
 
   # Setup the instance methods on the class having this association type.
   #
   # @return [ self ]
   #
-  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:156
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:157
   def setup_instance_methods!; end
 end
 
@@ -7163,7 +8205,7 @@ end
 #
 # @return [ String ] '_id'
 #
-# pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:39
+# pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:40
 Mongoid::Association::Referenced::HasOne::FOREIGN_KEY_SUFFIX = T.let(T.unsafe(nil), String)
 
 # Transparent proxy for has_one associations.
@@ -7267,8 +8309,160 @@ end
 #
 # @return [ Array<Symbol> ] The valid options.
 #
-# pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:34
+# pkg:gem/mongoid#lib/mongoid/association/referenced/has_one.rb:35
 Mongoid::Association::Referenced::HasOne::VALID_OPTIONS = T.let(T.unsafe(nil), Array)
+
+# Metadata class for has_one :through associations.
+#
+# pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through/proxy.rb:6
+class Mongoid::Association::Referenced::HasOneThrough
+  include ::Mongoid::Association::Constrainable
+  include ::Mongoid::Association::Options
+  include ::Mongoid::Association::Relatable
+
+  # Resolve the target by delegating through the intermediate proxy.
+  # Unlike other association types, this returns a document (or nil)
+  # directly rather than a Mongoid::Criteria, because the two-hop
+  # traversal is performed eagerly via the existing association proxy.
+  #
+  # @param [ Document ] base The owner document.
+  #
+  # @return [ Document | nil ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through.rb:118
+  def criteria(base); end
+
+  # Is this association embedded?
+  #
+  # @return [ false ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through.rb:43
+  def embedded?; end
+
+  # The proxy class for this association type.
+  #
+  # @return [ Class ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through.rb:50
+  def relation; end
+
+  # The list of association complements.
+  #
+  # @return [ Array ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through.rb:28
+  def relation_complements; end
+
+  # Setup instance methods on the owner class.
+  #
+  # @return [ self ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through.rb:35
+  def setup!; end
+
+  # The source association metadata on the intermediate class.
+  # Resolved lazily to allow forward references.
+  #
+  # @return [ Mongoid::Association::Relatable ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through.rb:82
+  def source_association; end
+
+  # Through associations never store a foreign key on the owner document.
+  #
+  # @return [ false ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through.rb:106
+  def stores_foreign_key?; end
+
+  # The intermediate association metadata on the owner class.
+  # Resolved lazily to allow forward references.
+  #
+  # @return [ Mongoid::Association::Relatable ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through.rb:58
+  def through_association; end
+
+  # The default for validating the association object.
+  #
+  # @return [ false ]
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through.rb:128
+  def validation_default; end
+
+  private
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through.rb:161
+  def default_primary_key; end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through.rb:154
+  def define_readonly_setter!; end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through.rb:141
+  def define_through_getter!; end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through.rb:134
+  def setup_instance_methods!; end
+end
+
+# The options available for this type of association, in addition to the
+# common ones.
+#
+# @return [ Array<Symbol> ] The extra valid options.
+#
+# pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through.rb:17
+Mongoid::Association::Referenced::HasOneThrough::ASSOCIATION_OPTIONS = T.let(T.unsafe(nil), Array)
+
+# Two-query eager preloader for has_one :through associations.
+#
+# pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through/eager.rb:8
+class Mongoid::Association::Referenced::HasOneThrough::Eager < ::Mongoid::Association::Eager
+  private
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through/eager.rb:34
+  def build_intermediate_to_target(intermediates, through_fk, source_assoc); end
+
+  # Required by the base class contract. Not called by this preloader
+  # because preload manages document traversal directly without using
+  # the grouped_docs / keys_from_docs machinery from the base class.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through/eager.rb:58
+  def group_by_key; end
+
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through/eager.rb:11
+  def preload; end
+end
+
+# Read-only proxy for has_one :through associations.
+# Instances are returned by the association getter. Write attempts raise
+# ReadonlyAssociation.
+#
+# pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through/proxy.rb:10
+class Mongoid::Association::Referenced::HasOneThrough::Proxy < ::Mongoid::Association::One
+  extend ::Mongoid::Association::Referenced::HasOneThrough::Proxy::ClassMethods
+end
+
+# pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through/proxy.rb:11
+module Mongoid::Association::Referenced::HasOneThrough::Proxy::ClassMethods
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through/proxy.rb:12
+  def eager_loader(association, docs); end
+
+  # Returns true if the association is an embedded one. In this case
+  # always false.
+  #
+  # @return [ false ] Always false.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through/proxy.rb:20
+  def embedded?; end
+end
+
+# The complete list of valid options for this association, including
+# the shared ones.
+#
+# @return [ Array<Symbol> ] The valid options.
+#
+# pkg:gem/mongoid#lib/mongoid/association/referenced/has_one_through.rb:23
+Mongoid::Association::Referenced::HasOneThrough::VALID_OPTIONS = T.let(T.unsafe(nil), Array)
 
 # This module handles the behavior for synchronizing foreign keys between
 # both sides of a many to many associations.
@@ -7501,7 +8695,7 @@ module Mongoid::Association::Relatable
   #
   # @return [ String ] The counter cache column name.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:275
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:292
   def counter_cache_column_name; end
 
   # Create an association proxy object using the owner and target.
@@ -7512,21 +8706,21 @@ module Mongoid::Association::Relatable
   #
   # @return [ Proxy ]
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:261
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:278
   def create_relation(owner, target); end
 
   # Whether the dependent method is destructive.
   #
   # @return [ true | false ] If the dependent method is destructive.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:268
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:285
   def destructive?; end
 
   # Get the extension.
   #
   # @return [ Module ] The extension module, if one has been defined.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:287
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:304
   def extension; end
 
   # Get the name of the method to check if the foreign key has changed.
@@ -7536,14 +8730,14 @@ module Mongoid::Association::Relatable
   #
   # @return [ String ] The foreign key check.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:250
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:267
   def foreign_key_check; end
 
   # The name of the foreign key setter method.
   #
   # @return [ String ] The name of the foreign key setter.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:220
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:237
   def foreign_key_setter; end
 
   # Get the callbacks for a given type.
@@ -7561,14 +8755,14 @@ module Mongoid::Association::Relatable
   # @return [ true | false ] true if it is an embedded_in or belongs_to
   #   association, false if not.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:341
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:358
   def in_to?; end
 
   # Get the inverse name.
   #
   # @return [ Symbol ] The inverse name.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:294
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:311
   def inverse(other = T.unsafe(nil)); end
 
   # Get the inverse's association metadata.
@@ -7585,24 +8779,24 @@ module Mongoid::Association::Relatable
   #
   # @return [ String ] The owning objects' class.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:190
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:207
   def inverse_class; end
 
   # The class name of the object owning this association.
   #
   # @return [ String ] The owning objects' class name.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:183
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:200
   def inverse_class_name; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:193
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:210
   def inverse_klass; end
 
   # The name of the inverse setter method.
   #
   # @return [ String ] The name of the inverse setter.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:213
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:230
   def inverse_setter(other = T.unsafe(nil)); end
 
   # Get the inverse type.
@@ -7620,7 +8814,7 @@ module Mongoid::Association::Relatable
   #
   # @return [ String ] The name of the setter.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:240
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:257
   def inverse_type_setter; end
 
   # Get the inverse names.
@@ -7638,7 +8832,7 @@ module Mongoid::Association::Relatable
   #
   # @return [ Symbol | String ] The primary key.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:199
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:216
   def key; end
 
   # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:178
@@ -7648,8 +8842,17 @@ module Mongoid::Association::Relatable
   #
   # @return [ true | false ] true if it is a *_many association, false if not.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:326
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:343
   def many?; end
+
+  # Is this association a many-to-many association? Such an association stores
+  # its foreign keys as an array on the document itself.
+  #
+  # @return [ true | false ] true if it is a has_and_belongs_to_many
+  #   association, false if not.
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:367
+  def many_to_many?; end
 
   # The name of the association.
   #
@@ -7662,7 +8865,7 @@ module Mongoid::Association::Relatable
   #
   # @return [ true | false ] true if it is a *_one association, false if not.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:333
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:350
   def one?; end
 
   # The options on this association.
@@ -7682,28 +8885,22 @@ module Mongoid::Association::Relatable
   # The associations above this one in the inclusion tree.
   #
   # @return [ Array<String> ] The associations.
-  # The associations above this one in the inclusion tree.
   #
-  # @return [ Array<String> ] The associations.
-  #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:319
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:336
   def parent_inclusions; end
 
   # The associations above this one in the inclusion tree.
   #
   # @return [ Array<String> ] The associations.
-  # The associations above this one in the inclusion tree.
   #
-  # @return [ Array<String> ] The associations.
-  #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:314
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:331
   def parent_inclusions=(_arg0); end
 
   # The atomic path for this association.
   #
   # @return [  Mongoid::Atomic::Paths::Root ] The atomic path object.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:229
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:246
   def path(document); end
 
   # The class of the association object(s).
@@ -7753,8 +8950,23 @@ module Mongoid::Association::Relatable
   #
   # @return [ String ] The setter name.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:206
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:223
   def setter; end
+
+  # The class of the association target, or nil when the named class is
+  # not defined.
+  #
+  # An association may name a class that never gets defined. The
+  # association is then unusable, but its owner still has to be. Callers
+  # that walk every association of every model, rather than following the
+  # one the application asked for, use this instead of relation_class.
+  #
+  # @return [ Class | nil ] The association objects' class.
+  #
+  # @api private
+  #
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:191
+  def try_relation_class; end
 
   # Get the type setter.
   # @note Only relevant for polymorphic associations that take the :as option.
@@ -7769,54 +8981,54 @@ module Mongoid::Association::Relatable
   # @return [ true | false ] If the associated object(s)
   #   should be validated.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:303
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:320
   def validate?; end
 
   private
 
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:427
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:467
   def create_extension!(&block); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:437
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:477
   def default_inverse; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:363
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:389
   def define_autosaver!; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:369
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:395
   def define_builder!; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:397
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:423
   def define_counter_cache_callbacks!; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:373
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:399
   def define_creator!; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:403
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:429
   def define_dependency!; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:385
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:411
   def define_existence_check!; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:377
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:403
   def define_getter!; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:389
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:415
   def define_ids_getter!; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:393
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:419
   def define_ids_setter!; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:381
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:407
   def define_setter!; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:357
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:383
   def define_touchable!; end
 
   # Gets the model classes with inverse associations of this model. This is used to determine
   # the classes on the other end of polymorphic associations with models.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:349
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:375
   def inverse_association_classes; end
 
   # Returns an array of classes/modules forming the namespace hierarchy
@@ -7824,10 +9036,10 @@ module Mongoid::Association::Relatable
   # up by Ruby. For example, if mod is Foo::Bar, this method would return
   # [Foo::Bar, Foo, Object].
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:445
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:485
   def namespace_hierarchy(mod); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:421
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:461
   def polymorph!; end
 
   # Resolves the given class/module name in the context of the specified
@@ -7838,13 +9050,13 @@ module Mongoid::Association::Relatable
   #   to load classes, failure during the loading process may also lead to
   #   there being incomplete class definitions.
   #
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:467
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:507
   def resolve_name(mod, name); end
 
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:353
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:379
   def setup_index!; end
 
-  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:409
+  # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:435
   def validate!; end
 end
 
@@ -7861,6 +9073,12 @@ Mongoid::Association::Relatable::PRIMARY_KEY_DEFAULT = T.let(T.unsafe(nil), Stri
 #
 # pkg:gem/mongoid#lib/mongoid/association/relatable.rb:16
 Mongoid::Association::Relatable::SHARED_OPTIONS = T.let(T.unsafe(nil), Array)
+
+# Internal mapping used when :through option is present. Not exposed as
+# callable macros.
+#
+# pkg:gem/mongoid#lib/mongoid/association.rb:51
+Mongoid::Association::THROUGH_MACRO_MAPPING = T.let(T.unsafe(nil), Hash)
 
 # This module contains the logic for supporting atomic operations against the
 # database.
@@ -9999,9 +11217,6 @@ module Mongoid::Clients::Factory
   # pkg:gem/mongoid#lib/mongoid/clients/factory.rb:57
   def create_client(configuration); end
 
-  # pkg:gem/mongoid#lib/mongoid/clients/factory.rb:114
-  def driver_version; end
-
   # Prepare options for Mongo::Client based on Mongoid client configuration.
   #
   # @param [ Hash ] opts Parameters from options section of Mongoid client configuration.
@@ -10009,7 +11224,7 @@ module Mongoid::Clients::Factory
   #
   # @api private
   #
-  # pkg:gem/mongoid#lib/mongoid/clients/factory.rb:124
+  # pkg:gem/mongoid#lib/mongoid/clients/factory.rb:120
   def options(opts); end
 end
 
@@ -10595,6 +11810,11 @@ module Mongoid::CollectionConfigurable::ClassMethods
   #
   # pkg:gem/mongoid#lib/mongoid/collection_configurable.rb:22
   def create_collection(force: T.unsafe(nil)); end
+
+  private
+
+  # pkg:gem/mongoid#lib/mongoid/collection_configurable.rb:30
+  def perform_create_collection(force:); end
 end
 
 # This module provides inclusions of all behavior in a Mongoid document.
@@ -10729,6 +11949,9 @@ module Mongoid::Composable
     def _declared_scopes; end
     def _declared_scopes=(value); end
     def _declared_scopes?; end
+    def _dependents_owner; end
+    def _dependents_owner=(value); end
+    def _dependents_owner?; end
     def _validators; end
     def _validators=(value); end
     def _validators?; end
@@ -10747,9 +11970,6 @@ module Mongoid::Composable
     def dependents; end
     def dependents=(value); end
     def dependents?; end
-    def dependents_owner; end
-    def dependents_owner=(value); end
-    def dependents_owner?; end
     def discriminator_key; end
     def discriminator_key=(value); end
     def discriminator_key?; end
@@ -10805,6 +12025,9 @@ module Mongoid::Composable
     def _declared_scopes; end
     def _declared_scopes=(value); end
     def _declared_scopes?; end
+    def _dependents_owner; end
+    def _dependents_owner=(value); end
+    def _dependents_owner?; end
     def _validators; end
     def _validators?; end
     def aliased_associations; end
@@ -10822,9 +12045,6 @@ module Mongoid::Composable
     def dependents; end
     def dependents=(value); end
     def dependents?; end
-    def dependents_owner; end
-    def dependents_owner=(value); end
-    def dependents_owner?; end
     def embedded=(value); end
     def embedded_relations; end
     def embedded_relations=(value); end
@@ -10901,41 +12121,50 @@ module Mongoid::Config
   # pkg:gem/mongoid#lib/mongoid/config.rb:88
   def allow_bson5_decimal128?; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:285
+  # pkg:gem/mongoid#lib/mongoid/config.rb:287
   def allow_duplicate_index_declarations; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:285
+  # pkg:gem/mongoid#lib/mongoid/config.rb:287
   def allow_duplicate_index_declarations=(value); end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:285
+  # pkg:gem/mongoid#lib/mongoid/config.rb:287
   def allow_duplicate_index_declarations?; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:146
+  # pkg:gem/mongoid#lib/mongoid/config.rb:148
   def allow_reparenting_via_nested_attributes; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:146
+  # pkg:gem/mongoid#lib/mongoid/config.rb:148
   def allow_reparenting_via_nested_attributes=(value); end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:146
+  # pkg:gem/mongoid#lib/mongoid/config.rb:148
   def allow_reparenting_via_nested_attributes?; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:272
+  # pkg:gem/mongoid#lib/mongoid/config.rb:274
   def allow_scopes_to_unset_default_scope; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:272
+  # pkg:gem/mongoid#lib/mongoid/config.rb:274
   def allow_scopes_to_unset_default_scope=(value); end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:272
+  # pkg:gem/mongoid#lib/mongoid/config.rb:274
   def allow_scopes_to_unset_default_scope?; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:151
+  # pkg:gem/mongoid#lib/mongoid/config.rb:153
   def allow_short_circuit_queries; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:151
+  # pkg:gem/mongoid#lib/mongoid/config.rb:153
   def allow_short_circuit_queries=(value); end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:151
+  # pkg:gem/mongoid#lib/mongoid/config.rb:153
   def allow_short_circuit_queries?; end
+
+  # pkg:gem/mongoid#lib/mongoid/config.rb:326
+  def allow_unsafe_query_operators; end
+
+  # pkg:gem/mongoid#lib/mongoid/config.rb:326
+  def allow_unsafe_query_operators=(value); end
+
+  # pkg:gem/mongoid#lib/mongoid/config.rb:326
+  def allow_unsafe_query_operators?; end
 
   # pkg:gem/mongoid#lib/mongoid/config.rb:28
   def app_name; end
@@ -10946,13 +12175,13 @@ module Mongoid::Config
   # pkg:gem/mongoid#lib/mongoid/config.rb:28
   def app_name?; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:263
+  # pkg:gem/mongoid#lib/mongoid/config.rb:265
   def around_callbacks_for_embeds; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:263
+  # pkg:gem/mongoid#lib/mongoid/config.rb:265
   def around_callbacks_for_embeds=(value); end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:263
+  # pkg:gem/mongoid#lib/mongoid/config.rb:265
   def around_callbacks_for_embeds?; end
 
   # pkg:gem/mongoid#lib/mongoid/config.rb:104
@@ -10964,13 +12193,13 @@ module Mongoid::Config
   # pkg:gem/mongoid#lib/mongoid/config.rb:104
   def async_query_executor?; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:160
+  # pkg:gem/mongoid#lib/mongoid/config.rb:162
   def autosave_saves_unchanged_documents; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:160
+  # pkg:gem/mongoid#lib/mongoid/config.rb:162
   def autosave_saves_unchanged_documents=(value); end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:160
+  # pkg:gem/mongoid#lib/mongoid/config.rb:162
   def autosave_saves_unchanged_documents?; end
 
   # pkg:gem/mongoid#lib/mongoid/config.rb:32
@@ -10998,14 +12227,14 @@ module Mongoid::Config
   #
   # @return [ Hash ] The clients configuration.
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:482
+  # pkg:gem/mongoid#lib/mongoid/config.rb:529
   def clients; end
 
   # Returns the Config singleton, for use in the configure DSL.
   #
   # @return [ self ] The Config singleton.
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:300
+  # pkg:gem/mongoid#lib/mongoid/config.rb:347
   def config; end
 
   # Has Mongoid been configured? This is checking that at least a valid
@@ -11016,7 +12245,7 @@ module Mongoid::Config
   #
   # @return [ true | false ] If Mongoid is configured.
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:311
+  # pkg:gem/mongoid#lib/mongoid/config.rb:358
   def configured?; end
 
   # Connect to the provided database name on the default client.
@@ -11028,7 +12257,7 @@ module Mongoid::Config
   #
   # @param [ String ] name The database name.
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:323
+  # pkg:gem/mongoid#lib/mongoid/config.rb:370
   def connect_to(name, options = T.unsafe(nil)); end
 
   # Deregister a model in the application with Mongoid.
@@ -11037,7 +12266,7 @@ module Mongoid::Config
   #
   # @api private
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:390
+  # pkg:gem/mongoid#lib/mongoid/config.rb:437
   def deregister_model(klass); end
 
   # Return field names that could cause destructive things to happen if
@@ -11048,7 +12277,7 @@ module Mongoid::Config
   #
   # @return [ Array<String> ] An array of bad field names.
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:340
+  # pkg:gem/mongoid#lib/mongoid/config.rb:387
   def destructive_fields; end
 
   # pkg:gem/mongoid#lib/mongoid/config.rb:40
@@ -11078,14 +12307,23 @@ module Mongoid::Config
   # pkg:gem/mongoid#lib/mongoid/config.rb:109
   def global_executor_concurrency?; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:243
+  # pkg:gem/mongoid#lib/mongoid/config.rb:245
   def immutable_ids; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:243
+  # pkg:gem/mongoid#lib/mongoid/config.rb:245
   def immutable_ids=(value); end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:243
+  # pkg:gem/mongoid#lib/mongoid/config.rb:245
   def immutable_ids?; end
+
+  # pkg:gem/mongoid#lib/mongoid/config.rb:342
+  def in_memory_regexp_time_limit; end
+
+  # pkg:gem/mongoid#lib/mongoid/config.rb:342
+  def in_memory_regexp_time_limit=(value); end
+
+  # pkg:gem/mongoid#lib/mongoid/config.rb:342
+  def in_memory_regexp_time_limit?; end
 
   # pkg:gem/mongoid#lib/mongoid/config.rb:46
   def include_root_in_json; end
@@ -11123,22 +12361,22 @@ module Mongoid::Config
   # pkg:gem/mongoid#lib/mongoid/config.rb:53
   def join_contexts?; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:236
+  # pkg:gem/mongoid#lib/mongoid/config.rb:238
   def legacy_persistence_context_behavior; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:236
+  # pkg:gem/mongoid#lib/mongoid/config.rb:238
   def legacy_persistence_context_behavior=(value); end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:236
+  # pkg:gem/mongoid#lib/mongoid/config.rb:238
   def legacy_persistence_context_behavior?; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:212
+  # pkg:gem/mongoid#lib/mongoid/config.rb:214
   def legacy_readonly; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:212
+  # pkg:gem/mongoid#lib/mongoid/config.rb:214
   def legacy_readonly=(value); end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:212
+  # pkg:gem/mongoid#lib/mongoid/config.rb:214
   def legacy_readonly?; end
 
   # Load the settings from a compliant mongoid.yml file. This can be used for
@@ -11150,7 +12388,7 @@ module Mongoid::Config
   # @param [ String ] path The path to the file.
   # @param [ String | Symbol ] environment The environment to load.
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:352
+  # pkg:gem/mongoid#lib/mongoid/config.rb:399
   def load!(path, environment = T.unsafe(nil)); end
 
   # From a hash of settings, load all the configuration.
@@ -11160,7 +12398,7 @@ module Mongoid::Config
   #
   # @param [ Hash ] settings The configuration settings.
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:402
+  # pkg:gem/mongoid#lib/mongoid/config.rb:449
   def load_configuration(settings); end
 
   # pkg:gem/mongoid#lib/mongoid/config.rb:63
@@ -11170,10 +12408,10 @@ module Mongoid::Config
   def log_level?; end
 
   # pkg:gem/mongoid#lib/mongoid/config.rb:20
-  def logger(*_arg0, **_arg1, &_arg2); end
+  def logger(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/config.rb:20
-  def logger=(*_arg0, **_arg1, &_arg2); end
+  def logger=(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/config.rb:79
   def map_big_decimal_to_decimal128; end
@@ -11192,7 +12430,7 @@ module Mongoid::Config
   #
   # @return [ Array<Class> ] All the models in the application.
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:369
+  # pkg:gem/mongoid#lib/mongoid/config.rb:416
   def models; end
 
   # Set the configuration options. Will validate each one individually.
@@ -11202,7 +12440,7 @@ module Mongoid::Config
   #
   # @param [ Hash ] options The configuration options.
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:466
+  # pkg:gem/mongoid#lib/mongoid/config.rb:513
   def options=(options); end
 
   # Override the client to use globally.
@@ -11214,7 +12452,7 @@ module Mongoid::Config
   #
   # @return [ String | Symbol ] The global override.
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:430
+  # pkg:gem/mongoid#lib/mongoid/config.rb:477
   def override_client(name); end
 
   # Override the database to use globally.
@@ -11226,7 +12464,7 @@ module Mongoid::Config
   #
   # @return [ String | Symbol ] The global override.
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:418
+  # pkg:gem/mongoid#lib/mongoid/config.rb:465
   def override_database(name); end
 
   # pkg:gem/mongoid#lib/mongoid/config.rb:66
@@ -11238,13 +12476,13 @@ module Mongoid::Config
   # pkg:gem/mongoid#lib/mongoid/config.rb:66
   def preload_models?; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:253
+  # pkg:gem/mongoid#lib/mongoid/config.rb:255
   def prevent_multiple_calls_of_embedded_callbacks; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:253
+  # pkg:gem/mongoid#lib/mongoid/config.rb:255
   def prevent_multiple_calls_of_embedded_callbacks=(value); end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:253
+  # pkg:gem/mongoid#lib/mongoid/config.rb:255
   def prevent_multiple_calls_of_embedded_callbacks?; end
 
   # Purge all data in all collections, including indexes.
@@ -11256,7 +12494,7 @@ module Mongoid::Config
   #
   # @return [ true ] true.
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:442
+  # pkg:gem/mongoid#lib/mongoid/config.rb:489
   def purge!; end
 
   # pkg:gem/mongoid#lib/mongoid/config.rb:69
@@ -11279,7 +12517,7 @@ module Mongoid::Config
   #
   # @api private
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:172
+  # pkg:gem/mongoid#lib/mongoid/config.rb:174
   def real_isolation_level; end
 
   # Register a model in the application with Mongoid.
@@ -11289,7 +12527,7 @@ module Mongoid::Config
   #
   # @param [ Class ] klass The model to register.
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:379
+  # pkg:gem/mongoid#lib/mongoid/config.rb:426
   def register_model(klass); end
 
   # Is the application running under passenger?
@@ -11301,8 +12539,8 @@ module Mongoid::Config
   #
   # @deprecated
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:504
-  def running_with_passenger?(*args, **_arg1, &block); end
+  # pkg:gem/mongoid#lib/mongoid/config.rb:551
+  def running_with_passenger?(*args, **, &block); end
 
   # pkg:gem/mongoid#lib/mongoid/config.rb:73
   def scope_overwrite_exception; end
@@ -11313,13 +12551,13 @@ module Mongoid::Config
   # pkg:gem/mongoid#lib/mongoid/config.rb:73
   def scope_overwrite_exception?; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:295
+  # pkg:gem/mongoid#lib/mongoid/config.rb:297
   def serializable_hash_with_legacy_only; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:295
+  # pkg:gem/mongoid#lib/mongoid/config.rb:297
   def serializable_hash_with_legacy_only=(value); end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:295
+  # pkg:gem/mongoid#lib/mongoid/config.rb:297
   def serializable_hash_with_legacy_only?; end
 
   # Get the time zone to use.
@@ -11329,7 +12567,7 @@ module Mongoid::Config
   #
   # @return [ String ] The time zone.
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:492
+  # pkg:gem/mongoid#lib/mongoid/config.rb:539
   def time_zone; end
 
   # Truncate all data in all collections, but not the indexes.
@@ -11341,7 +12579,7 @@ module Mongoid::Config
   #
   # @return [ true ] true.
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:454
+  # pkg:gem/mongoid#lib/mongoid/config.rb:501
   def truncate!; end
 
   # pkg:gem/mongoid#lib/mongoid/config.rb:76
@@ -11362,12 +12600,12 @@ module Mongoid::Config
   #
   # @api private
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:196
+  # pkg:gem/mongoid#lib/mongoid/config.rb:198
   def validate_isolation_level!(level); end
 
   private
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:517
+  # pkg:gem/mongoid#lib/mongoid/config.rb:564
   def clients=(clients); end
 
   # Get database client that respects global overrides
@@ -11375,10 +12613,10 @@ module Mongoid::Config
   #
   # @return [Mongo::Client] Client according to global overrides.
   #
-  # pkg:gem/mongoid#lib/mongoid/config.rb:529
+  # pkg:gem/mongoid#lib/mongoid/config.rb:576
   def global_client; end
 
-  # pkg:gem/mongoid#lib/mongoid/config.rb:512
+  # pkg:gem/mongoid#lib/mongoid/config.rb:559
   def set_log_levels; end
 end
 
@@ -11398,10 +12636,15 @@ module Mongoid::Config::Defaults
   def load_defaults(version); end
 end
 
-# pkg:gem/mongoid#lib/mongoid/config.rb:542
+# Wraps configuration options that have been deprecated so that assigning
+# them emits a deprecation warning. OPTIONS is intentionally empty when no
+# options are currently deprecated; it is populated as options are retired,
+# at which point this module rewrites their setters to warn.
+#
+# pkg:gem/mongoid#lib/mongoid/config.rb:593
 module Mongoid::Config::DeprecatedOptions; end
 
-# pkg:gem/mongoid#lib/mongoid/config.rb:543
+# pkg:gem/mongoid#lib/mongoid/config.rb:594
 Mongoid::Config::DeprecatedOptions::OPTIONS = T.let(T.unsafe(nil), Array)
 
 # This module contains the logic for configuring Client Side
@@ -11432,7 +12675,7 @@ module Mongoid::Config::Encryption
   #
   # @return [ String ] The algorithm.
   #
-  # pkg:gem/mongoid#lib/mongoid/config/encryption.rb:179
+  # pkg:gem/mongoid#lib/mongoid/config/encryption.rb:196
   def algorithm_for(field); end
 
   # Get the BSON type identifier for the provided field according to the
@@ -11442,7 +12685,7 @@ module Mongoid::Config::Encryption
   #
   # @return [ String ] The BSON type identifier.
   #
-  # pkg:gem/mongoid#lib/mongoid/config/encryption.rb:170
+  # pkg:gem/mongoid#lib/mongoid/config/encryption.rb:187
   def bson_type_for(field); end
 
   # Get the keyId encryption schema field for the base64 encrypted
@@ -11455,7 +12698,7 @@ module Mongoid::Config::Encryption
   #   JSON pointer to the field that contains keyAltName,
   #   or nil if both key_id_base64 and key_name_field are nil.
   #
-  # pkg:gem/mongoid#lib/mongoid/config/encryption.rb:197
+  # pkg:gem/mongoid#lib/mongoid/config/encryption.rb:214
   def key_id_for(key_id_base64, key_name_field); end
 
   # Generate the encryptMetadata object for the provided model.
@@ -11464,7 +12707,7 @@ module Mongoid::Config::Encryption
   #
   # @return [ Hash ] The encryptMetadata object.
   #
-  # pkg:gem/mongoid#lib/mongoid/config/encryption.rb:74
+  # pkg:gem/mongoid#lib/mongoid/config/encryption.rb:81
   def metadata_for(model); end
 
   # Generate encryption properties for the provided model.
@@ -11473,12 +12716,13 @@ module Mongoid::Config::Encryption
   # are marked as encrypted.
   #
   # @param [ Mongoid::Document ] model The model to generate the properties for.
-  # @param [ Set<Mongoid::Document> ] visited The set of models that have already been visited.
+  # @param [ Array<Mongoid::Document> ] path The models the walk is already
+  #   inside of, outermost first.
   #
   # @return [ Hash ] The encryption properties.
   #
-  # pkg:gem/mongoid#lib/mongoid/config/encryption.rb:106
-  def properties_for(model, visited); end
+  # pkg:gem/mongoid#lib/mongoid/config/encryption.rb:114
+  def properties_for(model, path); end
 
   # Generate encryption properties for the fields of the provided model.
   #
@@ -11486,7 +12730,7 @@ module Mongoid::Config::Encryption
   #
   # @return [ Hash ] The encryption properties.
   #
-  # pkg:gem/mongoid#lib/mongoid/config/encryption.rb:120
+  # pkg:gem/mongoid#lib/mongoid/config/encryption.rb:128
   def properties_for_fields(model); end
 
   # Generate encryption properties for the relations of the provided model.
@@ -11495,27 +12739,28 @@ module Mongoid::Config::Encryption
   # are configured to be encrypted.
   #
   # @param [ Mongoid::Document ] model The model to generate the properties for.
-  # @param [ Set<Mongoid::Document> ] visited The set of models that have already been visited.
+  # @param [ Array<Mongoid::Document> ] path The models the walk is already
+  #   inside of, outermost first.
   #
   # @return [ Hash ] The encryption properties.
   #
-  # pkg:gem/mongoid#lib/mongoid/config/encryption.rb:147
-  def properties_for_relations(model, visited); end
+  # pkg:gem/mongoid#lib/mongoid/config/encryption.rb:156
+  def properties_for_relations(model, path); end
 end
 
 # The algorithm to use for the deterministic encryption.
 #
-# pkg:gem/mongoid#lib/mongoid/config/encryption.rb:41
+# pkg:gem/mongoid#lib/mongoid/config/encryption.rb:48
 Mongoid::Config::Encryption::DETERMINISTIC_ALGORITHM = T.let(T.unsafe(nil), String)
 
 # The algorithm to use for the non-deterministic encryption.
 #
-# pkg:gem/mongoid#lib/mongoid/config/encryption.rb:44
+# pkg:gem/mongoid#lib/mongoid/config/encryption.rb:51
 Mongoid::Config::Encryption::RANDOM_ALGORITHM = T.let(T.unsafe(nil), String)
 
 # The mapping of Mongoid field types to BSON type identifiers.
 #
-# pkg:gem/mongoid#lib/mongoid/config/encryption.rb:47
+# pkg:gem/mongoid#lib/mongoid/config/encryption.rb:54
 Mongoid::Config::Encryption::TYPE_MAPPINGS = T.let(T.unsafe(nil), Hash)
 
 # Encapsulates logic for getting environment information.
@@ -11930,31 +13175,31 @@ module Mongoid::Contextual
   extend ::Forwardable
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:20
-  def add_each_to_set(*_arg0, **_arg1, &_arg2); end
+  def add_each_to_set(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:20
-  def add_to_set(*_arg0, **_arg1, &_arg2); end
+  def add_to_set(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:16
-  def aggregates(*_arg0, **_arg1, &_arg2); end
+  def aggregates(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:16
-  def avg(*_arg0, **_arg1, &_arg2); end
+  def avg(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:20
-  def bit(*_arg0, **_arg1, &_arg2); end
+  def bit(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:27
-  def blank?(*_arg0, **_arg1, &_arg2); end
+  def blank?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:20
-  def clamp_lower_bound(*_arg0, **_arg1, &_arg2); end
+  def clamp_lower_bound(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:20
-  def clamp_upper_bound(*_arg0, **_arg1, &_arg2); end
+  def clamp_upper_bound(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:27
-  def collection(*_arg0, **_arg1, &_arg2); end
+  def collection(*, **, &); end
 
   # Get the context in which criteria queries should execute. This is either
   # in memory (for embedded documents) or mongo (for root level documents.)
@@ -11968,91 +13213,91 @@ module Mongoid::Contextual
   def context; end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def count(*_arg0, **_arg1, &_arg2); end
+  def count(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:27
-  def criteria(*_arg0, **_arg1, &_arg2); end
+  def criteria(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def database_field_name(*_arg0, **_arg1, &_arg2); end
+  def database_field_name(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def delete(*_arg0, **_arg1, &_arg2); end
+  def delete(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def delete_all(*_arg0, **_arg1, &_arg2); end
+  def delete_all(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def destroy(*_arg0, **_arg1, &_arg2); end
+  def destroy(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def destroy_all(*_arg0, **_arg1, &_arg2); end
+  def destroy_all(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def distinct(*_arg0, **_arg1, &_arg2); end
+  def distinct(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def documents_loader(*_arg0, **_arg1, &_arg2); end
+  def documents_loader(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def each(*_arg0, **_arg1, &_arg2); end
+  def each(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:27
-  def empty?(*_arg0, **_arg1, &_arg2); end
+  def empty?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def estimated_count(*_arg0, **_arg1, &_arg2); end
+  def estimated_count(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def exists?(*_arg0, **_arg1, &_arg2); end
+  def exists?(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def explain(*_arg0, **_arg1, &_arg2); end
+  def explain(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def fifth(*_arg0, **_arg1, &_arg2); end
+  def fifth(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def fifth!(*_arg0, **_arg1, &_arg2); end
+  def fifth!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def find_first(*_arg0, **_arg1, &_arg2); end
+  def find_first(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def find_one_and_delete(*_arg0, **_arg1, &_arg2); end
+  def find_one_and_delete(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def find_one_and_replace(*_arg0, **_arg1, &_arg2); end
+  def find_one_and_replace(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def find_one_and_update(*_arg0, **_arg1, &_arg2); end
+  def find_one_and_update(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def first(*_arg0, **_arg1, &_arg2); end
+  def first(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def first!(*_arg0, **_arg1, &_arg2); end
+  def first!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def fourth(*_arg0, **_arg1, &_arg2); end
+  def fourth(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def fourth!(*_arg0, **_arg1, &_arg2); end
+  def fourth!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:20
-  def inc(*_arg0, **_arg1, &_arg2); end
+  def inc(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:27
-  def klass(*_arg0, **_arg1, &_arg2); end
+  def klass(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def last(*_arg0, **_arg1, &_arg2); end
+  def last(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def last!(*_arg0, **_arg1, &_arg2); end
+  def last!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def length(*_arg0, **_arg1, &_arg2); end
+  def length(*, **, &); end
 
   # Instructs the context to schedule an asynchronous loading of documents
   # specified by the criteria.
@@ -12066,106 +13311,106 @@ module Mongoid::Contextual
   def load_async; end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def map_reduce(*_arg0, **_arg1, &_arg2); end
+  def map_reduce(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:16
-  def max(*_arg0, **_arg1, &_arg2); end
+  def max(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:16
-  def min(*_arg0, **_arg1, &_arg2); end
+  def min(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:20
-  def mul(*_arg0, **_arg1, &_arg2); end
+  def mul(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def one(*_arg0, **_arg1, &_arg2); end
+  def one(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def pick(*_arg0, **_arg1, &_arg2); end
+  def pick(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def pluck(*_arg0, **_arg1, &_arg2); end
+  def pluck(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:20
-  def pop(*_arg0, **_arg1, &_arg2); end
+  def pop(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:20
-  def pull(*_arg0, **_arg1, &_arg2); end
+  def pull(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:20
-  def pull_all(*_arg0, **_arg1, &_arg2); end
+  def pull_all(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:20
-  def push(*_arg0, **_arg1, &_arg2); end
+  def push(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:20
-  def push_all(*_arg0, **_arg1, &_arg2); end
+  def push_all(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:20
-  def rename(*_arg0, **_arg1, &_arg2); end
+  def rename(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def second(*_arg0, **_arg1, &_arg2); end
+  def second(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def second!(*_arg0, **_arg1, &_arg2); end
+  def second!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def second_to_last(*_arg0, **_arg1, &_arg2); end
+  def second_to_last(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def second_to_last!(*_arg0, **_arg1, &_arg2); end
+  def second_to_last!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:20
-  def set(*_arg0, **_arg1, &_arg2); end
+  def set(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:20
-  def set_max(*_arg0, **_arg1, &_arg2); end
+  def set_max(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:20
-  def set_min(*_arg0, **_arg1, &_arg2); end
+  def set_min(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def size(*_arg0, **_arg1, &_arg2); end
+  def size(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def sort(*_arg0, **_arg1, &_arg2); end
+  def sort(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:16
-  def sum(*_arg0, **_arg1, &_arg2); end
+  def sum(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def take(*_arg0, **_arg1, &_arg2); end
+  def take(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def take!(*_arg0, **_arg1, &_arg2); end
+  def take!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def tally(*_arg0, **_arg1, &_arg2); end
+  def tally(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def third(*_arg0, **_arg1, &_arg2); end
+  def third(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def third!(*_arg0, **_arg1, &_arg2); end
+  def third!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def third_to_last(*_arg0, **_arg1, &_arg2); end
+  def third_to_last(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def third_to_last!(*_arg0, **_arg1, &_arg2); end
+  def third_to_last!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:20
-  def unset(*_arg0, **_arg1, &_arg2); end
+  def unset(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def update(*_arg0, **_arg1, &_arg2); end
+  def update(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def update_all(*_arg0, **_arg1, &_arg2); end
+  def update_all(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual.rb:24
-  def view(*_arg0, **_arg1, &_arg2); end
+  def view(*, **, &); end
 
   private
 
@@ -12196,8 +13441,10 @@ Mongoid::Contextual::Aggregable::EMPTY_RESULT = T.let(T.unsafe(nil), Hash)
 
 # Contains behavior for aggregating values in memory.
 #
-# pkg:gem/mongoid#lib/mongoid/contextual/aggregable/memory.rb:7
+# pkg:gem/mongoid#lib/mongoid/contextual/aggregable/memory.rb:9
 module Mongoid::Contextual::Aggregable::Memory
+  include ::Mongoid::FieldReadable
+
   # Get all the aggregate values for the provided field.
   # Provided for interface consistency with Aggregable::Mongo.
   #
@@ -12207,7 +13454,7 @@ module Mongoid::Contextual::Aggregable::Memory
   #   If no documents are present, then returned Hash will have
   #   count, sum of 0 and max, min, avg of nil.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/aggregable/memory.rb:16
+  # pkg:gem/mongoid#lib/mongoid/contextual/aggregable/memory.rb:20
   def aggregates(field); end
 
   # Get the average value of the provided field.
@@ -12219,7 +13466,7 @@ module Mongoid::Contextual::Aggregable::Memory
   #
   # @return [ Numeric ] The average.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/aggregable/memory.rb:30
+  # pkg:gem/mongoid#lib/mongoid/contextual/aggregable/memory.rb:34
   def avg(field); end
 
   # Get the max value of the provided field. If provided a block, will
@@ -12239,7 +13486,7 @@ module Mongoid::Contextual::Aggregable::Memory
   # @return [ Numeric | Document ] The max value or document with the max
   #   value.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/aggregable/memory.rb:54
+  # pkg:gem/mongoid#lib/mongoid/contextual/aggregable/memory.rb:58
   def max(field = T.unsafe(nil)); end
 
   # Get the min value of the provided field. If provided a block, will
@@ -12259,7 +13506,7 @@ module Mongoid::Contextual::Aggregable::Memory
   # @return [ Numeric | Document ] The min value or document with the min
   #   value.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/aggregable/memory.rb:76
+  # pkg:gem/mongoid#lib/mongoid/contextual/aggregable/memory.rb:80
   def min(field = T.unsafe(nil)); end
 
   # Get the sum value of the provided field. If provided a block, will
@@ -12276,7 +13523,7 @@ module Mongoid::Contextual::Aggregable::Memory
   #
   # @return [ Numeric ] The sum value.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/aggregable/memory.rb:95
+  # pkg:gem/mongoid#lib/mongoid/contextual/aggregable/memory.rb:99
   def sum(field = T.unsafe(nil)); end
 
   private
@@ -12293,7 +13540,7 @@ module Mongoid::Contextual::Aggregable::Memory
   #
   # @return [ Numeric | nil ] The aggregate.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/aggregable/memory.rb:114
+  # pkg:gem/mongoid#lib/mongoid/contextual/aggregable/memory.rb:118
   def aggregate_by(field, method); end
 end
 
@@ -12781,10 +14028,10 @@ class Mongoid::Contextual::MapReduce
   def initialize(collection, criteria, map, reduce); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual/map_reduce.rb:12
-  def ==(*_arg0, **_arg1, &_arg2); end
+  def ==(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual/map_reduce.rb:11
-  def [](*_arg0, **_arg1, &_arg2); end
+  def [](*, **, &); end
 
   # Returns the selector of the command spec.
   #
@@ -12827,7 +14074,7 @@ class Mongoid::Contextual::MapReduce
   def emitted; end
 
   # pkg:gem/mongoid#lib/mongoid/contextual/map_reduce.rb:12
-  def empty?(*_arg0, **_arg1, &_arg2); end
+  def empty?(*, **, &); end
 
   # Execute the map/reduce, returning the raw output.
   # Useful when you don't care about map/reduce's output.
@@ -12977,9 +14224,10 @@ end
 # memory. The method interface of this class is consistent with
 # Mongoid::Contextual::Mongo.
 #
-# pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:12
+# pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:13
 class Mongoid::Contextual::Memory
   include ::Enumerable
+  include ::Mongoid::FieldReadable
   include ::Mongoid::Contextual::Aggregable::Memory
   include ::Mongoid::Association::EagerLoadable
   include ::Mongoid::Contextual::Queryable
@@ -12992,7 +14240,7 @@ class Mongoid::Contextual::Memory
   #
   # @param [ Criteria ] criteria The criteria.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:175
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:177
   def initialize(criteria); end
 
   # Check if the context is equal to the other object.
@@ -13004,7 +14252,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ true | false ] If the objects are equal.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:33
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:35
   def ==(other); end
 
   # Delete all documents in the database that match the selector.
@@ -13014,10 +14262,10 @@ class Mongoid::Contextual::Memory
   #
   # @return [ nil ] Nil.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:45
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:47
   def delete; end
 
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:59
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:61
   def delete_all; end
 
   # Destroy all documents in the database that match the selector.
@@ -13027,10 +14275,10 @@ class Mongoid::Contextual::Memory
   #
   # @return [ nil ] Nil.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:67
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:69
   def destroy; end
 
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:75
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:77
   def destroy_all; end
 
   # Get the distinct values in the db for the provided field.
@@ -13042,7 +14290,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Array<Object> ] The distinct values for the field.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:85
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:87
   def distinct(field); end
 
   # @attribute [r] root The root document.
@@ -13050,7 +14298,7 @@ class Mongoid::Contextual::Memory
   # @attribute [r] selector The root document selector.
   # @attribute [r] matching The in memory documents that match the selector.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:23
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:25
   def documents; end
 
   # Iterate over the context. If provided a block, yield to a Mongoid
@@ -13063,7 +14311,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Enumerator ] The enumerator.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:98
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:100
   def each(&block); end
 
   # Do any documents exist for the context.
@@ -13083,7 +14331,7 @@ class Mongoid::Contextual::Memory
   # @return [ true | false ] If the count is more than zero.
   #   Always false if passed nil or false.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:123
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:125
   def exists?(id_or_conditions = T.unsafe(nil)); end
 
   # Get the fifth document in the database for the criteria's selector.
@@ -13093,7 +14341,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Document ] The fifth document.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:456
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:468
   def fifth; end
 
   # Get the fifth document in the database for the criteria's selector or
@@ -13107,10 +14355,10 @@ class Mongoid::Contextual::Memory
   # @raise [ Mongoid::Errors::DocumentNotFound ] raises when there are no
   #   documents to take.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:470
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:482
   def fifth!; end
 
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:153
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:155
   def find_first(limit = T.unsafe(nil)); end
 
   # Get the first document in the database for the criteria's selector.
@@ -13122,7 +14370,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Document ] The first document.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:140
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:142
   def first(limit = T.unsafe(nil)); end
 
   # Get the first document in the database for the criteria's selector or
@@ -13136,7 +14384,7 @@ class Mongoid::Contextual::Memory
   # @raise [ Mongoid::Errors::DocumentNotFound ] raises when there are no
   #   documents to take.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:165
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:167
   def first!; end
 
   # Get the fourth document in the database for the criteria's selector.
@@ -13146,7 +14394,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Document ] The fourth document.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:432
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:444
   def fourth; end
 
   # Get the fourth document in the database for the criteria's selector or
@@ -13160,7 +14408,7 @@ class Mongoid::Contextual::Memory
   # @raise [ Mongoid::Errors::DocumentNotFound ] raises when there are no
   #   documents to take.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:446
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:458
   def fourth!; end
 
   # Increment a value on all documents.
@@ -13172,7 +14420,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Enumerator ] The enumerator.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:194
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:206
   def inc(incs); end
 
   # Get the last document in the database for the criteria's selector.
@@ -13184,7 +14432,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Document ] The last document.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:208
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:220
   def last(limit = T.unsafe(nil)); end
 
   # Get the last document in the database for the criteria's selector or
@@ -13198,7 +14446,7 @@ class Mongoid::Contextual::Memory
   # @raise [ Mongoid::Errors::DocumentNotFound ] raises when there are no
   #   documents to take.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:226
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:238
   def last!; end
 
   # Get the length of matching documents in the context.
@@ -13208,7 +14456,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Integer ] The matching length.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:236
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:248
   def length; end
 
   # Limits the number of documents that are returned.
@@ -13220,10 +14468,10 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Memory ] The context.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:249
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:261
   def limit(value); end
 
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:152
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:154
   def one(limit = T.unsafe(nil)); end
 
   # @attribute [r] root The root document.
@@ -13231,7 +14479,7 @@ class Mongoid::Contextual::Memory
   # @attribute [r] selector The root document selector.
   # @attribute [r] matching The in memory documents that match the selector.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:23
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:25
   def path; end
 
   # Pick the field values in memory.
@@ -13243,7 +14491,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Object | Array<Object> ] The picked values.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:276
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:288
   def pick(*fields); end
 
   # Pluck the field values in memory.
@@ -13255,7 +14503,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Array<Object> | Array<Array<Object>> ] The plucked values.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:262
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:274
   def pluck(*fields); end
 
   # @attribute [r] root The root document.
@@ -13263,7 +14511,7 @@ class Mongoid::Contextual::Memory
   # @attribute [r] selector The root document selector.
   # @attribute [r] matching The in memory documents that match the selector.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:23
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:25
   def root; end
 
   # Get the second document in the database for the criteria's selector.
@@ -13273,7 +14521,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Document ] The second document.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:384
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:396
   def second; end
 
   # Get the second document in the database for the criteria's selector or
@@ -13287,7 +14535,7 @@ class Mongoid::Contextual::Memory
   # @raise [ Mongoid::Errors::DocumentNotFound ] raises when there are no
   #   documents to take.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:398
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:410
   def second!; end
 
   # Get the second to last document in the database for the criteria's selector.
@@ -13297,7 +14545,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Document ] The second to last document.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:480
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:492
   def second_to_last; end
 
   # Get the second to last document in the database for the criteria's selector or
@@ -13311,7 +14559,7 @@ class Mongoid::Contextual::Memory
   # @raise [ Mongoid::Errors::DocumentNotFound ] raises when there are no
   #   documents to take.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:494
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:506
   def second_to_last!; end
 
   # @attribute [r] root The root document.
@@ -13319,10 +14567,10 @@ class Mongoid::Contextual::Memory
   # @attribute [r] selector The root document selector.
   # @attribute [r] matching The in memory documents that match the selector.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:23
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:25
   def selector; end
 
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:239
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:251
   def size; end
 
   # Skips the provided number of documents.
@@ -13334,7 +14582,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Memory ] The context.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:336
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:348
   def skip(value); end
 
   # Sorts the documents by the provided spec.
@@ -13347,7 +14595,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Memory ] The context.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:350
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:362
   def sort(values); end
 
   # Take the given number of documents from the database.
@@ -13359,7 +14607,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Document ] The document.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:306
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:318
   def take(limit = T.unsafe(nil)); end
 
   # Take the given number of documents from the database or raise an error
@@ -13373,7 +14621,7 @@ class Mongoid::Contextual::Memory
   # @raise [ Mongoid::Errors::DocumentNotFound ] raises when there are no
   #   documents to take.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:324
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:336
   def take!; end
 
   # Tally the field values in memory.
@@ -13385,7 +14633,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Hash ] The hash of counts.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:290
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:302
   def tally(field); end
 
   # Get the third document in the database for the criteria's selector.
@@ -13395,7 +14643,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Document ] The third document.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:408
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:420
   def third; end
 
   # Get the third document in the database for the criteria's selector or
@@ -13409,7 +14657,7 @@ class Mongoid::Contextual::Memory
   # @raise [ Mongoid::Errors::DocumentNotFound ] raises when there are no
   #   documents to take.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:422
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:434
   def third!; end
 
   # Get the third to last document in the database for the criteria's selector.
@@ -13419,7 +14667,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Document ] The third to last document.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:504
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:516
   def third_to_last; end
 
   # Get the third to last document in the database for the criteria's selector or
@@ -13433,7 +14681,7 @@ class Mongoid::Contextual::Memory
   # @raise [ Mongoid::Errors::DocumentNotFound ] raises when there are no
   #   documents to take.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:518
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:530
   def third_to_last!; end
 
   # Update the first matching document atomically.
@@ -13445,7 +14693,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ nil | false ] False if no attributes were provided.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:362
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:374
   def update(attributes = T.unsafe(nil)); end
 
   # Update all the matching documents atomically.
@@ -13457,12 +14705,12 @@ class Mongoid::Contextual::Memory
   #
   # @return [ nil | false ] False if no attributes were provided.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:374
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:386
   def update_all(attributes = T.unsafe(nil)); end
 
   private
 
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:688
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:700
   def _session; end
 
   # Apply criteria options.
@@ -13474,7 +14722,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Memory ] self.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:622
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:634
   def apply_options; end
 
   # Map the sort symbols to the correct MongoDB values.
@@ -13482,7 +14730,7 @@ class Mongoid::Contextual::Memory
   # @example Apply the sorting params.
   #   context.apply_sorting
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:632
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:644
   def apply_sorting; end
 
   # Compare two values, handling the cases when
@@ -13498,7 +14746,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Integer ] The comparison value.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:650
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:662
   def compare(a, b); end
 
   # Get the operand value to be used in comparison.
@@ -13511,7 +14759,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Integer | Object ] The comparison operand.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:701
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:713
   def compare_operand(value); end
 
   # Returns materialized documents for use in the cross-cluster $lookup
@@ -13519,7 +14767,7 @@ class Mongoid::Contextual::Memory
   #
   # @api private
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:528
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:540
   def docs_for_lookup_fallback; end
 
   # Get the documents the context should iterate. This follows 3 rules:
@@ -13531,7 +14779,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Array<Document> ] The docs to iterate.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:540
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:552
   def documents_for_iteration; end
 
   # Sort the documents in place.
@@ -13541,7 +14789,7 @@ class Mongoid::Contextual::Memory
   #
   # @param [ Hash ] values The field/direction sorting pairs.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:664
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:676
   def in_place_sort(values); end
 
   # Get the limiting value.
@@ -13561,7 +14809,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Integer ] The limit.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:577
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:589
   def limiting; end
 
   # Get the limiting value.
@@ -13581,7 +14829,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Integer ] The limit.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:590
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:602
   def limiting=(_arg0); end
 
   # Pluck the field values from the given document.
@@ -13591,7 +14839,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Object | Array<Object> ] The plucked values.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:773
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:784
   def pluck_from_doc(doc, *fields); end
 
   # Prepare the document for batch removal.
@@ -13603,10 +14851,10 @@ class Mongoid::Contextual::Memory
   #
   # @param [ Document ] doc The document.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:680
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:692
   def prepare_remove(doc); end
 
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:783
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:794
   def raise_document_not_found_error; end
 
   # Retrieve the value for the current document at the given field path.
@@ -13630,7 +14878,7 @@ class Mongoid::Contextual::Memory
   # @return [ Object | nil ] The value at the given field path or nil if it
   #   doesn't exist.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:729
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:741
   def retrieve_value_at_path(document, field_path); end
 
   # Get the skipping value.
@@ -13650,7 +14898,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Integer ] The skip.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:599
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:611
   def skipping; end
 
   # Get the skipping value.
@@ -13670,7 +14918,7 @@ class Mongoid::Contextual::Memory
   #
   # @return [ Integer ] The skip.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:612
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:624
   def skipping=(_arg0); end
 
   # Update the provided documents with the attributes.
@@ -13683,7 +14931,7 @@ class Mongoid::Contextual::Memory
   # @param [ Hash ] attributes The attributes.
   # @param [ Array<Document> ] docs The docs to update.
   #
-  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:557
+  # pkg:gem/mongoid#lib/mongoid/contextual/memory.rb:569
   def update_documents(attributes, docs); end
 end
 
@@ -13734,7 +14982,7 @@ class Mongoid::Contextual::Mongo
   def count(options = T.unsafe(nil), &block); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual/mongo.rb:277
-  def database_field_name(*_arg0, **_arg1, &_arg2); end
+  def database_field_name(*, **, &); end
 
   # Delete all documents in the database that match the selector.
   #
@@ -13830,7 +15078,7 @@ class Mongoid::Contextual::Mongo
   def exists?(id_or_conditions = T.unsafe(nil)); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual/mongo.rb:51
-  def explain(*_arg0, **_arg1, &_arg2); end
+  def explain(*, **, &); end
 
   # Get the fifth document in the database for the criteria's selector.
   #
@@ -14594,16 +15842,16 @@ class Mongoid::Contextual::Mongo::DocumentsLoader
   def unschedule; end
 
   # pkg:gem/mongoid#lib/mongoid/contextual/mongo/documents_loader.rb:13
-  def value(*_arg0, **_arg1, &_arg2); end
+  def value(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual/mongo/documents_loader.rb:13
-  def value!(*_arg0, **_arg1, &_arg2); end
+  def value!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual/mongo/documents_loader.rb:13
-  def wait(*_arg0, **_arg1, &_arg2); end
+  def wait(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/contextual/mongo/documents_loader.rb:13
-  def wait!(*_arg0, **_arg1, &_arg2); end
+  def wait!(*, **, &); end
 
   private
 
@@ -15351,7 +16599,7 @@ class Mongoid::Criteria
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/criteria.rb:553
-  def for_js(*args, **_arg1, &block); end
+  def for_js(*args, **, &block); end
 
   # When freezing a criteria we need to initialize the context first
   # otherwise the setting of the context on attempted iteration will raise a
@@ -15437,7 +16685,7 @@ class Mongoid::Criteria
   # pkg:gem/mongoid#lib/mongoid/criteria.rb:100
   def parent_document=(_arg0); end
 
-  # pkg:gem/mongoid#lib/mongoid/criteria/includable.rb:115
+  # pkg:gem/mongoid#lib/mongoid/criteria/includable.rb:139
   def raise_eager_error(is_eager_load, klass, relation); end
 
   # Produce a clone of the current criteria object with it's "raw"
@@ -15507,7 +16755,7 @@ class Mongoid::Criteria
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/criteria.rb:464
-  def to_criteria(*args, **_arg1, &block); end
+  def to_criteria(*args, **, &block); end
 
   # Convert the criteria to a proc.
   #
@@ -15636,7 +16884,7 @@ class Mongoid::Criteria
   def merge_type_selection; end
 
   # pkg:gem/mongoid#lib/mongoid/criteria.rb:619
-  def method_missing(name, *args, **_arg2, &block); end
+  def method_missing(name, *args, **, &block); end
 
   # Get a new selector with type selection in it.
   #
@@ -15692,7 +16940,7 @@ class Mongoid::Criteria
     # @raise [ ArgumentError ] If a method is not allowed in from_hash.
     #
     # pkg:gem/mongoid#lib/mongoid/criteria.rb:81
-    def from_hash(*args, **_arg1, &block); end
+    def from_hash(*args, **, &block); end
   end
 end
 
@@ -15902,7 +17150,7 @@ module Mongoid::Criteria::Includable
   #
   # @return [ Array<Mongoid::Association::Relatable> ] The inclusions.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/includable.rb:57
+  # pkg:gem/mongoid#lib/mongoid/criteria/includable.rb:59
   def inclusions; end
 
   # Set the inclusions for the criteria.
@@ -15911,14 +17159,16 @@ module Mongoid::Criteria::Includable
   #
   # @return [ Array<Mongoid::Association::Relatable> ] The new inclusions.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/includable.rb:66
+  # pkg:gem/mongoid#lib/mongoid/criteria/includable.rb:68
   def inclusions=(value); end
 
-  # Returns whether to use $lookup aggregation for eager loading.
+  # Returns whether to use $lookup aggregation for eager loading. Only when
+  # eager_load was requested and there is something to load: an empty
+  # inclusion list (e.g. eager_load([])) falls back to the normal path.
   #
   # @return [ true | false ] Whether to use $lookup.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/includable.rb:50
+  # pkg:gem/mongoid#lib/mongoid/criteria/includable.rb:52
   def use_lookup?; end
 
   private
@@ -15929,7 +17179,7 @@ module Mongoid::Criteria::Includable
   # @param [ String ] parent The name of the association above this one in
   #   the inclusion tree, if it is a nested inclusion.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/includable.rb:77
+  # pkg:gem/mongoid#lib/mongoid/criteria/includable.rb:79
   def add_inclusion(association, parent = T.unsafe(nil)); end
 
   # Iterate through the list of relations and create the inclusions list.
@@ -15942,8 +17192,23 @@ module Mongoid::Criteria::Includable
   # @param [ [ Symbol | Hash | Array<Symbol | Hash> ]... ] *relations_list
   #   The names of the association(s) to eager load.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/includable.rb:97
+  # pkg:gem/mongoid#lib/mongoid/criteria/includable.rb:99
   def extract_includes_list(_parent_class, parent, is_eager_load = T.unsafe(nil), *relations_list); end
+
+  # Resolve the association(s) matching the given relation name. For the
+  # regular #includes path, only the parent class is consulted. For the
+  # #eager_load ($lookup) path, its subclasses are consulted as well, so
+  # associations defined only on a subclass can also be eager-loaded when
+  # querying through the superclass.
+  #
+  # @param [ Class ] parent_class The class to start the lookup from.
+  # @param [ Symbol | String ] relation The association name.
+  # @param [ Boolean ] is_eager_load Whether to consider subclasses.
+  #
+  # @return [ Array<Mongoid::Association::Relatable> ] Matching associations.
+  #
+  # pkg:gem/mongoid#lib/mongoid/criteria/includable.rb:128
+  def resolve_inclusion_associations(parent_class, relation, is_eager_load); end
 end
 
 # Mixin module included in Mongoid::Criteria which adds custom
@@ -17094,7 +18359,7 @@ module Mongoid::Criteria::Queryable::Extensions::Object
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/criteria/queryable/extensions/object.rb:131
-  def regexp?(*args, **_arg1, &block); end
+  def regexp?(*args, **, &block); end
 end
 
 # pkg:gem/mongoid#lib/mongoid/criteria/queryable/extensions/object.rb:136
@@ -17219,7 +18484,7 @@ module Mongoid::Criteria::Queryable::Extensions::Regexp
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/criteria/queryable/extensions/regexp.rb:16
-  def regexp?(*args, **_arg1, &block); end
+  def regexp?(*args, **, &block); end
 end
 
 # pkg:gem/mongoid#lib/mongoid/criteria/queryable/extensions/regexp.rb:21
@@ -17250,7 +18515,7 @@ module Mongoid::Criteria::Queryable::Extensions::Regexp::Raw_
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/criteria/queryable/extensions/regexp.rb:46
-  def regexp?(*args, **_arg1, &block); end
+  def regexp?(*args, **, &block); end
 end
 
 # pkg:gem/mongoid#lib/mongoid/criteria/queryable/extensions/regexp.rb:51
@@ -17870,7 +19135,7 @@ module Mongoid::Criteria::Queryable::Mergeable
   #
   # @return [ Mergeable ] The new mergeable.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/mergeable.rb:337
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/mergeable.rb:341
   def __override__(criterion, operator); end
 
   # Adds the criterion to the existing selection.
@@ -17885,7 +19150,7 @@ module Mongoid::Criteria::Queryable::Mergeable
   #
   # @return [ Mergeable ] The new mergeable.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/mergeable.rb:361
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/mergeable.rb:365
   def __union__(criterion, operator); end
 
   # Combines criteria into a MongoDB selector.
@@ -17952,7 +19217,7 @@ module Mongoid::Criteria::Queryable::Mergeable
   #
   # @return [ Object ] The serialized value.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/mergeable.rb:413
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/mergeable.rb:417
   def prepare(field, operator, value); end
 
   # Use the named strategy for the next operation.
@@ -17966,7 +19231,7 @@ module Mongoid::Criteria::Queryable::Mergeable
   #
   # @return [ Mergeable ] The existing mergeable.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/mergeable.rb:375
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/mergeable.rb:379
   def use(strategy); end
 
   # Add criterion to the selection with the named strategy.
@@ -17982,7 +19247,7 @@ module Mongoid::Criteria::Queryable::Mergeable
   #
   # @return [ Mergeable ] The cloned query.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/mergeable.rb:393
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/mergeable.rb:397
   def with_strategy(strategy, criterion, operator); end
 end
 
@@ -18116,7 +19381,7 @@ module Mongoid::Criteria::Queryable::Optional
   #   Use max_time_ms instead.
   #
   # pkg:gem/mongoid#lib/mongoid/criteria/queryable/optional.rb:97
-  def max_scan(*args, **_arg1, &block); end
+  def max_scan(*args, **, &block); end
 
   # Adds a cumulative time limit in milliseconds for processing operations on a cursor.
   #
@@ -18604,7 +19869,7 @@ module Mongoid::Criteria::Queryable::Selectable
   #
   # @return [ Selectable ] The new selectable.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:625
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:633
   def any_of(*criteria); end
 
   # Add the range selection.
@@ -18697,7 +19962,7 @@ module Mongoid::Criteria::Queryable::Selectable
   # @return [ Selectable ] The cloned selectable.
   # @api private
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:795
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:822
   def expr_query(criterion); end
 
   # Add a $geoIntersects or $geoWithin selection. Symbol operators must
@@ -18797,7 +20062,7 @@ module Mongoid::Criteria::Queryable::Selectable
   #
   # @return [ Selectable ] The cloned selectable
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:826
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:854
   def js_query(criterion); end
 
   # Add the $lt criterion to the selector.
@@ -18959,7 +20224,7 @@ module Mongoid::Criteria::Queryable::Selectable
   #
   # @return [ Selectable ] The new selectable.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:552
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:560
   def none_of(*criteria); end
 
   # Adds $nor selection to the selectable.
@@ -18975,16 +20240,16 @@ module Mongoid::Criteria::Queryable::Selectable
   # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:480
   def nor(*criteria); end
 
-  # Negate the arguments, or the next selection if no arguments are given.
-  #
-  # @example Negate the next selection.
-  #   selectable.not.in(field: [ 1, 2 ])
+  # Negate the arguments.
   #
   # @example Add the $not criterion.
-  #   selectable.not(name: /Bob/)
+  #   Person.not(name: /Bob/)
   #
   # @example Execute a $not in a where query.
-  #   selectable.where(:field.not => /Bob/)
+  #   Person.where(:name.not => /Bob/)
+  #
+  # @example Negate a Criteria instance
+  #   Person.not(Person.where(...))
   #
   # @param [ [ Hash | Criteria ]... ] *criteria The key/value pair
   #   matches or Criteria objects to negate.
@@ -19028,7 +20293,7 @@ module Mongoid::Criteria::Queryable::Selectable
   #
   # @return [ Selectable ] The new selectable.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:595
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:603
   def or(*criteria); end
 
   # @attribute [rw] negating If the next expression is negated.
@@ -19063,7 +20328,7 @@ module Mongoid::Criteria::Queryable::Selectable
   #
   # @return [ Selectable ] The cloned selectable.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:723
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:731
   def text_search(terms, opts = T.unsafe(nil)); end
 
   # This is the general entry point for most MongoDB queries. This either
@@ -19081,7 +20346,7 @@ module Mongoid::Criteria::Queryable::Selectable
   #
   # @return [ Selectable ] The cloned selectable.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:757
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:765
   def where(*criteria); end
 
   # Add a $size selection for array fields.
@@ -19099,7 +20364,7 @@ module Mongoid::Criteria::Queryable::Selectable
   #
   # @return [ Selectable ] The cloned selectable.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:669
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:677
   def with_size(criterion); end
 
   # Adds a $type selection to the selectable.
@@ -19116,10 +20381,71 @@ module Mongoid::Criteria::Queryable::Selectable
   #
   # @return [ Selectable ] The cloned selectable.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:693
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:701
   def with_type(criterion); end
 
   private
+
+  # Walks a query expression looking for operators that execute
+  # server-side JavaScript, descending through both hashes and arrays so
+  # that nested forms such as {'$expr' => {'$function' => ...}} and
+  # {'$or' => [ {'$where' => ...} ]} are caught.
+  #
+  # The walk does not distinguish operator position from value position,
+  # so it also rejects queries where a JavaScript operator name appears as
+  # data rather than as an operator. Server 5.0+ permits $-prefixed field
+  # names in stored documents, which makes this reachable:
+  #
+  #   Doc.where(payload: { '$eq' => { '$function' => 'abc' } })
+  #
+  # Here the $eq marks its argument as a literal value to compare, so the
+  # server never evaluates it, but the guard raises anyway. The only
+  # workaround today is the global allow_unsafe_query_operators flag.
+  #
+  # TODO: discuss whether to track operator position (skipping the subtree
+  # under $eq, $ne, $in, $nin, and $elemMatch values) in a future
+  # iteration. It removes the false positive but adds exactly the kind of
+  # state that a real bypass could hide in, so it was left out for now.
+  #
+  # @param [ Object ] object A fragment of a query expression.
+  #
+  # @raise [ Errors::InvalidQuery ] If a JavaScript operator is present.
+  #
+  # @api private
+  #
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:937
+  def _mongoid_validate_no_javascript!(object); end
+
+  # Enforces the operator rules governed by the
+  # +allow_unsafe_query_operators+ configuration option against a
+  # normalized query expression.
+  #
+  # Two rules apply, and both are skipped when the option is true:
+  #
+  # - An operator at the top level of the expression must appear in
+  #   ALLOWED_QUERY_OPERATORS.
+  # - An operator in JAVASCRIPT_QUERY_OPERATORS is rejected at any depth.
+  #
+  # This is called from #_mongoid_expand_keys rather than from the
+  # individual query methods, because that is the one point every query
+  # method taking a user-supplied expression passes through on its way to
+  # the selector.
+  #
+  # It deliberately does not cover the APIs that ask for JavaScript
+  # outright, such as #js_query and Criteria#for_js: there the developer
+  # has chosen server-side JavaScript, so there is nothing to guard
+  # against. The same goes for the low-level Storable methods
+  # (#add_field_expression, #add_operator_expression), which write to the
+  # selector directly.
+  #
+  # @param [ Hash ] expr A normalized query expression.
+  #
+  # @raise [ Errors::InvalidQuery ] If a disallowed operator is present.
+  #
+  # @api private
+  #
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:895
+  def _mongoid_validate_operators!(expr); end
 
   # Take the provided criterion and store it as a selection in the query
   # selector.
@@ -19132,7 +20458,7 @@ module Mongoid::Criteria::Queryable::Selectable
   # @return [ Selectable ] The cloned selectable.
   # @api private
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:865
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:981
   def selection(criterion = T.unsafe(nil)); end
 
   # Force the values of the criterion to be evolved.
@@ -19146,7 +20472,7 @@ module Mongoid::Criteria::Queryable::Selectable
   #
   # @param [ Hash ] criterion The criterion.
   #
-  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:850
+  # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:966
   def typed_override(criterion, operator, &block); end
 
   class << self
@@ -19157,10 +20483,25 @@ module Mongoid::Criteria::Queryable::Selectable
     #
     # @return [ Array<Symbol> ] The names of the forwardable methods.
     #
-    # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:883
+    # pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:999
     def forwardables; end
   end
 end
+
+# Operators permitted at the top level of a query expression without
+# opt-in. Excludes $where (JS execution) and other operators not needed
+# for ordinary application queries.
+#
+# pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:795
+Mongoid::Criteria::Queryable::Selectable::ALLOWED_QUERY_OPERATORS = T.let(T.unsafe(nil), Array)
+
+# Operators that execute server-side JavaScript. These are rejected at
+# any depth, not just at the top level: the allowlist above permits
+# $expr and the logical operators, and their values are arbitrary
+# nested expressions that can carry $function or $where.
+#
+# pkg:gem/mongoid#lib/mongoid/criteria/queryable/selectable.rb:803
+Mongoid::Criteria::Queryable::Selectable::JAVASCRIPT_QUERY_OPERATORS = T.let(T.unsafe(nil), Array)
 
 # Constant for a LineString $geometry.
 #
@@ -19783,9 +21124,43 @@ module Mongoid::Deprecable
   # @param [ [ Symbol | Hash<Symbol, [ Symbol | String ]> ]... ] *method_descriptors
   #   The methods to deprecate, with optional replacement instructions.
   #
-  # pkg:gem/mongoid#lib/mongoid/deprecable.rb:27
+  # pkg:gem/mongoid#lib/mongoid/deprecable.rb:50
   def deprecate(target_module, *method_descriptors); end
+
+  # Emits a warning using the current deprecator. If the given warning (as
+  # identified by `id`) has already been issued previously, this is a no-op.
+  #
+  # @param [ Symbol ] id The unique identifier for this warning.
+  # @param [ String ] warning The warning message to emit.
+  # @param [ Array<Thread::Backtrace::Location> | nil ] callstack The backtrace at the call site.
+  #
+  # pkg:gem/mongoid#lib/mongoid/deprecable.rb:26
+  def deprecation_warning(id, warning, callstack = T.unsafe(nil)); end
+
+  # A Mongoid::Deprecation instance to use for reporting deprecations
+  #
+  # pkg:gem/mongoid#lib/mongoid/deprecable.rb:11
+  def deprecator; end
+
+  # Resets all deprecation warnings. For use in tests.
+  #
+  # pkg:gem/mongoid#lib/mongoid/deprecable.rb:16
+  def reset_deprecation_warnings!; end
+
+  private
+
+  # Wraps access to the warnings Hash in a synchronize block. If the given
+  # id+callsite has not been warned already, the method will yield to a block and then
+  # flag the id. Otherwise, it returns immediately.
+  #
+  # pkg:gem/mongoid#lib/mongoid/deprecable.rb:62
+  def deprecation_warning_guard(id, callsite); end
 end
+
+# The Mutex instance used to guard the deprecation warning flags.
+#
+# pkg:gem/mongoid#lib/mongoid/deprecable.rb:57
+Mongoid::Deprecable::DEPRECATION_WARNING_MUTEX = T.let(T.unsafe(nil), Thread::Mutex)
 
 # Utility class for logging deprecation warnings.
 #
@@ -20169,6 +21544,9 @@ module Mongoid::Document
     def _declared_scopes; end
     def _declared_scopes=(value); end
     def _declared_scopes?; end
+    def _dependents_owner; end
+    def _dependents_owner=(value); end
+    def _dependents_owner?; end
     def _validators; end
     def _validators=(value); end
     def _validators?; end
@@ -20187,9 +21565,6 @@ module Mongoid::Document
     def dependents; end
     def dependents=(value); end
     def dependents?; end
-    def dependents_owner; end
-    def dependents_owner=(value); end
-    def dependents_owner?; end
     def discriminator_key; end
     def discriminator_key=(value); end
     def discriminator_key?; end
@@ -20245,6 +21620,9 @@ module Mongoid::Document
     def _declared_scopes; end
     def _declared_scopes=(value); end
     def _declared_scopes?; end
+    def _dependents_owner; end
+    def _dependents_owner=(value); end
+    def _dependents_owner?; end
     def _validators; end
     def _validators?; end
     def aliased_associations; end
@@ -20262,9 +21640,6 @@ module Mongoid::Document
     def dependents; end
     def dependents=(value); end
     def dependents?; end
-    def dependents_owner; end
-    def dependents_owner=(value); end
-    def dependents_owner?; end
     def embedded=(value); end
     def embedded_relations; end
     def embedded_relations=(value); end
@@ -20452,6 +21827,22 @@ end
 
 # pkg:gem/mongoid#lib/mongoid/encryptable.rb:13
 module Mongoid::Encryptable::ClassMethods
+  # Whether any model reachable through this model's embeds_one relations
+  # declares encryption.
+  #
+  # embeds_many is not considered: libmongocrypt cannot express per-field
+  # encryption under array items, so those fields are never mapped.
+  #
+  # @param [ Array<Class> ] path The models the walk is already inside of.
+  #   A model embedding itself terminates here.
+  #
+  # @return [ true | false ] Whether an embedded model is encrypted.
+  #
+  # @api private
+  #
+  # pkg:gem/mongoid#lib/mongoid/encryptable.rb:71
+  def embeds_encrypted?(path); end
+
   # Set the encryption metadata for the model. Parameters set here will be
   # used to encrypt the fields of the model, unless overridden on the
   # field itself.
@@ -20477,6 +21868,24 @@ module Mongoid::Encryptable::ClassMethods
   # pkg:gem/mongoid#lib/mongoid/encryptable.rb:35
   def encrypted?; end
 
+  # Whether an encryption schema has to be generated for this model.
+  #
+  # True when the model declares encryption itself, and also when any model
+  # reachable through its embeds_one relations does. A model in the second
+  # group has no encrypted field of its own, but its collection still needs
+  # a schema, otherwise the embedded fields are written in plaintext.
+  #
+  # The answer is memoized, since this runs on the persistence path.
+  # Declaring encryption on a model after it has already been persisted is
+  # not supported.
+  #
+  # @return [ true | false ] Whether the model needs an encryption schema.
+  #
+  # @api private
+  #
+  # pkg:gem/mongoid#lib/mongoid/encryptable.rb:53
+  def requires_encryption_schema?; end
+
   # Override the key_id for the model.
   #
   # This method is solely for testing purposes and should not be used in
@@ -20486,7 +21895,7 @@ module Mongoid::Encryptable::ClassMethods
   #
   # @api private
   #
-  # pkg:gem/mongoid#lib/mongoid/encryptable.rb:47
+  # pkg:gem/mongoid#lib/mongoid/encryptable.rb:93
   def set_key_id(key_id); end
 end
 
@@ -20631,6 +22040,38 @@ class Mongoid::Errors::Callback < ::Mongoid::Errors::MongoidError
   # pkg:gem/mongoid#lib/mongoid/errors/callback.rb:15
   def initialize(klass, method); end
 end
+
+# Redacts credentials from a client configuration hash before it is
+# interpolated into an exception message.
+#
+# pkg:gem/mongoid#lib/mongoid/errors/config_redactor.rb:7
+module Mongoid::Errors::ConfigRedactor
+  extend ::Mongoid::Errors::ConfigRedactor
+
+  # Return a copy of the given config hash with sensitive values redacted.
+  # Recurses into nested hashes so that, e.g., `:options =>
+  # { :auto_encryption_options => ... }` is also covered. Non-hash inputs
+  # are returned unchanged.
+  #
+  # pkg:gem/mongoid#lib/mongoid/errors/config_redactor.rb:22
+  def redact(config); end
+
+  # pkg:gem/mongoid#lib/mongoid/errors/config_redactor.rb:30
+  def redact_value(key, value); end
+end
+
+# pkg:gem/mongoid#lib/mongoid/errors/config_redactor.rb:10
+Mongoid::Errors::ConfigRedactor::REDACTED = T.let(T.unsafe(nil), String)
+
+# Top-level keys whose values should be replaced wholesale.
+#
+# pkg:gem/mongoid#lib/mongoid/errors/config_redactor.rb:13
+Mongoid::Errors::ConfigRedactor::SENSITIVE_KEYS = T.let(T.unsafe(nil), Array)
+
+# Match the userinfo portion of a MongoDB connection string.
+#
+# pkg:gem/mongoid#lib/mongoid/errors/config_redactor.rb:16
+Mongoid::Errors::ConfigRedactor::URI_USERINFO = T.let(T.unsafe(nil), Regexp)
 
 # Raised when an attempt to create a collection failed.
 #
@@ -20826,6 +22267,29 @@ class Mongoid::Errors::InMemoryCollationNotSupported < ::Mongoid::Errors::Mongoi
   #
   # pkg:gem/mongoid#lib/mongoid/errors/in_memory_collation_not_supported.rb:12
   def initialize; end
+end
+
+# This error is raised when evaluating a query in memory exceeds
+# Mongoid::Config.in_memory_regexp_time_limit.
+#
+# What the limit bounds depends on the Ruby in use. Where per-Regexp
+# timeouts are available it is the time spent executing regular
+# expressions; elsewhere it is the elapsed time of the whole in-memory
+# evaluation. The message is worded to hold either way.
+#
+# pkg:gem/mongoid#lib/mongoid/errors/in_memory_regexp_timeout.rb:12
+class Mongoid::Errors::InMemoryRegexpTimeout < ::Mongoid::Errors::MongoidError
+  # Create the new error.
+  #
+  # @example Create the new in-memory regexp timeout error.
+  #   InMemoryRegexpTimeout.new(5.0)
+  #
+  # @param [ Float ] limit The limit that was exceeded, in seconds. Not
+  #   always the configured one: a global Regexp.timeout stricter than the
+  #   configuration takes its place.
+  #
+  # pkg:gem/mongoid#lib/mongoid/errors/in_memory_regexp_timeout.rb:21
+  def initialize(limit); end
 end
 
 # This error is raised when an around callback is
@@ -21680,6 +23144,26 @@ class Mongoid::Errors::NoDefaultClient < ::Mongoid::Errors::MongoidError
   def initialize(keys); end
 end
 
+# This error is raised when a model declares encrypted fields, but the
+# namespace it is about to be persisted to is not covered by the automatic
+# encryption schema of the client in use. Without a schema the driver has
+# nothing to encrypt with, and the fields would be stored in plaintext.
+#
+# pkg:gem/mongoid#lib/mongoid/errors/no_encryption_schema.rb:9
+class Mongoid::Errors::NoEncryptionSchema < ::Mongoid::Errors::MongoidError
+  # Create the new error.
+  #
+  # @example Create the error.
+  #   NoEncryptionSchema.new(Band, 'music.bands', :default)
+  #
+  # @param [ Class ] klass The model class.
+  # @param [ String ] namespace The namespace the model resolved to.
+  # @param [ String | Symbol ] client The name of the client in use.
+  #
+  # pkg:gem/mongoid#lib/mongoid/errors/no_encryption_schema.rb:18
+  def initialize(klass, namespace, client); end
+end
+
 # Raised when trying to load configuration with no RACK_ENV set
 #
 # pkg:gem/mongoid#lib/mongoid/errors/no_environment.rb:6
@@ -21738,6 +23222,23 @@ class Mongoid::Errors::NoParent < ::Mongoid::Errors::MongoidError
   #
   # pkg:gem/mongoid#lib/mongoid/errors/no_parent.rb:14
   def initialize(klass); end
+end
+
+# Raised when attempting to write to a :through association, which is
+# read-only.
+#
+# pkg:gem/mongoid#lib/mongoid/errors/readonly_association.rb:7
+class Mongoid::Errors::ReadonlyAssociation < ::Mongoid::Errors::MongoidError
+  # Instantiate the exception.
+  #
+  # @example Create the error.
+  #   ReadonlyAssociation.new(Physician, association)
+  #
+  # @param [ Class ] klass The owner class.
+  # @param [ Mongoid::Association::Relatable ] association The through association.
+  #
+  # pkg:gem/mongoid#lib/mongoid/errors/readonly_association.rb:15
+  def initialize(klass, association); end
 end
 
 # This error is raised when attempting the change the value of a readonly
@@ -22074,7 +23575,7 @@ module Mongoid::Extensions::Array
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/array.rb:25
-  def __find_args__(*args, **_arg1, &block); end
+  def __find_args__(*args, **, &block); end
 
   # Mongoize the array into an array of object ids.
   #
@@ -22135,7 +23636,7 @@ module Mongoid::Extensions::Array
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/array.rb:63
-  def multi_arged?(*args, **_arg1, &block); end
+  def multi_arged?(*args, **, &block); end
 
   # Returns whether the object's size can be changed.
   #
@@ -22162,7 +23663,7 @@ module Mongoid::Extensions::Array::ClassMethods
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/array.rb:115
-  def __mongoize_fk__(*args, **_arg1, &block); end
+  def __mongoize_fk__(*args, **, &block); end
 
   # Turn the object from the ruby type we deal with to a Mongo friendly
   # type.
@@ -22203,7 +23704,7 @@ module Mongoid::Extensions::BigDecimal
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/big_decimal.rb:23
-  def __to_inc__(*args, **_arg1, &block); end
+  def __to_inc__(*args, **, &block); end
 
   # Turn the object from the ruby type we deal with to a Mongo friendly
   # type.
@@ -22471,7 +23972,7 @@ module Mongoid::Extensions::FalseClass
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/false_class.rb:14
-  def __sortable__(*args, **_arg1, &block); end
+  def __sortable__(*args, **, &block); end
 
   # Is the passed value a boolean?
   #
@@ -22547,7 +24048,7 @@ module Mongoid::Extensions::Hash
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/hash.rb:42
-  def __consolidate__(*args, **_arg1, &block); end
+  def __consolidate__(*args, **, &block); end
 
   # Evolves each value in the hash to an object id if it is convertable.
   #
@@ -22578,7 +24079,7 @@ module Mongoid::Extensions::Hash
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/hash.rb:54
-  def delete_id(*args, **_arg1, &block); end
+  def delete_id(*args, **, &block); end
 
   # Get the id attribute from this hash, whether it's prefixed with an
   # underscore or is a symbol.
@@ -22590,7 +24091,7 @@ module Mongoid::Extensions::Hash
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/hash.rb:67
-  def extract_id(*args, **_arg1, &block); end
+  def extract_id(*args, **, &block); end
 
   # Turn the object from the ruby type we deal with to a Mongo friendly
   # type.
@@ -22624,7 +24125,7 @@ module Mongoid::Extensions::Hash
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/hash.rb:102
-  def to_criteria(*args, **_arg1, &block); end
+  def to_criteria(*args, **, &block); end
 end
 
 # pkg:gem/mongoid#lib/mongoid/extensions/hash.rb:107
@@ -22686,7 +24187,7 @@ module Mongoid::Extensions::Integer
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/integer.rb:34
-  def unconvertable_to_bson?(*args, **_arg1, &block); end
+  def unconvertable_to_bson?(*args, **, &block); end
 end
 
 # pkg:gem/mongoid#lib/mongoid/extensions/integer.rb:39
@@ -22740,7 +24241,7 @@ module Mongoid::Extensions::NilClass
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/nil_class.rb:14
-  def __setter__(*args, **_arg1, &block); end
+  def __setter__(*args, **, &block); end
 
   # Get the name of a nil collection.
   #
@@ -22776,7 +24277,7 @@ module Mongoid::Extensions::Object
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/object.rb:29
-  def __find_args__(*args, **_arg1, &block); end
+  def __find_args__(*args, **, &block); end
 
   # pkg:gem/mongoid#lib/mongoid/extensions/object.rb:20
   def __mongoize_object_id__; end
@@ -22790,7 +24291,7 @@ module Mongoid::Extensions::Object
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/object.rb:41
-  def __setter__(*args, **_arg1, &block); end
+  def __setter__(*args, **, &block); end
 
   # Get the value of the object as a mongo friendly sort value.
   #
@@ -22801,7 +24302,7 @@ module Mongoid::Extensions::Object
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/object.rb:53
-  def __sortable__(*args, **_arg1, &block); end
+  def __sortable__(*args, **, &block); end
 
   # Conversion of an object to an $inc-able value.
   #
@@ -22812,7 +24313,7 @@ module Mongoid::Extensions::Object
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/object.rb:65
-  def __to_inc__(*args, **_arg1, &block); end
+  def __to_inc__(*args, **, &block); end
 
   # Do or do not, there is no try. -- Yoda.
   #
@@ -22827,7 +24328,7 @@ module Mongoid::Extensions::Object
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/object.rb:81
-  def do_or_do_not(*args, **_arg1, &block); end
+  def do_or_do_not(*args, **, &block); end
 
   # Get the value for an instance variable or false if it doesn't exist.
   #
@@ -22861,7 +24362,7 @@ module Mongoid::Extensions::Object
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/object.rb:119
-  def multi_arged?(*args, **_arg1, &block); end
+  def multi_arged?(*args, **, &block); end
 
   # Is the object a number?
   #
@@ -22919,7 +24420,7 @@ module Mongoid::Extensions::Object
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/object.rb:180
-  def you_must(*args, **_arg1, &block); end
+  def you_must(*args, **, &block); end
 
   class << self
     # pkg:gem/mongoid#lib/mongoid/extensions/object.rb:7
@@ -22942,7 +24443,7 @@ module Mongoid::Extensions::Object::ClassMethods
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/object.rb:197
-  def __mongoize_fk__(*args, **_arg1, &block); end
+  def __mongoize_fk__(*args, **, &block); end
 
   # Convert the object from its mongo friendly ruby type to this type.
   #
@@ -23030,7 +24531,7 @@ module Mongoid::Extensions::Range
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/range.rb:18
-  def __find_args__(*args, **_arg1, &block); end
+  def __find_args__(*args, **, &block); end
 
   # Turn the object from the ruby type we deal with to a Mongo friendly
   # type.
@@ -23242,7 +24743,7 @@ module Mongoid::Extensions::String
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/string.rb:71
-  def mongoid_id?(*args, **_arg1, &block); end
+  def mongoid_id?(*args, **, &block); end
 
   # Is the string a number? The literals "NaN", "Infinity", and "-Infinity"
   # are counted as numbers.
@@ -23269,13 +24770,13 @@ module Mongoid::Extensions::String
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/string.rb:9
-  def unconvertable_to_bson(*args, **_arg1, &block); end
+  def unconvertable_to_bson(*args, **, &block); end
 
   # @attribute [rw] unconvertable_to_bson If the document is unconvertable.
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/string.rb:9
-  def unconvertable_to_bson=(*args, **_arg1, &block); end
+  def unconvertable_to_bson=(*args, **, &block); end
 
   # Is the object not to be converted to bson on criteria creation?
   #
@@ -23286,7 +24787,7 @@ module Mongoid::Extensions::String
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/string.rb:136
-  def unconvertable_to_bson?(*args, **_arg1, &block); end
+  def unconvertable_to_bson?(*args, **, &block); end
 
   # Is this string a valid_method_name?
   #
@@ -23355,7 +24856,7 @@ module Mongoid::Extensions::Symbol
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/symbol.rb:14
-  def mongoid_id?(*args, **_arg1, &block); end
+  def mongoid_id?(*args, **, &block); end
 end
 
 # pkg:gem/mongoid#lib/mongoid/extensions/symbol.rb:19
@@ -23505,7 +25006,7 @@ module Mongoid::Extensions::TrueClass
   # @deprecated
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/true_class.rb:14
-  def __sortable__(*args, **_arg1, &block); end
+  def __sortable__(*args, **, &block); end
 
   # Is the passed value a boolean?
   #
@@ -23518,6 +25019,57 @@ module Mongoid::Extensions::TrueClass
   #
   # pkg:gem/mongoid#lib/mongoid/extensions/true_class.rb:27
   def is_a?(other); end
+end
+
+# Adds type-casting behavior to BSON::Vector class so that a field
+# declared with +type: BSON::Vector+ is stored as a BSON binary of the
+# vector subtype and read back as a BSON::Vector.
+#
+# Querying by an exact vector value (e.g. +where(embedding: vector)+) is
+# not supported: BSON::Vector subclasses Array, so the criteria selector
+# treats it as a list of elements rather than a scalar. Use Atlas Vector
+# Search ($vectorSearch) for similarity queries on vector fields.
+#
+# pkg:gem/mongoid#lib/mongoid/extensions/vector.rb:13
+module Mongoid::Extensions::Vector
+  # Turn the object from the ruby type we deal with to a Mongo friendly
+  # type.
+  #
+  # @example Mongoize the object.
+  #   object.mongoize
+  #
+  # @return [ BSON::Binary | nil ] The object as a vector binary.
+  #
+  # pkg:gem/mongoid#lib/mongoid/extensions/vector.rb:21
+  def mongoize; end
+end
+
+# pkg:gem/mongoid#lib/mongoid/extensions/vector.rb:25
+module Mongoid::Extensions::Vector::ClassMethods
+  # Convert the object from its mongo friendly ruby type back to a
+  # BSON::Vector.
+  #
+  # @example Demongoize the object.
+  #   BSON::Vector.demongoize(binary)
+  #
+  # @param [ Object ] object The object to demongoize.
+  #
+  # @return [ BSON::Vector | nil ] The vector or nil.
+  #
+  # pkg:gem/mongoid#lib/mongoid/extensions/vector.rb:50
+  def demongoize(object); end
+
+  # Mongoize an object of any type to how it's stored in the db.
+  #
+  # @example Mongoize the object.
+  #   BSON::Vector.mongoize(vector)
+  #
+  # @param [ Object ] object The object to Mongoize.
+  #
+  # @return [ BSON::Binary | nil ] A vector binary or nil.
+  #
+  # pkg:gem/mongoid#lib/mongoid/extensions/vector.rb:34
+  def mongoize(object); end
 end
 
 # Instantiates documents that came from the database.
@@ -23734,6 +25286,46 @@ class Mongoid::Factory::Instantiator
   #
   # pkg:gem/mongoid#lib/mongoid/factory.rb:80
   def instantiate_without_type(execute_callbacks); end
+end
+
+# Reads the value of a field name from a document without dispatching the
+# name as an arbitrary method.
+#
+# Field names may come from application input, where a name like +destroy+
+# or +attributes+ would delete the document or disclose its contents.
+# Declared field and association names are validated when they are declared
+# (see Mongoid.destructive_fields), so a name that resolves to one of them
+# is safe to send to a document. Any other name is read from the attributes
+# hash, which is what the database-backed query contexts do.
+#
+# @api private
+#
+# pkg:gem/mongoid#lib/mongoid/field_readable.rb:15
+module Mongoid::FieldReadable
+  private
+
+  # Read the value of the given field name from the given document.
+  #
+  # @param [ Document ] document The document to read from.
+  # @param [ String | Symbol ] name The name of the field.
+  #
+  # @return [ Object | nil ] The value of the field, or nil when the name
+  #   is neither a declared field nor present in the attributes.
+  #
+  # pkg:gem/mongoid#lib/mongoid/field_readable.rb:25
+  def read_field_value(document, name); end
+
+  # Resolve the given name to a method that is declared by the given class,
+  # and therefore safe to send to one of its instances.
+  #
+  # @param [ Class ] klass The document class.
+  # @param [ String ] name The name of the field.
+  #
+  # @return [ String | nil ] The method to send, or nil when the name is
+  #   not declared by the class.
+  #
+  # pkg:gem/mongoid#lib/mongoid/field_readable.rb:46
+  def readable_method_for(klass, name); end
 end
 
 # This module defines behavior for fields.
@@ -24760,7 +26352,7 @@ class Mongoid::Fields::Standard
   def default_val=(_arg0); end
 
   # pkg:gem/mongoid#lib/mongoid/fields/standard.rb:15
-  def demongoize(*_arg0, **_arg1, &_arg2); end
+  def demongoize(*, **, &); end
 
   # Evaluate the default value and return it. Will handle the
   # serialization, proc calls, and duplication if necessary.
@@ -24776,7 +26368,7 @@ class Mongoid::Fields::Standard
   def eval_default(doc); end
 
   # pkg:gem/mongoid#lib/mongoid/fields/standard.rb:15
-  def evolve(*_arg0, **_arg1, &_arg2); end
+  def evolve(*, **, &); end
 
   # Is this field a foreign key?
   #
@@ -24831,7 +26423,7 @@ class Mongoid::Fields::Standard
   def localized?; end
 
   # pkg:gem/mongoid#lib/mongoid/fields/standard.rb:15
-  def mongoize(*_arg0, **_arg1, &_arg2); end
+  def mongoize(*, **, &); end
 
   # Defines the behavior for defined fields in the document.
   # Set readers for the instance variables.
@@ -25081,19 +26673,19 @@ module Mongoid::Findable
   extend ::Forwardable
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def aggregates(*_arg0, **_arg1, &_arg2); end
+  def aggregates(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def all(*_arg0, **_arg1, &_arg2); end
+  def all(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def all_in(*_arg0, **_arg1, &_arg2); end
+  def all_in(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def all_of(*_arg0, **_arg1, &_arg2); end
+  def all_of(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def and(*_arg0, **_arg1, &_arg2); end
+  def and(*, **, &); end
 
   # Return true if any documents exist in the criteria.
   #
@@ -25106,31 +26698,31 @@ module Mongoid::Findable
   def any?; end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def any_in(*_arg0, **_arg1, &_arg2); end
+  def any_in(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def any_of(*_arg0, **_arg1, &_arg2); end
+  def any_of(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def asc(*_arg0, **_arg1, &_arg2); end
+  def asc(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def ascending(*_arg0, **_arg1, &_arg2); end
+  def ascending(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def avg(*_arg0, **_arg1, &_arg2); end
+  def avg(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def batch_size(*_arg0, **_arg1, &_arg2); end
+  def batch_size(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def between(*_arg0, **_arg1, &_arg2); end
+  def between(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def collation(*_arg0, **_arg1, &_arg2); end
+  def collation(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def comment(*_arg0, **_arg1, &_arg2); end
+  def comment(*, **, &); end
 
   # Returns a count of records in the database.
   # If you want to specify conditions use where.
@@ -25145,31 +26737,31 @@ module Mongoid::Findable
   def count; end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def create_with(*_arg0, **_arg1, &_arg2); end
+  def create_with(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def cursor_type(*_arg0, **_arg1, &_arg2); end
+  def cursor_type(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def desc(*_arg0, **_arg1, &_arg2); end
+  def desc(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def descending(*_arg0, **_arg1, &_arg2); end
+  def descending(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def distinct(*_arg0, **_arg1, &_arg2); end
+  def distinct(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def each(*_arg0, **_arg1, &_arg2); end
+  def each(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def each_with_index(*_arg0, **_arg1, &_arg2); end
+  def each_with_index(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def eager_load(*_arg0, **_arg1, &_arg2); end
+  def eager_load(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def elem_match(*_arg0, **_arg1, &_arg2); end
+  def elem_match(*, **, &); end
 
   # Returns true if count is zero
   #
@@ -25182,7 +26774,7 @@ module Mongoid::Findable
   def empty?; end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def eq(*_arg0, **_arg1, &_arg2); end
+  def eq(*, **, &); end
 
   # Returns an estimated count of records in the database.
   #
@@ -25195,10 +26787,10 @@ module Mongoid::Findable
   def estimated_count; end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def excludes(*_arg0, **_arg1, &_arg2); end
+  def excludes(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def exists(*_arg0, **_arg1, &_arg2); end
+  def exists(*, **, &); end
 
   # Returns true if there are on document in database based on the
   # provided arguments.
@@ -25222,16 +26814,16 @@ module Mongoid::Findable
   def exists?(id_or_conditions = T.unsafe(nil)); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def expr_query(*_arg0, **_arg1, &_arg2); end
+  def expr_query(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def extras(*_arg0, **_arg1, &_arg2); end
+  def extras(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def fifth(*_arg0, **_arg1, &_arg2); end
+  def fifth(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def fifth!(*_arg0, **_arg1, &_arg2); end
+  def fifth!(*, **, &); end
 
   # Finds a +Document+ or multiple documents by their _id values.
   #
@@ -25320,22 +26912,22 @@ module Mongoid::Findable
   def find_by!(attrs = T.unsafe(nil)); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def find_one_and_delete(*_arg0, **_arg1, &_arg2); end
+  def find_one_and_delete(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def find_one_and_replace(*_arg0, **_arg1, &_arg2); end
+  def find_one_and_replace(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def find_one_and_update(*_arg0, **_arg1, &_arg2); end
+  def find_one_and_update(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def find_or_create_by(*_arg0, **_arg1, &_arg2); end
+  def find_or_create_by(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def find_or_create_by!(*_arg0, **_arg1, &_arg2); end
+  def find_or_create_by!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def find_or_initialize_by(*_arg0, **_arg1, &_arg2); end
+  def find_or_initialize_by(*, **, &); end
 
   # Find the first +Document+ given the conditions.
   #
@@ -25350,46 +26942,46 @@ module Mongoid::Findable
   def first(limit = T.unsafe(nil)); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def first!(*_arg0, **_arg1, &_arg2); end
+  def first!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def first_or_create(*_arg0, **_arg1, &_arg2); end
+  def first_or_create(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def first_or_create!(*_arg0, **_arg1, &_arg2); end
+  def first_or_create!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def first_or_initialize(*_arg0, **_arg1, &_arg2); end
+  def first_or_initialize(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def for_js(*_arg0, **_arg1, &_arg2); end
+  def for_js(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def fourth(*_arg0, **_arg1, &_arg2); end
+  def fourth(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def fourth!(*_arg0, **_arg1, &_arg2); end
+  def fourth!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def geo_spatial(*_arg0, **_arg1, &_arg2); end
+  def geo_spatial(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def gt(*_arg0, **_arg1, &_arg2); end
+  def gt(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def gte(*_arg0, **_arg1, &_arg2); end
+  def gte(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def hint(*_arg0, **_arg1, &_arg2); end
+  def hint(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def in(*_arg0, **_arg1, &_arg2); end
+  def in(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def includes(*_arg0, **_arg1, &_arg2); end
+  def includes(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def js_query(*_arg0, **_arg1, &_arg2); end
+  def js_query(*, **, &); end
 
   # Find the last +Document+ given the conditions.
   #
@@ -25404,16 +26996,16 @@ module Mongoid::Findable
   def last(limit = T.unsafe(nil)); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def last!(*_arg0, **_arg1, &_arg2); end
+  def last!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def limit(*_arg0, **_arg1, &_arg2); end
+  def limit(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def lt(*_arg0, **_arg1, &_arg2); end
+  def lt(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def lte(*_arg0, **_arg1, &_arg2); end
+  def lte(*, **, &); end
 
   # Return true if more than one document exists in the criteria.
   #
@@ -25426,58 +27018,58 @@ module Mongoid::Findable
   def many?; end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def map_reduce(*_arg0, **_arg1, &_arg2); end
+  def map_reduce(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def max(*_arg0, **_arg1, &_arg2); end
+  def max(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def max_distance(*_arg0, **_arg1, &_arg2); end
+  def max_distance(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def max_scan(*_arg0, **_arg1, &_arg2); end
+  def max_scan(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def max_time_ms(*_arg0, **_arg1, &_arg2); end
+  def max_time_ms(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def min(*_arg0, **_arg1, &_arg2); end
+  def min(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def mod(*_arg0, **_arg1, &_arg2); end
+  def mod(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def ne(*_arg0, **_arg1, &_arg2); end
+  def ne(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def near(*_arg0, **_arg1, &_arg2); end
+  def near(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def near_sphere(*_arg0, **_arg1, &_arg2); end
+  def near_sphere(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def nin(*_arg0, **_arg1, &_arg2); end
+  def nin(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def no_timeout(*_arg0, **_arg1, &_arg2); end
+  def no_timeout(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def none(*_arg0, **_arg1, &_arg2); end
+  def none(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def none_of(*_arg0, **_arg1, &_arg2); end
+  def none_of(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def nor(*_arg0, **_arg1, &_arg2); end
+  def nor(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def not(*_arg0, **_arg1, &_arg2); end
+  def not(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def not_in(*_arg0, **_arg1, &_arg2); end
+  def not_in(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def offset(*_arg0, **_arg1, &_arg2); end
+  def offset(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:258
   def one(limit = T.unsafe(nil)); end
@@ -25493,97 +27085,97 @@ module Mongoid::Findable
   def one?; end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def only(*_arg0, **_arg1, &_arg2); end
+  def only(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def or(*_arg0, **_arg1, &_arg2); end
+  def or(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def order(*_arg0, **_arg1, &_arg2); end
+  def order(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def order_by(*_arg0, **_arg1, &_arg2); end
+  def order_by(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def pick(*_arg0, **_arg1, &_arg2); end
+  def pick(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def pluck(*_arg0, **_arg1, &_arg2); end
+  def pluck(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def raw(*_arg0, **_arg1, &_arg2); end
+  def raw(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def read(*_arg0, **_arg1, &_arg2); end
+  def read(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def reorder(*_arg0, **_arg1, &_arg2); end
+  def reorder(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def second(*_arg0, **_arg1, &_arg2); end
+  def second(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def second!(*_arg0, **_arg1, &_arg2); end
+  def second!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def second_to_last(*_arg0, **_arg1, &_arg2); end
+  def second_to_last(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def second_to_last!(*_arg0, **_arg1, &_arg2); end
+  def second_to_last!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def skip(*_arg0, **_arg1, &_arg2); end
+  def skip(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def slice(*_arg0, **_arg1, &_arg2); end
+  def slice(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def snapshot(*_arg0, **_arg1, &_arg2); end
+  def snapshot(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def sum(*_arg0, **_arg1, &_arg2); end
+  def sum(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def take(*_arg0, **_arg1, &_arg2); end
+  def take(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def take!(*_arg0, **_arg1, &_arg2); end
+  def take!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def tally(*_arg0, **_arg1, &_arg2); end
+  def tally(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def text_search(*_arg0, **_arg1, &_arg2); end
+  def text_search(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def third(*_arg0, **_arg1, &_arg2); end
+  def third(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def third!(*_arg0, **_arg1, &_arg2); end
+  def third!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def third_to_last(*_arg0, **_arg1, &_arg2); end
+  def third_to_last(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def third_to_last!(*_arg0, **_arg1, &_arg2); end
+  def third_to_last!(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def update(*_arg0, **_arg1, &_arg2); end
+  def update(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:16
-  def update_all(*_arg0, **_arg1, &_arg2); end
+  def update_all(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def where(*_arg0, **_arg1, &_arg2); end
+  def where(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def with_size(*_arg0, **_arg1, &_arg2); end
+  def with_size(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def with_type(*_arg0, **_arg1, &_arg2); end
+  def with_type(*, **, &); end
 
   # pkg:gem/mongoid#lib/mongoid/findable.rb:9
-  def without(*_arg0, **_arg1, &_arg2); end
+  def without(*, **, &); end
 end
 
 # Module used to prepend the discriminator key assignment function to change
@@ -25752,6 +27344,15 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
 
   # pkg:gem/mongoid#lib/mongoid.rb:151
   def _declared_scopes?; end
+
+  # pkg:gem/mongoid#lib/mongoid.rb:151
+  def _dependents_owner; end
+
+  # pkg:gem/mongoid#lib/mongoid.rb:151
+  def _dependents_owner=(_arg0); end
+
+  # pkg:gem/mongoid#lib/mongoid.rb:151
+  def _dependents_owner?; end
 
   # pkg:gem/mongoid#lib/mongoid.rb:151
   def _destroy_callbacks; end
@@ -25937,15 +27538,6 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   def dependents?; end
 
   # pkg:gem/mongoid#lib/mongoid.rb:151
-  def dependents_owner; end
-
-  # pkg:gem/mongoid#lib/mongoid.rb:151
-  def dependents_owner=(_arg0); end
-
-  # pkg:gem/mongoid#lib/mongoid.rb:151
-  def dependents_owner?; end
-
-  # pkg:gem/mongoid#lib/mongoid.rb:151
   def embedded=(_arg0); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:151
@@ -26021,7 +27613,7 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
   def localized_fields?; end
 
   # pkg:gem/mongoid#lib/mongoid.rb:151
-  def model_name(&_arg0); end
+  def model_name(&); end
 
   # pkg:gem/mongoid#lib/mongoid.rb:151
   def nested_attributes; end
@@ -26146,6 +27738,15 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
 
     # pkg:gem/mongoid#lib/mongoid.rb:151
     def _declared_scopes?; end
+
+    # pkg:gem/mongoid#lib/mongoid.rb:151
+    def _dependents_owner; end
+
+    # pkg:gem/mongoid#lib/mongoid.rb:151
+    def _dependents_owner=(value); end
+
+    # pkg:gem/mongoid#lib/mongoid.rb:151
+    def _dependents_owner?; end
 
     # pkg:gem/mongoid#lib/mongoid.rb:151
     def _destroy_callbacks; end
@@ -26343,16 +27944,7 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     def dependents?; end
 
     # pkg:gem/mongoid#lib/mongoid.rb:151
-    def dependents_owner; end
-
-    # pkg:gem/mongoid#lib/mongoid.rb:151
-    def dependents_owner=(value); end
-
-    # pkg:gem/mongoid#lib/mongoid.rb:151
-    def dependents_owner?; end
-
-    # pkg:gem/mongoid#lib/mongoid.rb:151
-    def discriminator_key(*_arg0, **_arg1, &_arg2); end
+    def discriminator_key(*, **, &); end
 
     # pkg:gem/mongoid#lib/mongoid.rb:151
     def discriminator_key=(value); end
@@ -26543,6 +28135,12 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
     def __class_attr__declared_scopes=(new_value); end
 
     # pkg:gem/mongoid#lib/mongoid.rb:151
+    def __class_attr__dependents_owner; end
+
+    # pkg:gem/mongoid#lib/mongoid.rb:151
+    def __class_attr__dependents_owner=(new_value); end
+
+    # pkg:gem/mongoid#lib/mongoid.rb:151
     def __class_attr__validators; end
 
     # pkg:gem/mongoid#lib/mongoid.rb:151
@@ -26577,12 +28175,6 @@ class Mongoid::GlobalDiscriminatorKeyAssignment::InvalidFieldHost
 
     # pkg:gem/mongoid#lib/mongoid.rb:151
     def __class_attr_dependents=(new_value); end
-
-    # pkg:gem/mongoid#lib/mongoid.rb:151
-    def __class_attr_dependents_owner; end
-
-    # pkg:gem/mongoid#lib/mongoid.rb:151
-    def __class_attr_dependents_owner=(new_value); end
 
     # pkg:gem/mongoid#lib/mongoid.rb:151
     def __class_attr_discriminator_key; end
@@ -26717,7 +28309,7 @@ module Mongoid::Indexable::ClassMethods
   #
   # @return [ true ] If the operation succeeded.
   #
-  # pkg:gem/mongoid#lib/mongoid/indexable.rb:72
+  # pkg:gem/mongoid#lib/mongoid/indexable.rb:52
   def add_indexes; end
 
   # Send the actual index creation comments to the MongoDB driver
@@ -26744,7 +28336,7 @@ module Mongoid::Indexable::ClassMethods
   #
   # @return [ Hash ] The index options.
   #
-  # pkg:gem/mongoid#lib/mongoid/indexable.rb:92
+  # pkg:gem/mongoid#lib/mongoid/indexable.rb:72
   def index(spec, options = T.unsafe(nil)); end
 
   # Get an index specification for the provided key.
@@ -26757,7 +28349,7 @@ module Mongoid::Indexable::ClassMethods
   #
   # @return [ Specification ] The found specification.
   #
-  # pkg:gem/mongoid#lib/mongoid/indexable.rb:114
+  # pkg:gem/mongoid#lib/mongoid/indexable.rb:94
   def index_specification(index_hash, index_name = T.unsafe(nil)); end
 
   # Send the actual index removal comments to the MongoDB driver,
@@ -26768,7 +28360,7 @@ module Mongoid::Indexable::ClassMethods
   #
   # @return [ true ] If the operation succeeded.
   #
-  # pkg:gem/mongoid#lib/mongoid/indexable.rb:48
+  # pkg:gem/mongoid#lib/mongoid/indexable.rb:39
   def remove_indexes; end
 
   private
@@ -26782,7 +28374,7 @@ module Mongoid::Indexable::ClassMethods
   #
   # @return [ Array<Hash> ] The specification keys.
   #
-  # pkg:gem/mongoid#lib/mongoid/indexable.rb:145
+  # pkg:gem/mongoid#lib/mongoid/indexable.rb:157
   def index_keys; end
 
   # Get the names of all databases for this model that have index
@@ -26795,8 +28387,14 @@ module Mongoid::Indexable::ClassMethods
   #
   # @return [ Array<String> ] The names.
   #
-  # pkg:gem/mongoid#lib/mongoid/indexable.rb:131
+  # pkg:gem/mongoid#lib/mongoid/indexable.rb:143
   def indexed_database_names; end
+
+  # pkg:gem/mongoid#lib/mongoid/indexable.rb:102
+  def perform_create_indexes; end
+
+  # pkg:gem/mongoid#lib/mongoid/indexable.rb:117
+  def perform_remove_indexes; end
 end
 
 # Encapsulates behavior around an index specification.
@@ -28899,7 +30497,7 @@ module Mongoid::Matcher::Regex
   #
   # @api private
   #
-  # pkg:gem/mongoid#lib/mongoid/matcher/regex.rb:51
+  # pkg:gem/mongoid#lib/mongoid/matcher/regex.rb:50
   def matches_array_or_scalar?(value, condition); end
 
   class << self
@@ -28926,10 +30524,280 @@ module Mongoid::Matcher::Regex
     #
     # @api private
     #
-    # pkg:gem/mongoid#lib/mongoid/matcher/regex.rb:51
+    # pkg:gem/mongoid#lib/mongoid/matcher/regex.rb:50
     def matches_array_or_scalar?(value, condition); end
   end
 end
+
+# Bounds the time spent executing regular expressions while evaluating a
+# single in-memory match operation.
+#
+# A query condition can carry an application-supplied pattern, and the
+# in-memory matcher compiles and runs that pattern in the caller's thread.
+# Both the cost of one match and the number of matches performed are under
+# the control of whoever supplied the condition, so the limit is cumulative
+# over an entire operation rather than per match.
+#
+# The budget is held in thread- or fiber-local storage, so concurrent
+# queries are accounted for independently.
+#
+# @api private
+#
+# pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:20
+module Mongoid::Matcher::RegexpBudget
+  class << self
+    # Returns the condition as a Regexp, without a timeout.
+    #
+    # @param [ Regexp | BSON::Regexp::Raw ] condition The condition.
+    #
+    # @return [ Regexp ] The pattern.
+    #
+    # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:317
+    def coerce(condition); end
+
+    # The limit a scope evaluating this selector would be bounded by.
+    #
+    # A caller that has to rearrange its work to make the scan
+    # interruptible -- loading documents up front so that nothing is
+    # mutated before the scan finishes, say -- can ask this first and skip
+    # the rearrangement, and whatever it costs, when there is no pattern to
+    # bound. It then passes what it got to .open_with, so that the decision
+    # it acted on is the one the scope is opened with. Callers with nothing
+    # to rearrange should just call .open, which asks this itself.
+    #
+    # @param [ Hash ] selector The selector about to be evaluated.
+    #
+    # @return [ Float | nil ] The limit, or nil where there is nothing to
+    #   bound.
+    #
+    # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:239
+    def limit_for(selector); end
+
+    # Matches a value against a regular expression condition, charging the
+    # time it takes against the open budget.
+    #
+    # @param [ Object ] value The value to match.
+    # @param [ Regexp | BSON::Regexp::Raw ] condition The condition.
+    #
+    # @raise [ Errors::InMemoryRegexpTimeout ] if the budget is exhausted.
+    #
+    # @return [ Integer | nil ] The offset of the match, or nil.
+    #
+    # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:259
+    def match?(value, condition); end
+
+    # Opens a budget scope for the duration of the block.
+    #
+    # Nested calls join the enclosing budget instead of starting a new one,
+    # which is what lets a scan over many documents share a single limit.
+    # It also keeps the recursion in Expression.matches? (through
+    # $elemMatch, $and, $or and $nor) from resetting the budget.
+    #
+    # No budget is opened for a selector that carries no regular
+    # expression. There would be nothing for it to bound, and on the
+    # Timeout path it would put a deadline on in-memory work that has
+    # nothing to do with regular expressions.
+    #
+    # The scope covers everything nested inside the block, a selector other
+    # than this one included: a nested call joins the scope rather than
+    # deciding for itself, which is what keeps a scan from walking the
+    # selector once per document. Where the scope has nothing to bound, that
+    # means nested selectors are not bounded either -- so do not open one
+    # around work that can run application code. Loading documents runs find
+    # callbacks, and a query in one of those brings its own selector.
+    #
+    # Where a selector does carry one, the Timeout path still measures the
+    # whole scope rather than the matching alone, so a long scan can trip
+    # the limit with a cheap pattern. That imprecision is accepted: the
+    # alternative is a Timeout around each individual match, which was
+    # measured at about nine seconds per million matches, and the limit
+    # exists to bound a scan of exactly that size. The error message is
+    # worded to hold either way, and Rubies with per-Regexp timeouts --
+    # every supported MRI from 3.2 on -- do not take this path at all.
+    #
+    # Code inside the block that mutates state should be wrapped in
+    # .protect, since on Rubies without a per-Regexp timeout the budget is
+    # enforced with an asynchronous exception that can land anywhere.
+    #
+    # @param [ Hash ] selector The selector about to be evaluated.
+    #
+    # @return [ Object ] The value of the block.
+    #
+    # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:172
+    def open(selector, &block); end
+
+    # Opens a budget scope for a limit the caller has already decided on.
+    #
+    # A caller that rearranges its work around the decision -- loading
+    # documents up front so that nothing is mutated before the scan
+    # finishes, say -- has to make it before it can act on it, and must not
+    # then make it a second time. Asking .limit_for and letting .open ask
+    # again reads the configured limit twice, and the two reads can differ:
+    # a limit that becomes positive in between would establish a budget in
+    # the branch that was chosen for not needing one, and on the Timeout
+    # path that arms a deadline over work the branch never made
+    # interruptible.
+    #
+    # See .open for what the scope does and does not bound, and for the
+    # note about mutating state inside it.
+    #
+    # @param [ Float | nil ] limit The seconds the scope may spend, or nil
+    #   for a scope with nothing to bound.
+    #
+    # @return [ Object ] The value of the block.
+    #
+    # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:201
+    def open_with(limit, &block); end
+
+    # Runs the block without letting a scope timeout tear it in half.
+    #
+    # Where the budget is enforced with Timeout, the exception is raised
+    # asynchronously and can arrive at any point. Wrapping a mutation in
+    # this holds the exception back until the block has finished, so the
+    # interruption is deferred rather than given up.
+    #
+    # @return [ Object ] The value of the block.
+    #
+    # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:301
+    def protect(&block); end
+
+    # The time left in the open budget, or nil when no budget is open.
+    #
+    # @return [ Float | nil ] The remaining seconds.
+    #
+    # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:308
+    def remaining; end
+
+    private
+
+    # Whether evaluating the selector could run a regular expression.
+    #
+    # A string under $regex counts: FieldExpression turns it into a pattern
+    # at match time.
+    #
+    # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:338
+    def contains_regexp?(object); end
+
+    # The budget for the open scope, if there is one.
+    #
+    # @return [ Budget | nil ] The open budget.
+    #
+    # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:330
+    def current; end
+
+    # Builds the error with the scope timeout held back.
+    #
+    # Composing the message goes through I18n, which reads locale files the
+    # first time it runs. An asynchronous TimedOut landing in the middle of
+    # that is caught by I18n and reraised as a locale-loading failure, so
+    # the real error never surfaces.
+    #
+    # @param [ Budget ] budget The open budget.
+    # @param [ Float ] limit The limit that was exceeded. Defaults to the
+    #   budget's own, which is the right one to name everywhere the budget
+    #   itself ran out.
+    #
+    # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:364
+    def timeout_error(budget, limit = T.unsafe(nil)); end
+  end
+end
+
+# The state of one open budget: what is left of the limit, and the
+# patterns compiled under it.
+#
+# @api private
+#
+# pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:54
+class Mongoid::Matcher::RegexpBudget::Budget
+  # @param [ Float ] limit The seconds this budget may spend.
+  #
+  # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:62
+  def initialize(limit); end
+
+  # Draws the elapsed time down from the budget.
+  #
+  # @param [ Float ] elapsed The seconds to charge.
+  #
+  # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:88
+  def charge(elapsed); end
+
+  # Returns the condition as a Regexp which, where the Ruby in use
+  # supports it, gives up once its timeout is spent.
+  #
+  # The condition is taken uncompiled so that the cache can answer before
+  # any compiling happens. A BSON::Regexp::Raw memoizes its own compile,
+  # but FieldExpression builds a fresh one for every $regex it evaluates,
+  # so that memo is worth nothing across documents and the source would
+  # otherwise be compiled once per document.
+  #
+  # @param [ Regexp | BSON::Regexp::Raw ] condition The condition.
+  #
+  # @return [ Regexp ] The compiled pattern.
+  #
+  # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:109
+  def compile(condition); end
+
+  # @return [ true | false ] Whether the budget is spent.
+  #
+  # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:93
+  def exhausted?; end
+
+  # @return [ Float ] The limit this budget started with.
+  #
+  # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:56
+  def limit; end
+
+  # @return [ Float ] The seconds left before the budget is spent.
+  #
+  # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:59
+  def remaining; end
+
+  private
+
+  # Rebuilds the pattern with the budget's timeout, where the Ruby in use
+  # has them.
+  #
+  # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:128
+  def bake(regexp); end
+
+  # BSON::Regexp::Raw aliases eql? to == but leaves hash alone, so two
+  # equal instances hash differently and cannot key the cache. What they
+  # are equal by can. Anything else keys on itself and is left to coerce
+  # to reject.
+  #
+  # pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:119
+  def cache_key(condition); end
+end
+
+# Whether a per-Regexp timeout can be relied on to reach Regexp.new.
+#
+# MRI added them in 3.2. JRuby 10.0.6 defines Regexp::TimeoutError,
+# reports Ruby 3.4, and does honour a timeout that reaches it, but its
+# Regexp.new accepts the keyword only for the first couple of calls
+# through a given call site and raises ArgumentError from then on.
+# Because that breakage is per call site, no load-time probe can predict
+# it: a probe at its own call site reports a capability that the call in
+# Budget#compile does not have. So non-MRI engines are excluded outright
+# and use the Timeout fallback, which does interrupt a Joni match already
+# under way. Worth revisiting if JRuby fixes the keyword handling.
+#
+# pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:32
+Mongoid::Matcher::RegexpBudget::PER_REGEXP_TIMEOUT = T.let(T.unsafe(nil), TrueClass)
+
+# The exception raised by a per-Regexp timeout. Tied to the constant
+# rather than to the probe, so that a timeout set some other way (an
+# application assigning Regexp.timeout, say) is still translated. On
+# Rubies with no such constant, a class that is never raised stands in.
+#
+# pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:43
+Mongoid::Matcher::RegexpBudget::TIMEOUT_ERROR = Regexp::TimeoutError
+
+# Raised by Timeout on Rubies without per-Regexp timeouts, and converted
+# immediately. It is private to this module so that an application's own
+# Timeout, firing inside our block, is never mistaken for ours.
+#
+# pkg:gem/mongoid#lib/mongoid/matcher/regexp_budget.rb:48
+class Mongoid::Matcher::RegexpBudget::TimedOut < ::StandardError; end
 
 # In-memory matcher for $size expression.
 #
@@ -29095,7 +30963,7 @@ class Mongoid::ModelResolver
     # @param [ Array<String> ] *keys the list of keys to use as an alias (optional)
     #
     # pkg:gem/mongoid#lib/mongoid/model_resolver.rb:23
-    def register(*_arg0, **_arg1, &_arg2); end
+    def register(*, **, &); end
 
     # Register the given resolver under the given name.
     #
@@ -30131,7 +31999,7 @@ module Mongoid::Persistable::Updatable
   # @raise [ Errors::ImmutableAttribute ] if _id has changed, and document
   #   has been persisted.
   #
-  # pkg:gem/mongoid#lib/mongoid/persistable/updatable.rb:193
+  # pkg:gem/mongoid#lib/mongoid/persistable/updatable.rb:191
   def enforce_immutability_of_id_field!; end
 
   # Initialize the atomic updates.
@@ -30165,20 +32033,18 @@ module Mongoid::Persistable::Updatable
   # pkg:gem/mongoid#lib/mongoid/persistable/updatable.rb:96
   def prepare_update(options = T.unsafe(nil)); end
 
-  # If there is a touch option and it is false, this method will call the
-  # timeless method so that the updated_at attribute is not updated. It
-  # will call the timeless method on all of the cascadable children as
-  # well. Note that timeless is cleared in the before_update callback.
+  # If there is a touch option and it is false, this method suppresses
+  # timestamping for the duration of the update using a block-based
+  # timeless scope, which covers this document and every cascaded child
+  # (at any nesting depth), and also suppresses touch callbacks.
   #
   # @param [ Hash ] options The options.
-  # @param [ Array<Document> ] children The children that the :update
-  #   callbacks will be executed on.
   #
   # @option options [ true | false ] :touch Whether or not the updated_at
   #   attribute will be updated with the current time.
   #
-  # pkg:gem/mongoid#lib/mongoid/persistable/updatable.rb:174
-  def process_touch_option(options, children, &block); end
+  # pkg:gem/mongoid#lib/mongoid/persistable/updatable.rb:172
+  def process_touch_option(options, &block); end
 
   # Consolidates all the callback invocations into a single place, to
   # avoid cluttering the logic in #prepare_update.
@@ -30186,7 +32052,7 @@ module Mongoid::Persistable::Updatable
   # @param [ Array<Document> ] update_children The children that the
   #   :update callbacks will be executed on.
   #
-  # pkg:gem/mongoid#lib/mongoid/persistable/updatable.rb:211
+  # pkg:gem/mongoid#lib/mongoid/persistable/updatable.rb:209
   def run_all_callbacks_for_update(update_children, &block); end
 
   # Update the document in the database.
@@ -30287,7 +32153,7 @@ class Mongoid::PersistenceContext
   #
   # @return [ true | false ] Whether the two persistence contexts are equal.
   #
-  # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:153
+  # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:155
   def ==(other); end
 
   # Get the client for this persistence context.
@@ -30309,11 +32175,11 @@ class Mongoid::PersistenceContext
   # @return [ Symbol ] The client name for this persistence
   #   context.
   #
-  # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:139
+  # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:141
   def client_name; end
 
   # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:10
-  def cluster(*_arg0, **_arg1, &_arg2); end
+  def cluster(*, **, &); end
 
   # Get the collection for this persistence context.
   #
@@ -30378,7 +32244,7 @@ class Mongoid::PersistenceContext
   #
   # @api private
   #
-  # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:181
+  # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:183
   def requested_storage_options; end
 
   # Whether the client of the context can be reused later, and therefore should
@@ -30393,25 +32259,43 @@ class Mongoid::PersistenceContext
   #
   # @api private
   #
-  # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:170
+  # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:172
   def reusable_client?; end
 
   # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:13
-  def storage_options(*_arg0, **_arg1, &_arg2); end
+  def storage_options(*, **, &); end
 
   private
 
-  # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:196
+  # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:198
   def __evaluate__(name); end
 
-  # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:202
+  # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:237
   def client_options; end
 
-  # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:212
+  # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:247
   def database_name_option; end
 
-  # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:188
+  # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:190
   def set_options!(opts); end
+
+  # Refuse to use a client that would store a model's encrypted fields in
+  # plaintext.
+  #
+  # The automatic encryption schema is keyed by namespace and is built once,
+  # when the client is created. The driver looks the target namespace up in
+  # that schema, and when it is absent it asks the server for a schema
+  # instead; a collection without a validator then yields no encryption at
+  # all, and no error. Checking the namespace here is what turns that silent
+  # downgrade into a failure.
+  #
+  # @param [ Mongo::Client ] client The client this context resolved to.
+  #
+  # @raise [ Errors::NoEncryptionSchema ] if the model needs an encryption
+  #   schema and the client's schema does not cover the target namespace.
+  #
+  # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:218
+  def verify_encryption_schema!(client); end
 
   class << self
     # Clear the persistence context for a particular class or model instance.
@@ -30424,7 +32308,7 @@ class Mongoid::PersistenceContext
     # @param [ Mongoid::PersistenceContext ] original_context The original persistence
     #   context that was set before this context was used.
     #
-    # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:266
+    # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:301
     def clear(object, cluster = T.unsafe(nil), original_context = T.unsafe(nil)); end
 
     # Get the persistence context for a particular class or model instance.
@@ -30436,7 +32320,7 @@ class Mongoid::PersistenceContext
     #
     # @return [ Mongoid::PersistenceContext ] The persistence context for the object.
     #
-    # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:253
+    # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:288
     def get(object); end
 
     # Set the persistence context for a particular class or model instance.
@@ -30453,12 +32337,12 @@ class Mongoid::PersistenceContext
     #
     # @return [ Mongoid::PersistenceContext ] The persistence context for the object.
     #
-    # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:232
+    # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:267
     def set(object, options_or_context); end
 
     private
 
-    # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:281
+    # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:316
     def context_store; end
 
     # Get the persistence context for a given object from the thread local
@@ -30471,7 +32355,7 @@ class Mongoid::PersistenceContext
     #
     # @api private
     #
-    # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:294
+    # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:329
     def get_context(object); end
 
     # Store persistence context for a given object in the thread local
@@ -30482,7 +32366,7 @@ class Mongoid::PersistenceContext
     #
     # @api private
     #
-    # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:305
+    # pkg:gem/mongoid#lib/mongoid/persistence_context.rb:340
     def store_context(object, context); end
   end
 end
@@ -31005,7 +32889,7 @@ module Mongoid::SearchIndexable
   # @return [ Array<Mongoid::Document> ] matching documents, each with
   #   a populated +vector_search_score+ attribute.
   #
-  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:123
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:128
   def auto_embed_search(index: T.unsafe(nil), path: T.unsafe(nil), limit: T.unsafe(nil), num_candidates: T.unsafe(nil), filter: T.unsafe(nil), exact: T.unsafe(nil), model: T.unsafe(nil), pipeline: T.unsafe(nil)); end
 
   # Performs a vector search for documents similar to this one, using
@@ -31022,6 +32906,9 @@ module Mongoid::SearchIndexable
   # @param [ Integer ] limit The maximum number of results (default: 10).
   # @param [ Integer | nil ] num_candidates The number of candidates to
   #   consider during the ANN search; defaults to limit * 10.
+  # @param [ true | false ] exact Use exact nearest-neighbor (ENN) search
+  #   instead of ANN (default: false). When true, numCandidates is omitted.
+  #   Required when using a flat vector search index.
   # @param [ Hash | nil ] filter An optional MongoDB filter to pre-filter
   #   candidates before scoring.
   # @param [ Array ] pipeline Additional aggregation stages to append after
@@ -31030,13 +32917,13 @@ module Mongoid::SearchIndexable
   # @return [ Array<Mongoid::Document> ] matching documents, each with
   #   a populated +vector_search_score+ attribute.
   #
-  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:79
-  def vector_search(index: T.unsafe(nil), path: T.unsafe(nil), limit: T.unsafe(nil), num_candidates: T.unsafe(nil), filter: T.unsafe(nil), pipeline: T.unsafe(nil)); end
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:82
+  def vector_search(index: T.unsafe(nil), path: T.unsafe(nil), limit: T.unsafe(nil), num_candidates: T.unsafe(nil), exact: T.unsafe(nil), filter: T.unsafe(nil), pipeline: T.unsafe(nil)); end
 end
 
 # Implementations for the feature's class-level methods.
 #
-# pkg:gem/mongoid#lib/mongoid/search_indexable.rb:149
+# pkg:gem/mongoid#lib/mongoid/search_indexable.rb:155
 module Mongoid::SearchIndexable::ClassMethods
   # Performs an Atlas Vector Search query using auto-embedding. Atlas
   # generates the query vector from the supplied text at query time; no
@@ -31070,7 +32957,7 @@ module Mongoid::SearchIndexable::ClassMethods
   # @return [ Array<Mongoid::Document> ] matching documents, each with
   #   a populated +vector_search_score+ attribute.
   #
-  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:352
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:378
   def auto_embed_search(text, index: T.unsafe(nil), path: T.unsafe(nil), limit: T.unsafe(nil), num_candidates: T.unsafe(nil), filter: T.unsafe(nil), exact: T.unsafe(nil), model: T.unsafe(nil), pipeline: T.unsafe(nil)); end
 
   # Request the creation of all registered search indices. Note
@@ -31079,7 +32966,7 @@ module Mongoid::SearchIndexable::ClassMethods
   #
   # @return [ Array<String> ] The names of the search indexes.
   #
-  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:155
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:161
   def create_search_indexes; end
 
   # Removes the search index specified by the given name or id. Either
@@ -31088,7 +32975,7 @@ module Mongoid::SearchIndexable::ClassMethods
   # @param [ String | nil ] name the name of the index to remove
   # @param [ String | nil ] id the id of the index to remove
   #
-  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:197
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:207
   def remove_search_index(name: T.unsafe(nil), id: T.unsafe(nil)); end
 
   # Request the removal of all registered search indexes. Note
@@ -31104,7 +32991,7 @@ module Mongoid::SearchIndexable::ClassMethods
   # If a specific index or set of indexes needs to be removed instead,
   # consider using search_indexes.each with remove_search_index.
   #
-  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:218
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:230
   def remove_search_indexes; end
 
   # Adds an index definition for the provided single or compound keys.
@@ -31121,7 +33008,7 @@ module Mongoid::SearchIndexable::ClassMethods
   #    define, or the index definition.
   # @param [ Hash ] defn The search index definition.
   #
-  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:237
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:249
   def search_index(name_or_defn, defn = T.unsafe(nil)); end
 
   # A convenience method for querying the search indexes available on the
@@ -31135,7 +33022,7 @@ module Mongoid::SearchIndexable::ClassMethods
   # @option options [ Hash ] :aggregate The options hash to pass to the
   #    aggregate command (optional)
   #
-  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:188
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:196
   def search_indexes(options = T.unsafe(nil)); end
 
   # Performs an Atlas Vector Search query and returns matching documents.
@@ -31159,14 +33046,17 @@ module Mongoid::SearchIndexable::ClassMethods
   #   consider during the ANN search; defaults to limit * 10.
   # @param [ Hash | nil ] filter An optional MongoDB filter to pre-filter
   #   candidates before scoring.
+  # @param [ true | false ] exact Use exact nearest-neighbor (ENN) search
+  #   instead of ANN (default: false). When true, numCandidates is omitted.
+  #   Required when using a flat vector search index.
   # @param [ Array ] pipeline Additional aggregation stages to append after
   #   the vector search and score projection.
   #
   # @return [ Array<Mongoid::Document> ] matching documents, each with
   #   a populated +vector_search_score+ attribute.
   #
-  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:298
-  def vector_search(vector, index: T.unsafe(nil), path: T.unsafe(nil), limit: T.unsafe(nil), num_candidates: T.unsafe(nil), filter: T.unsafe(nil), pipeline: T.unsafe(nil)); end
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:324
+  def vector_search(vector, index: T.unsafe(nil), path: T.unsafe(nil), limit: T.unsafe(nil), num_candidates: T.unsafe(nil), exact: T.unsafe(nil), filter: T.unsafe(nil), pipeline: T.unsafe(nil)); end
 
   # Adds a vector search index definition. Also defines a read-only
   # +vector_search_score+ field on the model the first time it is called,
@@ -31179,11 +33069,20 @@ module Mongoid::SearchIndexable::ClassMethods
   #     vector_search_index :my_vector_index, { fields: [...] }
   #   end
   #
+  # @example Create a flat vector search index.
+  #   class Person
+  #     include Mongoid::Document
+  #     vector_search_index fields: [
+  #       { type: 'vector', path: 'embedding', numDimensions: 1536,
+  #         similarity: 'cosine', indexingMethod: 'flat' }
+  #     ]
+  #   end
+  #
   # @param [ Symbol | String | Hash ] name_or_defn Either the name of the index to
   #    define, or the index definition.
   # @param [ Hash ] defn The vector search index definition.
   #
-  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:259
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:280
   def vector_search_index(name_or_defn, defn = T.unsafe(nil)); end
 
   # Waits for the named search indexes to be created.
@@ -31194,7 +33093,7 @@ module Mongoid::SearchIndexable::ClassMethods
   #
   # @yield [ SearchIndexable::Status ] the status object
   #
-  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:168
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:176
   def wait_for_search_indexes(names, interval: T.unsafe(nil)); end
 
   private
@@ -31205,7 +33104,7 @@ module Mongoid::SearchIndexable::ClassMethods
   #
   # @return [ Array<Hash> ] the raw index documents
   #
-  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:382
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:423
   def get_indexes(names); end
 
   # Infers the text field path from an index definition by locating
@@ -31215,7 +33114,7 @@ module Mongoid::SearchIndexable::ClassMethods
   #
   # @return [ String ] the field path.
   #
-  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:484
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:525
   def infer_auto_embed_path(spec); end
 
   # Infers the vector field path from the index definition by locating
@@ -31225,7 +33124,7 @@ module Mongoid::SearchIndexable::ClassMethods
   #
   # @return [ String ] the field path.
   #
-  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:422
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:463
   def infer_vector_path(spec); end
 
   # Resolves the index name and text field path for an auto-embedding
@@ -31236,7 +33135,7 @@ module Mongoid::SearchIndexable::ClassMethods
   #
   # @return [ Array<String> ] the resolved [ index_name, field_path ] pair.
   #
-  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:441
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:482
   def resolve_auto_embed_index(index, path); end
 
   # Resolves the index name and vector path from the declared specs,
@@ -31247,7 +33146,7 @@ module Mongoid::SearchIndexable::ClassMethods
   #
   # @return [ Array<String> ] the resolved [ index_name, field_path ] pair.
   #
-  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:393
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:434
   def resolve_vector_index(index, path); end
 
   # Picks one spec from the list of auto-embed specs, guided by +index+.
@@ -31257,8 +33156,16 @@ module Mongoid::SearchIndexable::ClassMethods
   #
   # @return [ Hash ] the selected spec.
   #
-  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:464
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:505
   def select_auto_embed_spec(specs, index); end
+
+  # Validates the vector index definition, raising ArgumentError for
+  # combinations that MongoDB does not support.
+  #
+  # @param [ Hash ] defn The vector search index definition.
+  #
+  # pkg:gem/mongoid#lib/mongoid/search_indexable.rb:407
+  def validate_vector_index_definition!(defn); end
 end
 
 # Represents the status of the indexes returned by a search_indexes
@@ -31408,7 +33315,7 @@ module Mongoid::Serializable
   #
   # @return [ Array<Symbol> ] The names of the included associations.
   #
-  # pkg:gem/mongoid#lib/mongoid/serializable.rb:146
+  # pkg:gem/mongoid#lib/mongoid/serializable.rb:154
   def relation_names(inclusions); end
 
   # Since the inclusions can be a hash, symbol, or array of symbols, this is
@@ -31423,7 +33330,7 @@ module Mongoid::Serializable
   #
   # @return [ Hash ] The options for the association.
   #
-  # pkg:gem/mongoid#lib/mongoid/serializable.rb:161
+  # pkg:gem/mongoid#lib/mongoid/serializable.rb:169
   def relation_options(inclusions, options, name); end
 
   # Serialize a single attribute. Handles associations, fields, and dynamic
@@ -31804,7 +33711,7 @@ module Mongoid::Tasks::Database
   #
   # @return [ Array<Class> ] The un-indexed models.
   #
-  # pkg:gem/mongoid#lib/mongoid/tasks/database.rb:139
+  # pkg:gem/mongoid#lib/mongoid/tasks/database.rb:147
   def remove_indexes(models = T.unsafe(nil)); end
 
   # Remove all search indexes from the given models.
@@ -31812,7 +33719,7 @@ module Mongoid::Tasks::Database
   # @params [ Array<Mongoid::Document> ] models the models to remove
   #   search indexes from.
   #
-  # pkg:gem/mongoid#lib/mongoid/tasks/database.rb:156
+  # pkg:gem/mongoid#lib/mongoid/tasks/database.rb:164
   def remove_search_indexes(models = T.unsafe(nil)); end
 
   # Remove indexes that exist in the database but aren't specified on the
@@ -31823,7 +33730,7 @@ module Mongoid::Tasks::Database
   #
   # @return [ Hash{Class => Array(Hash)}] The list of indexes that were removed by model.
   #
-  # pkg:gem/mongoid#lib/mongoid/tasks/database.rb:118
+  # pkg:gem/mongoid#lib/mongoid/tasks/database.rb:124
   def remove_undefined_indexes(models = T.unsafe(nil)); end
 
   # Shard collections for models that declare shard keys.
@@ -31837,8 +33744,11 @@ module Mongoid::Tasks::Database
   #
   # @return [ Array<Class> ] The sharded models
   #
-  # pkg:gem/mongoid#lib/mongoid/tasks/database.rb:174
+  # pkg:gem/mongoid#lib/mongoid/tasks/database.rb:182
   def shard_collections(models = T.unsafe(nil)); end
+
+  # pkg:gem/mongoid#lib/mongoid/tasks/database.rb:188
+  def shard_collections_for(models); end
 
   # Return the list of indexes by model that exist in the database but aren't
   # specified on the models.
@@ -31851,9 +33761,12 @@ module Mongoid::Tasks::Database
   # pkg:gem/mongoid#lib/mongoid/tasks/database.rb:85
   def undefined_indexes(models = T.unsafe(nil)); end
 
+  # pkg:gem/mongoid#lib/mongoid/tasks/database.rb:91
+  def undefined_indexes_for(models); end
+
   private
 
-  # pkg:gem/mongoid#lib/mongoid/tasks/database.rb:245
+  # pkg:gem/mongoid#lib/mongoid/tasks/database.rb:259
   def logger; end
 
   # Waits for the search indexes to be built on the given models.
@@ -31861,7 +33774,7 @@ module Mongoid::Tasks::Database
   # @param [ Hash<Mongoid::Document, Array<String>> ] models a mapping of
   #   index names for each model
   #
-  # pkg:gem/mongoid#lib/mongoid/tasks/database.rb:253
+  # pkg:gem/mongoid#lib/mongoid/tasks/database.rb:267
   def wait_for_search_indexes(models); end
 end
 
@@ -31936,7 +33849,7 @@ module Mongoid::Threaded
   #   was modified.
   # @param [ Mongoid::Document ] document Mongoid document that was modified.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:504
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:540
   def add_modified_document(session, document); end
 
   # Is the document autosaved on the current thread?
@@ -31948,7 +33861,7 @@ module Mongoid::Threaded
   #
   # @return [ true | false ] If the document is autosaved.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:368
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:404
   def autosaved?(document); end
 
   # Get all autosaves on the current thread.
@@ -31958,7 +33871,7 @@ module Mongoid::Threaded
   #
   # @return [ Hash ] The current autosaves.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:403
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:439
   def autosaves; end
 
   # Get all autosaves on the current thread for the class.
@@ -31970,7 +33883,7 @@ module Mongoid::Threaded
   #
   # @return [ Array ] The current autosaves.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:425
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:461
   def autosaves_for(klass); end
 
   # Begin autosaving a document on the current thread.
@@ -31980,7 +33893,7 @@ module Mongoid::Threaded
   #
   # @param [ Document ] document The document to autosave.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:198
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:234
   def begin_autosave(document); end
 
   # Begin entry into a named thread local stack.
@@ -31992,7 +33905,7 @@ module Mongoid::Threaded
   #
   # @return [ true ] True.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:130
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:136
   def begin_execution(name); end
 
   # Mark that a document's touch updates have been merged into
@@ -32003,7 +33916,7 @@ module Mongoid::Threaded
   #
   # @param [ Document ] document The embedded document being inserted.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:219
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:255
   def begin_touch_merged(document); end
 
   # Begin validating a document on the current thread.
@@ -32013,7 +33926,7 @@ module Mongoid::Threaded
   #
   # @param [ Document ] document The document to validate.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:208
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:244
   def begin_validate(document); end
 
   # Begin suppressing default scopes for given model on the current thread.
@@ -32025,7 +33938,7 @@ module Mongoid::Threaded
   #
   # @api private
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:261
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:297
   def begin_without_default_scope(klass); end
 
   # Clears the set of modified documents for the given session, and return the
@@ -32036,7 +33949,7 @@ module Mongoid::Threaded
   # @return [ Set<Mongoid::Document> ] Collection of modified documents before
   #   it was cleared.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:517
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:553
   def clear_modified_documents(session); end
 
   # Clear the cached session for this thread for a client.
@@ -32048,7 +33961,7 @@ module Mongoid::Threaded
   #
   # @return [ nil ]
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:494
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:530
   def clear_session(client: T.unsafe(nil)); end
 
   # Get the global client override.
@@ -32058,7 +33971,7 @@ module Mongoid::Threaded
   #
   # @return [ String | Symbol ] The override.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:283
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:319
   def client_override; end
 
   # Set the global client override.
@@ -32070,7 +33983,7 @@ module Mongoid::Threaded
   #
   # @return [ String | Symbol ] The override.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:295
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:331
   def client_override=(name); end
 
   # Get the current Mongoid scope.
@@ -32083,7 +33996,7 @@ module Mongoid::Threaded
   #
   # @return [ Criteria ] The scope.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:308
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:344
   def current_scope(klass = T.unsafe(nil)); end
 
   # Set the current Mongoid scope.
@@ -32095,7 +34008,7 @@ module Mongoid::Threaded
   #
   # @return [ Criteria ] The scope.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:326
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:362
   def current_scope=(scope); end
 
   # Get the global database override.
@@ -32105,7 +34018,7 @@ module Mongoid::Threaded
   #
   # @return [ String | Symbol ] The override.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:140
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:146
   def database_override; end
 
   # Set the global database override.
@@ -32117,14 +34030,14 @@ module Mongoid::Threaded
   #
   # @return [ String | Symbol ] The override.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:152
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:158
   def database_override=(name); end
 
   # Removes the named variable from local storage.
   #
   # @param [ String | Symbol ] key the name of the variable to remove.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:109
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:115
   def delete(key); end
 
   # Indicates whether document callbacks should be invoked by default for
@@ -32134,7 +34047,7 @@ module Mongoid::Threaded
   # @param flag [ true | false ] Whether or not document callbacks should be
   #   executed by default.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:543
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:579
   def execute_callbacks=(flag); end
 
   # Queries whether document callbacks should be executed by default for the
@@ -32146,7 +34059,7 @@ module Mongoid::Threaded
   # @return [ true | false ] Whether or not document callbacks should be
   #   executed by default.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:529
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:565
   def execute_callbacks?; end
 
   # Are in the middle of executing the named stack
@@ -32158,7 +34071,7 @@ module Mongoid::Threaded
   #
   # @return [ true ] If the stack is being executed.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:164
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:170
   def executing?(name); end
 
   # Exit autosaving a document on the current thread.
@@ -32168,7 +34081,7 @@ module Mongoid::Threaded
   #
   # @param [ Document ] document The document to autosave.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:229
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:265
   def exit_autosave(document); end
 
   # Exit from a named thread local stack.
@@ -32180,7 +34093,7 @@ module Mongoid::Threaded
   #
   # @return [ true ] True.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:176
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:212
   def exit_execution(name); end
 
   # Clear the touch-merged flag for a document on the current thread.
@@ -32190,7 +34103,7 @@ module Mongoid::Threaded
   #
   # @param [ Document ] document The document to clear.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:249
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:285
   def exit_touch_merged(document); end
 
   # Exit validating a document on the current thread.
@@ -32200,7 +34113,7 @@ module Mongoid::Threaded
   #
   # @param [ Document ] document The document to validate.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:239
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:275
   def exit_validate(document); end
 
   # Exit suppressing default scopes for given model on the current thread.
@@ -32212,7 +34125,7 @@ module Mongoid::Threaded
   #
   # @api private
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:273
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:309
   def exit_without_default_scope(klass); end
 
   # Queries the thread- or fiber-local variable with the given name. If a block is
@@ -32235,7 +34148,7 @@ module Mongoid::Threaded
   # @return [ Object | nil ] the value of the queried variable, or nil if
   #   it is not set and no default was given.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:84
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:90
   def get(key, &default); end
 
   # Get the cached session for this thread for a client.
@@ -32247,7 +34160,7 @@ module Mongoid::Threaded
   #
   # @return [ Mongo::Session | nil ] The session cached on this thread or nil.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:482
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:518
   def get_session(client: T.unsafe(nil)); end
 
   # Queries the presence of a named variable in local storage.
@@ -32256,8 +34169,19 @@ module Mongoid::Threaded
   #
   # @return [ true | false ] whether the given variable is present or not.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:118
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:124
   def has?(key); end
+
+  # Is collection or index management being executed?
+  #
+  # @example Is a collection being managed?
+  #   Threaded.managing_collection?
+  #
+  # @return [ true | false ] Whether collection or index management is in
+  #   progress on the current thread.
+  #
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:200
+  def managing_collection?; end
 
   # Returns the thread store of modified documents.
   #
@@ -32266,7 +34190,7 @@ module Mongoid::Threaded
   #
   # @api private
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:562
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:598
   def modified_documents; end
 
   # Resets the current thread- or fiber-local storage to its initial state.
@@ -32276,7 +34200,7 @@ module Mongoid::Threaded
   # The value of Mongoid::Config.real_isolation_level is used to determine
   # whether to reset the storage for the current thread or fiber.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:53
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:59
   def reset!; end
 
   # Returns the thread store of sessions.
@@ -32285,7 +34209,7 @@ module Mongoid::Threaded
   #
   # @api private
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:552
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:588
   def sessions; end
 
   # Sets a variable in local storage with the given name to the given value.
@@ -32296,7 +34220,7 @@ module Mongoid::Threaded
   # @param [ Object | nil ] value the value of the variable to set (or `nil`
   #   if you wish to unset the variable)
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:102
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:108
   def set(key, value); end
 
   # Set the current Mongoid scope. Safe for multi-model scope chaining.
@@ -32309,7 +34233,7 @@ module Mongoid::Threaded
   #
   # @return [ Criteria ] The scope.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:339
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:375
   def set_current_scope(scope, klass); end
 
   # Cache a session for this thread for a client.
@@ -32320,7 +34244,7 @@ module Mongoid::Threaded
   # @param [ Mongo::Session ] session The session to save.
   # @param [ Mongo::Client | nil ] client The client to cache the session for.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:470
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:506
   def set_session(session, client: T.unsafe(nil)); end
 
   # Get the named stack.
@@ -32332,7 +34256,7 @@ module Mongoid::Threaded
   #
   # @return [ Array ] The stack.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:188
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:224
   def stack(name); end
 
   # Get all touch-merged tracking on the current thread.
@@ -32342,7 +34266,7 @@ module Mongoid::Threaded
   #
   # @return [ Hash ] The current touch-merged tracking hash.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:447
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:483
   def touch_merged; end
 
   # Is the document flagged as having had its touch updates
@@ -32355,7 +34279,7 @@ module Mongoid::Threaded
   #
   # @return [ true | false ] If the document's touch was merged.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:393
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:429
   def touch_merged?(document); end
 
   # Get all touch-merged document IDs on the current thread for the class.
@@ -32367,7 +34291,7 @@ module Mongoid::Threaded
   #
   # @return [ Array ] The current touch-merged document IDs.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:459
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:495
   def touch_merged_for(klass); end
 
   # Is the document validated on the current thread?
@@ -32379,7 +34303,7 @@ module Mongoid::Threaded
   #
   # @return [ true | false ] If the document is validated.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:380
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:416
   def validated?(document); end
 
   # Get all validations on the current thread.
@@ -32389,7 +34313,7 @@ module Mongoid::Threaded
   #
   # @return [ Hash ] The current validations.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:413
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:449
   def validations; end
 
   # Get all validations on the current thread for the class.
@@ -32401,8 +34325,24 @@ module Mongoid::Threaded
   #
   # @return [ Array ] The current validations.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:437
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:473
   def validations_for(klass); end
+
+  # Execute the block as collection or index management.
+  #
+  # Creating, dropping and inspecting collections and indexes sends no
+  # document data, so these operations are exempt from the encryption schema
+  # check that PersistenceContext applies to reads and writes. Without the
+  # exemption, tasks such as db:mongoid:create_collections would need an
+  # encryption-capable client to run.
+  #
+  # @example Create a collection.
+  #   Threaded.with_collection_management { model.create_collection }
+  #
+  # @return [ Object ] The result of the block.
+  #
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:186
+  def with_collection_management; end
 
   # Is the given klass' default scope suppressed on the current thread?
   #
@@ -32413,14 +34353,14 @@ module Mongoid::Threaded
   #
   # @api private
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:356
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:392
   def without_default_scope?(klass); end
 
   private
 
   # Returns the current thread- or fiber-local storage as a Hash.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:582
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:618
   def storage; end
 
   # Removes the given klass from the current scope, and tidies the current
@@ -32428,7 +34368,7 @@ module Mongoid::Threaded
   #
   # @param klass [ Class ] the class to remove from the current scope.
   #
-  # pkg:gem/mongoid#lib/mongoid/threaded.rb:572
+  # pkg:gem/mongoid#lib/mongoid/threaded.rb:608
   def unset_current_scope(klass); end
 end
 
@@ -32449,6 +34389,11 @@ Mongoid::Threaded::BUILD = T.let(T.unsafe(nil), String)
 # pkg:gem/mongoid#lib/mongoid/threaded.rb:20
 Mongoid::Threaded::CLIENT_OVERRIDE_KEY = T.let(T.unsafe(nil), String)
 
+# The name of the stack tracking collection and index management.
+#
+# pkg:gem/mongoid#lib/mongoid/threaded.rb:36
+Mongoid::Threaded::COLLECTION_MANAGEMENT = T.let(T.unsafe(nil), Symbol)
+
 # pkg:gem/mongoid#lib/mongoid/threaded/lifecycle.rb:9
 Mongoid::Threaded::CREATE = T.let(T.unsafe(nil), String)
 
@@ -32463,7 +34408,7 @@ Mongoid::Threaded::DATABASE_OVERRIDE_KEY = T.let(T.unsafe(nil), String)
 # The key storing the default value for whether or not callbacks are
 # executed on documents.
 #
-# pkg:gem/mongoid#lib/mongoid/threaded.rb:43
+# pkg:gem/mongoid#lib/mongoid/threaded.rb:46
 Mongoid::Threaded::EXECUTE_CALLBACKS = T.let(T.unsafe(nil), String)
 
 # pkg:gem/mongoid#lib/mongoid/threaded/lifecycle.rb:8
@@ -32598,12 +34543,17 @@ end
 
 # The key for storing documents modified inside transactions.
 #
-# pkg:gem/mongoid#lib/mongoid/threaded.rb:39
+# pkg:gem/mongoid#lib/mongoid/threaded.rb:42
 Mongoid::Threaded::MODIFIED_DOCUMENTS_KEY = T.let(T.unsafe(nil), String)
+
+# The key for the time left in the current in-memory regexp budget.
+#
+# pkg:gem/mongoid#lib/mongoid/threaded.rb:49
+Mongoid::Threaded::REGEXP_BUDGET_KEY = T.let(T.unsafe(nil), String)
 
 # The key for the current thread's sessions.
 #
-# pkg:gem/mongoid#lib/mongoid/threaded.rb:36
+# pkg:gem/mongoid#lib/mongoid/threaded.rb:39
 Mongoid::Threaded::SESSIONS_KEY = T.let(T.unsafe(nil), String)
 
 # pkg:gem/mongoid#lib/mongoid/threaded.rb:31
@@ -32706,30 +34656,55 @@ module Mongoid::Timestamps::Timeless
   # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:16
   def clear_timeless_option; end
 
-  # Begin an execution that should skip timestamping.
+  # Skip timestamping for the duration of the given block, or (in the
+  # deprecated, block-less form) for the next persistence operation.
   #
-  # @example Save a document but don't timestamp.
+  # @example Save a document but don't timestamp (block form).
+  #   person.timeless { person.save }
+  #
+  # @example Save a document but don't timestamp (deprecated chained form).
   #   person.timeless.save
   #
-  # @return [ Document ] The document this was called on.
+  # @return [ Object | Document ] The return value of the block, or (in the
+  #   block-less form) the document this was called on.
   #
-  # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:31
-  def timeless; end
+  # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:36
+  def timeless(&block); end
 
   # Returns whether the document should skip timestamping.
   #
   # @return [ true | false ] Whether the document should
   #   skip timestamping.
   #
-  # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:40
+  # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:47
   def timeless?; end
 
   class << self
-    # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:60
-    def [](*_arg0, **_arg1, &_arg2); end
+    # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:70
+    def [](*, **, &); end
 
-    # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:60
-    def []=(*_arg0, **_arg1, &_arg2); end
+    # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:70
+    def []=(*, **, &); end
+
+    # Set whether a block-based timeless scope is active on this
+    # thread/fiber.
+    #
+    # @param [ true | false ] value Whether to suppress timestamps.
+    #
+    # @api private
+    #
+    # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:111
+    def set_suppressing_timestamps(value); end
+
+    # Whether a block-based timeless scope is currently active on this
+    # thread/fiber.
+    #
+    # @return [ true | false ] Whether timestamps are being suppressed.
+    #
+    # @api private
+    #
+    # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:101
+    def suppressing_timestamps?; end
 
     # Returns the in-memory thread cache of classes
     # for which to skip timestamping.
@@ -32738,18 +34713,33 @@ module Mongoid::Timestamps::Timeless
     #
     # @api private
     #
-    # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:56
+    # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:66
     def timeless_table; end
+
+    # Skip timestamping for the duration of the given block, on the
+    # current thread or fiber. This applies to every document persisted
+    # while the block is executing, regardless of class, including
+    # cascaded embedded children at any nesting depth.
+    #
+    # @example Skip timestamping for a block.
+    #   Mongoid::Timestamps::Timeless.with_timeless do
+    #     person.save
+    #   end
+    #
+    # @return [ Object ] The return value of the block.
+    #
+    # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:83
+    def with_timeless; end
   end
 end
 
-# pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:63
+# pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:116
 module Mongoid::Timestamps::Timeless::ClassMethods
   # Removes the timeless option on the current class.
   #
   # @return [ true ] Always true.
   #
-  # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:81
+  # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:153
   def clear_timeless_option; end
 
   # Sets to remove the timeless option when the next
@@ -32757,7 +34747,7 @@ module Mongoid::Timestamps::Timeless::ClassMethods
   #
   # @return [ true ] Always true.
   #
-  # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:93
+  # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:165
   def clear_timeless_option_on_update; end
 
   # Clears the timeless counter for the current class
@@ -32768,25 +34758,32 @@ module Mongoid::Timestamps::Timeless::ClassMethods
   # @return [ Integer | nil ] The counter value, or nil
   #   if the counter was cleared.
   #
-  # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:108
+  # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:180
   def set_timeless_counter(counter); end
 
-  # Begin an execution that should skip timestamping.
+  # Skip timestamping for the duration of the given block, or (in the
+  # deprecated, block-less form) for the next persistence operation.
   #
-  # @example Create a document but don't timestamp.
+  # @example Create a document but don't timestamp (block form).
+  #   Person.timeless { Person.create(title: "Sir") }
+  #
+  # @example Create a document but don't timestamp (deprecated form).
   #   Person.timeless.create(:title => "Sir")
   #
-  # @return [ Class ] The class this was called on.
+  # @return [ Object | Class ] The return value of the block, or (in the
+  #   block-less form) the class this was called on.
   #
-  # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:70
-  def timeless; end
+  # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:128
+  def timeless(&block); end
 
-  # Returns whether the current class should skip timestamping.
+  # Returns whether the current class should skip timestamping. This is
+  # true when either a block-based timeless scope is active on the
+  # current thread/fiber, or the deprecated per-class counter is set.
   #
   # @return [ true | false ] Whether the current class should
   #   skip timestamping.
   #
-  # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:116
+  # pkg:gem/mongoid#lib/mongoid/timestamps/timeless.rb:190
   def timeless?; end
 end
 
@@ -33455,7 +35452,7 @@ class Mongoid::Validatable::AssociatedValidator < ::ActiveModel::Validator
   #
   # @return [ Array<Mongoid::Document> ] the list of documents
   #
-  # pkg:gem/mongoid#lib/mongoid/validatable/associated.rb:93
+  # pkg:gem/mongoid#lib/mongoid/validatable/associated.rb:94
   def get_target_documents(target); end
 
   # Returns the list of all currently in-memory values held by
@@ -33467,7 +35464,7 @@ class Mongoid::Validatable::AssociatedValidator < ::ActiveModel::Validator
   # @return [ Array<Mongoid::Document> ] the in-memory documents
   #   held by the target.
   #
-  # pkg:gem/mongoid#lib/mongoid/validatable/associated.rb:109
+  # pkg:gem/mongoid#lib/mongoid/validatable/associated.rb:110
   def get_target_documents_for_has_many(target); end
 
   # Returns the target as an array. If the target represents a single
@@ -33478,8 +35475,20 @@ class Mongoid::Validatable::AssociatedValidator < ::ActiveModel::Validator
   #
   # @return [ Array<Mongoid::Document> ] the target, as an array.
   #
-  # pkg:gem/mongoid#lib/mongoid/validatable/associated.rb:120
+  # pkg:gem/mongoid#lib/mongoid/validatable/associated.rb:121
   def get_target_documents_for_other(target); end
+
+  # Returns true if the given value should be validated as part of
+  # an associated validation. Destroyed and flagged-for-destroy
+  # documents are skipped, as are persisted documents that haven't
+  # changed.
+  #
+  # @param [ Mongoid::Document | nil ] value The value to check.
+  #
+  # @return [ true | false ] Whether the value needs validation.
+  #
+  # pkg:gem/mongoid#lib/mongoid/validatable/associated.rb:133
+  def needs_validation?(value); end
 
   # Validates that the given association provided is either nil,
   # persisted and unchanged, or invalid. Otherwise, the appropriate errors
@@ -34078,7 +36087,7 @@ class NilClass
   include ::Mongoid::Criteria::Queryable::Extensions::NilClass
 end
 
-# pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:44
+# pkg:gem/mongoid#lib/mongoid/association/referenced/belongs_to.rb:45
 class Object < ::BasicObject
   include ::Kernel
   include ::PP::ObjectMixin

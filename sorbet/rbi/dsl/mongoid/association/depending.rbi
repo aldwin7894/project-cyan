@@ -11,20 +11,20 @@ module Mongoid::Association::Depending
   mixes_in_class_methods GeneratedClassMethods
 
   module GeneratedClassMethods
+    def _dependents_owner; end
+    def _dependents_owner=(value); end
+    def _dependents_owner?; end
     def dependents; end
     def dependents=(value); end
     def dependents?; end
-    def dependents_owner; end
-    def dependents_owner=(value); end
-    def dependents_owner?; end
   end
 
   module GeneratedInstanceMethods
+    def _dependents_owner; end
+    def _dependents_owner=(value); end
+    def _dependents_owner?; end
     def dependents; end
     def dependents=(value); end
     def dependents?; end
-    def dependents_owner; end
-    def dependents_owner=(value); end
-    def dependents_owner?; end
   end
 end

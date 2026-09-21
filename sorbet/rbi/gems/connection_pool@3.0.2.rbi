@@ -37,7 +37,7 @@
 # pkg:gem/connection_pool#lib/connection_pool/version.rb:1
 class ConnectionPool
   # pkg:gem/connection_pool#lib/connection_pool.rb:48
-  def initialize(timeout: T.unsafe(nil), size: T.unsafe(nil), auto_reload_after_fork: T.unsafe(nil), name: T.unsafe(nil), &_arg4); end
+  def initialize(timeout: T.unsafe(nil), size: T.unsafe(nil), auto_reload_after_fork: T.unsafe(nil), name: T.unsafe(nil), &); end
 
   # Number of pool entries available for checkout at this instant.
   #
@@ -48,7 +48,7 @@ class ConnectionPool
   def checkin(force: T.unsafe(nil)); end
 
   # pkg:gem/connection_pool#lib/connection_pool.rb:111
-  def checkout(timeout: T.unsafe(nil), **_arg1); end
+  def checkout(timeout: T.unsafe(nil), **); end
 
   # Marks the current thread's checked-out connection for discard.
   #
@@ -92,37 +92,37 @@ class ConnectionPool
   # +idle_seconds+ defaults to 60.
   #
   # pkg:gem/connection_pool#lib/connection_pool.rb:168
-  def reap(idle_seconds: T.unsafe(nil), &_arg1); end
+  def reap(idle_seconds: T.unsafe(nil), &); end
 
   # Reloads the ConnectionPool by passing each connection to +block+ and then
   # removing it the pool. Subsequent checkouts will create new connections as
   # needed.
   #
   # pkg:gem/connection_pool#lib/connection_pool.rb:162
-  def reload(&_arg0); end
+  def reload(&); end
 
   # Shuts down the ConnectionPool by passing each connection to +block+ and
   # then removing it from the pool. Attempting to checkout a connection after
   # shutdown will raise +ConnectionPool::PoolShuttingDownError+.
   #
   # pkg:gem/connection_pool#lib/connection_pool.rb:154
-  def shutdown(&_arg0); end
+  def shutdown(&); end
 
   # pkg:gem/connection_pool#lib/connection_pool.rb:46
   def size; end
 
   # pkg:gem/connection_pool#lib/connection_pool.rb:75
-  def then(**_arg0); end
+  def then(**); end
 
   # pkg:gem/connection_pool#lib/connection_pool.rb:60
-  def with(**_arg0); end
+  def with(**); end
 
   class << self
     # pkg:gem/connection_pool#lib/connection_pool/fork.rb:6
     def after_fork; end
 
     # pkg:gem/connection_pool#lib/connection_pool.rb:42
-    def wrap(**_arg0, &_arg1); end
+    def wrap(**, &); end
   end
 end
 
@@ -170,7 +170,7 @@ class ConnectionPool::TimedStack
   def initialize(size: T.unsafe(nil), &block); end
 
   # pkg:gem/connection_pool#lib/connection_pool/timed_stack.rb:50
-  def <<(obj, **_arg1); end
+  def <<(obj, **); end
 
   # Reduce the created count
   #
@@ -206,13 +206,13 @@ class ConnectionPool::TimedStack
   # Other options may be used by subclasses that extend TimedStack.
   #
   # pkg:gem/connection_pool#lib/connection_pool/timed_stack.rb:62
-  def pop(timeout: T.unsafe(nil), exception: T.unsafe(nil), **_arg2); end
+  def pop(timeout: T.unsafe(nil), exception: T.unsafe(nil), **); end
 
   # Returns +obj+ to the stack. Additional kwargs are ignored in TimedStack but may be
   # used by subclasses that extend TimedStack.
   #
   # pkg:gem/connection_pool#lib/connection_pool/timed_stack.rb:38
-  def push(obj, **_arg1); end
+  def push(obj, **); end
 
   # Reaps connections that were checked in more than +idle_seconds+ ago.
   #
@@ -234,7 +234,7 @@ class ConnectionPool::TimedStack
   # This method must returns true if a connection is available on the stack.
   #
   # pkg:gem/connection_pool#lib/connection_pool/timed_stack.rb:167
-  def connection_stored?(**_arg0); end
+  def connection_stored?(**); end
 
   # pkg:gem/connection_pool#lib/connection_pool/timed_stack.rb:149
   def current_time; end
@@ -244,7 +244,7 @@ class ConnectionPool::TimedStack
   # This method must return a connection from the stack.
   #
   # pkg:gem/connection_pool#lib/connection_pool/timed_stack.rb:175
-  def fetch_connection(**_arg0); end
+  def fetch_connection(**); end
 
   # This is an extension point for TimedStack and is called with a mutex.
   #
@@ -266,14 +266,14 @@ class ConnectionPool::TimedStack
   # This method must shut down all connections on the stack.
   #
   # pkg:gem/connection_pool#lib/connection_pool/timed_stack.rb:183
-  def shutdown_connections(**_arg0); end
+  def shutdown_connections(**); end
 
   # This is an extension point for TimedStack and is called with a mutex.
   #
   # This method must return +obj+ to the stack.
   #
   # pkg:gem/connection_pool#lib/connection_pool/timed_stack.rb:220
-  def store_connection(obj, **_arg1); end
+  def store_connection(obj, **); end
 
   # This is an extension point for TimedStack and is called with a mutex.
   #
@@ -281,7 +281,7 @@ class ConnectionPool::TimedStack
   # connections allowed has not been met.
   #
   # pkg:gem/connection_pool#lib/connection_pool/timed_stack.rb:229
-  def try_create(**_arg0); end
+  def try_create(**); end
 
   # This is an extension point for TimedStack and is called with a mutex.
   #
@@ -290,7 +290,7 @@ class ConnectionPool::TimedStack
   # their stack.
   #
   # pkg:gem/connection_pool#lib/connection_pool/timed_stack.rb:159
-  def try_fetch_connection(**_arg0); end
+  def try_fetch_connection(**); end
 end
 
 # pkg:gem/connection_pool#lib/connection_pool.rb:9
@@ -302,25 +302,25 @@ ConnectionPool::VERSION = T.let(T.unsafe(nil), String)
 # pkg:gem/connection_pool#lib/connection_pool/wrapper.rb:2
 class ConnectionPool::Wrapper < ::BasicObject
   # pkg:gem/connection_pool#lib/connection_pool/wrapper.rb:5
-  def initialize(**options, &_arg1); end
+  def initialize(**options, &); end
 
   # pkg:gem/connection_pool#lib/connection_pool/wrapper.rb:37
-  def method_missing(name, *_arg1, **_arg2, &_arg3); end
+  def method_missing(name, *, **, &); end
 
   # pkg:gem/connection_pool#lib/connection_pool/wrapper.rb:25
   def pool_available; end
 
   # pkg:gem/connection_pool#lib/connection_pool/wrapper.rb:17
-  def pool_shutdown(&_arg0); end
+  def pool_shutdown(&); end
 
   # pkg:gem/connection_pool#lib/connection_pool/wrapper.rb:21
   def pool_size; end
 
   # pkg:gem/connection_pool#lib/connection_pool/wrapper.rb:29
-  def respond_to?(id, *_arg1, **_arg2); end
+  def respond_to?(id, *, **); end
 
   # pkg:gem/connection_pool#lib/connection_pool/wrapper.rb:13
-  def with(**_arg0, &_arg1); end
+  def with(**, &); end
 
   # pkg:gem/connection_pool#lib/connection_pool/wrapper.rb:9
   def wrapped_pool; end
@@ -328,7 +328,7 @@ class ConnectionPool::Wrapper < ::BasicObject
   private
 
   # pkg:gem/connection_pool#lib/connection_pool/wrapper.rb:33
-  def respond_to_missing?(id, *_arg1, **_arg2); end
+  def respond_to_missing?(id, *, **); end
 end
 
 # pkg:gem/connection_pool#lib/connection_pool/wrapper.rb:3

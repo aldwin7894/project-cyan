@@ -106,7 +106,7 @@ end
 # pkg:gem/net-protocol#lib/net/protocol.rb:416
 class Net::InternetMessageIO < ::Net::BufferedIO
   # pkg:gem/net-protocol#lib/net/protocol.rb:417
-  def initialize(*_arg0, **_arg1); end
+  def initialize(*, **); end
 
   # *library private* (cannot handle 'break')
   #

@@ -6,12 +6,6 @@
 
 
 # :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
 #
 # pkg:gem/actionpack#lib/abstract_controller/deprecator.rb:5
 module AbstractController
@@ -119,7 +113,7 @@ class AbstractController::Base
   # error is raised.
   #
   # pkg:gem/actionpack#lib/abstract_controller/base.rb:128
-  def process(action, *_arg1, **_arg2, &_arg3); end
+  def process(action, *, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/base.rb:39
   def response_body; end
@@ -213,7 +207,7 @@ class AbstractController::Base
   # necessarily the same as the action name.
   #
   # pkg:gem/actionpack#lib/abstract_controller/base.rb:128
-  def process_action(*_arg0, **_arg1, &_arg2); end
+  def process_action(*, **, &); end
 
   class << self
     # pkg:gem/actionpack#lib/abstract_controller/base.rb:53
@@ -502,7 +496,7 @@ module AbstractController::Callbacks
   # callbacks around the normal behavior.
   #
   # pkg:gem/actionpack#lib/abstract_controller/callbacks.rb:265
-  def process_action(*_arg0, **_arg1, &_arg2); end
+  def process_action(*, **, &); end
 
   module GeneratedClassMethods
     def __callbacks; end
@@ -621,117 +615,117 @@ AbstractController::Callbacks::DEFAULT_INTERNAL_METHODS = T.let(T.unsafe(nil), A
 # pkg:gem/actionpack#lib/abstract_controller/collector.rb:8
 module AbstractController::Collector
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def atom(*_arg0, **_arg1, &_arg2); end
+  def atom(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def bmp(*_arg0, **_arg1, &_arg2); end
+  def bmp(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def css(*_arg0, **_arg1, &_arg2); end
+  def css(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def csv(*_arg0, **_arg1, &_arg2); end
+  def csv(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def gif(*_arg0, **_arg1, &_arg2); end
+  def gif(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def gzip(*_arg0, **_arg1, &_arg2); end
+  def gzip(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def html(*_arg0, **_arg1, &_arg2); end
+  def html(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def ics(*_arg0, **_arg1, &_arg2); end
+  def ics(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def jpeg(*_arg0, **_arg1, &_arg2); end
+  def jpeg(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def js(*_arg0, **_arg1, &_arg2); end
+  def js(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def json(*_arg0, **_arg1, &_arg2); end
+  def json(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def m4a(*_arg0, **_arg1, &_arg2); end
+  def m4a(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def md(*_arg0, **_arg1, &_arg2); end
+  def md(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def mp3(*_arg0, **_arg1, &_arg2); end
+  def mp3(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def mp4(*_arg0, **_arg1, &_arg2); end
+  def mp4(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def mpeg(*_arg0, **_arg1, &_arg2); end
+  def mpeg(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def multipart_form(*_arg0, **_arg1, &_arg2); end
+  def multipart_form(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def ogg(*_arg0, **_arg1, &_arg2); end
+  def ogg(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def otf(*_arg0, **_arg1, &_arg2); end
+  def otf(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def pdf(*_arg0, **_arg1, &_arg2); end
+  def pdf(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def png(*_arg0, **_arg1, &_arg2); end
+  def png(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def rss(*_arg0, **_arg1, &_arg2); end
+  def rss(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def svg(*_arg0, **_arg1, &_arg2); end
+  def svg(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def text(*_arg0, **_arg1, &_arg2); end
+  def text(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def tiff(*_arg0, **_arg1, &_arg2); end
+  def tiff(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def ttf(*_arg0, **_arg1, &_arg2); end
+  def ttf(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def url_encoded_form(*_arg0, **_arg1, &_arg2); end
+  def url_encoded_form(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def vcf(*_arg0, **_arg1, &_arg2); end
+  def vcf(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def vtt(*_arg0, **_arg1, &_arg2); end
+  def vtt(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def webm(*_arg0, **_arg1, &_arg2); end
+  def webm(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def webp(*_arg0, **_arg1, &_arg2); end
+  def webp(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def woff(*_arg0, **_arg1, &_arg2); end
+  def woff(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def woff2(*_arg0, **_arg1, &_arg2); end
+  def woff2(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def xml(*_arg0, **_arg1, &_arg2); end
+  def xml(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def yaml(*_arg0, **_arg1, &_arg2); end
+  def yaml(*, **, &); end
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:11
-  def zip(*_arg0, **_arg1, &_arg2); end
+  def zip(*, **, &); end
 
   private
 
   # pkg:gem/actionpack#lib/abstract_controller/collector.rb:27
-  def method_missing(symbol, *_arg1, **_arg2, &_arg3); end
+  def method_missing(symbol, *, **, &); end
 
   class << self
     # pkg:gem/actionpack#lib/abstract_controller/collector.rb:9
@@ -1084,35 +1078,6 @@ end
 # implement filters and actions to handle requests. The result of an action is
 # typically content generated from views.
 # :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
 #
 # pkg:gem/actionpack#lib/action_controller/deprecator.rb:5
 module ActionController
@@ -1329,7 +1294,7 @@ class ActionController::API < ::ActionController::Metal
   def action_on_path_relative_redirect=(val); end
 
   # pkg:gem/actionpack#lib/action_controller/api.rb:150
-  def default_static_extension(*_arg0, **_arg1, &_arg2); end
+  def default_static_extension(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/api.rb:150
   def default_static_extension=(arg); end
@@ -1344,7 +1309,7 @@ class ActionController::API < ::ActionController::Metal
   def default_url_options?; end
 
   # pkg:gem/actionpack#lib/action_controller/api.rb:150
-  def enable_fragment_cache_logging(*_arg0, **_arg1, &_arg2); end
+  def enable_fragment_cache_logging(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/api.rb:150
   def enable_fragment_cache_logging=(arg); end
@@ -1368,7 +1333,7 @@ class ActionController::API < ::ActionController::Metal
   def fragment_cache_keys?; end
 
   # pkg:gem/actionpack#lib/action_controller/api.rb:150
-  def logger(*_arg0, **_arg1, &_arg2); end
+  def logger(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/api.rb:150
   def logger=(arg); end
@@ -1383,7 +1348,7 @@ class ActionController::API < ::ActionController::Metal
   def mimes_for_respond_to?; end
 
   # pkg:gem/actionpack#lib/action_controller/api.rb:150
-  def perform_caching(*_arg0, **_arg1, &_arg2); end
+  def perform_caching(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/api.rb:150
   def perform_caching=(arg); end
@@ -1486,7 +1451,7 @@ class ActionController::API < ::ActionController::Metal
     def allowed_redirect_hosts_permissions=(value); end
 
     # pkg:gem/actionpack#lib/action_controller/api.rb:150
-    def default_static_extension(*_arg0, **_arg1, &_arg2); end
+    def default_static_extension(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/api.rb:150
     def default_static_extension=(arg); end
@@ -1501,7 +1466,7 @@ class ActionController::API < ::ActionController::Metal
     def default_url_options?; end
 
     # pkg:gem/actionpack#lib/action_controller/api.rb:150
-    def enable_fragment_cache_logging(*_arg0, **_arg1, &_arg2); end
+    def enable_fragment_cache_logging(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/api.rb:150
     def enable_fragment_cache_logging=(arg); end
@@ -1534,7 +1499,7 @@ class ActionController::API < ::ActionController::Metal
     def fragment_cache_keys?; end
 
     # pkg:gem/actionpack#lib/action_controller/api.rb:150
-    def logger(*_arg0, **_arg1, &_arg2); end
+    def logger(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/api.rb:150
     def logger=(arg); end
@@ -1549,7 +1514,7 @@ class ActionController::API < ::ActionController::Metal
     def mimes_for_respond_to?; end
 
     # pkg:gem/actionpack#lib/action_controller/api.rb:150
-    def perform_caching(*_arg0, **_arg1, &_arg2); end
+    def perform_caching(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/api.rb:150
     def perform_caching=(arg); end
@@ -2186,37 +2151,37 @@ class ActionController::Base < ::ActionController::Metal
   def action_on_path_relative_redirect=(val); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:292
-  def allow_forgery_protection(*_arg0, **_arg1, &_arg2); end
+  def allow_forgery_protection(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:292
   def allow_forgery_protection=(arg); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:274
-  def asset_host(*_arg0, **_arg1, &_arg2); end
+  def asset_host(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:274
   def asset_host=(arg); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:274
-  def assets_dir(*_arg0, **_arg1, &_arg2); end
+  def assets_dir(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:274
   def assets_dir=(arg); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:292
-  def csrf_token_storage_strategy(*_arg0, **_arg1, &_arg2); end
+  def csrf_token_storage_strategy(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:292
   def csrf_token_storage_strategy=(arg); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:274
-  def default_asset_host_protocol(*_arg0, **_arg1, &_arg2); end
+  def default_asset_host_protocol(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:274
   def default_asset_host_protocol=(arg); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:284
-  def default_static_extension(*_arg0, **_arg1, &_arg2); end
+  def default_static_extension(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:284
   def default_static_extension=(arg); end
@@ -2231,7 +2196,7 @@ class ActionController::Base < ::ActionController::Metal
   def default_url_options?; end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:284
-  def enable_fragment_cache_logging(*_arg0, **_arg1, &_arg2); end
+  def enable_fragment_cache_logging(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:284
   def enable_fragment_cache_logging=(arg); end
@@ -2255,16 +2220,16 @@ class ActionController::Base < ::ActionController::Metal
   def etaggers?; end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:290
-  def flash(*_arg0, **_arg1, &_arg2); end
+  def flash(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:292
-  def forgery_protection_origin_check(*_arg0, **_arg1, &_arg2); end
+  def forgery_protection_origin_check(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:292
   def forgery_protection_origin_check=(arg); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:292
-  def forgery_protection_strategy(*_arg0, **_arg1, &_arg2); end
+  def forgery_protection_strategy(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:292
   def forgery_protection_strategy=(arg); end
@@ -2297,19 +2262,19 @@ class ActionController::Base < ::ActionController::Metal
   def include_all_helpers?; end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:274
-  def javascripts_dir(*_arg0, **_arg1, &_arg2); end
+  def javascripts_dir(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:274
   def javascripts_dir=(arg); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:292
-  def log_warning_on_csrf_failure(*_arg0, **_arg1, &_arg2); end
+  def log_warning_on_csrf_failure(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:292
   def log_warning_on_csrf_failure=(arg); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:277
-  def logger(*_arg0, **_arg1, &_arg2); end
+  def logger(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:277
   def logger=(arg); end
@@ -2324,13 +2289,13 @@ class ActionController::Base < ::ActionController::Metal
   def mimes_for_respond_to?; end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:292
-  def per_form_csrf_tokens(*_arg0, **_arg1, &_arg2); end
+  def per_form_csrf_tokens(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:292
   def per_form_csrf_tokens=(arg); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:284
-  def perform_caching(*_arg0, **_arg1, &_arg2); end
+  def perform_caching(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:284
   def perform_caching=(arg); end
@@ -2348,13 +2313,13 @@ class ActionController::Base < ::ActionController::Metal
   def raise_on_open_redirects=(val); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:274
-  def relative_url_root(*_arg0, **_arg1, &_arg2); end
+  def relative_url_root(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:274
   def relative_url_root=(arg); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:292
-  def request_forgery_protection_token(*_arg0, **_arg1, &_arg2); end
+  def request_forgery_protection_token(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:292
   def request_forgery_protection_token=(arg); end
@@ -2378,7 +2343,7 @@ class ActionController::Base < ::ActionController::Metal
   def responder?; end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:274
-  def stylesheets_dir(*_arg0, **_arg1, &_arg2); end
+  def stylesheets_dir(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:274
   def stylesheets_dir=(arg); end
@@ -2504,7 +2469,7 @@ class ActionController::Base < ::ActionController::Metal
     def action_on_path_relative_redirect=(val); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:292
-    def allow_forgery_protection(*_arg0, **_arg1, &_arg2); end
+    def allow_forgery_protection(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:292
     def allow_forgery_protection=(arg); end
@@ -2519,31 +2484,31 @@ class ActionController::Base < ::ActionController::Metal
     def allowed_redirect_hosts_permissions=(value); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:274
-    def asset_host(*_arg0, **_arg1, &_arg2); end
+    def asset_host(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:274
     def asset_host=(arg); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:274
-    def assets_dir(*_arg0, **_arg1, &_arg2); end
+    def assets_dir(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:274
     def assets_dir=(arg); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:292
-    def csrf_token_storage_strategy(*_arg0, **_arg1, &_arg2); end
+    def csrf_token_storage_strategy(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:292
     def csrf_token_storage_strategy=(arg); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:274
-    def default_asset_host_protocol(*_arg0, **_arg1, &_arg2); end
+    def default_asset_host_protocol(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:274
     def default_asset_host_protocol=(arg); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:284
-    def default_static_extension(*_arg0, **_arg1, &_arg2); end
+    def default_static_extension(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:284
     def default_static_extension=(arg); end
@@ -2558,7 +2523,7 @@ class ActionController::Base < ::ActionController::Metal
     def default_url_options?; end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:284
-    def enable_fragment_cache_logging(*_arg0, **_arg1, &_arg2); end
+    def enable_fragment_cache_logging(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:284
     def enable_fragment_cache_logging=(arg); end
@@ -2591,13 +2556,13 @@ class ActionController::Base < ::ActionController::Metal
     def etaggers?; end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:292
-    def forgery_protection_origin_check(*_arg0, **_arg1, &_arg2); end
+    def forgery_protection_origin_check(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:292
     def forgery_protection_origin_check=(arg); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:292
-    def forgery_protection_strategy(*_arg0, **_arg1, &_arg2); end
+    def forgery_protection_strategy(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:292
     def forgery_protection_strategy=(arg); end
@@ -2630,19 +2595,19 @@ class ActionController::Base < ::ActionController::Metal
     def include_all_helpers?; end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:274
-    def javascripts_dir(*_arg0, **_arg1, &_arg2); end
+    def javascripts_dir(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:274
     def javascripts_dir=(arg); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:292
-    def log_warning_on_csrf_failure(*_arg0, **_arg1, &_arg2); end
+    def log_warning_on_csrf_failure(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:292
     def log_warning_on_csrf_failure=(arg); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:277
-    def logger(*_arg0, **_arg1, &_arg2); end
+    def logger(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:277
     def logger=(arg); end
@@ -2657,13 +2622,13 @@ class ActionController::Base < ::ActionController::Metal
     def mimes_for_respond_to?; end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:292
-    def per_form_csrf_tokens(*_arg0, **_arg1, &_arg2); end
+    def per_form_csrf_tokens(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:292
     def per_form_csrf_tokens=(arg); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:284
-    def perform_caching(*_arg0, **_arg1, &_arg2); end
+    def perform_caching(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:284
     def perform_caching=(arg); end
@@ -2681,13 +2646,13 @@ class ActionController::Base < ::ActionController::Metal
     def raise_on_open_redirects=(val); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:274
-    def relative_url_root(*_arg0, **_arg1, &_arg2); end
+    def relative_url_root(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:274
     def relative_url_root=(arg); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:292
-    def request_forgery_protection_token(*_arg0, **_arg1, &_arg2); end
+    def request_forgery_protection_token(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:292
     def request_forgery_protection_token=(arg); end
@@ -2711,7 +2676,7 @@ class ActionController::Base < ::ActionController::Metal
     def responder?; end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:274
-    def stylesheets_dir(*_arg0, **_arg1, &_arg2); end
+    def stylesheets_dir(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_controller/base.rb:274
     def stylesheets_dir=(arg); end
@@ -2877,31 +2842,31 @@ end
 # pkg:gem/actionpack#lib/action_controller/base.rb:275
 module ActionController::Base::HelperMethods
   # pkg:gem/actionpack#lib/action_controller/base.rb:290
-  def alert(*_arg0, **_arg1, &_arg2); end
+  def alert(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:284
-  def combined_fragment_cache_key(*_arg0, **_arg1, &_arg2); end
+  def combined_fragment_cache_key(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:293
-  def content_security_policy?(*_arg0, **_arg1, &_arg2); end
+  def content_security_policy?(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:293
-  def content_security_policy_nonce(*_arg0, **_arg1, &_arg2); end
+  def content_security_policy_nonce(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:289
-  def cookies(*_arg0, **_arg1, &_arg2); end
+  def cookies(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:292
-  def form_authenticity_token(*_arg0, **_arg1, &_arg2); end
+  def form_authenticity_token(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:290
-  def notice(*_arg0, **_arg1, &_arg2); end
+  def notice(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:292
-  def protect_against_forgery?(*_arg0, **_arg1, &_arg2); end
+  def protect_against_forgery?(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/base.rb:284
-  def view_cache_dependencies(*_arg0, **_arg1, &_arg2); end
+  def view_cache_dependencies(*, **, &); end
 end
 
 # pkg:gem/actionpack#lib/action_controller/base.rb:231
@@ -4463,13 +4428,13 @@ module ActionController::Instrumentation
   mixes_in_class_methods ::ActionController::Instrumentation::ClassMethods
 
   # pkg:gem/actionpack#lib/action_controller/metal/instrumentation.rb:23
-  def initialize(*_arg0, **_arg1, &_arg2); end
+  def initialize(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/instrumentation.rb:49
-  def redirect_to(*_arg0); end
+  def redirect_to(*); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/instrumentation.rb:28
-  def render(*_arg0); end
+  def render(*); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/instrumentation.rb:43
   def send_data(data, options = T.unsafe(nil)); end
@@ -4507,7 +4472,7 @@ module ActionController::Instrumentation
   def halted_callback_hook(filter, _); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/instrumentation.rb:59
-  def process_action(*_arg0); end
+  def process_action(*); end
 end
 
 # pkg:gem/actionpack#lib/action_controller/metal/instrumentation.rb:109
@@ -5063,7 +5028,7 @@ class ActionController::Metal < ::AbstractController::Base
   def initialize; end
 
   # pkg:gem/actionpack#lib/action_controller/metal.rb:204
-  def content_type(*_arg0, **_arg1, &_arg2); end
+  def content_type(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/metal.rb:192
   def content_type=(arg); end
@@ -5077,16 +5042,16 @@ class ActionController::Metal < ::AbstractController::Base
   def dispatch(name, request, response); end
 
   # pkg:gem/actionpack#lib/action_controller/metal.rb:180
-  def headers(*_arg0, **_arg1, &_arg2); end
+  def headers(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/metal.rb:200
-  def location(*_arg0, **_arg1, &_arg2); end
+  def location(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/metal.rb:188
   def location=(arg); end
 
   # pkg:gem/actionpack#lib/action_controller/metal.rb:208
-  def media_type(*_arg0, **_arg1, &_arg2); end
+  def media_type(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/metal.rb:288
   def middleware_stack; end
@@ -5130,10 +5095,10 @@ class ActionController::Metal < ::AbstractController::Base
   def response_body=(body); end
 
   # pkg:gem/actionpack#lib/action_controller/metal.rb:227
-  def response_code(*_arg0, **_arg1, &_arg2); end
+  def response_code(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/metal.rb:176
-  def session(*_arg0, **_arg1, &_arg2); end
+  def session(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/metal.rb:275
   def set_request!(request); end
@@ -5142,7 +5107,7 @@ class ActionController::Metal < ::AbstractController::Base
   def set_response!(response); end
 
   # pkg:gem/actionpack#lib/action_controller/metal.rb:196
-  def status(*_arg0, **_arg1, &_arg2); end
+  def status(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/metal.rb:184
   def status=(arg); end
@@ -5212,7 +5177,7 @@ class ActionController::Metal < ::AbstractController::Base
     # middleware stack.
     #
     # pkg:gem/actionpack#lib/action_controller/metal.rb:293
-    def use(*_arg0, **_arg1, &_arg2); end
+    def use(*, **, &); end
 
     private
 
@@ -5552,7 +5517,7 @@ class ActionController::MimeResponds::Collector::VariantCollector
   def any(*args, &block); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/mime_responds.rb:318
-  def method_missing(name, *_arg1, &block); end
+  def method_missing(name, *, &block); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/mime_responds.rb:322
   def variant; end
@@ -5818,7 +5783,7 @@ class ActionController::Parameters
   def always_permitted_parameters=(val); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/strong_parameters.rb:250
-  def as_json(*_arg0, **_arg1, &_arg2); end
+  def as_json(*, **, &); end
 
   # Returns a new `ActionController::Parameters` instance with `nil` values
   # removed.
@@ -5906,7 +5871,7 @@ class ActionController::Parameters
   def each(&block); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/strong_parameters.rb:250
-  def each_key(*_arg0, **_arg1, &_arg2); end
+  def each_key(*, **, &); end
 
   # Convert all hashes in values into parameters, then yield each pair in the same
   # way as `Hash#each_pair`.
@@ -5921,7 +5886,7 @@ class ActionController::Parameters
   def each_value(&block); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/strong_parameters.rb:250
-  def empty?(*_arg0, **_arg1, &_arg2); end
+  def empty?(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/strong_parameters.rb:1086
   def encode_with(coder); end
@@ -5940,7 +5905,7 @@ class ActionController::Parameters
   def except(*keys); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/strong_parameters.rb:250
-  def exclude?(*_arg0, **_arg1, &_arg2); end
+  def exclude?(*, **, &); end
 
   # `expect` is the preferred way to require and permit parameters.
   # It is safer than the previous recommendation to call `permit` and `require`
@@ -6098,7 +6063,7 @@ class ActionController::Parameters
   def fetch(key, *args); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/strong_parameters.rb:253
-  def has_key?(*_arg0, **_arg1, &_arg2); end
+  def has_key?(*, **, &); end
 
   # Returns true if the given value is present for some key in the parameters.
   #
@@ -6109,7 +6074,7 @@ class ActionController::Parameters
   def hash; end
 
   # pkg:gem/actionpack#lib/action_controller/metal/strong_parameters.rb:250
-  def include?(*_arg0, **_arg1, &_arg2); end
+  def include?(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/strong_parameters.rb:1068
   def init_with(coder); end
@@ -6121,13 +6086,13 @@ class ActionController::Parameters
   def keep_if(&block); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/strong_parameters.rb:254
-  def key?(*_arg0, **_arg1, &_arg2); end
+  def key?(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/strong_parameters.rb:250
-  def keys(*_arg0, **_arg1, &_arg2); end
+  def keys(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/strong_parameters.rb:255
-  def member?(*_arg0, **_arg1, &_arg2); end
+  def member?(*, **, &); end
 
   # Returns a new `ActionController::Parameters` instance with all keys from
   # `other_hash` merged into current hash.
@@ -6486,7 +6451,7 @@ class ActionController::Parameters
   def to_query(*args); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/strong_parameters.rb:250
-  def to_s(*_arg0, **_arg1, &_arg2); end
+  def to_s(*, **, &); end
 
   # Returns an unsafe, unfiltered ActiveSupport::HashWithIndifferentAccess
   # representation of the parameters.
@@ -6834,7 +6799,7 @@ module ActionController::ParamsWrapper
   # metal call stack.
   #
   # pkg:gem/actionpack#lib/action_controller/metal/params_wrapper.rb:257
-  def process_action(*_arg0); end
+  def process_action(*); end
 
   module GeneratedClassMethods
     def _wrapper_options; end
@@ -7377,7 +7342,7 @@ class ActionController::Renderer
   def new(env = T.unsafe(nil)); end
 
   # pkg:gem/actionpack#lib/action_controller/renderer.rb:150
-  def normalize_env(env, &_arg1); end
+  def normalize_env(env, &); end
 
   # Renders a template to a string, just like
   # ActionController::Rendering#render_to_string.
@@ -7746,7 +7711,7 @@ module ActionController::Rendering
   # Override render_to_string because body can now be set to a Rack body.
   #
   # pkg:gem/actionpack#lib/action_controller/metal/rendering.rb:180
-  def render_to_string(*_arg0); end
+  def render_to_string(*); end
 
   private
 
@@ -7781,7 +7746,7 @@ module ActionController::Rendering
   # Before processing, set the request formats in current controller formats.
   #
   # pkg:gem/actionpack#lib/action_controller/metal/rendering.rb:197
-  def process_action(*_arg0); end
+  def process_action(*); end
 end
 
 # pkg:gem/actionpack#lib/action_controller/metal/rendering.rb:11
@@ -7790,7 +7755,7 @@ module ActionController::Rendering::ClassMethods
   def inherited(klass); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/rendering.rb:13
-  def render(*_arg0, **_arg1, &_arg2); end
+  def render(*, **, &); end
 
   # Returns a renderer instance (inherited from ActionController::Renderer) for
   # the controller.
@@ -7864,7 +7829,7 @@ module ActionController::RequestForgeryProtection
   mixes_in_class_methods GeneratedClassMethods
 
   # pkg:gem/actionpack#lib/action_controller/metal/request_forgery_protection.rb:373
-  def initialize(*_arg0, **_arg1, &_arg2); end
+  def initialize(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/request_forgery_protection.rb:383
   def commit_csrf_token(request); end
@@ -8212,7 +8177,7 @@ end
 # pkg:gem/actionpack#lib/action_controller/metal/request_forgery_protection.rb:296
 class ActionController::RequestForgeryProtection::ProtectionMethods::NullSession::NullCookieJar < ::ActionDispatch::Cookies::CookieJar
   # pkg:gem/actionpack#lib/action_controller/metal/request_forgery_protection.rb:297
-  def write(*_arg0); end
+  def write(*); end
 end
 
 # pkg:gem/actionpack#lib/action_controller/metal/request_forgery_protection.rb:277
@@ -8282,7 +8247,7 @@ module ActionController::Rescue
   private
 
   # pkg:gem/actionpack#lib/action_controller/metal/rescue.rb:35
-  def process_action(*_arg0); end
+  def process_action(*); end
 
   module GeneratedClassMethods
     def rescue_handlers; end
@@ -8300,7 +8265,7 @@ end
 # pkg:gem/actionpack#lib/action_controller/metal/rescue.rb:16
 module ActionController::Rescue::ClassMethods
   # pkg:gem/actionpack#lib/action_controller/metal/rescue.rb:17
-  def handler_for_rescue(exception, *_arg1, **_arg2, &_arg3); end
+  def handler_for_rescue(exception, *, **, &); end
 end
 
 # Raised when a nested respond_to is triggered and the content types of each are
@@ -9211,7 +9176,7 @@ module ActionController::UrlFor
   mixes_in_class_methods ::AbstractController::UrlFor::ClassMethods
 
   # pkg:gem/actionpack#lib/action_controller/metal/url_for.rb:32
-  def initialize(*_arg0, **_arg1, &_arg2); end
+  def initialize(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_controller/metal/url_for.rb:37
   def url_options; end
@@ -9257,37 +9222,6 @@ end
 # defined by the user, and does advanced processing related to HTTP such as
 # MIME-type negotiation, decoding parameters in POST, PATCH, or PUT bodies,
 # handling HTTP caching logic, cookies and sessions.
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
-# :markup: markdown
 # :markup: markdown
 #
 # pkg:gem/actionpack#lib/action_dispatch/deprecator.rb:5
@@ -9591,7 +9525,7 @@ module ActionDispatch::Assertions::RoutingAssertions
   # ROUTES TODO: These assertions should really work in an integration context
   #
   # pkg:gem/actionpack#lib/action_dispatch/testing/assertions/routing.rb:273
-  def method_missing(selector, *_arg1, **_arg2, &_arg3); end
+  def method_missing(selector, *, **, &); end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/assertions/routing.rb:115
   def setup; end
@@ -10483,7 +10417,7 @@ module ActionDispatch::Cookies::SerializedCookieJars
   def commit(name, options); end
 
   # pkg:gem/actionpack#lib/action_dispatch/middleware/cookies.rb:594
-  def parse(name, dumped, force_reserialize: T.unsafe(nil), **_arg3); end
+  def parse(name, dumped, force_reserialize: T.unsafe(nil), **); end
 
   # pkg:gem/actionpack#lib/action_dispatch/middleware/cookies.rb:588
   def reserialize?(dumped); end
@@ -10651,7 +10585,7 @@ class ActionDispatch::DebugView < ::ActionView::Base
   def protect_against_forgery?; end
 
   # pkg:gem/actionpack#lib/action_dispatch/middleware/debug_view.rb:48
-  def render(*_arg0); end
+  def render(*); end
 end
 
 # pkg:gem/actionpack#lib/action_dispatch/middleware/debug_view.rb:12
@@ -12554,13 +12488,13 @@ module ActionDispatch::Integration::Runner
   def assertions=(assertions); end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:385
-  def assigns(*_arg0, **_arg1, &_arg2); end
+  def assigns(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:348
   def before_setup; end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:385
-  def cookies(*_arg0, **_arg1, &_arg2); end
+  def cookies(*, **, &); end
 
   # Copy the instance variables from the current session instance into the test
   # instance.
@@ -12578,16 +12512,16 @@ module ActionDispatch::Integration::Runner
   def default_url_options=(options); end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:385
-  def delete(*_arg0, **_arg1, &_arg2); end
+  def delete(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:385
-  def follow_redirect!(*_arg0, **_arg1, &_arg2); end
+  def follow_redirect!(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:385
-  def get(*_arg0, **_arg1, &_arg2); end
+  def get(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:385
-  def head(*_arg0, **_arg1, &_arg2); end
+  def head(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:353
   def integration_session; end
@@ -12606,13 +12540,13 @@ module ActionDispatch::Integration::Runner
   def open_session; end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:385
-  def patch(*_arg0, **_arg1, &_arg2); end
+  def patch(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:385
-  def post(*_arg0, **_arg1, &_arg2); end
+  def post(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:385
-  def put(*_arg0, **_arg1, &_arg2); end
+  def put(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:375
   def remove!; end
@@ -12634,7 +12568,7 @@ module ActionDispatch::Integration::Runner
   # Delegate unhandled messages to the current session instance.
   #
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:443
-  def method_missing(method, *_arg1, **_arg2, &_arg3); end
+  def method_missing(method, *, **, &); end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:438
   def respond_to_missing?(method, _); end
@@ -12683,7 +12617,7 @@ class ActionDispatch::Integration::Session
   def accept=(_arg0); end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:97
-  def body(*_arg0, **_arg1, &_arg2); end
+  def body(*, **, &); end
 
   # A reference to the controller instance used by the last request.
   #
@@ -12706,7 +12640,7 @@ class ActionDispatch::Integration::Session
   def default_url_options?; end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:97
-  def headers(*_arg0, **_arg1, &_arg2); end
+  def headers(*, **, &); end
 
   # The hostname used in the last request.
   #
@@ -12743,7 +12677,7 @@ class ActionDispatch::Integration::Session
   def https?; end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:98
-  def path(*_arg0, **_arg1, &_arg2); end
+  def path(*, **, &); end
 
   # Performs the actual request.
   #
@@ -12783,7 +12717,7 @@ class ActionDispatch::Integration::Session
   def process(method, path, params: T.unsafe(nil), headers: T.unsafe(nil), env: T.unsafe(nil), xhr: T.unsafe(nil), as: T.unsafe(nil)); end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:97
-  def redirect?(*_arg0, **_arg1, &_arg2); end
+  def redirect?(*, **, &); end
 
   # The remote_addr used in the last request.
   #
@@ -12824,10 +12758,10 @@ class ActionDispatch::Integration::Session
   def response; end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:97
-  def status(*_arg0, **_arg1, &_arg2); end
+  def status(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:97
-  def status_message(*_arg0, **_arg1, &_arg2); end
+  def status_message(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_dispatch/testing/integration.rb:140
   def url_options; end
@@ -13134,8 +13068,6 @@ end
 # pkg:gem/actionpack#lib/action_dispatch/http/param_error.rb:21
 class ActionDispatch::InvalidParameterError < ::ActionDispatch::ParamError; end
 
-# :stopdoc:
-# :stopdoc:
 # :stopdoc:
 #
 # pkg:gem/actionpack#lib/action_dispatch/journey/router/utils.rb:6
@@ -14599,13 +14531,13 @@ class ActionDispatch::MiddlewareStack
   def each(&block); end
 
   # pkg:gem/actionpack#lib/action_dispatch/middleware/stack.rb:106
-  def insert(index, klass, *args, **_arg3, &block); end
+  def insert(index, klass, *args, **, &block); end
 
   # pkg:gem/actionpack#lib/action_dispatch/middleware/stack.rb:114
-  def insert_after(index, *args, **_arg2, &block); end
+  def insert_after(index, *args, **, &block); end
 
   # pkg:gem/actionpack#lib/action_dispatch/middleware/stack.rb:112
-  def insert_before(index, klass, *args, **_arg3, &block); end
+  def insert_before(index, klass, *args, **, &block); end
 
   # pkg:gem/actionpack#lib/action_dispatch/middleware/stack.rb:89
   def last; end
@@ -14629,13 +14561,13 @@ class ActionDispatch::MiddlewareStack
   def size; end
 
   # pkg:gem/actionpack#lib/action_dispatch/middleware/stack.rb:120
-  def swap(target, *args, **_arg2, &block); end
+  def swap(target, *args, **, &block); end
 
   # pkg:gem/actionpack#lib/action_dispatch/middleware/stack.rb:97
-  def unshift(klass, *args, **_arg2, &block); end
+  def unshift(klass, *args, **, &block); end
 
   # pkg:gem/actionpack#lib/action_dispatch/middleware/stack.rb:161
-  def use(klass, *args, **_arg2, &block); end
+  def use(klass, *args, **, &block); end
 
   private
 
@@ -14748,13 +14680,13 @@ class ActionDispatch::ParamBuilder
     def default=(val); end
 
     # pkg:gem/actionpack#lib/action_dispatch/http/param_builder.rb:23
-    def from_hash(*_arg0, **_arg1, &_arg2); end
+    def from_hash(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_dispatch/http/param_builder.rb:23
-    def from_pairs(*_arg0, **_arg1, &_arg2); end
+    def from_pairs(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_dispatch/http/param_builder.rb:23
-    def from_query_string(*_arg0, **_arg1, &_arg2); end
+    def from_query_string(*, **, &); end
 
     # pkg:gem/actionpack#lib/action_dispatch/http/param_builder.rb:25
     def ignore_leading_brackets; end
@@ -15326,7 +15258,7 @@ class ActionDispatch::Request
   # to Object#method
   #
   # pkg:gem/actionpack#lib/action_dispatch/http/request.rb:217
-  def method(*args, **_arg1); end
+  def method(*args, **); end
 
   # Returns a symbol form of the #method.
   #
@@ -16083,10 +16015,10 @@ class ActionDispatch::Response
   def initialize(status = T.unsafe(nil), headers = T.unsafe(nil), body = T.unsafe(nil)); end
 
   # pkg:gem/actionpack#lib/action_dispatch/http/response.rb:89
-  def [](*_arg0, **_arg1, &_arg2); end
+  def [](*, **, &); end
 
   # pkg:gem/actionpack#lib/action_dispatch/http/response.rb:89
-  def []=(*_arg0, **_arg1, &_arg2); end
+  def []=(*, **, &); end
 
   # Aliasing these off because AD::Http::Cache::Response defines them.
   #
@@ -16891,7 +16823,7 @@ class ActionDispatch::Routing::HtmlTableFormatter
   def header(routes); end
 
   # pkg:gem/actionpack#lib/action_dispatch/routing/inspector.rb:326
-  def no_routes(*_arg0); end
+  def no_routes(*); end
 
   # pkg:gem/actionpack#lib/action_dispatch/routing/inspector.rb:339
   def result; end
@@ -19546,7 +19478,7 @@ module ActionDispatch::Routing::UrlFor
   mixes_in_class_methods GeneratedClassMethods
 
   # pkg:gem/actionpack#lib/action_dispatch/routing/url_for.rb:111
-  def initialize(*_arg0, **_arg1, &_arg2); end
+  def initialize(*, **, &); end
 
   # pkg:gem/actionpack#lib/action_dispatch/routing/url_for.rb:182
   def full_url_for(options = T.unsafe(nil)); end
@@ -20215,12 +20147,12 @@ class ActionDispatch::SystemTestCase < ::ActiveSupport::TestCase
   include ::Turbo::SystemTestHelper
 
   # pkg:gem/actionpack#lib/action_dispatch/system_test_case.rb:122
-  def initialize(*_arg0); end
+  def initialize(*); end
 
   private
 
   # pkg:gem/actionpack#lib/action_dispatch/system_test_case.rb:191
-  def method_missing(name, *_arg1, **_arg2, &_arg3); end
+  def method_missing(name, *, **, &); end
 
   # pkg:gem/actionpack#lib/action_dispatch/system_test_case.rb:199
   def respond_to_missing?(name, include_private = T.unsafe(nil)); end
@@ -20806,7 +20738,7 @@ class Mime::NullType
   private
 
   # pkg:gem/actionpack#lib/action_dispatch/http/mime_type.rb:383
-  def method_missing(method, *_arg1, **_arg2, &_arg3); end
+  def method_missing(method, *, **, &); end
 
   # pkg:gem/actionpack#lib/action_dispatch/http/mime_type.rb:379
   def respond_to_missing?(method, _); end
@@ -20895,7 +20827,7 @@ class Mime::Type
   private
 
   # pkg:gem/actionpack#lib/action_dispatch/http/mime_type.rb:336
-  def method_missing(method, *_arg1, **_arg2, &_arg3); end
+  def method_missing(method, *, **, &); end
 
   # pkg:gem/actionpack#lib/action_dispatch/http/mime_type.rb:344
   def respond_to_missing?(method, include_private = T.unsafe(nil)); end

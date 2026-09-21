@@ -25,8 +25,6 @@ end
 
 # Copyright (c) 2010-2013 Ian Heggie, released under the MIT license.
 # See MIT-LICENSE for details.
-# Copyright (c) 2010-2013 Ian Heggie, released under the MIT license.
-# See MIT-LICENSE for details.
 #
 # pkg:gem/health_check#lib/health_check.rb:4
 module HealthCheck
