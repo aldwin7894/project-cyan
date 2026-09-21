@@ -88,7 +88,7 @@ gem "rack-cors", "~> 3.0", require: "rack/cors"
 
 gem "addressable", "~> 2.8"
 
-gem "jwt", "~> 3.2"
+gem "jwt", "~> 3.3"
 
 
 # gem "ferrum", "~> 0.13"
