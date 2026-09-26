@@ -1641,12 +1641,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"alpinejs@npm:^3.17.2":
-  version: 3.17.2
-  resolution: "alpinejs@npm:3.17.2"
+"alpinejs@npm:^3.17.3":
+  version: 3.17.3
+  resolution: "alpinejs@npm:3.17.3"
   dependencies:
     "@vue/reactivity": "npm:~3.5.40"
-  checksum: 10/4047c32f910f2e054aa939c27407c0a8fd10db01d83eaba66a5f632952ed0dea0c0d89c3b2d32237e7f34f8425031f22007b97659a722c1cb79c5623d1050d11
+  checksum: 10/620f51cc4c4d73072d9e38c03dfce4e30249abad0339d55b81e59e6dec54b0bfe53fa707862390414669e097ec3dc6649b4a7c1912c49c1da0679ee92d287956
   languageName: node
   linkType: hard
 
@@ -3321,9 +3321,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^10.10.0":
-  version: 10.10.0
-  resolution: "eslint@npm:10.10.0"
+"eslint@npm:^10.11.0":
+  version: 10.11.0
+  resolution: "eslint@npm:10.11.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.8.0"
     "@eslint-community/regexpp": "npm:^4.12.2"
@@ -3362,7 +3362,7 @@ __metadata:
       optional: true
   bin:
     eslint: bin/eslint.js
-  checksum: 10/02fe7e79bf9f81d939ef3ad0c3151c0588f3441eef00bdc468797f2a9f8b047bea97c57a793fc97cf1e4886400b50f049b8e66ec1371820e9df33b54a8bc90d8
+  checksum: 10/b4de8711cae009d6978e3760d400d5b2cba4117625764d9b1b77969c61f4db7dfa7bfb2754c0a22b3d9f35960a3e4f03bd579104d2c25894490bf3cf7b448cac
   languageName: node
   linkType: hard
 
@@ -4014,12 +4014,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iconify-icon@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "iconify-icon@npm:3.0.2"
+"iconify-icon@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "iconify-icon@npm:3.0.3"
   dependencies:
     "@iconify/types": "npm:^2.0.0"
-  checksum: 10/14eb2e1d28c49bd4126d8dbc6d9e588b33fd7db6558f92938e1420318ab906e7a804f6b6e01c9c928c4af98af6cc09ccd82b90b655ce21337cf33706a60edcae
+  checksum: 10/048c9dbdb9ffb8d1483d36d5af47daf3673d9ef3566b30328b837f16a928068b18dfcfed87b3ee7cf19d405e6442db899a949dad0ad815e6fe8949a2def61b90
   languageName: node
   linkType: hard
 
@@ -6698,12 +6698,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.9.6":
-  version: 3.9.6
-  resolution: "prettier@npm:3.9.6"
+"prettier@npm:^3.9.8":
+  version: 3.9.8
+  resolution: "prettier@npm:3.9.8"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10/1dd1a1e0e40ec3b91cda9d294c4a95022aef61880ca3f441aad99b1252279f58a766c4cece81132c01550dcff1fd445efbd8812ea4a2374313e7fc6c8136f11f
+  checksum: 10/4ac262aaf9a5e221b02cc17447ebe7aa9689be59b85ab9de8152cd7422fb363ed3e09da6df585fa19ab1fc6cffebdc3ea34db1a75c978536aeba3f87bfd06ab3
   languageName: node
   linkType: hard
 
@@ -6728,24 +6728,24 @@ __metadata:
     "@tailwindcss/typography": "npm:^0.5.20"
     "@types/node": "npm:^26.4.0"
     "@typescript-eslint/parser": "npm:^8.70.0"
-    alpinejs: "npm:^3.17.2"
+    alpinejs: "npm:^3.17.3"
     autoprefixer: "npm:^10.6.0"
     chart.js: "npm:^4.5.1"
     cssnano: "npm:^9.0.5"
     cssnano-preset-advanced: "npm:^9.0.4"
-    eslint: "npm:^10.10.0"
+    eslint: "npm:^10.11.0"
     eslint-config-prettier: "npm:^10.1.8"
     eslint-import-resolver-alias: "npm:^1.1.2"
     eslint-plugin-import: "npm:^2.32.0"
     eslint-plugin-prettier: "npm:^5.5.6"
     eslint-plugin-tailwindcss: "npm:~3.18.3"
     globals: "npm:^17.12.0"
-    iconify-icon: "npm:^3.0.2"
+    iconify-icon: "npm:^3.0.3"
     postcss: "npm:^8.5.26"
     postcss-flexbugs-fixes: "npm:^5.0.2"
     postcss-import: "npm:^17.0.0"
     postcss-preset-env: "npm:^11.5.2"
-    prettier: "npm:^3.9.6"
+    prettier: "npm:^3.9.8"
     rollup-plugin-gzip: "npm:^4.2.0"
     rollup-plugin-visualizer: "npm:^7.1.1"
     sass-embedded: "npm:1.104.1"
