@@ -114,7 +114,7 @@ class HomeController < ApplicationController
       last_watched = AnilistActivity
                        .order(id: :desc)
                        .where.in("media.format": ANIME_FORMATS)
-                       .and.not.in(status: IGNORED_USER_STATUS)
+                       .and.not_in(status: IGNORED_USER_STATUS)
                        .limit(1)
                        &.first
       @last_watched = user_activity_fetch_fanart(activity: last_watched)
@@ -122,7 +122,7 @@ class HomeController < ApplicationController
       last_watched_movie = AnilistActivity
                              .order(id: :desc)
                              .where("media.format": "MOVIE")
-                             .and.not.in(status: IGNORED_USER_STATUS)
+                             .and.not_in(status: IGNORED_USER_STATUS)
                              .limit(1)
                              &.first
       @last_watched_movie = user_activity_fetch_fanart(activity: last_watched_movie)
@@ -131,7 +131,7 @@ class HomeController < ApplicationController
       @watched_anime = AnilistActivity
                          .order(id: :desc)
                          .where.in("media.format": ANIME_FORMATS)
-                         .and.not.in(status: IGNORED_USER_STATUS)
+                         .and.not_in(status: IGNORED_USER_STATUS)
                          &.each_slice(6)
                          &.to_a
                          &.[](@index)
@@ -140,8 +140,8 @@ class HomeController < ApplicationController
       @index = turbo_frame_request_id.scan(/\d+/).first.to_i
       @watched_movie = AnilistActivity
                          .order(id: :desc)
-                         .where.not.in("media.format": ANIME_FORMATS)
-                         .and.not.in(status: IGNORED_USER_STATUS)
+                         .not_in("media.format": ANIME_FORMATS)
+                         .and.not_in(status: IGNORED_USER_STATUS)
                          &.each_slice(6)
                          &.to_a
                          &.[](@index)
@@ -150,7 +150,7 @@ class HomeController < ApplicationController
       watched_last_week = AnilistActivity
                             .order(id: :desc)
                             .where(createdAt: { "$gte": last_week_start, "$lte": last_week_end })
-                            .and.not.in(status: IGNORED_USER_STATUS)
+                            .and.not_in(status: IGNORED_USER_STATUS)
       @total_watched_anime_time_last_week_mins = watched_last_week
                                                    .map { |x| x&.[]("media")&.[]("duration").to_i }
                                                    .sum
@@ -159,9 +159,9 @@ class HomeController < ApplicationController
     when "total_watched_anime_movie_last_week"
       watched_last_week = AnilistActivity
                             .order(id: :desc)
-                            .where.not.in("media.format": ANIME_FORMATS)
+                            .not_in("media.format": ANIME_FORMATS)
                             .and(createdAt: { "$gte": last_week_start, "$lte": last_week_end })
-                            .and.not.in(status: IGNORED_USER_STATUS)
+                            .and.not_in(status: IGNORED_USER_STATUS)
       @total_watched_anime_movie_time_last_week_mins = watched_last_week
                                                          .map { |x| x&.[]("media")&.[]("duration").to_i }
                                                          .sum
@@ -179,7 +179,7 @@ class HomeController < ApplicationController
     @watched_anime = AnilistActivity
                        .order(id: :desc)
                        .where.in("media.format": ANIME_FORMATS)
-                       .and.not.in(status: IGNORED_USER_STATUS)
+                       .and.not_in(status: IGNORED_USER_STATUS)
     render template: "home/#{turbo_frame_request_id}", layout: false if turbo_frame_request?
   rescue StandardError => error
     render_empty(error)
@@ -189,9 +189,9 @@ class HomeController < ApplicationController
     @watched_movie = AnilistActivity
                        .order(id: :desc)
                        .where
-                       .not.in("media.format": ANIME_FORMATS)
+                       .not_in("media.format": ANIME_FORMATS)
                        .and
-                       .not.in(status: IGNORED_USER_STATUS)
+                       .not_in(status: IGNORED_USER_STATUS)
     render template: "home/#{turbo_frame_request_id}", layout: false if turbo_frame_request?
   rescue StandardError => error
     render_empty(error)
