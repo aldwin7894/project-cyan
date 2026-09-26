@@ -4014,12 +4014,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iconify-icon@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "iconify-icon@npm:3.0.2"
+"iconify-icon@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "iconify-icon@npm:3.0.3"
   dependencies:
     "@iconify/types": "npm:^2.0.0"
-  checksum: 10/14eb2e1d28c49bd4126d8dbc6d9e588b33fd7db6558f92938e1420318ab906e7a804f6b6e01c9c928c4af98af6cc09ccd82b90b655ce21337cf33706a60edcae
+  checksum: 10/048c9dbdb9ffb8d1483d36d5af47daf3673d9ef3566b30328b837f16a928068b18dfcfed87b3ee7cf19d405e6442db899a949dad0ad815e6fe8949a2def61b90
   languageName: node
   linkType: hard
 
@@ -6740,7 +6740,7 @@ __metadata:
     eslint-plugin-prettier: "npm:^5.5.6"
     eslint-plugin-tailwindcss: "npm:~3.18.3"
     globals: "npm:^17.12.0"
-    iconify-icon: "npm:^3.0.2"
+    iconify-icon: "npm:^3.0.3"
     postcss: "npm:^8.5.26"
     postcss-flexbugs-fixes: "npm:^5.0.2"
     postcss-import: "npm:^17.0.0"
