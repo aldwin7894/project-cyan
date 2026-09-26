@@ -23,13 +23,6 @@
 # under the License.
 # TODO: Deprecated; Delete after 4.0 release
 #
-# A credential stored in a virtual authenticator.
-# @see https://w3c.github.io/webauthn/#credential-parameters
-#
-#
-# Options for the creation of virtual authenticators.
-# @see http://w3c.github.io/webauthn/#sctn-automation
-#
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/atoms.rb:20
 module Selenium; end
 
@@ -75,7 +68,7 @@ module Selenium::WebDriver
     # @return [Logger]
     #
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:97
-    def logger(**opts); end
+    def logger; end
 
     # @api private
     #
@@ -88,24 +81,21 @@ end
 class Selenium::WebDriver::ActionBuilder
   include ::Selenium::WebDriver::KeyActions
   include ::Selenium::WebDriver::PointerActions
-  include ::Selenium::WebDriver::WheelActions
 
   # Initialize a W3C Action Builder. Differs from previous by requiring a bridge and allowing asynchronous actions.
   # The W3C implementation allows asynchronous actions per device. e.g. A key can be pressed at the same time that
   # the mouse is moving. Keep in mind that pauses must be added for other devices in order to line up the actions
   # correctly when using asynchronous.
   #
-  # @param [Selenium::WebDriver::Remote::Bridge] bridge the bridge for the current driver instance.
-  # @param [Selenium::WebDriver::Interactions::PointerInput] deprecated_mouse PointerInput for the mouse.
-  # @param [Selenium::WebDriver::Interactions::KeyInput] deprecated_keyboard KeyInput for the keyboard.
-  # @param [Boolean] deprecated_async Whether to perform the actions asynchronously per device.
-  #   Defaults to false for backwards compatibility.
-  # @param [Array<Selenium::WebDriver::Interactions::InputDevices>] devices list of valid sources of input.
-  # @param [Boolean] async Whether to perform the actions asynchronously per device.
+  # @param [Selenium::WebDriver::Remote::Bridge] bridge the bridge for the current driver instance
+  # @param [Selenium::WebDriver::Interactions::PointerInput] mouse PointerInput for the mouse.
+  # @param [Selenium::WebDriver::Interactions::KeyInput] keyboard KeyInput for the keyboard.
+  # @param [Boolean] async Whether to perform the actions asynchronously per device. Defaults to false for
+  #   backwards compatibility.
   # @return [ActionBuilder] A self reference.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:45
-  def initialize(bridge, devices: T.unsafe(nil), async: T.unsafe(nil), duration: T.unsafe(nil)); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:42
+  def initialize(bridge, mouse, keyboard, async = T.unsafe(nil)); end
 
   # Adds a KeyInput device
   #
@@ -117,7 +107,7 @@ class Selenium::WebDriver::ActionBuilder
   # @param [String] name name for the device
   # @return [Interactions::KeyInput] The key input added
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:84
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:81
   def add_key_input(name); end
 
   # Adds a PointerInput device of the given kind
@@ -131,46 +121,32 @@ class Selenium::WebDriver::ActionBuilder
   # @param [Symbol] kind kind of pointer device to create
   # @return [Interactions::PointerInput] The pointer input added
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:68
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:63
   def add_pointer_input(kind, name); end
-
-  # Adds a WheelInput device
-  #
-  # @example Add a wheel input device
-  #
-  #    builder = device.action
-  #    builder.add_wheel_input('wheel2')
-  #
-  # @param [String] name name for the device
-  # @return [Interactions::WheelInput] The wheel input added
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:100
-  def add_wheel_input(name); end
 
   # Clears all actions from the builder.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:211
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:174
   def clear_all_actions; end
 
-  # Retrieves the input device for the given name or type
+  # Actions specific to pointer inputs
+  #
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:26
+  def devices; end
+
+  # Retrieves the input device for the given name
   #
   # @param [String] name name of the input device
-  # @param [String] type name of the input device
-  # @return [Selenium::WebDriver::Interactions::InputDevice] input device with given name or type
+  # @return [Selenium::WebDriver::Interactions::InputDevice] input device with given name
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:112
-  def device(name: T.unsafe(nil), type: T.unsafe(nil)); end
-
-  # Actions specific to wheel inputs
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:27
-  def devices; end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:94
+  def get_device(name); end
 
   # Retrieves the current KeyInput device
   #
   # @return [Selenium::WebDriver::Interactions::InputDevice] current KeyInput device
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:136
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:114
   def key_inputs; end
 
   # Creates a pause for the given device of the given duration. If no duration is given, the pause will only wait
@@ -187,8 +163,8 @@ class Selenium::WebDriver::ActionBuilder
   # @param [Float] duration Duration to pause
   # @return [ActionBuilder] A self reference.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:166
-  def pause(device: T.unsafe(nil), duration: T.unsafe(nil)); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:134
+  def pause(device, duration = T.unsafe(nil)); end
 
   # Creates multiple pauses for the given device of the given duration.
   #
@@ -204,45 +180,38 @@ class Selenium::WebDriver::ActionBuilder
   # @param [Float] duration Duration to pause
   # @return [ActionBuilder] A self reference.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:188
-  def pauses(device: T.unsafe(nil), number: T.unsafe(nil), duration: T.unsafe(nil)); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:155
+  def pauses(device, number, duration = T.unsafe(nil)); end
 
   # Executes the actions added to the builder.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:201
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:164
   def perform; end
 
   # Retrieves the current PointerInput devices
   #
   # @return [Array] array of current PointerInput devices
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:126
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:104
   def pointer_inputs; end
 
   # Releases all action states from the browser.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:219
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:182
   def release_actions; end
-
-  # Retrieves the current WheelInput device
-  #
-  # @return [Selenium::WebDriver::Interactions::InputDevice] current WheelInput devices
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:146
-  def wheel_inputs; end
 
   private
 
   # Adds an InputDevice
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:241
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:204
   def add_input(device); end
 
   # Adds pauses for all devices but the given devices
   #
   # @param [Array[InputDevice]] action_devices Array of Input Devices performing an action in this tick.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:231
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/action_builder.rb:194
   def tick(*action_devices); end
 end
 
@@ -268,361 +237,26 @@ end
 module Selenium::WebDriver::Atoms
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/atoms.rb:29
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/atoms.rb:30
   def execute_atom(function_name, *arguments); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/atoms.rb:25
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/atoms.rb:26
   def read_atom(function); end
 end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi.rb:22
-class Selenium::WebDriver::BiDi
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi.rb:27
-  def initialize(url:); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi.rb:35
-  def callbacks; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi.rb:31
-  def close; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi.rb:51
-  def error_message(message); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi.rb:43
-  def send_cmd(method, **params); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi.rb:39
-  def session; end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:23
-class Selenium::WebDriver::BiDi::BaseLogEntry
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:26
-  def initialize(level:, text:, timestamp:, stack_trace:); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:24
-  def level; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:24
-  def level=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:24
-  def stack_trace; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:24
-  def stack_trace=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:24
-  def text; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:24
-  def text=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:24
-  def timestamp; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/base_log_entry.rb:24
-  def timestamp=(_arg0); end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context.rb:26
-class Selenium::WebDriver::BiDi::BrowsingContext
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context.rb:35
-  def initialize(driver:, browsing_context_id: T.unsafe(nil), type: T.unsafe(nil), reference_context: T.unsafe(nil)); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context.rb:76
-  def close; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context.rb:65
-  def get_tree(max_depth: T.unsafe(nil)); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context.rb:27
-  def id; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context.rb:27
-  def id=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context.rb:50
-  def navigate(url:, readiness_state: T.unsafe(nil)); end
-
-  private
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context.rb:82
-  def create(type, reference_context); end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context.rb:29
-Selenium::WebDriver::BiDi::BrowsingContext::READINESS_STATE = T.let(T.unsafe(nil), Hash)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:23
-class Selenium::WebDriver::BiDi::BrowsingContextInfo
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:26
-  def initialize(id:, url:, children:, parent_context:); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:24
-  def children; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:24
-  def children=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:24
-  def id; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:24
-  def id=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:24
-  def parent_browsing_context; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:24
-  def parent_browsing_context=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:24
-  def url; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/browsing_context_info.rb:24
-  def url=(_arg0); end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/console_log_entry.rb:23
-class Selenium::WebDriver::BiDi::ConsoleLogEntry < ::Selenium::WebDriver::BiDi::GenericLogEntry
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/console_log_entry.rb:26
-  def initialize(method:, realm:, args:, **opts); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/console_log_entry.rb:24
-  def args; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/console_log_entry.rb:24
-  def args=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/console_log_entry.rb:24
-  def method; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/console_log_entry.rb:24
-  def method=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/console_log_entry.rb:24
-  def realm; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/console_log_entry.rb:24
-  def realm=(_arg0); end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/filter_by.rb:23
-class Selenium::WebDriver::BiDi::FilterBy
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/filter_by.rb:26
-  def initialize(level); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/filter_by.rb:24
-  def level; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/filter_by.rb:24
-  def level=(_arg0); end
-
-  class << self
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/filter_by.rb:30
-    def log_level(level = T.unsafe(nil)); end
-  end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/generic_log_entry.rb:23
-class Selenium::WebDriver::BiDi::GenericLogEntry < ::Selenium::WebDriver::BiDi::BaseLogEntry
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/generic_log_entry.rb:26
-  def initialize(level:, text:, timestamp:, type:, stack_trace:); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/generic_log_entry.rb:24
-  def type; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/generic_log_entry.rb:24
-  def type=(_arg0); end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/javascript_log_entry.rb:23
-class Selenium::WebDriver::BiDi::JavascriptLogEntry < ::Selenium::WebDriver::BiDi::GenericLogEntry
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/javascript_log_entry.rb:26
-  def initialize(level:, text:, timestamp:, type:, stack_trace:); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/javascript_log_entry.rb:24
-  def type; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log/javascript_log_entry.rb:24
-  def type=(_arg0); end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log_inspector.rb:31
-class Selenium::WebDriver::BiDi::LogInspector
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log_inspector.rb:43
-  def initialize(driver, browsing_context_ids = T.unsafe(nil)); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log_inspector.rb:53
-  def on_console_entry(filter_by = T.unsafe(nil), &block); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log_inspector.rb:71
-  def on_javascript_exception(&block); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log_inspector.rb:62
-  def on_javascript_log(filter_by = T.unsafe(nil), &block); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log_inspector.rb:78
-  def on_log(filter_by = T.unsafe(nil), &block); end
-
-  private
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log_inspector.rb:98
-  def check_valid_filter(filter_by); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log_inspector.rb:104
-  def console_log_events(params, filter_by); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log_inspector.rb:124
-  def javascript_log_events(params, filter_by); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log_inspector.rb:93
-  def on(event, &block); end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log_inspector.rb:32
-Selenium::WebDriver::BiDi::LogInspector::EVENTS = T.let(T.unsafe(nil), Hash)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/log_inspector.rb:36
-Selenium::WebDriver::BiDi::LogInspector::LOG_LEVEL = T.let(T.unsafe(nil), Hash)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/navigate_result.rb:23
-class Selenium::WebDriver::BiDi::NavigateResult
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/navigate_result.rb:26
-  def initialize(url:, navigation_id:); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/navigate_result.rb:24
-  def navigation_id; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/navigate_result.rb:24
-  def navigation_id=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/navigate_result.rb:24
-  def url; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/navigate_result.rb:24
-  def url=(_arg0); end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:23
-class Selenium::WebDriver::BiDi::Session
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:26
-  def initialize(bidi); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:30
-  def status; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:35
-  def subscribe(events, browsing_contexts = T.unsafe(nil)); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:42
-  def unsubscribe(events, browsing_contexts = T.unsafe(nil)); end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:24
-class Selenium::WebDriver::BiDi::Session::Status < ::Struct
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:24
-  def message; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:24
-  def message=(_); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:24
-  def ready; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:24
-  def ready=(_); end
-
-  class << self
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:24
-    def [](*_arg0); end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:24
-    def inspect; end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:24
-    def keyword_init?; end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:24
-    def members; end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/bidi/session.rb:24
-    def new(*_arg0); end
-  end
-end
-
-# @api private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:26
-class Selenium::WebDriver::ChildProcess
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:41
-  def initialize(*command); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:79
-  def alive?; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:34
-  def detach; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:34
-  def detach=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:83
-  def exited?; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:48
-  def io; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:35
-  def io=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:96
-  def poll_for_exit(timeout); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:52
-  def start; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:63
-  def stop(timeout = T.unsafe(nil)); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:105
-  def wait; end
-
-  private
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:117
-  def kill(pid); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:113
-  def terminate(pid); end
-
-  class << self
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:37
-    def build(*command); end
-  end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:32
-Selenium::WebDriver::ChildProcess::POLL_INTERVAL = T.let(T.unsafe(nil), Float)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:30
-Selenium::WebDriver::ChildProcess::SIGKILL = T.let(T.unsafe(nil), String)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:29
-Selenium::WebDriver::ChildProcess::SIGTERM = T.let(T.unsafe(nil), String)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/child_process.rb:27
-class Selenium::WebDriver::ChildProcess::TimeoutError < ::StandardError; end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome.rb:24
 module Selenium::WebDriver::Chrome
   class << self
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome.rb:36
-    def path; end
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome.rb:38
+    def driver_path; end
 
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome.rb:31
+    def driver_path=(path); end
+
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome.rb:50
+    def path; end
+
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome.rb:45
     def path=(path); end
   end
 end
@@ -630,164 +264,100 @@ end
 # Driver implementation for Chrome.
 # @api private
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/driver.rb:30
-class Selenium::WebDriver::Chrome::Driver < ::Selenium::WebDriver::Chromium::Driver
-  include ::Selenium::WebDriver::LocalDriver
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/driver.rb:33
-  def initialize(capabilities: T.unsafe(nil), options: T.unsafe(nil), service: T.unsafe(nil), url: T.unsafe(nil), **opts); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/driver.rb:38
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/driver.rb:29
+class Selenium::WebDriver::Chrome::Driver < ::Selenium::WebDriver::Driver
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/driver.rb:46
   def browser; end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/driver.rb:44
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/driver.rb:63
   def devtools_address; end
-end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:25
-module Selenium::WebDriver::Chrome::Features
-  include ::Selenium::WebDriver::Chromium::Features
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:38
-  def commands(command); end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:28
-Selenium::WebDriver::Chrome::Features::CHROME_COMMANDS = T.let(T.unsafe(nil), Hash)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:25
-class Selenium::WebDriver::Chrome::Options < ::Selenium::WebDriver::Chromium::Options
-  private
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:35
-  def binary_path; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:31
-  def enable_logging(browser_options); end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:27
-Selenium::WebDriver::Chrome::Options::BROWSER = T.let(T.unsafe(nil), String)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:26
-Selenium::WebDriver::Chrome::Options::KEY = T.let(T.unsafe(nil), String)
-
-# @private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/profile.rb:29
-class Selenium::WebDriver::Chrome::Profile < ::Selenium::WebDriver::Chromium::Profile; end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/service.rb:25
-class Selenium::WebDriver::Chrome::Service < ::Selenium::WebDriver::Chromium::Service; end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/service.rb:26
-Selenium::WebDriver::Chrome::Service::DEFAULT_PORT = T.let(T.unsafe(nil), Integer)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/service.rb:27
-Selenium::WebDriver::Chrome::Service::EXECUTABLE = T.let(T.unsafe(nil), String)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/service.rb:28
-Selenium::WebDriver::Chrome::Service::SHUTDOWN_SUPPORTED = T.let(T.unsafe(nil), TrueClass)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium.rb:24
-module Selenium::WebDriver::Chromium; end
-
-# Driver implementation for Chrome.
-# @api private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/driver.rb:28
-class Selenium::WebDriver::Chromium::Driver < ::Selenium::WebDriver::Driver
-  protected
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/driver.rb:48
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/driver.rb:52
   def devtools_url; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/driver.rb:55
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/driver.rb:59
   def devtools_version; end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/driver.rb:29
-Selenium::WebDriver::Chromium::Driver::EXTENSIONS = T.let(T.unsafe(nil), Array)
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/driver.rb:30
+Selenium::WebDriver::Chrome::Driver::EXTENSIONS = T.let(T.unsafe(nil), Array)
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/features.rb:23
-module Selenium::WebDriver::Chromium::Features
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/features.rb:86
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:23
+module Selenium::WebDriver::Chrome::Features
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:89
   def available_log_types; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/features.rb:50
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:57
   def cast_issue_message; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/features.rb:46
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:53
   def cast_sink_to_use=(name); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/features.rb:42
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:49
   def cast_sinks; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/features.rb:34
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:41
   def commands(command); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/features.rb:78
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:81
   def delete_network_conditions; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/features.rb:38
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:45
   def launch_app(id); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/features.rb:91
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:94
   def log(type); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/features.rb:70
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:73
   def network_conditions; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/features.rb:74
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:77
   def network_conditions=(conditions); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/features.rb:82
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:85
   def send_command(command_params); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/features.rb:66
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:69
   def set_permission(name, value); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/features.rb:58
-  def start_cast_desktop_mirroring(name); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/features.rb:54
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:61
   def start_cast_tab_mirroring(name); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/features.rb:62
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:65
   def stop_casting(name); end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/features.rb:24
-Selenium::WebDriver::Chromium::Features::CHROMIUM_COMMANDS = T.let(T.unsafe(nil), Hash)
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/features.rb:25
+Selenium::WebDriver::Chrome::Features::CHROME_COMMANDS = T.let(T.unsafe(nil), Hash)
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:23
-class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:23
+class Selenium::WebDriver::Chrome::Options < ::Selenium::WebDriver::Options
   # Create a new Options instance.
   #
   # @example
   #   options = Selenium::WebDriver::Chrome::Options.new(args: ['start-maximized', 'user-data-dir=/tmp/temp_profile'])
   #   driver = Selenium::WebDriver.for(:chrome, capabilities: options)
   #
-  # @param [Profile] profile An instance of a Chrome::Profile Class
+  # @param [Profile] :profile An instance of a Chrome::Profile Class
+  # @param [Array] :encoded_extensions List of extensions that do not need to be Base64 encoded
   # @param [Hash] opts the pre-defined options to create the Chrome::Options with
-  # @option opts [Array] encoded_extensions List of extensions that do not need to be Base64 encoded
-  # @option opts [Array<String>] args List of command-line arguments to use when starting Chrome
-  # @option opts [String] binary Path to the Chrome executable to use
-  # @option opts [Hash] prefs A hash with each entry consisting of the name of the preference and its value
-  # @option opts [Array<String>] extensions A list of paths to (.crx) Chrome extensions to install on startup
-  # @option opts [Hash] options A hash for raw options
-  # @option opts [Hash] emulation A hash for raw emulation options
-  # @option opts [Hash] local_state A hash for the Local State file in the user data folder
-  # @option opts [Boolean] detach whether browser is closed when the driver is sent the quit command
-  # @option opts [String] debugger_address address of a Chrome debugger server to connect to
-  # @option opts [Array<String>] exclude_switches command line switches to exclude
-  # @option opts [String] minidump_path Directory to store Chrome minidumps (linux only)
-  # @option opts [Hash] perf_logging_prefs A hash for performance logging preferences
-  # @option opts [Array<String>] window_types A list of window types to appear in the list of window handles
+  # @option opts [Array<String>] :args List of command-line arguments to use when starting Chrome
+  # @option opts [String] :binary Path to the Chrome executable to use
+  # @option opts [Hash] :prefs A hash with each entry consisting of the name of the preference and its value
+  # @option opts [Array<String>] :extensions A list of paths to (.crx) Chrome extensions to install on startup
+  # @option opts [Hash] :options A hash for raw options
+  # @option opts [Hash] :emulation A hash for raw emulation options
+  # @option opts [Hash] :local_state A hash for the Local State file in the user data folder
+  # @option opts [Boolean] :detach whether browser is closed when the driver is sent the quit command
+  # @option opts [String] :debugger_address address of a Chrome debugger server to connect to
+  # @option opts [Array<String>] :exclude_switches command line switches to exclude
+  # @option opts [String] :minidump_path Directory to store Chrome minidumps (linux only)
+  # @option opts [Hash] :perf_logging_prefs A hash for performance logging preferences
+  # @option opts [Array<String>] :window_types A list of window types to appear in the list of window handles
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:70
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:73
   def initialize(profile: T.unsafe(nil), **opts); end
 
   # Add a command-line argument to use when starting Chrome.
@@ -798,7 +368,7 @@ class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
   #
   # @param [String] arg The command-line argument to add
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:143
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:146
   def add_argument(arg); end
 
   # Add emulation device information
@@ -818,7 +388,7 @@ class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
   # @option opts [Hash] :device_metrics Hash containing width, height, pixelRatio, touch
   # @option opts [String] :user_agent Full user agent
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:199
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:196
   def add_emulation(**opts); end
 
   # Add an extension by Base64-encoded string.
@@ -829,7 +399,7 @@ class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
   #
   # @param [String] encoded The Base64-encoded string of the .crx file
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:129
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:132
   def add_encoded_extension(encoded); end
 
   # Add an extension by local path.
@@ -840,7 +410,7 @@ class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
   #
   # @param [String] path The local path to the .crx file
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:100
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:103
   def add_extension(path); end
 
   # Add a preference that is only applied to the user profile in use.
@@ -852,7 +422,7 @@ class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
   # @param [String] name Key of the preference
   # @param [Boolean, String, Integer] value Value of the preference
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:158
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:161
   def add_preference(name, value); end
 
   # Enables mobile browser use on Android.
@@ -865,12 +435,12 @@ class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
   #   instead of launching the app with a clear data directory.
   # @param [String] activity Name of the Activity hosting the WebView (Not available on Chrome Apps).
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:215
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:212
   def enable_android(package: T.unsafe(nil), serial_number: T.unsafe(nil), use_running_app: T.unsafe(nil), activity: T.unsafe(nil)); end
 
   # NOTE: special handling of 'extensions' to validate when set instead of when used
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:44
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:47
   def extensions; end
 
   # Add an extension by local path.
@@ -880,520 +450,431 @@ class Selenium::WebDriver::Chromium::Options < ::Selenium::WebDriver::Options
   #   options = Selenium::WebDriver::Chrome::Options.new
   #   options.extensions = extensions
   #
-  # @param [Array<String>] extensions A list of paths to (.crx) Chrome extensions to install on startup
+  # @param [Array<String>] :extensions A list of paths to (.crx) Chrome extensions to install on startup
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:115
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:118
   def extensions=(extensions); end
 
   # Run Chrome in headless mode.
-  # Old headless uses a non-production browser and is set with `--headless`
-  # Native headless from v86 - v108 is set with `--headless=chrome`
-  # Native headless from v109+ is set with `--headless=new`
   #
   # @example Enable headless mode
   #   options = Selenium::WebDriver::Chrome::Options.new
   #   options.headless!
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:173
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:173
   def headless!; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:24
   def logging_prefs; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:24
   def logging_prefs=(_arg0); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:24
   def profile; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:24
   def profile=(_arg0); end
 
-  protected
+  private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:240
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:240
   def binary_path; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:255
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:255
   def camelize?(key); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:244
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:221
+  def enable_logging(browser_options); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:244
   def encode_extension(path); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:224
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:225
   def process_browser_options(browser_options); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:248
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:248
   def validate_extension(path); end
 end
 
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:27
+Selenium::WebDriver::Chrome::Options::BROWSER = T.let(T.unsafe(nil), String)
+
 # see: http://chromedriver.chromium.org/capabilities
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/options.rb:27
-Selenium::WebDriver::Chromium::Options::CAPABILITIES = T.let(T.unsafe(nil), Hash)
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:30
+Selenium::WebDriver::Chrome::Options::CAPABILITIES = T.let(T.unsafe(nil), Hash)
+
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/options.rb:26
+Selenium::WebDriver::Chrome::Options::KEY = T.let(T.unsafe(nil), String)
 
 # @private
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/profile.rb:27
-class Selenium::WebDriver::Chromium::Profile
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/profile.rb:27
+class Selenium::WebDriver::Chrome::Profile
   include ::Selenium::WebDriver::ProfileHelper
   extend ::Selenium::WebDriver::ProfileHelper::ClassMethods
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/profile.rb:30
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/profile.rb:30
   def initialize(model = T.unsafe(nil)); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/profile.rb:62
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/profile.rb:62
   def [](key); end
 
   # Set a preference in the profile.
   #
   # See https://src.chromium.org/viewvc/chrome/trunk/src/chrome/common/pref_names.cc
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/profile.rb:57
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/profile.rb:57
   def []=(key, value); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/profile.rb:43
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/profile.rb:43
   def add_encoded_extension(encoded); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/profile.rb:37
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/profile.rb:37
   def add_extension(path); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/profile.rb:76
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/profile.rb:76
   def as_json(*); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/profile.rb:47
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/profile.rb:47
   def directory; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/profile.rb:67
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/profile.rb:67
   def layout_on_disk; end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/profile.rb:97
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/profile.rb:97
   def prefs; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/profile.rb:107
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/profile.rb:107
   def prefs_file_for(dir); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/profile.rb:101
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/profile.rb:101
   def read_model_prefs; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/profile.rb:90
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/profile.rb:90
   def write_prefs_to(dir); end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/service.rb:23
-class Selenium::WebDriver::Chromium::Service < ::Selenium::WebDriver::Service
-  protected
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/service.rb:23
+class Selenium::WebDriver::Chrome::Service < ::Selenium::WebDriver::Service
+  private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chromium/service.rb:26
+  # NOTE: This processing is deprecated
+  #
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/service.rb:36
   def extract_service_args(driver_opts); end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:27
-class Selenium::WebDriver::Credential
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:59
-  def initialize(id:, resident_credential:, rp_id:, private_key:, **opts); end
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/service.rb:24
+Selenium::WebDriver::Chrome::Service::DEFAULT_PORT = T.let(T.unsafe(nil), Integer)
 
-  # @api private
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:74
-  def as_json(*); end
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/service.rb:25
+Selenium::WebDriver::Chrome::Service::EXECUTABLE = T.let(T.unsafe(nil), String)
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:56
-  def id; end
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/service.rb:26
+Selenium::WebDriver::Chrome::Service::MISSING_TEXT = T.let(T.unsafe(nil), String)
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:56
-  def private_key; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:56
-  def resident_credential; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:57
-  def resident_credential?; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:56
-  def rp_id; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:56
-  def sign_count; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:56
-  def user_handle; end
-
-  class << self
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:41
-    def decode(base64); end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:37
-    def encode(byte_array); end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:45
-    def from_json(opts); end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:33
-    def non_resident(**opts); end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/credential.rb:29
-    def resident(**opts); end
-  end
-end
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/chrome/service.rb:31
+Selenium::WebDriver::Chrome::Service::SHUTDOWN_SUPPORTED = T.let(T.unsafe(nil), TrueClass)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:22
 class Selenium::WebDriver::DevTools
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:31
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:33
   def initialize(url:); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:41
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:51
   def callbacks; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:37
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:45
   def close; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:54
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:74
   def method_missing(method, *_args); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:45
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:55
   def send_cmd(method, **params); end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:91
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:99
+  def attach_socket_listener; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:144
+  def callback_thread(params); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:187
   def error_message(error); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:77
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:127
+  def incoming_frame; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:182
+  def next_id; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:131
+  def process_frame(frame); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:94
+  def process_handshake; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:87
   def respond_to_missing?(method, *_args); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:84
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:163
+  def socket; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:120
   def start_session; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:159
+  def wait; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:178
+  def ws; end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:23
 class Selenium::WebDriver::DevTools::ConsoleEvent
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:26
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:27
   def initialize(type:, timestamp:, args:); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:25
   def args; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:25
   def args=(_arg0); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:25
   def timestamp; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:25
   def timestamp=(_arg0); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:25
   def type; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/console_event.rb:25
   def type=(_arg0); end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:23
 class Selenium::WebDriver::DevTools::ExceptionEvent
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:26
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:27
   def initialize(description:, timestamp:, stacktrace:); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:25
   def description; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:25
   def description=(_arg0); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:25
   def stacktrace; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:25
   def stacktrace=(_arg0); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:25
   def timestamp; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/exception_event.rb:25
   def timestamp=(_arg0); end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:23
 class Selenium::WebDriver::DevTools::MutationEvent
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:26
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:27
   def initialize(element:, attribute_name:, current_value:, old_value:); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:25
   def attribute_name; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:25
   def attribute_name=(_arg0); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:25
   def current_value; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:25
   def current_value=(_arg0); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:25
   def element; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:25
   def element=(_arg0); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:25
   def old_value; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/mutation_event.rb:25
   def old_value=(_arg0); end
 end
 
-# Wraps the network request/response interception, providing
-# thread-safety guarantees and handling special cases such as browser
-# canceling requests midst interception.
-#
-# You should not be using this class directly, use Driver#intercept instead.
-# @api private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:32
-class Selenium::WebDriver::DevTools::NetworkInterceptor
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:41
-  def initialize(devtools); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:46
-  def intercept(&block); end
-
-  private
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:167
-  def cancelled?(network_id); end
-
-  # Ensure usage of cancelled_requests is thread-safe via synchronization!
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:67
-  def cancelled_requests; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:127
-  def continue_request(id); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:130
-  def continue_response(id); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:57
-  def devtools; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:57
-  def devtools=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:155
-  def fetch_response_body(id); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:97
-  def intercept_request(id, params, &block); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:112
-  def intercept_response(id, params); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:57
-  def lock; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:57
-  def lock=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:132
-  def mutate_request(request); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:144
-  def mutate_response(response); end
-
-  # We should be thread-safe to use the hash without synchronization
-  # because its keys are interception job identifiers and they should be
-  # unique within a devtools session.
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:62
-  def pending_response_requests; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:77
-  def request_paused(data, &block); end
-
-  # The presence of any of these fields indicate we're at the response stage.
-  # @see https://chromedevtools.github.io/devtools-protocol/tot/Fetch/#event-requestPaused
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:93
-  def response?(params); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:71
-  def track_cancelled_request(data); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:161
-  def with_cancellable_request(network_id); end
-end
-
-# CDP fails to get body on certain responses (301) and raises:
-# "Can only get response body on requests captured after headers received."
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:35
-Selenium::WebDriver::DevTools::NetworkInterceptor::CANNOT_GET_BODY_ON_REDIRECT_ERROR_CODE = T.let(T.unsafe(nil), String)
-
-# CDP fails to operate with intercepted requests.
-# Typical reason is browser cancelling intercepted requests/responses.
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/network_interceptor.rb:39
-Selenium::WebDriver::DevTools::NetworkInterceptor::INVALID_INTERCEPTION_ID_ERROR_CODE = T.let(T.unsafe(nil), String)
-
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:23
 class Selenium::WebDriver::DevTools::PinnedScript
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:26
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:27
   def initialize(script); end
 
   # @api private
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:35
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:36
   def callable; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:25
   def devtools_identifier; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:25
   def devtools_identifier=(_arg0); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:25
   def key; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:25
   def key=(_arg0); end
 
   # @api private
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:51
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:52
   def remove; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:25
   def script; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:25
   def script=(_arg0); end
 
   # @api private
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:43
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/pinned_script.rb:44
   def to_json(*); end
 end
 
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:24
+Selenium::WebDriver::DevTools::RESPONSE_WAIT_INTERVAL = T.let(T.unsafe(nil), Float)
+
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools.rb:23
+Selenium::WebDriver::DevTools::RESPONSE_WAIT_TIMEOUT = T.let(T.unsafe(nil), Integer)
+
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:23
 class Selenium::WebDriver::DevTools::Request
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:42
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:43
   def initialize(id:, url:, method:, headers:, post_data:); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:50
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:51
   def ==(other); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:25
   def headers; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:25
   def headers=(_arg0); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:25
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:26
   def id; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:59
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:60
   def inspect; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:25
   def method; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:25
   def method=(_arg0); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:25
   def post_data; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:25
   def post_data=(_arg0); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:25
   def url; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:25
   def url=(_arg0); end
 
   class << self
     # Creates request from DevTools message.
     # @api private
     #
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:32
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/request.rb:33
     def from(id, params); end
   end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:23
 class Selenium::WebDriver::DevTools::Response
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:43
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:44
   def initialize(id:, code:, body:, headers:); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:50
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:51
   def ==(other); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:25
   def body; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:25
   def body=(_arg0); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:25
   def code; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:25
   def code=(_arg0); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:25
   def headers; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:24
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:25
   def headers=(_arg0); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:25
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:26
   def id; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:58
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:59
   def inspect; end
 
   class << self
     # Creates response from DevTools message.
     # @api private
     #
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:32
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/devtools/response.rb:33
     def from(id, encoded_body, params); end
   end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
 class Selenium::WebDriver::Dimension < ::Struct
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
   def height; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
   def height=(_); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
   def width; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
   def width=(_); end
 
   class << self
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
     def [](*_arg0); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
     def inspect; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
     def keyword_init?; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
     def members; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
     def new(*_arg0); end
   end
 end
@@ -1429,42 +910,36 @@ class Selenium::WebDriver::Driver
   #   driver['someElementId']    #=> #<WebDriver::Element:0x1011c3b88>
   #   driver[:tag_name => 'div'] #=> #<WebDriver::Element:0x1011c3b88>
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:288
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:283
   def [](sel); end
 
   # @return [ActionBuilder]
   # @see ActionBuilder
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:126
-  def action(**opts); end
-
-  # @return [VirtualAuthenticator]
-  # @see VirtualAuthenticator
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:252
-  def add_virtual_authenticator(options); end
+  def action; end
 
   #   driver.all(class: 'bar') #=> [#<WebDriver::Element:0x1011c3b88, ...]
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:268
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:263
   def all(*args); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:294
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:289
   def browser; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:298
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:293
   def capabilities; end
 
   # Close the current window, or the browser if no windows are left.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:184
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:191
   def close; end
 
   # Get the URL of the current page
   #
   # @return [String]
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:144
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:152
   def current_url; end
 
   # Execute an asynchronous piece of JavaScript in the context of the
@@ -1481,7 +956,7 @@ class Selenium::WebDriver::Driver
   #
   # @return [WebDriver::Element,Integer,Float,Boolean,NilClass,String,Array]
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:243
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:247
   def execute_async_script(script, *args); end
 
   # Execute the given JavaScript
@@ -1494,27 +969,33 @@ class Selenium::WebDriver::Driver
   # @return [WebDriver::Element,Integer,Float,Boolean,NilClass,String,Array]
   #   The value returned from the script.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:224
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:228
   def execute_script(script, *args); end
 
   #   driver.first(id: 'foo')
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:262
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:257
   def first(*args); end
 
   # Opens the specified URL in the browser.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:134
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:142
   def get(url); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:79
   def inspect; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:134
+  def keyboard; end
 
   # @return [Manager]
   # @see Manager
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:117
   def manage; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:130
+  def mouse; end
 
   # @return [Navigation]
   # @see Navigation
@@ -1526,23 +1007,23 @@ class Selenium::WebDriver::Driver
   #
   # @return [String]
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:164
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:172
   def page_source; end
 
   # Quit the browser
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:172
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:180
   def quit; end
 
   # @api private
   # @see SearchContext
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:307
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:302
   def ref; end
 
   #   driver.script('function() { ... };')
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:274
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:269
   def script(script, *args); end
 
   # information about whether a remote end is in a state in which it can create new sessions,
@@ -1563,14 +1044,14 @@ class Selenium::WebDriver::Driver
   #
   # @return [String]
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:154
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:162
   def title; end
 
   # Get the current window handle
   #
   # @return [String]
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:208
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:212
   def window_handle; end
 
   # Get the window handles of open browser windows.
@@ -1578,28 +1059,28 @@ class Selenium::WebDriver::Driver
   # @return [Array]
   # @see TargetLocator#window
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:198
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:202
   def window_handles; end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:342
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:382
   def add_extensions(browser); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:313
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:308
   def bridge; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:315
-  def create_bridge(caps:, url:, http_client: T.unsafe(nil)); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:310
+  def create_bridge(**opts); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:321
-  def generate_capabilities(capabilities); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:344
+  def generate_capabilities(cap_array); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:338
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:378
   def screenshot; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:333
-  def service_url(service); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver.rb:362
+  def service_url(opts); end
 
   class << self
     # @api private
@@ -1624,7 +1105,7 @@ module Selenium::WebDriver::DriverExtensions::DownloadsFiles
   #
   # @param [String] path
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/downloads_files.rb:30
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/downloads_files.rb:31
   def download_path=(path); end
 end
 
@@ -1651,14 +1132,14 @@ module Selenium::WebDriver::DriverExtensions::HasAddons
   # @param [Boolean] temporary
   # @return [String] identifier of installed addon
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_addons.rb:32
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_addons.rb:33
   def install_addon(path, temporary = T.unsafe(nil)); end
 
   # Uninstalls addon.
   #
   # @param [String] id Identifier of installed addon
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_addons.rb:42
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_addons.rb:43
   def uninstall_addon(id); end
 end
 
@@ -1668,7 +1149,7 @@ module Selenium::WebDriver::DriverExtensions::HasApplePermissions
   #
   # @return [Hash]
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_apple_permissions.rb:30
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_apple_permissions.rb:31
   def permissions; end
 
   # Sets permissions.
@@ -1678,7 +1159,7 @@ module Selenium::WebDriver::DriverExtensions::HasApplePermissions
   #
   # @param [Hash<Symbol, Boolean>] permissions
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_apple_permissions.rb:43
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_apple_permissions.rb:44
   def permissions=(permissions); end
 end
 
@@ -1700,26 +1181,16 @@ module Selenium::WebDriver::DriverExtensions::HasAuthentication
   # @param [String] password
   # @param [Regexp] uri to associate the credentials with
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_authentication.rb:42
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_authentication.rb:43
   def register(username:, password:, uri: T.unsafe(nil)); end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_authentication.rb:57
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_authentication.rb:58
   def auth_handlers; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_authentication.rb:61
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_authentication.rb:62
   def authenticate(request_id, url); end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_bidi.rb:23
-module Selenium::WebDriver::DriverExtensions::HasBiDi
-  # Retrieves WebDriver BiDi connection.
-  #
-  # @return [BiDi]
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_bidi.rb:30
-  def bidi; end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_cdp.rb:23
@@ -1728,7 +1199,7 @@ module Selenium::WebDriver::DriverExtensions::HasCDP
   #
   # @return [Hash]
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_cdp.rb:30
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_cdp.rb:31
   def execute_cdp(cmd, **params); end
 end
 
@@ -1738,57 +1209,51 @@ module Selenium::WebDriver::DriverExtensions::HasCasting
   #
   # @return [String] the error message
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_casting.rb:70
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_casting.rb:61
   def cast_issue_message; end
 
   # Sets a specific sink, using its name, as a Cast session receiver target.
   #
   # @param [String] name the sink to use as the target
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_casting.rb:40
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_casting.rb:41
   def cast_sink_to_use=(name); end
 
   # What devices ("sinks") are available to be cast to.
   #
   # @return [Array] list of sinks available for casting with id and name values
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_casting.rb:30
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_casting.rb:31
   def cast_sinks; end
 
   # Starts a tab mirroring session on a specific receiver target.
   #
   # @param [String] name the sink to use as the target
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_casting.rb:60
-  def start_cast_desktop_mirroring(name); end
-
-  # Starts a tab mirroring session on a specific receiver target.
-  #
-  # @param [String] name the sink to use as the target
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_casting.rb:50
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_casting.rb:51
   def start_cast_tab_mirroring(name); end
 
   # Stops the existing Cast session on a specific receiver target.
   #
   # @param [String] name the sink to stop the Cast session
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_casting.rb:80
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_casting.rb:71
   def stop_casting(name); end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_context.rb:23
 module Selenium::WebDriver::DriverExtensions::HasContext
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_context.rb:36
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_context.rb:38
   def context; end
 
   # Sets the context that Selenium commands are running in using
   #         a `with` statement. The state of the context on the server is
   #         saved before entering the block, and restored upon exiting it.
   #
-  # @param [String] value which context gets set (either 'chrome' or 'content')
+  # @param [String] name which permission to set
+  # @param [String] value what to set the permission to
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_context.rb:32
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_context.rb:34
   def context=(value); end
 end
 
@@ -1802,7 +1267,7 @@ module Selenium::WebDriver::DriverExtensions::HasDebugger
   #
   # @return [Hash]
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_debugger.rb:34
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_debugger.rb:35
   def attach_debugger; end
 end
 
@@ -1812,7 +1277,7 @@ module Selenium::WebDriver::DriverExtensions::HasDevTools
   #
   # @return [DevTools]
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_devtools.rb:30
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_devtools.rb:31
   def devtools; end
 end
 
@@ -1822,7 +1287,7 @@ module Selenium::WebDriver::DriverExtensions::HasLaunching
   #
   # @param [String] id
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_launching.rb:30
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_launching.rb:31
   def launch_app(id); end
 end
 
@@ -1908,14 +1373,14 @@ end
 module Selenium::WebDriver::DriverExtensions::HasNetworkConditions
   # Resets Chromium network emulation settings.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_network_conditions.rb:60
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_network_conditions.rb:61
   def delete_network_conditions; end
 
   # Returns network conditions.
   #
   # @return [Hash]
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_network_conditions.rb:30
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_network_conditions.rb:31
   def network_conditions; end
 
   # Sets network conditions
@@ -1927,7 +1392,7 @@ module Selenium::WebDriver::DriverExtensions::HasNetworkConditions
   # @option conditions [Integer] :download_throughput
   # @option conditions [Boolean] :offline
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_network_conditions.rb:45
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_network_conditions.rb:46
   def network_conditions=(conditions); end
 end
 
@@ -1978,8 +1443,22 @@ module Selenium::WebDriver::DriverExtensions::HasNetworkInterception
   # @yieldparam [DevTools::Request] request
   # @yieldparam [Proc] continue block which proceeds with the request and optionally yields response
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_network_interception.rb:62
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_network_interception.rb:63
   def intercept(&block); end
+
+  private
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_network_interception.rb:127
+  def fetch_response_body(id); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_network_interception.rb:82
+  def intercept_request(id, params, &block); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_network_interception.rb:105
+  def intercept_response(id, params); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_network_interception.rb:78
+  def pending_response_requests; end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_permissions.rb:23
@@ -1989,14 +1468,14 @@ module Selenium::WebDriver::DriverExtensions::HasPermissions
   # @param [String] name which permission to set
   # @param [String] value what to set the permission to
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_permissions.rb:31
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_permissions.rb:32
   def add_permission(name, value); end
 
   # Set multiple permissions.
   #
   # @param [Hash] opt key/value pairs to set permissions
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_permissions.rb:41
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_permissions.rb:42
   def add_permissions(opt); end
 end
 
@@ -2015,22 +1494,28 @@ module Selenium::WebDriver::DriverExtensions::HasPinnedScripts
   # @param [String] script
   # @return [DevTools::PinnedScript]
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_pinned_scripts.rb:49
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_pinned_scripts.rb:50
   def pin_script(script); end
 
   # Returns the list of all pinned scripts.
   #
   # @return [Array<DevTools::PinnedScript>]
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_pinned_scripts.rb:30
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_pinned_scripts.rb:31
   def pinned_scripts; end
 
   # Unpins script making it undefined for the subsequent calls.
   #
-  # @param [DevTools::PinnedScript] script
+  # @param [DevTools::PinnedScript]
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_pinned_scripts.rb:67
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_pinned_scripts.rb:68
   def unpin_script(script); end
+end
+
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_remote_status.rb:23
+module Selenium::WebDriver::DriverExtensions::HasRemoteStatus
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_remote_status.rb:24
+  def remote_status; end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_extensions/has_session_id.rb:27
@@ -2103,14 +1588,6 @@ module Selenium::WebDriver::DriverExtensions::UploadsFiles
   def file_detector=(detector); end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_finder.rb:22
-class Selenium::WebDriver::DriverFinder
-  class << self
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/driver_finder.rb:23
-    def path(options, klass); end
-  end
-end
-
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge.rb:24
 module Selenium::WebDriver::Edge
   class << self
@@ -2125,53 +1602,39 @@ end
 # Driver implementation for Microsoft Edge.
 # @api private
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/driver.rb:30
-class Selenium::WebDriver::Edge::Driver < ::Selenium::WebDriver::Chromium::Driver
-  include ::Selenium::WebDriver::LocalDriver
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/driver.rb:33
-  def initialize(capabilities: T.unsafe(nil), options: T.unsafe(nil), service: T.unsafe(nil), url: T.unsafe(nil), **opts); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/driver.rb:38
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/driver.rb:31
+class Selenium::WebDriver::Edge::Driver < ::Selenium::WebDriver::Chrome::Driver
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/driver.rb:32
   def browser; end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/driver.rb:44
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/driver.rb:38
   def devtools_address; end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/features.rb:25
 module Selenium::WebDriver::Edge::Features
-  include ::Selenium::WebDriver::Chromium::Features
+  include ::Selenium::WebDriver::Chrome::Features
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/features.rb:38
   def commands(command); end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/features.rb:28
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/features.rb:29
 Selenium::WebDriver::Edge::Features::EDGE_COMMANDS = T.let(T.unsafe(nil), Hash)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/options.rb:25
-class Selenium::WebDriver::Edge::Options < ::Selenium::WebDriver::Chromium::Options
-  # Changes the browser name enable webview2
-  # see: https://learn.microsoft.com/en-us/microsoft-edge/webview2/how-to/webdriver
-  # Automation of WebView2 apps with Microsoft Edge WebDriver
-  #
-  # @example Enable webview2
-  #   options = Selenium::WebDriver::Edge::Options.new
-  #   options.webview2!
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/options.rb:39
-  def webview2!; end
+class Selenium::WebDriver::Edge::Options < ::Selenium::WebDriver::Chrome::Options
+  protected
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/options.rb:31
+  def enable_logging(browser_options); end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/options.rb:49
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/options.rb:37
   def binary_path; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/options.rb:45
-  def enable_logging(browser_options); end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/options.rb:27
@@ -2183,10 +1646,10 @@ Selenium::WebDriver::Edge::Options::KEY = T.let(T.unsafe(nil), String)
 # @private
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/profile.rb:29
-class Selenium::WebDriver::Edge::Profile < ::Selenium::WebDriver::Chromium::Profile; end
+class Selenium::WebDriver::Edge::Profile < ::Selenium::WebDriver::Chrome::Profile; end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/service.rb:25
-class Selenium::WebDriver::Edge::Service < ::Selenium::WebDriver::Chromium::Service; end
+class Selenium::WebDriver::Edge::Service < ::Selenium::WebDriver::Chrome::Service; end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/service.rb:26
 Selenium::WebDriver::Edge::Service::DEFAULT_PORT = T.let(T.unsafe(nil), Integer)
@@ -2195,6 +1658,9 @@ Selenium::WebDriver::Edge::Service::DEFAULT_PORT = T.let(T.unsafe(nil), Integer)
 Selenium::WebDriver::Edge::Service::EXECUTABLE = T.let(T.unsafe(nil), String)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/service.rb:28
+Selenium::WebDriver::Edge::Service::MISSING_TEXT = T.let(T.unsafe(nil), String)
+
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/edge/service.rb:32
 Selenium::WebDriver::Edge::Service::SHUTDOWN_SUPPORTED = T.let(T.unsafe(nil), TrueClass)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/element.rb:22
@@ -2252,7 +1718,7 @@ class Selenium::WebDriver::Element
   # if it exists. If it does not, then the value of the attribute with the given name is returned.
   # If neither exists, null is returned.
   #
-  # The "style" attribute is converted as best can be to a text representation with a trailing semicolon.
+  # The "style" attribute is converted as best can be to a text representation with a trailing semi-colon.
   #
   # The following are deemed to be "boolean" attributes, and will return either "true" or "false":
   #
@@ -2500,127 +1966,107 @@ module Selenium::WebDriver::Error
     # Returns exception from its string representation.
     # @param [String, nil] error
     #
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:28
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:29
     def for_error(error); end
   end
 end
 
 # A command failed because the referenced shadow root is no longer attached to the DOM.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:78
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:68
 class Selenium::WebDriver::Error::DetachedShadowRootError < ::Selenium::WebDriver::Error::WebDriverError; end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:38
-Selenium::WebDriver::Error::ERROR_URL = T.let(T.unsafe(nil), String)
 
 # The Element Click command could not be completed because the element receiving the events
 # is obscuring the element that was requested clicked.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:222
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:208
 class Selenium::WebDriver::Error::ElementClickInterceptedError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # A command could not be completed because the element is not pointer or keyboard
 # interactable.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:170
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:156
 class Selenium::WebDriver::Error::ElementNotInteractableError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # A command could not be completed because TLS certificate is expired
 # or invalid.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:177
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:163
 class Selenium::WebDriver::Error::InsecureCertificateError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # The arguments passed to a command are either invalid or malformed.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:183
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:169
 class Selenium::WebDriver::Error::InvalidArgumentError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # An illegal attempt was made to set a cookie under a different domain than the current page.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:122
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:112
 class Selenium::WebDriver::Error::InvalidCookieDomainError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # The target element is in an invalid state, rendering it impossible to interact with, for
 # example if you click a disabled element.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:85
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:75
 class Selenium::WebDriver::Error::InvalidElementStateError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # Argument was an invalid selector.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:146
-class Selenium::WebDriver::Error::InvalidSelectorError < ::Selenium::WebDriver::Error::WebDriverError
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:147
-  def initialize(msg = T.unsafe(nil)); end
-end
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:136
+class Selenium::WebDriver::Error::InvalidSelectorError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # Occurs if the given session id is not in the list of active sessions, meaning the session
 # either does not exist or that it's not active.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:203
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:189
 class Selenium::WebDriver::Error::InvalidSessionIdError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # An error occurred while executing JavaScript supplied by the user.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:97
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:87
 class Selenium::WebDriver::Error::JavascriptError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # The target for mouse interaction is not in the browser's viewport and cannot be brought
 # into that viewport.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:163
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:149
 class Selenium::WebDriver::Error::MoveTargetOutOfBoundsError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # An attempt was made to operate on a modal dialog when one was not open:
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:134
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:124
 class Selenium::WebDriver::Error::NoSuchAlertError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # No cookie matching the given path name was found amongst the associated cookies of the
 # current browsing context's active document.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:190
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:176
 class Selenium::WebDriver::Error::NoSuchCookieError < ::Selenium::WebDriver::Error::WebDriverError; end
-
-# Indicates that driver was not specified and could not be located.
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:235
-class Selenium::WebDriver::Error::NoSuchDriverError < ::Selenium::WebDriver::Error::WebDriverError
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:236
-  def initialize(msg = T.unsafe(nil)); end
-end
 
 # An element could not be located on the page using the given search parameters.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:46
-class Selenium::WebDriver::Error::NoSuchElementError < ::Selenium::WebDriver::Error::WebDriverError
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:47
-  def initialize(msg = T.unsafe(nil)); end
-end
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:44
+class Selenium::WebDriver::Error::NoSuchElementError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # A command to switch to a frame could not be satisfied because the frame could not be found.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:56
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:50
 class Selenium::WebDriver::Error::NoSuchFrameError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # The element does not have a shadow root.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:116
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:106
 class Selenium::WebDriver::Error::NoSuchShadowRootError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # A command to switch to a window could not be satisfied because
 # the window could not be found.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:110
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:100
 class Selenium::WebDriver::Error::NoSuchWindowError < ::Selenium::WebDriver::Error::WebDriverError; end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:37
-Selenium::WebDriver::Error::SUPPORT_MSG = T.let(T.unsafe(nil), String)
 
 # A script did not complete before its timeout expired.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:140
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:130
 class Selenium::WebDriver::Error::ScriptTimeoutError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/server_error.rb:23
@@ -2631,59 +2077,56 @@ end
 
 # A new session could not be created.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:156
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:142
 class Selenium::WebDriver::Error::SessionNotCreatedError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # A command failed because the referenced element is no longer attached to the DOM.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:68
-class Selenium::WebDriver::Error::StaleElementReferenceError < ::Selenium::WebDriver::Error::WebDriverError
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:69
-  def initialize(msg = T.unsafe(nil)); end
-end
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:62
+class Selenium::WebDriver::Error::StaleElementReferenceError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # An operation did not complete before its timeout expired.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:103
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:93
 class Selenium::WebDriver::Error::TimeoutError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # A screen capture was made impossible.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:196
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:182
 class Selenium::WebDriver::Error::UnableToCaptureScreenError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # A command to set a cookie's value could not be satisfied.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:128
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:118
 class Selenium::WebDriver::Error::UnableToSetCookieError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # A modal dialog was open, blocking this operation.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:209
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:195
 class Selenium::WebDriver::Error::UnexpectedAlertOpenError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # A command could not be executed because the remote end is not aware of it.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:62
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:56
 class Selenium::WebDriver::Error::UnknownCommandError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # An unknown error occurred in the remote end while processing the command.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:91
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:81
 class Selenium::WebDriver::Error::UnknownError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # The requested command matched a known URL but did not match an method for that URL.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:215
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:201
 class Selenium::WebDriver::Error::UnknownMethodError < ::Selenium::WebDriver::Error::WebDriverError; end
 
 # Indicates that a command that should have executed properly cannot be supported for some
 # reason.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:229
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:215
 class Selenium::WebDriver::Error::UnsupportedOperationError < ::Selenium::WebDriver::Error::WebDriverError; end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:40
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/error.rb:38
 class Selenium::WebDriver::Error::WebDriverError < ::StandardError; end
 
 # @api private
@@ -2714,55 +2157,56 @@ end
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox.rb:26
 module Selenium::WebDriver::Firefox
   class << self
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox.rb:50
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox.rb:51
+    def driver_path; end
+
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox.rb:44
+    def driver_path=(path); end
+
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox.rb:63
     def path; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox.rb:45
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox.rb:58
     def path=(path); end
   end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox.rb:38
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox.rb:37
 Selenium::WebDriver::Firefox::DEFAULT_ASSUME_UNTRUSTED_ISSUER = T.let(T.unsafe(nil), TrueClass)
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox.rb:39
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox.rb:38
 Selenium::WebDriver::Firefox::DEFAULT_LOAD_NO_FOCUS_LIB = T.let(T.unsafe(nil), FalseClass)
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox.rb:36
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox.rb:35
 Selenium::WebDriver::Firefox::DEFAULT_PORT = T.let(T.unsafe(nil), Integer)
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox.rb:37
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox.rb:36
 Selenium::WebDriver::Firefox::DEFAULT_SECURE_SSL = T.let(T.unsafe(nil), FalseClass)
 
 # Mozilla Automation Team asked to only support 85
 # until WebDriver Bidi is available.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox.rb:43
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox.rb:42
 Selenium::WebDriver::Firefox::DEVTOOLS_VERSION = T.let(T.unsafe(nil), Integer)
 
 # Driver implementation for Firefox using GeckoDriver.
 # @api private
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/driver.rb:28
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/driver.rb:29
 class Selenium::WebDriver::Firefox::Driver < ::Selenium::WebDriver::Driver
-  include ::Selenium::WebDriver::LocalDriver
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/driver.rb:41
-  def initialize(capabilities: T.unsafe(nil), options: T.unsafe(nil), service: T.unsafe(nil), url: T.unsafe(nil), **opts); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/driver.rb:46
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/driver.rb:39
   def browser; end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/driver.rb:52
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/driver.rb:45
   def devtools_url; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/driver.rb:63
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/driver.rb:56
   def devtools_version; end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/driver.rb:29
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/driver.rb:30
 Selenium::WebDriver::Firefox::Driver::EXTENSIONS = T.let(T.unsafe(nil), Array)
 
 # @api private
@@ -2801,7 +2245,7 @@ Selenium::WebDriver::Firefox::Extension::NAMESPACE = T.let(T.unsafe(nil), String
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/features.rb:23
 module Selenium::WebDriver::Firefox::Features
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/features.rb:32
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/features.rb:33
   def commands(command); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/features.rb:60
@@ -2813,14 +2257,14 @@ module Selenium::WebDriver::Firefox::Features
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/features.rb:52
   def full_screenshot; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/features.rb:36
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/features.rb:37
   def install_addon(path, temporary); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/features.rb:48
   def uninstall_addon(id); end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/features.rb:24
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/features.rb:25
 Selenium::WebDriver::Firefox::Features::FIREFOX_COMMANDS = T.let(T.unsafe(nil), Hash)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:23
@@ -2839,7 +2283,7 @@ class Selenium::WebDriver::Firefox::Options < ::Selenium::WebDriver::Options
   # @option opts [Hash] :prefs A hash with each entry consisting of the key of the preference and its value
   # @option opts [Hash] :options A hash for raw options
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:59
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:58
   def initialize(log_level: T.unsafe(nil), **opts); end
 
   # Add a command-line argument to use when starting Firefox.
@@ -2850,7 +2294,7 @@ class Selenium::WebDriver::Firefox::Options < ::Selenium::WebDriver::Options
   #
   # @param [String] arg The command-line argument to add
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:83
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:80
   def add_argument(arg); end
 
   # Add a preference that is only applied to the user profile in use.
@@ -2862,7 +2306,7 @@ class Selenium::WebDriver::Firefox::Options < ::Selenium::WebDriver::Options
   # @param [String] name Key of the preference
   # @param [Boolean, String, Integer] value Value of the preference
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:98
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:95
   def add_preference(name, value); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:24
@@ -2881,7 +2325,7 @@ class Selenium::WebDriver::Firefox::Options < ::Selenium::WebDriver::Options
   # @param [String] activity The fully qualified class name of the activity to be launched.
   # @param [Array] intent_arguments Arguments to launch the intent with.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:156
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:150
   def enable_android(package: T.unsafe(nil), serial_number: T.unsafe(nil), activity: T.unsafe(nil), intent_arguments: T.unsafe(nil)); end
 
   # Run Firefox in headless mode.
@@ -2890,18 +2334,18 @@ class Selenium::WebDriver::Firefox::Options < ::Selenium::WebDriver::Options
   #   options = Selenium::WebDriver::Firefox::Options.new
   #   options.headless!
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:110
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:107
   def headless!; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:136
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:130
   def log_level; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:140
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:134
   def log_level=(level); end
 
   # NOTE: special handling of 'profile' to validate when set instead of when used
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:41
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:40
   def profile; end
 
   # Sets Firefox profile.
@@ -2917,25 +2361,25 @@ class Selenium::WebDriver::Firefox::Options < ::Selenium::WebDriver::Options
   #
   # @param [Profile, String] profile Profile to be used
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:132
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:126
   def profile=(profile); end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:183
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:177
   def camelize?(key); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:165
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:159
   def process_browser_options(browser_options); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:172
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:166
   def process_profile(profile); end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:38
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:37
 Selenium::WebDriver::Firefox::Options::BROWSER = T.let(T.unsafe(nil), String)
 
-# see: https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions
+# see: https://firefox-source-docs.mozilla.org/testing/geckodriver/Capabilities.html
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/options.rb:29
 Selenium::WebDriver::Firefox::Options::CAPABILITIES = T.let(T.unsafe(nil), Hash)
@@ -3024,6 +2468,9 @@ class Selenium::WebDriver::Firefox::Profile
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profile.rb:150
   def set_manual_proxy_preference(key, value); end
 
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profile.rb:225
+  def stringified?(str); end
+
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/profile.rb:188
   def update_user_prefs_in(directory); end
 
@@ -3074,7 +2521,9 @@ end
 class Selenium::WebDriver::Firefox::Service < ::Selenium::WebDriver::Service
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/service.rb:30
+  # NOTE: This processing is deprecated
+  #
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/service.rb:36
   def extract_service_args(driver_opts); end
 end
 
@@ -3085,28 +2534,10 @@ Selenium::WebDriver::Firefox::Service::DEFAULT_PORT = T.let(T.unsafe(nil), Integ
 Selenium::WebDriver::Firefox::Service::EXECUTABLE = T.let(T.unsafe(nil), String)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/service.rb:26
+Selenium::WebDriver::Firefox::Service::MISSING_TEXT = T.let(T.unsafe(nil), String)
+
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/service.rb:31
 Selenium::WebDriver::Firefox::Service::SHUTDOWN_SUPPORTED = T.let(T.unsafe(nil), FalseClass)
-
-# @api private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/util.rb:24
-module Selenium::WebDriver::Firefox::Util
-  private
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/util.rb:27
-  def app_data_path; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/util.rb:40
-  def stringified?(str); end
-
-  class << self
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/util.rb:27
-    def app_data_path; end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/firefox/util.rb:40
-    def stringified?(str); end
-  end
-end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/html5/shared_web_storage.rb:22
 module Selenium::WebDriver::HTML5; end
@@ -3194,24 +2625,27 @@ module Selenium::WebDriver::HTML5::SharedWebStorage
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie.rb:22
-module Selenium::WebDriver::IE; end
+module Selenium::WebDriver::IE
+  class << self
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie.rb:34
+    def driver_path; end
+
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie.rb:27
+    def driver_path=(path); end
+  end
+end
 
 # Driver implementation for Internet Explorer supporting
 # both OSS and W3C dialects of JSON wire protocol.
 # @api private
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/driver.rb:29
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/driver.rb:30
 class Selenium::WebDriver::IE::Driver < ::Selenium::WebDriver::Driver
-  include ::Selenium::WebDriver::LocalDriver
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/driver.rb:34
-  def initialize(capabilities: T.unsafe(nil), options: T.unsafe(nil), service: T.unsafe(nil), url: T.unsafe(nil), **opts); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/driver.rb:39
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/driver.rb:33
   def browser; end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/driver.rb:30
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/driver.rb:31
 Selenium::WebDriver::IE::Driver::EXTENSIONS = T.let(T.unsafe(nil), Array)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/options.rb:23
@@ -3283,7 +2717,9 @@ Selenium::WebDriver::IE::Options::SCROLL_TOP = T.let(T.unsafe(nil), Integer)
 class Selenium::WebDriver::IE::Service < ::Selenium::WebDriver::Service
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/service.rb:30
+  # NOTE: This processing is deprecated
+  #
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/service.rb:36
   def extract_service_args(driver_opts); end
 end
 
@@ -3294,320 +2730,219 @@ Selenium::WebDriver::IE::Service::DEFAULT_PORT = T.let(T.unsafe(nil), Integer)
 Selenium::WebDriver::IE::Service::EXECUTABLE = T.let(T.unsafe(nil), String)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/service.rb:26
+Selenium::WebDriver::IE::Service::MISSING_TEXT = T.let(T.unsafe(nil), String)
+
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/ie/service.rb:31
 Selenium::WebDriver::IE::Service::SHUTDOWN_SUPPORTED = T.let(T.unsafe(nil), TrueClass)
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interaction.rb:22
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interactions.rb:22
 module Selenium::WebDriver::Interactions
   class << self
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interactions.rb:33
-    def key(name = T.unsafe(nil)); end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interactions.rb:41
-    def mouse(name: T.unsafe(nil)); end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interactions.rb:53
-    def none(name = T.unsafe(nil)); end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interactions.rb:45
-    def pen(name: T.unsafe(nil)); end
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interactions.rb:29
+    def key(name); end
 
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interactions.rb:37
-    def pointer(kind = T.unsafe(nil), name: T.unsafe(nil)); end
+    def none(name = T.unsafe(nil)); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interactions.rb:49
-    def touch(name: T.unsafe(nil)); end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interactions.rb:57
-    def wheel(name = T.unsafe(nil)); end
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interactions.rb:33
+    def pointer(kind, **kwargs); end
   end
 end
 
-# Superclass for the input device sources
-# Manages Array of Interaction instances for the device
-#
-# @api private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:32
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:25
 class Selenium::WebDriver::Interactions::InputDevice
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:35
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:28
   def initialize(name = T.unsafe(nil)); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:33
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:26
   def actions; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:40
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:33
   def add_action(action); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:46
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:39
   def clear_actions; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:50
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:43
   def create_pause(duration = T.unsafe(nil)); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:54
-  def encode; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:33
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:26
   def name; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:33
-  def type; end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/input_device.rb:47
+  def no_actions?; end
 end
 
-# Superclass for classes defining actions
-# Do not initialize directly, only use subclass
-#
-# @api private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interaction.rb:30
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interaction.rb:23
 class Selenium::WebDriver::Interactions::Interaction
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interaction.rb:33
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interaction.rb:28
   def initialize(source); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interaction.rb:37
-  def assert_source(_source); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interaction.rb:31
-  def type; end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interaction.rb:26
+  def source; end
 end
+
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interaction.rb:24
+Selenium::WebDriver::Interactions::Interaction::PAUSE = T.let(T.unsafe(nil), Symbol)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interactions.rb:23
 Selenium::WebDriver::Interactions::KEY = T.let(T.unsafe(nil), Symbol)
 
-# Creates actions specific to Key Input devices
-#
-# @api private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:29
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:23
 class Selenium::WebDriver::Interactions::KeyInput < ::Selenium::WebDriver::Interactions::InputDevice
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:32
-  def initialize(name = T.unsafe(nil)); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:37
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:36
   def create_key_down(key); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:41
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:40
   def create_key_up(key); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:30
+  def encode; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:26
+  def type; end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:30
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:24
 Selenium::WebDriver::Interactions::KeyInput::SUBTYPES = T.let(T.unsafe(nil), Hash)
 
-# Backward compatibility in case anyone called this directly
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:46
-class Selenium::WebDriver::Interactions::KeyInput::TypingInteraction < ::Selenium::WebDriver::Interactions::TypingInteraction; end
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:44
+class Selenium::WebDriver::Interactions::KeyInput::TypingInteraction < ::Selenium::WebDriver::Interactions::Interaction
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:47
+  def initialize(source, type, key); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:53
+  def assert_type(type); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:59
+  def encode; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_input.rb:45
+  def type; end
+end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interactions.rb:25
 Selenium::WebDriver::Interactions::NONE = T.let(T.unsafe(nil), Symbol)
 
-# Creates actions specific to null input source
-# This is primarily used for adding pauses
-#
-# @api private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/none_input.rb:30
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/none_input.rb:23
 class Selenium::WebDriver::Interactions::NoneInput < ::Selenium::WebDriver::Interactions::InputDevice
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/none_input.rb:31
-  def initialize(name = T.unsafe(nil)); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/none_input.rb:28
+  def encode; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/none_input.rb:24
+  def type; end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interactions.rb:24
 Selenium::WebDriver::Interactions::POINTER = T.let(T.unsafe(nil), Symbol)
 
-# Action to create a waiting period between actions
-# Also used for synchronizing actions across devices
-#
-# @api private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pause.rb:30
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interaction.rb:38
 class Selenium::WebDriver::Interactions::Pause < ::Selenium::WebDriver::Interactions::Interaction
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pause.rb:31
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interaction.rb:39
   def initialize(source, duration = T.unsafe(nil)); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pause.rb:37
-  def assert_source(source); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pause.rb:41
-  def encode; end
-end
-
-# Action to cancel any other Pointer Action.
-#
-# @api private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_cancel.rb:29
-class Selenium::WebDriver::Interactions::PointerCancel < ::Selenium::WebDriver::Interactions::Interaction
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_cancel.rb:30
-  def initialize(source); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_cancel.rb:35
-  def assert_source(source); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_cancel.rb:39
-  def encode; end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_event_properties.rb:23
-module Selenium::WebDriver::Interactions::PointerEventProperties
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_event_properties.rb:34
-  def process_opts; end
-
-  private
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_event_properties.rb:48
-  def assert_number(num, min, max = T.unsafe(nil)); end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_event_properties.rb:24
-Selenium::WebDriver::Interactions::PointerEventProperties::VALID = T.let(T.unsafe(nil), Hash)
-
-# Creates actions specific to Pointer Input devices
-#
-# @api private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:29
-class Selenium::WebDriver::Interactions::PointerInput < ::Selenium::WebDriver::Interactions::InputDevice
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:34
-  def initialize(kind, name: T.unsafe(nil)); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:46
-  def assert_kind(pointer); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:64
-  def create_pointer_cancel; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:56
-  def create_pointer_down(button, **opts); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:52
-  def create_pointer_move(duration: T.unsafe(nil), x: T.unsafe(nil), y: T.unsafe(nil), origin: T.unsafe(nil), **opts); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:60
-  def create_pointer_up(button, **opts); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:40
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interaction.rb:48
   def encode; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:32
-  def kind; end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:30
-Selenium::WebDriver::Interactions::PointerInput::KIND = T.let(T.unsafe(nil), Hash)
-
-# Action related to moving the pointer.
-#
-# @api private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_move.rb:29
-class Selenium::WebDriver::Interactions::PointerMove < ::Selenium::WebDriver::Interactions::Interaction
-  include ::Selenium::WebDriver::Interactions::PointerEventProperties
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_move.rb:36
-  def initialize(source, duration, x, y, **opts); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_move.rb:46
-  def assert_source(source); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_move.rb:50
-  def encode; end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_move.rb:34
-Selenium::WebDriver::Interactions::PointerMove::ORIGINS = T.let(T.unsafe(nil), Array)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_move.rb:33
-Selenium::WebDriver::Interactions::PointerMove::POINTER = T.let(T.unsafe(nil), Symbol)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_move.rb:32
-Selenium::WebDriver::Interactions::PointerMove::VIEWPORT = T.let(T.unsafe(nil), Symbol)
-
-# Actions related to clicking, tapping or pressing the pointer.
-#
-# @api private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_press.rb:29
-class Selenium::WebDriver::Interactions::PointerPress < ::Selenium::WebDriver::Interactions::Interaction
-  include ::Selenium::WebDriver::Interactions::PointerEventProperties
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_press.rb:44
-  def initialize(source, direction, button, **opts); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_press.rb:52
-  def encode; end
-
-  private
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_press.rb:62
-  def assert_button(button); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_press.rb:77
-  def assert_direction(direction); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_press.rb:58
-  def assert_source(source); end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_press.rb:32
-Selenium::WebDriver::Interactions::PointerPress::BUTTONS = T.let(T.unsafe(nil), Hash)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_press.rb:42
-Selenium::WebDriver::Interactions::PointerPress::DIRECTIONS = T.let(T.unsafe(nil), Hash)
-
-# Action related to scrolling a wheel.
-#
-# @api private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll.rb:29
-class Selenium::WebDriver::Interactions::Scroll < ::Selenium::WebDriver::Interactions::Interaction
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll.rb:30
-  def initialize(source:, origin: T.unsafe(nil), duration: T.unsafe(nil), **opts); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll.rb:43
-  def assert_source(source); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll.rb:47
-  def encode; end
-end
-
-# Actions related to pressing keys.
-#
-# @api private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/typing_interaction.rb:29
-class Selenium::WebDriver::Interactions::TypingInteraction < ::Selenium::WebDriver::Interactions::Interaction
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/typing_interaction.rb:32
-  def initialize(source, type, key); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/typing_interaction.rb:38
-  def assert_source(source); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/typing_interaction.rb:42
-  def assert_type(type); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/typing_interaction.rb:48
-  def encode; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/typing_interaction.rb:30
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interaction.rb:44
   def type; end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interactions.rb:26
-Selenium::WebDriver::Interactions::WHEEL = T.let(T.unsafe(nil), Symbol)
-
-# Creates actions specific to Pointer Input devices
+# Move
 #
-# @api private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_input.rb:29
-class Selenium::WebDriver::Interactions::WheelInput < ::Selenium::WebDriver::Interactions::InputDevice
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_input.rb:30
-  def initialize(name = T.unsafe(nil)); end
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:128
+class Selenium::WebDriver::Interactions::PointerCancel < ::Selenium::WebDriver::Interactions::Interaction
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:133
+  def encode; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_input.rb:35
-  def create_scroll(**opts); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:129
+  def type; end
 end
+
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:23
+class Selenium::WebDriver::Interactions::PointerInput < ::Selenium::WebDriver::Interactions::InputDevice
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:28
+  def initialize(kind, name: T.unsafe(nil)); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:45
+  def assert_kind(pointer); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:63
+  def create_pointer_cancel; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:55
+  def create_pointer_down(button); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:51
+  def create_pointer_move(duration: T.unsafe(nil), x: T.unsafe(nil), y: T.unsafe(nil), element: T.unsafe(nil), origin: T.unsafe(nil)); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:59
+  def create_pointer_up(button); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:37
+  def encode; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:26
+  def kind; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:33
+  def type; end
+end
+
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:24
+Selenium::WebDriver::Interactions::PointerInput::KIND = T.let(T.unsafe(nil), Hash)
+
+# PointerPress
+#
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:104
+class Selenium::WebDriver::Interactions::PointerMove < ::Selenium::WebDriver::Interactions::Interaction
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:109
+  def initialize(source, duration, x, y, element: T.unsafe(nil), origin: T.unsafe(nil)); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:121
+  def encode; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:117
+  def type; end
+end
+
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:107
+Selenium::WebDriver::Interactions::PointerMove::ORIGINS = T.let(T.unsafe(nil), Array)
+
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:106
+Selenium::WebDriver::Interactions::PointerMove::POINTER = T.let(T.unsafe(nil), Symbol)
+
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:105
+Selenium::WebDriver::Interactions::PointerMove::VIEWPORT = T.let(T.unsafe(nil), Symbol)
+
+# PointerInput
+#
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:68
+class Selenium::WebDriver::Interactions::PointerPress < ::Selenium::WebDriver::Interactions::Interaction
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:72
+  def initialize(source, direction, button); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:82
+  def assert_button(button); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:93
+  def assert_direction(direction); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:99
+  def encode; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:78
+  def type; end
+end
+
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:69
+Selenium::WebDriver::Interactions::PointerPress::BUTTONS = T.let(T.unsafe(nil), Hash)
+
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_input.rb:70
+Selenium::WebDriver::Interactions::PointerPress::DIRECTIONS = T.let(T.unsafe(nil), Hash)
+
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/interactions.rb:26
+Selenium::WebDriver::Interactions::SOURCE_TYPES = T.let(T.unsafe(nil), Array)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_actions.rb:22
 module Selenium::WebDriver::KeyActions
@@ -3710,9 +3045,6 @@ module Selenium::WebDriver::KeyActions
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_actions.rb:136
   def key_action(*args, action: T.unsafe(nil), device: T.unsafe(nil)); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/key_actions.rb:144
-  def key_input(name = T.unsafe(nil)); end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/keys.rb:22
@@ -3720,17 +3052,17 @@ module Selenium::WebDriver::Keys
   class << self
     # @api private
     #
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/keys.rb:114
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/keys.rb:113
     def [](key); end
 
     # @api private
     #
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/keys.rb:124
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/keys.rb:123
     def encode(keys); end
 
     # @api private
     #
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/keys.rb:132
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/keys.rb:131
     def encode_key(key); end
   end
 end
@@ -3741,13 +3073,42 @@ end
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/keys.rb:28
 Selenium::WebDriver::Keys::KEYS = T.let(T.unsafe(nil), Hash)
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/local_driver.rb:22
-module Selenium::WebDriver::LocalDriver
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/local_driver.rb:23
-  def initialize_local_driver(capabilities, options, service, url); end
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:37
+class Selenium::WebDriver::Location < ::Struct
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:37
+  def altitude; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/local_driver.rb:33
-  def process_options(options, capabilities, service); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:37
+  def altitude=(_); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:37
+  def latitude; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:37
+  def latitude=(_); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:37
+  def longitude; end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:37
+  def longitude=(_); end
+
+  class << self
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:37
+    def [](*_arg0); end
+
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:37
+    def inspect; end
+
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:37
+    def keyword_init?; end
+
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:37
+    def members; end
+
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:37
+    def new(*_arg0); end
+  end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/log_entry.rb:22
@@ -3791,27 +3152,13 @@ class Selenium::WebDriver::Logger
   # @param [String] progname Allow child projects to use Selenium's Logger pattern
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:51
-  def initialize(progname = T.unsafe(nil), default_level: T.unsafe(nil), ignored: T.unsafe(nil), allowed: T.unsafe(nil)); end
-
-  # Will only log the provided ID.
-  #
-  # @param [Array, Symbol] ids
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:106
-  def allow(ids); end
+  def initialize(progname = T.unsafe(nil)); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:39
   def close(*, **, &); end
 
-  # Used to supply information of interest for debugging a problem
-  # Overrides default #debug to skip ignored messages by provided id
-  #
-  # @param [String] message
-  # @param [Symbol, Array<Sybmol>] id
-  # @yield see #deprecate
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:118
-  def debug(message, id: T.unsafe(nil), &block); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:39
+  def debug(*, **, &); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:39
   def debug?(*, **, &); end
@@ -3824,17 +3171,11 @@ class Selenium::WebDriver::Logger
   # @param [String] reference
   # @yield appends additional message to end of provided template
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:164
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:115
   def deprecate(old, new = T.unsafe(nil), id: T.unsafe(nil), reference: T.unsafe(nil), &block); end
 
-  # Used to supply information that suggests an error occurred
-  #
-  # @param [String] message
-  # @param [Symbol, Array<Sybmol>] id
-  # @yield see #deprecate
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:140
-  def error(message, id: T.unsafe(nil), &block); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:39
+  def error(*, **, &); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:39
   def error?(*, **, &); end
@@ -3847,19 +3188,13 @@ class Selenium::WebDriver::Logger
 
   # Will not log the provided ID.
   #
-  # @param [Array, Symbol] ids
+  # @param [Array, Symbol] id
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:97
-  def ignore(*ids); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:85
+  def ignore(id); end
 
-  # Used to supply information of general interest
-  #
-  # @param [String] message
-  # @param [Symbol, Array<Sybmol>] id
-  # @yield see #deprecate
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:129
-  def info(message, id: T.unsafe(nil), &block); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:39
+  def info(*, **, &); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:39
   def info?(*, **, &); end
@@ -3874,41 +3209,41 @@ class Selenium::WebDriver::Logger
   #
   # @api private
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:88
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:76
   def io; end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:39
   def level(*, **, &); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:60
-  def level=(level); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:39
+  def level=(*, **, &); end
 
   # Changes logger output to a new IO.
   #
   # @param [String] io
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:73
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:61
   def output=(io); end
 
-  # Used to supply information that suggests action be taken by user
+  # Overrides default #warn to skip ignored messages by provided id
   #
   # @param [String] message
   # @param [Symbol, Array<Sybmol>] id
   # @yield see #deprecate
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:151
-  def warn(message, id: T.unsafe(nil), &block); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:96
+  def warn(message, id: T.unsafe(nil)); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:39
   def warn?(*, **, &); end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:183
-  def create_logger(name, level:); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:134
+  def create_logger(name); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:194
-  def discard_or_log(level, message, id); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logger.rb:145
+  def default_level; end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/logs.rb:22
@@ -3974,28 +3309,37 @@ class Selenium::WebDriver::Manager
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:81
   def delete_cookie(name); end
 
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:107
+  def logs; end
+
+  # @param type [Symbol] Supports two values: :tab and :window.
+  # @return [String] The value of the window handle
+  #
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:116
+  def new_window(type = T.unsafe(nil)); end
+
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:103
   def timeouts; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:107
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:134
   def window; end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:136
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:163
   def convert_cookie(cookie); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:115
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:142
   def datetime_at(int); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:119
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:146
   def seconds_from(obj); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:132
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:159
   def strip_port(str); end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:113
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/manager.rb:140
 Selenium::WebDriver::Manager::SECONDS_PER_DAY = T.let(T.unsafe(nil), Float)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/navigation.rb:22
@@ -4027,9 +3371,9 @@ end
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:22
 class Selenium::WebDriver::Options
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:69
-  def initialize(**opts); end
+  def initialize(options: T.unsafe(nil), **opts); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:98
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:99
   def ==(other); end
 
   # Add a new option not yet handled by bindings.
@@ -4041,15 +3385,15 @@ class Selenium::WebDriver::Options
   # @param [String, Symbol] name Name of the option
   # @param [Boolean, String, Integer] value Value of the option
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:87
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:94
   def add_option(name, value = T.unsafe(nil)); end
 
   # @api private
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:110
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:111
   def as_json(*); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:104
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:105
   def eql?(other); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:67
@@ -4060,28 +3404,28 @@ class Selenium::WebDriver::Options
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:194
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:179
   def camel_case(str); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:158
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:143
   def camelize?(_key); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:186
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:171
   def convert_json_key(key, camelize: T.unsafe(nil)); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:162
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:147
   def generate_as_json(value, camelize_keys: T.unsafe(nil)); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:154
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:139
   def process_browser_options(_browser_options); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:176
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:161
   def process_json_hash(value, camelize_keys); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:147
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:132
   def process_w3c_options(options); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:143
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/options.rb:128
   def w3c?(key); end
 
   class << self
@@ -4123,10 +3467,10 @@ Selenium::WebDriver::Options::W3C_OPTIONS = T.let(T.unsafe(nil), Array)
 module Selenium::WebDriver::Platform
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:147
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:144
   def assert_executable(path); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:141
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:138
   def assert_file(path); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:65
@@ -4135,80 +3479,77 @@ module Selenium::WebDriver::Platform
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:53
   def ci; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:110
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:106
   def cygwin?; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:122
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:119
   def cygwin_path(path, **opts); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:33
   def engine; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:155
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:152
   def exit_hook; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:161
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:158
   def find_binary(*binary_names); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:181
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:178
   def find_in_program_files(*binary_names); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:29
   def home; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:222
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:219
   def interfaces; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:206
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:203
   def ip; end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:77
   def jruby?; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:97
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:93
   def linux?; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:198
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:195
   def localhost; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:93
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:89
   def mac?; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:137
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:134
   def make_writable(file); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:114
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:111
   def null_device; end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:37
   def os; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:85
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:81
   def ruby_version; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:81
-  def truffleruby?; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:129
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:126
   def unix_path(path); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:89
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:85
   def windows?; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:133
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:130
   def windows_path(path); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:118
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:115
   def wrap_in_quotes_if_necessary(str); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:101
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:97
   def wsl?; end
 
   class << self
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:147
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:144
     def assert_executable(path); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:141
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:138
     def assert_file(path); end
 
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:65
@@ -4217,105 +3558,102 @@ module Selenium::WebDriver::Platform
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:53
     def ci; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:110
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:106
     def cygwin?; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:122
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:119
     def cygwin_path(path, **opts); end
 
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:33
     def engine; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:155
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:152
     def exit_hook; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:161
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:158
     def find_binary(*binary_names); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:181
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:178
     def find_in_program_files(*binary_names); end
 
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:29
     def home; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:222
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:219
     def interfaces; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:206
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:203
     def ip; end
 
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:77
     def jruby?; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:97
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:93
     def linux?; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:198
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:195
     def localhost; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:93
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:89
     def mac?; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:137
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:134
     def make_writable(file); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:114
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:111
     def null_device; end
 
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:37
     def os; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:85
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:81
     def ruby_version; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:81
-    def truffleruby?; end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:129
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:126
     def unix_path(path); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:89
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:85
     def windows?; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:133
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:130
     def windows_path(path); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:118
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:115
     def wrap_in_quotes_if_necessary(str); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:101
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/platform.rb:97
     def wsl?; end
   end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:33
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
 class Selenium::WebDriver::Point < ::Struct
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:33
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
   def x; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:33
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
   def x=(_); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:33
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
   def y; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:33
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
   def y=(_); end
 
   class << self
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:33
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
     def [](*_arg0); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:33
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
     def inspect; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:33
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
     def keyword_init?; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:33
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
     def members; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:33
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:34
     def new(*_arg0); end
   end
 end
@@ -4342,8 +3680,8 @@ module Selenium::WebDriver::PointerActions
   #   that will be clicked
   # @return [ActionBuilder] A self reference.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:227
-  def click(element = T.unsafe(nil), button: T.unsafe(nil), device: T.unsafe(nil)); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:235
+  def click(element = T.unsafe(nil), device: T.unsafe(nil)); end
 
   # Clicks (without releasing) in the middle of the given element. This is
   # equivalent to:
@@ -4359,8 +3697,8 @@ module Selenium::WebDriver::PointerActions
   # @param [Symbol || String] device optional name of the PointerInput device to click with
   # @return [ActionBuilder] A self reference.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:181
-  def click_and_hold(element = T.unsafe(nil), button: T.unsafe(nil), device: T.unsafe(nil)); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:189
+  def click_and_hold(element = T.unsafe(nil), device: T.unsafe(nil)); end
 
   # Performs a context-click at middle of the given element. First performs
   # a move_to to the location of the element.
@@ -4381,17 +3719,15 @@ module Selenium::WebDriver::PointerActions
   #   that will be context-clicked
   # @return [ActionBuilder] A self reference.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:284
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:292
   def context_click(element = T.unsafe(nil), device: T.unsafe(nil)); end
 
-  # By default this is set to 250ms in the ActionBuilder constructor
-  # It can be overridden with default_move_duration=
+  # The overridable duration for movement used by methods in this module
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:30
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:29
   def default_move_duration; end
 
-  # By default this is set to 250ms in the ActionBuilder constructor
-  # It can be overridden with default_move_duration=
+  # The overridable duration for movement used by methods in this module
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:23
   def default_move_duration=(_arg0); end
@@ -4416,7 +3752,7 @@ module Selenium::WebDriver::PointerActions
   #   that will be double-clicked
   # @return [ActionBuilder] A self reference.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:256
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:264
   def double_click(element = T.unsafe(nil), device: T.unsafe(nil)); end
 
   # A convenience method that performs click-and-hold at the location of the
@@ -4436,7 +3772,7 @@ module Selenium::WebDriver::PointerActions
   #   that will perform the drag and drop
   # @return [ActionBuilder] A self reference.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:307
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:318
   def drag_and_drop(source, target, device: T.unsafe(nil)); end
 
   # A convenience method that performs click-and-hold at the location of
@@ -4454,36 +3790,37 @@ module Selenium::WebDriver::PointerActions
   #   that will perform the drag and drop
   # @return [ActionBuilder] A self reference.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:331
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:342
   def drag_and_drop_by(source, right_by, down_by, device: T.unsafe(nil)); end
 
-  # Moves the pointer from its current position by the given offset.
+  # Moves the mouse from its current position by the given offset.
+  # If the coordinates provided are outside the viewport (the mouse will
+  # end up outside the browser window) then the viewport is scrolled to
+  # match.
   #
-  # The viewport is not scrolled if the coordinates provided are outside the viewport.
-  # MoveTargetOutOfBoundsError will be raised if the offsets are outside the viewport
-  #
-  # @example Move the pointer to a certain offset from its current position
+  # @example Move the mouse to a certain offset from its current position
   #
   #    driver.action.move_by(100, 100).perform
   #
-  # @param [Integer] right_by horizontal offset. A negative value means moving the pointer left.
-  # @param [Integer] down_by vertical offset. A negative value means moving the pointer up.
+  # @param [Integer] right_by horizontal offset. A negative value means moving the mouse left.
+  # @param [Integer] down_by vertical offset. A negative value means moving the mouse up.
   # @param [Symbol || String] device optional name of the PointerInput device to move
   # @return [ActionBuilder] A self reference.
   # @raise [MoveTargetOutOfBoundsError] if the provided offset is outside the document's boundaries.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:126
-  def move_by(right_by, down_by, device: T.unsafe(nil), duration: T.unsafe(nil), **opts); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:136
+  def move_by(right_by, down_by, device: T.unsafe(nil)); end
 
-  # Moves the pointer to the in-view center point of the given element.
-  # Then the pointer is moved to optional offset coordinates.
+  # Moves the mouse to the middle of the given element. The element is scrolled into
+  # view and its location is calculated using getBoundingClientRect.  Then the
+  # mouse is moved to optional offset coordinates from the element.
   #
-  # The element is not scrolled into view.
-  # MoveTargetOutOfBoundsError will be raised if element with offset is outside the viewport
+  # This is adapted to be backward compatible from non- actions.  calculates offset from the center point
+  # of the element
   #
-  # When using offsets, both coordinates need to be passed.
+  # Note that when using offsets, both coordinates need to be passed.
   #
-  # @example Move the pointer to element
+  # @example Scroll element into view and move the mouse to it
   #
   #   el = driver.find_element(id: "some_id")
   #   driver.action.move_to(el).perform
@@ -4494,22 +3831,22 @@ module Selenium::WebDriver::PointerActions
   #   driver.action.move_to(el, 100, 100).perform
   #
   # @param [Selenium::WebDriver::Element] element to move to.
-  # @param [Integer] right_by Optional offset from the in-view center of the
-  #   element. A negative value means coordinates to the left of the center.
-  # @param [Integer] down_by Optional offset from the in-view center of the
-  #   element. A negative value means coordinates to the top of the center.
+  # @param [Integer] right_by Optional offset from the top-left corner. A negative value means
+  #   coordinates to the left of the element.
+  # @param [Integer] down_by Optional offset from the top-left corner. A negative value means
+  #   coordinates above the element.
   # @param [Symbol || String] device optional name of the PointerInput device to move.
   # @return [ActionBuilder] A self reference.
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:98
-  def move_to(element, right_by = T.unsafe(nil), down_by = T.unsafe(nil), **opts); end
+  def move_to(element, right_by = T.unsafe(nil), down_by = T.unsafe(nil), device: T.unsafe(nil)); end
 
-  # Moves the pointer to a given location in the viewport.
+  # Moves the mouse to a given location in the viewport.
+  # If the coordinates provided are outside the viewport (the mouse will
+  # end up outside the browser window) then the viewport is scrolled to
+  # match.
   #
-  # The viewport is not scrolled if the coordinates provided are outside the viewport.
-  # MoveTargetOutOfBoundsError will be raised if the offsets are outside the viewport
-  #
-  # @example Move the pointer to a certain position in the viewport
+  # @example Move the mouse to a certain position in the viewport
   #
   #    driver.action.move_to_location(100, 100).perform
   #
@@ -4519,8 +3856,8 @@ module Selenium::WebDriver::PointerActions
   # @return [ActionBuilder] A self reference.
   # @raise [MoveTargetOutOfBoundsError] if the provided x or y value is outside the document's boundaries.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:154
-  def move_to_location(x, y, device: T.unsafe(nil), duration: T.unsafe(nil), **opts); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:163
+  def move_to_location(x, y, device: T.unsafe(nil)); end
 
   # Presses (without releasing) at the current location of the PointerInput device. This is equivalent to:
   #
@@ -4535,8 +3872,8 @@ module Selenium::WebDriver::PointerActions
   #   that will be pressed
   # @return [ActionBuilder] A self reference.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:49
-  def pointer_down(button = T.unsafe(nil), device: T.unsafe(nil), **opts); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:48
+  def pointer_down(button, device: T.unsafe(nil)); end
 
   # Releases the pressed mouse button at the current mouse location of the PointerInput device.
   #
@@ -4549,8 +3886,8 @@ module Selenium::WebDriver::PointerActions
   #   be released
   # @return [ActionBuilder] A self reference.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:66
-  def pointer_up(button = T.unsafe(nil), device: T.unsafe(nil), **opts); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:65
+  def pointer_up(button, device: T.unsafe(nil)); end
 
   # Releases the depressed left mouse button at the current mouse location.
   #
@@ -4563,16 +3900,16 @@ module Selenium::WebDriver::PointerActions
   #   that will be released
   # @return [ActionBuilder] A self reference.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:200
-  def release(button: T.unsafe(nil), device: T.unsafe(nil)); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:208
+  def release(device: T.unsafe(nil)); end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:340
-  def button_action(button, action, device: T.unsafe(nil), **opts); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:351
+  def button_action(button, action: T.unsafe(nil), device: T.unsafe(nil)); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:347
-  def pointer_input(name = T.unsafe(nil)); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/pointer_actions.rb:358
+  def get_pointer(device = T.unsafe(nil)); end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/port_prober.rb:22
@@ -4725,46 +4062,46 @@ Selenium::WebDriver::Proxy::ALLOWED = T.let(T.unsafe(nil), Hash)
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/proxy.rb:23
 Selenium::WebDriver::Proxy::TYPES = T.let(T.unsafe(nil), Hash)
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:36
 class Selenium::WebDriver::Rectangle < ::Struct
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:36
   def height; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:36
   def height=(_); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:36
   def width; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:36
   def width=(_); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:36
   def x; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:36
   def x=(_); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:36
   def y; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:36
   def y=(_); end
 
   class << self
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:36
     def [](*_arg0); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:36
     def inspect; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:36
     def keyword_init?; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:36
     def members; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:35
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver.rb:36
     def new(*_arg0); end
   end
 end
@@ -4780,55 +4117,47 @@ class Selenium::WebDriver::Remote::Bridge
   include ::Selenium::WebDriver::Atoms
 
   # Initializes the bridge with the given server URL
-  # @param [String, URI] url url for the remote server
-  # @param [Object] http_client an HTTP client instance that implements the same protocol as Http::Default
+  # @param [String, URI] :url url for the remote server
+  # @param [Object] :http_client an HTTP client instance that implements the same protocol as Http::Default
   # @api private
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:39
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:38
   def initialize(url:, http_client: T.unsafe(nil)); end
 
   # alerts
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:113
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:112
   def accept_alert; end
 
   # actions
   #
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:372
-  def action(async: T.unsafe(nil), devices: T.unsafe(nil), duration: T.unsafe(nil)); end
+  def action(async = T.unsafe(nil)); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:375
-  def actions(async: T.unsafe(nil), devices: T.unsafe(nil), duration: T.unsafe(nil)); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:378
+  def actions(async = T.unsafe(nil)); end
 
   # finding elements
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:519
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:520
   def active_element; end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:348
   def add_cookie(cookie); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:579
-  def add_credential(credential, id); end
-
-  # virtual-authenticator
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:570
-  def add_virtual_authenticator(options); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:121
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:120
   def alert=(keys); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:125
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:124
   def alert_text; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:82
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:81
   def browser; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:30
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:29
   def capabilities; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:418
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:428
   def clear_element(element); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:294
@@ -4837,7 +4166,7 @@ class Selenium::WebDriver::Remote::Bridge
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:318
   def clear_session_storage; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:389
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:400
   def click_element(element); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:193
@@ -4851,11 +4180,8 @@ class Selenium::WebDriver::Remote::Bridge
 
   # Creates session.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:52
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:51
   def create_session(capabilities); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:583
-  def credentials(authenticator_id); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:364
   def delete_all_cookies; end
@@ -4863,60 +4189,60 @@ class Selenium::WebDriver::Remote::Bridge
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:352
   def delete_cookie(name); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:117
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:116
   def dismiss_alert; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:463
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:464
   def element_aria_label(element); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:459
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:460
   def element_aria_role(element); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:446
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:447
   def element_attribute(element, name); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:506
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:507
   def element_displayed?(element); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:451
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:452
   def element_dom_attribute(element, name); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:498
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:499
   def element_enabled?(element); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:475
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:476
   def element_location(element); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:487
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:488
   def element_location_once_scrolled_into_view(element); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:455
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:456
   def element_property(element, name); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:481
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:482
   def element_rect(element); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:270
   def element_screenshot(element); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:502
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:503
   def element_selected?(element); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:492
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:493
   def element_size(element); end
 
   # element properties
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:442
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:443
   def element_tag_name(element); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:471
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:472
   def element_text(element); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:467
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:468
   def element_value(element); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:511
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:512
   def element_value_of_css_property(element, prop); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:335
@@ -4927,37 +4253,40 @@ class Selenium::WebDriver::Remote::Bridge
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:330
   def execute_script(script, *args); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:29
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:28
   def file_detector; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:29
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:28
   def file_detector=(_arg0); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:525
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:526
   def find_element_by(how, what, parent_ref = T.unsafe(nil)); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:543
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:544
   def find_elements_by(how, what, parent_ref = T.unsafe(nil)); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:242
   def full_screen_window; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:93
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:92
   def get(url); end
 
   # navigation
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:133
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:132
   def go_back; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:137
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:136
   def go_forward; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:29
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:28
   def http; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:29
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:28
   def http=(_arg0); end
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:384
+  def keyboard; end
 
   # HTML 5
   #
@@ -4981,6 +4310,9 @@ class Selenium::WebDriver::Remote::Bridge
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:229
   def minimize_window; end
 
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:380
+  def mouse; end
+
   # Create a new top-level browsing context
   # https://w3c.github.io/webdriver/#new-window
   # @param type [String] Supports two values: 'tab' and 'window'.
@@ -4990,38 +4322,29 @@ class Selenium::WebDriver::Remote::Bridge
   # @return [Hash] Containing 'handle' with the value of the window handle
   #  and 'type' with the value of the created window type
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:163
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:164
   def new_window(type); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:149
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:148
   def page_source; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:385
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:396
   def print_page(options = T.unsafe(nil)); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:186
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:187
   def quit; end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:197
   def refresh; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:381
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:392
   def release_actions; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:591
-  def remove_all_credentials(authenticator_id); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:587
-  def remove_credential(credential_id, authenticator_id); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:286
   def remove_local_storage_item(key); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:310
   def remove_session_storage_item(key); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:575
-  def remove_virtual_authenticator(id); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:246
   def reposition_window(x, y); end
@@ -5032,15 +4355,15 @@ class Selenium::WebDriver::Remote::Bridge
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:266
   def screenshot; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:377
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:388
   def send_actions(data); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:393
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:404
   def send_keys_to_element(element, keys); end
 
   # Returns the current session ID.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:78
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:77
   def session_id; end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:302
@@ -5055,49 +4378,46 @@ class Selenium::WebDriver::Remote::Bridge
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:255
   def set_window_rect(x: T.unsafe(nil), y: T.unsafe(nil), width: T.unsafe(nil), height: T.unsafe(nil)); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:561
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:562
   def shadow_root(element); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:89
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:88
   def status; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:422
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:432
   def submit_element(element); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:523
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:524
   def switch_to_active_element; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:180
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:181
   def switch_to_default_content; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:171
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:172
   def switch_to_frame(id); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:176
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:177
   def switch_to_parent_frame; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:167
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:168
   def switch_to_window(name); end
 
   # timeouts
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:101
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:100
   def timeouts; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:105
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:104
   def timeouts=(timeouts); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:145
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:144
   def title; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:408
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:419
   def upload(local_file); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:141
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:140
   def url; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:595
-  def user_verified(verified, authenticator_id); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:209
   def window_handle; end
@@ -5118,60 +4438,60 @@ class Selenium::WebDriver::Remote::Bridge
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:627
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:595
   def commands(command); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:661
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:629
   def convert_locator(how, what); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:648
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:616
   def element_id_from(id); end
 
   # Escapes invalid characters in CSS selector.
   # @see https://mathiasbynens.be/notes/css-escapes
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:691
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:661
   def escape_css(string); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:623
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:591
   def escaper; end
 
   # executes a command on the remote server.
   #
   # @return [WebDriver::Remote::Response]
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:607
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:575
   def execute(command, opts = T.unsafe(nil), command_hash = T.unsafe(nil)); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:656
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:624
   def prepare_capabilities_payload(capabilities); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:652
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:620
   def shadow_root_id_from(id); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:631
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:599
   def unwrap_script_result(arg); end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge/commands.rb:29
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/commands.rb:30
 Selenium::WebDriver::Remote::Bridge::COMMANDS = T.let(T.unsafe(nil), Hash)
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:686
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:656
 Selenium::WebDriver::Remote::Bridge::ESCAPE_CSS_REGEXP = T.let(T.unsafe(nil), Regexp)
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:27
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:26
 Selenium::WebDriver::Remote::Bridge::PORT = T.let(T.unsafe(nil), Integer)
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:184
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:185
 Selenium::WebDriver::Remote::Bridge::QUIT_ERRORS = T.let(T.unsafe(nil), Array)
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:687
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/bridge.rb:657
 Selenium::WebDriver::Remote::Bridge::UNICODE_CODE_POINT = T.let(T.unsafe(nil), Integer)
 
 # Specification of the desired and/or actual capabilities of the browser that the
 # server is being asked to create.
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:28
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:29
 class Selenium::WebDriver::Remote::Capabilities
   # @param [Hash] opts
   # @option :browser_name             [String] required browser name
@@ -5182,230 +4502,228 @@ class Selenium::WebDriver::Remote::Capabilities
   #
   # @api public
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:199
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:177
   def initialize(opts = T.unsafe(nil)); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:288
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:266
   def ==(other); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:213
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:191
   def [](key); end
 
   # Allows setting arbitrary capabilities.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:209
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:187
   def []=(key, value); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:47
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:49
   def accept_insecure_certs; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:51
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:53
   def accept_insecure_certs=(value); end
 
   # @api private
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:278
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:256
   def as_json(*); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:47
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:49
   def browser_name; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:51
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:53
   def browser_name=(value); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:47
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:49
   def browser_version; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:51
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:53
   def browser_version=(value); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:294
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:272
   def eql?(other); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:250
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:228
   def implicit_timeout; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:254
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:232
   def implicit_timeout=(timeout); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:217
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:195
   def merge!(other); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:47
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:49
   def page_load_strategy; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:51
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:53
   def page_load_strategy=(value); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:258
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:236
   def page_load_timeout; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:262
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:240
   def page_load_timeout=(timeout); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:70
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:64
   def platform; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:75
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:65
   def platform=(value); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:47
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:49
   def platform_name; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:51
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:53
   def platform_name=(value); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:227
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:205
   def proxy; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:231
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:209
   def proxy=(proxy); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:47
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:49
   def remote_session_id; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:51
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:53
   def remote_session_id=(value); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:266
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:244
   def script_timeout; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:270
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:248
   def script_timeout=(timeout); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:47
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:49
   def set_window_rect; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:51
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:53
   def set_window_rect=(value); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:47
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:49
   def strict_file_interactability; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:51
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:53
   def strict_file_interactability=(value); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:242
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:220
   def timeouts; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:246
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:224
   def timeouts=(timeouts); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:284
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:262
   def to_json(*); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:47
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:49
   def unhandled_prompt_behavior; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:51
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:53
   def unhandled_prompt_behavior=(value); end
 
   # Backward compatibility
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:60
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:62
   def version; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:65
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:63
   def version=(value); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:47
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:49
   def web_socket_url; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:51
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:53
   def web_socket_url=(value); end
 
   protected
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:298
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:276
   def capabilities; end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:317
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:295
   def convert_key(key); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:328
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:306
   def convert_value(key, value); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:302
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:280
   def process_capabilities(key, value, hash); end
 
   class << self
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:133
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:112
     def always_match(capabilities); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:173
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:151
     def camel_case(str_or_sym); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:85
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:72
     def chrome(opts = T.unsafe(nil)); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:92
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:78
     def edge(opts = T.unsafe(nil)); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:106
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:90
     def ff(opts = T.unsafe(nil)); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:100
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:85
     def firefox(opts = T.unsafe(nil)); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:137
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:116
     def first_match(*capabilities); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:115
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:98
     def htmlunit(opts = T.unsafe(nil)); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:131
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:110
     def ie(opts = T.unsafe(nil)); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:124
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:104
     def internet_explorer(opts = T.unsafe(nil)); end
 
     # @api private
     #
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:145
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:124
     def json_create(data); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:98
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:83
     def microsoftedge(opts = T.unsafe(nil)); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:108
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:92
     def safari(opts = T.unsafe(nil)); end
 
     private
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:179
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:157
     def process_timeouts(caps, timeouts); end
   end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:29
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/capabilities.rb:31
 Selenium::WebDriver::Remote::Capabilities::KNOWN = T.let(T.unsafe(nil), Array)
 
 # Driver implementation for remote server.
 # @api private
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/driver.rb:28
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/driver.rb:29
 class Selenium::WebDriver::Remote::Driver < ::Selenium::WebDriver::Driver
   include ::Selenium::WebDriver::DriverExtensions::UploadsFiles
   include ::Selenium::WebDriver::DriverExtensions::HasSessionId
+  include ::Selenium::WebDriver::DriverExtensions::HasRemoteStatus
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/driver.rb:32
-  def initialize(capabilities: T.unsafe(nil), options: T.unsafe(nil), service: T.unsafe(nil), url: T.unsafe(nil), **opts); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/driver.rb:34
+  def initialize(bridge: T.unsafe(nil), listener: T.unsafe(nil), **opts); end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/driver.rb:43
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/driver.rb:50
   def devtools_url; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/driver.rb:47
-  def devtools_version; end
-
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/driver.rb:54
-  def process_options(options, capabilities); end
+  def devtools_version; end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote.rb:31
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote.rb:32
 module Selenium::WebDriver::Remote::Http; end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/common.rb:24
@@ -5481,25 +4799,25 @@ class Selenium::WebDriver::Remote::Http::Default < ::Selenium::WebDriver::Remote
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:50
   def http; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:122
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:127
   def new_http_client; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:108
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:113
   def new_request_for(verb, url, headers, payload); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:138
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:143
   def proxy; end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:72
   def request(verb, url, headers, payload, redirects = T.unsafe(nil)); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:118
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:123
   def response_for(request); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:66
   def start(http); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:150
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/http/default.rb:155
   def use_proxy?; end
 end
 
@@ -5508,41 +4826,47 @@ Selenium::WebDriver::Remote::Http::Default::MAX_RETRIES = T.let(T.unsafe(nil), I
 
 # @api private
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:27
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:28
 class Selenium::WebDriver::Remote::Response
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:30
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:31
   def initialize(code, payload = T.unsafe(nil)); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:48
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:49
   def [](key); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:28
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:29
   def code; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:37
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:38
   def error; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:28
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:29
   def payload; end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:62
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:63
   def add_backtrace(ex, server_trace); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:54
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:55
   def assert_ok; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:75
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:76
   def backtrace_from_remote(server_trace); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:92
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/remote/response.rb:93
   def process_error; end
 end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari.rb:22
 module Selenium::WebDriver::Safari
   class << self
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari.rb:64
+    def driver_path; end
+
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari.rb:57
+    def driver_path=(path); end
+
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari.rb:49
     def path; end
 
@@ -5569,47 +4893,39 @@ end
 # Driver implementation for Safari.
 # @api private
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/driver.rb:28
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/driver.rb:29
 class Selenium::WebDriver::Safari::Driver < ::Selenium::WebDriver::Driver
-  include ::Selenium::WebDriver::LocalDriver
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/driver.rb:35
-  def initialize(capabilities: T.unsafe(nil), options: T.unsafe(nil), service: T.unsafe(nil), url: T.unsafe(nil), **opts); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/driver.rb:40
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/driver.rb:34
   def browser; end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/driver.rb:29
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/driver.rb:30
 Selenium::WebDriver::Safari::Driver::EXTENSIONS = T.let(T.unsafe(nil), Array)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/features.rb:23
 module Selenium::WebDriver::Safari::Features
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/features.rb:43
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/features.rb:44
   def attach_debugger; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/features.rb:31
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/features.rb:32
   def commands(command); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/features.rb:35
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/features.rb:36
   def permissions; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/features.rb:39
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/features.rb:40
   def permissions=(permissions); end
 end
 
 # https://developer.apple.com/library/content/documentation/NetworkingInternetWeb/Conceptual/WebDriverEndpointDoc/Commands/Commands.html
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/features.rb:25
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/features.rb:26
 Selenium::WebDriver::Safari::Features::SAFARI_COMMANDS = T.let(T.unsafe(nil), Hash)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/options.rb:23
 class Selenium::WebDriver::Safari::Options < ::Selenium::WebDriver::Options
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/options.rb:31
   def add_option(name, value = T.unsafe(nil)); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/options.rb:38
-  def as_json(*); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/options.rb:24
   def options; end
@@ -5627,13 +4943,7 @@ Selenium::WebDriver::Safari::Options::BROWSER = T.let(T.unsafe(nil), String)
 Selenium::WebDriver::Safari::Options::CAPABILITIES = T.let(T.unsafe(nil), Hash)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/service.rb:23
-class Selenium::WebDriver::Safari::Service < ::Selenium::WebDriver::Service
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/service.rb:28
-  def initialize(path: T.unsafe(nil), port: T.unsafe(nil), log: T.unsafe(nil), args: T.unsafe(nil)); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/service.rb:34
-  def log=(*); end
-end
+class Selenium::WebDriver::Safari::Service < ::Selenium::WebDriver::Service; end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/service.rb:24
 Selenium::WebDriver::Safari::Service::DEFAULT_PORT = T.let(T.unsafe(nil), Integer)
@@ -5642,6 +4952,9 @@ Selenium::WebDriver::Safari::Service::DEFAULT_PORT = T.let(T.unsafe(nil), Intege
 Selenium::WebDriver::Safari::Service::EXECUTABLE = T.let(T.unsafe(nil), String)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/service.rb:26
+Selenium::WebDriver::Safari::Service::MISSING_TEXT = T.let(T.unsafe(nil), String)
+
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/safari/service.rb:30
 Selenium::WebDriver::Safari::Service::SHUTDOWN_SUPPORTED = T.let(T.unsafe(nil), FalseClass)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/search_context.rb:22
@@ -5670,12 +4983,12 @@ module Selenium::WebDriver::SearchContext
   #
   # @see SearchContext#find_element
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/search_context.rb:72
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/search_context.rb:75
   def find_elements(*args); end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/search_context.rb:83
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/search_context.rb:89
   def extract_args(args); end
 end
 
@@ -5683,40 +4996,6 @@ end
 #
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/search_context.rb:24
 Selenium::WebDriver::SearchContext::FINDERS = T.let(T.unsafe(nil), Hash)
-
-# Wrapper for getting information from the Selenium Manager binaries.
-# This implementation is still in beta, and may change.
-# @api private
-#
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/selenium_manager.rb:29
-class Selenium::WebDriver::SeleniumManager
-  class << self
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/selenium_manager.rb:33
-    def bin_path; end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/selenium_manager.rb:31
-    def bin_path=(_arg0); end
-
-    # @param [Options] options browser options.
-    # @return [String] the path to the correct driver.
-    #
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/selenium_manager.rb:39
-    def driver_path(options); end
-
-    private
-
-    # @return [String] the path to the correct selenium manager
-    #
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/selenium_manager.rb:73
-    def binary; end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/selenium_manager.rb:54
-    def generate_command(binary, options); end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/selenium_manager.rb:100
-    def run(*command); end
-  end
-end
 
 # Base class implementing default behavior of service object,
 # responsible for storing a service manager configuration.
@@ -5727,52 +5006,39 @@ class Selenium::WebDriver::Service
   #
   # @api private
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:69
-  def initialize(path: T.unsafe(nil), port: T.unsafe(nil), log: T.unsafe(nil), args: T.unsafe(nil)); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
-  def args; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
-  def args=(_arg0); end
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:68
+  def initialize(path: T.unsafe(nil), port: T.unsafe(nil), args: T.unsafe(nil)); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
   def executable_path; end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
-  def executable_path=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:61
   def extra_args; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:59
   def host; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:59
   def host=(_arg0); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:90
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:82
   def launch; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
-  def log; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
-  def log=(_arg0); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
   def port; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:60
-  def port=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:94
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:88
   def shutdown_supported; end
 
   protected
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:100
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:94
   def extract_service_args(driver_opts); end
+
+  private
+
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:100
+  def binary_path(path = T.unsafe(nil)); end
 
   class << self
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:31
@@ -5781,7 +5047,7 @@ class Selenium::WebDriver::Service
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:29
     def driver_path; end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:54
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:53
     def driver_path=(path); end
 
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:44
@@ -5799,10 +5065,7 @@ class Selenium::WebDriver::Service
     # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:47
     def microsoftedge(**opts); end
 
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:48
-    def msedge(**opts); end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:50
+    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service.rb:49
     def safari(**opts); end
   end
 end
@@ -5821,48 +5084,48 @@ class Selenium::WebDriver::ServiceManager
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:39
   def initialize(config); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:50
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:49
   def start; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:62
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:61
   def stop; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:74
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:72
   def uri; end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:80
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:78
   def build_process(*command); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:135
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:142
   def cannot_connect_error_text; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:89
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:91
   def connect_to_server; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:128
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:135
   def connect_until_stable; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:98
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:100
   def find_free_port; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:124
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:131
   def process_exited?; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:120
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:127
   def process_running?; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:139
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:146
   def socket_lock; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:102
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:104
   def start_process; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:107
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:111
   def stop_process; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:113
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/service_manager.rb:118
   def stop_server; end
 end
 
@@ -5938,24 +5201,24 @@ class Selenium::WebDriver::SocketLock
   # Attempt to acquire a lock on the given port. Control is yielded to an
   # execution block if the lock could be successfully obtained.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:38
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:37
   def locked; end
 
   private
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:68
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:67
   def can_lock?; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:60
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:59
   def current_time; end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:77
   def did_lock?; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:50
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:49
   def lock; end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:64
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/socket_lock.rb:63
   def release; end
 end
 
@@ -6237,16 +5500,16 @@ end
 
 # @api private
 #
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/relative_locator.rb:27
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/relative_locator.rb:28
 class Selenium::WebDriver::Support::RelativeLocator
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/relative_locator.rb:30
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/relative_locator.rb:31
   def initialize(locator); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/relative_locator.rb:34
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/relative_locator.rb:35
   def as_json; end
 end
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/relative_locator.rb:28
+# pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/relative_locator.rb:29
 Selenium::WebDriver::Support::RelativeLocator::KEYS = T.let(T.unsafe(nil), Array)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:23
@@ -6310,7 +5573,7 @@ class Selenium::WebDriver::Support::Select
   #
   #     <option value="foo">Bar</option>
   #
-  # When selecting by :value, selects all options that have a value matching the argument. That is, when given "foo" this
+  # When slecting by :value, selects all options that have a value matching the argument. That is, when given "foo" this
   # would select an option like:
   #
   #     <option value="foo">Bar</option>
@@ -6342,19 +5605,19 @@ class Selenium::WebDriver::Support::Select
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:197
   def deselect_by_value(value); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:223
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:221
   def deselect_option(option); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:235
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:233
   def deselect_options(opts); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:262
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:260
   def find_by_index(index); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:243
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:241
   def find_by_text(text); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:266
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:264
   def find_by_value(value); end
 
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:171
@@ -6369,7 +5632,7 @@ class Selenium::WebDriver::Support::Select
   # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:217
   def select_option(option); end
 
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:227
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/support/select.rb:225
   def select_options(opts); end
 end
 
@@ -6407,17 +5670,17 @@ class Selenium::WebDriver::TargetLocator
   #
   # @return [WebDriver::Element]
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/target_locator.rb:117
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/target_locator.rb:118
   def active_element; end
 
   # switches to the currently active modal dialog for this particular driver instance
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/target_locator.rb:133
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/target_locator.rb:134
   def alert; end
 
   # selects either the first frame on the page, or the main document when a page contains iframes.
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/target_locator.rb:125
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/target_locator.rb:126
   def default_content; end
 
   # switch to the frame with the given id
@@ -6445,7 +5708,7 @@ class Selenium::WebDriver::TargetLocator
   # @param id
   #   A window handle, obtained through Driver#window_handles
   #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/target_locator.rb:84
+  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/target_locator.rb:85
   def window(id); end
 end
 
@@ -6498,104 +5761,6 @@ end
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/version.rb:22
 Selenium::WebDriver::VERSION = T.let(T.unsafe(nil), String)
 
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator.rb:22
-class Selenium::WebDriver::VirtualAuthenticator
-  # api private
-  # Use `Driver#add_virtual_authenticator`
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator.rb:30
-  def initialize(bridge, authenticator_id, options); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator.rb:37
-  def add_credential(credential); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator.rb:42
-  def credentials; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator.rb:23
-  def options; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator.rb:62
-  def remove!; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator.rb:54
-  def remove_all_credentials; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator.rb:49
-  def remove_credential(credential_id); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator.rb:58
-  def user_verified=(verified); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator.rb:67
-  def valid?; end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:27
-class Selenium::WebDriver::VirtualAuthenticatorOptions
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:37
-  def initialize(**opts); end
-
-  # @api private
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:52
-  def as_json(*); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
-  def protocol; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
-  def protocol=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
-  def resident_key; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
-  def resident_key=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:32
-  def resident_key?; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
-  def transport; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
-  def transport=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
-  def user_consenting; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
-  def user_consenting=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:34
-  def user_consenting?; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
-  def user_verification; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
-  def user_verification=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:33
-  def user_verification?; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
-  def user_verified; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:31
-  def user_verified=(_arg0); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:35
-  def user_verified?; end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:28
-Selenium::WebDriver::VirtualAuthenticatorOptions::PROTOCOL = T.let(T.unsafe(nil), Hash)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/virtual_authenticator/virtual_authenticator_options.rb:29
-Selenium::WebDriver::VirtualAuthenticatorOptions::TRANSPORT = T.let(T.unsafe(nil), Hash)
-
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/wait.rb:22
 class Selenium::WebDriver::Wait
   # Create a new Wait instance
@@ -6628,172 +5793,6 @@ Selenium::WebDriver::Wait::DEFAULT_INTERVAL = T.let(T.unsafe(nil), Float)
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/wait.rb:23
 Selenium::WebDriver::Wait::DEFAULT_TIMEOUT = T.let(T.unsafe(nil), Integer)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:24
-class Selenium::WebDriver::WebSocketConnection
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:35
-  def initialize(url:); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:51
-  def callbacks; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:45
-  def close; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:55
-  def send_cmd(**payload); end
-
-  private
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:80
-  def attach_socket_listener; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:120
-  def callback_thread(params); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:103
-  def incoming_frame; end
-
-  # We should be thread-safe to use the hash without synchronization
-  # because its keys are WebSocket message identifiers and they should be
-  # unique within a devtools session.
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:71
-  def messages; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:158
-  def next_id; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:107
-  def process_frame(frame); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:75
-  def process_handshake; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:141
-  def socket; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:137
-  def wait; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:154
-  def ws; end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:25
-Selenium::WebDriver::WebSocketConnection::CONNECTION_ERRORS = T.let(T.unsafe(nil), Array)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:33
-Selenium::WebDriver::WebSocketConnection::MAX_LOG_MESSAGE_SIZE = T.let(T.unsafe(nil), Integer)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:31
-Selenium::WebDriver::WebSocketConnection::RESPONSE_WAIT_INTERVAL = T.let(T.unsafe(nil), Float)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/websocket_connection.rb:30
-Selenium::WebDriver::WebSocketConnection::RESPONSE_WAIT_TIMEOUT = T.let(T.unsafe(nil), Integer)
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll_origin.rb:22
-module Selenium::WebDriver::WheelActions
-  # By default this is set to 250ms in the ActionBuilder constructor
-  # It can be overridden with default_scroll_duration=
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_actions.rb:30
-  def default_scroll_duration; end
-
-  # By default this is set to 250ms in the ActionBuilder constructor
-  # It can be overridden with default_scroll_duration=
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_actions.rb:23
-  def default_scroll_duration=(_arg0); end
-
-  # Scrolls by provided amounts with the origin in the top left corner of the viewport.
-  #
-  # @example Scroll viewport by a specified amount
-  #    el = driver.find_element(id: "some_id")
-  #    driver.action.scroll_by(100, 200).perform
-  #
-  # @param [Integer] delta_x Distance along X axis to scroll using the wheel. A negative value scrolls left.
-  # @param [Integer] delta_y Distance along Y axis to scroll using the wheel. A negative value scrolls up.
-  # @return [Selenium::WebDriver::WheelActions] A self reference.
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_actions.rb:57
-  def scroll_by(delta_x, delta_y, device: T.unsafe(nil)); end
-
-  # Scrolls by provided amount based on a provided origin.
-  #
-  # The scroll origin is either the center of an element or the upper left of the viewport plus any offsets.
-  # If the origin is an element, and the element is not in the viewport, the bottom of the element will first
-  #   be scrolled to the bottom of the viewport.
-  #
-  # @example Scroll from element by a specified amount
-  #    el = driver.find_element(id: "some_id")
-  #    origin = WheelActions::ScrollOrigin.element(el)
-  #    driver.action.scroll_from(origin, 0, 200).perform
-  #
-  # @example Scroll from element by a specified amount with an offset
-  #    el = driver.find_element(id: "some_id")
-  #    origin = WheelActions::ScrollOrigin.element(el, 10, 10)
-  #    driver.action.scroll_from(origin, 100, 200).perform
-  #
-  # @example Scroll viewport by a specified amount with an offset
-  #    origin = WheelActions::ScrollOrigin.viewport(10, 10)
-  #    driver.action.scroll_from(origin, 0, 200).perform
-  #
-  # @param [ScrollOrigin] scroll_origin Where scroll originates (viewport or element center) plus provided offsets.
-  # @param [Integer] delta_x Distance along X axis to scroll using the wheel. A negative value scrolls left.
-  # @param [Integer] delta_y Distance along Y axis to scroll using the wheel. A negative value scrolls up.
-  # @return [Selenium::WebDriver::WheelActions] A self reference.
-  # @raise [Error::MoveTargetOutOfBoundsError] If the origin with offset is outside the viewport.
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_actions.rb:87
-  def scroll_from(scroll_origin, delta_x, delta_y, device: T.unsafe(nil)); end
-
-  # If the element is outside the viewport, scrolls the bottom of the element to the bottom of the viewport.
-  #
-  # @example Scroll to element
-  #    el = driver.find_element(id: "some_id")
-  #    driver.action.scroll_to(element).perform
-  #
-  # @param [Object] Which element to scroll into the viewport.
-  # @return [Selenium::WebDriver::WheelActions] A self reference.
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_actions.rb:43
-  def scroll_to(element, device: T.unsafe(nil)); end
-
-  private
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_actions.rb:100
-  def scroll(**opts); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/wheel_actions.rb:108
-  def wheel_input(name = T.unsafe(nil)); end
-end
-
-# pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll_origin.rb:23
-class Selenium::WebDriver::WheelActions::ScrollOrigin
-  # Use a static method to access
-  # @api private
-  #
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll_origin.rb:40
-  def initialize(origin, x_offset, y_offset); end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll_origin.rb:34
-  def origin; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll_origin.rb:34
-  def x_offset; end
-
-  # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll_origin.rb:34
-  def y_offset; end
-
-  class << self
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll_origin.rb:25
-    def element(element, x_offset = T.unsafe(nil), y_offset = T.unsafe(nil)); end
-
-    # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/interactions/scroll_origin.rb:29
-    def viewport(x_offset = T.unsafe(nil), y_offset = T.unsafe(nil)); end
-  end
-end
 
 # pkg:gem/selenium-webdriver#lib/selenium/webdriver/common/window.rb:22
 class Selenium::WebDriver::Window

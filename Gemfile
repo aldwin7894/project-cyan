@@ -113,4 +113,4 @@ gem "colorize", "~> 1.1"
 
 gem "sidekiq-unique-jobs", "~> 8.1"
 
-gem "faraday", "~> 2.14"
+gem "json", "~> 2.21.2"

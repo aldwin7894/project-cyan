@@ -5,33 +5,37 @@
 # Please instead update this file by running `bin/tapioca gem vite_ruby`.
 
 
-# pkg:gem/vite_ruby#lib/vite_ruby.rb:18
+# pkg:gem/vite_ruby#lib/vite_ruby.rb:19
 class ViteRuby
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:70
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:71
   def initialize(**config_options); end
 
   # Public: Keeps track of watched files and triggers builds as needed.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:122
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:117
   def builder; end
 
   # Internal: Helper to run commands related with Vite.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:127
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:122
   def commands; end
 
   # Public: Current instance configuration for Vite.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:132
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:127
   def config; end
 
   # Public: Allows overriding the configuration for this instance.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:142
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:137
   def configure(**options); end
 
+  # Public: Whether we are in an environment that might run the Vite dev server.
+  #
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:102
+  def dev_mode?; end
+
   # Public: Returns true if the Vite development server is currently running.
-  # NOTE: Checks only once every second since every lookup calls this method.
   #
   # pkg:gem/vite_ruby#lib/vite_ruby.rb:86
   def dev_server_running?; end
@@ -39,7 +43,7 @@ class ViteRuby
   # Public: Returns a digest of all the watched files, allowing to detect
   # changes. Useful to perform version checks in single-page applications.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:80
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:81
   def digest; end
 
   # Public: Additional environment variables to pass to Vite.
@@ -47,23 +51,23 @@ class ViteRuby
   # Example:
   #   ViteRuby.env['VITE_RUBY_CONFIG_PATH'] = 'config/alternate_vite.json'
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:104
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:97
   def env; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:74
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:75
   def logger; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:68
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:69
   def logger=(_arg0); end
 
   # Public: Enables looking up assets managed by Vite using name and type.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:147
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:142
   def manifest; end
 
   # Internal: Executes the vite binary.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:117
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:112
   def run(argv, **options); end
 
   # Public: The proxy for assets should only run in development mode.
@@ -71,31 +75,43 @@ class ViteRuby
   # pkg:gem/vite_ruby#lib/vite_ruby.rb:109
   def run_proxy?; end
 
+  private
+
+  # Internal: Returns true if a TCP connection to the dev server can be opened.
+  #
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:149
+  def dev_server_connected?; end
+
+  # Internal: Metadata written by the running Vite dev server, or nil when stopped.
+  #
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:163
+  def dev_server_meta; end
+
   class << self
     # Internal: Refreshes the manifest.
     #
-    # pkg:gem/vite_ruby#lib/vite_ruby.rb:43
+    # pkg:gem/vite_ruby#lib/vite_ruby.rb:44
     def bootstrap; end
 
     # Internal: Helper to run commands related with Vite.
     #
-    # pkg:gem/vite_ruby#lib/vite_ruby.rb:35
+    # pkg:gem/vite_ruby#lib/vite_ruby.rb:36
     def commands(*, **, &); end
 
     # Public: Current instance configuration for Vite.
     #
-    # pkg:gem/vite_ruby#lib/vite_ruby.rb:35
+    # pkg:gem/vite_ruby#lib/vite_ruby.rb:36
     def config(*, **, &); end
 
     # Public: Allows overriding the configuration for this instance.
     #
-    # pkg:gem/vite_ruby#lib/vite_ruby.rb:35
+    # pkg:gem/vite_ruby#lib/vite_ruby.rb:36
     def configure(*, **, &); end
 
     # Public: Returns a digest of all the watched files, allowing to detect
     # changes. Useful to perform version checks in single-page applications.
     #
-    # pkg:gem/vite_ruby#lib/vite_ruby.rb:35
+    # pkg:gem/vite_ruby#lib/vite_ruby.rb:36
     def digest(*, **, &); end
 
     # Public: Additional environment variables to pass to Vite.
@@ -103,39 +119,39 @@ class ViteRuby
     # Example:
     #   ViteRuby.env['VITE_RUBY_CONFIG_PATH'] = 'config/alternate_vite.json'
     #
-    # pkg:gem/vite_ruby#lib/vite_ruby.rb:35
+    # pkg:gem/vite_ruby#lib/vite_ruby.rb:36
     def env(*, **, &); end
 
     # Internal: Detects if the application has installed a framework-specific
     # variant of Vite Ruby.
     #
-    # pkg:gem/vite_ruby#lib/vite_ruby.rb:59
+    # pkg:gem/vite_ruby#lib/vite_ruby.rb:60
     def framework_libraries; end
 
     # Internal: Loads all available rake tasks.
     #
-    # pkg:gem/vite_ruby#lib/vite_ruby.rb:48
+    # pkg:gem/vite_ruby#lib/vite_ruby.rb:49
     def install_tasks; end
 
-    # pkg:gem/vite_ruby#lib/vite_ruby.rb:38
+    # pkg:gem/vite_ruby#lib/vite_ruby.rb:39
     def instance; end
 
-    # pkg:gem/vite_ruby#lib/vite_ruby.rb:36
+    # pkg:gem/vite_ruby#lib/vite_ruby.rb:37
     def mode(*, **, &); end
 
     # Internal: Creates a new instance with the specified options.
     #
-    # pkg:gem/vite_ruby#lib/vite_ruby.rb:53
+    # pkg:gem/vite_ruby#lib/vite_ruby.rb:54
     def reload_with(**config_options); end
 
     # Internal: Executes the vite binary.
     #
-    # pkg:gem/vite_ruby#lib/vite_ruby.rb:35
+    # pkg:gem/vite_ruby#lib/vite_ruby.rb:36
     def run(*, **, &); end
 
     # Public: The proxy for assets should only run in development mode.
     #
-    # pkg:gem/vite_ruby#lib/vite_ruby.rb:35
+    # pkg:gem/vite_ruby#lib/vite_ruby.rb:36
     def run_proxy?(*, **, &); end
   end
 end
@@ -243,51 +259,72 @@ class ViteRuby::Builder
   # Public: Checks if the watched files have changed since the last compilation,
   # and triggers a Vite build if any files have changed.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:13
+  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:14
   def build(*args); end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:39
+  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:40
   def config(*, **, &); end
 
   # Internal: Reads the result of the last compilation from disk.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:31
+  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:32
   def last_build_metadata(ssr: T.unsafe(nil)); end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:39
+  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:40
   def logger(*, **, &); end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:39
+  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:40
   def run(*, **, &); end
 
   private
 
   # Public: Initiates a Vite build command to generate assets.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:66
+  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:102
   def build_with_vite(*args); end
+
+  # Internal: Returns the id of a watched file, or nil if it's a directory.
+  #
+  # NOTE: Reading and hashing every watched file dominates the cost of the
+  # check, and the answer is almost always the same one as the last time, so the
+  # contents are read again only once the file has been touched. The digest
+  # stays content-based: a checkout that changes mtimes but not contents still
+  # counts as unchanged, and no Vite build is triggered.
+  #
+  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:76
+  def file_digest(file, previous_digests); end
 
   # Internal: The file path where metadata of the last build is stored.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:48
+  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:49
   def last_build_path(ssr:); end
 
   # Internal: Outputs the build results.
   #
   # NOTE: By default it also outputs the manifest entries.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:75
+  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:111
   def log_build_result(_stdout, stderr, status); end
+
+  # Internal: Whether the file was modified too recently to trust its mtime.
+  #
+  # NOTE: A file edited twice within the resolution of the file system clock,
+  # without changing its size, would keep the same signature. Rehashing the
+  # files touched in the last second rules that out, the same way Git resolves
+  # a racily clean entry in the index.
+  #
+  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:97
+  def recently_modified?(stat); end
 
   # Internal: Writes a digest of the watched files to disk for future checks.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:42
+  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:43
   def record_build_metadata(build, **attrs); end
 
   # Internal: Returns a digest of all the watched files, allowing to detect
   # changes, and skip Vite builds if no files have changed.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:54
+  # pkg:gem/vite_ruby#lib/vite_ruby/builder.rb:55
   def watched_files_digest; end
 end
 
@@ -599,7 +636,7 @@ ViteRuby::CLI::Vite::CURRENT_ENV = T.let(T.unsafe(nil), String)
 
 # Internal: Companion libraries for Vite Ruby, and their target framework.
 #
-# pkg:gem/vite_ruby#lib/vite_ruby.rb:23
+# pkg:gem/vite_ruby#lib/vite_ruby.rb:24
 ViteRuby::COMPANION_LIBRARIES = T.let(T.unsafe(nil), Hash)
 
 # Public: Encapsulates common tasks, available both programatically and from the
@@ -710,218 +747,231 @@ end
 class ViteRuby::Config
   extend ::ViteRails::Config
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:118
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:126
   def initialize(attrs); end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def additional_entrypoints; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def asset_host; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def assets_dir; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def auto_build; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def base; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def build_cache_dir; end
 
   # Public: The directory where Vite will store the built assets.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:37
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:40
   def build_output_dir; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def config_path; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def dev_server_connect_timeout; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
+  def dev_server_connection_check; end
+
+  # Internal: Path to the metadata file written by the Vite dev server.
+  #
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:45
+  def dev_server_meta_path; end
+
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def entrypoints_dir; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def hide_build_console_output; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def host; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:16
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:19
   def host_with_port; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def https; end
 
   # Internal: Path to the manifest files generated by Vite and vite-plugin-ruby.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:21
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:24
   def known_manifest_paths; end
 
   # Public: Loads an optional config/vite.rb file that can modify ViteRuby.env
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:57
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:65
   def load_ruby_config; end
 
   # Internal: Path to the manifest files generated by Vite and vite-plugin-ruby.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:32
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:35
   def manifest_paths; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def mode; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:8
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:11
   def origin; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def package_manager; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def port; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:12
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:15
   def protocol; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def public_dir; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def public_output_dir; end
 
   # Public: The directory where the entries are located.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:42
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:50
   def resolved_entrypoints_dir; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def root; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def skip_compatibility_check; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def skip_proxy; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def source_code_dir; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def ssr_build_enabled; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def ssr_entrypoint; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def ssr_output_dir; end
 
   # Public: Sets additional environment variables for vite-plugin-ruby.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:63
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:71
   def to_env(env_vars = T.unsafe(nil)); end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def vite_bin_path; end
 
   # Internal: The directory where Vite stores its processing cache.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:47
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:55
   def vite_cache_dir; end
 
   # Public: The directory that Vite uses as root.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:52
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:60
   def vite_root_dir; end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:218
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:226
   def watch_additional_paths; end
 
   # Internal: Files and directories that should be watched for changes.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:72
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:80
   def watched_paths; end
 
   # Internal: Changes the current directory to the root dir.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:84
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:92
   def within_root(&block); end
 
   private
 
   # Internal: Coerces configuration options to boolean.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:104
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:112
   def coerce_booleans(config, *names); end
 
   # Internal: Coerces all the configuration values, in case they were passed
   # as environment variables which are always strings.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:92
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:100
   def coerce_values(config); end
 
-  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:109
+  # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:117
   def detect_package_manager(root); end
 
   class << self
     # Public: Returns the project configuration for Vite.
     #
-    # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:127
+    # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:135
     def resolve_config(**attrs); end
 
     private
 
     # Internal: Default values for a Ruby application.
     #
-    # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:146
+    # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:154
     def config_defaults; end
 
     # Internal: Extracts the configuration options provided as env vars.
     #
-    # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:170
+    # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:178
     def config_from_env; end
 
     # Internal: Loads the configuration options provided in a JSON file.
     #
-    # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:179
+    # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:187
     def config_from_file(path, mode:); end
 
     # Internal: Used to load a JSON file from the specified path.
     #
-    # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:156
+    # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:164
     def load_json(path); end
 
-    # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:124
+    # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:132
     def new(*_arg0); end
 
     # Internal: Retrieves a configuration option from environment variables.
     #
-    # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:165
+    # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:173
     def option_from_env(name); end
   end
 end
 
 # Internal: Configuration options that can be provided as env vars.
 #
-# pkg:gem/vite_ruby#lib/vite_ruby/config.rb:196
+# pkg:gem/vite_ruby#lib/vite_ruby/config.rb:204
 ViteRuby::Config::CONFIGURABLE_WITH_ENV = T.let(T.unsafe(nil), Array)
 
 # Internal: Shared configuration with the Vite plugin for Ruby.
 #
-# pkg:gem/vite_ruby#lib/vite_ruby/config.rb:190
+# pkg:gem/vite_ruby#lib/vite_ruby/config.rb:198
 ViteRuby::Config::DEFAULT_CONFIG = T.let(T.unsafe(nil), Hash)
 
 # Internal: If any of these files is modified the build won't be skipped.
 #
-# pkg:gem/vite_ruby#lib/vite_ruby/config.rb:199
+# pkg:gem/vite_ruby#lib/vite_ruby/config.rb:207
 ViteRuby::Config::DEFAULT_WATCHED_PATHS = T.let(T.unsafe(nil), Array)
+
+# Internal: Name of the metadata file written by the Vite dev server.
+#
+# pkg:gem/vite_ruby#lib/vite_ruby/config.rb:9
+ViteRuby::Config::DEV_SERVER_META_FILENAME = T.let(T.unsafe(nil), String)
 
 # Internal: Configuration options that can not be provided as env vars.
 #
-# pkg:gem/vite_ruby#lib/vite_ruby/config.rb:193
+# pkg:gem/vite_ruby#lib/vite_ruby/config.rb:201
 ViteRuby::Config::NOT_CONFIGURABLE_WITH_ENV = T.let(T.unsafe(nil), Array)
 
 # pkg:gem/vite_ruby#lib/vite_ruby/version.rb:8
@@ -989,7 +1039,7 @@ ViteRuby::DevServerProxy::VITE_DEPENDENCY_PREFIX = T.let(T.unsafe(nil), String)
 
 # Internal: Prefix used for environment variables that modify the configuration.
 #
-# pkg:gem/vite_ruby#lib/vite_ruby.rb:20
+# pkg:gem/vite_ruby#lib/vite_ruby.rb:21
 ViteRuby::ENV_PREFIX = T.let(T.unsafe(nil), String)
 
 # Internal: Provides common functionality for errors.

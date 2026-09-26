@@ -125,7 +125,7 @@ class Rack::HttpStreamingResponse
 
   # Net::HTTP
   #
-  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:147
+  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:156
   def session; end
 
   private
@@ -137,22 +137,22 @@ class Rack::HttpStreamingResponse
   # is closed for real. Swallows teardown errors: a half-read or already-reset
   # backend must not crash the app or mask the original error.
   #
-  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:181
+  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:190
   def close_connection; end
 
-  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:173
+  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:182
   def connection_closed; end
 
-  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:173
+  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:182
   def connection_closed=(_arg0); end
 
-  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:171
+  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:180
   def host; end
 
-  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:171
+  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:180
   def port; end
 
-  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:171
+  # pkg:gem/rack-proxy#lib/rack/http_streaming_response.rb:180
   def request; end
 end
 
@@ -180,7 +180,7 @@ class Rack::HttpStreamingResponse::StreamAborted < ::StandardError; end
 class Rack::Proxy
   # @option opts [String, URI::HTTP] :backend Backend host to proxy requests to
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:95
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:145
   def initialize(app = T.unsafe(nil), opts = T.unsafe(nil)); end
 
   # SSRF guardrail, consulted for EVERY request with the resolved backend
@@ -194,68 +194,70 @@ class Rack::Proxy
   #     %w[api.internal.example.com].include?(backend.host)
   #   end
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:180
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:230
   def backend_allowed?(backend); end
 
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:156
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:206
   def call(env); end
 
   # Return modified env
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:161
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:211
   def rewrite_env(env); end
 
   # Return a rack triplet [status, headers, body]
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:166
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:216
   def rewrite_response(triplet); end
 
   protected
 
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:186
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:236
   def perform_request(env); end
 
   private
+
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:380
+  def check_response_length!(length); end
 
   # Single source of truth for TLS/timeout setup, applied to the (real
   # Net::HTTP) connection on both the streaming and non-streaming paths so a
   # TLS option — notably the VERIFY_PEER default — can never land on only one.
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:341
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:430
   def configure_backend_connection(conn, use_ssl:, read_timeout:); end
 
   # Resolve the Net::HTTP request class for an HTTP method, or nil if there is
   # no matching Net::HTTP::<Verb> (unknown/unsupported method -> 501).
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:332
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:421
   def net_http_request_class(method); end
 
-  # Enforce :max_response_length. Returns true (→ 502) when the response is
-  # already known to be too large. For streaming, a declared oversize is
-  # rejected up-front (the connection is closed) and the incremental limit is
-  # armed on the body for chunked/unknown-length responses; for non-streaming,
-  # the body is already buffered so we check its actual size. Returns false
-  # (allow) when no cap is set.
+  # Validate framing before dropping hop-by-hop fields or reading a body.
+  # Net::HTTP dechunks responses but otherwise preserves their headers.
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:311
-  def response_too_large?(target_response, headers, body); end
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:388
+  def prepare_response_headers(raw_headers, code, request); end
+
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:376
+  def response_body_permitted?(request, code); end
 
   class << self
-    # pkg:gem/rack-proxy#lib/rack/proxy.rb:71
+    # pkg:gem/rack-proxy#lib/rack/proxy.rb:121
     def build_header_hash(pairs); end
 
-    # pkg:gem/rack-proxy#lib/rack/proxy.rb:41
+    # pkg:gem/rack-proxy#lib/rack/proxy.rb:80
     def extract_http_request_headers(env); end
 
-    # pkg:gem/rack-proxy#lib/rack/proxy.rb:64
+    # pkg:gem/rack-proxy#lib/rack/proxy.rb:103
     def normalize_headers(headers); end
 
     protected
 
-    # pkg:gem/rack-proxy#lib/rack/proxy.rb:85
+    # pkg:gem/rack-proxy#lib/rack/proxy.rb:135
     def reconstruct_header_name(name); end
 
-    # pkg:gem/rack-proxy#lib/rack/proxy.rb:89
+    # pkg:gem/rack-proxy#lib/rack/proxy.rb:139
     def titleize(str); end
   end
 end
@@ -269,6 +271,30 @@ Rack::Proxy::BACKEND_ERRORS = T.let(T.unsafe(nil), Array)
 
 # pkg:gem/rack-proxy#lib/rack/proxy.rb:11
 Rack::Proxy::HOP_BY_HOP_HEADERS = T.let(T.unsafe(nil), Hash)
+
+# pkg:gem/rack-proxy#lib/rack/proxy.rb:40
+class Rack::Proxy::InvalidRequest < ::StandardError; end
+
+# Net::HTTP copies a body stream until EOF, even when Content-Length is
+# smaller. Bound the input so extra bytes cannot become a second request.
+#
+# pkg:gem/rack-proxy#lib/rack/proxy.rb:44
+class Rack::Proxy::RequestBodyStream
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:45
+  def initialize(input, length); end
+
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:49
+  def read(length = T.unsafe(nil), buffer = T.unsafe(nil)); end
+
+  private
+
+  # IO#read without a length returns everything up to EOF ("" once there).
+  # Net::HTTP never calls it that way, but instrumentation layers wrapping
+  # Net::HTTP#request (WebMock's adapter, for one) do.
+  #
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:69
+  def read_remaining(buffer); end
+end
 
 # pkg:gem/rack-proxy#lib/rack/proxy/version.rb:5
 Rack::Proxy::VERSION = T.let(T.unsafe(nil), String)
