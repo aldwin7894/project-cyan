@@ -12,27 +12,27 @@ class ViteRuby
 
   # Public: Keeps track of watched files and triggers builds as needed.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:117
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:118
   def builder; end
 
   # Internal: Helper to run commands related with Vite.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:122
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:123
   def commands; end
 
   # Public: Current instance configuration for Vite.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:127
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:128
   def config; end
 
   # Public: Allows overriding the configuration for this instance.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:137
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:138
   def configure(**options); end
 
   # Public: Whether we are in an environment that might run the Vite dev server.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:102
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:103
   def dev_mode?; end
 
   # Public: Returns true if the Vite development server is currently running.
@@ -51,7 +51,7 @@ class ViteRuby
   # Example:
   #   ViteRuby.env['VITE_RUBY_CONFIG_PATH'] = 'config/alternate_vite.json'
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:97
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:98
   def env; end
 
   # pkg:gem/vite_ruby#lib/vite_ruby.rb:75
@@ -62,29 +62,29 @@ class ViteRuby
 
   # Public: Enables looking up assets managed by Vite using name and type.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:142
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:143
   def manifest; end
 
   # Internal: Executes the vite binary.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:112
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:113
   def run(argv, **options); end
 
   # Public: The proxy for assets should only run in development mode.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:109
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:110
   def run_proxy?; end
 
   private
 
   # Internal: Returns true if a TCP connection to the dev server can be opened.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:149
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:150
   def dev_server_connected?; end
 
   # Internal: Metadata written by the running Vite dev server, or nil when stopped.
   #
-  # pkg:gem/vite_ruby#lib/vite_ruby.rb:163
+  # pkg:gem/vite_ruby#lib/vite_ruby.rb:164
   def dev_server_meta; end
 
   class << self
@@ -964,10 +964,10 @@ ViteRuby::Config::DEFAULT_CONFIG = T.let(T.unsafe(nil), Hash)
 # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:207
 ViteRuby::Config::DEFAULT_WATCHED_PATHS = T.let(T.unsafe(nil), Array)
 
-# Internal: Name of the metadata file written by the Vite dev server.
+# Internal: Base name of the metadata file written by the Vite dev server.
 #
 # pkg:gem/vite_ruby#lib/vite_ruby/config.rb:9
-ViteRuby::Config::DEV_SERVER_META_FILENAME = T.let(T.unsafe(nil), String)
+ViteRuby::Config::DEV_SERVER_META_BASENAME = T.let(T.unsafe(nil), String)
 
 # Internal: Configuration options that can not be provided as env vars.
 #

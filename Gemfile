@@ -64,7 +64,7 @@ group :test do
   gem "webdrivers", "5.3.1"
 end
 
-gem "httparty", "~> 0.24.2"
+gem "httparty", "~> 0.24.3"
 
 gem "devise", "~> 5.0"
 
@@ -112,5 +112,3 @@ gem "sidekiq-cron", "~> 2.3"
 gem "colorize", "~> 1.1"
 
 gem "sidekiq-unique-jobs", "~> 8.1"
-
-gem "json", "~> 3.0.2"

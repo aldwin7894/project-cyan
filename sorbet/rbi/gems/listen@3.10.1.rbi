@@ -71,10 +71,10 @@ module Listen::Adapter
 
     private
 
-    # pkg:gem/listen#lib/listen/adapter.rb:33
+    # pkg:gem/listen#lib/listen/adapter.rb:34
     def _usable_adapter_class; end
 
-    # pkg:gem/listen#lib/listen/adapter.rb:37
+    # pkg:gem/listen#lib/listen/adapter.rb:38
     def _warn_polling_fallback(options); end
   end
 end
@@ -369,6 +369,14 @@ class Listen::Change
 
   # pkg:gem/listen#lib/listen/change.rb:25
   def record; end
+
+  private
+
+  # pkg:gem/listen#lib/listen/change.rb:77
+  def _drain_directory_scan_queue; end
+
+  # pkg:gem/listen#lib/listen/change.rb:69
+  def _scan_directory(rel_path, options); end
 end
 
 # TODO: test this class for coverage
@@ -390,22 +398,25 @@ end
 # pkg:gem/listen#lib/listen/directory.rb:7
 class Listen::Directory
   class << self
-    # pkg:gem/listen#lib/listen/directory.rb:62
+    # pkg:gem/listen#lib/listen/directory.rb:76
     def _async_changes(snapshot, path, previous, options); end
 
-    # pkg:gem/listen#lib/listen/directory.rb:72
+    # pkg:gem/listen#lib/listen/directory.rb:86
     def _change(snapshot, type, path, options); end
 
-    # pkg:gem/listen#lib/listen/directory.rb:82
+    # pkg:gem/listen#lib/listen/directory.rb:96
     def _children(path); end
 
-    # pkg:gem/listen#lib/listen/directory.rb:56
+    # pkg:gem/listen#lib/listen/directory.rb:70
     def ascendant_of?(base, other); end
 
-    # pkg:gem/listen#lib/listen/directory.rb:9
+    # pkg:gem/listen#lib/listen/directory.rb:11
     def scan(snapshot, rel_path, options); end
   end
 end
+
+# pkg:gem/listen#lib/listen/directory.rb:8
+Listen::Directory::MAX_RESCAN_ATTEMPTS = T.let(T.unsafe(nil), Integer)
 
 # pkg:gem/listen#lib/listen/error.rb:6
 class Listen::Error < ::RuntimeError; end
@@ -1017,15 +1028,15 @@ class Listen::Silencer::Controller
   # pkg:gem/listen#lib/listen/silencer/controller.rb:19
   def append_ignores(*regexps); end
 
-  # pkg:gem/listen#lib/listen/silencer/controller.rb:24
+  # pkg:gem/listen#lib/listen/silencer/controller.rb:25
   def replace_with_bang_ignores(regexps); end
 
-  # pkg:gem/listen#lib/listen/silencer/controller.rb:28
+  # pkg:gem/listen#lib/listen/silencer/controller.rb:32
   def replace_with_only(regexps); end
 
   private
 
-  # pkg:gem/listen#lib/listen/silencer/controller.rb:34
+  # pkg:gem/listen#lib/listen/silencer/controller.rb:39
   def _reconfigure_silencer(extra_options); end
 end
 
