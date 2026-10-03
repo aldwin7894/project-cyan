@@ -4,8 +4,8 @@ import _import from "eslint-plugin-import";
 import tailwindcss from "eslint-plugin-tailwindcss";
 import prettier from "eslint-plugin-prettier";
 import globals from "globals";
-import path from "path";
-import { fileURLToPath } from "url";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
 
@@ -44,6 +44,7 @@ export default defineConfig([
     },
     settings: {
       "import/resolver": {
+        node: true,
         alias: {
           map: [["~", "./app/frontend"]],
         },

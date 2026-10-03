@@ -25,7 +25,7 @@
         </svg>
       </button>
 
-      <div x-show="notificationOpen" @click="notificationOpen = false" class="fixed inset-0 z-10 w-full h-full"></div>
+      <div x-show="notificationOpen" @click="notificationOpen = false" class="fixed inset-0 z-10 w-full h-full" @keydown.enter="notificationOpen = false"></div>
 
       <div x-show="notificationOpen" class="absolute right-0 z-10 mt-2 overflow-hidden bg-white rounded-lg shadow-xl w-80" style="width:20rem; display: none;">
         <a href="#" class="flex items-center px-4 py-3 -mx-2 text-gray-600 hover:text-white hover:bg-indigo-600">
@@ -68,7 +68,7 @@
         <img class="object-cover w-full h-full" src="https://www.gravatar.com/avatar/<%= Digest::MD5.hexdigest(current_user.email.downcase) %>?s=398" alt="Your avatar"/>
       </button>
 
-      <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 z-10 w-full h-full"></div>
+      <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 z-10 w-full h-full" @keydown.enter="dropdownOpen = false"></div>
 
       <div x-show="dropdownOpen" class="absolute right-0 z-10 w-48 mt-2 overflow-hidden bg-white rounded-md shadow-xl" style="display: none">
         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Profile</a>

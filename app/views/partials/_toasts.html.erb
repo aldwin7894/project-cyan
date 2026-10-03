@@ -4,6 +4,7 @@
     <div
       x-show="toast.visible"
       @click="$store.toasts.destroyToast(index)"
+      @keydown.enter="$store.toasts.destroyToast(index)"
       x-transition:enter="transition ease-in duration-500"
       x-transition:enter-start="transform opacity-0 translate-y-2"
       x-transition:enter-end="transform opacity-100"

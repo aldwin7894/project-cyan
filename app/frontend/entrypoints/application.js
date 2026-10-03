@@ -138,24 +138,20 @@ window.addEventListener("load", () => {
     initElems();
   });
 });
-document.addEventListener("turbo:before-frame-render", event => {
+document.addEventListener("turbo:before-frame-render", async event => {
   const id = event.target.dataset.turboFrame || event.target.id;
 
   if (id.includes("last_watched")) {
     event.preventDefault();
-    fadeOut(id).then(async () => {
-      event.detail.resume();
-    });
+    await fadeOut(id);
+    event.detail.resume();
     return;
   }
 
   event.preventDefault();
-  fadeOut(id)
-    .then(async () => {
-      event.detail.resume();
-      await fadeIn(id);
-    })
-    .catch(() => {});
+  await fadeOut(id);
+  event.detail.resume();
+  await fadeIn(id);
 });
 document.addEventListener("turbo:before-stream-render", event => {
   const id = event.target.target;
