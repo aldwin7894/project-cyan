@@ -86,5 +86,10 @@ class AnilistController < ApplicationController
     else
       @error = "Something went wrong, please try again later."
     end
+  rescue StandardError => error
+    logger.tagged("ANILIST", "fetch_followers") do
+      logger.error(error)
+    end
+    @error = "Something went wrong, please try again later."
   end
 end
