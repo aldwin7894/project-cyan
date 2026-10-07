@@ -68,7 +68,7 @@ gem "httparty", "~> 0.24.3"
 
 gem "devise", "~> 5.0"
 
-gem "graphql", "~> 2.0.27"
+gem "graphql", "~> 2.6"
 
 gem "graphlient", "~> 0.9.0"
 
