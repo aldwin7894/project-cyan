@@ -26,8 +26,8 @@ class ListenbrainzLovedTracksSyncJob
       response[:ratelimit_remaining] < 5 ? sleep(10) : sleep(0.5)
     end
 
-    ListenbrainzLovedTrack.destroy_all
-    ListenbrainzLovedTrack.create!(loved_tracks)
+    ListenbrainzLovedTrack.delete_all
+    ListenbrainzLovedTrack.collection.insert_many(loved_tracks)
     logger.info(TAG + "SYNCING DONE".green)
   end
 end

@@ -38,8 +38,8 @@ class AnilistFollowListCheckerJob
     user = AnilistUser.find(id)
     username = "[#{user.username}] ".blue
     if type === "following" && page === 1
-      user.following.destroy_all
-      user.followers.destroy_all
+      user.following.delete_all
+      user.followers.delete_all
     end
 
     if type === "following"
@@ -47,17 +47,13 @@ class AnilistFollowListCheckerJob
       response = AniList::Client.execute(AniList::UserFollowingQuery, user_id: user._id, page:)
       following = response.data.page.following.map(&:name)
 
-      following.each do |username|
-        AnilistUserFollowing.create!(anilist_user: user, username:)
-      end
+      AnilistUserFollowing.collection.insert_many(following.map{ |username| { anilist_user_id: user.id, username: } }, ordered: false)
     elsif type === "followers"
       logger.info(TAG + username + "FETCHING FOLLOWERS: PAGE #{page}".green)
       response = AniList::Client.execute(AniList::UserFollowersQuery, user_id: user._id, page:)
       followers = response.data.page.followers.map(&:name)
 
-      followers.each do |username|
-        AnilistUserFollower.create!(anilist_user: user, username:)
-      end
+      AnilistUserFollower.collection.insert_many(followers.map{ |username| { anilist_user_id: user.id, username: } }, ordered: false)
     end
 
     if response.data.page.page_info.has_next_page? === false && type === "following"
