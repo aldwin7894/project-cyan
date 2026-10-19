@@ -51,7 +51,7 @@
     "iconify-icon": "^3.0.3",
     "postcss": "^8.5.28",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-import": "^17.0.0",
+    "postcss-import": "^17.0.1",
     "postcss-preset-env": "^11.6.1",
     "prettier": "^3.9.10",
     "rollup-plugin-gzip": "^4.2.0",
