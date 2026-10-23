@@ -2459,14 +2459,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cssnano@npm:^9.8.0":
-  version: 9.8.0
-  resolution: "cssnano@npm:9.8.0"
+"cssnano@npm:^9.9.0":
+  version: 9.9.0
+  resolution: "cssnano@npm:9.9.0"
   dependencies:
-    cssnano-preset-default: "npm:^9.8.0"
+    "@colordx/core": "npm:^7.3.0"
+    "@csstools/css-tokenizer": "npm:^4.0.2"
+    browserslist: "npm:^4.29.3"
+    caniuse-api: "npm:^4.0.0"
+    postcss-calc: "npm:^11.2.2"
   peerDependencies:
     postcss: ^8.5.29
-  checksum: 10/feb1afe21e7e1656eacbe77fa4c27278a2646e1f133241700436b256345b19c26eba6501cfab990156f5358d832a007d24afc0005e7ad62f69c4657520c1ae95
+  checksum: 10/4849a00c75e832891d74fb8637d5c232694e6694aec5382ad80156526c35657a8f50d1ab3a1975039910a464e4e133e1e598c098f934e09e7799b8ea753fd8d3
   languageName: node
   linkType: hard
 
@@ -6239,7 +6243,7 @@ __metadata:
     alpinejs: "npm:^3.17.5"
     autoprefixer: "npm:^10.6.1"
     chart.js: "npm:^4.5.1"
-    cssnano: "npm:^9.8.0"
+    cssnano: "npm:^9.9.0"
     cssnano-preset-advanced: "npm:^9.7.0"
     eslint: "npm:^10.13.0"
     eslint-config-prettier: "npm:^10.1.8"
