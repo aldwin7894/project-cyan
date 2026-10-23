@@ -201,31 +201,34 @@ document.addEventListener("turbo:before-stream-render", () => {
 
 Chart.register(PieController, ArcElement, Tooltip);
 
-const CropImage = (imgSrc, canvasId, divElement, width, height) => {
+const CropImage = (imgSrc, divElement, width, height) => {
   return new Promise((resolve, reject) => {
     const div = document.getElementById(divElement);
     const showDiv = () => {
       setTimeout(() => {
-        div.style.opacity = 100;
+        div.style.opacity = "1";
         resolve();
       }, 200);
     };
 
     if (!imgSrc) {
       showDiv();
+      return;
     }
 
     /**
      * @type {HTMLCanvasElement}
      */
-    const canvas = document.getElementById(canvasId);
+    const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
-    const image = new Image();
+    let image = new Image();
+    image.crossOrigin = "anonymous";
     image.onerror = reject;
     image.onload = function () {
       canvas.width = image.width;
       canvas.height = image.height;
       ctx.drawImage(image, 0, 0, image.width, image.height);
+
       smartcrop
         .crop(canvas, {
           width,
@@ -235,21 +238,18 @@ const CropImage = (imgSrc, canvasId, divElement, width, height) => {
         .then(crop => {
           canvas.width = width;
           canvas.height = height;
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          ctx.drawImage(
-            image,
-            crop.topCrop.x,
-            crop.topCrop.y,
-            crop.topCrop.width,
-            crop.topCrop.height,
-            0,
-            0,
-            width,
-            height,
-          );
+
+          const sx = Math.max(0, crop.topCrop.x);
+          const sy = Math.max(0, crop.topCrop.y);
+          const sWidth = Math.round(crop.topCrop.width);
+          const sHeight = Math.round(crop.topCrop.height);
+
+          ctx.drawImage(image, sx, sy, sWidth, sHeight, 0, 0, width, height);
+
           const url = canvas.toDataURL("image/png");
           div.style.background = `no-repeat center/cover url(${url})`;
           canvas.remove();
+          image = null;
           showDiv();
         })
         .catch(reject);

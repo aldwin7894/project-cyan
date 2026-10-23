@@ -90,7 +90,7 @@ module Subsonic
       res = JSON.parse res.body, symbolize_names: true
       artists = res&.[](:"subsonic-response")&.[](:searchResult3)&.[](:artist) || []
       if artists.is_a?(Array) && !artists.empty?
-        artist_image = artists.find { |x| x[:name] == name }
+        artist_image = artists.find { |x| x[:name].downcase == name.downcase }
                          &.[](:artistImageUrl)
                          &.sub(BASE_URL, ENV.fetch("ASSETS_BASE_URL"))
                          &.sub("size=600", "size=300")

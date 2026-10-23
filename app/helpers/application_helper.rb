@@ -23,8 +23,10 @@ module ApplicationHelper
       )
       break unless res.success?
 
-      ext = res.headers&.content_type&.split("/")
-      if ext[0] == "image" || IMAGE_FILETYPES.include?(filetype)
+      content_type = res.headers&.content_type&.split(";")&.first&.strip
+      ext = content_type&.split("/")&.map(&:strip)
+
+      if ext[0] == "image" || IMAGE_FILETYPES.include?(filetype.presence || ext[1])
         data[:image] = res.body
         data[:ext] = ext[1]
       end
