@@ -2346,15 +2346,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-declaration-sorter@npm:^7.4.0":
-  version: 7.4.0
-  resolution: "css-declaration-sorter@npm:7.4.0"
-  peerDependencies:
-    postcss: ^8.0.9
-  checksum: 10/b3fdd823574a356b7968a27c43596d11997725bbfe53103b01197afe1b7137a3a3d069239430d48553cdc1b16130fc001636318a3d451c59868b00a9ae458539
-  languageName: node
-  linkType: hard
-
 "css-has-pseudo@npm:^8.0.2":
   version: 8.0.2
   resolution: "css-has-pseudo@npm:8.0.2"
@@ -2393,12 +2384,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cssnano-preset-advanced@npm:^9.7.0":
-  version: 9.7.0
-  resolution: "cssnano-preset-advanced@npm:9.7.0"
+"cssnano-preset-advanced@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "cssnano-preset-advanced@npm:10.0.0"
   dependencies:
-    autoprefixer: "npm:^10.6.1"
-    css-declaration-sorter: "npm:^7.4.0"
     cssnano-preset-default: "npm:^9.8.0"
     postcss-discard-unused: "npm:^9.0.7"
     postcss-merge-idents: "npm:^9.0.8"
@@ -2406,7 +2395,7 @@ __metadata:
     postcss-zindex: "npm:^9.0.6"
   peerDependencies:
     postcss: ^8.5.29
-  checksum: 10/211ad23eb34220fb14a3153cc5287133522eb78cfd4300d916e6778ba8da16a16c15c02edf11eace3fce4cc4e7507f1a65f7dbfd9eeafe4ece7acec40a15bbdd
+  checksum: 10/90b3976d5db630abd0060880058999b86a6b74bb715f30a8546ae30f8833aa130b7d04aa48d9d62e85c0775e0e90a7ec37179a8a78404211fd74f676ae7cd468
   languageName: node
   linkType: hard
 
@@ -6244,7 +6233,7 @@ __metadata:
     autoprefixer: "npm:^10.6.1"
     chart.js: "npm:^4.5.1"
     cssnano: "npm:^9.9.0"
-    cssnano-preset-advanced: "npm:^9.7.0"
+    cssnano-preset-advanced: "npm:^10.0.0"
     eslint: "npm:^10.13.0"
     eslint-config-prettier: "npm:^10.1.8"
     eslint-import-resolver-alias: "npm:^1.1.2"
