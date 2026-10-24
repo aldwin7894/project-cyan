@@ -10,7 +10,7 @@
     "docker:build": ". ./.env && docker compose build web",
     "docker:push": "docker compose push web",
     "prettier": "prettier --write .",
-    "rails:dev": "bundle exec rails s -b 0.0.0.0",
+    "rails:dev": "bin/rails s -b 0.0.0.0",
     "vite:dev": "./bin/vite dev --debug"
   },
   "browserslist": [

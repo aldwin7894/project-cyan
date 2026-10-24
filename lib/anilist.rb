@@ -5,7 +5,7 @@ module AniList
   Client = Graphlient::Client.new(
     "https://graphql.anilist.co",
     headers: {
-      "Authorization": ENV.fetch("ANILIST_OAUTH_TOKEN"),
+      "Authorization": Rails.application.credentials.config.dig(:ANILIST_OAUTH_TOKEN),
     },
     http_options: {
       read_timeout: 20,

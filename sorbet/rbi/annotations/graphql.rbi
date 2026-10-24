@@ -6,9 +6,9 @@
 
 module GraphQL
   class << self
-    # @version < 2.3.1
-    sig { params(graphql_string: String, trace: T.untyped, filename: T.untyped).returns(GraphQL::Language::Nodes::Document) }
-    def parse(graphql_string, trace: T.unsafe(nil), filename: T.unsafe(nil)); end
+    # @version >= 2.3.1
+    sig { params(graphql_string: String, trace: T.untyped, filename: T.untyped, max_tokens: T.untyped).returns(GraphQL::Language::Nodes::Document) }
+    def parse(graphql_string, trace: T.unsafe(nil), filename: T.unsafe(nil), max_tokens: T.unsafe(nil)); end
   end
 end
 
@@ -39,9 +39,9 @@ class GraphQL::Schema::Resolver
 end
 
 module GraphQL::Schema::Member::HasFields
-  # @version < 2.5.17
-  sig { params(args: T.untyped, kwargs: T.untyped, block: T.nilable(T.proc.params(field: GraphQL::Schema::Field).bind(GraphQL::Schema::Field).void)).returns(T.untyped) }
-  def field(*args, **kwargs, &block); end
+  # @version >= 2.5.17
+  sig { params(name_positional: T.untyped, type_positional: T.untyped, desc_positional: T.untyped, kwargs: T.untyped, block: T.nilable(T.proc.params(field: GraphQL::Schema::Field).bind(GraphQL::Schema::Field).void)).returns(T.untyped) }
+  def field(name_positional = T.unsafe(nil), type_positional = T.unsafe(nil), desc_positional = T.unsafe(nil), **kwargs, &block); end
 end
 
 module GraphQL::Schema::Member::BaseDSLMethods

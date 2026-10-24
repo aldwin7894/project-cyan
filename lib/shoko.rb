@@ -4,8 +4,8 @@
 require "sorbet-runtime"
 
 module Shoko
-  SHOKO_API_KEY = ENV.fetch("SHOKO_API_KEY")
-  BASE_URL = ENV.fetch("SHOKO_BASE_URL")
+  SHOKO_API_KEY = Rails.application.credentials.config.dig(:SHOKO_API_KEY)
+  BASE_URL = Rails.application.credentials.config.dig(:SHOKO_BASE_URL)
   JSON_HEADER = {
     "Accept": "text/plain",
     "Content-Type": "application/json",

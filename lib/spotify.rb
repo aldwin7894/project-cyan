@@ -24,7 +24,7 @@ module Spotify
 
     def get_access_token
       token = Rails.cache.fetch("SPOTIFY/ACCESS_TOKEN", expires_in: 1.hour, skip_nil: true) do
-        authorization = Base64.urlsafe_encode64(ENV.fetch("SPOTIFY_CLIENT_ID") + ":" + ENV.fetch("SPOTIFY_CLIENT_SECRET"))
+        authorization = Base64.urlsafe_encode64(Rails.application.credentials.config.dig(:SPOTIFY_CLIENT_ID) + ":" + Rails.application.credentials.config.dig(:SPOTIFY_CLIENT_SECRET))
         headers = {
           "Authorization": "Basic #{authorization}",
           "Content-Type" => "application/x-www-form-urlencoded",

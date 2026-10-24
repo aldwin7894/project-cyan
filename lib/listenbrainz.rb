@@ -5,7 +5,7 @@ require "sorbet-runtime"
 require "brotli"
 
 module ListenBrainz
-  LISTENBRAINZ_USER_TOKEN = ENV.fetch("LISTENBRAINZ_USER_TOKEN")
+  LISTENBRAINZ_USER_TOKEN = Rails.application.credentials.config.dig(:LISTENBRAINZ_USER_TOKEN)
   CAA_BASE_URL = "https://coverartarchive.org/"
   BASE_URL = "https://api.listenbrainz.org/1/"
   JSON_HEADER = {

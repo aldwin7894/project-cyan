@@ -7322,7 +7322,7 @@
                 "ofType": null
               },
               "isDeprecated": true,
-              "deprecationReason": "This field has not yet been fully implemented and may change without warning"
+              "deprecationReason": "No longer used"
             },
             {
               "name": "customLists",
@@ -21915,7 +21915,7 @@
                 },
                 {
                   "name": "donatorBadge",
-                  "description": "Profile highlight color (Max: 24)",
+                  "description": "User's donator badge, only displayed for donators (Max: 24)",
                   "type": {
                     "kind": "SCALAR",
                     "name": "String",

@@ -48,6 +48,7 @@ Rails.application.configure do
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = true if Rails.application.credentials.config.dig(:FORCE_SSL) == "true"
+  config.assume_ssl = true if Rails.application.credentials.config.dig(:FORCE_SSL) == "true"
   config.ssl_options = { redirect: { exclude: -> request { request.path =~ /ping/ } } }
 
   # Include generic and useful information about system operation, but avoid logging too much

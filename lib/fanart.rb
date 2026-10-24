@@ -5,7 +5,7 @@ require "sorbet-runtime"
 require "colorize"
 
 module Fanart
-  FANARTTV_API_KEY = ENV.fetch("FANART_API_KEY")
+  FANARTTV_API_KEY = Rails.application.credentials.config.dig(:FANARTTV_API_KEY)
   BASE_URL = ENV.fetch("FANART_BASE_URL")
   JSON_HEADER = {
     "Accept": "text/plain",

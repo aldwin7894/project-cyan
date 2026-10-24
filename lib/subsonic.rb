@@ -7,9 +7,9 @@ require "sorbet-runtime"
 require "securerandom"
 
 module Subsonic
-  USERNAME = ENV.fetch("SUBSONIC_USERNAME")
-  PASSWORD = ENV.fetch("SUBSONIC_PASSWORD")
-  BASE_URL = ENV.fetch("SUBSONIC_BASE_URL")
+  USERNAME = Rails.application.credentials.config.dig(:SUBSONIC_USERNAME)
+  PASSWORD = Rails.application.credentials.config.dig(:SUBSONIC_PASSWORD)
+  BASE_URL = Rails.application.credentials.config.dig(:SUBSONIC_BASE_URL)
   VERSION = "1.16.1"
   CLIENT = "project-cyan"
   FORMAT = "json"

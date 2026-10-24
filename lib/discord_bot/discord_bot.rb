@@ -40,7 +40,7 @@ module DiscordBot
 
   USER_ID = ENV.fetch("DISCORD_USER_ID")
   BOT = Discordrb::Bot.new(
-    token: ENV.fetch("DISCORD_BOT_TOKEN"),
+    token: Rails.application.credentials.config.dig(:DISCORD_BOT_TOKEN),
     log_mode: Rails.env.development? ? :debug : :normal,
     intents: :all,
     ignore_bots: true,

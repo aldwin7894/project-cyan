@@ -22,9 +22,27 @@ module Aldwin7894
     # get env variables from credentials
     config.before_configuration do
       Rails.application.credentials.config.each do |key, value|
+        allowlist = %w(
+          ANILIST_USER_ID
+          ASSETS_BASE_URL
+          CF_TURNSTILE_SITE_KEY
+          DATABASE_URL
+          DISCORD_APP_ID
+          DISCORD_USER_ID
+          FANART_BASE_URL
+          LASTFM_USERNAME
+          LISTENBRAINZ_USERNAME
+          RAILS_HOST
+          RAILS_MAX_THREADS
+          RAILS_MIN_THREADS
+          REDIS_URL
+        )
+        next unless allowlist.include?(key.to_s)
+
         ENV.store(key.to_s, value.to_s)
       end
     end
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     config.time_zone = "Singapore"

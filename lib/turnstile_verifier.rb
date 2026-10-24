@@ -51,7 +51,7 @@ class TurnstileVerifier
         response = self.class.post(
           url,
           body: {
-            secret: ENV.fetch("CF_TURNSTILE_SECRET_KEY"),
+            secret: Rails.application.credentials.config.dig(:CF_TURNSTILE_SECRET_KEY),
             response: token,
             remoteip: ip
           }.to_json,

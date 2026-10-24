@@ -4,8 +4,8 @@
 require "brotli"
 
 module LastFM
-  LASTFM_API_KEY = ENV.fetch("LASTFM_API_KEY")
-  LASTFM_API_SECRET = ENV.fetch("LASTFM_API_SECRET")
+  LASTFM_API_KEY = Rails.application.credentials.config.dig(:LASTFM_API_KEY)
+  LASTFM_API_SECRET = Rails.application.credentials.config.dig(:LASTFM_API_SECRET)
   BASE_URL = "https://ws.audioscrobbler.com/2.0/"
   JSON_HEADER = {
     "Accept": "application/json",

@@ -15,16 +15,17 @@ export NODE_ENV
 export RAILS_MASTER_KEY
 export RAILS_ASSET_HOST
 export BUNDLER_VERSION
+export DATABASE_URL="dummy://dummy"
 
-gem install bundler
+gem install bundler -v "${BUNDLER_VERSION}" --no-document
 
 if [[ ${RAILS_ENV} == "production" ]]; then
-	bin/bundle config set without "development test"
-	bin/bundle config set frozen "true"
+	bundle config set without "development test"
+	bundle config set frozen "true"
 fi
 
 YARN_ENABLE_SCRIPTS=false yarn install --immutable
-bin/bundle install -j4
+bundle install -j4
 
 echo "Precompiling Assets..."
 bin/rails assets:precompile

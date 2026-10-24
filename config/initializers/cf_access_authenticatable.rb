@@ -5,15 +5,17 @@
 
 class CfAccessAuthenticatable < Devise::Strategies::Authenticatable
   def valid?
-    request.cookies["CF_Authorization"].present?
+    # Valid if either the Cloudflare header or the cookie is present
+    request.headers["Cf-Access-Jwt-Assertion"].present? || request.cookies["CF_Authorization"].present?
   end
 
   def authenticate!
-    token = request.cookies["CF_Authorization"]
+    # Prioritize the recommended header, fallback to cookie
+    token = request.headers["Cf-Access-Jwt-Assertion"] || request.cookies["CF_Authorization"]
 
     unless token.present?
-      Rails.logger.info("JWT Cookie not found")
-      redirect!(cf_teams_url)
+      Rails.logger.info("Cloudflare Access JWT token not found in header or cookie")
+      return fail!(:missing_token) # Let Devise failure app handle it
     end
 
     jwk_loader = lambda do |options|
@@ -45,17 +47,17 @@ class CfAccessAuthenticatable < Devise::Strategies::Authenticatable
     resource.after_database_authentication
     success!(resource)
   rescue JWT::DecodeError => e
-    Rails.logger.error(e.message)
+    Rails.logger.error("JWT Decode Error: #{e.message}")
     redirect!(cf_teams_url)
   end
 
   private
     def cf_aud
-      ENV.fetch("CF_JWT_AUD")
+      Rails.application.credentials.config.dig(:CF_JWT_AUD)
     end
 
     def cf_teams_url
-      ENV.fetch("CF_TEAMS_URL")
+      Rails.application.credentials.config.dig(:CF_TEAMS_URL)
     end
 
     def keys

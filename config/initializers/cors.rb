@@ -2,7 +2,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins ENV.fetch("ASSETS_ALLOWED_ORIGINS").split(" ")
+    origins (Rails.application.credentials.config.dig(:ASSETS_ALLOWED_ORIGINS).presence || "").split(" ")
     resource "/assets/*",
       headers: :any,
       methods: [:get, :post, :options, :head]
