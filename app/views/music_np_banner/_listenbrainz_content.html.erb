@@ -13,7 +13,7 @@
         <%= @recent["track_metadata"]["track_name"] %>
       </h2>
       <h3 class="artist-name">
-        <%= "#{@recent["track_metadata"]["artist_name"].upcase}" %>
+        <%= "#{@recent["track_metadata"]["artist_name"]}" %>
       </h3>
       <% if @recent["track_metadata"]["release_name"].present? %>
         <h4 class="album-name">

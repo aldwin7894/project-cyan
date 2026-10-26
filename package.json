@@ -24,7 +24,7 @@
     "@hotwired/turbo-rails": "^8.0.23",
     "@rails/actioncable": "^8.1.400",
     "alpinejs": "^3.17.5",
-    "chart.js": "^4.5.1",
+    "chart.js": "^4.6.1",
     "smartcrop": "^2.0.5",
     "swiper": "^14.3.0",
     "tippy.js": "^6.3.7"

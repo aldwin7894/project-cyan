@@ -14,7 +14,7 @@
         <%= @recent["name"] %>
       </h2>
       <h3 class="artist-name">
-        <%= "#{@recent["artist"]["name"].upcase}" %>
+        <%= "#{@recent["artist"]["name"]}" %>
       </h3>
       <% if @recent['album']['#text'].present? %>
         <h4 class="album-name">

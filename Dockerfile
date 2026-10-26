@@ -1,9 +1,11 @@
-FROM ruby:4.0.7-slim-trixie AS build-env
+FROM ruby:4.0.9-slim-trixie AS build-env
 ADD --checksum=sha256:6e3d580f5bd7ccf2aa1e8df8d35c60d78e873c3ff8beb282c9bebd914904ad72 \
   https://deb.nodesource.com/setup_lts.x /tmp/setup_lts.x
 
 ENV BUNDLE_PATH=/gems
 ENV NODE_VERSION=24.22.1
+ENV BUNDLE_BIN="${BUNDLE_PATH}/bin"
+ENV PATH="${BUNDLE_BIN}:${PATH}"
 
 RUN apt-get update && apt-get install -yq --no-install-recommends \
   build-essential \
@@ -54,9 +56,11 @@ RUN --mount=type=secret,id=TZ \
   && bash ./build.sh
 
 #==============================================
-FROM ruby:4.0.7-slim-trixie
+FROM ruby:4.0.9-slim-trixie
 
 ENV BUNDLE_PATH=/gems
+ENV BUNDLE_BIN="${BUNDLE_PATH}/bin"
+ENV PATH="${BUNDLE_BIN}:${PATH}"
 
 # Install MS Edge for Ferrum
 # && wget --quiet --output-document=- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /etc/apt/trusted.gpg.d/microsoft-edge-beta.gpg \

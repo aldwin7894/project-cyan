@@ -76,7 +76,7 @@
               </div>
             <% end %>
             <a href="<%= @lastfm_recent["artist"]["url"] %>" rel="noopener noreferrer" target="_blank" class="line-clamp-1 hover:underline text-2xl font-bold">
-              <h3><%= "#{@lastfm_recent['artist']['name'].upcase}" %></h3>
+              <h3><%= "#{@lastfm_recent['artist']['name']}" %></h3>
             </a>
             <% if @lastfm_recent['album']['#text'].present? %>
               <% if @lastfm_recent['album']['mbid'].present? %>
