@@ -5,7 +5,7 @@ require "anilist"
 
 class AnilistFollowListCheckerJob
   include Sidekiq::Job
-  sidekiq_options retry: 10,
+  sidekiq_options retry: 3,
     queue: "default",
     lock: :until_and_while_executing,
     lock_args_method: ->(args) { [args.first] },
@@ -13,6 +13,9 @@ class AnilistFollowListCheckerJob
       client: :log,
       server: :reject
     }
+  sidekiq_retry_in do |count|
+    5.minutes * (count + 1)
+  end
   sidekiq_retries_exhausted do |job, error|
     user = AnilistUser.find(job["args"].first)
 
@@ -47,13 +50,31 @@ class AnilistFollowListCheckerJob
       response = AniList::Client.execute(AniList::UserFollowingQuery, user_id: user._id, page:)
       following = response.data.page.following.map(&:name)
 
-      AnilistUserFollowing.collection.insert_many(following.map{ |username| { anilist_user_id: user.id, username: } }, ordered: false)
+      items = following.map do |username|
+        {
+          anilist_user_id: user.id,
+          username:
+        }
+      end
+
+      if items.any?
+        AnilistUserFollowing.collection.insert_many(items, ordered: false)
+      end
     elsif type === "followers"
       logger.info(TAG + username + "FETCHING FOLLOWERS: PAGE #{page}".green)
       response = AniList::Client.execute(AniList::UserFollowersQuery, user_id: user._id, page:)
       followers = response.data.page.followers.map(&:name)
 
-      AnilistUserFollower.collection.insert_many(followers.map{ |username| { anilist_user_id: user.id, username: } }, ordered: false)
+      items = followers.map do |username|
+        {
+          anilist_user_id: user.id,
+          username:
+        }
+      end
+
+      if items.any?
+        AnilistUserFollower.collection.insert_many(items, ordered: false)
+      end
     end
 
     if response.data.page.page_info.has_next_page? === false && type === "following"

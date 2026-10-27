@@ -27,7 +27,7 @@ class ListenbrainzLovedTracksSyncJob
     end
 
     ListenbrainzLovedTrack.delete_all
-    ListenbrainzLovedTrack.collection.insert_many(loved_tracks)
+    ListenbrainzLovedTrack.collection.insert_many(loved_tracks) if loved_tracks.any?
     logger.info(TAG + "SYNCING DONE".green)
   end
 end
