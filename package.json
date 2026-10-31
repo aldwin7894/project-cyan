@@ -38,7 +38,7 @@
     "@tailwindcss/typography": "^0.5.20",
     "@types/node": "^26.6.5",
     "@typescript-eslint/parser": "^8.72.1",
-    "autoprefixer": "^10.6.1",
+    "autoprefixer": "^10.6.2",
     "cssnano": "^9.9.0",
     "cssnano-preset-advanced": "^10.0.0",
     "eslint": "^10.13.0",
