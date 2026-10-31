@@ -1,9 +1,9 @@
 FROM ruby:4.0.9-slim-trixie AS build-env
-ADD --checksum=sha256:6e3d580f5bd7ccf2aa1e8df8d35c60d78e873c3ff8beb282c9bebd914904ad72 \
+ADD --checksum=sha256:4b735bb6ffba89e2965fa4219ec24c598b19d7ca63796ff6afaa324583333384 \
   https://deb.nodesource.com/setup_lts.x /tmp/setup_lts.x
 
 ENV BUNDLE_PATH=/gems
-ENV NODE_VERSION=24.22.1
+ENV NODE_VERSION=26.13.0
 ENV BUNDLE_BIN="${BUNDLE_PATH}/bin"
 ENV PATH="${BUNDLE_BIN}:${PATH}"
 
