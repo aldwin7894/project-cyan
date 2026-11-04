@@ -41,7 +41,8 @@ export default defineConfig({
     terserOptions: {
       compress: {
         defaults: true,
-        drop_console: true,
+        drop_console: process.env.NODE_ENV === "production",
+        drop_debugger: process.env.NODE_ENV === "production",
         ecma: 2021,
         unsafe: true,
       },

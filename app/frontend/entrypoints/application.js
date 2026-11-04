@@ -27,7 +27,7 @@ import "swiper/css/effect-coverflow";
 
 import "~/stylesheets/application.css.scss";
 
-const initElems = (parent = null) => {
+const InitTippy = (parent = null) => {
   // popover
   const tippyPopoverList = Array.prototype.slice.call(
     (parent || document).querySelectorAll("[data-tippy=popover]"),
@@ -60,6 +60,17 @@ const initElems = (parent = null) => {
   });
 };
 
+const DestroyTippy = (parent = null) => {
+  const tippyList = Array.prototype.slice.call(
+    (parent || document).querySelectorAll("[data-tippy]"),
+  );
+  tippyList.forEach(tippy => {
+    if (tippy._tippy) {
+      tippy._tippy.destroy();
+    }
+  });
+}
+
 const fadeIn = id =>
   new Promise((resolve, _reject) => {
     const element = document.getElementById(id);
@@ -68,7 +79,7 @@ const fadeIn = id =>
 
     function handleAnimationEnd(event) {
       event.stopPropagation();
-      initElems(element);
+      InitTippy(element);
       element.classList.remove("animate__fadeIn", "animate__animated");
       element.style.willChange = "auto";
       resolve("Animation ended");
@@ -135,7 +146,7 @@ window.addEventListener("load", () => {
     main.classList.remove("hidden");
     footer.classList.remove("hidden");
     main.classList.add("animate__fadeIn", "animate__animated");
-    initElems();
+    InitTippy();
   });
 });
 document.addEventListener("turbo:before-frame-render", async event => {
@@ -161,6 +172,12 @@ document.addEventListener("turbo:before-stream-render", event => {
     event.target.firstElementChild instanceof HTMLTemplateElement
   ) {
     event.preventDefault();
+
+    const oldElement = document.getElementById(id);
+    if (oldElement) {
+      DestroyTippy(oldElement);
+    }
+
     fadeOut(id)
       .then(async () => {
         element.style.willChange = "opacity";
@@ -269,5 +286,7 @@ Object.assign(globalThis, {
   EffectFade,
   EffectCoverflow,
   CropImage,
+  InitTippy,
+  DestroyTippy,
 });
 Alpine.start();

@@ -48,3 +48,21 @@ module ActiveJob::Continuable
   sig { params(step_name: Symbol, start: T.untyped, isolated: T::Boolean, block: T.nilable(T.proc.params(step: ActiveJob::Continuation::Step).void)).void }
   def step(step_name, start: nil, isolated: false, &block); end
 end
+
+module ActiveJob::TestHelper
+  sig { params(number: Integer, only: T.untyped, except: T.untyped, queue: T.nilable(T.any(String, Symbol)), block: T.nilable(T.proc.void)).returns(TrueClass) }
+  def assert_enqueued_jobs(number, only: nil, except: nil, queue: nil, &block); end
+
+  sig { params(only: T.untyped, except: T.untyped, queue: T.nilable(T.any(String, Symbol)), block: T.nilable(T.proc.void)).returns(TrueClass) }
+  def assert_no_enqueued_jobs(only: nil, except: nil, queue: nil, &block); end
+
+  sig { params(number: Integer, only: T.untyped, except: T.untyped, queue: T.nilable(T.any(String, Symbol)), block: T.nilable(T.proc.void)).returns(TrueClass) }
+  def assert_performed_jobs(number, only: nil, except: nil, queue: nil, &block); end
+
+  sig { params(only: T.untyped, except: T.untyped, queue: T.nilable(T.any(String, Symbol)), block: T.nilable(T.proc.void)).returns(TrueClass) }
+  def assert_no_performed_jobs(only: nil, except: nil, queue: nil, &block); end
+
+  sig { params(only: T.untyped, except: T.untyped, queue: T.nilable(T.any(String, Symbol)), at: T.untyped).returns(Integer) }
+  sig { type_parameters(:Block).params(only: T.untyped, except: T.untyped, queue: T.nilable(T.any(String, Symbol)), at: T.untyped, block: T.proc.returns(T.type_parameter(:Block))).returns(T.type_parameter(:Block)) }
+  def perform_enqueued_jobs(only: nil, except: nil, queue: nil, at: nil, &block); end
+end

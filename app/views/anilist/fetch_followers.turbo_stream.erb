@@ -1,5 +1,9 @@
 <turbo-stream target="anilist" action="update">
   <template>
+    <script>
+      InitTippy(document.getElementById("anilist"));
+    </script>
+
     <% if @error || !@success %>
       <%= render partial: "anilist/new", formats: [:html] %>
 

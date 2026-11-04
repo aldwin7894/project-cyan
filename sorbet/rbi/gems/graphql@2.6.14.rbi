@@ -1920,125 +1920,156 @@ class GraphQL::Execution::FieldResolveStep
   # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:10
   def initialize(parent_type:, runner:, key:, selections_step:); end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:113
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:121
   def add_graphql_error(result, key, err, return_type: T.unsafe(nil)); end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:617
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:502
   def add_non_null_error(is_from_array, return_type: T.unsafe(nil)); end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:391
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:276
   def any_lazy_results?; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:45
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:47
   def append_selection(ast_node); end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:35
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:37
   def arguments; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:35
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:37
   def arguments=(_arg0); end
 
   # Used for compatibility in Schema::Subscription
   #
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:194
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:202
   def arguments_without_loads; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:32
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:34
   def ast_node; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:41
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:43
   def ast_nodes; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:610
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:495
   def authorized_finished(step); end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:174
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:182
   def build_arguments; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:162
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:170
   def build_errors_result(errors, single_error); end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:519
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:404
   def build_leaf_result(result_h, result_key, field_result, return_type, ctx, is_from_array); end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:460
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:345
   def build_results; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:87
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:89
   def call; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:549
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:434
   def enqueue_next_steps; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:201
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:209
   def execute_field; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:32
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:34
   def field_definition; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:32
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:34
   def field_results; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:413
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:298
   def finish_extensions; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:512
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:397
   def finish_leaf_result(result_h, key, field_result, return_type, ctx); end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:32
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:34
   def key; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:32
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:34
   def object_is_authorized; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:32
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:34
   def parent_type; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:37
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:39
   def path; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:35
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:37
   def pending_steps; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:35
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:37
   def pending_steps=(_arg0); end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:133
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:141
   def propagate_nulls; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:32
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:34
   def runner; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:32
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:34
   def selections_step; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:632
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:517
   def set_current_field(new_value = T.unsafe(nil)); end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:35
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:37
   def static_type; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:35
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:37
   def static_type=(_arg0); end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:69
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:71
   def sync(lazy); end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:56
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:58
   def value; end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:32
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:34
   def was_scoped; end
 
   private
 
+  # Stores the (possibly synced) +authorized?+ result for the object at +idx+.
+  # A GraphQL::UnauthorizedFieldError raised by +authorized?+ is stored in +@field_authorization_errors+.
+  #
   # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:638
+  def authorize_field_at(idx, ctx); end
+
+  # Runs once for each time this step was enqueued for field authorization.
+  # The index is taken before +authorized?+ runs, so it's still correct if this Fiber pauses.
+  # When the last object is done, the step is enqueued again to call +finish_field_authorizations+.
+  #
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:652
+  def authorize_next_field_object; end
+
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:724
   def build_graphql_result(graphql_result, key, field_result, return_type, is_nn, is_list, is_from_array); end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:826
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:683
+  def clear_field_authorizations; end
+
+  # Applies +unauthorized_field+ for denied objects, in object order.
+  # Returns the objects to resolve, or +nil+ if none are left.
+  #
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:690
+  def collect_field_authorizations; end
+
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:912
   def error_instance_array(size, err_prototype); end
 
-  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:708
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:523
+  def execute_authorized_field(authorized_objects); end
+
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:666
+  def finish_field_authorizations; end
+
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:621
+  def handle_execute_field_error(err); end
+
+  # pkg:gem/graphql#lib/graphql/execution/field_resolve_step.rb:794
   def resolve_batch(objects, context, args_hash); end
 end
 
@@ -2118,10 +2149,10 @@ class GraphQL::Execution::InputValues
   # pkg:gem/graphql#lib/graphql/execution/input_values.rb:135
   def argument_value(argument_values, argument_key, argument_definition, arg_value, override_type, field_resolve_step); end
 
-  # pkg:gem/graphql#lib/graphql/execution/input_values.rb:309
+  # pkg:gem/graphql#lib/graphql/execution/input_values.rb:311
   def coerce_untyped_input(input_value); end
 
-  # pkg:gem/graphql#lib/graphql/execution/input_values.rb:232
+  # pkg:gem/graphql#lib/graphql/execution/input_values.rb:234
   def value_from_ast(value_node, type); end
 
   # pkg:gem/graphql#lib/graphql/execution/input_values.rb:67
@@ -3293,20 +3324,31 @@ class GraphQL::Execution::PrepareObjectStep
   # pkg:gem/graphql#lib/graphql/execution/prepare_object_step.rb:6
   def initialize(object:, runner:, graphql_result:, key:, is_non_null:, field_resolve_step:, next_objects:, next_results:, is_from_array:); end
 
-  # pkg:gem/graphql#lib/graphql/execution/prepare_object_step.rb:77
+  # pkg:gem/graphql#lib/graphql/execution/prepare_object_step.rb:83
   def add_field_error(err); end
 
-  # pkg:gem/graphql#lib/graphql/execution/prepare_object_step.rb:81
+  # pkg:gem/graphql#lib/graphql/execution/prepare_object_step.rb:87
   def authorize; end
 
-  # pkg:gem/graphql#lib/graphql/execution/prepare_object_step.rb:45
+  # pkg:gem/graphql#lib/graphql/execution/prepare_object_step.rb:51
   def call; end
 
-  # pkg:gem/graphql#lib/graphql/execution/prepare_object_step.rb:114
+  # pkg:gem/graphql#lib/graphql/execution/prepare_object_step.rb:112
   def create_result; end
 
-  # pkg:gem/graphql#lib/graphql/execution/prepare_object_step.rb:22
+  # pkg:gem/graphql#lib/graphql/execution/prepare_object_step.rb:23
   def value; end
+
+  private
+
+  # Errors raised by `.authorized?` (or by syncing its lazy return value):
+  #
+  # - `UnauthorizedError` is equivalent to returning `false`, so it goes to `unauthorized_object`
+  # - Other `GraphQL::RuntimeError`s are added to the response for this field
+  # - Other errors go to `rescue_from` handlers, which might return a `GraphQL::RuntimeError`, or else re-raise
+  #
+  # pkg:gem/graphql#lib/graphql/execution/prepare_object_step.rb:160
+  def handle_authorization_error(err, query); end
 end
 
 # pkg:gem/graphql#lib/graphql/execution/resolve_type_step.rb:5
@@ -6568,13 +6610,13 @@ class GraphQL::Language::Parser
   # pkg:gem/graphql#lib/graphql/language/parser.rb:104
   def advance_token; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:810
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:814
   def at?(expected_token_name); end
 
   # token_value works for when the scanner matched something
   # which is usually fine and it's good for it to be fast at that.
   #
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:849
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:853
   def debug_token_value; end
 
   # pkg:gem/graphql#lib/graphql/language/parser.rb:127
@@ -6583,15 +6625,15 @@ class GraphQL::Language::Parser
   # pkg:gem/graphql#lib/graphql/language/parser.rb:112
   def document; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:821
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:825
   def expect_one_of(token_names); end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:814
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:818
   def expect_token(expected_token_name); end
 
   # Only use when we care about the expected token's value
   #
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:838
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:842
   def expect_token_value(tok); end
 
   # **Returns**
@@ -6604,67 +6646,67 @@ class GraphQL::Language::Parser
   # pkg:gem/graphql#lib/graphql/language/parser.rb:86
   def lines_at; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:515
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:519
   def list_type; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:467
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:471
   def parse_argument_definitions; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:688
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:692
   def parse_arguments; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:671
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:675
   def parse_directives; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:392
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:396
   def parse_enum_value_definitions; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:448
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:452
   def parse_field_definitions; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:433
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:437
   def parse_implements; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:378
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:382
   def parse_input_object_field_definitions; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:481
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:485
   def parse_input_value_definition; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:593
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:597
   def parse_name; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:659
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:663
   def parse_name_without_on; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:528
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:532
   def parse_operation_type; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:667
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:671
   def parse_type_name; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:416
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:420
   def parse_union_members; end
 
   # pkg:gem/graphql#lib/graphql/language/parser.rb:108
   def pos; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:825
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:829
   def raise_parse_error(message); end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:542
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:546
   def selection_set; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:708
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:712
   def string_value; end
 
   # pkg:gem/graphql#lib/graphql/language/parser.rb:102
   def token_name; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:498
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:502
   def type; end
 
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:714
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:718
   def value; end
 
   class << self
@@ -6682,9 +6724,9 @@ class GraphQL::Language::Parser
   end
 end
 
-# pkg:gem/graphql#lib/graphql/language/parser.rb:852
+# pkg:gem/graphql#lib/graphql/language/parser.rb:856
 class GraphQL::Language::Parser::SchemaParser < ::GraphQL::Language::Parser
-  # pkg:gem/graphql#lib/graphql/language/parser.rb:853
+  # pkg:gem/graphql#lib/graphql/language/parser.rb:857
   def initialize(*args, **kwargs); end
 end
 
@@ -8053,19 +8095,19 @@ end
 #
 # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:9
 class GraphQL::Pagination::RelationConnection < ::GraphQL::Pagination::Connection
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:55
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:59
   def cursor_for(item); end
 
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:61
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:65
   def cursor_for_position(item, position); end
 
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:32
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:36
   def has_next_page; end
 
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:15
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:19
   def has_previous_page; end
 
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:10
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:14
   def nodes; end
 
   private
@@ -8077,10 +8119,10 @@ class GraphQL::Pagination::RelationConnection < ::GraphQL::Pagination::Connectio
   # :call-seq:
   #   after_offset() -> Integer | nil
   #
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:254
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:264
   def after_offset; end
 
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:311
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:321
   def async_dataloader?; end
 
   # **Returns**
@@ -8090,31 +8132,31 @@ class GraphQL::Pagination::RelationConnection < ::GraphQL::Pagination::Connectio
   # :call-seq:
   #   before_offset() -> Integer | nil
   #
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:244
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:254
   def before_offset; end
 
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:271
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:281
   def build_limited_nodes; end
 
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:185
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:194
   def calculate_sliced_nodes_parameters; end
 
   # Apply `first` and `last` to `sliced_nodes`,
   # returning a new relation
   #
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:260
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:270
   def limited_nodes; end
 
   # Load nodes after applying first/last/before/after,
   # returns an array of nodes
   #
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:317
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:327
   def load_nodes; end
 
   # Fetch one row past `first` so `has_next_page` needs no extra query.
-  # Skips arrays (no query to save) and relations limited below `first` (no next page).
+  # Skips arrays (no query to save) and slices limited to `first` or fewer rows (no next page).
   #
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:334
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:344
   def load_page; end
 
   # **Parameters**
@@ -8128,10 +8170,10 @@ class GraphQL::Pagination::RelationConnection < ::GraphQL::Pagination::Connectio
   # :call-seq:
   #   null_relation(Object relation) -> Object
   #
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:145
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:153
   def null_relation(relation); end
 
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:71
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:75
   def offset_cursor_for_position(position); end
 
   # **Returns**
@@ -8141,15 +8183,15 @@ class GraphQL::Pagination::RelationConnection < ::GraphQL::Pagination::Connectio
   # :call-seq:
   #   offset_from_cursor(cursor) -> Integer
   #
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:155
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:163
   def offset_from_cursor(cursor); end
 
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:349
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:360
   def page_info_selection; end
 
   # Peek on forward pages that select `hasNextPage`; `last` and `before` keep the separate check
   #
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:344
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:355
   def peek_next_page?; end
 
   # **Parameters**
@@ -8163,7 +8205,7 @@ class GraphQL::Pagination::RelationConnection < ::GraphQL::Pagination::Connectio
   # :call-seq:
   #   relation_count(Object relation) -> Integer | nil
   #
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:131
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:139
   def relation_count(relation); end
 
   # **Parameters**
@@ -8179,7 +8221,7 @@ class GraphQL::Pagination::RelationConnection < ::GraphQL::Pagination::Connectio
   # :call-seq:
   #   relation_larger_than(Object relation, Integer _initial_offset, Integer size) -> bool
   #
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:89
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:93
   def relation_larger_than(relation, _initial_offset, size); end
 
   # **Parameters**
@@ -8193,7 +8235,7 @@ class GraphQL::Pagination::RelationConnection < ::GraphQL::Pagination::Connectio
   # :call-seq:
   #   relation_limit(Object relation) -> Integer | nil
   #
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:117
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:125
   def relation_limit(relation); end
 
   # **Parameters**
@@ -8207,27 +8249,32 @@ class GraphQL::Pagination::RelationConnection < ::GraphQL::Pagination::Connectio
   # :call-seq:
   #   relation_offset(Object relation) -> Integer | nil
   #
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:103
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:111
   def relation_offset(relation); end
 
   # Abstract this operation so we can always ignore inputs less than zero.
   # (Sequel doesn't like it, understandably.)
   #
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:175
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:184
   def set_limit(relation, limit_value); end
 
   # Abstract this operation so we can always ignore inputs less than zero.
   # (Sequel doesn't like it, understandably.)
   #
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:165
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:174
   def set_offset(relation, offset_value); end
 
   # Apply `before` and `after` to the underlying `items`,
   # returning a new relation.
   #
-  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:217
+  # pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:227
   def sliced_nodes; end
 end
+
+# Database limits and offsets must fit in a signed 64-bit integer.
+#
+# pkg:gem/graphql#lib/graphql/pagination/relation_connection.rb:11
+GraphQL::Pagination::RelationConnection::MAX_OFFSET = T.let(T.unsafe(nil), Integer)
 
 # Customizes `RelationConnection` to work with `Sequel::Dataset`s.
 #
@@ -11323,46 +11370,46 @@ class GraphQL::Schema
 
     # This is overridden in subclasses to check the inheritance chain
     #
-    # pkg:gem/graphql#lib/graphql/schema.rb:2812
+    # pkg:gem/graphql#lib/graphql/schema.rb:2814
     def get_references_to(type_defn); end
 
-    # pkg:gem/graphql#lib/graphql/schema.rb:2749
+    # pkg:gem/graphql#lib/graphql/schema.rb:2751
     def lazy_methods; end
 
-    # pkg:gem/graphql#lib/graphql/schema.rb:2771
+    # pkg:gem/graphql#lib/graphql/schema.rb:2773
     def non_introspection_types; end
 
-    # pkg:gem/graphql#lib/graphql/schema.rb:2791
+    # pkg:gem/graphql#lib/graphql/schema.rb:2793
     def own_directives; end
 
-    # pkg:gem/graphql#lib/graphql/schema.rb:2795
+    # pkg:gem/graphql#lib/graphql/schema.rb:2797
     def own_instrumenters; end
 
-    # pkg:gem/graphql#lib/graphql/schema.rb:2807
+    # pkg:gem/graphql#lib/graphql/schema.rb:2809
     def own_multiplex_analyzers; end
 
-    # pkg:gem/graphql#lib/graphql/schema.rb:2779
+    # pkg:gem/graphql#lib/graphql/schema.rb:2781
     def own_orphan_types; end
 
-    # pkg:gem/graphql#lib/graphql/schema.rb:2775
+    # pkg:gem/graphql#lib/graphql/schema.rb:2777
     def own_plugins; end
 
-    # pkg:gem/graphql#lib/graphql/schema.rb:2783
+    # pkg:gem/graphql#lib/graphql/schema.rb:2785
     def own_possible_types; end
 
-    # pkg:gem/graphql#lib/graphql/schema.rb:2803
+    # pkg:gem/graphql#lib/graphql/schema.rb:2805
     def own_query_analyzers; end
 
-    # pkg:gem/graphql#lib/graphql/schema.rb:2767
+    # pkg:gem/graphql#lib/graphql/schema.rb:2769
     def own_references_to; end
 
-    # pkg:gem/graphql#lib/graphql/schema.rb:2799
+    # pkg:gem/graphql#lib/graphql/schema.rb:2801
     def own_tracers; end
 
-    # pkg:gem/graphql#lib/graphql/schema.rb:2763
+    # pkg:gem/graphql#lib/graphql/schema.rb:2765
     def own_types; end
 
-    # pkg:gem/graphql#lib/graphql/schema.rb:2787
+    # pkg:gem/graphql#lib/graphql/schema.rb:2789
     def own_union_memberships; end
   end
 end
@@ -11392,28 +11439,33 @@ class GraphQL::Schema::Addition
 
   private
 
-  # pkg:gem/graphql#lib/graphql/schema/addition.rb:43
+  # pkg:gem/graphql#lib/graphql/schema/addition.rb:45
   def add_directives_from(owner); end
 
-  # pkg:gem/graphql#lib/graphql/schema/addition.rb:164
-  def add_type(type, owner:, late_types:, path:); end
+  # The Set makes this fast for interfaces with many possible types. The Array keeps their order.
+  #
+  # pkg:gem/graphql#lib/graphql/schema/addition.rb:101
+  def add_possible_type(interface_type, object_type); end
 
-  # pkg:gem/graphql#lib/graphql/schema/addition.rb:51
+  # pkg:gem/graphql#lib/graphql/schema/addition.rb:177
+  def add_type(type, owner:, late_types:); end
+
+  # pkg:gem/graphql#lib/graphql/schema/addition.rb:62
   def add_type_and_traverse(new_types); end
 
   # Lookup using `own_types` here because it's ok to override
   # inherited types by name
   #
-  # pkg:gem/graphql#lib/graphql/schema/addition.rb:39
+  # pkg:gem/graphql#lib/graphql/schema/addition.rb:41
   def get_local_type(name); end
 
-  # pkg:gem/graphql#lib/graphql/schema/addition.rb:27
+  # pkg:gem/graphql#lib/graphql/schema/addition.rb:29
   def get_type(name); end
 
-  # pkg:gem/graphql#lib/graphql/schema/addition.rb:23
+  # pkg:gem/graphql#lib/graphql/schema/addition.rb:24
   def references_to(thing, from:); end
 
-  # pkg:gem/graphql#lib/graphql/schema/addition.rb:92
+  # pkg:gem/graphql#lib/graphql/schema/addition.rb:109
   def update_type_owner(owner, type); end
 end
 
@@ -11745,6 +11797,13 @@ class GraphQL::Schema::Argument
   # pkg:gem/graphql#lib/graphql/schema/argument.rb:189
   def graphql_name; end
 
+  # When a `rescue_from` handler *returns* an error object instead of raising,
+  # it must not be used as this argument's value — raise it so that
+  # `coerce_arguments` short-circuits resolution with it.
+  #
+  # pkg:gem/graphql#lib/graphql/schema/argument.rb:555
+  def handle_or_reraise_arg_error(context, err); end
+
   # pkg:gem/graphql#lib/graphql/schema/argument.rb:304
   def inspect; end
 
@@ -11755,7 +11814,7 @@ class GraphQL::Schema::Argument
   # pkg:gem/graphql#lib/graphql/schema/argument.rb:216
   def keyword; end
 
-  # pkg:gem/graphql#lib/graphql/schema/argument.rb:552
+  # pkg:gem/graphql#lib/graphql/schema/argument.rb:563
   def load_and_authorize_value(load_method_owner, coerced_value, context); end
 
   # **Returns**
@@ -11811,7 +11870,7 @@ class GraphQL::Schema::Argument
   # pkg:gem/graphql#lib/graphql/schema/argument.rb:425
   def type=(new_type); end
 
-  # pkg:gem/graphql#lib/graphql/schema/argument.rb:604
+  # pkg:gem/graphql#lib/graphql/schema/argument.rb:615
   def validate_default_value; end
 
   # pkg:gem/graphql#lib/graphql/schema/argument.rb:390
@@ -11819,19 +11878,19 @@ class GraphQL::Schema::Argument
 
   private
 
-  # pkg:gem/graphql#lib/graphql/schema/argument.rb:641
+  # pkg:gem/graphql#lib/graphql/schema/argument.rb:652
   def recursively_prepare_input_object(value, type, context); end
 
-  # pkg:gem/graphql#lib/graphql/schema/argument.rb:669
+  # pkg:gem/graphql#lib/graphql/schema/argument.rb:680
   def validate_deprecated_or_optional(null:, deprecation_reason:); end
 
-  # pkg:gem/graphql#lib/graphql/schema/argument.rb:657
+  # pkg:gem/graphql#lib/graphql/schema/argument.rb:668
   def validate_input_type(input_type); end
 end
 
-# pkg:gem/graphql#lib/graphql/schema/argument.rb:632
+# pkg:gem/graphql#lib/graphql/schema/argument.rb:643
 class GraphQL::Schema::Argument::InvalidDefaultValueError < ::GraphQL::Error
-  # pkg:gem/graphql#lib/graphql/schema/argument.rb:633
+  # pkg:gem/graphql#lib/graphql/schema/argument.rb:644
   def initialize(argument); end
 end
 
@@ -11855,10 +11914,10 @@ module GraphQL::Schema::BuildFromDefinition
     # See [Schema.from_definition](rdoc-ref:Schema.from_definition)
     #
     # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:10
-    def from_definition(schema_superclass, definition_string, parser: T.unsafe(nil), **kwargs); end
+    def from_definition(schema_superclass, definition_string, default_resolve:, parser: T.unsafe(nil), using: T.unsafe(nil), base_types: T.unsafe(nil), relay: T.unsafe(nil)); end
 
     # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:17
-    def from_definition_path(schema_superclass, definition_path, parser: T.unsafe(nil), **kwargs); end
+    def from_definition_path(schema_superclass, definition_path, default_resolve:, parser: T.unsafe(nil), using: T.unsafe(nil), base_types: T.unsafe(nil), relay: T.unsafe(nil)); end
 
     # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:24
     def from_document(schema_superclass, document, default_resolve:, using: T.unsafe(nil), base_types: T.unsafe(nil), relay: T.unsafe(nil)); end
@@ -11875,75 +11934,88 @@ module GraphQL::Schema::BuildFromDefinition::Builder
 
   requires_ancestor { Kernel }
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:345
+  # Like `schema_class.add_type_and_traverse(found_types, root: false)`, but it uses the links recorded while types were built
+  # instead of a traversal. (Directive classes are added later, with `directives(...)`.)
+  # Returns false if the traversal is required, for example, when base types have their own fields or interfaces.
+  #
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:370
+  def add_linked_types(schema_class, found_types, type_links, directives, base_types); end
+
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:507
   def apply_directives(definition, ast_node, type_resolver); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:339
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:501
   def apply_queued_directives(queued_directives); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:375
-  def args_to_kwargs(arg_owner, node); end
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:526
+  def args_to_kwargs(arg_owner, node, type_resolver); end
+
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:434
+  def base_types_without_members?(base_types); end
 
   # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:38
   def build(schema_superclass, document, default_resolve:, relay:, using: T.unsafe(nil), base_types: T.unsafe(nil)); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:515
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:683
   def build_arguments(type_class, arguments, type_resolver); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:500
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:668
   def build_default_value(default_value); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:287
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:449
   def build_definition_from_node(definition, type_resolver, default_resolve, base_types); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:418
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:566
   def build_deprecation_reason(directives); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:539
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:710
   def build_directive(directive_definition, type_resolver); end
 
   # Apply `ast_node`'s directives to `definition`. If any of those directives has arguments,
   # they're queued for {apply_queued_directives} because coercing arguments requires fully-built types.
   # Directives without arguments are applied right away, since some (like `@oneOf`) affect how the rest of the type is built.
   #
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:329
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:491
   def build_directives(definition, ast_node, type_resolver); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:393
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:544
   def build_enum_type(enum_type_definition, type_resolver, base_type); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:567
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:734
   def build_fields(owner, field_definitions, type_resolver, default_resolve:); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:487
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:658
   def build_input_object_type(input_object_type_definition, type_resolver, base_type); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:551
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:723
   def build_interface_type(interface_type_definition, type_resolver, base_type); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:481
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:624
   def build_interfaces(type_class, interface_names, type_resolver); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:466
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:613
   def build_object_type(object_type_definition, type_resolver, base_type); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:428
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:581
   def build_scalar_type(scalar_type_definition, type_resolver, base_type, default_resolve:); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:447
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:597
   def build_scalar_type_coerce_method(scalar_class, method_name, default_definition_resolve); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:453
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:603
   def build_union_type(union_type_definition, type_resolver, base_type); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:406
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:554
   def build_values(type_class, enum_value_definitions, type_resolver); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:596
-  def define_field_resolve_method(owner, method_name, field_name); end
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:632
+  def check_transitive_interfaces(definition, definitions_by_name); end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:357
-  def prepare_directives(ast_node, type_resolver); end
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:789
+  def define_field_resolve_method(owner, method_name, field_name, type_resolver); end
+
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:650
+  def new_interface_module(name, base_type); end
 
   # Modify `types`, replacing any late-bound references to built-in types
   # with their actual definitions.
@@ -11957,35 +12029,121 @@ module GraphQL::Schema::BuildFromDefinition::Builder
   # :call-seq:
   #   replace_late_bound_types_with_built_in(types) -> Object
   #
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:317
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:479
   def replace_late_bound_types_with_built_in(types); end
 end
 
-# pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:283
+# Every field's resolve methods share these procs. They use the method's name to find the field.
+#
+# pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:797
+class GraphQL::Schema::BuildFromDefinition::Builder::FieldResolveMethods
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:798
+  def initialize; end
+
+  # Field names by resolve method name
+  #
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:816
+  def field_names; end
+
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:821
+  def instance_method_proc; end
+
+  # Resolve method names by field name
+  #
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:819
+  def method_names; end
+
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:821
+  def singleton_method_proc; end
+end
+
+# pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:445
 GraphQL::Schema::BuildFromDefinition::Builder::NullResolveType = T.let(T.unsafe(nil), Proc)
 
-# pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:610
-class GraphQL::Schema::BuildFromDefinition::Builder::TypeResolver
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:611
-  def initialize(lookup_hash, directives, queued_directives, &missing_type_handler); end
+# References between types in this document, recorded while they're built.
+#
+# pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:330
+class GraphQL::Schema::BuildFromDefinition::Builder::TypeLinks
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:331
+  def initialize; end
 
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:631
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:351
+  def add_argument(argument, argument_type); end
+
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:356
+  def add_reference(member, member_type); end
+
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:340
+  def arguments; end
+
+  # True if everything was recorded, so the generic traversal isn't needed
+  #
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:343
+  def complete?; end
+
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:347
+  def incomplete!; end
+
+  # Hash of type => Array of the fields and arguments that use it (no duplicates, since each one is added once)
+  #
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:338
+  def references; end
+end
+
+# pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:824
+class GraphQL::Schema::BuildFromDefinition::Builder::TypeResolver
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:825
+  def initialize(lookup_hash, directives, queued_directives, type_classes, &missing_type_handler); end
+
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:845
+  def build_interface=(_arg0); end
+
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:849
+  def build_interface_now(interface_name); end
+
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:893
   def call(ast_node); end
 
   # The already-defined directive class named `name`, or `nil` if there isn't one yet
   #
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:627
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:878
   def directive_class(name); end
+
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:882
+  def directive_without_arguments?(name); end
+
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:868
+  def field_resolve_methods; end
+
+  # Like `owner.get_argument(argument_name)`, but cached. Directives are applied after types are built,
+  # so their arguments don't change while this cache is used.
+  #
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:858
+  def get_argument(owner, argument_name); end
+
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:841
+  def interface_module(type_name, base_type); end
+
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:847
+  def links; end
+
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:847
+  def links=(_arg0); end
 
   # Directive applications waiting for {Builder#apply_queued_directives}
   #
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:619
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:854
   def queued_directives; end
 
   # Add `type` to the lookup hash. Types call this before building their members, so that references back to them (including cycles) find this type.
   #
-  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:622
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:873
   def register(type); end
+
+  # The class made ahead of time for `type_name` (returned once, to be built), or a new subclass of `base_type`
+  #
+  # pkg:gem/graphql#lib/graphql/schema/build_from_definition.rb:834
+  def type_class(type_name, base_type); end
 end
 
 # Wrap a user-provided hash of resolution behavior for easy access at runtime.
@@ -12037,7 +12195,7 @@ module GraphQL::Schema::BuildFromDefinition::ResolveMap::NullScalarCoerce
   end
 end
 
-# pkg:gem/graphql#lib/graphql/schema.rb:2841
+# pkg:gem/graphql#lib/graphql/schema.rb:2843
 module GraphQL::Schema::DefaultTraceClass; end
 
 # Subclasses of this can influence how [GraphQL::Execution::Interpreter](rdoc-ref:GraphQL::Execution::Interpreter) runs queries.
@@ -12055,35 +12213,47 @@ class GraphQL::Schema::Directive < ::GraphQL::Schema::Member
   extend ::GraphQL::Schema::Member::HasValidators
   extend ::GraphQL::Schema::Member::HasValidators::ClassConfigured
 
-  # pkg:gem/graphql#lib/graphql/schema/directive.rb:144
+  # pkg:gem/graphql#lib/graphql/schema/directive.rb:149
   def initialize(owner, **arguments); end
 
   # **Returns**
   #
   # - `GraphQL::Interpreter::Arguments`
   #
-  # pkg:gem/graphql#lib/graphql/schema/directive.rb:139
+  # pkg:gem/graphql#lib/graphql/schema/directive.rb:144
   def arguments; end
 
-  # pkg:gem/graphql#lib/graphql/schema/directive.rb:200
+  # pkg:gem/graphql#lib/graphql/schema/directive.rb:216
   def graphql_name; end
 
   # **Returns**
   #
   # - `GraphQL::Schema::Field, GraphQL::Schema::Argument, Class, Module`
   #
-  # pkg:gem/graphql#lib/graphql/schema/directive.rb:134
+  # pkg:gem/graphql#lib/graphql/schema/directive.rb:139
   def owner; end
 
   private
 
-  # pkg:gem/graphql#lib/graphql/schema/directive.rb:290
+  # pkg:gem/graphql#lib/graphql/schema/directive.rb:306
   def assert_has_location(location); end
 
-  # pkg:gem/graphql#lib/graphql/schema/directive.rb:253
+  # pkg:gem/graphql#lib/graphql/schema/directive.rb:269
   def assert_valid_owner; end
 
   class << self
+    # When this is a Hash, instances with equal, statically coercible arguments reuse the first instance's coerced arguments.
+    # BuildFromDefinition uses this while it builds a schema, then removes it.
+    #
+    # pkg:gem/graphql#lib/graphql/schema/directive.rb:119
+    def coerced_arguments_cache; end
+
+    # When this is a Hash, instances with equal, statically coercible arguments reuse the first instance's coerced arguments.
+    # BuildFromDefinition uses this while it builds a schema, then removes it.
+    #
+    # pkg:gem/graphql#lib/graphql/schema/directive.rb:119
+    def coerced_arguments_cache=(_arg0); end
+
     # pkg:gem/graphql#lib/graphql/schema/directive.rb:54
     def default_directive(new_default_directive = T.unsafe(nil)); end
 
@@ -12157,15 +12327,15 @@ class GraphQL::Schema::Directive < ::GraphQL::Schema::Member
 
     private
 
-    # pkg:gem/graphql#lib/graphql/schema/directive.rb:119
+    # pkg:gem/graphql#lib/graphql/schema/directive.rb:123
     def inherited(subclass); end
   end
 end
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:219
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:235
 GraphQL::Schema::Directive::ARGUMENT_DEFINITION = T.let(T.unsafe(nil), Symbol)
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:228
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:244
 GraphQL::Schema::Directive::DEFAULT_DEPRECATION_REASON = T.let(T.unsafe(nil), String)
 
 # pkg:gem/graphql#lib/graphql/schema/directive/deprecated.rb:6
@@ -12174,22 +12344,22 @@ class GraphQL::Schema::Directive::Deprecated < ::GraphQL::Schema::Directive
   extend ::GraphQL::Schema::Member::HasValidators::ClassConfigured::ClassValidators
 end
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:222
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:238
 GraphQL::Schema::Directive::ENUM = T.let(T.unsafe(nil), Symbol)
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:223
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:239
 GraphQL::Schema::Directive::ENUM_VALUE = T.let(T.unsafe(nil), Symbol)
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:209
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:225
 GraphQL::Schema::Directive::FIELD = T.let(T.unsafe(nil), Symbol)
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:218
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:234
 GraphQL::Schema::Directive::FIELD_DEFINITION = T.let(T.unsafe(nil), Symbol)
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:210
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:226
 GraphQL::Schema::Directive::FRAGMENT_DEFINITION = T.let(T.unsafe(nil), Symbol)
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:211
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:227
 GraphQL::Schema::Directive::FRAGMENT_SPREAD = T.let(T.unsafe(nil), Symbol)
 
 # An example directive to show how you might interact with the runtime.
@@ -12296,16 +12466,16 @@ module GraphQL::Schema::Directive::Flagged::VisibleByFlag
   end
 end
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:212
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:228
 GraphQL::Schema::Directive::INLINE_FRAGMENT = T.let(T.unsafe(nil), Symbol)
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:225
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:241
 GraphQL::Schema::Directive::INPUT_FIELD_DEFINITION = T.let(T.unsafe(nil), Symbol)
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:224
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:240
 GraphQL::Schema::Directive::INPUT_OBJECT = T.let(T.unsafe(nil), Symbol)
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:220
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:236
 GraphQL::Schema::Directive::INTERFACE = T.let(T.unsafe(nil), Symbol)
 
 # pkg:gem/graphql#lib/graphql/schema/directive/include.rb:6
@@ -12319,19 +12489,19 @@ class GraphQL::Schema::Directive::Include < ::GraphQL::Schema::Directive
   end
 end
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:141
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:146
 class GraphQL::Schema::Directive::InvalidArgumentError < ::GraphQL::Error; end
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:204
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:220
 GraphQL::Schema::Directive::LOCATIONS = T.let(T.unsafe(nil), Array)
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:229
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:245
 GraphQL::Schema::Directive::LOCATION_DESCRIPTIONS = T.let(T.unsafe(nil), Hash)
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:207
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:223
 GraphQL::Schema::Directive::MUTATION = T.let(T.unsafe(nil), Symbol)
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:217
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:233
 GraphQL::Schema::Directive::OBJECT = T.let(T.unsafe(nil), Symbol)
 
 # pkg:gem/graphql#lib/graphql/schema/directive/one_of.rb:6
@@ -12349,19 +12519,19 @@ module GraphQL::Schema::Directive::OneOf::IsOneOf
   def one_of?; end
 end
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:206
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:222
 GraphQL::Schema::Directive::QUERY = T.let(T.unsafe(nil), Symbol)
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:205
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:221
 GraphQL::Schema::Directive::RUNTIME_LOCATIONS = T.let(T.unsafe(nil), Array)
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:216
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:232
 GraphQL::Schema::Directive::SCALAR = T.let(T.unsafe(nil), Symbol)
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:215
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:231
 GraphQL::Schema::Directive::SCHEMA = T.let(T.unsafe(nil), Symbol)
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:208
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:224
 GraphQL::Schema::Directive::SUBSCRIPTION = T.let(T.unsafe(nil), Symbol)
 
 # pkg:gem/graphql#lib/graphql/schema/directive/skip.rb:6
@@ -12435,10 +12605,10 @@ class GraphQL::Schema::Directive::Transform::Transformer
   def after_resolve(field_results); end
 end
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:221
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:237
 GraphQL::Schema::Directive::UNION = T.let(T.unsafe(nil), Symbol)
 
-# pkg:gem/graphql#lib/graphql/schema/directive.rb:213
+# pkg:gem/graphql#lib/graphql/schema/directive.rb:229
 GraphQL::Schema::Directive::VARIABLE_DEFINITION = T.let(T.unsafe(nil), Symbol)
 
 # pkg:gem/graphql#lib/graphql/schema.rb:174
@@ -14687,6 +14857,9 @@ end
 # pkg:gem/graphql#lib/graphql/schema/member/build_type.rb:12
 GraphQL::Schema::Member::BuildType::LIST_TYPE_ERROR = T.let(T.unsafe(nil), String)
 
+# pkg:gem/graphql#lib/graphql/schema/member/build_type.rb:198
+GraphQL::Schema::Member::BuildType::UNDERSCORE_BOUNDARY = T.let(T.unsafe(nil), Regexp)
+
 # These constants are interpreted as GraphQL types when defining fields or arguments
 #
 #
@@ -14737,7 +14910,7 @@ module GraphQL::Schema::Member::HasArguments
   # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:96
   def add_argument(arg_defn); end
 
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:268
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:263
   def all_argument_definitions; end
 
   # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:146
@@ -14787,7 +14960,7 @@ module GraphQL::Schema::Member::HasArguments
   # :call-seq:
   #   argument_class(Class new_arg_class)
   #
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:301
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:296
   def argument_class(new_arg_class = T.unsafe(nil)); end
 
   # **Returns**
@@ -14800,7 +14973,7 @@ module GraphQL::Schema::Member::HasArguments
   # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:133
   def arguments(context = T.unsafe(nil), _require_defined_arguments = T.unsafe(nil)); end
 
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:390
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:385
   def arguments_statically_coercible?; end
 
   # **Yields:** [Interpreter::Arguments, Execution::Lazy<Interpreter::Arguments>]
@@ -14814,7 +14987,7 @@ module GraphQL::Schema::Member::HasArguments
   #
   # - `Interpreter::Arguments, Execution::Lazy<Interpreter::Arguments>`
   #
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:315
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:310
   def coerce_arguments(parent_object, values, context, &block); end
 
   # **Returns**
@@ -14824,10 +14997,10 @@ module GraphQL::Schema::Member::HasArguments
   # :call-seq:
   #   get_argument(argument_name, context:) -> GraphQL::Schema::Argument | nil
   #
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:284
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:279
   def get_argument(argument_name, context = T.unsafe(nil)); end
 
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:537
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:527
   def own_arguments; end
 
   # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:112
@@ -14837,7 +15010,7 @@ module GraphQL::Schema::Member::HasArguments
   # but not for directives.
   # TODO apply static validations on schema definitions?
   #
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:372
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:367
   def validate_directive_argument(arg_defn, value); end
 
   class << self
@@ -14849,29 +15022,25 @@ module GraphQL::Schema::Member::HasArguments
   end
 end
 
-# --
-#
-# pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:399
+# pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:393
 module GraphQL::Schema::Member::HasArguments::ArgumentClassAccessor
-  requires_ancestor { T.class_of(GraphQL::Schema::Object) }
-
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:404
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:394
   def argument_class(new_arg_class = T.unsafe(nil)); end
 end
 
 # --
 #
-# pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:416
+# pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:406
 module GraphQL::Schema::Member::HasArguments::ArgumentObjectLoader
   requires_ancestor { Kernel }
 
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:450
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:440
   def authorize_application_object(argument, id, context, loaded_application_object); end
 
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:445
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:435
   def load_and_authorize_application_object(argument, id, context); end
 
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:437
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:427
   def load_application_object(argument, id, context); end
 
   # Called when an argument's `loads:` configuration fails to fetch an application object.
@@ -14890,7 +15059,7 @@ module GraphQL::Schema::Member::HasArguments::ArgumentObjectLoader
   # :call-seq:
   #   load_application_object_failed(GraphQL::LoadApplicationObjectFailedError err) -> Object | nil
   #
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:531
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:521
   def load_application_object_failed(err); end
 
   # Look up the corresponding object for a provided ID.
@@ -14906,7 +15075,7 @@ module GraphQL::Schema::Member::HasArguments::ArgumentObjectLoader
   # :call-seq:
   #   object_from_id(Class | Module type, String id, GraphQL::Query::Context context)
   #
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:433
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:423
   def object_from_id(type, id, context); end
 end
 
@@ -14916,53 +15085,49 @@ module GraphQL::Schema::Member::HasArguments::ClassConfigured
   def inherited(child_class); end
 end
 
-# --
-#
-# pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:157
+# pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:156
 module GraphQL::Schema::Member::HasArguments::ClassConfigured::InheritedArguments
-  requires_ancestor { T.class_of(GraphQL::Schema::Object) }
-
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:182
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:177
   def all_argument_definitions; end
 
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:178
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:173
   def any_arguments?; end
 
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:162
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:157
   def arguments(context = T.unsafe(nil), require_defined_arguments = T.unsafe(nil)); end
 
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:196
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:191
   def get_argument(argument_name, context = T.unsafe(nil)); end
 end
 
 # --
 #
-# pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:213
+# pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:208
 module GraphQL::Schema::Member::HasArguments::FieldConfigured
   requires_ancestor { GraphQL::Schema::Member::HasArguments }
   requires_ancestor { Kernel }
 
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:242
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:237
   def all_argument_definitions; end
 
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:238
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:233
   def any_arguments?; end
 
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:220
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:215
   def arguments(context = T.unsafe(nil), _require_defined_arguments = T.unsafe(nil)); end
 end
 
 # --
 #
-# pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:378
+# pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:373
 module GraphQL::Schema::Member::HasArguments::HasDirectiveArguments
   requires_ancestor { Kernel }
 
-  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:383
+  # pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:378
   def validate_directive_argument(arg_defn, value); end
 end
 
-# pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:536
+# pkg:gem/graphql#lib/graphql/schema/member/has_arguments.rb:526
 GraphQL::Schema::Member::HasArguments::NO_ARGUMENTS = T.let(T.unsafe(nil), Hash)
 
 # pkg:gem/graphql#lib/graphql/schema/member/has_ast_node.rb:6
@@ -15234,10 +15399,10 @@ module GraphQL::Schema::Member::HasDirectives
 
   protected
 
-  # pkg:gem/graphql#lib/graphql/schema/member/has_directives.rb:142
+  # pkg:gem/graphql#lib/graphql/schema/member/has_directives.rb:148
   def own_directives; end
 
-  # pkg:gem/graphql#lib/graphql/schema/member/has_directives.rb:142
+  # pkg:gem/graphql#lib/graphql/schema/member/has_directives.rb:148
   def own_directives=(_arg0); end
 
   class << self
@@ -15271,7 +15436,7 @@ module GraphQL::Schema::Member::HasDirectives
     # :call-seq:
     #   merge_directives(Array[GraphQL::Schema::Directive] target, Array[GraphQL::Schema::Directive] dirs) -> void
     #
-    # pkg:gem/graphql#lib/graphql/schema/member/has_directives.rb:127
+    # pkg:gem/graphql#lib/graphql/schema/member/has_directives.rb:133
     def merge_directives(target, dirs); end
   end
 end
@@ -15528,7 +15693,7 @@ module GraphQL::Schema::Member::HasInterfaces
 
   # param context [Query::Context] If omitted, skip filtering.
   #
-  # pkg:gem/graphql#lib/graphql/schema/member/has_interfaces.rb:117
+  # pkg:gem/graphql#lib/graphql/schema/member/has_interfaces.rb:112
   def interfaces(context = T.unsafe(nil)); end
 
   # pkg:gem/graphql#lib/graphql/schema/member/has_interfaces.rb:63
@@ -15536,11 +15701,11 @@ module GraphQL::Schema::Member::HasInterfaces
 
   private
 
-  # pkg:gem/graphql#lib/graphql/schema/member/has_interfaces.rb:149
+  # pkg:gem/graphql#lib/graphql/schema/member/has_interfaces.rb:144
   def inherited(subclass); end
 
   class << self
-    # pkg:gem/graphql#lib/graphql/schema/member/has_interfaces.rb:145
+    # pkg:gem/graphql#lib/graphql/schema/member/has_interfaces.rb:140
     def extended(child_class); end
   end
 end
@@ -15557,16 +15722,12 @@ module GraphQL::Schema::Member::HasInterfaces::ClassConfigured
   def inherited(child_class); end
 end
 
-# --
-#
-# pkg:gem/graphql#lib/graphql/schema/member/has_interfaces.rb:83
+# pkg:gem/graphql#lib/graphql/schema/member/has_interfaces.rb:82
 module GraphQL::Schema::Member::HasInterfaces::ClassConfigured::InheritedInterfaces
-  requires_ancestor { T.class_of(GraphQL::Schema::Object) }
-
-  # pkg:gem/graphql#lib/graphql/schema/member/has_interfaces.rb:104
+  # pkg:gem/graphql#lib/graphql/schema/member/has_interfaces.rb:99
   def interface_type_memberships; end
 
-  # pkg:gem/graphql#lib/graphql/schema/member/has_interfaces.rb:88
+  # pkg:gem/graphql#lib/graphql/schema/member/has_interfaces.rb:83
   def interfaces(context = T.unsafe(nil)); end
 end
 
@@ -15983,7 +16144,7 @@ class GraphQL::Schema::Object < ::GraphQL::Schema::Member
   extend ::GraphQL::Schema::Member::HasInterfaces
   extend ::GraphQL::Schema::Member::HasInterfaces::ClassConfigured
 
-  # pkg:gem/graphql#lib/graphql/schema/object.rb:143
+  # pkg:gem/graphql#lib/graphql/schema/object.rb:151
   def initialize(object, context); end
 
   # **Returns**
@@ -16052,13 +16213,13 @@ class GraphQL::Schema::Object < ::GraphQL::Schema::Member
     # Set up a type-specific invalid null error to use when this object's non-null fields wrongly return `nil`.
     # It should help with debugging and bug tracker integrations.
     #
-    # pkg:gem/graphql#lib/graphql/schema/object.rb:151
+    # pkg:gem/graphql#lib/graphql/schema/object.rb:159
     def const_missing(name); end
 
-    # pkg:gem/graphql#lib/graphql/schema/object.rb:161
+    # pkg:gem/graphql#lib/graphql/schema/object.rb:169
     def kind; end
 
-    # pkg:gem/graphql#lib/graphql/schema/object.rb:138
+    # pkg:gem/graphql#lib/graphql/schema/object.rb:146
     def scoped_new(object, context); end
 
     # This is called by the runtime to return an object to call methods on.
@@ -16761,11 +16922,11 @@ end
 
 # --
 #
-# pkg:gem/graphql#lib/graphql/schema.rb:2818
+# pkg:gem/graphql#lib/graphql/schema.rb:2820
 module GraphQL::Schema::SubclassGetReferencesTo
   requires_ancestor { T.class_of(GraphQL::Schema) }
 
-  # pkg:gem/graphql#lib/graphql/schema.rb:2823
+  # pkg:gem/graphql#lib/graphql/schema.rb:2825
   def get_references_to(type_defn); end
 end
 
