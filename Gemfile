@@ -86,7 +86,7 @@ gem "logstash-event", "~> 1.2"
 
 gem "rack-cors", "~> 3.0", require: "rack/cors"
 
-gem "addressable", "~> 2.8"
+gem "addressable", "~> 2.9"
 
 gem "jwt", "~> 3.3"
 
