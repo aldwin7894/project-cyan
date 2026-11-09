@@ -6053,7 +6053,7 @@ __metadata:
     postcss-preset-env: "npm:^11.6.2"
     prettier: "npm:^3.9.10"
     rollup-plugin-gzip: "npm:^4.2.1"
-    rollup-plugin-visualizer: "npm:^7.1.1"
+    rollup-plugin-visualizer: "npm:^7.1.2"
     sass-embedded: "npm:1.107.1"
     smartcrop: "npm:^2.0.5"
     swiper: "npm:^14.4.0"
@@ -6304,9 +6304,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-visualizer@npm:^7.1.1":
-  version: 7.1.1
-  resolution: "rollup-plugin-visualizer@npm:7.1.1"
+"rollup-plugin-visualizer@npm:^7.1.2":
+  version: 7.1.2
+  resolution: "rollup-plugin-visualizer@npm:7.1.2"
   dependencies:
     open: "npm:^11.0.0"
     picomatch: "npm:^4.0.5"
@@ -6322,7 +6322,7 @@ __metadata:
       optional: true
   bin:
     rollup-plugin-visualizer: dist/bin/cli.js
-  checksum: 10/82b9c43653dd8de61dd02522c74070aeddd40c7612b2e7df7d81247c19d4e55e8eb79dacd097a2706c56dc24317f463885d66e932e8556583acb4cdc48c77e93
+  checksum: 10/e15b1ecf1cd31ee64342dc9e985747d14cec7dba9c38549a13563315b2108601c74ee6712622d5c872f886630d3f87cda61c0d577dcb6f81f1b3be8b9d749ba9
   languageName: node
   linkType: hard
 
