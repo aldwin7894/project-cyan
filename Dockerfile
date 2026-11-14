@@ -3,7 +3,7 @@ ADD --checksum=sha256:4b735bb6ffba89e2965fa4219ec24c598b19d7ca63796ff6afaa324583
   https://deb.nodesource.com/setup_lts.x /tmp/setup_lts.x
 
 ENV BUNDLE_PATH=/gems
-ENV NODE_VERSION=26.13.0
+ENV NODE_VERSION=26.13.1
 ENV BUNDLE_BIN="${BUNDLE_PATH}/bin"
 ENV PATH="${BUNDLE_BIN}:${PATH}"
 
