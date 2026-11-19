@@ -30,7 +30,7 @@ module LastFM
       idle_timeout: 10,
       keep_alive: 30
     base_uri BASE_URL
-    default_timeout 30
+    default_timeout 10
     open_timeout 10
 
     def get_recent_tracks(user:, limit:, extended:)

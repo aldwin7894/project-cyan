@@ -32,7 +32,7 @@ module ListenBrainz
       idle_timeout: 10,
       keep_alive: 30
     base_uri BASE_URL
-    default_timeout 30
+    default_timeout 10
     open_timeout 10
 
     def get_recent_tracks(user:, limit:)
@@ -115,19 +115,51 @@ module ListenBrainz
     end
   end
 
+  def self.url_exists?(url)
+    response = HTTParty.head(url, follow_redirects: true, timeout: 5)
+    response.success?
+  rescue StandardError
+    false
+  end
+
   def self.get_cover_art_url(track:, size:)
-    track_metadata = track&.[]("track_metadata")
-    return nil unless track_metadata.present? && size.present?
+    url = T.let(nil, T.nilable(String))
+    track_metadata = track.dig("track_metadata")
+    return url unless track_metadata.present? && size.present?
 
-    release_mbid = track_metadata&.[]("mbid_mapping")&.[]("caa_release_mbid")
-    release_mbid ||= track_metadata&.[]("mbid_mapping")&.[]("release_mbid")
-    release_mbid ||= track_metadata&.[]("additional_info")&.[]("caa_release_mbid")
-    release_mbid ||= track_metadata&.[]("additional_info")&.[]("release_mbid")
-    return nil if release_mbid.blank?
+    track_artist = track_metadata&.dig("artist_name")
+    track_name = track_metadata&.dig("track_name")
+    cache_hash = Digest::SHA256.hexdigest("#{track_artist}-#{track_name}-#{size}")
+    cache_key = "LISTENBRAINZ/COVER_ART/#{cache_hash}"
 
-    url = "#{CAA_BASE_URL}release/#{release_mbid}/front-#{size}"
-    # res = self.class.head(url, follow_redirects: false)
-    # return nil unless res.success? || res.redirection?
+    if Rails.cache.exist?(cache_key)
+      Rails.logger.tagged("CACHE".yellow, "ListenBrainz.get_cover_art_url".yellow, "#{track_artist}-#{track_name}-#{size}".yellow) do
+        Rails.logger.info("HIT".green)
+      end
+      return Rails.cache.fetch(cache_key)
+    end
+
+    release_mbid = track_metadata.dig("additional_info", "release_mbid")
+    release_group_mbid = track_metadata.dig("additional_info", "release_group_mbid")
+    caa_id = track_metadata.dig("additional_info", "caa_id")
+    caa_release_mbid = track_metadata.dig("additional_info", "caa_release_mbid")
+    fallback_release_mbid = track_metadata.dig("mbid_mapping", "release_mbid")
+    fallback_release_group_mbid = track_metadata.dig("mbid_mapping", "release_group_mbid")
+
+    candidate_urls = []
+    candidate_urls << "#{CAA_BASE_URL}release/#{release_mbid}/front-#{size}" if release_mbid.present?
+    candidate_urls << "#{CAA_BASE_URL}release-group/#{release_group_mbid}/front-#{size}" if release_group_mbid.present?
+    candidate_urls << "#{CAA_BASE_URL}release/#{caa_release_mbid}/#{caa_id}-#{size}" if caa_id.present? && caa_release_mbid.present?
+    candidate_urls << "#{CAA_BASE_URL}release/#{fallback_release_mbid}/front-#{size}" if fallback_release_mbid.present?
+    candidate_urls << "#{CAA_BASE_URL}release-group/#{fallback_release_group_mbid}/front-#{size}" if fallback_release_group_mbid.present?
+
+    candidate_urls.uniq.each do |candidate_url|
+      if url_exists?(candidate_url)
+        url = candidate_url
+        Rails.cache.write(cache_key, url, expires_in: 1.month)
+        break
+      end
+    end
 
     url
   end

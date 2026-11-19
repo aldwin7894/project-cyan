@@ -1070,7 +1070,13 @@ module Mongo::Address::Validator
   # Takes an address string in ipv4/ipv6/hostname/socket path format and
   # validates its format.
   #
-  # pkg:gem/mongo#lib/mongo/address/validator.rb:23
+  # Error messages describe the component at fault without quoting the
+  # address: a malformed connection string may not have had its
+  # credentials delimited, in which case the text being validated is
+  # itself the credential. See "Disclosure of Sensitive Values" in the
+  # connection string specification.
+  #
+  # pkg:gem/mongo#lib/mongo/address/validator.rb:29
   def validate_address_str!(address_str); end
 
   private
@@ -1081,10 +1087,10 @@ module Mongo::Address::Validator
   # The hostname must have been normalized to remove the trailing dot if
   # it was obtained from a DNS record. This method prohibits trailing dots.
   #
-  # pkg:gem/mongo#lib/mongo/address/validator.rb:69
+  # pkg:gem/mongo#lib/mongo/address/validator.rb:74
   def validate_hostname!(host); end
 
-  # pkg:gem/mongo#lib/mongo/address/validator.rb:82
+  # pkg:gem/mongo#lib/mongo/address/validator.rb:87
   def validate_port_str!(port); end
 end
 
@@ -2018,15 +2024,20 @@ class Mongo::Auth::InvalidConfiguration < ::Mongo::Error::AuthError; end
 class Mongo::Auth::InvalidMechanism < ::Mongo::Auth::InvalidConfiguration
   # Instantiate the new error.
   #
+  # The mechanism is not included in the message: an unrecognized value
+  # comes from the connection string and may contain text the user
+  # intended as a credential. The known mechanisms are listed so the
+  # message stays actionable.
+  #
   # @example Instantiate the error.
   #   Mongo::Auth::InvalidMechanism.new(:test)
   #
-  # @param [ Symbol ] mechanism The provided mechanism.
+  # @param [ Symbol | String | nil ] _mechanism The provided mechanism.
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/auth.rb:118
-  def initialize(mechanism); end
+  # pkg:gem/mongo#lib/mongo/auth.rb:123
+  def initialize(_mechanism = T.unsafe(nil)); end
 end
 
 # Defines behavior for LDAP Proxy authentication.
@@ -2946,7 +2957,7 @@ Mongo::Auth::StringPrep::Tables::D2 = T.let(T.unsafe(nil), Array)
 #
 # @since 2.0.0
 #
-# pkg:gem/mongo#lib/mongo/auth.rb:129
+# pkg:gem/mongo#lib/mongo/auth.rb:134
 class Mongo::Auth::Unauthorized < ::Mongo::Error::AuthError
   include ::Mongo::Error::ReadWriteRetryable
   include ::Mongo::Error::Labelable
@@ -2966,12 +2977,12 @@ class Mongo::Auth::Unauthorized < ::Mongo::Error::AuthError
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/auth.rb:150
+  # pkg:gem/mongo#lib/mongo/auth.rb:155
   def initialize(user, used_mechanism: T.unsafe(nil), message: T.unsafe(nil), server: T.unsafe(nil), code: T.unsafe(nil)); end
 
   # @return [ Integer ] The error code.
   #
-  # pkg:gem/mongo#lib/mongo/auth.rb:134
+  # pkg:gem/mongo#lib/mongo/auth.rb:139
   def code; end
 end
 
@@ -4505,6 +4516,18 @@ class Mongo::Client
   #     encryption key cache, in milliseconds. Must be a non-negative
   #     integer. A value of 0 means the cache never expires. Defaults to
   #     60000.
+  #   - :kms_connect_callback => Proc | Method | #call | nil, a callable
+  #     invoked as call(host, port, timeout_ms) when the driver needs to
+  #     reach a KMS host. It must return an fd-backed IO (a real IO or Socket)
+  #     already connected to host:port (for example, after performing an HTTP
+  #     CONNECT handshake with a proxy). The driver wraps the returned object
+  #     in TLS to the KMS host, and Ruby's OpenSSL requires an fd-backed
+  #     object, so the callback cannot return another OpenSSL::SSL::SSLSocket;
+  #     a TLS-to-proxy connection needs a socketpair bridge. The driver
+  #     bounds the call by the connect budget, so a callback that blocks
+  #     cannot outlive the operation; the callback should still honor
+  #     timeout_ms for its own work. See Mongo::ClientEncryption#initialize
+  #     for a usage example.
   #
   #   Notes on automatic encryption:
   #   - Automatic encryption is an enterprise only feature that only applies
@@ -4523,7 +4546,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:551
+  # pkg:gem/mongo#lib/mongo/client.rb:563
   def initialize(addresses_or_uri, options = T.unsafe(nil)); end
 
   # Determine if this client is equivalent to another object.
@@ -4561,17 +4584,17 @@ class Mongo::Client
   #
   # @since 2.1.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:936
+  # pkg:gem/mongo#lib/mongo/client.rb:948
   def close; end
 
   # Close encrypter and clean up auto-encryption resources.
   #
   # @return [ true ] Always true.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:947
+  # pkg:gem/mongo#lib/mongo/client.rb:959
   def close_encrypter; end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:927
+  # pkg:gem/mongo#lib/mongo/client.rb:939
   def closed?; end
 
   # @return [ Mongo::Cluster ] cluster The cluster of servers for the client.
@@ -4581,7 +4604,7 @@ class Mongo::Client
 
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:658
+  # pkg:gem/mongo#lib/mongo/client.rb:670
   def cluster_options; end
 
   # pkg:gem/mongo#lib/mongo/client.rb:161
@@ -4620,7 +4643,7 @@ class Mongo::Client
   #
   # @since 2.0.5
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1005
+  # pkg:gem/mongo#lib/mongo/client.rb:1017
   def database_names(filter = T.unsafe(nil), opts = T.unsafe(nil)); end
 
   # Returns encrypted field map hash if provided when creating the client.
@@ -4628,7 +4651,7 @@ class Mongo::Client
   # @return [ Hash | nil ] Encrypted field map hash, or nil if not set.
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1249
+  # pkg:gem/mongo#lib/mongo/client.rb:1261
   def encrypted_fields_map; end
 
   # @return [ Mongo::Crypt::AutoEncrypter ] The object that encapsulates
@@ -4658,7 +4681,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1193
+  # pkg:gem/mongo#lib/mongo/client.rb:1205
   def get_session(options = T.unsafe(nil)); end
 
   # Get the hash value of the client.
@@ -4682,7 +4705,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:720
+  # pkg:gem/mongo#lib/mongo/client.rb:732
   def inspect; end
 
   # Get info for each database.
@@ -4713,7 +4736,7 @@ class Mongo::Client
   #
   # @since 2.0.5
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1036
+  # pkg:gem/mongo#lib/mongo/client.rb:1048
   def list_databases(filter = T.unsafe(nil), name_only = T.unsafe(nil), opts = T.unsafe(nil)); end
 
   # Returns a list of Mongo::Database objects.
@@ -4732,7 +4755,7 @@ class Mongo::Client
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1062
+  # pkg:gem/mongo#lib/mongo/client.rb:1074
   def list_mongo_databases(filter = T.unsafe(nil), opts = T.unsafe(nil)); end
 
   # Get the maximum number of times the client can retry a read operation
@@ -4742,7 +4765,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:688
+  # pkg:gem/mongo#lib/mongo/client.rb:700
   def max_read_retries; end
 
   # Get the maximum number of times the client can retry a write operation
@@ -4752,7 +4775,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:708
+  # pkg:gem/mongo#lib/mongo/client.rb:720
   def max_write_retries; end
 
   # @return [ Monitoring ] monitoring The monitoring.
@@ -4775,7 +4798,7 @@ class Mongo::Client
   #
   # @since 2.6.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:910
+  # pkg:gem/mongo#lib/mongo/client.rb:922
   def read_concern; end
 
   # Get the read preference from the options passed to the client.
@@ -4793,7 +4816,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:768
+  # pkg:gem/mongo#lib/mongo/client.rb:780
   def read_preference; end
 
   # Get the interval, in seconds, in which read retries when using legacy
@@ -4803,7 +4826,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:698
+  # pkg:gem/mongo#lib/mongo/client.rb:710
   def read_retry_interval; end
 
   # Reconnect the client.
@@ -4815,7 +4838,7 @@ class Mongo::Client
   #
   # @since 2.1.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:961
+  # pkg:gem/mongo#lib/mongo/client.rb:973
   def reconnect; end
 
   # Replaces this client's cluster with a fresh instance built from the
@@ -4827,7 +4850,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:894
+  # pkg:gem/mongo#lib/mongo/client.rb:906
   def reset_cluster!(monitoring: T.unsafe(nil)); end
 
   # Replaces this client's database with a fresh instance built from the
@@ -4836,7 +4859,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:882
+  # pkg:gem/mongo#lib/mongo/client.rb:894
   def reset_database!; end
 
   # @return [ Mongo::Retryable::RetryPolicy ] The retry policy for
@@ -4857,7 +4880,7 @@ class Mongo::Client
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:746
+  # pkg:gem/mongo#lib/mongo/client.rb:758
   def server_selector; end
 
   # Start a session.
@@ -4880,7 +4903,7 @@ class Mongo::Client
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1087
+  # pkg:gem/mongo#lib/mongo/client.rb:1099
   def start_session(options = T.unsafe(nil)); end
 
   # pkg:gem/mongo#lib/mongo/client.rb:164
@@ -4895,26 +4918,26 @@ class Mongo::Client
   #
   # @since 2.7.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:732
+  # pkg:gem/mongo#lib/mongo/client.rb:744
   def summary; end
 
   # @return [ Integer | nil ] Value of timeout_ms option if set.
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1255
+  # pkg:gem/mongo#lib/mongo/client.rb:1267
   def timeout_ms; end
 
   # @return [ Float | nil ] Value of timeout_ms option converted to seconds.
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1261
+  # pkg:gem/mongo#lib/mongo/client.rb:1273
   def timeout_sec; end
 
   # Get the tracer configured for this client.
   #
   # @return [ Tracing::Tracer | nil ] The tracer configured for this client.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1272
+  # pkg:gem/mongo#lib/mongo/client.rb:1284
   def tracer; end
 
   # pkg:gem/mongo#lib/mongo/client.rb:164
@@ -4935,7 +4958,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:833
+  # pkg:gem/mongo#lib/mongo/client.rb:845
   def update_options(new_options); end
 
   # Creates a new client configured to use the database with the provided
@@ -4954,7 +4977,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:787
+  # pkg:gem/mongo#lib/mongo/client.rb:799
   def use(name); end
 
   # Allows users to request that notifications are sent for all changes that
@@ -5020,7 +5043,7 @@ class Mongo::Client
   #
   # @since 2.6.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1162
+  # pkg:gem/mongo#lib/mongo/client.rb:1174
   def watch(pipeline = T.unsafe(nil), options = T.unsafe(nil)); end
 
   # Creates a new client with the passed options merged over the existing
@@ -5042,7 +5065,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:809
+  # pkg:gem/mongo#lib/mongo/client.rb:821
   def with(new_options = T.unsafe(nil)); end
 
   # Creates a session to use for operations if possible and yields it to
@@ -5066,7 +5089,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1219
+  # pkg:gem/mongo#lib/mongo/client.rb:1231
   def with_session(options = T.unsafe(nil)); end
 
   # Get the write concern for this client. If no option was provided, then a
@@ -5079,7 +5102,7 @@ class Mongo::Client
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:923
+  # pkg:gem/mongo#lib/mongo/client.rb:935
   def write_concern; end
 
   private
@@ -5096,12 +5119,12 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1797
+  # pkg:gem/mongo#lib/mongo/client.rb:1828
   def assert_not_closed; end
 
   # Create a new encrypter object using the client's auto encryption options
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1359
+  # pkg:gem/mongo#lib/mongo/client.rb:1372
   def build_encrypter; end
 
   # Builds the retry policy for the backpressure retry loops from the
@@ -5109,16 +5132,16 @@ class Mongo::Client
   #
   # @return [ Retryable::RetryPolicy ] The retry policy.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1287
+  # pkg:gem/mongo#lib/mongo/client.rb:1299
   def build_retry_policy; end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1437
+  # pkg:gem/mongo#lib/mongo/client.rb:1450
   def cluster_modifying?(new_options); end
 
   # Generate default client options based on the URI and options
   # passed into the Client constructor.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1367
+  # pkg:gem/mongo#lib/mongo/client.rb:1380
   def default_options(options); end
 
   # Validates all options after they are set on the client.
@@ -5130,12 +5153,12 @@ class Mongo::Client
   # version. Modern retryable reads and writes (enabled by default) ignore
   # them.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1520
+  # pkg:gem/mongo#lib/mongo/client.rb:1536
   def deprecate_legacy_retry_options!; end
 
   # Implementation for #close, assumes the connect lock is already acquired.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1379
+  # pkg:gem/mongo#lib/mongo/client.rb:1392
   def do_close; end
 
   # Returns a session to use for operations.
@@ -5161,7 +5184,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1406
+  # pkg:gem/mongo#lib/mongo/client.rb:1419
   def get_session!(options = T.unsafe(nil)); end
 
   # Auxiliary method that is called by interpreter when copying the client
@@ -5171,7 +5194,7 @@ class Mongo::Client
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1428
+  # pkg:gem/mongo#lib/mongo/client.rb:1441
   def initialize_copy(original); end
 
   # Attempts to parse the given list of addresses, using the provided options.
@@ -5183,7 +5206,7 @@ class Mongo::Client
   # @return [ Hash<:uri, :addresses, :options> ] the results of processing the
   #   list of addresses.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1301
+  # pkg:gem/mongo#lib/mongo/client.rb:1313
   def process_addresses(addresses, options); end
 
   # Attempts to parse the given list of addresses, using the provided options.
@@ -5195,7 +5218,7 @@ class Mongo::Client
   # @return [ Hash<:uri, :addresses, :options> ] the results of processing the
   #   list of addresses.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1343
+  # pkg:gem/mongo#lib/mongo/client.rb:1355
   def process_addresses_array(addresses, options); end
 
   # Attempts to parse the given list of addresses, using the provided options.
@@ -5207,16 +5230,16 @@ class Mongo::Client
   # @return [ Hash<:uri, :addresses, :options> ] the results of processing the
   #   list of addresses.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1317
+  # pkg:gem/mongo#lib/mongo/client.rb:1329
   def process_addresses_string(addresses, options); end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1709
+  # pkg:gem/mongo#lib/mongo/client.rb:1737
   def valid_compressors(compressors); end
 
   # Validates all authentication-related options after they are set on the client
   # This method is intended to catch combinations of options which are not allowed
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1655
+  # pkg:gem/mongo#lib/mongo/client.rb:1671
   def validate_authentication_options!; end
 
   # Validates whether the max_connecting option is valid.
@@ -5227,10 +5250,10 @@ class Mongo::Client
   # @return [ true ] If the option is valid.
   # @raise [ Error::InvalidMaxConnecting ] If the option is invalid.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1757
+  # pkg:gem/mongo#lib/mongo/client.rb:1785
   def validate_max_connecting!(option, opts); end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1742
+  # pkg:gem/mongo#lib/mongo/client.rb:1770
   def validate_max_min_pool_size!(option, opts); end
 
   # Validates options in the provided argument for validity.
@@ -5238,19 +5261,19 @@ class Mongo::Client
   # eventually have; this method validates each of the provided options
   # but does not check for interactions between combinations of options.
   #
-  # pkg:gem/mongo#lib/mongo/client.rb:1450
+  # pkg:gem/mongo#lib/mongo/client.rb:1463
   def validate_new_options!(opts); end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1534
+  # pkg:gem/mongo#lib/mongo/client.rb:1550
   def validate_options!(addresses = T.unsafe(nil), is_srv: T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1765
+  # pkg:gem/mongo#lib/mongo/client.rb:1793
   def validate_read!(option, opts); end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1722
+  # pkg:gem/mongo#lib/mongo/client.rb:1750
   def validate_snappy_compression!; end
 
-  # pkg:gem/mongo#lib/mongo/client.rb:1732
+  # pkg:gem/mongo#lib/mongo/client.rb:1760
   def validate_zstd_compression!; end
 
   class << self
@@ -5259,7 +5282,7 @@ class Mongo::Client
     #
     # @api private
     #
-    # pkg:gem/mongo#lib/mongo/client.rb:1235
+    # pkg:gem/mongo#lib/mongo/client.rb:1247
     def canonicalize_ruby_options(options); end
   end
 end
@@ -5324,11 +5347,56 @@ class Mongo::ClientEncryption
   #    encryption key cache, in milliseconds. Must be a non-negative integer.
   #    An explicit value of 0 means the cache never expires. The default is
   #    60000.
+  # @option options [ Proc | Method | #call ] :kms_connect_callback A callable
+  #   invoked as +call(host, port, timeout_ms)+ when the driver needs to reach
+  #   a KMS host. It must return an fd-backed IO (a real +IO+ or +Socket+)
+  #   already connected to +host:port+ (for example, after performing an HTTP
+  #   CONNECT handshake with a proxy). The driver wraps the returned object in
+  #   TLS to the KMS host, and Ruby's OpenSSL requires an fd-backed object, so
+  #   the callback cannot return another +OpenSSL::SSL::SSLSocket+; a
+  #   TLS-to-proxy connection needs a socketpair bridge (see the example
+  #   below). The driver bounds the call by the connect budget (the remaining
+  #   operation timeout, or the driver's connect timeout when no timeout is
+  #   set), so a callback that blocks cannot outlive the operation. The
+  #   callback should still honor +timeout_ms+ for its own work, so it can
+  #   fail cleanly and close any socket it opened.
+  #
+  # @example Tunnel KMS traffic through an HTTP CONNECT proxy.
+  #   connect_via_proxy = lambda do |host, port, timeout_ms|
+  #     timeout = timeout_ms ? timeout_ms / 1_000.0 : nil
+  #     socket = Socket.tcp('proxy.example.com', 9004, connect_timeout: timeout)
+  #     begin
+  #       socket.write("CONNECT #{host}:#{port} HTTP/1.1\r\n" \
+  #                    "Host: #{host}:#{port}\r\n\r\n")
+  #       status = socket.gets
+  #       unless status&.start_with?('HTTP/1.1 200')
+  #         raise "proxy CONNECT failed: #{status.inspect}"
+  #       end
+  #
+  #       # Consume the rest of the response headers up to the blank line, so
+  #       # the TLS handshake does not read them as tunneled bytes.
+  #       loop do
+  #         line = socket.gets
+  #         break if line.nil? || line == "\r\n"
+  #       end
+  #     rescue StandardError
+  #       socket.close
+  #       raise
+  #     end
+  #     socket
+  #   end
+  #
+  #   client_encryption = Mongo::ClientEncryption.new(
+  #     key_vault_client,
+  #     key_vault_namespace: 'keyvault.datakeys',
+  #     kms_providers: { aws: { access_key_id: '...', secret_access_key: '...' } },
+  #     kms_connect_callback: connect_via_proxy
+  #   )
   #
   # @raise [ ArgumentError ] If required options are missing or incorrectly
   #   formatted.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:52
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:97
   def initialize(key_vault_client, options = T.unsafe(nil)); end
 
   # Adds a key_alt_name for the key in the key vault collection with the given id.
@@ -5339,7 +5407,7 @@ class Mongo::ClientEncryption
   # @return [ BSON::Document | nil ] Document describing the identified key
   #   before adding the key alt name, or nil if no such key.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:207
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:253
   def add_key_alt_name(id, key_alt_name); end
 
   # Generates a data key used for encryption/decryption and stores
@@ -5369,7 +5437,7 @@ class Mongo::ClientEncryption
   # @return [ BSON::Binary ] The 16-byte UUID of the new data key as a
   #   BSON::Binary object with type :uuid.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:89
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:135
   def create_data_key(kms_provider, options = T.unsafe(nil)); end
 
   # Create collection with encrypted fields.
@@ -5392,7 +5460,7 @@ class Mongo::ClientEncryption
   #   collection operation and the encrypted fields map used to create
   #   the collection.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:294
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:340
   def create_encrypted_collection(database, coll_name, coll_opts, kms_provider, master_key); end
 
   # Decrypts a value that has already been encrypted.
@@ -5402,7 +5470,7 @@ class Mongo::ClientEncryption
   #
   # @return [ Object ] The decrypted value.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:196
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:242
   def decrypt(value); end
 
   # Removes the key with the given id from the key vault collection.
@@ -5412,7 +5480,7 @@ class Mongo::ClientEncryption
   # @return [ Operation::Result ] The response from the database for the delete_one
   #   operation that deletes the key.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:217
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:263
   def delete_key(id); end
 
   # Encrypts a value using the specified encryption key and algorithm.
@@ -5465,7 +5533,7 @@ class Mongo::ClientEncryption
   # @raise [ ArgumentError ] if either contention_factor or query_type is set,
   #   and algorithm is not "Indexed", "Range", or "String".
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:146
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:192
   def encrypt(value, options = T.unsafe(nil)); end
 
   # Encrypts a Match Expression or Aggregate Expression to query a range index.
@@ -5505,7 +5573,7 @@ class Mongo::ClientEncryption
   #
   # @raise [ ArgumentError ] if disallowed values in options are set.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:186
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:232
   def encrypt_expression(expression, options = T.unsafe(nil)); end
 
   # Finds a single key with the given id.
@@ -5515,7 +5583,7 @@ class Mongo::ClientEncryption
   # @return [ BSON::Document | nil ] The found key document or nil
   #   if not found.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:227
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:273
   def get_key(id); end
 
   # Returns a key in the key vault collection with the given key_alt_name.
@@ -5525,17 +5593,17 @@ class Mongo::ClientEncryption
   # @return [ BSON::Document | nil ] The found key document or nil
   #   if not found.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:237
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:283
   def get_key_by_alt_name(key_alt_name); end
 
   # Returns all keys in the key vault collection.
   #
   # @return [ Collection::View ] Keys in the key vault collection.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:244
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:290
   def get_keys; end
 
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:247
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:293
   def keys; end
 
   # Removes a key_alt_name from a key in the key vault collection with the given id.
@@ -5546,7 +5614,7 @@ class Mongo::ClientEncryption
   # @return [ BSON::Document | nil ] Document describing the identified key
   #   before removing the key alt name, or nil if no such key.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:256
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:302
   def remove_key_alt_name(id, key_alt_name); end
 
   # Decrypts multiple data keys and (re-)encrypts them with a new master_key,
@@ -5561,7 +5629,7 @@ class Mongo::ClientEncryption
   #
   # @return [ Crypt::RewrapManyDataKeyResult ] Result of the operation.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:271
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:317
   def rewrap_many_data_key(filter, opts = T.unsafe(nil)); end
 
   private
@@ -5576,7 +5644,7 @@ class Mongo::ClientEncryption
   # @return [ Hash ] Encrypted fields map with keyIds for fields
   #   that did not have one.
   #
-  # pkg:gem/mongo#lib/mongo/client_encryption.rb:318
+  # pkg:gem/mongo#lib/mongo/client_encryption.rb:364
   def create_data_keys(encrypted_fields, kms_provider, master_key); end
 end
 
@@ -11271,18 +11339,31 @@ class Mongo::Crypt::AutoEncrypter
   # @option options [ Integer | nil ] :key_expiration_ms The lifetime of the
   #   data encryption key cache, in milliseconds. A value of 0 means the
   #   cache never expires. Defaults to 60000.
+  # @option options [ Proc | Method | #call ] :kms_connect_callback A callable
+  #   invoked as +call(host, port, timeout_ms)+ when the driver needs to
+  #   reach a KMS host. It must return an fd-backed IO (a real +IO+ or
+  #   +Socket+) already connected to +host:port+ (for example, after
+  #   performing an HTTP CONNECT handshake with a proxy). The driver wraps
+  #   the returned object in TLS to the KMS host, and Ruby's OpenSSL
+  #   requires an fd-backed object, so the callback cannot return another
+  #   +OpenSSL::SSL::SSLSocket+; a TLS-to-proxy connection needs a socketpair
+  #   bridge. +timeout_ms+ is the remaining operation timeout in
+  #   milliseconds, or nil when no timeout is set. The driver bounds the
+  #   call by the connect budget, so a callback that blocks cannot outlive
+  #   the operation; the callback should still honor +timeout_ms+ for its
+  #   own work. See Mongo::ClientEncryption#initialize for a usage example.
   #
   # @raise [ ArgumentError ] If required options are missing or incorrectly
   #   formatted.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:90
+  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:103
   def initialize(options); end
 
   # Close the resources created by the AutoEncrypter.
   #
   # @return [ true ] Always true.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:212
+  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:226
   def close; end
 
   # Decrypt a database command.
@@ -11291,7 +11372,7 @@ class Mongo::Crypt::AutoEncrypter
   #
   # @return [ BSON::Document ] The decrypted command.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:201
+  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:215
   def decrypt(command, timeout_holder); end
 
   # Encrypt a database command.
@@ -11302,7 +11383,7 @@ class Mongo::Crypt::AutoEncrypter
   #
   # @return [ BSON::Document ] The encrypted command.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:187
+  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:201
   def encrypt(database_name, command, timeout_holder); end
 
   # Whether this encrypter should perform encryption (returns false if
@@ -11310,7 +11391,7 @@ class Mongo::Crypt::AutoEncrypter
   #
   # @return [ Boolean ] Whether to perform encryption.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:176
+  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:190
   def encrypt?; end
 
   # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:30
@@ -11336,7 +11417,7 @@ class Mongo::Crypt::AutoEncrypter
   # @return [ Mongo::Client ] Client to be used as internal client for
   # auto encryption.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:290
+  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:304
   def internal_client(client); end
 
   # Returns a new set of options with the following changes:
@@ -11346,14 +11427,14 @@ class Mongo::Crypt::AutoEncrypter
   # - sets bypass_auto_encryption to false
   # - sets default key vault client
   #
-  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:236
+  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:250
   def set_default_options(options); end
 
   # Create additional clients for auto encryption, if necessary
   #
   # @param [ Hash ] options Auto encryption options.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:263
+  # pkg:gem/mongo#lib/mongo/crypt/auto_encrypter.rb:277
   def set_or_create_clients(options); end
 end
 
@@ -11543,14 +11624,27 @@ class Mongo::Crypt::Context
   # @raise [ Error::CryptError ] If the Azure access token could not be
   #   retrieved.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/context.rb:260
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:286
   def azure_access_token(timeout_holder); end
 
   # pkg:gem/mongo#lib/mongo/crypt/context.rb:141
   def feed_collection_info(db_name, timeout_ms); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/context.rb:161
-  def feed_kms; end
+  # Sends KMS requests to the KMS provider(s) on behalf of libmongocrypt,
+  # retrying transient failures in place.
+  #
+  # The remaining timeout budget is recomputed for every request: the state
+  # machine can need several KMS contexts, and a single context can be
+  # retried, so a budget snapshotted once per state-machine iteration would
+  # let later attempts run past the operation deadline.
+  #
+  # @param [ CsotTimeoutHolder ] timeout_holder CSOT timeouts for the
+  #   operation.
+  #
+  # @raise [ Error::TimeoutError ] If the operation deadline has passed.
+  #
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:173
+  def feed_kms(timeout_holder); end
 
   # Retrieves a GCP access token.
   #
@@ -11558,12 +11652,12 @@ class Mongo::Crypt::Context
   #
   # @raise [ Error::CryptError ] If the GCP access token could not be
   #
-  # pkg:gem/mongo#lib/mongo/crypt/context.rb:246
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:272
   def gcp_access_token(timeout_holder); end
 
   # Indicate that state machine is done feeding I/O responses back to libmongocrypt
   #
-  # pkg:gem/mongo#lib/mongo/crypt/context.rb:197
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:223
   def mongocrypt_done; end
 
   # Feeds the result of a Mongo operation back to libmongocrypt.
@@ -11572,7 +11666,7 @@ class Mongo::Crypt::Context
   #
   # @return [ BSON::Document ] BSON document containing the result.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/context.rb:206
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:232
   def mongocrypt_feed(doc); end
 
   # pkg:gem/mongo#lib/mongo/crypt/context.rb:133
@@ -11596,7 +11690,7 @@ class Mongo::Crypt::Context
   #
   # @raise [ Mongo::Error::KmsError ]
   #
-  # pkg:gem/mongo#lib/mongo/crypt/context.rb:187
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:213
   def raise_kms_retry_error(kms_context, last_error); end
 
   # Retrieves KMS credentials for providers that are configured
@@ -11607,8 +11701,18 @@ class Mongo::Crypt::Context
   # @return [ Crypt::KMS::Credentials ] Credentials for the configured
   #   KMS providers.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/context.rb:217
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:243
   def retrieve_kms_credentials(timeout_holder); end
+
+  # Sleep for the backoff libmongocrypt asks for before the next KMS
+  # request, clamped so the wait never runs past the operation deadline.
+  #
+  # @param [ Integer ] delay_us The requested backoff, in microseconds.
+  # @param [ CsotTimeoutHolder ] timeout_holder CSOT timeouts for the
+  #   operation.
+  #
+  # pkg:gem/mongo#lib/mongo/crypt/context.rb:198
+  def sleep_before_kms_request(delay_us, timeout_holder); end
 end
 
 # A Context object initialized specifically for the purpose of creating
@@ -11670,6 +11774,10 @@ class Mongo::Crypt::EncryptionIO
   # @param [ String ] key_vault_namespace The key vault namespace in the format
   #   db_name.collection_name.
   # @param [ Hash ] mongocryptd_options Options related to mongocryptd.
+  # @param [ Proc | nil ] kms_connect_callback Optional callable that
+  #   establishes the TCP connection to a KMS provider. It is invoked with
+  #   the host, port, and operation timeout in milliseconds (or nil), and
+  #   must return an IO connected to the host.
   #
   # @option mongocryptd_options [ Boolean ] :mongocryptd_bypass_spawn
   # @option mongocryptd_options [ String ] :mongocryptd_spawn_path
@@ -11682,13 +11790,13 @@ class Mongo::Crypt::EncryptionIO
   # @note This class expects that the key_vault_client and key_vault_namespace
   #   options are not nil and are in the correct format.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:54
-  def initialize(key_vault_namespace:, key_vault_client:, metadata_client:, client: T.unsafe(nil), mongocryptd_client: T.unsafe(nil), mongocryptd_options: T.unsafe(nil)); end
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:58
+  def initialize(key_vault_namespace:, key_vault_client:, metadata_client:, client: T.unsafe(nil), mongocryptd_client: T.unsafe(nil), mongocryptd_options: T.unsafe(nil), kms_connect_callback: T.unsafe(nil)); end
 
   # Adds a key_alt_name to the key_alt_names array of the key document
   # in the key vault collection with the given id.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:187
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:205
   def add_key_alt_name(id, key_alt_name, timeout_ms: T.unsafe(nil)); end
 
   # Get collection info for a collection matching the provided filter
@@ -11700,13 +11808,13 @@ class Mongo::Crypt::EncryptionIO
   #
   # @return [ Array<BSON::Document> ] The collection information documents
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:101
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:109
   def collection_info(db_name, filter, timeout_ms: T.unsafe(nil)); end
 
   # Removes the key document with the given id
   # from the key vault collection.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:197
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:215
   def delete_key(id, timeout_ms: T.unsafe(nil)); end
 
   # Get information about the remote KMS encryption key and feed it to the the
@@ -11722,7 +11830,7 @@ class Mongo::Crypt::EncryptionIO
   #    Must be a non-negative integer. An explicit value of 0 means infinite.
   #    The default value is unset which means the feature is not enabled.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:165
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:173
   def feed_kms(kms_context, tls_options, timeout_ms: T.unsafe(nil)); end
 
   # Query for keys in the key vault collection using the provided
@@ -11735,23 +11843,23 @@ class Mongo::Crypt::EncryptionIO
   #
   # @return [ Array<BSON::Document> ] The query results
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:77
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:85
   def find_keys(filter, timeout_ms: T.unsafe(nil)); end
 
   # Finds a single key document with the given id.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:202
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:220
   def get_key(id, timeout_ms: T.unsafe(nil)); end
 
   # Returns a key document in the key vault collection with
   # the given key_alt_name.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:208
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:226
   def get_key_by_alt_name(key_alt_name, timeout_ms: T.unsafe(nil)); end
 
   # Finds all documents in the key vault collection.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:213
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:231
   def get_keys(timeout_ms: T.unsafe(nil)); end
 
   # Insert a document into the key vault collection
@@ -11763,7 +11871,7 @@ class Mongo::Crypt::EncryptionIO
   #
   # @return [ Mongo::Operation::Insert::Result ] The insertion result
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:89
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:97
   def insert_data_key(document, timeout_ms: T.unsafe(nil)); end
 
   # Send the command to mongocryptd to be marked with intent-to-encrypt markings
@@ -11779,13 +11887,13 @@ class Mongo::Crypt::EncryptionIO
   #
   # @return [ Hash ] The marked command
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:126
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:134
   def mark_command(cmd, db_name: T.unsafe(nil), timeout_ms: T.unsafe(nil)); end
 
   # Removes a key_alt_name from the key_alt_names array of the key document
   # in the key vault collection with the given id.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:219
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:237
   def remove_key_alt_name(id, key_alt_name, timeout_ms: T.unsafe(nil)); end
 
   # Apply given requests to the key vault collection using bulk write.
@@ -11794,16 +11902,43 @@ class Mongo::Crypt::EncryptionIO
   #
   # @return [ BulkWrite::Result ] The result of the operation.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:249
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:267
   def update_data_keys(updates, timeout_ms: T.unsafe(nil)); end
 
   private
 
+  # The budget for the connect phase, in seconds: the remaining operation
+  # timeout when a CSOT budget is in effect, otherwise the driver's fixed
+  # connect timeout. The connect callback and the TLS handshake that
+  # follows it share this budget, so neither can run past the deadline.
+  #
+  # @param [ Integer, nil ] timeout_ms The remaining operation timeout in
+  #   milliseconds, or nil when no budget is set.
+  #
+  # @return [ Float ] The connect budget in seconds.
+  #
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:301
+  def connect_budget(timeout_ms); end
+
   # Use the provided key vault client and namespace to construct a
   # Mongo::Collection object representing the key vault collection.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:278
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:328
   def key_vault_collection; end
+
+  # The time left, in seconds, before the shared KMS exchange deadline.
+  # When no operation budget is in effect there is no deadline, so each
+  # phase falls back to the fixed SOCKET_TIMEOUT.
+  #
+  # @param [ Float, nil ] deadline The monotonic time the exchange must
+  #   finish by, or nil when no budget is set.
+  #
+  # @return [ Float ] The number of seconds left before the deadline.
+  #
+  # @raise [ Error::TimeoutError ] If the deadline has already passed.
+  #
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:283
+  def remaining_timeout(deadline); end
 
   # Spawn a new mongocryptd process using the mongocryptd_spawn_path
   # and mongocryptd_spawn_args passed in through the extra auto
@@ -11818,13 +11953,13 @@ class Mongo::Crypt::EncryptionIO
   # @raise [ ArgumentError ] Raises an exception if no encryption options
   #   have been provided
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:298
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:348
   def spawn_mongocryptd; end
 
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:255
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:305
   def validate_key_vault_client!(key_vault_client); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:265
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:315
   def validate_key_vault_namespace!(key_vault_namespace); end
 
   # Provide a TLS socket to be used for KMS calls in a block API
@@ -11841,7 +11976,7 @@ class Mongo::Crypt::EncryptionIO
   # @note The socket is always closed when the provided block has finished
   #   executing
   #
-  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:346
+  # pkg:gem/mongo#lib/mongo/crypt/encryption_io.rb:396
   def with_ssl_socket(endpoint, tls_options, timeout_ms: T.unsafe(nil)); end
 end
 
@@ -11906,9 +12041,12 @@ class Mongo::Crypt::ExplicitEncrypter
   # @param [ Integer | nil ] key_expiration_ms The lifetime of the data
   #   encryption key cache, in milliseconds. A value of 0 means the cache
   #   never expires. When nil, libmongocrypt's default of 60000 is used.
+  # @param [ Proc | Method | #call | nil ] kms_connect_callback A callable
+  #   invoked as +call(host, port, timeout_ms)+ when the driver needs to
+  #   reach a KMS host. See Mongo::ClientEncryption for details.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:43
-  def initialize(key_vault_client, key_vault_namespace, kms_providers, kms_tls_options, timeout_ms = T.unsafe(nil), key_expiration_ms = T.unsafe(nil)); end
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:46
+  def initialize(key_vault_client, key_vault_namespace, kms_providers, kms_tls_options, timeout_ms = T.unsafe(nil), key_expiration_ms = T.unsafe(nil), kms_connect_callback = T.unsafe(nil)); end
 
   # Adds a key_alt_name for the key in the key vault collection with the given id.
   #
@@ -11918,7 +12056,7 @@ class Mongo::Crypt::ExplicitEncrypter
   # @return [ BSON::Document | nil ] Document describing the identified key
   #   before adding the key alt name, or nil if no such key.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:218
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:222
   def add_key_alt_name(id, key_alt_name); end
 
   # Generates a data key used for encryption/decryption and stores
@@ -11937,7 +12075,7 @@ class Mongo::Crypt::ExplicitEncrypter
   # @return [ BSON::Binary ] The 16-byte UUID of the new data key as a
   #   BSON::Binary object with type :uuid.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:77
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:81
   def create_and_insert_data_key(master_key_document, key_alt_names, key_material = T.unsafe(nil)); end
 
   # Decrypts a value that has already been encrypted
@@ -11947,7 +12085,7 @@ class Mongo::Crypt::ExplicitEncrypter
   #
   # @return [ Object ] The decrypted value
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:203
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:207
   def decrypt(value); end
 
   # Removes the key with the given id from the key vault collection.
@@ -11957,7 +12095,7 @@ class Mongo::Crypt::ExplicitEncrypter
   # @return [ Operation::Result ] The response from the database for the delete_one
   #   operation that deletes the key.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:228
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:232
   def delete_key(id); end
 
   # Encrypts a value using the specified encryption key and algorithm
@@ -11998,7 +12136,7 @@ class Mongo::Crypt::ExplicitEncrypter
   # @raise [ ArgumentError ] if either contention_factor or query_type is
   #   set, and algorithm is not "Indexed", "Range", or "String".
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:128
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:132
   def encrypt(value, options); end
 
   # Encrypts a Match Expression or Aggregate Expression to query a range index.
@@ -12053,7 +12191,7 @@ class Mongo::Crypt::ExplicitEncrypter
   #
   # @raise [ ArgumentError ] if disallowed values in options are set.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:188
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:192
   def encrypt_expression(expression, options); end
 
   # Finds a single key with the given id.
@@ -12063,7 +12201,7 @@ class Mongo::Crypt::ExplicitEncrypter
   # @return [ BSON::Document | nil ] The found key document or nil
   #   if not found.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:238
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:242
   def get_key(id); end
 
   # Returns a key in the key vault collection with the given key_alt_name.
@@ -12073,7 +12211,7 @@ class Mongo::Crypt::ExplicitEncrypter
   # @return [ BSON::Document | nil ] The found key document or nil
   #   if not found.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:248
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:252
   def get_key_by_alt_name(key_alt_name); end
 
   # Returns all keys in the key vault collection.
@@ -12081,7 +12219,7 @@ class Mongo::Crypt::ExplicitEncrypter
   # @return [ Collection::View ] Keys in the key vault collection.
   # Name of this method is defined in the FLE spec
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:257
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:261
   def get_keys; end
 
   # Removes a key_alt_name from a key in the key vault collection with the given id.
@@ -12092,7 +12230,7 @@ class Mongo::Crypt::ExplicitEncrypter
   # @return [ BSON::Document | nil ] Document describing the identified key
   #   before removing the key alt name, or nil if no such key.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:269
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:273
   def remove_key_alt_name(id, key_alt_name); end
 
   # Decrypts multiple data keys and (re-)encrypts them with a new master_key,
@@ -12107,7 +12245,7 @@ class Mongo::Crypt::ExplicitEncrypter
   #
   # @return [ Crypt::RewrapManyDataKeyResult ] Result of the operation.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:284
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:288
   def rewrap_many_data_key(filter, opts = T.unsafe(nil)); end
 
   private
@@ -12122,10 +12260,10 @@ class Mongo::Crypt::ExplicitEncrypter
   # @return [ KMS::MasterKeyDocument | nil ] the new master key document,
   #   or nil if no provider was given.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:327
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:331
   def master_key_for_provider(opts); end
 
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:358
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:362
   def timeout_holder; end
 
   # Returns the corresponding update document for each of the given
@@ -12135,7 +12273,7 @@ class Mongo::Crypt::ExplicitEncrypter
   #
   # @return [ Array<Hash> ] the update documents
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:341
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:345
   def updates_from_data_key_documents(documents); end
 
   # Ensures the consistency of the options passed to #rewrap_many_data_keys.
@@ -12145,7 +12283,7 @@ class Mongo::Crypt::ExplicitEncrypter
   # @raise [ ArgumentError ] if the options are not consistent or
   #   compatible.
   #
-  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:312
+  # pkg:gem/mongo#lib/mongo/crypt/explicit_encrypter.rb:316
   def validate_rewrap_options!(opts); end
 end
 
@@ -13557,7 +13695,7 @@ class Mongo::CsotTimeoutHolder
   #
   # @raise [ Error::TimeoutError ]
   #
-  # pkg:gem/mongo#lib/mongo/csot_timeout_holder.rb:84
+  # pkg:gem/mongo#lib/mongo/csot_timeout_holder.rb:87
   def check_timeout!; end
 
   # @return [ true | false ] Whether CSOT is enabled for the operation
@@ -13573,12 +13711,14 @@ class Mongo::CsotTimeoutHolder
 
   # @return [ Integer | nil ] Returns the remaining milliseconds of the timeout
   #   set for the operation; if no timeout is set, or the timeout is 0
-  #   (means unlimited) returns nil.
+  #   (means unlimited) returns nil. A finite budget never rounds down to 0,
+  #   since 0 means unlimited to callers: the last sub-millisecond before the
+  #   deadline is reported as 1 ms instead.
   #
-  # pkg:gem/mongo#lib/mongo/csot_timeout_holder.rb:58
+  # pkg:gem/mongo#lib/mongo/csot_timeout_holder.rb:60
   def remaining_timeout_ms; end
 
-  # pkg:gem/mongo#lib/mongo/csot_timeout_holder.rb:65
+  # pkg:gem/mongo#lib/mongo/csot_timeout_holder.rb:68
   def remaining_timeout_ms!; end
 
   # @return [ Float | nil ] Returns the remaining seconds of the timeout
@@ -13600,7 +13740,7 @@ class Mongo::CsotTimeoutHolder
   # @return [ true | false ] Whether the timeout for the operation expired.
   #   If no timeout set, this method returns false.
   #
-  # pkg:gem/mongo#lib/mongo/csot_timeout_holder.rb:72
+  # pkg:gem/mongo#lib/mongo/csot_timeout_holder.rb:75
   def timeout_expired?; end
 
   # pkg:gem/mongo#lib/mongo/csot_timeout_holder.rb:28
@@ -13608,13 +13748,13 @@ class Mongo::CsotTimeoutHolder
 
   private
 
-  # pkg:gem/mongo#lib/mongo/csot_timeout_holder.rb:92
+  # pkg:gem/mongo#lib/mongo/csot_timeout_holder.rb:95
   def calculate_deadline(opts = T.unsafe(nil), session = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/csot_timeout_holder.rb:110
+  # pkg:gem/mongo#lib/mongo/csot_timeout_holder.rb:113
   def calculate_deadline_from_timeout_ms(operation_timeout_ms); end
 
-  # pkg:gem/mongo#lib/mongo/csot_timeout_holder.rb:103
+  # pkg:gem/mongo#lib/mongo/csot_timeout_holder.rb:106
   def check_no_override_inside_transaction!(opts, session); end
 end
 
@@ -15685,13 +15825,20 @@ end
 class Mongo::Error::InvalidReadOption < ::Mongo::Error
   # Instantiate the new exception.
   #
+  # The value is not included in the message: it may come from the
+  # connection string and can contain text the user intended as a
+  # credential.
+  #
   # @example Instantiate the exception.
   #   Mongo::Error::InvalidReadOption.new({:mode => 'bogus'})
   #
+  # @param [ Object ] _read_option The provided read option.
+  # @param [ String ] msg Description of the problem.
+  #
   # @since 2.6.0
   #
-  # pkg:gem/mongo#lib/mongo/error/invalid_read_option.rb:30
-  def initialize(read_option, msg); end
+  # pkg:gem/mongo#lib/mongo/error/invalid_read_option.rb:37
+  def initialize(_read_option, msg); end
 end
 
 # Exception raised if the object is not a valid replacement document.
@@ -15942,17 +16089,26 @@ Mongo::Error::InvalidTransactionOperation::UNACKNOWLEDGED_WRITE_CONCERN = T.let(
 class Mongo::Error::InvalidURI < ::Mongo::Error
   # Instantiate the new exception.
   #
-  # The URI is redacted via {Mongo::URI.redact} before being interpolated
-  # so that any cleartext credentials in the original input do not end up
-  # in logs, error reporters, or backtraces.
+  # The message deliberately contains no part of the connection string.
+  # A string that failed to parse cannot be redacted reliably: the parser
+  # and the redactor can disagree about where the userinfo ends, so
+  # masking the input may still disclose a credential. The details
+  # supplied by the parser identify the component at fault by name
+  # instead. See the "Disclosure of Sensitive Values" section of the
+  # connection string specification.
   #
   # @example Instantiate the exception.
   #   Mongo::Error::InvalidURI.new(uri, details, format)
   #
+  # @param [ String | nil ] _uri The URI that failed to parse. Kept in the
+  #   signature for compatibility; it is not included in the message.
+  # @param [ String ] details Description of the parse failure.
+  # @param [ String | nil ] format The expected connection string format.
+  #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/error/invalid_uri.rb:34
-  def initialize(uri, details, format = T.unsafe(nil)); end
+  # pkg:gem/mongo#lib/mongo/error/invalid_uri.rb:43
+  def initialize(_uri, details, format = T.unsafe(nil)); end
 end
 
 # Exception raised if the object is not a valid update document.
@@ -25797,12 +25953,18 @@ module Mongo::Options::Mapper
 end
 
 # Class for wrapping options that could be sensitive.
-# When printed, the sensitive values will be redacted.
+#
+# Sensitive values are redacted in inspect, to_s, pretty printed, JSON,
+# YAML and Marshal output. The stored values are unchanged. Deserializing
+# a YAML or Marshal representation that contained sensitive values raises
+# ArgumentError instead of creating an object with marker credentials.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/options/redacted.rb:23
+# pkg:gem/mongo#lib/mongo/options/redacted.rb:226
 class Mongo::Options::Redacted < ::BSON::Document
+  include ::Mongo::Options::RedactedRepresentation
+
   # Whether these options contain a given key.
   #
   # @example Determine if the options contain a given key.
@@ -25814,19 +25976,10 @@ class Mongo::Options::Redacted < ::BSON::Document
   #
   # @since 2.1.0
   #
-  # pkg:gem/mongo#lib/mongo/options/redacted.rb:63
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:262
   def has_key?(key); end
 
-  # Get a string representation of the options.
-  #
-  # @return [ String ] The string representation of the options.
-  #
-  # @since 2.1.0
-  #
-  # pkg:gem/mongo#lib/mongo/options/redacted.rb:40
-  def inspect; end
-
-  # pkg:gem/mongo#lib/mongo/options/redacted.rb:66
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:265
   def key?(key); end
 
   # Returns a new options object consisting of pairs for which the block returns false.
@@ -25840,7 +25993,7 @@ class Mongo::Options::Redacted < ::BSON::Document
   #
   # @since 2.1.0
   #
-  # pkg:gem/mongo#lib/mongo/options/redacted.rb:78
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:277
   def reject(&block); end
 
   # Only keeps pairs for which the block returns false.
@@ -25854,7 +26007,7 @@ class Mongo::Options::Redacted < ::BSON::Document
   #
   # @since 2.1.0
   #
-  # pkg:gem/mongo#lib/mongo/options/redacted.rb:93
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:292
   def reject!; end
 
   # Returns a new options object consisting of pairs for which the block returns true.
@@ -25868,7 +26021,7 @@ class Mongo::Options::Redacted < ::BSON::Document
   #
   # @since 2.1.0
   #
-  # pkg:gem/mongo#lib/mongo/options/redacted.rb:115
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:314
   def select(&block); end
 
   # Only keeps pairs for which the block returns true.
@@ -25882,40 +26035,212 @@ class Mongo::Options::Redacted < ::BSON::Document
   #
   # @since 2.1.0
   #
-  # pkg:gem/mongo#lib/mongo/options/redacted.rb:130
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:329
   def select!; end
-
-  # Get a string representation of the options.
-  #
-  # @return [ String ] The string representation of the options.
-  #
-  # @since 2.1.0
-  #
-  # pkg:gem/mongo#lib/mongo/options/redacted.rb:49
-  def to_s; end
-
-  private
-
-  # pkg:gem/mongo#lib/mongo/options/redacted.rb:150
-  def redact(k, v, method); end
-
-  # pkg:gem/mongo#lib/mongo/options/redacted.rb:144
-  def redacted_string(method); end
 end
 
-# The options whose values will be redacted.
+# The options whose values will be redacted. The username is included
+# because it is part of the userinfo segment, whose components the
+# connection string specification treats as sensitive values.
+#
+# The arguments of the sensitive URI options are redacted as a whole:
+# authMechanismProperties may carry a credential in any of its
+# properties (for example an AWS session token), and the driver cannot
+# know which properties a future mechanism will treat as secret.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/options/redacted.rb:27
+# pkg:gem/mongo#lib/mongo/options/redacted.rb:239
 Mongo::Options::Redacted::SENSITIVE_OPTIONS = T.let(T.unsafe(nil), Array)
 
 # The replacement string used in place of the value for sensitive keys.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/options/redacted.rb:33
+# pkg:gem/mongo#lib/mongo/options/redacted.rb:250
 Mongo::Options::Redacted::STRING_REPLACEMENT = T.let(T.unsafe(nil), String)
+
+# A plain Hash whose string and serialized representations redact
+# sensitive values.
+#
+# Unlike {Redacted}, which is a BSON::Document and normalizes its keys to
+# strings, this class preserves the keys exactly as they were inserted.
+# It is used for option hashes whose key types are part of the driver's
+# observable behavior. Accessing the hash returns the real values;
+# deserializing a representation with sensitive values raises
+# ArgumentError.
+#
+# @api private
+#
+# pkg:gem/mongo#lib/mongo/options/redacted.rb:353
+class Mongo::Options::RedactedHash < ::Hash
+  include ::Mongo::Options::RedactedRepresentation
+end
+
+# Shared string, debug and serialization representations for option
+# objects that may carry sensitive values.
+#
+# Sensitive values are replaced by {Redacted::STRING_REPLACEMENT} in
+# inspect, to_s, pretty printing, JSON, YAML, Extended JSON and Marshal
+# output. The stored values are not changed.
+#
+# BSON encoding is intentionally not overridden: these objects are BSON
+# documents, and BSON is the wire representation used by the driver. The
+# native BSON encoder writes nested hashes without dispatching to Ruby
+# methods on them, so a Ruby-level to_bson override would be both
+# incomplete and would change what is written to the wire.
+#
+# @api private
+#
+# pkg:gem/mongo#lib/mongo/options/redacted.rb:33
+module Mongo::Options::RedactedRepresentation
+  # Convert the options to a Hash for BSON Extended JSON encoding.
+  #
+  # @param [ Hash ] options BSON Extended JSON options.
+  #
+  # @return [ Hash ] The redacted Hash.
+  #
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:126
+  def as_extended_json(**options); end
+
+  # Convert the options to a Hash for ActiveSupport's JSON encoding.
+  #
+  # @param [ Hash | nil ] options The ActiveSupport options.
+  #
+  # @return [ Hash ] The redacted Hash.
+  #
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:135
+  def as_json(options = T.unsafe(nil)); end
+
+  # Serialize the options to YAML, redacting sensitive values.
+  #
+  # The user's options are nested under an envelope so that metadata
+  # cannot collide with option names. Deserialization raises when
+  # sensitive values were redacted.
+  #
+  # @param [ Psych::Coder ] coder The YAML coder.
+  #
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:94
+  def encode_with(coder); end
+
+  # Initialize options from YAML.
+  #
+  # Raises if the serialized form contains redacted sensitive values or
+  # does not use the redaction envelope. It never creates an object with
+  # marker strings standing in for credentials.
+  #
+  # @param [ Psych::Coder ] coder The YAML coder.
+  #
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:108
+  def init_with(coder); end
+
+  # Get a string representation of the options.
+  #
+  # @return [ String ] The string representation of the options.
+  #
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:60
+  def inspect; end
+
+  # Dump the options for Marshal, redacting sensitive values.
+  #
+  # @return [ Hash ] The envelope with redacted options.
+  #
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:147
+  def marshal_dump; end
+
+  # Load the options from Marshal.
+  #
+  # Raises if the serialized form contains redacted sensitive values or
+  # does not use the redaction envelope. It never creates an object with
+  # marker strings standing in for credentials.
+  #
+  # @param [ Hash ] hash The dumped envelope.
+  #
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:158
+  def marshal_load(hash); end
+
+  # Pretty print the options, redacting sensitive values.
+  #
+  # @param [ PP ] q The pretty printer.
+  #
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:74
+  def pretty_print(q); end
+
+  # Serialize the options to Extended JSON, redacting sensitive values.
+  #
+  # @param [ Hash ] options BSON Extended JSON options.
+  #
+  # @return [ String ] The Extended JSON representation.
+  #
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:117
+  def to_extended_json(**options); end
+
+  # Serialize the options to JSON, redacting sensitive values.
+  #
+  # @param [ Array ] args JSON generator arguments and state.
+  #
+  # @return [ String ] The JSON representation.
+  #
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:83
+  def to_json(*args); end
+
+  # Get a string representation of the options.
+  #
+  # @return [ String ] The string representation of the options.
+  #
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:67
+  def to_s; end
+
+  private
+
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:188
+  def has_sensitive_keys?; end
+
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:199
+  def load_serialization_envelope(envelope); end
+
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:176
+  def redacted_serialization_hash; end
+
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:164
+  def redacted_string(method); end
+
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:170
+  def redacted_value(key, value, method); end
+
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:182
+  def sensitive_key?(key); end
+
+  # pkg:gem/mongo#lib/mongo/options/redacted.rb:192
+  def serialization_envelope; end
+end
+
+# Error raised for a payload that reaches the new object-tag YAML
+# loader or the user-defined Marshal loader but does not contain the
+# redaction envelope. Legacy Hash formats (for example YAML with a
+# !ruby/hash tag, or standard Marshal data for a Hash subclass) can
+# bypass those hooks and are not covered by this error.
+#
+# pkg:gem/mongo#lib/mongo/options/redacted.rb:53
+Mongo::Options::RedactedRepresentation::LEGACY_SERIALIZATION_ERROR = T.let(T.unsafe(nil), String)
+
+# Error raised when deserializing a representation whose sensitive
+# values were redacted.
+#
+# pkg:gem/mongo#lib/mongo/options/redacted.rb:44
+Mongo::Options::RedactedRepresentation::REDACTED_SERIALIZATION_ERROR = T.let(T.unsafe(nil), String)
+
+# @api private
+#
+# pkg:gem/mongo#lib/mongo/options/redacted.rb:40
+Mongo::Options::RedactedRepresentation::SERIALIZATION_OPTIONS_KEY = T.let(T.unsafe(nil), String)
+
+# Envelope keys used by YAML and Marshal. They surround, rather than
+# live inside, the user's options hash.
+# @api private
+#
+# pkg:gem/mongo#lib/mongo/options/redacted.rb:37
+Mongo::Options::RedactedRepresentation::SERIALIZATION_REDACTED_KEY = T.let(T.unsafe(nil), String)
 
 # pkg:gem/mongo#lib/mongo/protocol/serializers.rb:18
 module Mongo::Protocol; end
@@ -35652,22 +35977,22 @@ class Mongo::Socket::SSL < ::Mongo::Socket
 
   # @return [ SSLContext ] context The TLS context.
   #
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:121
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:126
   def context; end
 
   # @return [ String ] host The host to connect to.
   #
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:124
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:129
   def host; end
 
   # @return [ String ] host_name The original host name.
   #
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:127
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:132
   def host_name; end
 
   # @return [ Integer ] port The port to connect to.
   #
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:130
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:135
   def port; end
 
   # Read a single byte from the socket.
@@ -35679,10 +36004,19 @@ class Mongo::Socket::SSL < ::Mongo::Socket
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:187
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:192
   def readbyte; end
 
   private
+
+  # Creates and configures a TCP socket for a driver-initiated connection.
+  #
+  # @param [ Integer ] family The socket family.
+  #
+  # @return [ ::Socket ] The configured, unconnected socket.
+  #
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:206
+  def build_tcp_socket(family); end
 
   # Establishes a socket connection.
   #
@@ -35696,10 +36030,10 @@ class Mongo::Socket::SSL < ::Mongo::Socket
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:143
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:148
   def connect!; end
 
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:221
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:245
   def connect_tcp_socket_with_timeout(sockaddr, deadline, connect_timeout); end
 
   # Connects the socket with the connect timeout. The timeout applies to
@@ -35707,81 +36041,81 @@ class Mongo::Socket::SSL < ::Mongo::Socket
   #
   # @param [ String ] sockaddr Address to connect to.
   #
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:211
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:235
   def connect_with_timeout(sockaddr, connect_timeout); end
 
   # Connects the socket without a timeout provided.
   #
   # @param [ String ] sockaddr Address to connect to.
   #
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:199
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:223
   def connect_without_timeout(sockaddr); end
 
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:238
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:264
   def connnect_ssl_socket_with_timeout(deadline, connect_timeout); end
 
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:312
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:338
   def create_context(options); end
 
   # This was originally a scan + regex, but the regex was particularly
   # inefficient and was flagged as a concern by static analysis.
   #
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:496
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:522
   def extract_certs(text); end
 
   # Find the issuer certificate in the chain.
   #
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:513
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:539
   def find_issuer(cert, cert_chain); end
 
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:481
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:507
   def human_address; end
 
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:414
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:440
   def load_private_key(text, passphrase); end
 
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:475
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:501
   def read_buffer_size; end
 
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:485
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:511
   def run_tls_context_hooks; end
 
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:355
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:381
   def set_cert(context, options); end
 
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:433
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:459
   def set_cert_verification(context, options); end
 
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:403
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:429
   def set_key(context, options); end
 
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:452
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:478
   def verify_certificate!(socket); end
 
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:280
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:306
   def verify_certificate?; end
 
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:291
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:317
   def verify_hostname?; end
 
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:459
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:485
   def verify_ocsp_endpoint!(socket, timeout = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:302
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:328
   def verify_ocsp_endpoint?; end
 
   # Raises +Error::SocketTimeoutError+ exception if deadline reached or the
   # block returns nil. The block should call +IO.select+ with the
   # +connect_timeout+ value. It returns nil if the +connect_timeout+ expires.
   #
-  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:268
+  # pkg:gem/mongo#lib/mongo/socket/ssl.rb:294
   def with_select_timeout(deadline, connect_timeout); end
 end
 
-# pkg:gem/mongo#lib/mongo/socket/ssl.rb:491
+# pkg:gem/mongo#lib/mongo/socket/ssl.rb:517
 Mongo::Socket::SSL::BEGIN_CERT = T.let(T.unsafe(nil), String)
 
-# pkg:gem/mongo#lib/mongo/socket/ssl.rb:492
+# pkg:gem/mongo#lib/mongo/socket/ssl.rb:518
 Mongo::Socket::SSL::END_CERT = T.let(T.unsafe(nil), String)
 
 # Error message for TLS related exceptions.
@@ -36010,7 +36344,7 @@ class Mongo::Srv::Resolver
   # @option opts [ Hash ] :resolv_options For internal driver use only.
   #   Options to pass through to Resolv::DNS constructor for SRV lookups.
   #
-  # pkg:gem/mongo#lib/mongo/srv/resolver.rb:49
+  # pkg:gem/mongo#lib/mongo/srv/resolver.rb:66
   def initialize(**opts); end
 
   # Obtains all of the SRV records for a given hostname. If a srv_max_hosts
@@ -36034,7 +36368,7 @@ class Mongo::Srv::Resolver
   #
   # @return [ Mongo::Srv::Result ] SRV lookup result.
   #
-  # pkg:gem/mongo#lib/mongo/srv/resolver.rb:82
+  # pkg:gem/mongo#lib/mongo/srv/resolver.rb:99
   def get_records(hostname, srv_service_name = T.unsafe(nil), srv_max_hosts = T.unsafe(nil)); end
 
   # Obtains the TXT records of a host.
@@ -36046,12 +36380,12 @@ class Mongo::Srv::Resolver
   #
   # @raise [ Mongo::Error::InvalidTXTRecord ] If more than one TXT record is found.
   #
-  # pkg:gem/mongo#lib/mongo/srv/resolver.rb:125
+  # pkg:gem/mongo#lib/mongo/srv/resolver.rb:141
   def get_txt_options_string(hostname); end
 
   # @return [ Hash ] Resolver options.
   #
-  # pkg:gem/mongo#lib/mongo/srv/resolver.rb:56
+  # pkg:gem/mongo#lib/mongo/srv/resolver.rb:73
   def options; end
 
   # Generates the record prefix with a custom SRV service name if it is
@@ -36061,22 +36395,50 @@ class Mongo::Srv::Resolver
   #   in the record prefix.
   # @return [ String ] The generated record prefix.
   #
-  # pkg:gem/mongo#lib/mongo/srv/resolver.rb:36
+  # pkg:gem/mongo#lib/mongo/srv/resolver.rb:53
   def record_prefix(srv_service_name = T.unsafe(nil)); end
 
-  # pkg:gem/mongo#lib/mongo/srv/resolver.rb:58
+  # pkg:gem/mongo#lib/mongo/srv/resolver.rb:75
   def timeout; end
 
   private
+
+  # Performs a DNS query, replacing any resolver error with a fixed
+  # message. Resolver error messages quote the query name, and the cause
+  # chain would quote it again, so both are dropped. The exception class
+  # is preserved so callers can still distinguish timeouts from other
+  # failures.
+  #
+  # @param [ String ] query_name The name to query.
+  # @param [ Class ] resource_class The record type.
+  #
+  # @return [ Array<Resolv::DNS::Resource> ] The records.
+  #
+  # pkg:gem/mongo#lib/mongo/srv/resolver.rb:166
+  def get_resources(query_name, resource_class); end
 
   # Checks whether an error should be raised due to either a record with
   # a mismatched domain being found or no records being found.
   #
   # @return [ Boolean ] Whether an error should be raised.
   #
-  # pkg:gem/mongo#lib/mongo/srv/resolver.rb:144
+  # pkg:gem/mongo#lib/mongo/srv/resolver.rb:176
   def raise_on_invalid?; end
 end
+
+# @return [ Array<Class> ] DNS_ERRORS Errors raised by the DNS resolver
+#   whose messages may quote the query name.
+#
+# pkg:gem/mongo#lib/mongo/srv/resolver.rb:38
+Mongo::Srv::Resolver::DNS_ERRORS = T.let(T.unsafe(nil), Array)
+
+# @return [ String ] DNS_QUERY_FAILED Error message used when the DNS
+#   resolver raises an error. Resolver error messages quote the query
+#   name, which for a malformed connection string may contain part of a
+#   credential, so they are replaced with this fixed message.
+#
+# pkg:gem/mongo#lib/mongo/srv/resolver.rb:34
+Mongo::Srv::Resolver::DNS_QUERY_FAILED = T.let(T.unsafe(nil), String)
 
 # @return [ String ] RECORD_PREFIX The prefix prepended to each hostname
 #   before querying SRV records.
@@ -36099,44 +36461,44 @@ class Mongo::Srv::Result
   #
   # @param [ String ] hostname The hostname pointing to the DNS records.
   #
-  # pkg:gem/mongo#lib/mongo/srv/result.rb:47
+  # pkg:gem/mongo#lib/mongo/srv/result.rb:49
   def initialize(hostname); end
 
   # Adds a new record.
   #
   # @param [ Resolv::DNS::Resource ] record An SRV record found for the hostname.
   #
-  # pkg:gem/mongo#lib/mongo/srv/result.rb:63
+  # pkg:gem/mongo#lib/mongo/srv/result.rb:65
   def add_record(record); end
 
   # @return [ Array<String> ] address_strs The host strings of the SRV records
   #   for the query hostname.
   #
-  # pkg:gem/mongo#lib/mongo/srv/result.rb:38
+  # pkg:gem/mongo#lib/mongo/srv/result.rb:40
   def address_strs; end
 
   # Checks whether there are any records.
   #
   # @return [ Boolean ] Whether or not there are any records.
   #
-  # pkg:gem/mongo#lib/mongo/srv/result.rb:56
+  # pkg:gem/mongo#lib/mongo/srv/result.rb:58
   def empty?; end
 
   # @return [ Integer | nil ] min_ttl The smallest TTL found among the
   #   records (or nil if no records have been added).
   #
-  # pkg:gem/mongo#lib/mongo/srv/result.rb:42
+  # pkg:gem/mongo#lib/mongo/srv/result.rb:44
   def min_ttl; end
 
   # @return [ Integer | nil ] min_ttl The smallest TTL found among the
   #   records (or nil if no records have been added).
   #
-  # pkg:gem/mongo#lib/mongo/srv/result.rb:42
+  # pkg:gem/mongo#lib/mongo/srv/result.rb:44
   def min_ttl=(_arg0); end
 
   # @return [ String ] query_hostname The hostname pointing to the DNS records.
   #
-  # pkg:gem/mongo#lib/mongo/srv/result.rb:34
+  # pkg:gem/mongo#lib/mongo/srv/result.rb:36
   def query_hostname; end
 
   private
@@ -36153,7 +36515,7 @@ class Mongo::Srv::Result
   #
   # @param [ String ] host Hostname to transform.
   #
-  # pkg:gem/mongo#lib/mongo/srv/result.rb:98
+  # pkg:gem/mongo#lib/mongo/srv/result.rb:100
   def normalize_hostname(host); end
 
   # Ensures that a record's domain name matches that of the hostname.
@@ -36169,14 +36531,16 @@ class Mongo::Srv::Result
   # @raise [ Mongo::Error::MismatchedDomain ] If the record's domain name doesn't match that of
   #   the hostname.
   #
-  # pkg:gem/mongo#lib/mongo/srv/result.rb:116
+  # pkg:gem/mongo#lib/mongo/srv/result.rb:118
   def validate_same_origin!(record_host); end
 end
 
-# @return [ String ] MISMATCHED_DOMAINNAME Error message format string indicating that an SRV
-#   record found does not match the domain of a hostname.
+# @return [ String ] MISMATCHED_DOMAINNAME Error message indicating that an SRV
+#   record found does not match the domain of a hostname. The names are not
+#   included: during initial parsing the hostname may contain text the user
+#   intended as part of a credential.
 #
-# pkg:gem/mongo#lib/mongo/srv/result.rb:30
+# pkg:gem/mongo#lib/mongo/srv/result.rb:32
 Mongo::Srv::Result::MISMATCHED_DOMAINNAME = T.let(T.unsafe(nil), String)
 
 # @api private
@@ -36581,11 +36945,8 @@ class Mongo::Tracing::OpenTelemetry::OperationTracer
   # @param parent_tracer [ Mongo::Tracing::OpenTelemetry::Tracer ] the parent tracer
   #   for accessing shared context maps.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:37
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:36
   def initialize(otel_tracer, parent_tracer); end
-
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:26
-  def cursor_context_map(*, **, &); end
 
   # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:26
   def parent_context_for(*, **, &); end
@@ -36605,7 +36966,7 @@ class Mongo::Tracing::OpenTelemetry::OperationTracer
   #
   # @return [ Object ] the result of the operation.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:58
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:57
   def trace_operation(operation, operation_context, op_name: T.unsafe(nil), &block); end
 
   # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:26
@@ -36622,7 +36983,7 @@ class Mongo::Tracing::OpenTelemetry::OperationTracer
   #
   # @return [ Symbol | nil ] the collection key symbol or nil.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:234
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:223
   def collection_key_for_operation(operation); end
 
   # Extracts the collection name from the operation.
@@ -36631,7 +36992,7 @@ class Mongo::Tracing::OpenTelemetry::OperationTracer
   #
   # @return [ String | nil ] the collection name, or nil if not applicable.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:206
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:195
   def collection_name(operation); end
 
   # Creates an OpenTelemetry span for the operation.
@@ -36642,7 +37003,7 @@ class Mongo::Tracing::OpenTelemetry::OperationTracer
   #
   # @return [ OpenTelemetry::Trace::Span ] the created span.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:102
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:101
   def create_operation_span(operation, operation_context, op_name); end
 
   # Executes the operation block within the span context.
@@ -36655,7 +37016,7 @@ class Mongo::Tracing::OpenTelemetry::OperationTracer
   #
   # @return [ Object ] the result of the block.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:121
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:120
   def execute_with_span(span, operation, recording); end
 
   # Extracts collection name from operation spec based on operation type.
@@ -36664,7 +37025,7 @@ class Mongo::Tracing::OpenTelemetry::OperationTracer
   #
   # @return [ String | nil ] the collection name, or nil if not found.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:217
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:206
   def extract_collection_from_spec(operation); end
 
   # Handles exception for the span.
@@ -36672,7 +37033,7 @@ class Mongo::Tracing::OpenTelemetry::OperationTracer
   # @param span [ OpenTelemetry::Trace::Span ] the span.
   # @param exception [ Exception ] the exception.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:133
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:132
   def handle_span_exception(span, exception); end
 
   # Returns the operation name from the provided name or operation class.
@@ -36685,7 +37046,7 @@ class Mongo::Tracing::OpenTelemetry::OperationTracer
   #
   # @return [ String ] the operation name in lowercase.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:149
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:148
   def operation_name(operation, op_name = T.unsafe(nil)); end
 
   # Generates the span name for the operation.
@@ -36695,22 +37056,18 @@ class Mongo::Tracing::OpenTelemetry::OperationTracer
   #
   # @return [ String ] span name in format "operation_name db.collection" or "operation_name db".
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:251
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:240
   def operation_span_name(operation, op_name = T.unsafe(nil)); end
 
-  # Processes cursor context after operation execution.
-  #
-  # Updates the cursor context map based on the result. Removes closed cursors
-  # and stores context for newly created cursors.
+  # Records the id of a cursor the operation opened.
   #
   # @param result [ Object ] the operation result.
   # @param cursor_id [ Integer | nil ] the cursor ID before the operation.
-  # @param context [ OpenTelemetry::Context ] the OpenTelemetry context.
   # @param span [ OpenTelemetry::Trace::Span ] the current span.
   # @param recording [ true | false ] whether the span is recording.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:188
-  def process_cursor_context(result, cursor_id, context, span, recording); end
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:183
+  def record_cursor_id(result, cursor_id, span, recording); end
 
   # Builds the attributes passed at span creation. The cursor id is set
   # by trace_with_span once the span is known to record.
@@ -36723,7 +37080,7 @@ class Mongo::Tracing::OpenTelemetry::OperationTracer
   #
   # @return [ Hash ] OpenTelemetry span attributes following MongoDB semantic conventions.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:168
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:167
   def span_attributes(operation, op_name); end
 
   # Runs the operation with the span made current, and finishes the span.
@@ -36736,7 +37093,7 @@ class Mongo::Tracing::OpenTelemetry::OperationTracer
   #
   # @return [ Object ] the result of the operation.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:81
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/operation_tracer.rb:80
   def trace_with_span(span, operation, &block); end
 end
 
@@ -36762,23 +37119,6 @@ class Mongo::Tracing::OpenTelemetry::Tracer
   # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/tracer.rb:42
   def initialize(enabled: T.unsafe(nil), query_text_max_length: T.unsafe(nil), otel_tracer: T.unsafe(nil)); end
 
-  # Returns the cursor context map for tracking cursor-related OpenTelemetry contexts.
-  #
-  # @return [ Hash ] map of cursor IDs to OpenTelemetry contexts.
-  #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/tracer.rb:145
-  def cursor_context_map; end
-
-  # Generates a unique key for cursor tracking in the context map.
-  #
-  # @param session [ Mongo::Session ] the session associated with the cursor.
-  # @param cursor_id [ Integer ] the cursor ID.
-  #
-  # @return [ String | nil ] unique key combining session ID and cursor ID, or nil if either is nil.
-  #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/tracer.rb:155
-  def cursor_map_key(session, cursor_id); end
-
   # Whether OpenTelemetry is enabled or not.
   #
   # @return [Boolean] true if OpenTelemetry is enabled, false otherwise.
@@ -36803,16 +37143,16 @@ class Mongo::Tracing::OpenTelemetry::Tracer
 
   # Determines the parent OpenTelemetry context for an operation.
   #
-  # Returns the transaction context if the operation is part of a transaction,
-  # otherwise returns nil. Cursor-based context nesting is not currently implemented.
+  # Returns the transaction context if the operation is part of a
+  # transaction, otherwise nil. Cursor-based context nesting is not
+  # implemented.
   #
   # @param operation_context [ Mongo::Operation::Context ] the operation context.
-  # @param cursor_id [ Integer ] the cursor ID, if applicable.
   #
   # @return [ OpenTelemetry::Context | nil ] parent context or nil.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/tracer.rb:170
-  def parent_context_for(operation_context, cursor_id); end
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/tracer.rb:151
+  def parent_context_for(operation_context); end
 
   # Start a transaction span and activate its context.
   #
@@ -36847,7 +37187,7 @@ class Mongo::Tracing::OpenTelemetry::Tracer
   #
   # @return [ Hash ] map of transaction keys to OpenTelemetry contexts.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/tracer.rb:182
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/tracer.rb:159
   def transaction_context_map; end
 
   # Generates a unique key for transaction tracking.
@@ -36861,29 +37201,29 @@ class Mongo::Tracing::OpenTelemetry::Tracer
   #
   # @return [ String | nil ] unique key combining session ID and transaction number, or nil.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/tracer.rb:210
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/tracer.rb:187
   def transaction_map_key(session); end
 
   # Returns the transaction span map for tracking active transaction spans.
   #
   # @return [ Hash ] map of transaction keys to OpenTelemetry spans.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/tracer.rb:189
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/tracer.rb:166
   def transaction_span_map; end
 
   # Returns the transaction token map for tracking context attachment tokens.
   #
   # @return [ Hash ] map of transaction keys to OpenTelemetry context tokens.
   #
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/tracer.rb:196
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/tracer.rb:173
   def transaction_token_map; end
 
   private
 
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/tracer.rb:224
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/tracer.rb:201
   def check_opentelemetry_loaded; end
 
-  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/tracer.rb:234
+  # pkg:gem/mongo#lib/mongo/tracing/open_telemetry/tracer.rb:211
   def initialize_tracer; end
 end
 
@@ -36919,8 +37259,22 @@ class Mongo::URI
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/uri.rb:313
+  # pkg:gem/mongo#lib/mongo/uri.rb:320
   def initialize(string, options = T.unsafe(nil)); end
+
+  # Return the redacted URI for ActiveSupport's JSON encoding.
+  #
+  # ActiveSupport calls this method when encoding the URI (directly or as a
+  # value in a Hash or Array). The result is built from the parsed
+  # components and contains the credentials and sensitive option arguments
+  # as redaction markers.
+  #
+  # @param [ Hash | nil ] _options The ActiveSupport options.
+  #
+  # @return [ String ] The redacted URI.
+  #
+  # pkg:gem/mongo#lib/mongo/uri.rb:423
+  def as_json(_options = T.unsafe(nil)); end
 
   # Gets the options hash that needs to be passed to a Mongo::Client on
   # instantiation, so we don't have to merge the credentials and database in
@@ -36933,7 +37287,7 @@ class Mongo::URI
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/uri.rb:288
+  # pkg:gem/mongo#lib/mongo/uri.rb:293
   def client_options; end
 
   # Get the credentials provided in the URI.
@@ -36947,7 +37301,7 @@ class Mongo::URI
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/uri.rb:338
+  # pkg:gem/mongo#lib/mongo/uri.rb:345
   def credentials; end
 
   # Get the database provided in the URI.
@@ -36959,8 +37313,27 @@ class Mongo::URI
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/uri.rb:350
+  # pkg:gem/mongo#lib/mongo/uri.rb:377
   def database; end
+
+  # Serialize the URI in a redacted form.
+  #
+  # Serialized URIs are redacted representations and are intentionally not
+  # restored as usable connection configurations: methods that would expose
+  # or use credentials and connection options raise {Error::InvalidURI}.
+  # The redacted string is still available through {#to_s} and {#inspect}.
+  #
+  # @param [ Psych::Coder ] coder The YAML coder.
+  #
+  # pkg:gem/mongo#lib/mongo/uri.rb:435
+  def encode_with(coder); end
+
+  # Initialize a redacted URI from YAML.
+  #
+  # @param [ Psych::Coder ] coder The YAML coder.
+  #
+  # pkg:gem/mongo#lib/mongo/uri.rb:443
+  def init_with(coder); end
 
   # Return a redacted, human-readable representation of the URI. The
   # default {Object#inspect} would dump {@string} and {@password} as
@@ -36968,8 +37341,22 @@ class Mongo::URI
   #
   # @return [ String ] The redacted inspect string.
   #
-  # pkg:gem/mongo#lib/mongo/uri.rb:373
+  # pkg:gem/mongo#lib/mongo/uri.rb:409
   def inspect; end
+
+  # Dump the URI for Marshal in a redacted form.
+  #
+  # @return [ Hash ] The serialized representation.
+  #
+  # pkg:gem/mongo#lib/mongo/uri.rb:450
+  def marshal_dump; end
+
+  # Load a redacted URI from Marshal.
+  #
+  # @param [ Hash ] hash The serialized representation.
+  #
+  # pkg:gem/mongo#lib/mongo/uri.rb:457
+  def marshal_load(hash); end
 
   # The uri parser object options.
   #
@@ -36978,81 +37365,111 @@ class Mongo::URI
   # pkg:gem/mongo#lib/mongo/uri.rb:37
   def options; end
 
-  # The servers specified in the uri.
+  # Get the servers provided in the URI.
   #
-  # @since 2.0.0
+  # @return [ Array<String> ] The servers.
   #
-  # pkg:gem/mongo#lib/mongo/uri.rb:47
+  # pkg:gem/mongo#lib/mongo/uri.rb:354
   def servers; end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:296
+  # pkg:gem/mongo#lib/mongo/uri.rb:303
   def srv_records; end
 
-  # Get the uri as a string with any credentials redacted.
+  # Get the uri as a string with credentials and sensitive option arguments
+  # redacted.
   #
-  # Credentials are replaced with {CREDENTIALS_PLACEHOLDER} so the result is
-  # safe to log or display. Use {#credentials} to recover the original user
-  # and password.
+  # Every sensitive value, including the arguments of
+  # {SENSITIVE_URI_OPTIONS}, is replaced with the same
+  # {CREDENTIALS_PLACEHOLDER} marker, so the result is safe to log or
+  # display. The representation is built from the parsed components. Use
+  # {#credentials} and {#uri_options} to obtain the real values.
   #
   # @example Get the uri as a string.
   #   uri.to_s
   #
   # @return [ String ] The redacted uri string.
   #
-  # pkg:gem/mongo#lib/mongo/uri.rb:364
+  # pkg:gem/mongo#lib/mongo/uri.rb:396
   def to_s; end
 
-  # Mongo::Options::Redacted of the options specified in the uri.
+  # Get the URI options.
   #
-  # @since 2.1.0
+  # @return [ Mongo::Options::Redacted ] The URI options.
   #
-  # pkg:gem/mongo#lib/mongo/uri.rb:42
+  # pkg:gem/mongo#lib/mongo/uri.rb:363
   def uri_options; end
 
   private
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:493
+  # pkg:gem/mongo#lib/mongo/uri.rb:623
   def decode(value); end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:497
+  # pkg:gem/mongo#lib/mongo/uri.rb:627
   def encode(value); end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:440
+  # Raises when a redacted serialized URI is used as a connection
+  # configuration.
+  #
+  # pkg:gem/mongo#lib/mongo/uri.rb:479
+  def ensure_not_redacted_serialization!; end
+
+  # Sets the state of a URI restored from a serialized representation.
+  #
+  # @param [ String | nil ] redacted_uri The redacted URI string.
+  #
+  # pkg:gem/mongo#lib/mongo/uri.rb:466
+  def initialize_redacted_serialization(redacted_uri); end
+
+  # Builds a diagnostic for an option that has no value. Only a canonical
+  # name of a key the driver knows may appear: an unknown key can contain
+  # text the user intended as a credential.
+  #
+  # pkg:gem/mongo#lib/mongo/uri.rb:583
+  def option_without_value_message(key); end
+
+  # pkg:gem/mongo#lib/mongo/uri.rb:551
   def options_mapper; end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:408
+  # pkg:gem/mongo#lib/mongo/uri.rb:519
   def parse!(remaining); end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:480
+  # pkg:gem/mongo#lib/mongo/uri.rb:610
   def parse_database!(string); end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:471
+  # pkg:gem/mongo#lib/mongo/uri.rb:601
   def parse_password!(string); end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:446
+  # pkg:gem/mongo#lib/mongo/uri.rb:557
   def parse_uri_options!(string); end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:462
+  # pkg:gem/mongo#lib/mongo/uri.rb:592
   def parse_user!(string); end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:485
+  # pkg:gem/mongo#lib/mongo/uri.rb:615
   def raise_invalid_error!(details); end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:489
+  # pkg:gem/mongo#lib/mongo/uri.rb:619
   def raise_invalid_error_no_fmt!(details); end
 
-  # Reconstruct the URI from its parts with credentials redacted. Invalid
-  # options are dropped and options are converted to camelCase.
+  # Reconstruct the URI from its parts with credentials and sensitive option
+  # arguments redacted. Invalid options are dropped and options are converted
+  # to camelCase.
   #
   # @return [ String ] the uri.
   #
-  # pkg:gem/mongo#lib/mongo/uri.rb:383
+  # pkg:gem/mongo#lib/mongo/uri.rb:493
   def reconstruct_uri; end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:404
+  # @return [ true | false ] Whether this object was restored from a
+  #   redacted serialized representation.
+  #
+  # pkg:gem/mongo#lib/mongo/uri.rb:473
+  def redacted_serialization?; end
+
+  # pkg:gem/mongo#lib/mongo/uri.rb:515
   def scheme; end
 
-  # pkg:gem/mongo#lib/mongo/uri.rb:501
+  # pkg:gem/mongo#lib/mongo/uri.rb:631
   def validate_uri_options!; end
 
   class << self
@@ -37070,15 +37487,19 @@ class Mongo::URI
     #
     # @since 2.5.0
     #
-    # pkg:gem/mongo#lib/mongo/uri.rb:262
+    # pkg:gem/mongo#lib/mongo/uri.rb:268
     def get(string, opts = T.unsafe(nil)); end
 
     # Replace the userinfo portion of a MongoDB connection string with a
-    # placeholder so the result can safely be logged, displayed, or embedded
-    # in an exception message.
+    # placeholder so the result can be logged, displayed, or embedded in an
+    # exception message.
     #
-    # The input is matched as a string, not parsed, so this is safe to call
-    # on malformed URIs (which is exactly when {InvalidURI} is raised).
+    # The input is matched as a string, not parsed. It is a best-effort
+    # helper for strings that are already known to be well-formed; it must not
+    # be used to make a parse failure safe, because a string the parser
+    # rejected may not have delimited its credentials with '@'. Diagnostics
+    # for parse failures must not include any part of the input; see
+    # {InvalidURI}.
     #
     # @param [ String ] string The raw URI string.
     #
@@ -37086,7 +37507,7 @@ class Mongo::URI
     #   {CREDENTIALS_PLACEHOLDER}, or the input unchanged if it is not a
     #   string or has no userinfo.
     #
-    # pkg:gem/mongo#lib/mongo/uri.rb:243
+    # pkg:gem/mongo#lib/mongo/uri.rb:249
     def redact(string); end
   end
 end
@@ -37095,62 +37516,64 @@ end
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:137
+# pkg:gem/mongo#lib/mongo/uri.rb:127
 Mongo::URI::AUTH_DELIM = T.let(T.unsafe(nil), String)
 
 # Map of URI authentication mechanisms to Ruby driver mechanisms
 #
 # @since 2.0.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:207
+# pkg:gem/mongo#lib/mongo/uri.rb:209
 Mongo::URI::AUTH_MECH_MAP = T.let(T.unsafe(nil), Hash)
 
 # The character separating a username from the password.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:132
+# pkg:gem/mongo#lib/mongo/uri.rb:122
 Mongo::URI::AUTH_USER_PWD_DELIM = T.let(T.unsafe(nil), String)
 
-# Placeholder used in place of cleartext credentials when a URI is
-# rendered for display, logging, or error reporting.
+# Placeholder used in place of cleartext credentials and sensitive URI
+# option arguments when a URI is rendered for display, logging, or error
+# reporting. The same marker is used for every sensitive value in a
+# representation, as required by the connection string specification.
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:146
+# pkg:gem/mongo#lib/mongo/uri.rb:138
 Mongo::URI::CREDENTIALS_PLACEHOLDER = T.let(T.unsafe(nil), String)
 
 # The character delimiting a database.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:111
+# pkg:gem/mongo#lib/mongo/uri.rb:101
 Mongo::URI::DATABASE_DELIM = T.let(T.unsafe(nil), String)
 
 # MongoDB URI format specification.
 #
 # @since 2.0.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:75
+# pkg:gem/mongo#lib/mongo/uri.rb:65
 Mongo::URI::FORMAT = T.let(T.unsafe(nil), String)
 
 # MongoDB URI (connection string) documentation url
 #
 # @since 2.0.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:81
+# pkg:gem/mongo#lib/mongo/uri.rb:71
 Mongo::URI::HELP = T.let(T.unsafe(nil), String)
 
 # The character delimiting hosts.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:101
+# pkg:gem/mongo#lib/mongo/uri.rb:91
 Mongo::URI::HOST_DELIM = T.let(T.unsafe(nil), String)
 
 # The character separating a host and port.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:106
+# pkg:gem/mongo#lib/mongo/uri.rb:96
 Mongo::URI::HOST_PORT_DELIM = T.let(T.unsafe(nil), String)
 
 # The character delimiting multiple options.
@@ -37158,35 +37581,35 @@ Mongo::URI::HOST_PORT_DELIM = T.let(T.unsafe(nil), String)
 # @since 2.1.0
 # @deprecated
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:122
+# pkg:gem/mongo#lib/mongo/uri.rb:112
 Mongo::URI::INDIV_URI_OPTS_DELIM = T.let(T.unsafe(nil), String)
 
 # Error details for a missing host.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:186
+# pkg:gem/mongo#lib/mongo/uri.rb:188
 Mongo::URI::INVALID_HOST = T.let(T.unsafe(nil), String)
 
 # Error details for providing options without a database delimiter.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:181
+# pkg:gem/mongo#lib/mongo/uri.rb:183
 Mongo::URI::INVALID_OPTS_DELIM = T.let(T.unsafe(nil), String)
 
 # Error details for an invalid options format.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:160
+# pkg:gem/mongo#lib/mongo/uri.rb:162
 Mongo::URI::INVALID_OPTS_VALUE_DELIM = T.let(T.unsafe(nil), String)
 
 # Error details for an invalid port.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:191
+# pkg:gem/mongo#lib/mongo/uri.rb:193
 Mongo::URI::INVALID_PORT = T.let(T.unsafe(nil), String)
 
 # Error details for an invalid scheme.
@@ -37194,21 +37617,21 @@ Mongo::URI::INVALID_PORT = T.let(T.unsafe(nil), String)
 # @since 2.1.0
 # @deprecated
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:70
+# pkg:gem/mongo#lib/mongo/uri.rb:60
 Mongo::URI::INVALID_SCHEME = T.let(T.unsafe(nil), String)
 
 # The mongodb connection string scheme root.
 #
 # @since 2.5.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:59
+# pkg:gem/mongo#lib/mongo/uri.rb:49
 Mongo::URI::MONGODB_SCHEME = T.let(T.unsafe(nil), String)
 
 # The mongodb srv protocol connection string scheme root.
 #
 # @since 2.5.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:64
+# pkg:gem/mongo#lib/mongo/uri.rb:54
 Mongo::URI::MONGODB_SRV_SCHEME = T.let(T.unsafe(nil), String)
 
 # Performs mapping between URI options and Ruby options.
@@ -37250,9 +37673,12 @@ class Mongo::URI::OptionsMapper
   # @param [ String ] key URI option name.
   # @param [ String ] value The value of the option.
   # @param [ Hash ] uri_options The base option target.
+  # @param [ Integer | nil ] offset Position of the option within the
+  #   connection options segment, if known. Used to make warnings about
+  #   unknown options actionable without quoting the key.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:59
-  def add_uri_option(key, value, uri_options); end
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:62
+  def add_uri_option(key, value, uri_options, offset: T.unsafe(nil)); end
 
   # @return [ Hash ] The options.
   #
@@ -37265,7 +37691,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Hash ] Standardized MongoClient options.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:117
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:122
   def ruby_to_smc(opts); end
 
   # Converts Ruby options provided to their representation in a URI string.
@@ -37274,10 +37700,10 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Hash ] URI string hash.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:155
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:160
   def ruby_to_string(opts); end
 
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:83
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:87
   def smc_to_ruby(opts); end
 
   private
@@ -37289,7 +37715,7 @@ class Mongo::URI::OptionsMapper
   # @param [ String ] value The value to be transformed.
   # @param [ Symbol ] type The transform method.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:218
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:223
   def apply_transform(key, value, type); end
 
   # Extract values from the string and put them into an array.
@@ -37299,7 +37725,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Array<String> ] The array built from the string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:548
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:570
   def convert_array(_name, value); end
 
   # Authentication mechanism transformation.
@@ -37309,8 +37735,8 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Symbol ] The transformed authentication mechanism.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:576
-  def convert_auth_mech(_name, value); end
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:598
+  def convert_auth_mech(name, value); end
 
   # Auth mechanism properties extractor.
   #
@@ -37319,7 +37745,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Hash | nil ] The auth mechanism properties hash.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:616
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:638
   def convert_auth_mech_props(_name, value); end
 
   # Converts +value+ to a boolean.
@@ -37331,7 +37757,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ true | false | nil ] Converted value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:325
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:347
   def convert_bool(name, value); end
 
   # Converts +value+ into an integer. Only converts positive integers.
@@ -37343,7 +37769,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ nil | Integer ] Converted value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:444
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:466
   def convert_integer(name, value); end
 
   # Parses a boolean value and returns its inverse.
@@ -37354,7 +37780,7 @@ class Mongo::URI::OptionsMapper
   # @return [ true | false | nil ] The inverse of the boolean value parsed out, otherwise nil
   #   (and a warning will be logged).
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:408
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:430
   def convert_inverse_bool(name, value); end
 
   # Parses the max staleness value, which must be either "0" or an integer
@@ -37366,8 +37792,8 @@ class Mongo::URI::OptionsMapper
   # @return [ Integer | nil ] The max staleness integer parsed out if it is valid, otherwise nil
   #   (and a warning will be logged).
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:654
-  def convert_max_staleness(_name, value); end
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:676
+  def convert_max_staleness(name, value); end
 
   # Ruby's convention is to provide timeouts in seconds, not milliseconds and
   # to use fractions where more precision is necessary. The connection string
@@ -37380,7 +37806,7 @@ class Mongo::URI::OptionsMapper
   #
   # @since 2.0.0
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:481
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:503
   def convert_ms(name, value); end
 
   # Read preference mode transformation.
@@ -37390,7 +37816,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Symbol | String ] The read mode.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:700
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:722
   def convert_read_mode(_name, value); end
 
   # Read preference tag set extractor.
@@ -37400,7 +37826,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Hash ] The tag set hash.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:776
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:798
   def convert_read_set(_name, value); end
 
   # Read preference tags transformation.
@@ -37410,7 +37836,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Array<Hash> | nil ] Array with tag set.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:745
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:767
   def convert_read_tags(name, value); end
 
   # Converts the value into a boolean and returns it wrapped in an array.
@@ -37426,7 +37852,7 @@ class Mongo::URI::OptionsMapper
   # @return [ Array<true | false | nil> ] The boolean value parsed and
   #   wrapped in an array.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:367
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:389
   def convert_repeated_bool(_name, value); end
 
   # Server monitoring mode transformation.
@@ -37436,8 +37862,8 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Symbol | nil ] The server monitoring mode symbol.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:720
-  def convert_server_monitoring_mode(_name, value); end
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:742
+  def convert_server_monitoring_mode(name, value); end
 
   # Converts +value+ into a symbol.
   #
@@ -37446,7 +37872,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Symbol ] Converted value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:528
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:550
   def convert_symbol(_name, value); end
 
   # Converts +value+ as a write concern.
@@ -37460,7 +37886,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Integer | Symbol | String ] Converted value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:790
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:812
   def convert_w(_name, value); end
 
   # Parses the zlib compression level.
@@ -37471,8 +37897,8 @@ class Mongo::URI::OptionsMapper
   # @return [ Integer | nil ] The compression level value if it is between -1 and 9 (inclusive),
   #   otherwise nil (and a warning will be logged).
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:831
-  def convert_zlib_compression_level(_name, value); end
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:853
+  def convert_zlib_compression_level(name, value); end
 
   # Extract values from the string and put them into a nested hash.
   #
@@ -37490,7 +37916,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Hash | nil ] The hash built from the string, or nil.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:879
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:901
   def hash_extractor(name, value, invalidate_on_error: T.unsafe(nil)); end
 
   # Merges a new option into the target.
@@ -37504,9 +37930,10 @@ class Mongo::URI::OptionsMapper
   # @param [ Hash ] target The destination.
   # @param [ Object ] value The value to be merged.
   # @param [ Symbol ] name The name of the option.
+  # @param [ String ] canonical_key The canonical URI option name.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:237
-  def merge_uri_option(target, value, name); end
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:243
+  def merge_uri_option(target, value, name, canonical_key); end
 
   # Reverts an array.
   #
@@ -37514,7 +37941,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Array<String> ] The passed value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:557
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:579
   def revert_array(value); end
 
   # Reverts auth mechanism.
@@ -37525,7 +37952,7 @@ class Mongo::URI::OptionsMapper
   #
   # @raise [ ArgumentError ] if its an invalid auth mechanism.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:590
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:612
   def revert_auth_mech(value); end
 
   # Reverts auth mechanism properties.
@@ -37534,7 +37961,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Hash | nil ] The passed value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:631
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:653
   def revert_auth_mech_props(value); end
 
   # Reverts a boolean type.
@@ -37543,7 +37970,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ true | false | nil ] The passed value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:342
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:364
   def revert_bool(value); end
 
   # Reverts an integer.
@@ -37552,7 +37979,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Integer | nil ] The passed value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:458
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:480
   def revert_integer(value); end
 
   # Reverts and inverts a boolean type.
@@ -37561,7 +37988,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ true | false | nil ] The inverted boolean.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:423
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:445
   def revert_inverse_bool(value); end
 
   # Reverts max staleness.
@@ -37570,7 +37997,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Integer | nil ] The passed value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:681
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:703
   def revert_max_staleness(value); end
 
   # Reverts an ms.
@@ -37579,7 +38006,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Integer ] The number multiplied by 1000 as an integer.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:509
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:531
   def revert_ms(value); end
 
   # Reverts read mode.
@@ -37588,7 +38015,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String ] The read mode as a string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:709
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:731
   def revert_read_mode(value); end
 
   # Reverts read tags.
@@ -37597,7 +38024,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Array<Hash> | nil ] The passed value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:757
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:779
   def revert_read_tags(value); end
 
   # Reverts a repeated boolean type.
@@ -37606,7 +38033,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Array<true | false> | true | false | nil ] The passed value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:383
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:405
   def revert_repeated_bool(value); end
 
   # Reverts a symbol.
@@ -37615,7 +38042,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String ] The passed value as a string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:537
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:559
   def revert_symbol(value); end
 
   # Reverts write concern.
@@ -37624,7 +38051,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Integer | String ] The write concern as a string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:806
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:828
   def revert_w(value); end
 
   # Reverts zlib compression level
@@ -37633,7 +38060,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Integer | nil ] The passed value.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:851
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:873
   def revert_zlib_compression_level(value); end
 
   # Stringifies an array.
@@ -37642,7 +38069,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String ] The array joined by commas.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:566
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:588
   def stringify_array(value); end
 
   # Stringifies auth mechanism.
@@ -37651,7 +38078,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String | nil ] The auth mechanism as a string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:604
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:626
   def stringify_auth_mech(value); end
 
   # Stringifies auth mechanism properties.
@@ -37660,7 +38087,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String | nil ] The string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:640
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:662
   def stringify_auth_mech_props(value); end
 
   # Stringifies a boolean type.
@@ -37669,7 +38096,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String | nil ] The string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:351
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:373
   def stringify_bool(value); end
 
   # Stringifies an integer.
@@ -37678,7 +38105,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String | nil ] The string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:467
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:489
   def stringify_integer(value); end
 
   # Inverts and stringifies a boolean.
@@ -37687,7 +38114,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String | nil ] The string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:432
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:454
   def stringify_inverse_bool(value); end
 
   # Stringifies max staleness.
@@ -37696,7 +38123,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String | nil ] The string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:690
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:712
   def stringify_max_staleness(value); end
 
   # Stringifies an ms.
@@ -37705,10 +38132,10 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String ] The string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:518
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:540
   def stringify_ms(value); end
 
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:712
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:734
   def stringify_read_mode(value); end
 
   # Stringifies read tags.
@@ -37717,7 +38144,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String | nil ] The joined string of read tags.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:766
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:788
   def stringify_read_tags(value); end
 
   # Stringifies a repeated boolean type.
@@ -37726,7 +38153,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ Array<true | false> | nil ] The string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:392
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:414
   def stringify_repeated_bool(value); end
 
   # Stringifies server monitoring mode.
@@ -37735,10 +38162,10 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String ] The server monitoring mode as a string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:735
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:757
   def stringify_server_monitoring_mode(value); end
 
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:540
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:562
   def stringify_symbol(value); end
 
   # Stringifies write concern.
@@ -37747,7 +38174,7 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String ] The write concern as a string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:820
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:842
   def stringify_w(value); end
 
   # Stringifies zlib compression level
@@ -37756,8 +38183,20 @@ class Mongo::URI::OptionsMapper
   #
   # @return [ String | nil ] The string.
   #
-  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:860
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:882
   def stringify_zlib_compression_level(value); end
+
+  # Builds a warning about an option the driver does not know. The key
+  # itself is not included: it comes from the connection string and may
+  # contain text the user intended as a credential.
+  #
+  # @param [ Integer | nil ] offset Position of the option within the
+  #   connection options segment, if known.
+  #
+  # @return [ String ] The warning message.
+  #
+  # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:263
+  def unsupported_option_message(offset = T.unsafe(nil)); end
 
   class << self
     # Simple internal dsl to register a MongoDB URI option in the URI_OPTION_MAP.
@@ -37769,7 +38208,7 @@ class Mongo::URI::OptionsMapper
     #   * :type [ Symbol ] Name of function to transform value.
     # @api private
     #
-    # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:205
+    # pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:210
     def uri_option(uri_key, name, **extra); end
   end
 end
@@ -37778,27 +38217,27 @@ end
 #   option names.
 # @api private
 #
-# pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:195
+# pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:200
 Mongo::URI::OptionsMapper::URI_OPTION_CANONICAL_NAMES = T.let(T.unsafe(nil), Hash)
 
 # Hash for storing map of URI option parameters to conversion strategies
 # @api private
 #
-# pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:190
+# pkg:gem/mongo#lib/mongo/uri/options_mapper.rb:195
 Mongo::URI::OptionsMapper::URI_OPTION_MAP = T.let(T.unsafe(nil), Hash)
 
 # Percent sign that must be encoded in user creds.
 #
 # @since 2.5.1
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:91
+# pkg:gem/mongo#lib/mongo/uri.rb:81
 Mongo::URI::PERCENT_CHAR = T.let(T.unsafe(nil), Regexp)
 
 # Map of URI read preference modes to Ruby driver read preference modes
 #
 # @since 2.0.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:196
+# pkg:gem/mongo#lib/mongo/uri.rb:198
 Mongo::URI::READ_MODE_MAP = T.let(T.unsafe(nil), Hash)
 
 # Options that are allowed to appear more than once in the uri.
@@ -37810,7 +38249,7 @@ Mongo::URI::READ_MODE_MAP = T.let(T.unsafe(nil), Hash)
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:229
+# pkg:gem/mongo#lib/mongo/uri.rb:231
 Mongo::URI::REPEATABLE_OPTIONS = T.let(T.unsafe(nil), Array)
 
 # The mongodb connection string scheme.
@@ -37819,19 +38258,31 @@ Mongo::URI::REPEATABLE_OPTIONS = T.let(T.unsafe(nil), Array)
 #
 # @since 2.0.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:54
+# pkg:gem/mongo#lib/mongo/uri.rb:44
 Mongo::URI::SCHEME = T.let(T.unsafe(nil), String)
 
 # Scheme delimiter.
 #
 # @since 2.5.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:142
+# pkg:gem/mongo#lib/mongo/uri.rb:132
 Mongo::URI::SCHEME_DELIM = T.let(T.unsafe(nil), String)
+
+# URI options whose values are sensitive and are replaced with
+# {CREDENTIALS_PLACEHOLDER} in string representations.
+#
+# authMechanismProperties is hidden as a whole: any of its properties may
+# carry a credential (for example the AWS session token), and the driver
+# cannot know which properties a future mechanism will treat as secret.
+#
+# @since 2.26.2
+#
+# pkg:gem/mongo#lib/mongo/uri.rb:148
+Mongo::URI::SENSITIVE_URI_OPTIONS = T.let(T.unsafe(nil), Array)
 
 # Valid values for the serverMonitoringMode URI option.
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:219
+# pkg:gem/mongo#lib/mongo/uri.rb:221
 Mongo::URI::SERVER_MONITORING_MODES = T.let(T.unsafe(nil), Array)
 
 # Parser for a URI using the mongodb+srv protocol, which specifies a DNS to query for SRV records.
@@ -37856,14 +38307,18 @@ class Mongo::URI::SRVProtocol < ::Mongo::URI
   # don't have to merge the txt record options, credentials, and database in at that point -
   # we only have a single point here.
   #
+  # The returned object is a Hash (with the same key types as before) whose
+  # string representations redact the credentials and the arguments of
+  # sensitive URI options. Accessing it returns the real values.
+  #
   # @example Get the client options.
   #   uri.client_options
   #
-  # @return [ Hash ] The options passed to the Mongo::Client
+  # @return [ Mongo::Options::RedactedHash ] The options passed to the Mongo::Client
   #
   # @since 2.5.0
   #
-  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:47
+  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:51
   def client_options; end
 
   # The hostname that is specified in the URI and used to look up
@@ -37877,7 +38332,7 @@ class Mongo::URI::SRVProtocol < ::Mongo::URI
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:68
+  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:74
   def query_hostname; end
 
   # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:35
@@ -37887,7 +38342,7 @@ class Mongo::URI::SRVProtocol < ::Mongo::URI
   #
   # @api private
   #
-  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:56
+  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:62
   def srv_result; end
 
   private
@@ -37901,7 +38356,7 @@ class Mongo::URI::SRVProtocol < ::Mongo::URI
   #
   # @raise [ Mongo::Error::InvalidTXTRecord ] If more than one TXT record is found.
   #
-  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:193
+  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:200
   def get_txt_options(hostname); end
 
   # Parses the credentials from the URI and performs DNS queries to obtain
@@ -37910,7 +38365,7 @@ class Mongo::URI::SRVProtocol < ::Mongo::URI
   # @param [ String ] remaining The portion of the URI pertaining to the
   #   authentication credentials and the hosts.
   #
-  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:138
+  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:145
   def parse!(remaining); end
 
   # Parses the TXT record options into a hash and adds the options to set of all URI options
@@ -37923,7 +38378,7 @@ class Mongo::URI::SRVProtocol < ::Mongo::URI
   # @raise [ Mongo::Error::InvalidTXTRecord ] If the TXT record does not fit the expected form
   #   or the option specified is not a valid TXT option.
   #
-  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:211
+  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:218
   def parse_txt_options!(string); end
 
   # Raises an InvalidURI error.
@@ -37932,7 +38387,7 @@ class Mongo::URI::SRVProtocol < ::Mongo::URI
   #
   # @raise [ Mongo::Error::InvalidURI ]
   #
-  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:116
+  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:123
   def raise_invalid_error!(details); end
 
   # Gets the SRV resolver used for initial URI parsing.
@@ -37942,14 +38397,14 @@ class Mongo::URI::SRVProtocol < ::Mongo::URI
   #
   # @return [ Mongo::Srv::Resolver ]
   #
-  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:126
+  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:133
   def resolver; end
 
   # Gets the MongoDB SRV URI scheme.
   #
   # @return [ String ] The MongoDB SRV URI scheme.
   #
-  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:107
+  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:114
   def scheme; end
 
   # Validates the hostname used in an SRV URI.
@@ -37961,10 +38416,10 @@ class Mongo::URI::SRVProtocol < ::Mongo::URI
   #
   # Raises Error::InvalidURI if validation fails.
   #
-  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:173
+  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:180
   def validate_srv_hostname(hostname); end
 
-  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:224
+  # pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:231
   def validate_uri_options!; end
 end
 
@@ -37973,91 +38428,92 @@ end
 #
 # @deprecated
 #
-# pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:76
+# pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:82
 Mongo::URI::SRVProtocol::DOT_PARTITION = T.let(T.unsafe(nil), String)
 
 # @return [ String ] FORMAT The expected SRV URI format.
 #
-# pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:102
+# pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:109
 Mongo::URI::SRVProtocol::FORMAT = T.let(T.unsafe(nil), String)
 
 # @return [ String ] INVALID_DOMAIN Error message format string indicating that the domain name
 #   of the hostname does not fit the expected form.
 # @deprecated
 #
-# pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:94
+# pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:100
 Mongo::URI::SRVProtocol::INVALID_DOMAIN = T.let(T.unsafe(nil), String)
 
 # @return [ String ] INVALID_HOST Error message format string indicating that the hostname in
 #   in the URI does not fit the expected form.
 #
-# pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:83
+# pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:89
 Mongo::URI::SRVProtocol::INVALID_HOST = T.let(T.unsafe(nil), String)
 
 # @return [ String ] INVALID_PORT Error message format string indicating that a port was
 #   included with an SRV hostname.
 #
-# pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:88
+# pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:94
 Mongo::URI::SRVProtocol::INVALID_PORT = T.let(T.unsafe(nil), String)
 
-# @return [ String ] NO_SRV_RECORDS Error message format string indicating that no SRV records
-#   were found.
+# @return [ String ] NO_SRV_RECORDS Error message indicating that no SRV records
+#   were found. The hostname is not included: during initial parsing it may contain text the
+#   user intended as part of a credential.
 #
-# pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:99
+# pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:106
 Mongo::URI::SRVProtocol::NO_SRV_RECORDS = T.let(T.unsafe(nil), String)
 
 # @return [ Array<String> ] VALID_TXT_OPTIONS The valid options for a TXT record to specify.
 #
-# pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:79
+# pkg:gem/mongo#lib/mongo/uri/srv_protocol.rb:85
 Mongo::URI::SRVProtocol::VALID_TXT_OPTIONS = T.let(T.unsafe(nil), Array)
 
 # Error details for a non-urlencoded auth database name.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:176
+# pkg:gem/mongo#lib/mongo/uri.rb:178
 Mongo::URI::UNESCAPED_DATABASE = T.let(T.unsafe(nil), String)
 
 # Error details for a non-urlencoded unix socket path.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:171
+# pkg:gem/mongo#lib/mongo/uri.rb:173
 Mongo::URI::UNESCAPED_UNIX_SOCKET = T.let(T.unsafe(nil), String)
 
 # Error details for an non-urlencoded user name or password.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:166
+# pkg:gem/mongo#lib/mongo/uri.rb:168
 Mongo::URI::UNESCAPED_USER_PWD = T.let(T.unsafe(nil), String)
 
 # Unix socket suffix.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:96
+# pkg:gem/mongo#lib/mongo/uri.rb:86
 Mongo::URI::UNIX_SOCKET = T.let(T.unsafe(nil), Regexp)
 
 # Unsafe characters that must be urlencoded.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:86
+# pkg:gem/mongo#lib/mongo/uri.rb:76
 Mongo::URI::UNSAFE = T.let(T.unsafe(nil), Regexp)
 
 # The character delimiting options.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:116
+# pkg:gem/mongo#lib/mongo/uri.rb:106
 Mongo::URI::URI_OPTS_DELIM = T.let(T.unsafe(nil), String)
 
 # The character delimiting an option and its value.
 #
 # @since 2.1.0
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:127
+# pkg:gem/mongo#lib/mongo/uri.rb:117
 Mongo::URI::URI_OPTS_VALUE_DELIM = T.let(T.unsafe(nil), String)
 
 # Pattern matching the userinfo portion of a MongoDB connection string.
@@ -38068,7 +38524,7 @@ Mongo::URI::URI_OPTS_VALUE_DELIM = T.let(T.unsafe(nil), String)
 # redacted too — the parser will reject it, and the redactor must not be
 # the thing that leaks the credentials in the resulting error.
 #
-# pkg:gem/mongo#lib/mongo/uri.rb:155
+# pkg:gem/mongo#lib/mongo/uri.rb:157
 Mongo::URI::USERINFO_REDACTION_REGEX = T.let(T.unsafe(nil), Regexp)
 
 # @api private
