@@ -25,7 +25,7 @@ class MusicNpBannerController < ApplicationController
 
   def lastfm
     generate_lastfm_content(params)
-  rescue LastFM::ApiError
+  rescue LastFM::ApiError, Net::OpenTimeout, Net::ReadTimeout
     @album_art = nil
   ensure
     respond_to do |format|
@@ -70,7 +70,7 @@ class MusicNpBannerController < ApplicationController
 
   def listenbrainz
     generate_listenbrainz_content(params)
-  rescue ListenBrainz::ApiError
+  rescue ListenBrainz::ApiError, Net::OpenTimeout, Net::ReadTimeout
     @album_art = nil
   ensure
     respond_to do |format|

@@ -52,7 +52,8 @@ module Subsonic
       artist_image = T.let(nil, T.nilable(T::Array[T.untyped]))
       log_tag = "Subsonic.get_artist_image".yellow
 
-      cache_key = "SUBSONIC/ARTIST/#{name.downcase.gsub(/\s/, "_")}"
+      cache_hash = Digest::MD5.hexdigest(name.downcase)
+      cache_key = "SUBSONIC/ARTIST/#{cache_hash}"
       if Rails.cache.exist? cache_key
         Rails.logger.tagged("CACHE".yellow, log_tag, cache_key.yellow) do
           Rails.logger.info("HIT".green)

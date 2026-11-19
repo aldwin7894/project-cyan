@@ -1,4 +1,4 @@
-FROM ruby:4.0.9-slim-trixie AS build-env
+FROM ruby:4.0.10-slim-trixie AS build-env
 ADD --checksum=sha256:4b735bb6ffba89e2965fa4219ec24c598b19d7ca63796ff6afaa324583333384 \
   https://deb.nodesource.com/setup_lts.x /tmp/setup_lts.x
 
@@ -57,7 +57,7 @@ RUN --mount=type=secret,id=TZ \
   && bash ./build.sh
 
 #==============================================
-FROM ruby:4.0.9-slim-trixie
+FROM ruby:4.0.10-slim-trixie
 
 ENV BUNDLE_PATH=/gems
 ENV BUNDLE_BIN="${BUNDLE_PATH}/bin"

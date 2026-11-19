@@ -180,7 +180,7 @@ class Rack::HttpStreamingResponse::StreamAborted < ::StandardError; end
 class Rack::Proxy
   # @option opts [String, URI::HTTP] :backend Backend host to proxy requests to
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:145
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:147
   def initialize(app = T.unsafe(nil), opts = T.unsafe(nil)); end
 
   # SSRF guardrail, consulted for EVERY request with the resolved backend
@@ -194,70 +194,70 @@ class Rack::Proxy
   #     %w[api.internal.example.com].include?(backend.host)
   #   end
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:230
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:232
   def backend_allowed?(backend); end
 
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:206
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:208
   def call(env); end
 
   # Return modified env
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:211
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:213
   def rewrite_env(env); end
 
   # Return a rack triplet [status, headers, body]
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:216
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:218
   def rewrite_response(triplet); end
 
   protected
 
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:236
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:238
   def perform_request(env); end
 
   private
 
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:380
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:382
   def check_response_length!(length); end
 
   # Single source of truth for TLS/timeout setup, applied to the (real
   # Net::HTTP) connection on both the streaming and non-streaming paths so a
   # TLS option — notably the VERIFY_PEER default — can never land on only one.
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:430
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:432
   def configure_backend_connection(conn, use_ssl:, read_timeout:); end
 
   # Resolve the Net::HTTP request class for an HTTP method, or nil if there is
   # no matching Net::HTTP::<Verb> (unknown/unsupported method -> 501).
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:421
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:423
   def net_http_request_class(method); end
 
   # Validate framing before dropping hop-by-hop fields or reading a body.
   # Net::HTTP dechunks responses but otherwise preserves their headers.
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:388
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:390
   def prepare_response_headers(raw_headers, code, request); end
 
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:376
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:378
   def response_body_permitted?(request, code); end
 
   class << self
-    # pkg:gem/rack-proxy#lib/rack/proxy.rb:121
+    # pkg:gem/rack-proxy#lib/rack/proxy.rb:123
     def build_header_hash(pairs); end
 
-    # pkg:gem/rack-proxy#lib/rack/proxy.rb:80
+    # pkg:gem/rack-proxy#lib/rack/proxy.rb:82
     def extract_http_request_headers(env); end
 
-    # pkg:gem/rack-proxy#lib/rack/proxy.rb:103
+    # pkg:gem/rack-proxy#lib/rack/proxy.rb:105
     def normalize_headers(headers); end
 
     protected
 
-    # pkg:gem/rack-proxy#lib/rack/proxy.rb:135
+    # pkg:gem/rack-proxy#lib/rack/proxy.rb:137
     def reconstruct_header_name(name); end
 
-    # pkg:gem/rack-proxy#lib/rack/proxy.rb:139
+    # pkg:gem/rack-proxy#lib/rack/proxy.rb:141
     def titleize(str); end
   end
 end
@@ -292,7 +292,7 @@ class Rack::Proxy::RequestBodyStream
   # Net::HTTP never calls it that way, but instrumentation layers wrapping
   # Net::HTTP#request (WebMock's adapter, for one) do.
   #
-  # pkg:gem/rack-proxy#lib/rack/proxy.rb:69
+  # pkg:gem/rack-proxy#lib/rack/proxy.rb:71
   def read_remaining(buffer); end
 end
 

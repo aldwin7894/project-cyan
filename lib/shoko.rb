@@ -46,7 +46,8 @@ module Shoko
       name = name.downcase
       log_tag = "Shoko.find_series".yellow
 
-      cache_key = "SHOKO/SERIES/#{name.downcase.gsub(/\s/, "_")}"
+      cache_hash = Digest::SHA256.hexdigest("#{name}-#{year}")
+      cache_key = "SHOKO/SERIES/#{cache_hash}"
       if Rails.cache.exist? cache_key
         Rails.logger.tagged("CACHE".yellow, log_tag, cache_key.yellow) do
           Rails.logger.info("HIT".green)

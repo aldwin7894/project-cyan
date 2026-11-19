@@ -2,10 +2,11 @@
 # typed: true
 
 module AniList
+  ANILIST_OAUTH_TOKEN = Rails.application.credentials.config.dig(:ANILIST_OAUTH_TOKEN)
   Client = Graphlient::Client.new(
     "https://graphql.anilist.co",
     headers: {
-      "Authorization": Rails.application.credentials.config.dig(:ANILIST_OAUTH_TOKEN),
+      "Authorization": ANILIST_OAUTH_TOKEN,
     },
     http_options: {
       read_timeout: 20,
