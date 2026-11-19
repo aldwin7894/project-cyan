@@ -2,6 +2,7 @@
 
 # lib/turnstile_verifier.rb
 class TurnstileVerifier
+  TURNSTILE_SECRET_KEY = Rails.application.credentials.config.dig(:CF_TURNSTILE_SECRET_KEY)
   BASE_URL = "https://challenges.cloudflare.com"
   MAX_RETRIES = 3
   JSON_HEADER = {
@@ -51,7 +52,7 @@ class TurnstileVerifier
         response = self.class.post(
           url,
           body: {
-            secret: Rails.application.credentials.config.dig(:CF_TURNSTILE_SECRET_KEY),
+            secret: TURNSTILE_SECRET_KEY,
             response: token,
             remoteip: ip
           }.to_json,

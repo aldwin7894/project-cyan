@@ -134,7 +134,7 @@ module Bootsnap::CompileCache::ISeq
 end
 
 # pkg:gem/bootsnap#lib/bootsnap/compile_cache/iseq.rb:130
-Bootsnap::CompileCache::ISeq::COVERAGE_SUPPORTED = T.let(T.unsafe(nil), TrueClass)
+Bootsnap::CompileCache::ISeq::COVERAGE_SUPPORTED = T.let(T.unsafe(nil), FalseClass)
 
 # pkg:gem/bootsnap#lib/bootsnap/compile_cache/iseq.rb:23
 class Bootsnap::CompileCache::ISeq::Compiler

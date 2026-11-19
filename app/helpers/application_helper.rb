@@ -11,8 +11,9 @@ module ApplicationHelper
     return image if url.blank?
 
     filetype = Addressable::URI.parse(url).extname.remove(".")
+    cache_hash = Digest::SHA256.hexdigest(url)
 
-    img = Rails.cache.fetch("IMAGES/#{url}", expires_in: 3.months, skip_nil: true) do
+    img = Rails.cache.fetch("IMAGES/#{cache_hash}", expires_in: 3.months, skip_nil: true) do
       data = {}
       res = HTTParty.get(
         url,
@@ -50,7 +51,9 @@ module ApplicationHelper
     ext = T.let(nil, T.untyped)
     return image if url.blank?
 
-    asset = Rails.cache.fetch("ASSETS/#{url}", skip_nil: true) do
+    cache_hash = Digest::SHA256.hexdigest(url)
+
+    asset = Rails.cache.fetch("ASSETS/#{cache_hash}", skip_nil: true) do
       res = HTTParty.get(
         url,
         format: :plain,

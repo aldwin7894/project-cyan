@@ -12,6 +12,7 @@ module LastFM
     "Content-Type": "application/json",
     "Accept-Encoding": "br,gzip,deflate"
   }
+  CACHE_TAG = "CACHE".yellow
 
   class Error < StandardError; end
   class ApiError < Error
@@ -30,7 +31,7 @@ module LastFM
       idle_timeout: 10,
       keep_alive: 30
     base_uri BASE_URL
-    default_timeout 30
+    default_timeout 20
     open_timeout 10
 
     def get_recent_tracks(user:, limit:, extended:)
@@ -46,15 +47,23 @@ module LastFM
         user:,
       }
       log_tag = "LastFM.get_recent_tracks".yellow
+      cache_key = "LASTFM/#{user}/RECENT_TRACKS"
 
-      Rails.cache.fetch("LASTFM/#{user}/RECENT_TRACKS", expires_in: 30.seconds, skip_nil: true) do
-        res = self.class.get("/", headers:, query:)
-        unless res.success?
-          raise ApiError.new(res["message"], res["error"])
+      if Rails.cache.exist?(cache_key)
+        Rails.logger.tagged(CACHE_TAG, log_tag, user.to_s.yellow) do
+          Rails.logger.info("HIT".green)
         end
-
-        res["recenttracks"]["track"]
+        return Rails.cache.fetch(cache_key)
       end
+
+
+      res = self.class.get("/", headers:, query:)
+      unless res.success?
+        raise ApiError.new(res["message"], res["error"])
+      end
+
+      Rails.cache.write(cache_key, res["recenttracks"]["track"], expires_in: 2.minutes)
+      res["recenttracks"]["track"]
     rescue HTTParty::Error, ApiError => e
       Rails.logger.tagged("LASTFM".yellow, log_tag, user.to_s.yellow) do
         Rails.logger.error("ERROR: #{e.message}".red)
@@ -107,12 +116,29 @@ module LastFM
     end
   end
 
+  def self.url_exists?(url)
+    response = HTTParty.head(url, follow_redirects: true, timeout: 5)
+    response.success?
+  rescue StandardError
+    false
+  end
+
   def self.get_cover_art_url(track)
-    url = T.let(track&.[]("image")&.[](2)&.[]("#text"), T.untyped)
+    url = T.let(track&.[]("image")&.[](2)&.[]("#text"), T.nilable(String))
     return nil unless url.present? && url.is_a?(String) && url.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
 
-    # res = self.class.head(url)
-    # return nil unless res.success?
+    cache_key = "LASTFM/COVER_ART/#{Digest::SHA256.hexdigest(url)}"
+
+    if Rails.cache.exist?(cache_key)
+      Rails.logger.tagged(CACHE_TAG, "LastFM.get_cover_art_url".yellow, url.yellow) do
+        Rails.logger.info("HIT".green)
+      end
+      return Rails.cache.fetch(cache_key)
+    end
+
+    if url_exists?(url)
+      Rails.cache.write(cache_key, url, expires_in: 1.month)
+    end
 
     url
   end
