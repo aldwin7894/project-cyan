@@ -26,7 +26,9 @@
             <h1 class="text-2xl font-bold dark:text-text--dark text-text--light">
               Added to the queue successfully, processing might take some time and could also be delayed if there are a lot in the queue. Check its progress with the provided link below.
             </h1>
-            <%= link_to "Link", anilist_path(id: @job_id), class: "flex items-center px-4 py-3 font-medium text-white rounded cursor-pointer bg-cyan-700 hover:bg-cyan-600  justify-center", data: { turbo: false } %>
+            <% if @job_id.present? %>
+              <%= link_to "Link", anilist_path(id: @job_id), class: "flex items-center px-4 py-3 font-medium text-white rounded cursor-pointer bg-cyan-700 hover:bg-cyan-600  justify-center", data: { turbo: false } %>
+            <% end %>
           </div>
         </div>
       </div>

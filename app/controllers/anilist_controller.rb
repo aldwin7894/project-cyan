@@ -13,7 +13,7 @@ class AnilistController < ApplicationController
   def show
     @user = AnilistUser.find_by(job_id: params[:id])
     if @user.blank?
-      raise ActionController::RoutingError.new("Not Found")
+      raise ActionController::RoutingError.new("Follow list not found")
     end
 
     @following = @user.following.order(username: :asc).pluck(:username) || []
@@ -63,7 +63,7 @@ class AnilistController < ApplicationController
     @user.sync_in_progress = true
     @user.last_known_error = nil
     @user.remote_ip = remote_ip
-    @job_id = AnilistFollowListCheckerJob.perform_async(@user._id)
+    @job_id = AnilistFollowListCheckerJob.perform_async(@user._id, Time.current.iso8601)
     @user.job_id = @job_id
     @user.save
 

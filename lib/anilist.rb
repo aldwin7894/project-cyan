@@ -23,9 +23,9 @@ module AniList
     }
   GRAPHQL
 
-  UserFollowersQuery = Client.parse <<~'GRAPHQL'
-    query($user_id: Int!, $page: Int) {
-      Page(page: $page, perPage: 50) {
+  UserFollowListQuery = Client.parse <<~'GRAPHQL'
+    query($user_id: Int!, $page: Int, $fetch_followers: Boolean!, $fetch_following: Boolean!) {
+      followersPage: Page(page: $page, perPage: 50) @include(if: $fetch_followers) {
         pageInfo {
           total
           hasNextPage
@@ -34,12 +34,7 @@ module AniList
           name
         }
       }
-    }
-  GRAPHQL
-
-  UserFollowingQuery = Client.parse <<~'GRAPHQL'
-    query($user_id: Int!, $page: Int) {
-      Page(page: $page, perPage: 50) {
+      followingPage: Page(page: $page, perPage: 50) @include(if: $fetch_following) {
         pageInfo {
           total
           hasNextPage

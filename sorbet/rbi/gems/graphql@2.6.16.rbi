@@ -12745,7 +12745,7 @@ module GraphQL::Schema::Directive::Flagged::VisibleByFlag
 
   class << self
     # pkg:gem/graphql#lib/graphql/schema/directive/flagged.rb:51
-    sig { params(schema_class: T::Module[T.untyped]).void }
+    sig { params(schema_class: Module).void }
     def included(schema_class); end
   end
 end
@@ -14302,11 +14302,11 @@ module GraphQL::Schema::FindInheritedValue
 
   class << self
     # pkg:gem/graphql#lib/graphql/schema/find_inherited_value.rb:13
-    sig { params(child_cls: T::Module[T.untyped]).void }
+    sig { params(child_cls: Module).void }
     def extended(child_cls); end
 
     # pkg:gem/graphql#lib/graphql/schema/find_inherited_value.rb:18
-    sig { params(child_cls: T::Module[T.untyped]).void }
+    sig { params(child_cls: Module).void }
     def included(child_cls); end
   end
 end
@@ -15517,11 +15517,11 @@ module GraphQL::Schema::Member::HasAuthorization
 
   class << self
     # pkg:gem/graphql#lib/graphql/schema/member/has_authorization.rb:14
-    sig { params(child_class: T::Module[T.untyped]).void }
+    sig { params(child_class: Module).void }
     def extended(child_class); end
 
     # pkg:gem/graphql#lib/graphql/schema/member/has_authorization.rb:9
-    sig { params(child_class: T::Module[T.untyped]).void }
+    sig { params(child_class: Module).void }
     def included(child_class); end
   end
 end
@@ -15706,7 +15706,7 @@ module GraphQL::Schema::Member::HasDeprecationReason
 
   class << self
     # pkg:gem/graphql#lib/graphql/schema/member/has_deprecation_reason.rb:40
-    sig { params(child_class: T::Module[T.untyped]).void }
+    sig { params(child_class: Module).void }
     def extended(child_class); end
   end
 end
@@ -16120,7 +16120,7 @@ module GraphQL::Schema::Member::HasUnresolvedTypeError
   private
 
   # pkg:gem/graphql#lib/graphql/schema/member/has_unresolved_type_error.rb:12
-  sig { params(child_class: T::Module[T.untyped]).void }
+  sig { params(child_class: Module).void }
   def add_unresolved_type_error(child_class); end
 end
 
@@ -16176,7 +16176,7 @@ module GraphQL::Schema::Member::HasValidators::ClassConfigured::ClassValidators
 end
 
 # pkg:gem/graphql#lib/graphql/schema/member.rb:27
-GraphQL::Schema::Member::InterfaceDefinition = T.type_alias { T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]) }
+GraphQL::Schema::Member::InterfaceDefinition = T.type_alias { T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module) }
 
 # --
 #
@@ -16233,7 +16233,7 @@ module GraphQL::Schema::Member::Scoped
   requires_ancestor { GraphQL::Schema::FindInheritedValue }
 
   # pkg:gem/graphql#lib/graphql/schema/member/scoped.rb:49
-  sig { params(subclass: T::Module[T.untyped]).void }
+  sig { params(subclass: Module).void }
   def inherited(subclass); end
 
   # pkg:gem/graphql#lib/graphql/schema/member/scoped.rb:36
@@ -16263,7 +16263,7 @@ module GraphQL::Schema::Member::Scoped
 end
 
 # pkg:gem/graphql#lib/graphql/schema/member.rb:31
-GraphQL::Schema::Member::TypeDefinition = T.type_alias { T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]), T.class_of(GraphQL::Schema::Member)) }
+GraphQL::Schema::Member::TypeDefinition = T.type_alias { T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module), T.class_of(GraphQL::Schema::Member)) }
 
 # --
 #
@@ -17685,7 +17685,7 @@ module GraphQL::Schema::TypeExpression
       params(
         type_owner: T.any(::GraphQL::Schema::Visibility::Profile, ::GraphQL::Schema::Warden::VisibilityProfile),
         ast_node: ::GraphQL::Language::Nodes::AbstractNode
-      ).returns(T.nilable(T.any(::GraphQL::Schema::List, ::GraphQL::Schema::NonNull, T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]), T.class_of(GraphQL::Schema::Member))))
+      ).returns(T.nilable(T.any(::GraphQL::Schema::List, ::GraphQL::Schema::NonNull, T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module), T.class_of(GraphQL::Schema::Member))))
     end
     def build_type(type_owner, ast_node); end
 
@@ -17694,7 +17694,7 @@ module GraphQL::Schema::TypeExpression
     # pkg:gem/graphql#lib/graphql/schema/type_expression.rb:43
     sig do
       params(
-        type: T.nilable(T.any(::GraphQL::Schema::List, ::GraphQL::Schema::NonNull, T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]), T.class_of(GraphQL::Schema::Member))),
+        type: T.nilable(T.any(::GraphQL::Schema::List, ::GraphQL::Schema::NonNull, T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module), T.class_of(GraphQL::Schema::Member))),
         wrapper_method: ::Symbol
       ).returns(T.nilable(T.any(::GraphQL::Schema::List, ::GraphQL::Schema::NonNull)))
     end
@@ -19466,7 +19466,7 @@ module GraphQL::StaticValidation::ArgumentsAreDefined
   sig do
     params(
       parent: ::GraphQL::Language::Nodes::AbstractNode
-    ).returns(T.nilable(T.any(::GraphQL::Schema::Field, T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]), T.class_of(GraphQL::Schema::Directive), T.class_of(GraphQL::Schema::Member))))
+    ).returns(T.nilable(T.any(::GraphQL::Schema::Field, T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module), T.class_of(GraphQL::Schema::Directive), T.class_of(GraphQL::Schema::Member))))
   end
   def parent_definition(parent); end
 
@@ -19476,7 +19476,7 @@ module GraphQL::StaticValidation::ArgumentsAreDefined
   sig do
     params(
       parent: ::GraphQL::Language::Nodes::AbstractNode,
-      type_defn: T.any(::GraphQL::Schema::Field, T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]), T.class_of(GraphQL::Schema::Directive), T.class_of(GraphQL::Schema::Member))
+      type_defn: T.any(::GraphQL::Schema::Field, T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module), T.class_of(GraphQL::Schema::Directive), T.class_of(GraphQL::Schema::Member))
     ).returns(::String)
   end
   def parent_name(parent, type_defn); end
@@ -19491,7 +19491,7 @@ class GraphQL::StaticValidation::ArgumentsAreDefinedError < ::GraphQL::StaticVal
       name: ::String,
       type: ::String,
       argument_name: ::String,
-      parent: T.any(::GraphQL::Schema::Field, T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]), T.class_of(GraphQL::Schema::Directive), T.class_of(GraphQL::Schema::Member)),
+      parent: T.any(::GraphQL::Schema::Field, T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module), T.class_of(GraphQL::Schema::Directive), T.class_of(GraphQL::Schema::Member)),
       path: T.nilable(T::Array[T.any(::Integer, ::String)]),
       nodes: T.any(::GraphQL::Language::Nodes::AbstractNode, T::Array[::GraphQL::Language::Nodes::AbstractNode])
     ).void
@@ -19512,7 +19512,7 @@ class GraphQL::StaticValidation::ArgumentsAreDefinedError < ::GraphQL::StaticVal
 
   # pkg:gem/graphql#lib/graphql/static_validation/rules/arguments_are_defined_error.rb:14
   sig do
-    returns(T.any(::GraphQL::Schema::Field, T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]), T.class_of(GraphQL::Schema::Directive), T.class_of(GraphQL::Schema::Member)))
+    returns(T.any(::GraphQL::Schema::Field, T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module), T.class_of(GraphQL::Schema::Directive), T.class_of(GraphQL::Schema::Member)))
   end
   def parent; end
 
@@ -19567,7 +19567,7 @@ class GraphQL::StaticValidation::BaseVisitor < ::GraphQL::Language::StaticVisito
 
   # pkg:gem/graphql#lib/graphql/static_validation/base_visitor.rb:333
   sig do
-    returns(T::Hash[::GraphQL::Schema::Field, T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]), T.class_of(GraphQL::Schema::Member))])
+    returns(T::Hash[::GraphQL::Schema::Field, T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module), T.class_of(GraphQL::Schema::Member))])
   end
   def field_unwrapped_types; end
 
@@ -19613,7 +19613,7 @@ class GraphQL::StaticValidation::BaseVisitor < ::GraphQL::Language::StaticVisito
     #   including_rules(Array[Module | Class] rules) -> Class
     #
     # pkg:gem/graphql#lib/graphql/static_validation/base_visitor.rb:54
-    sig { params(rules: T::Array[T::Module[T.untyped]]).returns(T.class_of(GraphQL::StaticValidation::BaseVisitor)) }
+    sig { params(rules: T::Array[Module]).returns(T.class_of(GraphQL::StaticValidation::BaseVisitor)) }
     def including_rules(rules); end
   end
 end
@@ -19753,7 +19753,7 @@ module GraphQL::StaticValidation::BaseVisitor::ContextMethods
   #
   # pkg:gem/graphql#lib/graphql/static_validation/base_visitor.rb:267
   sig do
-    returns(T.nilable(T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]), T.class_of(GraphQL::Schema::Member))))
+    returns(T.nilable(T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module), T.class_of(GraphQL::Schema::Member))))
   end
   def parent_type_definition; end
 
@@ -19766,7 +19766,7 @@ module GraphQL::StaticValidation::BaseVisitor::ContextMethods
   #
   # pkg:gem/graphql#lib/graphql/static_validation/base_visitor.rb:256
   sig do
-    returns(T.nilable(T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]), T.class_of(GraphQL::Schema::Member))))
+    returns(T.nilable(T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module), T.class_of(GraphQL::Schema::Member))))
   end
   def type_definition; end
 end
@@ -20093,7 +20093,7 @@ module GraphQL::StaticValidation::FieldsAreDefinedOnType
   sig do
     params(
       context: ::GraphQL::StaticValidation::ValidationContext,
-      parent_type: T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]), T.class_of(GraphQL::Schema::Member))
+      parent_type: T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module), T.class_of(GraphQL::Schema::Member))
     ).returns(T::Array[::String])
   end
   def possible_fields(context, parent_type); end
@@ -20582,8 +20582,8 @@ module GraphQL::StaticValidation::FragmentSpreadsArePossible
   # pkg:gem/graphql#lib/graphql/static_validation/rules/fragment_spreads_are_possible.rb:56
   sig do
     params(
-      parent_type: T.nilable(T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]), T.class_of(GraphQL::Schema::Member))),
-      child_type: T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]), T.class_of(GraphQL::Schema::Member)),
+      parent_type: T.nilable(T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module), T.class_of(GraphQL::Schema::Member))),
+      child_type: T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module), T.class_of(GraphQL::Schema::Member)),
       node: T.any(::GraphQL::Language::Nodes::FragmentSpread, ::GraphQL::Language::Nodes::InlineFragment),
       context: ::GraphQL::StaticValidation::ValidationContext,
       path: T::Array[T.any(::Integer, ::String)]
@@ -20598,7 +20598,7 @@ class GraphQL::StaticValidation::FragmentSpreadsArePossible::FragmentSpread
   sig do
     params(
       node: ::GraphQL::Language::Nodes::FragmentSpread,
-      parent_type: T.nilable(T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]), T.class_of(GraphQL::Schema::Member))),
+      parent_type: T.nilable(T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module), T.class_of(GraphQL::Schema::Member))),
       path: T::Array[T.any(::Integer, ::String)]
     ).void
   end
@@ -20610,7 +20610,7 @@ class GraphQL::StaticValidation::FragmentSpreadsArePossible::FragmentSpread
 
   # pkg:gem/graphql#lib/graphql/static_validation/rules/fragment_spreads_are_possible.rb:83
   sig do
-    returns(T.nilable(T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]), T.class_of(GraphQL::Schema::Member))))
+    returns(T.nilable(T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module), T.class_of(GraphQL::Schema::Member))))
   end
   def parent_type; end
 
@@ -21419,7 +21419,7 @@ module GraphQL::StaticValidation::RequiredInputObjectAttributesArePresent
     params(
       context: ::GraphQL::StaticValidation::ValidationContext,
       parent: ::GraphQL::Language::Nodes::Argument
-    ).returns(T.nilable(T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]), T.class_of(GraphQL::Schema::Member))))
+    ).returns(T.nilable(T.any(T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module), T.class_of(GraphQL::Schema::Member))))
   end
   def get_parent_type(context, parent); end
 
@@ -21716,7 +21716,7 @@ class GraphQL::StaticValidation::ValidationContext
   sig do
     params(
       ast_value: T.untyped,
-      type: T.any(::GraphQL::Schema::List, ::GraphQL::Schema::NonNull, T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped]), T.class_of(GraphQL::Schema::Member))
+      type: T.any(::GraphQL::Schema::List, ::GraphQL::Schema::NonNull, T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module), T.class_of(GraphQL::Schema::Member))
     ).returns(::GraphQL::Query::InputValidationResult)
   end
   def validate_literal(ast_value, type); end
@@ -21777,7 +21777,7 @@ class GraphQL::StaticValidation::Validator
   #   initialize(GraphQL::Schema schema:, Array[#validate(context)] rules:)
   #
   # pkg:gem/graphql#lib/graphql/static_validation/validator.rb:30
-  sig { params(schema: T.class_of(GraphQL::Schema), rules: T::Array[T::Module[T.untyped]]).void }
+  sig { params(schema: T.class_of(GraphQL::Schema), rules: T::Array[Module]).void }
   def initialize(schema:, rules: T.unsafe(nil)); end
 
   # Invoked when static validation times out.
@@ -26816,7 +26816,7 @@ module GraphQL::Types::Relay::NodeBehaviors
 
   class << self
     # pkg:gem/graphql#lib/graphql/types/relay/node_behaviors.rb:15
-    sig { params(child_module: T.all(::GraphQL::Schema::Interface::DefinitionMethods, T::Module[T.untyped])).void }
+    sig { params(child_module: T.all(::GraphQL::Schema::Interface::DefinitionMethods, Module)).void }
     def included(child_module); end
   end
 end
@@ -26835,7 +26835,7 @@ module GraphQL::Types::Relay::NodeBehaviors::ExecutionMethods
   def default_global_id(object, context); end
 
   # pkg:gem/graphql#lib/graphql/types/relay/node_behaviors.rb:42
-  sig { params(child_class: T::Module[T.untyped]).void }
+  sig { params(child_class: Module).void }
   def included(child_class); end
 end
 

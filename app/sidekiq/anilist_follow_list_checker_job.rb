@@ -8,7 +8,7 @@ class AnilistFollowListCheckerJob
   sidekiq_options retry: 3,
     queue: "default",
     lock: :until_and_while_executing,
-    lock_args_method: ->(args) { [args.first] },
+    lock_args_method: ->(args) { [args.first, args.second] },
     on_conflict: {
       client: :log,
       server: :reject
@@ -37,60 +37,60 @@ class AnilistFollowListCheckerJob
 
   TAG = "[ANILIST FOLLOW CHECKER] ".yellow
 
-  def perform(id, type = "following", page = 1)
-    now = Time.now.utc
+  def perform(id, sync_time, page = 1, fetch_followers = true, fetch_following = true)
     user = AnilistUser.find(id)
     username = "[#{user.username}] ".blue
-    if type === "following" && page === 1
-      user.following.delete_all
-      user.followers.delete_all
+
+    logger.info(TAG + username + "FETCHING FOLLOW LIST: PAGE #{page}".green)
+    response = AniList::Client.execute(AniList::UserFollowListQuery, user_id: user._id, page:, fetch_followers:, fetch_following:)
+
+    followers_page = response&.data&.followers_page
+    following_page = response&.data&.following_page
+
+    follower_ops = (followers_page&.followers || []).map do |f|
+      {
+        update_one: {
+          filter: { anilist_user_id: user.id, username: f.name },
+          update: {
+            "$set" => { updated_at: sync_time },
+            "$setOnInsert" => { created_at: sync_time }
+          },
+          upsert: true
+        }
+      }
+    end
+    following_ops = (following_page&.following || []).map(&:name).map do |username|
+      {
+        update_one: {
+          filter: { anilist_user_id: user.id, username: username },
+          update: {
+            "$set" => { updated_at: sync_time },
+            "$setOnInsert" => { created_at: sync_time }
+          },
+          upsert: true
+        }
+      }
     end
 
-    if type === "following"
-      logger.info(TAG + username + "FETCHING FOLLOWING: PAGE #{page}".green)
-      response = AniList::Client.execute(AniList::UserFollowingQuery, user_id: user._id, page:)
-      following = response.data.page.following.map(&:name)
 
-      items = following.map do |username|
-        {
-          anilist_user_id: user.id,
-          username:,
-          created_at: now,
-          updated_at: now
-        }
-      end
+    AnilistUserFollower.collection.bulk_write(follower_ops, ordered: false) if follower_ops.any?
+    AnilistUserFollowing.collection.bulk_write(following_ops, ordered: false) if following_ops.any?
 
-      if items.any?
-        AnilistUserFollowing.collection.insert_many(items, ordered: false)
-      end
-    elsif type === "followers"
-      logger.info(TAG + username + "FETCHING FOLLOWERS: PAGE #{page}".green)
-      response = AniList::Client.execute(AniList::UserFollowersQuery, user_id: user._id, page:)
-      followers = response.data.page.followers.map(&:name)
+    fetch_followers = followers_page&.page_info&.has_next_page? ? true : false
+    fetch_following = following_page&.page_info&.has_next_page? ? true : false
+    page += 1
 
-      items = followers.map do |username|
-        {
-          anilist_user_id: user.id,
-          username:,
-          created_at: now,
-          updated_at: now
-        }
-      end
-
-      if items.any?
-        AnilistUserFollower.collection.insert_many(items, ordered: false)
-      end
-    end
-
-    if response.data.page.page_info.has_next_page? === false && type === "following"
-      self.class.perform_in(5.seconds, id, "followers", 1)
-    elsif response.data.page.page_info.has_next_page?
-      self.class.perform_in(5.seconds, id, type, page + 1)
+    if fetch_followers || fetch_following
+      self.class.perform_in(5.seconds, id, sync_time, page, fetch_followers, fetch_following)
     else
+      AnilistUserFollower.where(anilist_user_id: user.id, "updated_at.lt": sync_time).delete_all
+      AnilistUserFollowing.where(anilist_user_id: user.id, "updated_at.lt": sync_time).delete_all
+
       logger.info(TAG + username + "FETCHING DONE".green)
+      user.last_known_error = nil
       user.sync_in_progress = false
     end
-  rescue Graphlient::Errors::ServerError => error
+  rescue Graphlient::Errors::ServerError, Graphlient::Errors::FaradayServerError => error
     case error.status_code
     when 404
       logger.info(TAG + username + "NOT FOUND OR HAS A PRIVATE PROFILE".red)
@@ -98,6 +98,10 @@ class AnilistFollowListCheckerJob
     when 429
       logger.error(TAG + username + "RATE LIMITED, WILL BE RETRIED".red)
       throw error
+    when 400
+      logger.error(TAG + username + "BAD REQUEST, WILL NOT BE RETRIED: #{error.response}".red)
+      user.last_known_error = "#{error.status_code} - #{error.inner_exception} - #{error.response}"
+      user.sync_in_progress = false
     else
       logger.error(TAG + username + "AN UNEXPECTED ERROR OCCURRED: #{error.status_code} - #{error.inner_exception} - #{error.response}".red)
       throw error

@@ -7,27 +7,39 @@
 
 class AnilistFollowListCheckerJob
   class << self
-    sig { params(id: T.untyped, type: T.untyped, page: T.untyped).returns(String) }
-    def perform_async(id, type = T.unsafe(nil), page = T.unsafe(nil)); end
+    sig do
+      params(
+        id: T.untyped,
+        sync_time: T.untyped,
+        page: T.untyped,
+        fetch_followers: T.untyped,
+        fetch_following: T.untyped
+      ).returns(String)
+    end
+    def perform_async(id, sync_time, page = T.unsafe(nil), fetch_followers = T.unsafe(nil), fetch_following = T.unsafe(nil)); end
 
     sig do
       params(
         interval: T.any(DateTime, Time, ActiveSupport::TimeWithZone),
         id: T.untyped,
-        type: T.untyped,
-        page: T.untyped
+        sync_time: T.untyped,
+        page: T.untyped,
+        fetch_followers: T.untyped,
+        fetch_following: T.untyped
       ).returns(String)
     end
-    def perform_at(interval, id, type = T.unsafe(nil), page = T.unsafe(nil)); end
+    def perform_at(interval, id, sync_time, page = T.unsafe(nil), fetch_followers = T.unsafe(nil), fetch_following = T.unsafe(nil)); end
 
     sig do
       params(
         interval: T.any(Numeric, ActiveSupport::Duration),
         id: T.untyped,
-        type: T.untyped,
-        page: T.untyped
+        sync_time: T.untyped,
+        page: T.untyped,
+        fetch_followers: T.untyped,
+        fetch_following: T.untyped
       ).returns(String)
     end
-    def perform_in(interval, id, type = T.unsafe(nil), page = T.unsafe(nil)); end
+    def perform_in(interval, id, sync_time, page = T.unsafe(nil), fetch_followers = T.unsafe(nil), fetch_following = T.unsafe(nil)); end
   end
 end
