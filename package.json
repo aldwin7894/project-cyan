@@ -10,8 +10,9 @@
     "docker:build": ". ./.env && docker compose build web",
     "docker:push": "docker compose push web",
     "prettier": "prettier --write .",
-    "rails:dev": "bin/rails s -b 0.0.0.0",
-    "vite:dev": "./bin/vite dev --debug"
+    "rails:dev": "RUN_DISCORD_BOT=true bin/rails s -b 0.0.0.0",
+    "vite:dev": "bin/vite dev --debug",
+    "sidekiq:dev": "RUN_DISCORD_BOT=false bin/sidekiq"
   },
   "browserslist": [
     "defaults",

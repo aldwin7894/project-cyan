@@ -125,7 +125,4 @@ module DiscordBot
       Rails.logger.info("Current user: #{user_details&.username} (#{user_details&.id}), Status: #{user_details&.online_status}, Client Status: #{user_details&.client_status}, Activities: #{user_details&.activities&.map(&:name)&.join(', ')}")
     end
   end
-
-  at_exit { BOT.stop if BOT.connected? }
-  BOT.run(true) unless BOT.connected?
 end
