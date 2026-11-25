@@ -13,7 +13,7 @@
       },
       {
         "name": "SIDEKIQ",
-        "script": "bin/sidekiq"
+        "script": "yarn sidekiq:dev"
       }
     ]
   }

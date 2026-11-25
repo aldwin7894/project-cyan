@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "anilist"
+require "ani_list"
 
 namespace :anilist do
   desc "Update AniList GraphQL schema"

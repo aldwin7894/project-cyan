@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 # typed: true
 
-require "lastfm"
-require "listenbrainz"
+require "last_fm"
+require "listen_brainz"
 require "spotify"
 
 class MusicNpBannerController < ApplicationController

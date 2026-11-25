@@ -16,10 +16,11 @@ class AnilistUser
   field :_id, type: Integer
   field :username, type: String
   field :last_known_error, type: String, default: nil
-  field :sync_in_progress, type: Boolean, default: true
+  field :sync_in_progress, type: Boolean, default: false
   field :job_id, type: String, default: nil
   field :remote_ip, type: String, default: nil
 
+  index({ username: 1 }, { collation: { locale: "en", strength: 2 } })
   index({ job_id: 1 }, { name: "anilist_user_job_id_index", sparse: true })
   index({ updated_at: 1 }, { name: "anilist_user_updated_at_index", expire_after_seconds: 7.days.to_i })
 end

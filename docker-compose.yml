@@ -1,3 +1,23 @@
+x-base-env: &base-env
+  DATABASE_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@db:27017/${MONGO_DB}
+  REDIS_URL: redis://redis:6379
+  TZ: ${TZ}
+  RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
+  RAILS_ENV: ${RAILS_ENV}
+  NODE_ENV: ${NODE_ENV}
+  RAILS_ASSET_HOST: ${RAILS_ASSET_HOST}
+  ABOUT_ME: ${ABOUT_ME}
+  DISCORDRB_NONACL: true
+  RACK_TIMEOUT_SERVICE_TIMEOUT: 60
+  RACK_TIMEOUT_WAIT_TIMEOUT: 60
+  RUBY_GC_HEAP_GROWTH_FACTOR: 1.1
+  RUBY_GC_MALLOC_LIMIT: 4000100
+  RUBY_GC_MALLOC_LIMIT_GROWTH_FACTOR: 1.1
+  RUBY_GC_MALLOC_LIMIT_MAX: 16000100
+  RUBY_GC_OLDMALLOC_LIMIT: 16000100
+  RUBY_GC_OLDMALLOC_LIMIT_MAX: 16000100
+  VITE_RUBY_SKIP_ASSETS_PRECOMPILE_EXTENSION: true
+
 services:
   db:
     container_name: project-cyan-mongo
@@ -60,25 +80,9 @@ services:
       - sidekiq
     ports:
       - 127.0.0.1:3000:3000
-    environment: &env
-      - DATABASE_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@db:27017/${MONGO_DB}
-      - REDIS_URL=redis://redis:6379
-      - TZ
-      - RAILS_MASTER_KEY
-      - RAILS_ENV
-      - NODE_ENV
-      - RAILS_ASSET_HOST
-      - ABOUT_ME
-      - DISCORDRB_NONACL=true
-      - RACK_TIMEOUT_SERVICE_TIMEOUT=60
-      - RACK_TIMEOUT_WAIT_TIMEOUT=60
-      - RUBY_GC_HEAP_GROWTH_FACTOR=1.1
-      - RUBY_GC_MALLOC_LIMIT=4000100
-      - RUBY_GC_MALLOC_LIMIT_GROWTH_FACTOR=1.1
-      - RUBY_GC_MALLOC_LIMIT_MAX=16000100
-      - RUBY_GC_OLDMALLOC_LIMIT=16000100
-      - RUBY_GC_OLDMALLOC_LIMIT_MAX=16000100
-      - VITE_RUBY_SKIP_ASSETS_PRECOMPILE_EXTENSION=true
+    environment:
+      <<: *base-env
+      RUN_DISCORD_BOT: true
   sidekiq:
     container_name: project-cyan-sidekiq
     image: aldwin7894/project-cyan:prod
@@ -91,7 +95,8 @@ services:
     depends_on:
       - db
       - redis
-    environment: *env
+    environment:
+      <<: *base-env
 
 volumes:
   dbdata:

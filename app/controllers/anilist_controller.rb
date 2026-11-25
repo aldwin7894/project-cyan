@@ -47,17 +47,31 @@ class AnilistController < ApplicationController
       return @error = "On cooldown, please try again after #{format_date(cd_mins, true, false)}."
     end
 
-    @user = AnilistUser.find_by(username:)
-    if @user.present? && @user.sync_in_progress?
-      return @error = "User <strong>#{username}</strong> is already in the queue and is being processed!<br />Please wait for the result."
-    end
+    @user = AnilistUser
+              .where(username: username)
+              .collation(locale: "en", strength: 2)
+              .first
 
     if @user.blank?
+      # If the user is not found in the database, fetch their ID from AniList
       user_id = query(AniList::UserIdQuery, username:).user.id
-      @user = AnilistUser.new(
-        _id: user_id,
-        username:,
-      )
+
+      # If the user is found in the database, update their username if it has changed
+      @user = AnilistUser.find(_id: user_id)
+      if @user.present?
+        @user.username = username
+      # If the user is not found in the database, create a new AnilistUser record with the fetched ID and username
+      else
+        @user = AnilistUser.new(
+          _id: user_id,
+          username:
+        )
+      end
+    end
+
+    if @user.sync_in_progress?
+      @user.save
+      return @error = "User <strong>#{username}</strong> is already in the queue and is being processed!<br />Please wait for the result."
     end
 
     @user.sync_in_progress = true

@@ -61,6 +61,7 @@ module Aldwin7894
     end
 
     config.exceptions_app = self.routes
+    config.autoload_lib(ignore: %w[asset tasks discord_bot])
 
     # Configuration for the application, engines, and railties goes here.
     #

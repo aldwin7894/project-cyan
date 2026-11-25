@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 # typed: true
 
-require "anilist"
+require "ani_list"
 
 class AnilistActivitiesSyncJob
   include Sidekiq::Job

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 # typed: true
 
-require "listenbrainz"
+require "listen_brainz"
 
 class ListenbrainzLovedTracksSyncJob
   include Sidekiq::Job

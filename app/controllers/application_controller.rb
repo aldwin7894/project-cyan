@@ -2,7 +2,7 @@
 # typed: true
 
 require "sorbet-runtime"
-require "anilist"
+require "ani_list"
 require "application_responder"
 require "turnstile_verifier"
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 # typed: true
 
-require "lastfm"
+require "last_fm"
 require "shoko"
 require "fanart"
 require "subsonic"
