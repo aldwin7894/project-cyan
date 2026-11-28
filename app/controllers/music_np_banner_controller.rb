@@ -6,6 +6,7 @@ require "listen_brainz"
 require "spotify"
 
 class MusicNpBannerController < ApplicationController
+  include ListenBrainzTracker
   before_action :set_no_cache_headers
 
   content_security_policy(only: %i(lastfm listenbrainz)) do |policy|
@@ -99,35 +100,6 @@ class MusicNpBannerController < ApplicationController
     @bottom_line = params[:line]
     @album_art = nil
 
-    listenbrainz = ListenBrainz::Client.new
-    spotify = Spotify::Client.new
-    now_playing = listenbrainz.get_now_playing(user: ENV.fetch("LISTENBRAINZ_USERNAME"))
-
-    if now_playing["listens"].blank?
-      recent = listenbrainz.get_recent_tracks(user: ENV.fetch("LISTENBRAINZ_USERNAME"), limit: 1)
-      @recent = recent["listens"].first
-    else
-      @recent = now_playing["listens"].first
-    end
-
-    recording_mbid = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("recording_mbid")
-    recording_mbid ||= @recent&.[]("track_metadata")&.[]("mbid_mapping")&.[]("recording_mbid")
-    recording_msid = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("recording_msid")
-    recording_msid ||= @recent&.[]("track_metadata")&.[]("mbid_mapping")&.[]("recording_msid")
-    spotify_album_id = @recent&.[]("track_metadata")&.[]("additional_info")&.[]("spotify_album_id")
-
-    if spotify_album_id
-      @album_art = spotify.get_album_art(album_id: spotify_album_id&.split("/").pop)
-    else
-      @album_art = ListenBrainz.get_cover_art_url(track: @recent, size: 250)
-    end
-
-    criteria = []
-    criteria << { recording_mbid: } if recording_mbid.present?
-    criteria << { recording_msid: } if recording_msid.present?
-    @loved = ListenbrainzLovedTrack.or(*criteria).exists?
-
-    timestamp = @recent["listened_at"].to_i
-    @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"
+    fetch_listenbrainz_user_activity
   end
 end

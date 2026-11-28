@@ -67,16 +67,16 @@ module GeneratedPathHelpersModule
   def fetch_followers_anilist_index_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
-  def lastfm_stats_path(*args); end
-
-  sig { params(args: T.untyped).returns(String) }
-  def lastfm_top_artists_path(*args); end
-
-  sig { params(args: T.untyped).returns(String) }
   def music_np_banner_lastfm_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def music_np_banner_listenbrainz_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def music_stats_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def music_top_artists_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def new_admin_dashboard_path(*args); end

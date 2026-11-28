@@ -133,6 +133,57 @@ module ListenBrainz
 
       raise e
     end
+
+    def get_top_artists(user:, period:, limit:)
+      headers = {
+        **JSON_HEADER
+      }
+      query = {
+        count: limit,
+        range: period
+      }
+      log_tag = "ListenBrainz.get_top_artists".yellow
+
+      cache_key = "LISTENBRAINZ/#{user}/TOP_ARTISTS"
+      if Rails.cache.exist? cache_key
+        Rails.logger.tagged("CACHE".yellow, log_tag, cache_key.yellow) do
+          Rails.logger.info("HIT".green)
+        end
+        top_artists = Rails.cache.fetch(cache_key)
+      else
+        Rails.logger.tagged("CACHE".yellow, log_tag, cache_key.yellow) do
+          Rails.logger.info("MISS".red)
+        end
+        top_artists = Rails.cache.fetch(cache_key, expires_in: 1.month, skip_nil: true) do
+          res = self.class.get("/stats/user/#{user}/artists", headers:, query:)
+          unless res.success?
+            raise ApiError.new(res["error"], res["code"])
+          end
+
+          Rails.logger.tagged("LISTENBRAINZ".yellow, log_tag, user.to_s.yellow) do
+            Rails.logger.info(res["payload"]["artists"])
+          end
+
+          res["payload"]["artists"].map.with_index do |artist, index|
+            {
+              name: artist["artist_name"],
+              mbid: artist["artist_mbid"],
+              playcount: artist["listen_count"],
+              rank: index + 1,
+              url: "https://listenbrainz.org/artist/#{artist["artist_mbid"]}"
+            }
+          end
+        end
+      end
+
+      top_artists
+    rescue HTTParty::Error, ApiError => e
+      Rails.logger.tagged("LISTENBRAINZ".yellow, log_tag, user.to_s.yellow) do
+        Rails.logger.error("ERROR: #{e.message}".red)
+      end
+
+      raise e
+    end
   end
 
   def self.url_exists?(url)

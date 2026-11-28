@@ -67,16 +67,16 @@ module GeneratedUrlHelpersModule
   def fetch_followers_anilist_index_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
-  def lastfm_stats_url(*args); end
-
-  sig { params(args: T.untyped).returns(String) }
-  def lastfm_top_artists_url(*args); end
-
-  sig { params(args: T.untyped).returns(String) }
   def music_np_banner_lastfm_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def music_np_banner_listenbrainz_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def music_stats_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def music_top_artists_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def new_admin_dashboard_url(*args); end

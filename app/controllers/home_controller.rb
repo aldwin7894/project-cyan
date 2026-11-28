@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 # typed: true
 
-require "last_fm"
 require "shoko"
 require "fanart"
 require "subsonic"
@@ -9,8 +8,9 @@ require "subsonic"
 class HomeController < ApplicationController
   include FormatDateHelper
   include Turbo::Frames::FrameRequest
+  include ListenBrainzTracker
   layout "application"
-  before_action :check_if_turbo_frame, only: %i(lastfm_stats lastfm_top_artists anilist_user_statistics anilist_user_activities watched_anime_section watched_movie_section)
+  before_action :check_if_turbo_frame, only: %i(music_stats music_top_artists anilist_user_statistics anilist_user_activities watched_anime_section watched_movie_section)
 
   ANIME_FORMATS = ["TV", "TV_SHORT", "ONA"]
   IGNORED_USER_STATUS = ["plans to watch", "paused watching", "dropped"]
@@ -197,49 +197,33 @@ class HomeController < ApplicationController
     render_empty(error)
   end
 
-  def lastfm_stats
+  def music_stats
     @album_art = nil
-    lastfm = LastFM::Client.new
-    @lastfm_recent = lastfm.get_recent_tracks(user: ENV.fetch("LASTFM_USERNAME"), limit: 1, extended: 1)
+    fetch_listenbrainz_user_activity(album_art_size: 500)
 
-    if @lastfm_recent.is_a? Array
-      timestamp = @lastfm_recent.last["date"]["uts"].to_i
-      @lastfm_recent = @lastfm_recent.first
-    else
-      timestamp = @lastfm_recent["date"]["uts"].to_i
-    end
-
-    album_art = @lastfm_recent&.[]("image")&.[](3)&.[]("#text")
-    if album_art.present? && album_art.exclude?("2a96cbd8b46e442fc41c2b86b821562f")
-      @album_art = album_art.split("300x300").join("400x0")
-    end
-
-    @elapsed_time = Time.zone.at(Time.zone.now - Time.zone.at(timestamp)).utc.strftime "%M:%S"
-
-    render template: "home/lastfm_stats", layout: false if turbo_frame_request?
-  rescue LastFM::ApiError
+    render template: "home/music_stats", layout: false if turbo_frame_request?
+  rescue ListenBrainz::ApiError
     @album_art = nil
-    render template: "home/lastfm_stats", layout: false if turbo_frame_request?
+    render template: "home/music_stats", layout: false if turbo_frame_request?
   end
 
-  def lastfm_top_artists
-    lastfm = LastFM::Client.new
+  def music_top_artists
+    listenbrainz = ListenBrainz::Client.new
     subsonic = Subsonic::Client.new
     fanart = Fanart::Client.new
-    @lastfm_top_artists = lastfm.get_top_artists(user: ENV.fetch("LASTFM_USERNAME"), period: "overall", limit: 20)
+    @music_top_artists = listenbrainz.get_top_artists(user: ENV.fetch("LISTENBRAINZ_USERNAME"), period: "all_time", limit: 20)
 
-    @lastfm_top_artists.map! do |artist|
-      image = subsonic.get_artist_image(name: artist["name"])
-      image ||= fanart.get_fanart_by_mbid_id(mbid_id: artist["mbid"]) if artist["mbid"].present?
-      image ||= artist["image"].first["#text"]
-      artist["image"] = image
+    @music_top_artists.map! do |artist|
+      image = subsonic.get_artist_image(name: artist[:name])
+      image ||= fanart.get_fanart_by_mbid_id(mbid_id: artist[:mbid]) if artist[:mbid].present?
+      artist[:image] = image
       artist
     end
 
-    render template: "home/lastfm_top_artists", layout: false if turbo_frame_request?
-  rescue LastFM::ApiError
-    @lastfm_top_artists = []
-    render template: "home/lastfm_top_artists", layout: false if turbo_frame_request?
+    render template: "home/music_top_artists", layout: false if turbo_frame_request?
+  rescue ListenBrainz::ApiError
+    @music_top_artists = []
+    render template: "home/music_top_artists", layout: false if turbo_frame_request?
   end
 
   def browserconfig
