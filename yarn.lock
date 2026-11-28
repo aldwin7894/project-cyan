@@ -2008,6 +2008,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"autoprefixer@npm:^10.7.0":
+  version: 10.7.0
+  resolution: "autoprefixer@npm:10.7.0"
+  dependencies:
+    browserslist: "npm:^4.29.6"
+    caniuse-lite: "npm:^1.0.30001826"
+    fraction.js: "npm:^5.3.4"
+    picocolors: "npm:^1.1.1"
+    postcss-value-parser: "npm:^4.2.0"
+  peerDependencies:
+    postcss: ^8.1.0
+  bin:
+    autoprefixer: bin/autoprefixer
+  checksum: 10/6f905ae90380bd4a2d8eaa587b2b7fbe0c179398bbf353cb25e69b8fa1b1e57efce303ae5d7050b0a732b840d698dfa5c701420e447577faf2b8b02441f5d5dd
+  languageName: node
+  linkType: hard
+
 "available-typed-arrays@npm:^1.0.5":
   version: 1.0.5
   resolution: "available-typed-arrays@npm:1.0.5"
@@ -2113,7 +2130,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.29.5":
+"browserslist@npm:^4.29.5, browserslist@npm:^4.29.6":
   version: 4.29.6
   resolution: "browserslist@npm:4.29.6"
   dependencies:
@@ -5785,7 +5802,7 @@ __metadata:
     "@types/node": "npm:^26.6.6"
     "@typescript-eslint/parser": "npm:^8.74.0"
     alpinejs: "npm:^3.17.5"
-    autoprefixer: "npm:^10.6.2"
+    autoprefixer: "npm:^10.7.0"
     chart.js: "npm:^4.6.2"
     cssnano: "npm:^9.9.0"
     eslint: "npm:^10.15.0"
