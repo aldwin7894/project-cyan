@@ -82,7 +82,7 @@ GEM
     bcrypt (3.1.22)
     benchmark (0.5.0)
     bigdecimal (4.1.3)
-    bootsnap (1.26.1)
+    bootsnap (1.26.2)
       msgpack (~> 1.5)
     brotli (0.9.3)
     bson (5.2.0)
@@ -173,7 +173,7 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.1.6)
       domain_name (~> 0.5)
-    httparty (0.24.3)
+    httparty (0.25.1)
       csv
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
@@ -189,7 +189,7 @@ GEM
       prism (>= 1.3.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (3.1.0)
+    json (3.2.0)
     jwt (3.3.0)
       base64
     kodachroma (1.0.2)
@@ -200,7 +200,7 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.7.0)
-    lograge (0.15.1)
+    lograge (0.16.0)
       actionpack (>= 4)
       activesupport (>= 4)
       logger
@@ -437,15 +437,15 @@ GEM
       concurrent-ruby (~> 1.0, >= 1.0.5)
       sidekiq (>= 7.0.0, < 9.0.0)
       thor (>= 1.0, < 3.0)
-    sorbet (0.6.13704)
-      sorbet-static (= 0.6.13704)
-    sorbet-runtime (0.6.13704)
-    sorbet-static (0.6.13704-aarch64-linux)
-    sorbet-static (0.6.13704-universal-darwin)
-    sorbet-static (0.6.13704-x86_64-linux)
-    sorbet-static-and-runtime (0.6.13704)
-      sorbet (= 0.6.13704)
-      sorbet-runtime (= 0.6.13704)
+    sorbet (0.6.13728)
+      sorbet-static (= 0.6.13728)
+    sorbet-runtime (0.6.13728)
+    sorbet-static (0.6.13728-aarch64-linux)
+    sorbet-static (0.6.13728-universal-darwin)
+    sorbet-static (0.6.13728-x86_64-linux)
+    sorbet-static-and-runtime (0.6.13728)
+      sorbet (= 0.6.13728)
+      sorbet-runtime (= 0.6.13728)
     spoom (1.8.13)
       erubi (>= 1.10.0)
       prism (>= 0.28.0)
@@ -538,12 +538,12 @@ DEPENDENCIES
   graphlient (~> 0.9.0)
   graphql (~> 2.6)
   health_check (~> 3.1)
-  httparty (~> 0.24.3)
+  httparty (~> 0.25.1)
   httplog (~> 1.8)
   jwt (~> 3.3)
   kodachroma (~> 1.0)
   listen (~> 3.10)
-  lograge (~> 0.15.0)
+  lograge (~> 0.16.0)
   logstash-event (~> 1.2)
   mongoid (~> 9.1.1)
   ostruct (~> 0.6.2)
@@ -597,7 +597,7 @@ CHECKSUMS
   bcrypt (3.1.22) sha256=1f0072e88c2d705d94aff7f2c5cb02eb3f1ec4b8368671e19112527489f29032
   benchmark (0.5.0) sha256=465df122341aedcb81a2a24b4d3bd19b6c67c1530713fd533f3ff034e419236c
   bigdecimal (4.1.3) sha256=61ebe1e5e559bdc3cc6f2c0ee7f427321fc838f59611c294356eb04d6e21cf66
-  bootsnap (1.26.1) sha256=5b5bd90f8f13ea338627c1d56ffbe2ea25e743ac48c2afec1a9bea3a06a264e2
+  bootsnap (1.26.2) sha256=f0d749dcda6bf5e3d324bc7e126009b2127d2b83db74273d8ded3b4c8e322bb7
   brotli (0.9.3) sha256=645eb1ebb7b3776ed4f794f636cc21ab0a0923f6f8e87eff2b111e70bbe02607
   bson (5.2.0) sha256=c468c1e8a3cfa1e80531cc519a890f85586986721d8e305f83465cc36bb82608
   builder (3.3.0) sha256=497918d2f9dca528fdca4b88d84e4ef4387256d984b8154e9d5d3fe5a9c8835f
@@ -644,19 +644,19 @@ CHECKSUMS
   health_check (3.1.0) sha256=10146508237dc54ed7e24c292d8ba7fb8f9590cf26c66e325b947438c4103b57
   http-accept (1.7.0) sha256=c626860682bfbb3b46462f8c39cd470fd7b0584f61b3cc9df5b2e9eb9972a126
   http-cookie (1.1.6) sha256=ba4b82be64de61dc281243dac70e3c382c45142f20268ed9276a3670c93feaa9
-  httparty (0.24.3) sha256=5c95cf29ca70d5bfd834e56140ddfca6e94166c3b870cde9c25d157cdb5a00d2
+  httparty (0.25.1) sha256=354f84b766f9a3e077d64fc8b61a71c88e7c8a890eac4178d30d3269458c1dc5
   httplog (1.8.0) sha256=2b14bd6a26277765b08ff469d5574fde2a8eedec03962402ab05a606546607bf
   i18n (1.15.2) sha256=00f9eb62412fe593b2a65a97daa75300d37abb8f7202ec748e94b6d46a9dd1b5
   io-console (0.9.5) sha256=83dd9bbf4c4680416629245b39cd4212eb5f4d9a4ea91804870c1f6b846414d5
   irb (1.19.0) sha256=55ee56acbdd6c9fe06a2e6909f46a24e5c41f45f16906bab04e8049cf46f1d27
-  json (3.1.0) sha256=3ce7ccf8fde58960177a3a756c31f292a4c1e1dedee884547096a5b0604e3bd8
+  json (3.2.0) sha256=4a4e222a9ee6ffb296ab3171b6b39d85fec83afc4e7b57eee17edf68c74aec87
   jwt (3.3.0) sha256=44cc34fbc341c148233cf66641522b4bce0dfb1ce55e8073f05c56f44f4ee546
   kodachroma (1.0.2) sha256=5b86fc3918bd1d12ba5b9677df61c1086a2dbd2062738832843edda7737108d6
   language_server-protocol (3.17.0.6) sha256=5ef2c0c138f8267e1bc631d3328347d354f96724b0af22f2c79516120443b7f0
   lint_roller (1.1.0) sha256=2c0c845b632a7d172cb849cc90c1bce937a28c5c8ccccb50dfd46a485003cc87
   listen (3.10.1) sha256=4c3f32855657f348747da4dd2372ff3790d90a6b1d3e4f21a3706adb2d04783c
   logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
-  lograge (0.15.1) sha256=b8a6b3d45f15855f3b038ce01019317e783fa9ddf774eb20818c751438c5c761
+  lograge (0.16.0) sha256=32d5ed2352a356a765243cf37125a2f924f4c5b6363ee4e808a9ec0f84d06a91
   logstash-event (1.2.02) sha256=89a7dc60fac67070a5f60ba07409e541b09cb58906c391e90cb74b9f217467ae
   loofah (2.25.3) sha256=545f14eef0cc2a7de80df560530d593232b7c07e515c5c4e37532d9cb5b0185c
   mail (2.9.1) sha256=06574eca475253d6c18145dd70af80d0eb970182d55053497c5f4d797ea160e8
@@ -748,12 +748,12 @@ CHECKSUMS
   sidekiq (8.1.7) sha256=91ad48c7e6c32e1846bf1d5b74c27948758049b93fed0cb539f8d586c7de3415
   sidekiq-cron (2.4.0) sha256=25595c5aee0c16d13a89466e5108af047fa4cfbf388199b39e1a600ca39472d4
   sidekiq-unique-jobs (8.1.0) sha256=6a7eaa61ac408197a542350df905687b506acae2f485da03b11d28b1c367dc35
-  sorbet (0.6.13704) sha256=7f6ad978bf193b495896a84efb2a98c8d84518f53223da34d18189d69abfc942
-  sorbet-runtime (0.6.13704) sha256=110d042714fc15f4ffd651d53890215178b42285f3182a844d637465b96b005e
-  sorbet-static (0.6.13704-aarch64-linux) sha256=584ff4a781d1f31e361019121cff3cebe477414ed8ec1ee4fba3aa73bf9b2057
-  sorbet-static (0.6.13704-universal-darwin) sha256=4f5b53f2b2ec01c8546e25f6fe4515146d78d7a5f73cb9bf7eb641b09e8cb4af
-  sorbet-static (0.6.13704-x86_64-linux) sha256=bf544dc2b24eeb59b15c44e90fbfd18f5f65730aa22844fc4205be90a04c9f4d
-  sorbet-static-and-runtime (0.6.13704) sha256=7e8e96005d943e0c8385f543eb5d943eb9c5680ee8152229d7e3f01be9f545cf
+  sorbet (0.6.13728) sha256=20914cb48c04e56a7f322680ba35394609faf21504dfdfb59cd4dda69a028025
+  sorbet-runtime (0.6.13728) sha256=90db0140031c7b06a5dca2ffe06d27872ebe56e39cdd8cba5835dec09e44cd7f
+  sorbet-static (0.6.13728-aarch64-linux) sha256=d7b06549e8e85135c74869a271e99c5c70507622f82a3b7b982467923e67fd86
+  sorbet-static (0.6.13728-universal-darwin) sha256=b2ddfd6e709f556a5894b432535addf714e54fdf285af552ca032704fb6655f6
+  sorbet-static (0.6.13728-x86_64-linux) sha256=1b3cf1edb1ab8794d876d81399c8599ff7547bae87341894d5c699db35d867a6
+  sorbet-static-and-runtime (0.6.13728) sha256=b3e82173273eff53d590ae9ee6cb6d3714a6cdddbfbc7632bcf3d196285fbe28
   spoom (1.8.13) sha256=5d2d33c594356ca068d845683d6b6bc39fdc7414dee86ab4ea0b5755d45ebaed
   syntax_tree (6.3.0) sha256=56e25a9692c798ec94c5442fe94c5e94af76bef91edc8bb02052cbdecf35f13d
   tapioca (0.20.0) sha256=b375ed7bf51d2c86c09543eafedd0de85513634187c0f7a062615af8bb9347a0
@@ -777,9 +777,6 @@ CHECKSUMS
   websocket-extensions (0.2.0) sha256=6fb0d0f687aa8adc8eafa5ce68db36dfd6a8ebf232515040ce27c33c1291e589
   xpath (3.2.0) sha256=6dfda79d91bb3b949b947ecc5919f042ef2f399b904013eb3ef6d20dd3a4082e
   zeitwerk (2.8.3) sha256=2c85125a8467ce069e20123d1e709a08955c9d29c118c25b46b7b7fafdbb92e5
-
-RUBY ABIS
-  4.0
 
 RUBY VERSION
   ruby 4.0.10

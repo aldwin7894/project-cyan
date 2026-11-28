@@ -64,7 +64,7 @@ group :test do
   gem "webdrivers", "5.3.0"
 end
 
-gem "httparty", "~> 0.24.3"
+gem "httparty", "~> 0.25.1"
 
 gem "devise", "~> 5.0"
 
@@ -72,7 +72,7 @@ gem "graphql", "~> 2.6"
 
 gem "graphlient", "~> 0.9.0"
 
-gem "lograge", "~> 0.15.0"
+gem "lograge", "~> 0.16.0"
 
 gem "rack-brotli", "~> 2.0"
 
