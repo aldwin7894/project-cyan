@@ -64,7 +64,7 @@ group :test do
   gem "webdrivers", "5.3.0"
 end
 
-gem "httparty", "~> 0.24.3"
+gem "httparty", "~> 0.25.1"
 
 gem "devise", "~> 5.0"
 
