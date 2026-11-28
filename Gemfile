@@ -72,7 +72,7 @@ gem "graphql", "~> 2.6"
 
 gem "graphlient", "~> 0.9.0"
 
-gem "lograge", "~> 0.15.0"
+gem "lograge", "~> 0.16.0"
 
 gem "rack-brotli", "~> 2.0"
 
